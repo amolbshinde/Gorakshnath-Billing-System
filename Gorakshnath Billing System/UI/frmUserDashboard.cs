@@ -21,6 +21,6 @@ namespace Gorakshnath_Billing_System
         private void frmUserDashboard_Load(object sender, EventArgs e)
         {
             label5.Text = frmLogin.loggedIn;
-        }
+        }//....
     }
 }
