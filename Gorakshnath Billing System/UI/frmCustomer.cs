@@ -19,6 +19,11 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
+            //Just addede a code for verification purpose 
+        }
+
+        private void btnUpdateCustomer_Click(object sender, EventArgs e)
+        {
 
         }
     }
