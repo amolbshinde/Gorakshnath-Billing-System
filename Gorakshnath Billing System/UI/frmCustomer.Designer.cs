@@ -60,6 +60,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnClearCustomer.TabIndex = 33;
             this.btnClearCustomer.Text = "Clear";
             this.btnClearCustomer.UseVisualStyleBackColor = false;
+            this.btnClearCustomer.Click += new System.EventHandler(this.btnClearCustomer_Click);
             // 
             // btnUpdateCustomer
             // 
@@ -72,6 +73,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnUpdateCustomer.TabIndex = 32;
             this.btnUpdateCustomer.Text = "Update Customer";
             this.btnUpdateCustomer.UseVisualStyleBackColor = false;
+            this.btnUpdateCustomer.Click += new System.EventHandler(this.btnUpdateCustomer_Click);
             // 
             // BtnDeleteCustomer
             // 
@@ -84,6 +86,7 @@ namespace Gorakshnath_Billing_System.UI
             this.BtnDeleteCustomer.TabIndex = 31;
             this.BtnDeleteCustomer.Text = "Delete Customer";
             this.BtnDeleteCustomer.UseVisualStyleBackColor = false;
+            this.BtnDeleteCustomer.Click += new System.EventHandler(this.BtnDeleteCustomer_Click);
             // 
             // btnAddCustomer
             // 
@@ -127,6 +130,8 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvCustomer.RowHeadersWidth = 51;
             this.dgvCustomer.Size = new System.Drawing.Size(848, 309);
             this.dgvCustomer.TabIndex = 27;
+            this.dgvCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomer_CellContentClick);
+            this.dgvCustomer.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCustomer_RowHeaderMouseClick);
             // 
             // txtCustomerAddress
             // 
@@ -165,6 +170,8 @@ namespace Gorakshnath_Billing_System.UI
             this.txtCustomerEmail.TabIndex = 24;
             this.txtCustomerEmail.Tag = "";
             this.txtCustomerEmail.Text = "Customer Email Id";
+            this.txtCustomerEmail.Enter += new System.EventHandler(this.txtCustomerEmail_Enter);
+            this.txtCustomerEmail.Leave += new System.EventHandler(this.txtCustomerEmail_Leave);
             // 
             // lblCustomerEmailId
             // 
@@ -187,6 +194,8 @@ namespace Gorakshnath_Billing_System.UI
             this.txtCustomerContact.Size = new System.Drawing.Size(252, 32);
             this.txtCustomerContact.TabIndex = 22;
             this.txtCustomerContact.Text = "Customer Contact";
+            this.txtCustomerContact.Enter += new System.EventHandler(this.txtCustomerContact_Enter);
+            this.txtCustomerContact.Leave += new System.EventHandler(this.txtCustomerContact_Leave);
             // 
             // lblCustomerContact
             // 
@@ -209,6 +218,8 @@ namespace Gorakshnath_Billing_System.UI
             this.txtCustomerName.Size = new System.Drawing.Size(252, 32);
             this.txtCustomerName.TabIndex = 20;
             this.txtCustomerName.Text = "Customer Name";
+            this.txtCustomerName.Enter += new System.EventHandler(this.txtCustomerName_Enter);
+            this.txtCustomerName.Leave += new System.EventHandler(this.txtCustomerName_Leave);
             // 
             // lblCustomerName
             // 
@@ -269,6 +280,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.lblCustomerId);
             this.Name = "frmCustomer";
             this.Text = "frmCustomer";
+            this.Load += new System.EventHandler(this.frmCustomer_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

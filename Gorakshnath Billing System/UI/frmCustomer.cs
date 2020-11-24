@@ -20,6 +20,7 @@ namespace Gorakshnath_Billing_System.UI
         }
         customerBLL c = new customerBLL();
         customerDAL dal = new customerDAL();
+       
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
@@ -127,6 +128,156 @@ namespace Gorakshnath_Billing_System.UI
             {
                 txtCustomerAddress.Text = "Customer Address";
                 txtCustomerAddress.ForeColor = Color.Gray;
+            }
+        }
+
+        private void dgvCustomer_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            txtCustomerId.Text = dgvCustomer.Rows[rowIndex].Cells[0].Value.ToString();
+            txtCustomerId.ForeColor = Color.Black;
+
+            txtCustomerName.Text = dgvCustomer.Rows[rowIndex].Cells[1].Value.ToString();
+            txtCustomerName.ForeColor = Color.Black;
+
+            txtCustomerContact.Text = dgvCustomer.Rows[rowIndex].Cells[2].Value.ToString();
+            txtCustomerContact.ForeColor = Color.Black;
+
+            txtCustomerEmail.Text = dgvCustomer.Rows[rowIndex].Cells[3].Value.ToString();
+            txtCustomerEmail.ForeColor = Color.Black;
+
+            txtCustomerAddress.Text = dgvCustomer.Rows[rowIndex].Cells[4].Value.ToString();
+            txtCustomerAddress.ForeColor = Color.Black;
+        }
+
+        private void frmCustomer_Load_1(object sender, EventArgs e)
+        {
+            DataTable dt = dal.Select();
+            dgvCustomer.DataSource = dt;
+        }
+
+        private void txtCustomerEmail_Enter(object sender, EventArgs e)
+        {
+            if (txtCustomerEmail.Text == "Customer Email Id")
+            {
+                txtCustomerEmail.Text = "";
+                txtCustomerEmail.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtCustomerEmail_Leave(object sender, EventArgs e)
+        {
+            if (txtCustomerAddress.Text == "")
+            {
+                txtCustomerEmail.Text = "Customer Email Id";
+                txtCustomerEmail.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtCustomerContact_Enter(object sender, EventArgs e)
+        {
+
+            if (txtCustomerContact.Text == "Customer Contact")
+            {
+                txtCustomerContact.Text = "";
+                txtCustomerContact.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtCustomerContact_Leave(object sender, EventArgs e)
+        {
+            if (txtCustomerContact.Text == "")
+            {
+                txtCustomerContact.Text = "Customer Contact";
+                txtCustomerContact.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtCustomerName_Enter(object sender, EventArgs e)
+        {
+
+            if (txtCustomerName.Text == "Customer Name")
+            {
+                txtCustomerName.Text = "";
+                txtCustomerName.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtCustomerName_Leave(object sender, EventArgs e)
+        {
+
+            if (txtCustomerName.Text == "")
+            {
+                txtCustomerName.Text = "Customer Name";
+                txtCustomerName.ForeColor = Color.Gray;
+            }
+        }
+
+        private void btnClearCustomer_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
+
+        private void btnUpdateCustomer_Click(object sender, EventArgs e)
+        {
+            string custId = txtCustomerId.Text;
+            if (custId != "" && custId != "Auto Genrated")
+            {
+                c.id = Convert.ToInt32(txtCustomerId.Text);
+                c.name = txtCustomerName.Text;
+                c.contact = txtCustomerContact.Text;
+                c.email = txtCustomerEmail.Text;
+                c.address = txtCustomerAddress.Text;
+
+                bool success = dal.Update(c);
+
+                if (success == true)
+                {
+                    MessageBox.Show("Customer Details Successfully Updated");
+                    clear();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to Update");
+                }
+                DataTable dt = dal.Select();
+                dgvCustomer.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Please Select Details to Update");
+            }
+        }
+
+        private void dgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void BtnDeleteCustomer_Click(object sender, EventArgs e)
+        {
+            string custId = txtCustomerId.Text;
+            if (custId != "" && custId != "Auto Genrated")
+            {
+                c.id = Convert.ToInt32(txtCustomerId.Text);
+
+                bool success = dal.Delete(c);
+
+                if (success == true)
+                {
+                    MessageBox.Show("Custermer Details Successfully Deleted");
+                    clear();
+                }
+                else
+                {
+                    MessageBox.Show("Failed To Delete");
+                }
+                DataTable dt = dal.Select();
+                dgvCustomer.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Please Selecte Details to Delete");
             }
         }
     }
