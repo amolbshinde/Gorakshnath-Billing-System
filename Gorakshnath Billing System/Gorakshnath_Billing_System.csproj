@@ -50,12 +50,14 @@
     <Compile Include="BLL\categoriesBLL.cs" />
     <Compile Include="BLL\customerBLL.cs" />
     <Compile Include="BLL\loginBLL.cs" />
+    <Compile Include="BLL\productBLL.cs" />
     <Compile Include="BLL\salesBLL.cs" />
     <Compile Include="BLL\salesdetailsBLL.cs" />
     <Compile Include="BLL\userBLL.cs" />
     <Compile Include="DAL\categoriesDAL.cs" />
     <Compile Include="DAL\customerDAL.cs" />
     <Compile Include="DAL\loginDAL.cs" />
+    <Compile Include="DAL\productDAL.cs" />
     <Compile Include="DAL\salesDAL.cs" />
     <Compile Include="DAL\salesdetailsDAL.cs" />
     <Compile Include="DAL\userDAL.cs" />
