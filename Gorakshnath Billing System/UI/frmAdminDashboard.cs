@@ -73,5 +73,11 @@ namespace Gorakshnath_Billing_System
         {
 
         }
+
+        private void addCustomerClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustomer customer = new frmCustomer();
+            customer.Show();
+        }
     }
 }

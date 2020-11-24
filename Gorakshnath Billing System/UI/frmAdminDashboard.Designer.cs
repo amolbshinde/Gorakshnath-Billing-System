@@ -33,7 +33,6 @@ namespace Gorakshnath_Billing_System
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.catageoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,11 +98,11 @@ namespace Gorakshnath_Billing_System
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usersToolStripMenuItem,
-            this.catageoryToolStripMenuItem,
             this.productToolStripMenuItem,
             this.inverntoryToolStripMenuItem,
             this.transactionsToolStripMenuItem,
             this.reportsToolStripMenuItem});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1450, 28);
@@ -116,13 +115,6 @@ namespace Gorakshnath_Billing_System
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.usersToolStripMenuItem.Text = "Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
-            // 
-            // catageoryToolStripMenuItem
-            // 
-            this.catageoryToolStripMenuItem.Name = "catageoryToolStripMenuItem";
-            this.catageoryToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
-            this.catageoryToolStripMenuItem.Text = "Catageory";
-            this.catageoryToolStripMenuItem.Click += new System.EventHandler(this.catageoryToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
@@ -195,6 +187,7 @@ namespace Gorakshnath_Billing_System
             this.addCustomerClientToolStripMenuItem.Name = "addCustomerClientToolStripMenuItem";
             this.addCustomerClientToolStripMenuItem.Size = new System.Drawing.Size(318, 26);
             this.addCustomerClientToolStripMenuItem.Text = "Add Customer/Client";
+            this.addCustomerClientToolStripMenuItem.Click += new System.EventHandler(this.addCustomerClientToolStripMenuItem_Click);
             // 
             // searchAndManageCustomerToolStripMenuItem
             // 
@@ -323,20 +316,20 @@ namespace Gorakshnath_Billing_System
             // totalSalesReportToolStripMenuItem
             // 
             this.totalSalesReportToolStripMenuItem.Name = "totalSalesReportToolStripMenuItem";
-            this.totalSalesReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.totalSalesReportToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.totalSalesReportToolStripMenuItem.Text = "Sales";
             this.totalSalesReportToolStripMenuItem.Click += new System.EventHandler(this.totalSalesReportToolStripMenuItem_Click);
             // 
             // itemWiseSalesReportToolStripMenuItem
             // 
             this.itemWiseSalesReportToolStripMenuItem.Name = "itemWiseSalesReportToolStripMenuItem";
-            this.itemWiseSalesReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.itemWiseSalesReportToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.itemWiseSalesReportToolStripMenuItem.Text = "Purchase";
             // 
             // totalPurchaseReportToolStripMenuItem
             // 
             this.totalPurchaseReportToolStripMenuItem.Name = "totalPurchaseReportToolStripMenuItem";
-            this.totalPurchaseReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.totalPurchaseReportToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.totalPurchaseReportToolStripMenuItem.Text = "Inventory";
             // 
             // label2
@@ -402,7 +395,6 @@ namespace Gorakshnath_Billing_System
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem catageoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inverntoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transactionsToolStripMenuItem;
