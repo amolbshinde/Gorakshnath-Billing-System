@@ -79,5 +79,11 @@ namespace Gorakshnath_Billing_System
             frmCustomer customer = new frmCustomer();
             customer.Show();
         }
+
+        private void newSalesReturnCreditNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSalesReturn salesReturn = new frmSalesReturn();
+            salesReturn.Show();
+        }
     }
 }

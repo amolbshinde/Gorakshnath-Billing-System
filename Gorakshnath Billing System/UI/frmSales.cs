@@ -66,7 +66,7 @@ namespace Gorakshnath_Billing_System.UI
                 sales.salesdetails = salesdt;
                 bool isSuccess = false;
 
-                using (TransactionScope scope = new TransactionScope())
+               // using (TransactionScope scope = new TransactionScope())
                 {
                     int salesid = -1;
                     bool b = s.insertsales(sales, out salesid);
@@ -93,7 +93,7 @@ namespace Gorakshnath_Billing_System.UI
                     }
                     if (isSuccess == true)
                     {
-                        scope.Complete();
+                        //scope.Complete();
                         MessageBox.Show("Transaction Completed");
                         clear();
                     }
