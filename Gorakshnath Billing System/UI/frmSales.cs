@@ -58,6 +58,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 customerBLL c = cDAL.getCustomerIdFromName(cname);
 
+                sales.salesdate = dtpBillDate.Value;
                 sales.custid = c.id;
                 sales.grandtotal = decimal.Parse(txtGrandTotal.Text);
                 sales.gst = decimal.Parse(txtGst.Text);
@@ -82,6 +83,7 @@ namespace Gorakshnath_Billing_System.UI
                         sdb.qty = decimal.Parse(salesdt.Rows[i][2].ToString());
                         sdb.total = Math.Round(decimal.Parse(salesdt.Rows[i][3].ToString()), 2);
                         sdb.custid = c.id;
+                        sdb.addeddate = dtpBillDate.Value;
 
                         if (b == true)
                         {
@@ -233,8 +235,7 @@ namespace Gorakshnath_Billing_System.UI
                 MessageBox.Show("Calculate the discount and set the Grand Total First.");
             }
             else
-            {
-         
+            {         
          
                 decimal previousGT = decimal.Parse(txtGrandTotal.Text);
                 decimal vat = decimal.Parse(txtGst.Text);
