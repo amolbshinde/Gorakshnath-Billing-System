@@ -131,5 +131,123 @@ namespace Gorakshnath_Billing_System.UI
             txtAddress.Text = cb.address;
 
         }
+
+        private void txtSearchProduct_TextChanged(object sender, EventArgs e)
+        {                        
+            string keyword = txtSearchProduct.Text;
+         
+            if (keyword == "")
+            {
+                txtProductName.Text = "";
+                txtInventory.Text = "";
+                txtRate.Text = "";
+                txtQuntity.Text = "";
+                return;
+            }
+
+
+            productBLL p = pDAL.GetProductsForTransaction(keyword);
+
+
+            txtProductName.Text = p.name;
+            txtInventory.Text = p.qty.ToString();
+            txtRate.Text = p.rate.ToString();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtProductName.Text == "")
+            {
+                MessageBox.Show("Select the product first. Try Again.");
+            }
+            else
+            if (txtQuntity.Text == "0")
+            {
+                MessageBox.Show("Enter Product Quntity");
+            }
+            else
+            {
+                string productName = txtProductName.Text;
+                decimal Rate = decimal.Parse(txtRate.Text);
+                decimal Qty = decimal.Parse(txtQuntity.Text);
+
+                decimal Total = Rate * Qty;
+
+                decimal subTotal = decimal.Parse(txtSubtotal.Text);
+                subTotal = subTotal + Total;
+
+                salesdt.Rows.Add(productName, Rate, Qty, Total);
+
+                dgvAddedProduct.DataSource = salesdt;
+                txtSubtotal.Text = subTotal.ToString();
+                txtGrandTotal.Text = subTotal.ToString();
+                txtPaidAmount.Text = subTotal.ToString();
+
+                txtSearchProduct.Text = "";
+                txtProductName.Text = "";
+                txtInventory.Text = "0.00";
+                txtRate.Text = "0.00";
+                txtQuntity.Text = "0";
+            }
+        }
+
+        private void frmSales_Load(object sender, EventArgs e)
+        {
+            salesdt.Columns.Add("Product Name");
+            salesdt.Columns.Add("Rate");
+            salesdt.Columns.Add("Quantity");
+            salesdt.Columns.Add("Total");
+        }
+
+        private void txtQuntity_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtDiscount_TextChanged(object sender, EventArgs e)
+        {            
+            string value = txtDiscount.Text;
+
+            if (value == "")
+            {         
+                MessageBox.Show("Please Add Discount First");
+            }
+            else
+            {             
+                decimal subTotal = decimal.Parse(txtSubtotal.Text);
+                decimal discount = decimal.Parse(txtDiscount.Text);
+
+             
+                decimal grandTotal = ((100 - discount) / 100) * subTotal;
+             
+                txtGrandTotal.Text = grandTotal.ToString();
+            }
+        }
+
+        private void txtGst_TextChanged(object sender, EventArgs e)
+        {            
+            string check = txtGrandTotal.Text;
+            if (check == "")
+            {
+         
+                MessageBox.Show("Calculate the discount and set the Grand Total First.");
+            }
+            else
+            {
+         
+         
+                decimal previousGT = decimal.Parse(txtGrandTotal.Text);
+                decimal vat = decimal.Parse(txtGst.Text);
+                decimal grandTotalWithVAT = ((100 + vat) / 100) * previousGT;
+
+         
+                txtGrandTotal.Text = grandTotalWithVAT.ToString();
+            }
+        }
+
+        private void txtQuntity_Enter(object sender, EventArgs e)
+        {
+            txtQuntity.Text = "";
+        }
     }
 }
