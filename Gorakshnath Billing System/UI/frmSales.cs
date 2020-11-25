@@ -1,5 +1,6 @@
 ﻿using Gorakshnath_Billing_System.BLL;
 using Gorakshnath_Billing_System.DAL;
+using DGVPrinterHelper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,7 +50,7 @@ namespace Gorakshnath_Billing_System.UI
             txtReturnAmount.Text = "00.00";
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        public void save()
         {
             salesBLL sales = new salesBLL();
 
@@ -67,7 +68,7 @@ namespace Gorakshnath_Billing_System.UI
                 sales.salesdetails = salesdt;
                 bool isSuccess = false;
 
-               // using (TransactionScope scope = new TransactionScope())
+                // using (TransactionScope scope = new TransactionScope())
                 {
                     int salesid = -1;
                     bool b = s.insertsales(sales, out salesid);
@@ -111,6 +112,27 @@ namespace Gorakshnath_Billing_System.UI
             }
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if(txtName.Text!="")
+            {
+                if(dgvAddedProduct.Rows.Count!=0)
+                {
+                    save();
+                }
+                else
+                {
+                    MessageBox.Show("Please Add Product Details");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter Customer Details");
+            }
+
+            
+        }
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = txtSearch.Text;
@@ -141,19 +163,26 @@ namespace Gorakshnath_Billing_System.UI
             if (keyword == "")
             {
                 txtProductName.Text = "";
-                txtInventory.Text = "";
-                txtRate.Text = "";
-                txtQuntity.Text = "";
+                txtInventory.Text = "0";
+                txtRate.Text = "0";
+                txtQuntity.Text = "0";
                 return;
             }
 
 
             productBLL p = pDAL.GetProductsForTransaction(keyword);
 
-
-            txtProductName.Text = p.name;
-            txtInventory.Text = p.qty.ToString();
-            txtRate.Text = p.rate.ToString();
+            if(p.qty!=0)
+            {
+                txtProductName.Text = p.name;
+                txtInventory.Text = p.qty.ToString();
+                txtRate.Text = p.rate.ToString();
+            }
+            else
+            {
+                MessageBox.Show("No Inventory");
+            }
+           
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -204,6 +233,8 @@ namespace Gorakshnath_Billing_System.UI
         private void txtQuntity_TextChanged(object sender, EventArgs e)
         {
             
+            
+
         }
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)
@@ -249,6 +280,29 @@ namespace Gorakshnath_Billing_System.UI
         private void txtQuntity_Enter(object sender, EventArgs e)
         {
             txtQuntity.Text = "";
+        }
+
+        private void btnsaveandprint_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+
+            printer.Title = "Billing Management System\r\n";
+            printer.SubTitle = "Pune, Wagholi \r\n Contact: 123654\r\n\r\n";
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Center;
+            printer.Footer = "Discount : " + txtDiscount.Text + "%\r\n" + "GST : " + txtGst.Text + "%\r\n" + "Grand Total : " + txtGrandTotal.Text + "\r\n\r\n" + "Thank You for Doing Business with us";
+            printer.FooterSpacing = 15;
+            printer.PrintDataGridView(dgvAddedProduct);
+
+            MessageBox.Show("Print successfully");
+        }
+
+        private void btnclear_Click(object sender, EventArgs e)
+        {
+            clear();
         }
     }
 }

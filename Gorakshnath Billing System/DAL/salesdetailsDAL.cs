@@ -36,6 +36,7 @@ namespace Gorakshnath_Billing_System.DAL
                 con.Open();
 
                 int rows = cmd.ExecuteNonQuery();
+                
                 if (rows > 0)
                 {
                     isSuccess = true;

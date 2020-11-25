@@ -157,6 +157,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnsaveandprint.TabIndex = 15;
             this.btnsaveandprint.Text = "Save and Print";
             this.btnsaveandprint.UseVisualStyleBackColor = true;
+            this.btnsaveandprint.Click += new System.EventHandler(this.btnsaveandprint_Click);
             // 
             // btnclear
             // 
@@ -168,6 +169,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnclear.TabIndex = 14;
             this.btnclear.Text = "Clear";
             this.btnclear.UseVisualStyleBackColor = true;
+            this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             // 
             // btnSave
             // 
