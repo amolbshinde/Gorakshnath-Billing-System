@@ -13,7 +13,7 @@ namespace Gorakshnath_Billing_System.DAL
 {
     class productDAL
     {
-        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstring"].ConnectionString;
+        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
         #region SEARCH Method for Product Module
         public DataTable searchProduct(string keywords)

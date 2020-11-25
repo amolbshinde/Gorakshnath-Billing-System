@@ -12,7 +12,7 @@ namespace Gorakshnath_Billing_System.DAL
 {
     class salesdetailsDAL
     {
-        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstring"].ConnectionString;
+        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
         #region Insert method for SalesDetails
         public bool insertsalesdetails(salesdetailsBLL st)
