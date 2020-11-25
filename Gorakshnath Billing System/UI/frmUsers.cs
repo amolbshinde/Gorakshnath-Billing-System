@@ -40,6 +40,7 @@ namespace Gorakshnath_Billing_System.UI
         private void button1_Click(object sender, EventArgs e)
         {
             // Getting userID
+            //update
             string loggedUser = frmLogin.loggedIn;  
             // Geting data from UI
             u.first_name = textBox1.Text;
