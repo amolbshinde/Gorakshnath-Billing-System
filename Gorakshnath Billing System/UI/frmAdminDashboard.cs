@@ -85,5 +85,11 @@ namespace Gorakshnath_Billing_System
             frmSalesReturn salesReturn = new frmSalesReturn();
             salesReturn.Show();
         }
+
+        private void newInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSales sales = new frmSales();
+            sales.Show();
+        }
     }
 }
