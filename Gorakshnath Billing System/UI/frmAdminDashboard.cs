@@ -96,5 +96,11 @@ namespace Gorakshnath_Billing_System
         {
 
         }
+
+        private void addPurchaseBillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPurchase purchase = new frmPurchase();
+            purchase.Show();
+        }
     }
 }
