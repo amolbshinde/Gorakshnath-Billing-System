@@ -91,5 +91,10 @@ namespace Gorakshnath_Billing_System
             frmSales sales = new frmSales();
             sales.Show();
         }
+
+        private void fgToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

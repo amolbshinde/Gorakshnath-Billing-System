@@ -165,5 +165,23 @@
     <None Include="Resources\07-5121.png" />
     <None Include="Resources\Geeren_Background_18-512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data-validation-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\master-data-icon-17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\master-data-icon-171.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3fe2835.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
