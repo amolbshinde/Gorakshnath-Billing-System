@@ -158,7 +158,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\07-5121.png" />
     <None Include="Resources\Geeren_Background_18-512.png" />

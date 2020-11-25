@@ -217,8 +217,9 @@ namespace Gorakshnath_Billing_System
             this.addSupplierToolStripMenuItem,
             this.searchAndManageSupplierToolStripMenuItem});
             this.inverntoryToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inverntoryToolStripMenuItem.Image = global::Gorakshnath_Billing_System.Properties.Resources.images;
             this.inverntoryToolStripMenuItem.Name = "inverntoryToolStripMenuItem";
-            this.inverntoryToolStripMenuItem.Size = new System.Drawing.Size(93, 27);
+            this.inverntoryToolStripMenuItem.Size = new System.Drawing.Size(113, 27);
             this.inverntoryToolStripMenuItem.Text = "Purchase";
             this.inverntoryToolStripMenuItem.Click += new System.EventHandler(this.inverntoryToolStripMenuItem_Click);
             // 
@@ -327,20 +328,20 @@ namespace Gorakshnath_Billing_System
             // totalSalesReportToolStripMenuItem
             // 
             this.totalSalesReportToolStripMenuItem.Name = "totalSalesReportToolStripMenuItem";
-            this.totalSalesReportToolStripMenuItem.Size = new System.Drawing.Size(166, 28);
+            this.totalSalesReportToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.totalSalesReportToolStripMenuItem.Text = "Sales";
             this.totalSalesReportToolStripMenuItem.Click += new System.EventHandler(this.totalSalesReportToolStripMenuItem_Click);
             // 
             // itemWiseSalesReportToolStripMenuItem
             // 
             this.itemWiseSalesReportToolStripMenuItem.Name = "itemWiseSalesReportToolStripMenuItem";
-            this.itemWiseSalesReportToolStripMenuItem.Size = new System.Drawing.Size(166, 28);
+            this.itemWiseSalesReportToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.itemWiseSalesReportToolStripMenuItem.Text = "Purchase";
             // 
             // totalPurchaseReportToolStripMenuItem
             // 
             this.totalPurchaseReportToolStripMenuItem.Name = "totalPurchaseReportToolStripMenuItem";
-            this.totalPurchaseReportToolStripMenuItem.Size = new System.Drawing.Size(166, 28);
+            this.totalPurchaseReportToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.totalPurchaseReportToolStripMenuItem.Text = "Inventory";
             // 
             // label2
