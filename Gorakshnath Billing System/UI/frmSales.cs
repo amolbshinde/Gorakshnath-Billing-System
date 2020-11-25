@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using System.Transactions;
 
 namespace Gorakshnath_Billing_System.UI
 {
@@ -24,6 +25,29 @@ namespace Gorakshnath_Billing_System.UI
 
         salesdetailsDAL sd = new salesdetailsDAL();
         productDAL pDAL = new productDAL();
+        private void clear()
+        {
+            dgvAddedProduct.DataSource = null;
+            dgvAddedProduct.Rows.Clear();
+            salesdt.Rows.Clear();
+
+            txtSearch.Text = "";
+            txtName.Text = "";
+            txtEmail.Text = "";
+            txtContact.Text = "";
+            txtAddress.Text = "";
+            txtSearchProduct.Text = "";
+            txtProductName.Text = "";
+            txtInventory.Text = "0";
+            txtRate.Text = "0";
+            txtQuntity.Text = "0";
+            txtSubtotal.Text = "00.00";
+            txtDiscount.Text = "0";
+            txtGst.Text = "0";
+            txtGrandTotal.Text = "00.00";
+            txtPaidAmount.Text = "00.00";
+            txtReturnAmount.Text = "00.00";
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -101,7 +125,7 @@ namespace Gorakshnath_Billing_System.UI
 
 
 
-            txtName.Text = cb.customerName;
+            txtName.Text = cb.name;
             txtContact.Text = cb.contact;
             txtEmail.Text = cb.email;
             txtAddress.Text = cb.address;
