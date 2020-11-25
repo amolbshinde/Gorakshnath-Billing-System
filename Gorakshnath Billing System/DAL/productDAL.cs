@@ -13,7 +13,7 @@ namespace Gorakshnath_Billing_System.DAL
 {
     class productDAL
     {
-        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstring"].ConnectionString;
+        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
         #region SEARCH Method for Product Module
         public DataTable searchProduct(string keywords)
@@ -22,7 +22,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT * FROM tblproduct WHERE id LIKE '%" + keywords + "%' OR name LIKE '%" + keywords + "%' OR category LIKE '%" + keywords + "%'";
+                string sql = "SELECT * FROM tbl_products WHERE id LIKE '%" + keywords + "%' OR name LIKE '%" + keywords + "%' OR category LIKE '%" + keywords + "%'";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -51,7 +51,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT name, rate, qty FROM tblproduct WHERE id LIKE '%" + keyword + "%' OR name LIKE '%" + keyword + "%'";
+                string sql = "SELECT name, rate, qty FROM tbl_products WHERE id LIKE '%" + keyword + "%' OR name LIKE '%" + keyword + "%'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
 
                 conn.Open();
@@ -85,7 +85,7 @@ namespace Gorakshnath_Billing_System.DAL
 
             try
             {
-                string sql = "SELECT id FROM tblproduct WHERE name='" + ProductName + "'";
+                string sql = "SELECT id FROM tbl_products WHERE name='" + ProductName + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
                 conn.Open();
 
@@ -119,7 +119,7 @@ namespace Gorakshnath_Billing_System.DAL
 
             try
             {
-                string sql = "SELECT qty FROM tblproduct WHERE id = " + ProductID;
+                string sql = "SELECT qty FROM tbl_products WHERE id = " + ProductID;
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -155,7 +155,7 @@ namespace Gorakshnath_Billing_System.DAL
 
             try
             {
-                string sql = "UPDATE tblproduct SET qty=@qty WHERE id=@id";
+                string sql = "UPDATE tbl_products SET qty=@qty WHERE id=@id";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
