@@ -56,7 +56,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.textSearch = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.txtCountry = new System.Windows.Forms.ComboBox();
@@ -246,7 +246,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textSupplier_Id.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSupplier_Id.Location = new System.Drawing.Point(208, 65);
-            this.textSupplier_Id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSupplier_Id.Margin = new System.Windows.Forms.Padding(4);
             this.textSupplier_Id.Name = "textSupplier_Id";
             this.textSupplier_Id.Size = new System.Drawing.Size(303, 29);
             this.textSupplier_Id.TabIndex = 14;
@@ -255,7 +255,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textSupplier_Name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSupplier_Name.Location = new System.Drawing.Point(208, 108);
-            this.textSupplier_Name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSupplier_Name.Margin = new System.Windows.Forms.Padding(4);
             this.textSupplier_Name.Name = "textSupplier_Name";
             this.textSupplier_Name.Size = new System.Drawing.Size(303, 29);
             this.textSupplier_Name.TabIndex = 15;
@@ -264,7 +264,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textAddress.Location = new System.Drawing.Point(208, 153);
-            this.textAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAddress.Margin = new System.Windows.Forms.Padding(4);
             this.textAddress.Multiline = true;
             this.textAddress.Name = "textAddress";
             this.textAddress.Size = new System.Drawing.Size(303, 72);
@@ -274,7 +274,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textCity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCity.Location = new System.Drawing.Point(208, 233);
-            this.textCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textCity.Margin = new System.Windows.Forms.Padding(4);
             this.textCity.Name = "textCity";
             this.textCity.Size = new System.Drawing.Size(303, 29);
             this.textCity.TabIndex = 17;
@@ -283,7 +283,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textPincode.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPincode.Location = new System.Drawing.Point(208, 335);
-            this.textPincode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textPincode.Margin = new System.Windows.Forms.Padding(4);
             this.textPincode.Name = "textPincode";
             this.textPincode.Size = new System.Drawing.Size(303, 29);
             this.textPincode.TabIndex = 19;
@@ -292,7 +292,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEmail.Location = new System.Drawing.Point(208, 438);
-            this.textEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(303, 29);
             this.textEmail.TabIndex = 20;
@@ -302,7 +302,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(208, 287);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(303, 29);
             this.comboBox1.TabIndex = 21;
@@ -311,7 +311,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textPhone_No.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPhone_No.Location = new System.Drawing.Point(208, 478);
-            this.textPhone_No.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textPhone_No.Margin = new System.Windows.Forms.Padding(4);
             this.textPhone_No.Name = "textPhone_No";
             this.textPhone_No.Size = new System.Drawing.Size(303, 29);
             this.textPhone_No.TabIndex = 22;
@@ -320,7 +320,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textContact_Person.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textContact_Person.Location = new System.Drawing.Point(208, 530);
-            this.textContact_Person.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textContact_Person.Margin = new System.Windows.Forms.Padding(4);
             this.textContact_Person.Name = "textContact_Person";
             this.textContact_Person.Size = new System.Drawing.Size(303, 29);
             this.textContact_Person.TabIndex = 23;
@@ -329,7 +329,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textContact_No.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textContact_No.Location = new System.Drawing.Point(208, 583);
-            this.textContact_No.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textContact_No.Margin = new System.Windows.Forms.Padding(4);
             this.textContact_No.Name = "textContact_No";
             this.textContact_No.Size = new System.Drawing.Size(303, 29);
             this.textContact_No.TabIndex = 24;
@@ -340,7 +340,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.GrayText;
             this.dataGridView1.Location = new System.Drawing.Point(609, 129);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(717, 379);
@@ -363,26 +363,26 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSearch.Location = new System.Drawing.Point(759, 66);
-            this.textSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSearch.Margin = new System.Windows.Forms.Padding(4);
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(567, 29);
             this.textSearch.TabIndex = 27;
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Teal;
-            this.button1.Location = new System.Drawing.Point(653, 565);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 49);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.FlatAppearance.BorderSize = 2;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.Teal;
+            this.btnAdd.Location = new System.Drawing.Point(609, 551);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(210, 49);
+            this.btnAdd.TabIndex = 28;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // button2
             // 
@@ -390,10 +390,10 @@ namespace Gorakshnath_Billing_System.UI
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Teal;
-            this.button2.Location = new System.Drawing.Point(1139, 565);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(1133, 551);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(188, 49);
+            this.button2.Size = new System.Drawing.Size(193, 49);
             this.button2.TabIndex = 29;
             this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = true;
@@ -405,10 +405,10 @@ namespace Gorakshnath_Billing_System.UI
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Teal;
-            this.button3.Location = new System.Drawing.Point(896, 565);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Location = new System.Drawing.Point(884, 551);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(184, 49);
+            this.button3.Size = new System.Drawing.Size(193, 49);
             this.button3.TabIndex = 30;
             this.button3.Text = "Update";
             this.button3.UseVisualStyleBackColor = true;
@@ -419,7 +419,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtCountry.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountry.FormattingEnabled = true;
             this.txtCountry.Location = new System.Drawing.Point(208, 388);
-            this.txtCountry.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCountry.Margin = new System.Windows.Forms.Padding(4);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(303, 29);
             this.txtCountry.TabIndex = 31;
@@ -433,7 +433,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.txtCountry);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.textSearch);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridView1);
@@ -460,7 +460,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSupplierMaster";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supplier";
@@ -502,7 +502,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textSearch;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox txtCountry;

@@ -669,7 +669,8 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPurchase";
-            this.Text = "New Invoice";
+            this.Text = "New Purchase Bill";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);

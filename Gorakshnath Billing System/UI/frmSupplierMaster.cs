@@ -29,7 +29,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button1_MouseHover(object sender, EventArgs e)
         {
-            button1.BackColor = Color.LightCyan;
+            btnAdd.BackColor = Color.LightCyan;
         }
 
         private void button3_Click(object sender, EventArgs e)
