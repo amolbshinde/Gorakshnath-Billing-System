@@ -147,8 +147,54 @@ namespace Gorakshnath_Billing_System.DAL
             }
             return isSuccess;
         }
-        
+
         #endregion
+        #region Delete Supplier Details or Dealer Detais from Table 
+        public bool Delete(SupplierMasterBLL sm)
+        {
+            // Creating Sql connection First
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            //Seeting Default for isSuccess
+            bool isSuccess = false;
+            try
+            {
+                string sql = "Delete * from SupplierMaster where SupplierID=@SupplierID";
+                //passing query sqlcommand
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@SupplierID", sm.SupplierID);
+
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isSuccess;
+
+        }
+
+       
+
+
+        #endregion
+
     }
 
 
