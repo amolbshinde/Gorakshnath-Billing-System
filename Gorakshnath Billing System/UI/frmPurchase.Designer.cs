@@ -643,7 +643,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel6.Controls.Add(this.label28);
             this.panel6.Location = new System.Drawing.Point(1222, 658);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(289, 225);
+            this.panel6.Size = new System.Drawing.Size(324, 225);
             this.panel6.TabIndex = 6;
             // 
             // button1
@@ -657,6 +657,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button1.TabIndex = 23;
             this.button1.Text = "Save and Print";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmPurchase
             // 

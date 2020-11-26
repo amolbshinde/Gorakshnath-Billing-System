@@ -26,5 +26,10 @@ namespace Gorakshnath_Billing_System.UI
         {
             //just last updated.lllll
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //[[[
+        }
     }
 }
