@@ -51,7 +51,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
         #region Insert Method to add data in database
-        public bool Insert(SupplierMasterBLL dc)
+        public bool Insert(SupplierMasterBLL sm
         {
             // Creating Sql Connection First
             SqlConnection conn = new SqlConnection(myconnstrng);
@@ -63,16 +63,16 @@ namespace Gorakshnath_Billing_System.DAL
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("@CompanyName", dc.CompanyName);
-                cmd.Parameters.AddWithValue("@Address", dc.Address);
-                cmd.Parameters.AddWithValue("@City", dc.City);
-                cmd.Parameters.AddWithValue("@State", dc.State);
-                cmd.Parameters.AddWithValue("@Pincode", dc.Pincode);
-                cmd.Parameters.AddWithValue("@Country", dc.Country);
-                cmd.Parameters.AddWithValue("@Email", dc.Email);
-                cmd.Parameters.AddWithValue("@Phone_No", dc.Phone_No);
-                cmd.Parameters.AddWithValue("@Contact_Person", dc.Contact_Person);
-                cmd.Parameters.AddWithValue("@Contact_No", dc.Contact_No);
+                cmd.Parameters.AddWithValue("@CompanyName", sm.CompanyName);
+                cmd.Parameters.AddWithValue("@Address", sm.Address);
+                cmd.Parameters.AddWithValue("@City", sm.City);
+                cmd.Parameters.AddWithValue("@State", sm.State);
+                cmd.Parameters.AddWithValue("@Pincode", sm.Pincode);
+                cmd.Parameters.AddWithValue("@Country", sm.Country);
+                cmd.Parameters.AddWithValue("@Email", sm.Email);
+                cmd.Parameters.AddWithValue("@Phone_No", sm.Phone_No);
+                cmd.Parameters.AddWithValue("@Contact_Person", sm.Contact_Person);
+                cmd.Parameters.AddWithValue("@Contact_No", sm.Contact_No);
                 conn.Open();
 
                 int rows = cmd.ExecuteNonQuery();

@@ -382,6 +382,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnAdd.TabIndex = 28;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             this.btnAdd.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // button2

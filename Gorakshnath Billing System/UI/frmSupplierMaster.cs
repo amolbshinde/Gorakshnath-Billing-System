@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gorakshnath_Billing_System.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,11 @@ namespace Gorakshnath_Billing_System.UI
         private void button3_Click(object sender, EventArgs e)
         {
             /// 
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            SupplierMasterBLL sm = new SupplierMasterBLL();
         }
     }
 }
