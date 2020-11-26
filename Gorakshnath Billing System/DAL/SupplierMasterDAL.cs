@@ -51,7 +51,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
         #region Insert Method to add data in database
-        public bool Insert(SupplierMasterBLL sm
+        public bool Insert(SupplierMasterBLL sm)
         {
             // Creating Sql Connection First
             SqlConnection conn = new SqlConnection(myconnstrng);
@@ -59,7 +59,7 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
-                string sql = "insert into SupplierMster(CompanyName,Address,City,State,Pincode,Country,Email,Phone_No,Contact_Person,Contact_No) Values(@CompanyName,@Address,@City,@State,@Pincode,@Country,@Email,@Phone_No,@Contact_Person,@Contact_No)";
+                string sql = "insert into Supplier_Master(CompanyName,Address,City,State,Pincode,Country,Email,Phone_No,Contact_Person,Contact_No) Values(@CompanyName,@Address,@City,@State,@Pincode,@Country,@Email,@Phone_No,@Contact_Person,@Contact_No)";
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -109,7 +109,7 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
-                string sql = "UPDATE  SupplierMster set CompanyName=@CompanyName,Address=@Address,City=@City,State=@State,Pincode=@Pincode,Country=@Country,Email=@Email,Phone_No=@Phone_No,Contact_Person=@Contact_Person,Contact_No=@Contact_No whereid=@id";
+                string sql = "UPDATE  Supplier_Master set CompanyName=@CompanyName,Address=@Address,City=@City,State=@State,Pincode=@Pincode,Country=@Country,Email=@Email,Phone_No=@Phone_No,Contact_Person=@Contact_Person,Contact_No=@Contact_No whereid=@id";
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -159,7 +159,7 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
-                string sql = "Delete * from SupplierMaster where SupplierID=@SupplierID";
+                string sql = "Delete * from Supplier_Master where SupplierID=@SupplierID";
                 //passing query sqlcommand
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@SupplierID", sm.SupplierID);

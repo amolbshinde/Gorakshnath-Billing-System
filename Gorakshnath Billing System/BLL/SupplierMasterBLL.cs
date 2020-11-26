@@ -8,17 +8,17 @@ namespace Gorakshnath_Billing_System.BLL
 {
     class SupplierMasterBLL
     {
-        public int SupplierID { get; set; }
+        public string SupplierID { get; set; }
         public string CompanyName { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public int Pincode { get; set; }
+        public string Pincode { get; set; }
         public string Country { get; set; }
         public string Email { get; set; }
         public int Phone_No { get; set; }
         public string Contact_Person { get; set; }
-        public int Contact_No { get; set; }
+        public string Contact_No { get; set; }
 
     }
 }

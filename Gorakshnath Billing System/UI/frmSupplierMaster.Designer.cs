@@ -44,7 +44,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.textSupplier_Id = new System.Windows.Forms.TextBox();
-            this.textSupplier_Name = new System.Windows.Forms.TextBox();
+            this.txtCompany_Name = new System.Windows.Forms.TextBox();
             this.textAddress = new System.Windows.Forms.TextBox();
             this.textCity = new System.Windows.Forms.TextBox();
             this.textPincode = new System.Windows.Forms.TextBox();
@@ -251,14 +251,14 @@ namespace Gorakshnath_Billing_System.UI
             this.textSupplier_Id.Size = new System.Drawing.Size(303, 29);
             this.textSupplier_Id.TabIndex = 14;
             // 
-            // textSupplier_Name
+            // txtCompany_Name
             // 
-            this.textSupplier_Name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSupplier_Name.Location = new System.Drawing.Point(208, 108);
-            this.textSupplier_Name.Margin = new System.Windows.Forms.Padding(4);
-            this.textSupplier_Name.Name = "textSupplier_Name";
-            this.textSupplier_Name.Size = new System.Drawing.Size(303, 29);
-            this.textSupplier_Name.TabIndex = 15;
+            this.txtCompany_Name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCompany_Name.Location = new System.Drawing.Point(208, 108);
+            this.txtCompany_Name.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCompany_Name.Name = "txtCompany_Name";
+            this.txtCompany_Name.Size = new System.Drawing.Size(303, 29);
+            this.txtCompany_Name.TabIndex = 15;
             // 
             // textAddress
             // 
@@ -446,7 +446,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.textPincode);
             this.Controls.Add(this.textCity);
             this.Controls.Add(this.textAddress);
-            this.Controls.Add(this.textSupplier_Name);
+            this.Controls.Add(this.txtCompany_Name);
             this.Controls.Add(this.textSupplier_Id);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -491,7 +491,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textSupplier_Id;
-        private System.Windows.Forms.TextBox textSupplier_Name;
+        private System.Windows.Forms.TextBox txtCompany_Name;
         private System.Windows.Forms.TextBox textAddress;
         private System.Windows.Forms.TextBox textCity;
         private System.Windows.Forms.TextBox textPincode;
