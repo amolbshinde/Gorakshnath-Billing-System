@@ -80,14 +80,14 @@ namespace Gorakshnath_Billing_System.DAL
         public productBLL GetProductIDFromName(string ProductName)
         {
             productBLL p = new productBLL();
-           SqlConnection conn = new SqlConnection(myconnstrng);
+           SqlConnection con = new SqlConnection(myconnstrng);
             DataTable dt = new DataTable();
 
             try
             {
                 string sql = "SELECT id FROM tbl_products WHERE name='" + ProductName + "'";
-                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
-                conn.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                con.Open();
 
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)
@@ -101,7 +101,7 @@ namespace Gorakshnath_Billing_System.DAL
             }
             finally
             {
-                conn.Close();
+                con.Close();
             }
 
             return p;

@@ -75,14 +75,14 @@ namespace Gorakshnath_Billing_System.UI
                     for (int i = 0; i < salesdt.Rows.Count; i++)
                     {
                         salesdetailsBLL sdb = new salesdetailsBLL();
-                        string productName = salesdt.Rows[i][0].ToString();
+                        string productName = salesdt.Rows[i][1].ToString();
 
                         productBLL p = pDAL.GetProductIDFromName(productName);
 
                         sdb.productid = p.id;
-                        sdb.rate = decimal.Parse(salesdt.Rows[i][1].ToString());
-                        sdb.qty = decimal.Parse(salesdt.Rows[i][2].ToString());
-                        sdb.total = Math.Round(decimal.Parse(salesdt.Rows[i][3].ToString()), 2);
+                        sdb.rate = decimal.Parse(salesdt.Rows[i][2].ToString());
+                        sdb.qty = decimal.Parse(salesdt.Rows[i][3].ToString());
+                        sdb.total = Math.Round(decimal.Parse(salesdt.Rows[i][4].ToString()), 2);
                         sdb.custid = c.id;
                         sdb.addeddate = dtpBillDate.Value;
 
@@ -158,7 +158,8 @@ namespace Gorakshnath_Billing_System.UI
 
         private void txtSearchProduct_TextChanged(object sender, EventArgs e)
         {                        
-            string keyword = txtSearchProduct.Text;
+            string keyword = txtSearchProduct.Text;           
+            
          
             if (keyword == "")
             {
@@ -167,63 +168,79 @@ namespace Gorakshnath_Billing_System.UI
                 txtRate.Text = "0";
                 txtQuntity.Text = "0";
                 return;
-            }
-
-
-            productBLL p = pDAL.GetProductsForTransaction(keyword);
-
-            if(p.qty!=0)
-            {
-                txtProductName.Text = p.name;
-                txtInventory.Text = p.qty.ToString();
-                txtRate.Text = p.rate.ToString();
-            }
-            else
-            {
-                MessageBox.Show("No Inventory");
-            }
+            }         
+            
+            productBLL p = pDAL.GetProductsForTransaction(keyword);            
+            txtProductName.Text = p.name;
+            txtInventory.Text = p.qty.ToString();
+            txtRate.Text = p.rate.ToString();                       
            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtProductName.Text == "")
+            string pname = "";
             {
-                MessageBox.Show("Select the product first. Try Again.");
-            }
-            else
-            if (txtQuntity.Text == "0")
-            {
-                MessageBox.Show("Enter Product Quntity");
-            }
-            else
-            {
-                string productName = txtProductName.Text;
-                decimal Rate = decimal.Parse(txtRate.Text);
-                decimal Qty = decimal.Parse(txtQuntity.Text);
+                for (int rows = 0; rows < dgvAddedProduct.Rows.Count; rows++)
+                {
+                    pname = dgvAddedProduct.Rows[rows].Cells["Product Name"].Value.ToString();
+                    break;
+                }
 
-                decimal Total = Rate * Qty;
+                if (txtProductName.Text != "")
+                {
+                    if (txtQuntity.Text != "0")
+                    {
+                        if (pname!=txtProductName.Text)
+                        {
+                            int no = 1;
+                            no = (dgvAddedProduct.Rows.Count - 1) + 1;
+                            string productName = txtProductName.Text;
+                            decimal Rate = decimal.Parse(txtRate.Text);
+                            decimal Qty = decimal.Parse(txtQuntity.Text);
+                            decimal Total = Rate * Qty;
 
-                decimal subTotal = decimal.Parse(txtSubtotal.Text);
-                subTotal = subTotal + Total;
+                            decimal subTotal = decimal.Parse(txtSubtotal.Text);
+                            subTotal = subTotal + Total;
+                            if (no == 0)
+                            {
+                                no = 1;
+                            }
 
-                salesdt.Rows.Add(productName, Rate, Qty, Total);
+                            salesdt.Rows.Add(no, productName, Rate, Qty, Total);
 
-                dgvAddedProduct.DataSource = salesdt;
-                txtSubtotal.Text = subTotal.ToString();
-                txtGrandTotal.Text = subTotal.ToString();
-                txtPaidAmount.Text = subTotal.ToString();
+                            dgvAddedProduct.DataSource = salesdt;
+                            txtSubtotal.Text = subTotal.ToString();
+                            txtGrandTotal.Text = subTotal.ToString();
+                            txtPaidAmount.Text = subTotal.ToString();
 
-                txtSearchProduct.Text = "";
-                txtProductName.Text = "";
-                txtInventory.Text = "0.00";
-                txtRate.Text = "0.00";
-                txtQuntity.Text = "0";
+                            txtSearchProduct.Text = "";
+                            txtProductName.Text = "";
+                            txtInventory.Text = "0.00";
+                            txtRate.Text = "0.00";
+                            txtQuntity.Text = "0";
+                        }
+                        else
+                        {
+                            MessageBox.Show("Product Already Added");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Enter Product Quntity");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Select the product first. Try Again.");
+                }
             }
         }
 
         private void frmSales_Load(object sender, EventArgs e)
         {
+            salesdt.Columns.Add("No");
             salesdt.Columns.Add("Product Name");
             salesdt.Columns.Add("Rate");
             salesdt.Columns.Add("Quantity");
@@ -232,9 +249,15 @@ namespace Gorakshnath_Billing_System.UI
 
         private void txtQuntity_TextChanged(object sender, EventArgs e)
         {
-            
-            
-
+            string pname = txtSearchProduct.Text;
+            productBLL p = pDAL.GetProductsForTransaction(pname);
+            decimal inv;
+            decimal.TryParse(txtQuntity.Text, out inv);
+            decimal qunt = p.qty - inv;
+            if (qunt<0)
+            {
+                MessageBox.Show("No Inventory Please add Inventory First");                
+            }
         }
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)
@@ -251,7 +274,7 @@ namespace Gorakshnath_Billing_System.UI
                 decimal discount = decimal.Parse(txtDiscount.Text);
 
              
-                decimal grandTotal = ((100 - discount) / 100) * subTotal;
+                decimal grandTotal = Math.Round(((100 - discount) / 100) * subTotal,2);
              
                 txtGrandTotal.Text = grandTotal.ToString();
             }
@@ -270,7 +293,7 @@ namespace Gorakshnath_Billing_System.UI
          
                 decimal previousGT = decimal.Parse(txtGrandTotal.Text);
                 decimal vat = decimal.Parse(txtGst.Text);
-                decimal grandTotalWithVAT = ((100 + vat) / 100) * previousGT;
+                decimal grandTotalWithVAT = Math.Round(((100 + vat) / 100) * previousGT,2);
 
          
                 txtGrandTotal.Text = grandTotalWithVAT.ToString();
@@ -284,25 +307,48 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnsaveandprint_Click(object sender, EventArgs e)
         {
-            DGVPrinter printer = new DGVPrinter();
+            if (txtName.Text != "")
+            {
+                if (dgvAddedProduct.Rows.Count != 0)
+                {
+                    save();
 
-            printer.Title = "Billing Management System\r\n";
-            printer.SubTitle = "Pune, Wagholi \r\n Contact: 123654\r\n\r\n";
-            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
-            printer.PageNumbers = true;
-            printer.PageNumberInHeader = false;
-            printer.PorportionalColumns = true;
-            printer.HeaderCellAlignment = StringAlignment.Center;
-            printer.Footer = "Discount : " + txtDiscount.Text + "%\r\n" + "GST : " + txtGst.Text + "%\r\n" + "Grand Total : " + txtGrandTotal.Text + "\r\n\r\n" + "Thank You for Doing Business with us";
-            printer.FooterSpacing = 15;
-            printer.PrintDataGridView(dgvAddedProduct);
-
-            MessageBox.Show("Print successfully");
+                    DGVPrinter printer = new DGVPrinter();
+                    printer.Title = "Billing Management System\r\n";
+                    printer.SubTitle = "Pune, Wagholi \r\n Contact: 123654\r\n\r\n";
+                    printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+                    printer.PageNumbers = true;
+                    printer.PageNumberInHeader = false;
+                    printer.PorportionalColumns = true;
+                    printer.HeaderCellAlignment = StringAlignment.Center;
+                    printer.Footer = "Discount : " + txtDiscount.Text + "%\r\n" + "GST : " + txtGst.Text + "%\r\n" + "Grand Total : " + txtGrandTotal.Text + "\r\n\r\n" + "Thank You for Doing Business with us";
+                    printer.FooterSpacing = 15;
+                    printer.PrintDataGridView(dgvAddedProduct);
+                    MessageBox.Show("Print successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Please Add Product Details");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter Customer Details");
+            }
+            
         }
 
         private void btnclear_Click(object sender, EventArgs e)
         {
             clear();
+        }
+
+        private void txtQuntity_Leave(object sender, EventArgs e)
+        {
+            if(txtQuntity.Text=="" || txtQuntity.Text==" ")
+            {
+                txtQuntity.Text = "0";
+            }
         }
     }
 }

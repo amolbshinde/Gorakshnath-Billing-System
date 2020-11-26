@@ -10,41 +10,42 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.DAL
 {
-    class salesdetailsDAL
+    class purchaseDAL   
     {
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
-
-        #region Insert method for SalesDetails
-        public bool insertsalesdetails(salesdetailsBLL st)
+        #region Insert Sales Method
+        public bool insertsales(salesBLL s, out int salesID)
         {
             bool isSuccess = false;
-
+            salesID = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
-
             try
             {
-                string sql = "INSERT INTO tbl_transaction_detail(product_id,rate,qty,total,dea_cust_id,added_date,added_by) VALUES(@productid,@rate,@qty,@total,@custid,@addeddate,@added_by)";
+                String sql = "INSERT INTO tbl_purchase_transactions (type,sup_id,grandTotal,transaction_date,tax,discount,added_by) VALUES(@type,@custid,@grandTotal,@salesdate,@gst,@discount,@added_by);select @@IDENTITY;";
+
                 SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@productid", st.productid);
-                cmd.Parameters.AddWithValue("@rate", st.rate);
-                cmd.Parameters.AddWithValue("@qty", st.qty);
-                cmd.Parameters.AddWithValue("@total", st.total);
-                cmd.Parameters.AddWithValue("@custid", st.custid);
-                cmd.Parameters.AddWithValue("@addeddate",st.addeddate);
-                cmd.Parameters.AddWithValue("@added_by",8);
+                cmd.Parameters.AddWithValue("@type", "Sales");
+                cmd.Parameters.AddWithValue("@custid", s.custid);
+                cmd.Parameters.AddWithValue("@grandtotal", s.grandtotal);
+                cmd.Parameters.AddWithValue("@salesdate", s.salesdate);
+                cmd.Parameters.AddWithValue("@gst", s.gst);
+                cmd.Parameters.AddWithValue("@discount", s.discount);
+                cmd.Parameters.AddWithValue("@added_by", 8);
 
                 con.Open();
 
-                int rows = cmd.ExecuteNonQuery();
-                
-                if (rows > 0)
+                object o = cmd.ExecuteScalar();
+
+                if (o != null)
                 {
                     isSuccess = true;
+                    salesID = int.Parse(o.ToString());
                 }
                 else
                 {
                     isSuccess = false;
                 }
+
             }
             catch (Exception ex)
             {
@@ -52,10 +53,11 @@ namespace Gorakshnath_Billing_System.DAL
             }
             finally
             {
-
+                con.Close();
             }
             return isSuccess;
         }
+
         #endregion
     }
 }
