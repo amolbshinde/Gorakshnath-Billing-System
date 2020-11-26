@@ -83,7 +83,10 @@ namespace Gorakshnath_Billing_System.UI
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -92,6 +95,7 @@ namespace Gorakshnath_Billing_System.UI
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProduct)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -452,7 +456,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label16.TabIndex = 26;
             this.label16.Text = "Purchase Price";
             // 
-            // comboBox1
+            // label17
             // 
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
@@ -605,6 +609,10 @@ namespace Gorakshnath_Billing_System.UI
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel5.Controls.Add(this.textBox16);
+            this.panel5.Controls.Add(this.textBox15);
+            this.panel5.Controls.Add(this.textBox14);
+            this.panel5.Controls.Add(this.textBox13);
             this.panel5.Controls.Add(this.label26);
             this.panel5.Controls.Add(this.label25);
             this.panel5.Controls.Add(this.label24);
@@ -695,6 +703,8 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.textBox12);
+            this.panel6.Controls.Add(this.textBox11);
             this.panel6.Controls.Add(this.button1);
             this.panel6.Controls.Add(this.label27);
             this.panel6.Controls.Add(this.label28);
@@ -704,8 +714,27 @@ namespace Gorakshnath_Billing_System.UI
             this.panel6.Size = new System.Drawing.Size(217, 183);
             this.panel6.TabIndex = 6;
             // 
+            // textBox12
+            // 
+            this.textBox12.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.Location = new System.Drawing.Point(123, 62);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(99, 26);
+            this.textBox12.TabIndex = 27;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Location = new System.Drawing.Point(123, 14);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(99, 26);
+            this.textBox11.TabIndex = 26;
+            // 
             // button1
             // 
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Teal;
@@ -716,6 +745,19 @@ namespace Gorakshnath_Billing_System.UI
             this.button1.TabIndex = 23;
             this.button1.Text = "Save and Print";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Gorakshnath_Billing_System.Properties.Resources._07_512;
+            this.pictureBox1.Location = new System.Drawing.Point(1181, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmPurchase
             // 
@@ -749,6 +791,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -810,5 +853,11 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox11;
     }
 }
