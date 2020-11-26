@@ -259,7 +259,7 @@ namespace Gorakshnath_Billing_System.UI
                 decimal discount = decimal.Parse(txtDiscount.Text);
 
              
-                decimal grandTotal = ((100 - discount) / 100) * subTotal;
+                decimal grandTotal = Math.Round(((100 - discount) / 100) * subTotal,2);
              
                 txtGrandTotal.Text = grandTotal.ToString();
             }
@@ -278,7 +278,7 @@ namespace Gorakshnath_Billing_System.UI
          
                 decimal previousGT = decimal.Parse(txtGrandTotal.Text);
                 decimal vat = decimal.Parse(txtGst.Text);
-                decimal grandTotalWithVAT = ((100 + vat) / 100) * previousGT;
+                decimal grandTotalWithVAT = Math.Round(((100 + vat) / 100) * previousGT,2);
 
          
                 txtGrandTotal.Text = grandTotalWithVAT.ToString();
@@ -292,25 +292,48 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnsaveandprint_Click(object sender, EventArgs e)
         {
-            DGVPrinter printer = new DGVPrinter();
+            if (txtName.Text != "")
+            {
+                if (dgvAddedProduct.Rows.Count != 0)
+                {
+                    save();
 
-            printer.Title = "Billing Management System\r\n";
-            printer.SubTitle = "Pune, Wagholi \r\n Contact: 123654\r\n\r\n";
-            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
-            printer.PageNumbers = true;
-            printer.PageNumberInHeader = false;
-            printer.PorportionalColumns = true;
-            printer.HeaderCellAlignment = StringAlignment.Center;
-            printer.Footer = "Discount : " + txtDiscount.Text + "%\r\n" + "GST : " + txtGst.Text + "%\r\n" + "Grand Total : " + txtGrandTotal.Text + "\r\n\r\n" + "Thank You for Doing Business with us";
-            printer.FooterSpacing = 15;
-            printer.PrintDataGridView(dgvAddedProduct);
-
-            MessageBox.Show("Print successfully");
+                    DGVPrinter printer = new DGVPrinter();
+                    printer.Title = "Billing Management System\r\n";
+                    printer.SubTitle = "Pune, Wagholi \r\n Contact: 123654\r\n\r\n";
+                    printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+                    printer.PageNumbers = true;
+                    printer.PageNumberInHeader = false;
+                    printer.PorportionalColumns = true;
+                    printer.HeaderCellAlignment = StringAlignment.Center;
+                    printer.Footer = "Discount : " + txtDiscount.Text + "%\r\n" + "GST : " + txtGst.Text + "%\r\n" + "Grand Total : " + txtGrandTotal.Text + "\r\n\r\n" + "Thank You for Doing Business with us";
+                    printer.FooterSpacing = 15;
+                    printer.PrintDataGridView(dgvAddedProduct);
+                    MessageBox.Show("Print successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Please Add Product Details");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter Customer Details");
+            }
+            
         }
 
         private void btnclear_Click(object sender, EventArgs e)
         {
             clear();
+        }
+
+        private void txtQuntity_Leave(object sender, EventArgs e)
+        {
+            if(txtQuntity.Text=="" || txtQuntity.Text==" ")
+            {
+                txtQuntity.Text = "0";
+            }
         }
     }
 }

@@ -357,6 +357,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtQuntity.Text = "0";
             this.txtQuntity.TextChanged += new System.EventHandler(this.txtQuntity_TextChanged);
             this.txtQuntity.Enter += new System.EventHandler(this.txtQuntity_Enter);
+            this.txtQuntity.Leave += new System.EventHandler(this.txtQuntity_Leave);
             // 
             // txtInventory
             // 
