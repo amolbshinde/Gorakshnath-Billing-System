@@ -102,5 +102,11 @@ namespace Gorakshnath_Billing_System
             frmPurchase purchase = new frmPurchase();
             purchase.Show();
         }
+
+        private void addSupplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSupplierMaster supplierMaster = new frmSupplierMaster();
+            supplierMaster.Show();
+        }
     }
 }

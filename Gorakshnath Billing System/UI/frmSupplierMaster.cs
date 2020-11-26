@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.UI
 {
-    public partial class frmPurchase : Form
+    public partial class frmSupplierMaster : Form
     {
-        public frmPurchase()
+        public frmSupplierMaster()
         {
             InitializeComponent();
         }
@@ -22,9 +22,14 @@ namespace Gorakshnath_Billing_System.UI
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.LightCyan;
         }
     }
 }
