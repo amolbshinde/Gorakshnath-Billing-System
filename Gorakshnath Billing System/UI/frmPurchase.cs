@@ -79,6 +79,7 @@ namespace Gorakshnath_Billing_System.UI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string pname = "";
+            //
             {
                 for (int rows = 0; rows < dgvAddedProduct.Rows.Count; rows++)
                 {
