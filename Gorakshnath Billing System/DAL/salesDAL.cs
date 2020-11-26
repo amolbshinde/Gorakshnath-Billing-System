@@ -21,7 +21,7 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO tbl_transactions (type,cust_id,grandTotal,transaction_date,gst,discount,added_by) VALUES(@type,@custid,@grandTotal,@salesdate,@gst,@discount,@added_by);select @@IDENTITY;";
+                String sql = "INSERT INTO tbl_transactions (type,dea_cust_id,grandTotal,transaction_date,tax,discount,added_by) VALUES(@type,@custid,@grandTotal,@salesdate,@gst,@discount,@added_by);select @@IDENTITY;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@type","Sales");

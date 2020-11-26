@@ -180,7 +180,7 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                MessageBox.Show("No Inventory");
+                MessageBox.Show("No Inventory Please add Inventory First");
             }
            
         }
@@ -188,45 +188,47 @@ namespace Gorakshnath_Billing_System.UI
         private void btnAdd_Click(object sender, EventArgs e)
         {            
 
-            if (txtProductName.Text == "")
+            if (txtProductName.Text != "")
+            {
+                if (txtQuntity.Text != "0")
+                {
+                    int no = 1;
+                    no = (dgvAddedProduct.Rows.Count - 1) + 1;
+                    string productName = txtProductName.Text;
+                    decimal Rate = decimal.Parse(txtRate.Text);
+                    decimal Qty = decimal.Parse(txtQuntity.Text);
+                    decimal Total = Rate * Qty;
+
+                    decimal subTotal = decimal.Parse(txtSubtotal.Text);
+                    subTotal = subTotal + Total;
+                    if (no == 0)
+                    {
+                        no = 1;
+                    }
+
+                    salesdt.Rows.Add(no, productName, Rate, Qty, Total);
+
+                    dgvAddedProduct.DataSource = salesdt;
+                    txtSubtotal.Text = subTotal.ToString();
+                    txtGrandTotal.Text = subTotal.ToString();
+                    txtPaidAmount.Text = subTotal.ToString();
+
+                    txtSearchProduct.Text = "";
+                    txtProductName.Text = "";
+                    txtInventory.Text = "0.00";
+                    txtRate.Text = "0.00";
+                    txtQuntity.Text = "0";
+                }   
+                else
+                {
+                    MessageBox.Show("Enter Product Quntity");
+                }
+            }
+            else
             {
                 MessageBox.Show("Select the product first. Try Again.");
-            }
-            else
-            if (txtQuntity.Text == "0")
-            {
-                MessageBox.Show("Enter Product Quntity");
-            }
-            else
-            {
+            }          
 
-                int no = 1;
-                no = (dgvAddedProduct.Rows.Count - 1) + 1;
-                string productName = txtProductName.Text;
-                decimal Rate = decimal.Parse(txtRate.Text);
-                decimal Qty = decimal.Parse(txtQuntity.Text);
-                decimal Total = Rate * Qty;
-
-                decimal subTotal = decimal.Parse(txtSubtotal.Text);
-                subTotal = subTotal + Total;
-                if(no==0)
-                {
-                    no = 1;
-                }
-
-                salesdt.Rows.Add(no,productName, Rate, Qty, Total);
-
-                dgvAddedProduct.DataSource = salesdt;
-                txtSubtotal.Text = subTotal.ToString();
-                txtGrandTotal.Text = subTotal.ToString();
-                txtPaidAmount.Text = subTotal.ToString();
-
-                txtSearchProduct.Text = "";
-                txtProductName.Text = "";
-                txtInventory.Text = "0.00";
-                txtRate.Text = "0.00";
-                txtQuntity.Text = "0";
-            }
         }
 
         private void frmSales_Load(object sender, EventArgs e)
@@ -240,9 +242,15 @@ namespace Gorakshnath_Billing_System.UI
 
         private void txtQuntity_TextChanged(object sender, EventArgs e)
         {
-            
-            
-
+            string pname = txtSearchProduct.Text;
+            productBLL p = pDAL.GetProductsForTransaction(pname);
+            decimal num;
+            decimal.TryParse(txtQuntity.Text, out num);
+            decimal qunt = p.qty - num;
+            if (qunt<0)
+            {
+                MessageBox.Show("No Inventory Please add Inventory First");                
+            }
         }
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)

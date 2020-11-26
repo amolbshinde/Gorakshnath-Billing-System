@@ -23,7 +23,7 @@ namespace Gorakshnath_Billing_System.DAL
 
             try
             {
-                string sql = "INSERT INTO tbl_transaction_detail(productid,rate,qty,total,cust_id,addeddate,added_by) VALUES(@productid,@rate,@qty,@total,@custid,@addeddate,@added_by)";
+                string sql = "INSERT INTO tbl_transaction_detail(product_id,rate,qty,total,dea_cust_id,added_date,added_by) VALUES(@productid,@rate,@qty,@total,@custid,@addeddate,@added_by)";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@productid", st.productid);
                 cmd.Parameters.AddWithValue("@rate", st.rate);
