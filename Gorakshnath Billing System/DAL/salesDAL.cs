@@ -12,7 +12,7 @@ namespace Gorakshnath_Billing_System.DAL
 {
     class salesDAL
     {
-        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstring"].ConnectionString;
+        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
         #region Insert Sales Method
         public bool insertsales(salesBLL s, out int salesID)
         {
@@ -21,13 +21,16 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO tblsales (custid,grandTotal,gst,discount) VALUES(@custid,@grandTotal,@gst,@discount);select @@IDENTITY;";
+                String sql = "INSERT INTO tbl_transactions (type,dea_cust_id,grandTotal,transaction_date,tax,discount,added_by) VALUES(@type,@custid,@grandTotal,@salesdate,@gst,@discount,@added_by);select @@IDENTITY;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@type","Sales");
                 cmd.Parameters.AddWithValue("@custid", s.custid);
                 cmd.Parameters.AddWithValue("@grandtotal", s.grandtotal);
+                cmd.Parameters.AddWithValue("@salesdate", s.salesdate);
                 cmd.Parameters.AddWithValue("@gst", s.gst);
                 cmd.Parameters.AddWithValue("@discount", s.discount);
+                cmd.Parameters.AddWithValue("@added_by",8);
 
                 con.Open();
 

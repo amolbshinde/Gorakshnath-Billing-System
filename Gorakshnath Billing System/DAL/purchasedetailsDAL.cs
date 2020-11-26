@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.DAL
 {
-    class salesdetailsDAL
+    class purchasedetailsDAL
     {
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
@@ -23,20 +23,20 @@ namespace Gorakshnath_Billing_System.DAL
 
             try
             {
-                string sql = "INSERT INTO tbl_transaction_detail(product_id,rate,qty,total,dea_cust_id,added_date,added_by) VALUES(@productid,@rate,@qty,@total,@custid,@addeddate,@added_by)";
+                string sql = "INSERT INTO tbl_purchase_transaction_detail(product_id,rate,qty,total,sup_id,added_date,added_by) VALUES(@productid,@rate,@qty,@total,@custid,@addeddate,@added_by)";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@productid", st.productid);
                 cmd.Parameters.AddWithValue("@rate", st.rate);
                 cmd.Parameters.AddWithValue("@qty", st.qty);
                 cmd.Parameters.AddWithValue("@total", st.total);
                 cmd.Parameters.AddWithValue("@custid", st.custid);
-                cmd.Parameters.AddWithValue("@addeddate",st.addeddate);
-                cmd.Parameters.AddWithValue("@added_by",8);
+                cmd.Parameters.AddWithValue("@addeddate", st.addeddate);
+                cmd.Parameters.AddWithValue("@added_by", 8);
 
                 con.Open();
 
                 int rows = cmd.ExecuteNonQuery();
-                
+
                 if (rows > 0)
                 {
                     isSuccess = true;

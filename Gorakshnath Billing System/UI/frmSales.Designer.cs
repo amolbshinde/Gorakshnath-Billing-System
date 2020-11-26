@@ -88,42 +88,39 @@ namespace Gorakshnath_Billing_System.UI
             this.btnAdd.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(1377, 30);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Location = new System.Drawing.Point(1033, 24);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 37);
+            this.btnAdd.Size = new System.Drawing.Size(75, 30);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pnlDataGridView
             // 
             this.pnlDataGridView.Controls.Add(this.dgvAddedProduct);
             this.pnlDataGridView.Controls.Add(this.lblDGVTitle);
-            this.pnlDataGridView.Location = new System.Drawing.Point(11, 249);
-            this.pnlDataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlDataGridView.Location = new System.Drawing.Point(8, 202);
             this.pnlDataGridView.Name = "pnlDataGridView";
-            this.pnlDataGridView.Size = new System.Drawing.Size(763, 443);
+            this.pnlDataGridView.Size = new System.Drawing.Size(572, 360);
             this.pnlDataGridView.TabIndex = 6;
             // 
             // dgvAddedProduct
             // 
             this.dgvAddedProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAddedProduct.Location = new System.Drawing.Point(7, 30);
-            this.dgvAddedProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvAddedProduct.Location = new System.Drawing.Point(5, 24);
             this.dgvAddedProduct.Name = "dgvAddedProduct";
             this.dgvAddedProduct.RowHeadersWidth = 51;
-            this.dgvAddedProduct.Size = new System.Drawing.Size(749, 409);
+            this.dgvAddedProduct.Size = new System.Drawing.Size(562, 332);
             this.dgvAddedProduct.TabIndex = 1;
             // 
             // lblDGVTitle
             // 
             this.lblDGVTitle.AutoSize = true;
             this.lblDGVTitle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDGVTitle.Location = new System.Drawing.Point(3, 4);
-            this.lblDGVTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDGVTitle.Location = new System.Drawing.Point(2, 3);
             this.lblDGVTitle.Name = "lblDGVTitle";
-            this.lblDGVTitle.Size = new System.Drawing.Size(139, 23);
+            this.lblDGVTitle.Size = new System.Drawing.Size(106, 17);
             this.lblDGVTitle.TabIndex = 0;
             this.lblDGVTitle.Text = "Added Products";
             // 
@@ -145,44 +142,42 @@ namespace Gorakshnath_Billing_System.UI
             this.pnlCalculatioin.Controls.Add(this.lblSubtotal);
             this.pnlCalculatioin.Controls.Add(this.lblGrandTotal);
             this.pnlCalculatioin.Controls.Add(this.lblCalculation);
-            this.pnlCalculatioin.Location = new System.Drawing.Point(794, 247);
-            this.pnlCalculatioin.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlCalculatioin.Location = new System.Drawing.Point(596, 201);
             this.pnlCalculatioin.Name = "pnlCalculatioin";
-            this.pnlCalculatioin.Size = new System.Drawing.Size(824, 444);
+            this.pnlCalculatioin.Size = new System.Drawing.Size(618, 361);
             this.pnlCalculatioin.TabIndex = 7;
             // 
             // btnsaveandprint
             // 
             this.btnsaveandprint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsaveandprint.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsaveandprint.Location = new System.Drawing.Point(293, 378);
-            this.btnsaveandprint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnsaveandprint.Location = new System.Drawing.Point(220, 307);
             this.btnsaveandprint.Name = "btnsaveandprint";
-            this.btnsaveandprint.Size = new System.Drawing.Size(164, 43);
+            this.btnsaveandprint.Size = new System.Drawing.Size(123, 35);
             this.btnsaveandprint.TabIndex = 15;
             this.btnsaveandprint.Text = "Save and Print";
             this.btnsaveandprint.UseVisualStyleBackColor = true;
+            this.btnsaveandprint.Click += new System.EventHandler(this.btnsaveandprint_Click);
             // 
             // btnclear
             // 
             this.btnclear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnclear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnclear.Location = new System.Drawing.Point(530, 378);
-            this.btnclear.Margin = new System.Windows.Forms.Padding(4);
+            this.btnclear.Location = new System.Drawing.Point(398, 307);
             this.btnclear.Name = "btnclear";
-            this.btnclear.Size = new System.Drawing.Size(164, 43);
+            this.btnclear.Size = new System.Drawing.Size(123, 35);
             this.btnclear.TabIndex = 14;
             this.btnclear.Text = "Clear";
             this.btnclear.UseVisualStyleBackColor = true;
+            this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             // 
             // btnSave
             // 
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(47, 378);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Location = new System.Drawing.Point(35, 307);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(164, 43);
+            this.btnSave.Size = new System.Drawing.Size(123, 35);
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -191,62 +186,58 @@ namespace Gorakshnath_Billing_System.UI
             // txtReturnAmount
             // 
             this.txtReturnAmount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReturnAmount.Location = new System.Drawing.Point(182, 275);
-            this.txtReturnAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtReturnAmount.Location = new System.Drawing.Point(136, 223);
             this.txtReturnAmount.Name = "txtReturnAmount";
-            this.txtReturnAmount.Size = new System.Drawing.Size(539, 29);
+            this.txtReturnAmount.Size = new System.Drawing.Size(405, 25);
             this.txtReturnAmount.TabIndex = 12;
             this.txtReturnAmount.Text = "00.00";
             // 
             // txtDiscount
             // 
             this.txtDiscount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscount.Location = new System.Drawing.Point(182, 72);
-            this.txtDiscount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDiscount.Location = new System.Drawing.Point(136, 58);
             this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(539, 29);
+            this.txtDiscount.Size = new System.Drawing.Size(405, 25);
             this.txtDiscount.TabIndex = 11;
             this.txtDiscount.Text = "0";
+            this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
             // 
             // txtGst
             // 
             this.txtGst.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGst.Location = new System.Drawing.Point(182, 128);
-            this.txtGst.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGst.Location = new System.Drawing.Point(136, 104);
             this.txtGst.Name = "txtGst";
-            this.txtGst.Size = new System.Drawing.Size(539, 29);
+            this.txtGst.Size = new System.Drawing.Size(405, 25);
             this.txtGst.TabIndex = 10;
             this.txtGst.Text = "0";
+            this.txtGst.TextChanged += new System.EventHandler(this.txtGst_TextChanged);
             // 
             // txtGrandTotal
             // 
             this.txtGrandTotal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrandTotal.Location = new System.Drawing.Point(182, 175);
-            this.txtGrandTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGrandTotal.Location = new System.Drawing.Point(136, 142);
             this.txtGrandTotal.Name = "txtGrandTotal";
             this.txtGrandTotal.ReadOnly = true;
-            this.txtGrandTotal.Size = new System.Drawing.Size(539, 29);
+            this.txtGrandTotal.Size = new System.Drawing.Size(405, 25);
             this.txtGrandTotal.TabIndex = 9;
             this.txtGrandTotal.Text = "00.00";
             // 
             // txtSubtotal
             // 
             this.txtSubtotal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubtotal.Location = new System.Drawing.Point(182, 30);
-            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSubtotal.Location = new System.Drawing.Point(136, 24);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.ReadOnly = true;
-            this.txtSubtotal.Size = new System.Drawing.Size(539, 29);
+            this.txtSubtotal.Size = new System.Drawing.Size(405, 25);
             this.txtSubtotal.TabIndex = 8;
             this.txtSubtotal.Text = "00.00";
             // 
             // txtPaidAmount
             // 
             this.txtPaidAmount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPaidAmount.Location = new System.Drawing.Point(182, 227);
-            this.txtPaidAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPaidAmount.Location = new System.Drawing.Point(136, 184);
             this.txtPaidAmount.Name = "txtPaidAmount";
-            this.txtPaidAmount.Size = new System.Drawing.Size(539, 29);
+            this.txtPaidAmount.Size = new System.Drawing.Size(405, 25);
             this.txtPaidAmount.TabIndex = 7;
             this.txtPaidAmount.Text = "00.00";
             // 
@@ -254,10 +245,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblReturnAmount.AutoSize = true;
             this.lblReturnAmount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReturnAmount.Location = new System.Drawing.Point(19, 278);
-            this.lblReturnAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblReturnAmount.Location = new System.Drawing.Point(14, 226);
             this.lblReturnAmount.Name = "lblReturnAmount";
-            this.lblReturnAmount.Size = new System.Drawing.Size(128, 23);
+            this.lblReturnAmount.Size = new System.Drawing.Size(95, 17);
             this.lblReturnAmount.TabIndex = 6;
             this.lblReturnAmount.Text = "Return Amount";
             // 
@@ -265,10 +255,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblPaidAmount.AutoSize = true;
             this.lblPaidAmount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaidAmount.Location = new System.Drawing.Point(19, 230);
-            this.lblPaidAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPaidAmount.Location = new System.Drawing.Point(14, 187);
             this.lblPaidAmount.Name = "lblPaidAmount";
-            this.lblPaidAmount.Size = new System.Drawing.Size(109, 23);
+            this.lblPaidAmount.Size = new System.Drawing.Size(82, 17);
             this.lblPaidAmount.TabIndex = 5;
             this.lblPaidAmount.Text = "Paid Amount";
             // 
@@ -276,10 +265,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblGST.AutoSize = true;
             this.lblGST.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGST.Location = new System.Drawing.Point(19, 132);
-            this.lblGST.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGST.Location = new System.Drawing.Point(14, 107);
             this.lblGST.Name = "lblGST";
-            this.lblGST.Size = new System.Drawing.Size(69, 23);
+            this.lblGST.Size = new System.Drawing.Size(54, 17);
             this.lblGST.TabIndex = 4;
             this.lblGST.Text = "GST (%)";
             // 
@@ -287,10 +275,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblDiscount.AutoSize = true;
             this.lblDiscount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscount.Location = new System.Drawing.Point(19, 81);
-            this.lblDiscount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDiscount.Location = new System.Drawing.Point(14, 66);
             this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(106, 23);
+            this.lblDiscount.Size = new System.Drawing.Size(81, 17);
             this.lblDiscount.TabIndex = 3;
             this.lblDiscount.Text = "Discount (%)";
             // 
@@ -298,10 +285,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblSubtotal.AutoSize = true;
             this.lblSubtotal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtotal.Location = new System.Drawing.Point(19, 33);
-            this.lblSubtotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSubtotal.Location = new System.Drawing.Point(14, 27);
             this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(74, 23);
+            this.lblSubtotal.Size = new System.Drawing.Size(56, 17);
             this.lblSubtotal.TabIndex = 2;
             this.lblSubtotal.Text = "Subtotal";
             // 
@@ -309,10 +295,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblGrandTotal.AutoSize = true;
             this.lblGrandTotal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrandTotal.Location = new System.Drawing.Point(19, 179);
-            this.lblGrandTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGrandTotal.Location = new System.Drawing.Point(14, 145);
             this.lblGrandTotal.Name = "lblGrandTotal";
-            this.lblGrandTotal.Size = new System.Drawing.Size(98, 23);
+            this.lblGrandTotal.Size = new System.Drawing.Size(76, 17);
             this.lblGrandTotal.TabIndex = 1;
             this.lblGrandTotal.Text = "Grand Total";
             // 
@@ -320,20 +305,18 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblCalculation.AutoSize = true;
             this.lblCalculation.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCalculation.Location = new System.Drawing.Point(6, 3);
-            this.lblCalculation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCalculation.Location = new System.Drawing.Point(4, 2);
             this.lblCalculation.Name = "lblCalculation";
-            this.lblCalculation.Size = new System.Drawing.Size(159, 23);
+            this.lblCalculation.Size = new System.Drawing.Size(124, 17);
             this.lblCalculation.TabIndex = 0;
             this.lblCalculation.Text = "Calculation Details";
             // 
             // txtProductName
             // 
             this.txtProductName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductName.Location = new System.Drawing.Point(319, 36);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtProductName.Location = new System.Drawing.Point(239, 29);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(171, 29);
+            this.txtProductName.Size = new System.Drawing.Size(129, 25);
             this.txtProductName.TabIndex = 11;
             // 
             // panel1
@@ -350,59 +333,57 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Controls.Add(this.lblProductSearch);
             this.panel1.Controls.Add(this.lblProductName);
             this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Location = new System.Drawing.Point(11, 148);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(8, 120);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1607, 78);
+            this.panel1.Size = new System.Drawing.Size(1205, 63);
             this.panel1.TabIndex = 5;
             // 
             // txtRate
             // 
             this.txtRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRate.Location = new System.Drawing.Point(822, 36);
-            this.txtRate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRate.Location = new System.Drawing.Point(616, 29);
             this.txtRate.Name = "txtRate";
-            this.txtRate.Size = new System.Drawing.Size(171, 29);
+            this.txtRate.Size = new System.Drawing.Size(129, 25);
             this.txtRate.TabIndex = 10;
             this.txtRate.Text = "00.00";
             // 
             // txtQuntity
             // 
             this.txtQuntity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuntity.Location = new System.Drawing.Point(1075, 36);
-            this.txtQuntity.Margin = new System.Windows.Forms.Padding(4);
+            this.txtQuntity.Location = new System.Drawing.Point(806, 29);
             this.txtQuntity.Name = "txtQuntity";
-            this.txtQuntity.Size = new System.Drawing.Size(171, 29);
+            this.txtQuntity.Size = new System.Drawing.Size(129, 25);
             this.txtQuntity.TabIndex = 9;
             this.txtQuntity.Text = "0";
+            this.txtQuntity.TextChanged += new System.EventHandler(this.txtQuntity_TextChanged);
+            this.txtQuntity.Enter += new System.EventHandler(this.txtQuntity_Enter);
+            this.txtQuntity.Leave += new System.EventHandler(this.txtQuntity_Leave);
             // 
             // txtInventory
             // 
             this.txtInventory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInventory.Location = new System.Drawing.Point(589, 36);
-            this.txtInventory.Margin = new System.Windows.Forms.Padding(4);
+            this.txtInventory.Location = new System.Drawing.Point(442, 29);
             this.txtInventory.Name = "txtInventory";
-            this.txtInventory.Size = new System.Drawing.Size(171, 29);
+            this.txtInventory.Size = new System.Drawing.Size(129, 25);
             this.txtInventory.TabIndex = 8;
             this.txtInventory.Text = "0";
             // 
             // txtSearchProduct
             // 
             this.txtSearchProduct.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchProduct.Location = new System.Drawing.Point(74, 36);
-            this.txtSearchProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchProduct.Location = new System.Drawing.Point(56, 29);
             this.txtSearchProduct.Name = "txtSearchProduct";
-            this.txtSearchProduct.Size = new System.Drawing.Size(171, 29);
+            this.txtSearchProduct.Size = new System.Drawing.Size(129, 25);
             this.txtSearchProduct.TabIndex = 7;
+            this.txtSearchProduct.TextChanged += new System.EventHandler(this.txtSearchProduct_TextChanged);
             // 
             // lblRate
             // 
             this.lblRate.AutoSize = true;
             this.lblRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRate.Location = new System.Drawing.Point(769, 40);
-            this.lblRate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRate.Location = new System.Drawing.Point(577, 32);
             this.lblRate.Name = "lblRate";
-            this.lblRate.Size = new System.Drawing.Size(44, 23);
+            this.lblRate.Size = new System.Drawing.Size(34, 17);
             this.lblRate.TabIndex = 6;
             this.lblRate.Text = "Rate";
             // 
@@ -410,10 +391,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblQuntity.AutoSize = true;
             this.lblQuntity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuntity.Location = new System.Drawing.Point(1002, 40);
-            this.lblQuntity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblQuntity.Location = new System.Drawing.Point(752, 32);
             this.lblQuntity.Name = "lblQuntity";
-            this.lblQuntity.Size = new System.Drawing.Size(67, 23);
+            this.lblQuntity.Size = new System.Drawing.Size(49, 17);
             this.lblQuntity.TabIndex = 4;
             this.lblQuntity.Text = "Quntity";
             // 
@@ -421,10 +401,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblInventory.AutoSize = true;
             this.lblInventory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInventory.Location = new System.Drawing.Point(499, 40);
-            this.lblInventory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInventory.Location = new System.Drawing.Point(374, 32);
             this.lblInventory.Name = "lblInventory";
-            this.lblInventory.Size = new System.Drawing.Size(82, 23);
+            this.lblInventory.Size = new System.Drawing.Size(61, 17);
             this.lblInventory.TabIndex = 3;
             this.lblInventory.Text = "Inventory";
             // 
@@ -432,10 +411,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblProductSearch.AutoSize = true;
             this.lblProductSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductSearch.Location = new System.Drawing.Point(3, 40);
-            this.lblProductSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProductSearch.Location = new System.Drawing.Point(2, 32);
             this.lblProductSearch.Name = "lblProductSearch";
-            this.lblProductSearch.Size = new System.Drawing.Size(61, 23);
+            this.lblProductSearch.Size = new System.Drawing.Size(47, 17);
             this.lblProductSearch.TabIndex = 2;
             this.lblProductSearch.Text = "Search";
             // 
@@ -443,10 +421,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblProductName.AutoSize = true;
             this.lblProductName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductName.Location = new System.Drawing.Point(254, 40);
-            this.lblProductName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProductName.Location = new System.Drawing.Point(190, 32);
             this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(56, 23);
+            this.lblProductName.Size = new System.Drawing.Size(43, 17);
             this.lblProductName.TabIndex = 1;
             this.lblProductName.Text = "Name";
             // 
@@ -454,10 +431,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(9, 4);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Location = new System.Drawing.Point(7, 3);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(133, 23);
+            this.lblTitle.Size = new System.Drawing.Size(103, 17);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Product Details";
             // 
@@ -476,65 +452,58 @@ namespace Gorakshnath_Billing_System.UI
             this.pnlCustomer.Controls.Add(this.lblEmail);
             this.pnlCustomer.Controls.Add(this.lblSearch);
             this.pnlCustomer.Controls.Add(this.lblCustomer);
-            this.pnlCustomer.Location = new System.Drawing.Point(11, 0);
-            this.pnlCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlCustomer.Location = new System.Drawing.Point(8, 0);
             this.pnlCustomer.Name = "pnlCustomer";
-            this.pnlCustomer.Size = new System.Drawing.Size(1607, 123);
+            this.pnlCustomer.Size = new System.Drawing.Size(1205, 100);
             this.pnlCustomer.TabIndex = 4;
             // 
             // dtpBillDate
             // 
             this.dtpBillDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpBillDate.Location = new System.Drawing.Point(1337, 27);
-            this.dtpBillDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpBillDate.Location = new System.Drawing.Point(1003, 22);
             this.dtpBillDate.Name = "dtpBillDate";
-            this.dtpBillDate.Size = new System.Drawing.Size(208, 29);
+            this.dtpBillDate.Size = new System.Drawing.Size(157, 25);
             this.dtpBillDate.TabIndex = 13;
             // 
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(909, 27);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddress.Location = new System.Drawing.Point(682, 22);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(299, 74);
+            this.txtAddress.Size = new System.Drawing.Size(225, 61);
             this.txtAddress.TabIndex = 12;
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(75, 72);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtName.Location = new System.Drawing.Point(56, 58);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(299, 29);
+            this.txtName.Size = new System.Drawing.Size(225, 25);
             this.txtName.TabIndex = 11;
             // 
             // txtContact
             // 
             this.txtContact.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContact.Location = new System.Drawing.Point(503, 72);
-            this.txtContact.Margin = new System.Windows.Forms.Padding(4);
+            this.txtContact.Location = new System.Drawing.Point(377, 58);
             this.txtContact.Name = "txtContact";
-            this.txtContact.Size = new System.Drawing.Size(299, 29);
+            this.txtContact.Size = new System.Drawing.Size(225, 25);
             this.txtContact.TabIndex = 10;
             // 
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(503, 27);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.Location = new System.Drawing.Point(377, 22);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(299, 29);
+            this.txtEmail.Size = new System.Drawing.Size(225, 25);
             this.txtEmail.TabIndex = 9;
             // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(75, 27);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearch.Location = new System.Drawing.Point(56, 22);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(299, 29);
+            this.txtSearch.Size = new System.Drawing.Size(225, 25);
             this.txtSearch.TabIndex = 8;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -542,10 +511,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(3, 72);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(2, 58);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(56, 23);
+            this.lblName.Size = new System.Drawing.Size(43, 17);
             this.lblName.TabIndex = 7;
             this.lblName.Text = "Name";
             // 
@@ -553,10 +521,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblBillDate.AutoSize = true;
             this.lblBillDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBillDate.Location = new System.Drawing.Point(1234, 31);
-            this.lblBillDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBillDate.Location = new System.Drawing.Point(926, 25);
             this.lblBillDate.Name = "lblBillDate";
-            this.lblBillDate.Size = new System.Drawing.Size(73, 23);
+            this.lblBillDate.Size = new System.Drawing.Size(55, 17);
             this.lblBillDate.TabIndex = 6;
             this.lblBillDate.Text = "Bill Date";
             // 
@@ -564,10 +531,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblContact.AutoSize = true;
             this.lblContact.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContact.Location = new System.Drawing.Point(410, 75);
-            this.lblContact.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblContact.Location = new System.Drawing.Point(308, 61);
             this.lblContact.Name = "lblContact";
-            this.lblContact.Size = new System.Drawing.Size(70, 23);
+            this.lblContact.Size = new System.Drawing.Size(52, 17);
             this.lblContact.TabIndex = 4;
             this.lblContact.Text = "Contact";
             // 
@@ -575,10 +541,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(826, 31);
-            this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddress.Location = new System.Drawing.Point(620, 25);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(70, 23);
+            this.lblAddress.Size = new System.Drawing.Size(56, 17);
             this.lblAddress.TabIndex = 3;
             this.lblAddress.Text = "Address";
             // 
@@ -586,10 +551,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(410, 31);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Location = new System.Drawing.Point(308, 25);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(51, 23);
+            this.lblEmail.Size = new System.Drawing.Size(39, 17);
             this.lblEmail.TabIndex = 2;
             this.lblEmail.Text = "Email";
             // 
@@ -597,10 +561,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(5, 31);
-            this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearch.Location = new System.Drawing.Point(4, 25);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(61, 23);
+            this.lblSearch.Size = new System.Drawing.Size(47, 17);
             this.lblSearch.TabIndex = 1;
             this.lblSearch.Text = "Search";
             // 
@@ -608,24 +571,27 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.lblCustomer.AutoSize = true;
             this.lblCustomer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomer.Location = new System.Drawing.Point(3, 4);
-            this.lblCustomer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCustomer.Location = new System.Drawing.Point(2, 3);
             this.lblCustomer.Name = "lblCustomer";
-            this.lblCustomer.Size = new System.Drawing.Size(147, 23);
+            this.lblCustomer.Size = new System.Drawing.Size(114, 17);
             this.lblCustomer.TabIndex = 0;
             this.lblCustomer.Text = "Customer Details";
             // 
             // frmSales
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1657, 736);
+            this.ClientSize = new System.Drawing.Size(1156, 598);
             this.Controls.Add(this.pnlDataGridView);
             this.Controls.Add(this.pnlCalculatioin);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlCustomer);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSales";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmSales_Load);
             this.pnlDataGridView.ResumeLayout(false);
             this.pnlDataGridView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProduct)).EndInit();
