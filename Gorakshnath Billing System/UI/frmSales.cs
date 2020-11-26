@@ -75,14 +75,14 @@ namespace Gorakshnath_Billing_System.UI
                     for (int i = 0; i < salesdt.Rows.Count; i++)
                     {
                         salesdetailsBLL sdb = new salesdetailsBLL();
-                        string productName = salesdt.Rows[i][0].ToString();
+                        string productName = salesdt.Rows[i][1].ToString();
 
                         productBLL p = pDAL.GetProductIDFromName(productName);
 
                         sdb.productid = p.id;
-                        sdb.rate = decimal.Parse(salesdt.Rows[i][1].ToString());
-                        sdb.qty = decimal.Parse(salesdt.Rows[i][2].ToString());
-                        sdb.total = Math.Round(decimal.Parse(salesdt.Rows[i][3].ToString()), 2);
+                        sdb.rate = decimal.Parse(salesdt.Rows[i][2].ToString());
+                        sdb.qty = decimal.Parse(salesdt.Rows[i][3].ToString());
+                        sdb.total = Math.Round(decimal.Parse(salesdt.Rows[i][4].ToString()), 2);
                         sdb.custid = c.id;
                         sdb.addeddate = dtpBillDate.Value;
 
@@ -186,7 +186,8 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {
+        {            
+
             if (txtProductName.Text == "")
             {
                 MessageBox.Show("Select the product first. Try Again.");
@@ -198,16 +199,22 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
+
+                int no = 1;
+                no = (dgvAddedProduct.Rows.Count - 1) + 1;
                 string productName = txtProductName.Text;
                 decimal Rate = decimal.Parse(txtRate.Text);
                 decimal Qty = decimal.Parse(txtQuntity.Text);
-
                 decimal Total = Rate * Qty;
 
                 decimal subTotal = decimal.Parse(txtSubtotal.Text);
                 subTotal = subTotal + Total;
+                if(no==0)
+                {
+                    no = 1;
+                }
 
-                salesdt.Rows.Add(productName, Rate, Qty, Total);
+                salesdt.Rows.Add(no,productName, Rate, Qty, Total);
 
                 dgvAddedProduct.DataSource = salesdt;
                 txtSubtotal.Text = subTotal.ToString();
@@ -224,6 +231,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void frmSales_Load(object sender, EventArgs e)
         {
+            salesdt.Columns.Add("No");
             salesdt.Columns.Add("Product Name");
             salesdt.Columns.Add("Rate");
             salesdt.Columns.Add("Quantity");
