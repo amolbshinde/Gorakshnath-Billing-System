@@ -207,7 +207,7 @@ namespace Gorakshnath_Billing_System.UI
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
-            //clear all details
+            //clear all details.
         }
     }
 }
