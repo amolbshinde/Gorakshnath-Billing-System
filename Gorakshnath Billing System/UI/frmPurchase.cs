@@ -21,5 +21,10 @@ namespace Gorakshnath_Billing_System.UI
         {
             this.Close();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //llllll
+        }
     }
 }
