@@ -52,6 +52,7 @@ namespace Gorakshnath_Billing_System.UI
             sm.Email = textEmail.Text;
             sm.Contact_Person = textContact_Person.Text;
             sm.Contact_No =textContact_No.Text;
+            sm.added_date = DateTime.Now;
             bool Success = smd.Insert(sm);
             if(Success==true)
             {

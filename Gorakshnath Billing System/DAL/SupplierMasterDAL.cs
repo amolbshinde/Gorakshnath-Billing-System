@@ -72,7 +72,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Email", sm.Email);
                 cmd.Parameters.AddWithValue("@Phone_No", sm.Phone_No);
                 cmd.Parameters.AddWithValue("@Contact_Person", sm.Contact_Person);
-                cmd.Parameters.AddWithValue("@Contact_No", sm.Contact_No);
+                cmd.Parameters.AddWithValue("@Contact_No", sm.Contact_No);                
                 conn.Open();
 
                 int rows = cmd.ExecuteNonQuery();
