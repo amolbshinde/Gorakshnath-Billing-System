@@ -19,6 +19,8 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
         }
         //morninn
+        SupplierMasterBLL sm = new SupplierMasterBLL();
+        SupplierMasterDAL smd = new SupplierMasterDAL();
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -36,17 +38,47 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            /// 
+            string supId = textSupplier_Id.Text;
+            if (supId != "")
+            {
+                sm.SupplierID = Convert.ToInt32(textSupplier_Id.Text);
+                sm.CompanyName = txtCompany_Name.Text;
+                sm.Address = textAddress.Text;
+                sm.City = textCity.Text;
+                sm.State = comboBoxState.Text;
+                sm.Pincode = textPincode.Text;
+                sm.Country = txtCountry.Text;
+                sm.Email = textEmail.Text;
+                sm.Phone_No = textPhone_No.Text;
+                sm.Contact_Person = textContact_Person.Text;
+                sm.Contact_No = textContact_No.Text; 
+
+                bool success = smd.Update(sm);
+
+                if (success == true)
+                {
+                    MessageBox.Show("Dealer Details Successfully Updated");
+                    Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to Update");
+                }
+                //DataTable dt = smd.Select();
+                //dgvDealer.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Please Select Details to Update");
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {
-            SupplierMasterBLL sm = new SupplierMasterBLL();
-            SupplierMasterDAL smd = new SupplierMasterDAL();
+        {            
             sm.CompanyName = txtCompany_Name.Text;
             sm.Address = textAddress.Text;
             sm.City = textCity.Text;
-            sm.State = comboBox1.Text;
+            sm.State = comboBoxState.Text;
             sm.Pincode = textPincode.Text;
             sm.Country = txtCountry.Text;
             sm.Email = textEmail.Text;
@@ -72,7 +104,7 @@ namespace Gorakshnath_Billing_System.UI
             txtCompany_Name.Text="";
            textAddress.Text="";
             textCity.Text = "";
-            comboBox1.Text = "";
+            comboBoxState.Text = "";
             textPincode.Text = "";
             txtCountry.Text = "";
             textEmail.Text = "";

@@ -49,7 +49,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textCity = new System.Windows.Forms.TextBox();
             this.textPincode = new System.Windows.Forms.TextBox();
             this.textEmail = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxState = new System.Windows.Forms.ComboBox();
             this.textPhone_No = new System.Windows.Forms.TextBox();
             this.textContact_Person = new System.Windows.Forms.TextBox();
             this.textContact_No = new System.Windows.Forms.TextBox();
@@ -72,7 +72,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1040, 38);
             this.panel1.TabIndex = 1;
@@ -81,7 +81,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.pictureBox1.Image = global::Gorakshnath_Billing_System.Properties.Resources._07_512;
             this.pictureBox1.Location = new System.Drawing.Point(995, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(29, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -281,14 +281,14 @@ namespace Gorakshnath_Billing_System.UI
             this.textEmail.Size = new System.Drawing.Size(228, 25);
             this.textEmail.TabIndex = 20;
             // 
-            // comboBox1
+            // comboBoxState
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(156, 233);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(228, 25);
-            this.comboBox1.TabIndex = 21;
+            this.comboBoxState.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxState.FormattingEnabled = true;
+            this.comboBoxState.Location = new System.Drawing.Point(156, 233);
+            this.comboBoxState.Name = "comboBoxState";
+            this.comboBoxState.Size = new System.Drawing.Size(228, 25);
+            this.comboBoxState.TabIndex = 21;
             // 
             // textPhone_No
             // 
@@ -414,7 +414,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.textContact_No);
             this.Controls.Add(this.textContact_Person);
             this.Controls.Add(this.textPhone_No);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxState);
             this.Controls.Add(this.textEmail);
             this.Controls.Add(this.textPincode);
             this.Controls.Add(this.textCity);
@@ -469,7 +469,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.TextBox textCity;
         private System.Windows.Forms.TextBox textPincode;
         private System.Windows.Forms.TextBox textEmail;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxState;
         private System.Windows.Forms.TextBox textPhone_No;
         private System.Windows.Forms.TextBox textContact_Person;
         private System.Windows.Forms.TextBox textContact_No;

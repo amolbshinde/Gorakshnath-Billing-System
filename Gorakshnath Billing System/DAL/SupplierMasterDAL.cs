@@ -123,6 +123,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Phone_No", sm.Phone_No);
                 cmd.Parameters.AddWithValue("@Contact_Person", sm.Contact_Person);
                 cmd.Parameters.AddWithValue("@Contact_No", sm.Contact_No);
+                cmd.Parameters.AddWithValue("@id",sm.SupplierID);
                 conn.Open();
 
                 int rows = cmd.ExecuteNonQuery();
