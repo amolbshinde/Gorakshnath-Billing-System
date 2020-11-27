@@ -18,7 +18,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
-
+        //morninn
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -26,7 +26,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_MouseHover(object sender, EventArgs e)
