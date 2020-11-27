@@ -20,7 +20,7 @@ namespace Gorakshnath_Billing_System.DAL
         {
 
             // Sql Command for Databasae Connection 
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(myconnstrng);
 
             // Datatable to hold value from database andreturn it 
             DataTable dt = new DataTable();
@@ -28,7 +28,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 // Sql quesry to select all data from databse
-                String sql = "Select 3 from SupplierMaster";
+                String sql = "Select * from Supplier_Master";
 
                 // Creating SQL Command to execute Query 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -62,7 +62,7 @@ namespace Gorakshnath_Billing_System.DAL
                 string sql = "insert into Supplier_Master(CompanyName,Address,City,State,Pincode,Country,Email,Phone_No,Contact_Person,Contact_No) Values(@CompanyName,@Address,@City,@State,@Pincode,@Country,@Email,@Phone_No,@Contact_Person,@Contact_No)";
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
-
+                //
                 cmd.Parameters.AddWithValue("@CompanyName", sm.CompanyName);
                 cmd.Parameters.AddWithValue("@Address", sm.Address);
                 cmd.Parameters.AddWithValue("@City", sm.City);
@@ -72,9 +72,9 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Email", sm.Email);
                 cmd.Parameters.AddWithValue("@Phone_No", sm.Phone_No);
                 cmd.Parameters.AddWithValue("@Contact_Person", sm.Contact_Person);
-                cmd.Parameters.AddWithValue("@Contact_No", sm.Contact_No);
+                cmd.Parameters.AddWithValue("@Contact_No", sm.Contact_No);                
                 conn.Open();
-
+                
                 int rows = cmd.ExecuteNonQuery();
 
                 if (rows > 0)
@@ -109,7 +109,7 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
-                string sql = "UPDATE  Supplier_Master set CompanyName=@CompanyName,Address=@Address,City=@City,State=@State,Pincode=@Pincode,Country=@Country,Email=@Email,Phone_No=@Phone_No,Contact_Person=@Contact_Person,Contact_No=@Contact_No whereid=@id";
+                string sql = "UPDATE  Supplier_Master set CompanyName=@CompanyName,Address=@Address,City=@City,State=@State,Pincode=@Pincode,Country=@Country,Email=@Email,Phone_No=@Phone_No,Contact_Person=@Contact_Person,Contact_No=@Contact_No where SupplierID=@id";
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -123,6 +123,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Phone_No", sm.Phone_No);
                 cmd.Parameters.AddWithValue("@Contact_Person", sm.Contact_Person);
                 cmd.Parameters.AddWithValue("@Contact_No", sm.Contact_No);
+                cmd.Parameters.AddWithValue("@id",sm.SupplierID);
                 conn.Open();
 
                 int rows = cmd.ExecuteNonQuery();
@@ -159,12 +160,11 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
-                //
-                string sql = "Delete * from Supplier_Master where SupplierID=@SupplierID";
+                string sql = "Delete from Supplier_Master where SupplierID=@SupplierID";
                 //passing query sqlcommand
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@SupplierID", sm.SupplierID);
-
+                conn.Open();
                 int rows = cmd.ExecuteNonQuery();
 
                 if (rows > 0)
@@ -191,10 +191,37 @@ namespace Gorakshnath_Billing_System.DAL
 
         }
 
-       
+
 
 
         #endregion
+
+        #region Search Customer On Database Using Keywords
+        public DataTable Search(string keywords)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT * FROM Supplier_Master WHERE SupplierID LIKE'%" + keywords + "%' OR CompanyName LIKE'%" + keywords + "%' OR City LIKE'%" + keywords + "%' OR Phone_No LIKE'%" + keywords + "%'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
 
     }
 
