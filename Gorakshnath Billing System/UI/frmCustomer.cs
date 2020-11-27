@@ -260,6 +260,7 @@ namespace Gorakshnath_Billing_System.UI
             if (custId != "" && custId != "Auto Genrated")
             {
                 c.id = Convert.ToInt32(txtCustomerId.Text);
+                //
 
                 bool success = dal.Delete(c);
 
