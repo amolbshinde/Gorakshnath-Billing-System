@@ -12,6 +12,8 @@ using System.Windows.Forms;
 namespace Gorakshnath_Billing_System.DAL
 {
     class supplierDAL
+
+        //
     {
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
         
