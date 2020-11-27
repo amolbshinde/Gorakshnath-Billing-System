@@ -53,7 +53,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textPhone_No = new System.Windows.Forms.TextBox();
             this.textContact_Person = new System.Windows.Forms.TextBox();
             this.textContact_No = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvSupplier = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -62,7 +62,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtCountry = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -315,16 +315,17 @@ namespace Gorakshnath_Billing_System.UI
             this.textContact_No.Size = new System.Drawing.Size(228, 25);
             this.textContact_No.TabIndex = 24;
             // 
-            // dataGridView1
+            // dgvSupplier
             // 
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.GrayText;
-            this.dataGridView1.Location = new System.Drawing.Point(457, 105);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(538, 308);
-            this.dataGridView1.TabIndex = 25;
+            this.dgvSupplier.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSupplier.GridColor = System.Drawing.SystemColors.GrayText;
+            this.dgvSupplier.Location = new System.Drawing.Point(457, 105);
+            this.dgvSupplier.Name = "dgvSupplier";
+            this.dgvSupplier.RowHeadersWidth = 51;
+            this.dgvSupplier.Size = new System.Drawing.Size(538, 308);
+            this.dgvSupplier.TabIndex = 25;
+            this.dgvSupplier.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSupplier_RowHeaderMouseClick);
             // 
             // label9
             // 
@@ -345,6 +346,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(426, 25);
             this.textSearch.TabIndex = 27;
+            this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // btnAdd
             // 
@@ -411,7 +413,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.textSearch);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvSupplier);
             this.Controls.Add(this.textContact_No);
             this.Controls.Add(this.textContact_Person);
             this.Controls.Add(this.textPhone_No);
@@ -439,10 +441,11 @@ namespace Gorakshnath_Billing_System.UI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supplier";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmSupplierMaster_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -474,7 +477,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.TextBox textPhone_No;
         private System.Windows.Forms.TextBox textContact_Person;
         private System.Windows.Forms.TextBox textContact_No;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSupplier;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Button btnAdd;

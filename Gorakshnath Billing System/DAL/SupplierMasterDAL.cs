@@ -20,7 +20,7 @@ namespace Gorakshnath_Billing_System.DAL
         {
 
             // Sql Command for Databasae Connection 
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(myconnstrng);
 
             // Datatable to hold value from database andreturn it 
             DataTable dt = new DataTable();
@@ -191,10 +191,37 @@ namespace Gorakshnath_Billing_System.DAL
 
         }
 
-       
+
 
 
         #endregion
+
+        #region Search Customer On Database Using Keywords
+        public DataTable Search(string keywords)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT * FROM Supplier_Master WHERE SupplierID LIKE'%" + keywords + "%' OR CompanyName LIKE'%" + keywords + "%' OR City LIKE'%" + keywords + "%' OR Phone_No LIKE'%" + keywords + "%'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
 
     }
 
