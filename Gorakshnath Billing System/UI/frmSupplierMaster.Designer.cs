@@ -61,6 +61,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button3 = new System.Windows.Forms.Button();
             this.comboBoxCountry = new System.Windows.Forms.ComboBox();
             this.btnClear = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
@@ -287,6 +288,35 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.comboBoxState.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxState.FormattingEnabled = true;
+            this.comboBoxState.Items.AddRange(new object[] {
+            "Andhra Pradesh",
+            "Arunachal Pradesh",
+            "Assam",
+            "Bihar",
+            "Chhattisgarh",
+            "Goa",
+            "Gujarat",
+            "Haryana",
+            "Himachal Pradesh",
+            "Jharkhand",
+            "Karnataka",
+            "Kerala",
+            "Madhya Pradesh",
+            "Maharashtra",
+            "Manipur",
+            "Meghalaya",
+            "Mizoram",
+            "Nagaland",
+            "Odisha",
+            "Punjab",
+            "Rajasthan",
+            "Sikkim",
+            "Tamil Nadu",
+            "Telangana",
+            "Tripura",
+            "Uttar Pradesh",
+            "Uttarakhand",
+            "West Bengal"});
             this.comboBoxState.Location = new System.Drawing.Point(156, 233);
             this.comboBoxState.Name = "comboBoxState";
             this.comboBoxState.Size = new System.Drawing.Size(228, 25);
@@ -334,7 +364,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(463, 59);
+            this.label9.Location = new System.Drawing.Point(398, 53);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 20);
             this.label9.TabIndex = 26;
@@ -343,9 +373,9 @@ namespace Gorakshnath_Billing_System.UI
             // textSearch
             // 
             this.textSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSearch.Location = new System.Drawing.Point(557, 54);
+            this.textSearch.Location = new System.Drawing.Point(457, 54);
             this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(426, 25);
+            this.textSearch.Size = new System.Drawing.Size(367, 25);
             this.textSearch.TabIndex = 27;
             this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
@@ -416,12 +446,21 @@ namespace Gorakshnath_Billing_System.UI
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(866, 54);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 25);
+            this.dateTimePicker1.TabIndex = 33;
+            // 
             // frmSupplierMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1078, 532);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.comboBoxCountry);
             this.Controls.Add(this.button3);
@@ -501,5 +540,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox comboBoxCountry;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
