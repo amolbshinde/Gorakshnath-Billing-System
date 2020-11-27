@@ -73,7 +73,7 @@ namespace Gorakshnath_Billing_System.UI
                 sm.City = textCity.Text;
                 sm.State = comboBoxState.Text;
                 sm.Pincode = textPincode.Text;
-                sm.Country = txtCountry.Text;
+                sm.Country = comboBoxCountry.Text;
                 sm.Email = textEmail.Text;
                 sm.Phone_No = textPhone_No.Text;
                 sm.Contact_Person = textContact_Person.Text;
@@ -83,7 +83,7 @@ namespace Gorakshnath_Billing_System.UI
 
                 if (success == true)
                 {
-                    MessageBox.Show("Dealer Details Successfully Updated");
+                    MessageBox.Show("Supllier Details Successfully Updated");
                     Clear();
                 }
                 else
@@ -107,11 +107,11 @@ namespace Gorakshnath_Billing_System.UI
             sm.City = textCity.Text;
             sm.State = comboBoxState.Text;
             sm.Pincode = textPincode.Text;
-            sm.Country = txtCountry.Text;
+            sm.Country = comboBoxCountry.Text;
             sm.Email = textEmail.Text;
+            sm.Phone_No = textPhone_No.Text;
             sm.Contact_Person = textContact_Person.Text;
-            sm.Contact_No =textContact_No.Text;
-            sm.added_date = DateTime.Now;
+            sm.Contact_No =textContact_No.Text;            
             bool Success = smd.Insert(sm);
             if(Success==true)
             {
@@ -129,13 +129,15 @@ namespace Gorakshnath_Billing_System.UI
         }
         public void Clear()
         {
+            textSupplier_Id.Text = "";
             txtCompany_Name.Text="";
            textAddress.Text="";
             textCity.Text = "";
             comboBoxState.Text = "";
             textPincode.Text = "";
-            txtCountry.Text = "";
+            comboBoxCountry.Text = "";
             textEmail.Text = "";
+            textPhone_No.Text = "";
             textContact_Person.Text = "";
             textContact_No.Text = "";
         }
@@ -167,8 +169,8 @@ namespace Gorakshnath_Billing_System.UI
             textPincode.Text = dgvSupplier.Rows[rowIndex].Cells[5].Value.ToString();
             textPincode.ForeColor = Color.Black;
 
-            txtCountry.Text = dgvSupplier.Rows[rowIndex].Cells[6].Value.ToString();
-            txtCountry.ForeColor = Color.Black;
+            comboBoxCountry.Text = dgvSupplier.Rows[rowIndex].Cells[6].Value.ToString();
+            comboBoxCountry.ForeColor = Color.Black;
 
 
             textEmail.Text = dgvSupplier.Rows[rowIndex].Cells[7].Value.ToString();
@@ -200,6 +202,11 @@ namespace Gorakshnath_Billing_System.UI
                 DataTable dt = smd.Select();
                 dgvSupplier.DataSource = dt;
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }
 }
