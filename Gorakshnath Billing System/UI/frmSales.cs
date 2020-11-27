@@ -48,6 +48,7 @@ namespace Gorakshnath_Billing_System.UI
             txtGrandTotal.Text = "00.00";
             txtPaidAmount.Text = "00.00";
             txtReturnAmount.Text = "00.00";
+            //hello roja
         }
 
         public void save()
