@@ -55,6 +55,12 @@ namespace Gorakshnath_Billing_System.UI
             textAddress.Text = sup_b.address;
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //llllll
+        }
+
+
         private void textItemSearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = textItemSearch.Text;
