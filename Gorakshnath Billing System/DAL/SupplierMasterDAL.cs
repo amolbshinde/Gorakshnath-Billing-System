@@ -62,7 +62,7 @@ namespace Gorakshnath_Billing_System.DAL
                 string sql = "insert into Supplier_Master(CompanyName,Address,City,State,Pincode,Country,Email,Phone_No,Contact_Person,Contact_No) Values(@CompanyName,@Address,@City,@State,@Pincode,@Country,@Email,@Phone_No,@Contact_Person,@Contact_No)";
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
-
+                //
                 cmd.Parameters.AddWithValue("@CompanyName", sm.CompanyName);
                 cmd.Parameters.AddWithValue("@Address", sm.Address);
                 cmd.Parameters.AddWithValue("@City", sm.City);
