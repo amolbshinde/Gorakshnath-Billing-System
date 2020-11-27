@@ -237,6 +237,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textSupplier_Id.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSupplier_Id.Location = new System.Drawing.Point(156, 53);
             this.textSupplier_Id.Name = "textSupplier_Id";
+            this.textSupplier_Id.ReadOnly = true;
             this.textSupplier_Id.Size = new System.Drawing.Size(228, 25);
             this.textSupplier_Id.TabIndex = 14;
             // 
