@@ -28,7 +28,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 // Sql quesry to select all data from databse
-                String sql = "Select 3 from SupplierMaster";
+                String sql = "Select * from Supplier_Master";
 
                 // Creating SQL Command to execute Query 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -109,7 +109,7 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
-                string sql = "UPDATE  Supplier_Master set CompanyName=@CompanyName,Address=@Address,City=@City,State=@State,Pincode=@Pincode,Country=@Country,Email=@Email,Phone_No=@Phone_No,Contact_Person=@Contact_Person,Contact_No=@Contact_No whereid=@id";
+                string sql = "UPDATE  Supplier_Master set CompanyName=@CompanyName,Address=@Address,City=@City,State=@State,Pincode=@Pincode,Country=@Country,Email=@Email,Phone_No=@Phone_No,Contact_Person=@Contact_Person,Contact_No=@Contact_No where SupplierID=@id";
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
