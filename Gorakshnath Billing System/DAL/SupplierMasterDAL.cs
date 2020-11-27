@@ -159,6 +159,7 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
+                //
                 string sql = "Delete * from Supplier_Master where SupplierID=@SupplierID";
                 //passing query sqlcommand
                 SqlCommand cmd = new SqlCommand(sql, conn);
