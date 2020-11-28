@@ -93,6 +93,8 @@ namespace Gorakshnath_Billing_System.UI
                 subDiscount = subDiscount +((PurchasePrice * Qty)*discount)/100;
                 textSubDiscount.Text = subDiscount.ToString();
 
+                decimal gTotal = subTotal - subDiscount;
+                textGrandTotal.Text = gTotal.ToString();
 
                 textItemSearch.Text = "";
                 textItemName.Text = "";

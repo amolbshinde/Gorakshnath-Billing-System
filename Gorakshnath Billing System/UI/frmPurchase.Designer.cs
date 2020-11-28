@@ -42,7 +42,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.textSubTotal = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textGrandTotal = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -179,7 +179,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel6.Controls.Add(this.label33);
             this.panel6.Controls.Add(this.label32);
             this.panel6.Controls.Add(this.textSubTotal);
-            this.panel6.Controls.Add(this.textBox4);
+            this.panel6.Controls.Add(this.textGrandTotal);
             this.panel6.Controls.Add(this.button1);
             this.panel6.Controls.Add(this.label27);
             this.panel6.Controls.Add(this.label28);
@@ -259,14 +259,14 @@ namespace Gorakshnath_Billing_System.UI
             this.textSubTotal.Size = new System.Drawing.Size(110, 26);
             this.textSubTotal.TabIndex = 28;
             // 
-            // textBox4
+            // textGrandTotal
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(112, 135);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(110, 26);
-            this.textBox4.TabIndex = 27;
+            this.textGrandTotal.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textGrandTotal.Location = new System.Drawing.Point(112, 135);
+            this.textGrandTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textGrandTotal.Name = "textGrandTotal";
+            this.textGrandTotal.Size = new System.Drawing.Size(110, 26);
+            this.textGrandTotal.TabIndex = 27;
             // 
             // button1
             // 
@@ -1081,7 +1081,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox textSubTotal;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textGrandTotal;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
