@@ -114,5 +114,11 @@ namespace Gorakshnath_Billing_System
             frmEstimate estimate = new frmEstimate();
             estimate.Show();
         }
+
+        private void newDeliveryNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChallan challan = new frmChallan();
+            challan.Show();
+        }
     }
 }

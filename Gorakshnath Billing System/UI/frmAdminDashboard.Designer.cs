@@ -174,6 +174,7 @@ namespace Gorakshnath_Billing_System
             this.newDeliveryNoteToolStripMenuItem.Name = "newDeliveryNoteToolStripMenuItem";
             this.newDeliveryNoteToolStripMenuItem.Size = new System.Drawing.Size(354, 28);
             this.newDeliveryNoteToolStripMenuItem.Text = "New Delivery Note(Challan)";
+            this.newDeliveryNoteToolStripMenuItem.Click += new System.EventHandler(this.newDeliveryNoteToolStripMenuItem_Click);
             // 
             // searchAndManageDeliveryNoteToolStripMenuItem
             // 

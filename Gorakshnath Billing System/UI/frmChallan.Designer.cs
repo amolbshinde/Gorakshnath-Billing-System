@@ -250,7 +250,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBox2.Items.AddRange(new object[] {
             "GST",
             "Non GST"});
-            this.comboBox2.Location = new System.Drawing.Point(8, 57);
+            this.comboBox2.Location = new System.Drawing.Point(8, 55);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(236, 24);
@@ -330,6 +330,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(236, 27);
             this.textSearch.TabIndex = 7;
+            this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // label7
             // 
@@ -433,7 +434,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1447, 38);
+            this.panel1.Size = new System.Drawing.Size(1433, 38);
             this.panel1.TabIndex = 16;
             // 
             // pictureBox1
@@ -446,6 +447,7 @@ namespace Gorakshnath_Billing_System.UI
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -696,7 +698,7 @@ namespace Gorakshnath_Billing_System.UI
             // dgvAddedProducts
             // 
             this.dgvAddedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAddedProducts.Location = new System.Drawing.Point(21, 39);
+            this.dgvAddedProducts.Location = new System.Drawing.Point(11, 27);
             this.dgvAddedProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAddedProducts.Name = "dgvAddedProducts";
             this.dgvAddedProducts.RowHeadersWidth = 51;
@@ -779,10 +781,10 @@ namespace Gorakshnath_Billing_System.UI
             this.panel6.Controls.Add(this.button1);
             this.panel6.Controls.Add(this.label27);
             this.panel6.Controls.Add(this.label28);
-            this.panel6.Location = new System.Drawing.Point(1075, 646);
+            this.panel6.Location = new System.Drawing.Point(1074, 619);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(340, 269);
+            this.panel6.Size = new System.Drawing.Size(340, 289);
             this.panel6.TabIndex = 21;
             // 
             // panel5
@@ -797,10 +799,10 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5.Controls.Add(this.label24);
             this.panel5.Controls.Add(this.label23);
             this.panel5.Controls.Add(this.label22);
-            this.panel5.Location = new System.Drawing.Point(662, 649);
+            this.panel5.Location = new System.Drawing.Point(662, 623);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(407, 266);
+            this.panel5.Size = new System.Drawing.Size(407, 286);
             this.panel5.TabIndex = 20;
             // 
             // textBox3
@@ -887,7 +889,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4.Location = new System.Drawing.Point(5, 312);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1409, 329);
+            this.panel4.Size = new System.Drawing.Size(1409, 304);
             this.panel4.TabIndex = 19;
             // 
             // textGST
@@ -924,7 +926,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1447, 973);
+            this.ClientSize = new System.Drawing.Size(1433, 973);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.checkBox1);

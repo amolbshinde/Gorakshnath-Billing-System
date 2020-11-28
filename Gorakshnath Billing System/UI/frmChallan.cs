@@ -24,7 +24,24 @@ namespace Gorakshnath_Billing_System.UI
                 comboBox3.Enabled = false;
                 textGST.Enabled = false;
             }
+            else if (comboBox2.Text == "GST")
+            {
+                comboBox3.Enabled = true;
+                textGST.Enabled = true;
+
+            }
+                      
                 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
