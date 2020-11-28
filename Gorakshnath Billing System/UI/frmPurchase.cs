@@ -64,7 +64,9 @@ namespace Gorakshnath_Billing_System.UI
             // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
 
             String ProductName = textItemName.Text;
-            decimal Qty = decimal.Parse(textQuantity.Text);
+            decimal Qty;            
+            decimal.TryParse(textQuantity.Text, out Qty);
+            String Unit = comboBoxUnit.Text;
             decimal PurchasePrice = decimal.Parse(textPurchasePrice.Text);
             /*decimal*/string Discount = /*decimal.Parse(*/textDiscount.Text;
             /*decimal*/string TaxGST = /*decimal.Parse(*/textGst.Text;
@@ -82,7 +84,8 @@ namespace Gorakshnath_Billing_System.UI
             else
             {
                 //Add product to datagridview
-                transactionDT.Rows.Add(ProductName, Qty, PurchasePrice, Discount, TaxGST, TotalAmount);
+                transactionDT.Rows.Add(ProductName,Unit, Qty, PurchasePrice, Discount, TaxGST, TotalAmount);
+                dgvAddedProducts.DataSource = transactionDT;
 
             }
 
@@ -123,6 +126,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             //specify columns to our dataTable 
             transactionDT.Columns.Add("ProductName");
+            transactionDT.Columns.Add("Unit");
             transactionDT.Columns.Add("Quantity");
             transactionDT.Columns.Add("PurchasePrice");
             transactionDT.Columns.Add("Discount");

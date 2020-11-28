@@ -29,7 +29,7 @@ namespace Gorakshnath_Billing_System.DAL
 
             try
             {
-                string sql = "SELECT name, contact, email,address from tbl_supplier WHERE id LIKE '%" + keyword + "%' OR name LIKE '%" + keyword + "%'";
+                string sql = "SELECT name, contact, email,address from Supplier_Master WHERE id LIKE '%" + keyword + "%' OR name LIKE '%" + keyword + "%'";
 
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
 
@@ -58,7 +58,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
-        #region Method to get id of the Customer based on Name
+        #region Method to get id of the Supplier based on Name
         public customerBLL getCustomerIdFromName(string Name)
         {
             customerBLL c = new customerBLL();
@@ -67,7 +67,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT id FROM tbl_supplier WHERE name='" + Name + "'";
+                string sql = "SELECT id FROM Supplier_Master WHERE name='" + Name + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 con.Open();
                 adapter.Fill(dt);
