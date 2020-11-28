@@ -63,29 +63,35 @@ namespace Gorakshnath_Billing_System.UI
         {
             // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
 
-            String ProductName = textItemName.Text;
-            decimal Qty;            
-            decimal.TryParse(textQuantity.Text, out Qty);
+            String ProductName = textItemName.Text;            
             String Unit = comboBoxUnit.Text;
-            decimal PurchasePrice = decimal.Parse(textPurchasePrice.Text);
-            /*decimal*/string Discount = /*decimal.Parse(*/textDiscount.Text;
-            /*decimal*/string TaxGST = /*decimal.Parse(*/textGst.Text;
-            decimal TotalAmount = PurchasePrice * Qty;
-            textTotalAmount.Text = TotalAmount.ToString(); 
 
+            decimal Qty, PurchasePrice, discount, gst, TotalAmount;
+            decimal.TryParse(textQuantity.Text, out Qty);
+            decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
+            decimal.TryParse(textDiscount.Text, out discount);
+            decimal.TryParse(textGst.Text, out gst);
+            decimal.TryParse(textTotalAmount.Text, out TotalAmount);
 
-               // decimal.Parse();
 
             // CHECK PRODUCT IS SELECTED OR NOT 
-            if(ProductName=="")
+            if (ProductName=="")
             {
                 MessageBox.Show("Please Enter Item/Product Details");
             }
             else
             {
                 //Add product to datagridview
-                transactionDT.Rows.Add(ProductName,Unit, Qty, PurchasePrice, Discount, TaxGST, TotalAmount);
+                transactionDT.Rows.Add(ProductName,Unit, Qty, PurchasePrice, discount, gst, TotalAmount);
                 dgvAddedProducts.DataSource = transactionDT;
+
+                textItemName.Text = "";
+                comboBoxUnit.Text="";
+                textInventory.Text = "0";
+                textQuantity.Text = "";
+                textPurchasePrice.Text = "0";
+                textDiscount.Text = "";
+                textQuantity.Text = "0";
 
             }
 

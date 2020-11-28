@@ -341,7 +341,7 @@ namespace Gorakshnath_Billing_System.UI
             // txtRate
             // 
             this.txtRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRate.Location = new System.Drawing.Point(790, 29);
+            this.txtRate.Location = new System.Drawing.Point(617, 29);
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(129, 25);
             this.txtRate.TabIndex = 10;
