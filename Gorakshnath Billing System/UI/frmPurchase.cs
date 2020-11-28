@@ -90,5 +90,10 @@ namespace Gorakshnath_Billing_System.UI
         {
 
         }
+
+        private void frmPurchase_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
