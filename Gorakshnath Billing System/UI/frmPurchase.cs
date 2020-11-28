@@ -64,7 +64,9 @@ namespace Gorakshnath_Billing_System.UI
             // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
 
             String ProductName = textItemName.Text;
-            decimal Qty = decimal.Parse(textQuantity.Text);
+            decimal Qty;            
+            decimal.TryParse(textQuantity.Text, out Qty);
+            String Unit = comboBoxUnit.Text;
             decimal PurchasePrice = decimal.Parse(textPurchasePrice.Text);
             /*decimal*/string Discount = /*decimal.Parse(*/textDiscount.Text;
             /*decimal*/string TaxGST = /*decimal.Parse(*/textGst.Text;
@@ -82,7 +84,8 @@ namespace Gorakshnath_Billing_System.UI
             else
             {
                 //Add product to datagridview
-                transactionDT.Rows.Add(ProductName, Qty, PurchasePrice, Discount, TaxGST, TotalAmount);
+                transactionDT.Rows.Add(ProductName,Unit, Qty, PurchasePrice, Discount, TaxGST, TotalAmount);
+                dgvAddedProducts.DataSource = transactionDT;
 
             }
 
@@ -123,6 +126,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             //specify columns to our dataTable 
             transactionDT.Columns.Add("ProductName");
+            transactionDT.Columns.Add("Unit");
             transactionDT.Columns.Add("Quantity");
             transactionDT.Columns.Add("PurchasePrice");
             transactionDT.Columns.Add("Discount");
@@ -133,19 +137,82 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
         {
-            if(textQuantity.Text=="")
+            if (textQuantity.Text == "")
             {
                 textTotalAmount.Text = "";
             }
             else
-            { 
-            decimal PurchasePrice = decimal.Parse(textPurchasePrice.Text);
-            decimal Qty = decimal.Parse(textQuantity.Text);
-            decimal TotalAmount = PurchasePrice * Qty;
-            textTotalAmount.Text = TotalAmount.ToString();
+            {
+                decimal Qty, PurchasePrice;
+                decimal.TryParse(textQuantity.Text, out Qty);
+                decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
+                decimal TotalAmount = PurchasePrice * Qty;
+                textTotalAmount.Text = TotalAmount.ToString();
 
             }
 
+        }
+
+        private void textPurchasePrice_TextChanged(object sender, EventArgs e)
+        {
+            string check = textPurchasePrice.Text;
+            if (check == "")
+            {
+
+                MessageBox.Show("Please entery Purchase Price.");
+            }
+            else
+            {
+                decimal Qty, PurchasePrice;
+                decimal.TryParse(textQuantity.Text, out Qty);
+                decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
+                decimal total = Qty * PurchasePrice;
+
+                textTotalAmount.Text = total.ToString();
+            }
+        }
+
+        private void textDiscount_TextChanged(object sender, EventArgs e)
+        {
+            string value = textDiscount.Text;
+
+            if (value == "")
+            {
+                MessageBox.Show("Please Add Discount First");
+            }
+            else
+            {
+
+                decimal subTotal;
+                decimal.TryParse(textTotalAmount.Text, out subTotal);
+                decimal discount;
+                decimal.TryParse(textDiscount.Text, out discount);
+
+
+                decimal disTotal = Math.Round(((100 - discount) / 100) * subTotal, 2);
+
+                textTotalAmount.Text = disTotal.ToString();
+            }
+        }
+
+        private void textGst_TextChanged(object sender, EventArgs e)
+        {
+            string check = textGst.Text;
+            if (check == "")
+            {
+
+                MessageBox.Show("Please Enter the Gst First.");
+            }
+            else
+            {
+                decimal previousTotal;
+                decimal.TryParse(textTotalAmount.Text, out previousTotal);
+                decimal gst;
+                decimal.TryParse(textGst.Text, out gst);
+                decimal gstTotal = Math.Round(((100 + gst) / 100) * previousTotal, 2);
+
+                textTotalAmount.Text = gstTotal.ToString();
+            }
         }
     }
 }

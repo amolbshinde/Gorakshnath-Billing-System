@@ -160,6 +160,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textGst.Name = "textGst";
             this.textGst.Size = new System.Drawing.Size(56, 23);
             this.textGst.TabIndex = 31;
+            this.textGst.TextChanged += new System.EventHandler(this.textGst_TextChanged);
             // 
             // label18
             // 
@@ -406,6 +407,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textDiscount.Name = "textDiscount";
             this.textDiscount.Size = new System.Drawing.Size(56, 23);
             this.textDiscount.TabIndex = 29;
+            this.textDiscount.TextChanged += new System.EventHandler(this.textDiscount_TextChanged);
             // 
             // textAddress
             // 
@@ -473,6 +475,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textPurchasePrice.Name = "textPurchasePrice";
             this.textPurchasePrice.Size = new System.Drawing.Size(99, 23);
             this.textPurchasePrice.TabIndex = 27;
+            this.textPurchasePrice.TextChanged += new System.EventHandler(this.textPurchasePrice_TextChanged);
             // 
             // label16
             // 
