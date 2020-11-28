@@ -110,8 +110,11 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
+                int no = 1;
+                no = (transactionDT.Rows.Count) + 1;                
+
                 //Add product to datagridview
-                transactionDT.Rows.Add(ProductName, Unit, Qty, PurchasePrice, discount, gst, TotalAmount);
+                transactionDT.Rows.Add(no,ProductName, Unit, Qty, PurchasePrice, discount, gst, TotalAmount);
                 dgvAddedProducts.DataSource = transactionDT;
 
                 textItemName.Text = "";
@@ -122,6 +125,19 @@ namespace Gorakshnath_Billing_System.UI
                 textDiscount.Text = "";
                 textQuantity.Text = "0";
             }
+        }
+
+        private void frmChallan_Load(object sender, EventArgs e)
+        {
+            transactionDT.Columns.Add("Sr NO.");
+            transactionDT.Columns.Add("Product Name");
+            transactionDT.Columns.Add("Unit");
+            transactionDT.Columns.Add("Quntity");
+            transactionDT.Columns.Add("Pruchase Price");
+            transactionDT.Columns.Add("Discount");
+            transactionDT.Columns.Add("GST");
+            transactionDT.Columns.Add("Total");
+
         }
     }
 }
