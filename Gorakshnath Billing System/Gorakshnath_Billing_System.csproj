@@ -70,6 +70,12 @@
     <Compile Include="DAL\supplierDAL.cs" />
     <Compile Include="DAL\SupplierMasterDAL.cs" />
     <Compile Include="DAL\userDAL.cs" />
+    <Compile Include="UI\Estimate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Estimate.Designer.cs">
+      <DependentUpon>Estimate.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmAdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     <Compile Include="UI\ProductMaster.Designer.cs">
       <DependentUpon>ProductMaster.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Estimate.resx">
+      <DependentUpon>Estimate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmAdminDashboard.resx">
       <DependentUpon>frmAdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
