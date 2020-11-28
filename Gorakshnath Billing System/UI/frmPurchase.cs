@@ -19,7 +19,7 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
         }
 
-        supplierDAL sup_DAL = new supplierDAL();
+        SupplierMasterDAL smDAL = new SupplierMasterDAL();
         DataTable purchasedt = new DataTable();
 
         purchaseDAL pur_DAL = new purchaseDAL();
@@ -35,8 +35,9 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
+         //get search keyword from search text box
             string keyword = textSearch.Text;
-            if (keyword == "")
+            if (keyword == "")//clear all textboex
             {
                 textSupplierName.Text = "";
                 textAddress.Text = "";
@@ -45,19 +46,21 @@ namespace Gorakshnath_Billing_System.UI
                 return;
             }
 
-            supplierBLL sup_b = sup_DAL.searchsupplierforpurchase(keyword);
+            SupplierMasterBLL smBLL = smDAL.SearchSupplier(keyword);
 
 
 
-            textSupplierName.Text = sup_b.name;
-            textContact.Text = sup_b.contact;
-            textEmail.Text = sup_b.email;
-            textAddress.Text = sup_b.address;
+            textSupplierName.Text = smBLL.CompanyName;
+            textContact.Text = smBLL.Phone_No;
+            textEmail.Text = smBLL.Email;
+            textAddress.Text =smBLL.Address;
+
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //llllll11
+           // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
         }
 
 

@@ -221,7 +221,53 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+        #region method to search Supplier
+        public SupplierMasterBLL SearchSupplier (String keyword)
+        {
+            // creat aobject fo supplierMaster BLLL
 
+            SupplierMasterBLL sm = new SupplierMasterBLL();
+            //creating new Connection 
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            //create a data table to hold value 
+            DataTable dt = new DataTable();
+           
+
+            try
+            {
+                string sql="Select CompanyName,Phone_No,Email,Address from Supplier_Master where SupplierID like'%"+keyword+"%' OR CompanyName Like'%"+keyword+"%'";
+                //Sql data adapter to execute query
+                SqlDataAdapter adapter = new SqlDataAdapter(sql,conn);
+                //open connecton to databaase
+                conn.Open();
+
+                //transfer data from sql Data Adaptor to datatable
+                adapter.Fill(dt);
+                if(dt.Rows.Count>0)
+                {
+                    sm.CompanyName = dt.Rows[0]["CompanyName"].ToString();
+                    sm.Email = dt.Rows[0]["Email"].ToString();
+                    sm.Address = dt.Rows[0]["Address"].ToString();
+                    sm.Phone_No = dt.Rows[0]["Phone_No"].ToString();
+                }
+
+
+
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+             return sm;
+        }
+        #endregion
 
     }
 
