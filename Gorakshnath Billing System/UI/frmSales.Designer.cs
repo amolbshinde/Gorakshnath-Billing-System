@@ -341,7 +341,7 @@ namespace Gorakshnath_Billing_System.UI
             // txtRate
             // 
             this.txtRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRate.Location = new System.Drawing.Point(616, 29);
+            this.txtRate.Location = new System.Drawing.Point(790, 29);
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(129, 25);
             this.txtRate.TabIndex = 10;
@@ -581,7 +581,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 598);
+            this.ClientSize = new System.Drawing.Size(1238, 598);
             this.Controls.Add(this.pnlDataGridView);
             this.Controls.Add(this.pnlCalculatioin);
             this.Controls.Add(this.panel1);
