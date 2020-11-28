@@ -187,11 +187,9 @@ namespace Gorakshnath_Billing_System.UI
                 decimal.TryParse(textTotalAmount.Text, out subTotal);
                 decimal discount;
                 decimal.TryParse(textDiscount.Text, out discount);
-
-
                 decimal disTotal = Math.Round(((100 - discount) / 100) * subTotal, 2);
-
                 textTotalAmount.Text = disTotal.ToString();
+
             }
         }
 
