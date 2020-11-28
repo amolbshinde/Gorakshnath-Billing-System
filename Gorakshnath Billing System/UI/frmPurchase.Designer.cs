@@ -85,7 +85,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
@@ -104,14 +103,15 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textItemCode
@@ -193,7 +193,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel6.Location = new System.Drawing.Point(1076, 646);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(340, 256);
+            this.panel6.Size = new System.Drawing.Size(353, 256);
             this.panel6.TabIndex = 12;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
@@ -256,7 +256,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4.Location = new System.Drawing.Point(5, 315);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1413, 329);
+            this.panel4.Size = new System.Drawing.Size(1423, 329);
             this.panel4.TabIndex = 10;
             // 
             // dgvAddedProducts
@@ -592,7 +592,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Location = new System.Drawing.Point(9, 43);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1409, 154);
+            this.panel2.Size = new System.Drawing.Size(1419, 154);
             this.panel2.TabIndex = 8;
             // 
             // textBox6
@@ -715,18 +715,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label2.TabIndex = 0;
             this.label2.Text = "Supplier Details";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Gorakshnath_Billing_System.Properties.Resources._07_512;
-            this.pictureBox1.Location = new System.Drawing.Point(1379, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 34);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -746,7 +734,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1431, 38);
+            this.panel1.Size = new System.Drawing.Size(1441, 38);
             this.panel1.TabIndex = 7;
             // 
             // label14
@@ -817,7 +805,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Location = new System.Drawing.Point(7, 202);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1409, 108);
+            this.panel3.Size = new System.Drawing.Size(1421, 108);
             this.panel3.TabIndex = 9;
             // 
             // label31
@@ -927,11 +915,23 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox11.Size = new System.Drawing.Size(145, 30);
             this.textBox11.TabIndex = 34;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Gorakshnath_Billing_System.Properties.Resources._07_512;
+            this.pictureBox1.Location = new System.Drawing.Point(1379, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 34);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // frmPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1431, 935);
+            this.ClientSize = new System.Drawing.Size(1441, 941);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.checkBox1);
@@ -956,11 +956,11 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
