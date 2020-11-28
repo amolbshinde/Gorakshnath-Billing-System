@@ -68,17 +68,31 @@ namespace Gorakshnath_Billing_System.UI
                 String ProductName = textItemName.Text;
                 String Unit = comboBoxUnit.Text;
 
-                decimal Qty, PurchasePrice, discount, gst, TotalAmount;
+                decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
                 decimal.TryParse(textQuantity.Text, out Qty);
                 decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
                 decimal.TryParse(textDiscount.Text, out discount);
                 decimal.TryParse(textGst.Text, out gst);
                 decimal.TryParse(textTotalAmount.Text, out TotalAmount);
 
+                Amount = PurchasePrice * Qty;
 
+                int no = 1;
+                no = transactionDT.Rows.Count + 1;
                 //Add product to datagridview//
-                transactionDT.Rows.Add(ProductName, Unit, Qty, PurchasePrice, discount, gst, TotalAmount);
+                transactionDT.Rows.Add(no,ProductName, Unit, Qty, PurchasePrice, Amount, discount+"%", gst + "%", TotalAmount);
                 dgvAddedProducts.DataSource = transactionDT;
+
+                decimal subTotal;
+                decimal.TryParse(textSubTotal.Text,out subTotal);
+                subTotal = subTotal + Qty * PurchasePrice;
+                textSubTotal.Text = subTotal.ToString();
+
+                decimal subDiscount;
+                decimal.TryParse(textSubDiscount.Text, out subDiscount);
+                subDiscount = subDiscount +((PurchasePrice * Qty)*discount)/100;
+                textSubDiscount.Text = subDiscount.ToString();
+
 
                 textItemSearch.Text = "";
                 textItemName.Text = "";
@@ -133,13 +147,15 @@ namespace Gorakshnath_Billing_System.UI
         private void frmPurchase_Load(object sender, EventArgs e)
         {
             //specify columns to our dataTable 
+            transactionDT.Columns.Add("Sr. No.");
             transactionDT.Columns.Add("ProductName");
             transactionDT.Columns.Add("Unit");
             transactionDT.Columns.Add("Quantity");
             transactionDT.Columns.Add("PurchasePrice");
-            transactionDT.Columns.Add("Discount");
-            transactionDT.Columns.Add("Tax%");
-            transactionDT.Columns.Add("Total");           
+            transactionDT.Columns.Add("Amount");
+            transactionDT.Columns.Add("(-)Discount");
+            transactionDT.Columns.Add("(+)Tax%");
+            transactionDT.Columns.Add("(=)Total");           
         }
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
