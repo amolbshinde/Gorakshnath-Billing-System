@@ -143,10 +143,14 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                decimal Qty, PurchasePrice;
+                decimal Qty, PurchasePrice, discount, gst;
                 decimal.TryParse(textQuantity.Text, out Qty);
                 decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
-                decimal TotalAmount = PurchasePrice * Qty;
+                decimal.TryParse(textDiscount.Text, out discount);
+                decimal.TryParse(textGst.Text, out gst);
+
+                decimal TotalAmount = Math.Round(((100 - discount) / 100) * ((100 + gst) / 100) * (PurchasePrice * Qty), 2);
+
                 textTotalAmount.Text = TotalAmount.ToString();
 
             }
@@ -163,12 +167,15 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                decimal Qty, PurchasePrice;
+                decimal Qty, PurchasePrice, discount, gst;
                 decimal.TryParse(textQuantity.Text, out Qty);
                 decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
-                decimal total = Qty * PurchasePrice;
+                decimal.TryParse(textDiscount.Text, out discount);
+                decimal.TryParse(textGst.Text, out gst);
 
-                textTotalAmount.Text = total.ToString();
+                decimal TotalAmount = Math.Round(((100 - discount) / 100) * ((100 + gst) / 100) * (PurchasePrice * Qty), 2);
+
+                textTotalAmount.Text = TotalAmount.ToString();
             }
         }
 
@@ -183,12 +190,15 @@ namespace Gorakshnath_Billing_System.UI
             else
             {
 
-                decimal subTotal;
-                decimal.TryParse(textTotalAmount.Text, out subTotal);
-                decimal discount;
+                decimal Qty, PurchasePrice, discount, gst;
+                decimal.TryParse(textQuantity.Text, out Qty);
+                decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
                 decimal.TryParse(textDiscount.Text, out discount);
-                decimal disTotal = Math.Round(((100 - discount) / 100) * subTotal, 2);
-                textTotalAmount.Text = disTotal.ToString();
+                decimal.TryParse(textGst.Text, out gst);
+
+                decimal TotalAmount = Math.Round(((100 - discount) / 100) * ((100 + gst) / 100) * (PurchasePrice * Qty), 2);
+
+                textTotalAmount.Text = TotalAmount.ToString();
 
             }
         }
@@ -203,13 +213,15 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                decimal previousTotal;
-                decimal.TryParse(textTotalAmount.Text, out previousTotal);
-                decimal gst;
+                decimal Qty, PurchasePrice, discount, gst;
+                decimal.TryParse(textQuantity.Text, out Qty);
+                decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
+                decimal.TryParse(textDiscount.Text, out discount);
                 decimal.TryParse(textGst.Text, out gst);
-                decimal gstTotal = Math.Round(((100 + gst) / 100) * previousTotal, 2);
 
-                textTotalAmount.Text = gstTotal.ToString();
+                decimal TotalAmount = Math.Round(((100 - discount) / 100) * ((100 + gst) / 100) * (PurchasePrice * Qty), 2);
+
+                textTotalAmount.Text = TotalAmount.ToString();
             }
         }
     }
