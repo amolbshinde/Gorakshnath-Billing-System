@@ -18,8 +18,9 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
+        DataTable transactionDT = new DataTable();
 
-        supplierDAL sup_DAL = new supplierDAL();
+        SupplierMasterDAL smDAL = new SupplierMasterDAL();
         DataTable purchasedt = new DataTable();
 
         purchaseDAL pur_DAL = new purchaseDAL();
@@ -35,8 +36,9 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
+         //get search keyword from search text box
             string keyword = textSearch.Text;
-            if (keyword == "")
+            if (keyword == "")//clear all textboex
             {
                 textSupplierName.Text = "";
                 textAddress.Text = "";
@@ -45,19 +47,45 @@ namespace Gorakshnath_Billing_System.UI
                 return;
             }
 
-            supplierBLL sup_b = sup_DAL.searchsupplierforpurchase(keyword);
+            SupplierMasterBLL smBLL = smDAL.SearchSupplier(keyword);
 
 
 
-            textSupplierName.Text = sup_b.name;
-            textContact.Text = sup_b.contact;
-            textEmail.Text = sup_b.email;
-            textAddress.Text = sup_b.address;
+            textSupplierName.Text = smBLL.CompanyName;
+            textContact.Text = smBLL.Phone_No;
+            textEmail.Text = smBLL.Email;
+            textAddress.Text =smBLL.Address;
+
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //have to wor
+            // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
+
+            String ProductName = textItemName.Text;
+            decimal Qty = decimal.Parse(textQuantity.Text);
+            decimal PurchasePrice = decimal.Parse(textPurchasePrice.Text);
+            /*decimal*/string Discount = /*decimal.Parse(*/textDiscount.Text;
+            /*decimal*/string TaxGST = /*decimal.Parse(*/textGst.Text;
+            decimal TotalAmount = PurchasePrice * Qty;
+            textTotalAmount.Text = TotalAmount.ToString(); 
+
+
+               // decimal.Parse();
+
+            // CHECK PRODUCT IS SELECTED OR NOT 
+            if(ProductName=="")
+            {
+                MessageBox.Show("Please Enter Item/Product Details");
+            }
+            else
+            {
+                //Add product to datagridview
+                transactionDT.Rows.Add(ProductName, Qty, PurchasePrice, Discount, TaxGST, TotalAmount);
+
+            }
+
         }
 
 
@@ -88,6 +116,35 @@ namespace Gorakshnath_Billing_System.UI
 
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void frmPurchase_Load(object sender, EventArgs e)
+        {
+            //specify columns to our dataTable 
+            transactionDT.Columns.Add("ProductName");
+            transactionDT.Columns.Add("Quantity");
+            transactionDT.Columns.Add("PurchasePrice");
+            transactionDT.Columns.Add("Discount");
+            transactionDT.Columns.Add("Tax%");
+            transactionDT.Columns.Add("Total");
+           
+        }
+
+        private void textQuantity_TextChanged(object sender, EventArgs e)
+        {
+            if(textQuantity.Text=="")
+            {
+                textTotalAmount.Text = "";
+            }
+            else
+            { 
+            decimal PurchasePrice = decimal.Parse(textPurchasePrice.Text);
+            decimal Qty = decimal.Parse(textQuantity.Text);
+            decimal TotalAmount = PurchasePrice * Qty;
+            textTotalAmount.Text = TotalAmount.ToString();
+
+            }
 
         }
     }
