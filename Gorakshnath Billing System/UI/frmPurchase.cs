@@ -49,50 +49,50 @@ namespace Gorakshnath_Billing_System.UI
 
             SupplierMasterBLL smBLL = smDAL.SearchSupplier(keyword);
 
-
-
             textSupplierName.Text = smBLL.CompanyName;
             textContact.Text = smBLL.Phone_No;
             textEmail.Text = smBLL.Email;
             textAddress.Text =smBLL.Address;
 
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {
-            // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
-
-            String ProductName = textItemName.Text;            
-            String Unit = comboBoxUnit.Text;
-
-            decimal Qty, PurchasePrice, discount, gst, TotalAmount;
-            decimal.TryParse(textQuantity.Text, out Qty);
-            decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
-            decimal.TryParse(textDiscount.Text, out discount);
-            decimal.TryParse(textGst.Text, out gst);
-            decimal.TryParse(textTotalAmount.Text, out TotalAmount);
+        {        
 
 
             // CHECK PRODUCT IS SELECTED OR NOT 
-            if (ProductName=="")
+            if (textItemName.Text != "")
             {
-                MessageBox.Show("Please Enter Item/Product Details");
+                // get Product name,unit ,Qty, price , Discount ,Tax. Amount to datagrid view
+
+                String ProductName = textItemName.Text;
+                String Unit = comboBoxUnit.Text;
+
+                decimal Qty, PurchasePrice, discount, gst, TotalAmount;
+                decimal.TryParse(textQuantity.Text, out Qty);
+                decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
+                decimal.TryParse(textDiscount.Text, out discount);
+                decimal.TryParse(textGst.Text, out gst);
+                decimal.TryParse(textTotalAmount.Text, out TotalAmount);
+
+
+                //Add product to datagridview
+                transactionDT.Rows.Add(ProductName, Unit, Qty, PurchasePrice, discount, gst, TotalAmount);
+                dgvAddedProducts.DataSource = transactionDT;
+
+                textItemSearch.Text = "";
+                textItemName.Text = "";
+                comboBoxUnit.Text = "";
+                textInventory.Text = "0";
+                textQuantity.Text = "0";
+                textPurchasePrice.Text = "0";
+                textDiscount.Text = "0";
+                textQuantity.Text = "0";
+                textGst.Text = "0";
             }
             else
             {
-                //Add product to datagridview
-                transactionDT.Rows.Add(ProductName,Unit, Qty, PurchasePrice, discount, gst, TotalAmount);
-                dgvAddedProducts.DataSource = transactionDT;
-
-                textItemName.Text = "";
-                comboBoxUnit.Text="";
-                textInventory.Text = "0";
-                textQuantity.Text = "";
-                textPurchasePrice.Text = "0";
-                textDiscount.Text = "";
-                textQuantity.Text = "0";
-
+                MessageBox.Show("Please Enter Item/Product Details");                
             }
 
         }
@@ -109,6 +109,8 @@ namespace Gorakshnath_Billing_System.UI
                 textInventory.Text = "0";
                 textPurchasePrice.Text = "0";
                 textQuantity.Text = "0";
+                textDiscount.Text = "0";
+                textGst.Text = "0";
                 return;
             }
 
@@ -137,8 +139,7 @@ namespace Gorakshnath_Billing_System.UI
             transactionDT.Columns.Add("PurchasePrice");
             transactionDT.Columns.Add("Discount");
             transactionDT.Columns.Add("Tax%");
-            transactionDT.Columns.Add("Total");
-           
+            transactionDT.Columns.Add("Total");           
         }
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
