@@ -80,5 +80,15 @@ namespace Gorakshnath_Billing_System.UI
             textInventory.Text = p.qty.ToString();
             textPurchasePrice.Text = p.rate.ToString();
         }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
