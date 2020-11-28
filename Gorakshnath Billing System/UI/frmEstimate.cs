@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.UI
 {
-    public partial class Estimate : Form
+    public partial class frmEstimate : Form
     {
-        public Estimate()
+        public frmEstimate()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

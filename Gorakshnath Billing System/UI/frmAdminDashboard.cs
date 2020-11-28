@@ -108,5 +108,11 @@ namespace Gorakshnath_Billing_System
             frmSupplierMaster supplierMaster = new frmSupplierMaster();
             supplierMaster.Show();
         }
+
+        private void newQuotationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEstimate estimate = new frmEstimate();
+            estimate.Show();
+        }
     }
 }
