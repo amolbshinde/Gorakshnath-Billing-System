@@ -76,7 +76,7 @@ namespace Gorakshnath_Billing_System.UI
                 decimal.TryParse(textTotalAmount.Text, out TotalAmount);
 
 
-                //Add product to datagridview
+                //Add product to datagridview//
                 transactionDT.Rows.Add(ProductName, Unit, Qty, PurchasePrice, discount, gst, TotalAmount);
                 dgvAddedProducts.DataSource = transactionDT;
 
