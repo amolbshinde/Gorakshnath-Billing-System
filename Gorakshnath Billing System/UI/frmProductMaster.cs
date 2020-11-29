@@ -44,5 +44,6 @@ namespace Gorakshnath_Billing_System.UI
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+            //
     }   }
 }
