@@ -26,12 +26,8 @@ namespace Gorakshnath_Billing_System.UI
         {
 
         }
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
+        private void clear()
         {
             txtProduct_ID.Text = "";
             txtProduct_Name.Text = "";
@@ -44,6 +40,39 @@ namespace Gorakshnath_Billing_System.UI
             txtMin_Sales_Price.Text = "";
             comboUnit.Text = "";
             txtOpening_Stock.Text = "";
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            pBLL.Product_Group = comboProduct_Group.Text;
+            pBLL.Brand = comboBrand.Text;
+            pBLL.Item_Code = txtItem_Code.Text;
+            pBLL.Product_Name = txtProduct_Name.Text;
+            pBLL.HSN_Code = textHSN_Code.Text;
+            pBLL.Purchase_Price = decimal.Parse(txtPurchase_Price.Text);
+            pBLL.Sales_Price = decimal.Parse(txtSales_Price.Text);
+            pBLL.Min_Sales_Price = decimal.Parse(txtMin_Sales_Price.Text);
+            pBLL.Unit = comboUnit.Text;
+            pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text);
+
+            bool Success = pDAL.Insert(pBLL);
+
+            if (Success == true)
+            {
+                MessageBox.Show("Product Details Successfully Added");
+                clear();
+            }
+            else
+            {
+                MessageBox.Show("Failed to Added Product Details");
+            }
+
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clear();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
