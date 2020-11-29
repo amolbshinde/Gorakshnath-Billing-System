@@ -146,11 +146,11 @@
     <Compile Include="UI\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ProductMaster.cs">
+    <Compile Include="UI\frmProductMaster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ProductMaster.Designer.cs">
-      <DependentUpon>ProductMaster.cs</DependentUpon>
+    <Compile Include="UI\frmProductMaster.Designer.cs">
+      <DependentUpon>frmProductMaster.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="UI\frmChallan.resx">
       <DependentUpon>frmChallan.cs</DependentUpon>
@@ -198,8 +198,8 @@
     <EmbeddedResource Include="UI\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ProductMaster.resx">
-      <DependentUpon>ProductMaster.cs</DependentUpon>
+    <EmbeddedResource Include="UI\frmProductMaster.resx">
+      <DependentUpon>frmProductMaster.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

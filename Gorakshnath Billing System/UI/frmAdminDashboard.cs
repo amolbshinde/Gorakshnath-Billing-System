@@ -60,7 +60,8 @@ namespace Gorakshnath_Billing_System
 
         private void addNewProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            frmProductMaster productMaster = new frmProductMaster();
+            productMaster.Show();
         }
 
         private void manageCategoriesToolStripMenuItem_Click(object sender, EventArgs e)

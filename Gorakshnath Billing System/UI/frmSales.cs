@@ -28,6 +28,7 @@ namespace Gorakshnath_Billing_System.UI
         productDAL pDAL = new productDAL();
         private void clear()
         {
+            //Clear all detailsghghghfghfgf
             dgvAddedProduct.DataSource = null;
             dgvAddedProduct.Rows.Clear();
             salesdt.Rows.Clear();
@@ -48,7 +49,7 @@ namespace Gorakshnath_Billing_System.UI
             txtGrandTotal.Text = "00.00";
             txtPaidAmount.Text = "00.00";
             txtReturnAmount.Text = "00.00";
-            //hello roja
+            
         }
 
         public void save()
