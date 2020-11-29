@@ -127,7 +127,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Location = new System.Drawing.Point(14, 54);
             this.panel2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(741, 391);
+            this.panel2.Size = new System.Drawing.Size(769, 440);
             this.panel2.TabIndex = 35;
             // 
             // textHSN_Code
@@ -145,7 +145,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label16.Location = new System.Drawing.Point(75, 329);
+            this.label16.Location = new System.Drawing.Point(87, 263);
             this.label16.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(102, 25);
@@ -290,7 +290,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Location = new System.Drawing.Point(21, 466);
+            this.panel3.Location = new System.Drawing.Point(14, 504);
             this.panel3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(751, 218);
@@ -382,7 +382,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5.Controls.Add(this.txtOpening_Stock);
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label15);
-            this.panel5.Location = new System.Drawing.Point(21, 692);
+            this.panel5.Location = new System.Drawing.Point(23, 697);
             this.panel5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(751, 162);
@@ -556,10 +556,10 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
