@@ -21,6 +21,10 @@ namespace Gorakshnath_Billing_System.UI
         {
 
         }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -39,8 +43,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Close();///
-            //close this windowjhjhjhjhjh
-        }
-    }
+            this.Close();
+            //
+    }   }
 }
