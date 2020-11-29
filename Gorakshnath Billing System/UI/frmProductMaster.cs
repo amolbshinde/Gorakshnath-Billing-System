@@ -85,5 +85,39 @@ namespace Gorakshnath_Billing_System.UI
         {
 
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string Product_ID = txtProduct_ID.Text;
+            if (Product_ID != "" && Product_ID != "Auto Genrated")
+            {
+                pBLL.Product_Group = comboProduct_Group.Text;
+                pBLL.Brand = comboBrand.Text;
+                pBLL.Item_Code = txtItem_Code.Text;
+                pBLL.Product_Name = txtProduct_Name.Text;
+                pBLL.HSN_Code = textHSN_Code.Text;
+                pBLL.Purchase_Price = decimal.Parse(txtPurchase_Price.Text);
+                pBLL.Sales_Price = decimal.Parse(txtSales_Price.Text);
+                pBLL.Min_Sales_Price = decimal.Parse(txtMin_Sales_Price.Text);
+                pBLL.Unit = comboUnit.Text;
+                pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text);
+
+                bool Success = pDAL.Update(pBLL);
+
+                if (Success == true)
+                {
+                    MessageBox.Show("Product Details Successfully Updated");
+                    clear();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to Update Product Details");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select Details to Update");
+            }
+        }
     }
 }
