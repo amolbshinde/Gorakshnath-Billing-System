@@ -145,7 +145,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label16.Location = new System.Drawing.Point(87, 263);
+            this.label16.Location = new System.Drawing.Point(128, 319);
             this.label16.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(102, 25);
@@ -167,7 +167,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label10.Location = new System.Drawing.Point(56, 41);
+            this.label10.Location = new System.Drawing.Point(186, 46);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(101, 25);
@@ -235,7 +235,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label7.Location = new System.Drawing.Point(56, 174);
+            this.label7.Location = new System.Drawing.Point(128, 218);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 25);
@@ -248,7 +248,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label4.Location = new System.Drawing.Point(56, 128);
+            this.label4.Location = new System.Drawing.Point(186, 162);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 25);
@@ -261,7 +261,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label3.Location = new System.Drawing.Point(56, 222);
+            this.label3.Location = new System.Drawing.Point(115, 277);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 25);
@@ -274,7 +274,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label2.Location = new System.Drawing.Point(56, 87);
+            this.label2.Location = new System.Drawing.Point(140, 109);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 25);
