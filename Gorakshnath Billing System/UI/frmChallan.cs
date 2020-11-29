@@ -139,5 +139,103 @@ namespace Gorakshnath_Billing_System.UI
             transactionDT.Columns.Add("Total");
 
         }
+
+        public void save()
+        {
+            purchaseBLL pBLL = new purchaseBLL();
+
+            string cname = textSupplierName.Text;
+            if (cname != "")
+            {
+                customerBLL c = cDAL.getCustomerIdFromName(cname);
+
+                sales.salesdate = dtpBillDate.Value;
+                sales.custid = c.id;
+                sales.grandtotal = decimal.Parse(txtGrandTotal.Text);
+                sales.gst = decimal.Parse(txtGst.Text);
+                sales.discount = decimal.Parse(txtDiscount.Text);
+
+                sales.salesdetails = salesdt;
+                bool isSuccess = false;
+
+                // using (TransactionScope scope = new TransactionScope())
+                {
+                    int salesid = -1;
+                    bool b = s.insertsales(sales, out salesid);
+                    for (int i = 0; i < salesdt.Rows.Count; i++)
+                    {
+                        salesdetailsBLL sdb = new salesdetailsBLL();
+                        string productName = salesdt.Rows[i][1].ToString();
+
+                        productBLL p = pDAL.GetProductIDFromName(productName);
+
+                        sdb.productid = p.id;
+                        sdb.rate = decimal.Parse(salesdt.Rows[i][2].ToString());
+                        sdb.qty = decimal.Parse(salesdt.Rows[i][3].ToString());
+                        sdb.total = Math.Round(decimal.Parse(salesdt.Rows[i][4].ToString()), 2);
+                        sdb.custid = c.id;
+                        sdb.addeddate = dtpBillDate.Value;
+
+                        if (b == true)
+                        {
+                            bool x = pDAL.DecreaseProduct(sdb.productid, sdb.qty);
+                        }
+
+                        bool y = sd.insertsalesdetails(sdb);
+                        isSuccess = b && y;
+                    }
+                    if (isSuccess == true)
+                    {
+                        //scope.Complete();
+                        MessageBox.Show("Transaction Completed");
+                        clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Transaction Failed");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select Customer Details");
+            }
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            //Validate Supplier details are there or not 
+
+            if (textSupplierName.Text != "")
+            {
+                if (dgvAddedProducts.Rows.Count != 0)
+                {
+                    //save fun
+                    save();
+                }
+                else
+                {
+                    MessageBox.Show("Please Add Product Details");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter Supplier Details");
+            }
+
+
+
+
+            //get data from dataGrid View
+
+            //check product is already available in stock or not
+
+            //
+            //if yes update the quantity if no add new product in stock 
+
+            //also add details in PTransactions and PTransaction Detail
+        }
     }
 }
