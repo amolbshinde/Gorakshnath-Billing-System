@@ -141,13 +141,13 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         public void save()
-        {
+        {/*
             purchaseBLL pBLL = new purchaseBLL();
 
             string cname = textSupplierName.Text;
             if (cname != "")
             {
-                /*
+                
                 customerBLL c = cDAL.getCustomerIdFromName(cname);
 
                 sales.salesdate = dtpBillDate.Value;
