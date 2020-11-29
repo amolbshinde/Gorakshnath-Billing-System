@@ -51,6 +51,7 @@
     <Compile Include="BLL\customerBLL.cs" />
     <Compile Include="BLL\loginBLL.cs" />
     <Compile Include="BLL\productBLL.cs" />
+    <Compile Include="BLL\ProductMasterBLL.cs" />
     <Compile Include="BLL\purchaseBLL.cs" />
     <Compile Include="BLL\purchasedetailsBLL.cs" />
     <Compile Include="BLL\salesBLL.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="BLL\SupplierMasterBLL.cs" />
     <Compile Include="BLL\userBLL.cs" />
     <Compile Include="DAL\categoriesDAL.cs" />
+    <Compile Include="DAL\ProductMasterDAL.cs" />
     <Compile Include="DAL\customerDAL.cs" />
     <Compile Include="DAL\DGVPrinter.cs" />
     <Compile Include="DAL\loginDAL.cs" />
