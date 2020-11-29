@@ -147,6 +147,7 @@ namespace Gorakshnath_Billing_System.UI
             string cname = textSupplierName.Text;
             if (cname != "")
             {
+                /*
                 customerBLL c = cDAL.getCustomerIdFromName(cname);
 
                 sales.salesdate = dtpBillDate.Value;
@@ -200,6 +201,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Select Customer Details");
             }
+                */
         }
 
 
