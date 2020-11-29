@@ -50,5 +50,11 @@ namespace Gorakshnath_Billing_System.UI
         {
             this.Close();
             ///
-    }   }
+    }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
