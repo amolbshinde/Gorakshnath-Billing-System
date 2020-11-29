@@ -192,34 +192,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboProduct_Group.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboProduct_Group.FormattingEnabled = true;
             this.comboProduct_Group.Items.AddRange(new object[] {
-            "Andhra Pradesh",
-            "Arunachal Pradesh",
-            "Assam",
-            "Bihar",
-            "Chhattisgarh",
-            "Goa",
-            "Gujarat",
-            "Haryana",
-            "Himachal Pradesh",
-            "Jharkhand",
-            "Karnataka",
-            "Kerala",
-            "Madhya Pradesh",
-            "Maharashtra",
-            "Manipur",
-            "Meghalaya",
-            "Mizoram",
-            "Nagaland",
-            "Odisha",
-            "Punjab",
-            "Rajasthan",
-            "Sikkim",
-            "Tamil Nadu",
-            "Telangana",
-            "Tripura",
-            "Uttar Pradesh",
-            "Uttarakhand",
-            "West Bengal"});
+            "Cement"});
             this.comboProduct_Group.Location = new System.Drawing.Point(224, 85);
             this.comboProduct_Group.Margin = new System.Windows.Forms.Padding(4);
             this.comboProduct_Group.Name = "comboProduct_Group";
@@ -231,34 +204,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBrand.FormattingEnabled = true;
             this.comboBrand.Items.AddRange(new object[] {
-            "Andhra Pradesh",
-            "Arunachal Pradesh",
-            "Assam",
-            "Bihar",
-            "Chhattisgarh",
-            "Goa",
-            "Gujarat",
-            "Haryana",
-            "Himachal Pradesh",
-            "Jharkhand",
-            "Karnataka",
-            "Kerala",
-            "Madhya Pradesh",
-            "Maharashtra",
-            "Manipur",
-            "Meghalaya",
-            "Mizoram",
-            "Nagaland",
-            "Odisha",
-            "Punjab",
-            "Rajasthan",
-            "Sikkim",
-            "Tamil Nadu",
-            "Telangana",
-            "Tripura",
-            "Uttar Pradesh",
-            "Uttarakhand",
-            "West Bengal"});
+            "Ultratech"});
             this.comboBrand.Location = new System.Drawing.Point(224, 128);
             this.comboBrand.Margin = new System.Windows.Forms.Padding(4);
             this.comboBrand.Name = "comboBrand";
