@@ -139,5 +139,15 @@ namespace Gorakshnath_Billing_System.UI
             transactionDT.Columns.Add("Total");
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //check product is already available in stock or not
+
+            //
+            //if yes update the quantity if no add new product in stock 
+
+            //also add details in PTransactions and PTransaction Detail
+        }
     }
 }
