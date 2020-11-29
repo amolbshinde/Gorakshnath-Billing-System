@@ -68,17 +68,33 @@ namespace Gorakshnath_Billing_System.UI
                 String ProductName = textItemName.Text;
                 String Unit = comboBoxUnit.Text;
 
-                decimal Qty, PurchasePrice, discount, gst, TotalAmount;
+                decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
                 decimal.TryParse(textQuantity.Text, out Qty);
                 decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
                 decimal.TryParse(textDiscount.Text, out discount);
                 decimal.TryParse(textGst.Text, out gst);
                 decimal.TryParse(textTotalAmount.Text, out TotalAmount);
 
+                Amount = PurchasePrice * Qty;
 
-                //Add product to datagridview
-                transactionDT.Rows.Add(ProductName, Unit, Qty, PurchasePrice, discount, gst, TotalAmount);
+                int no = 1;
+                no = transactionDT.Rows.Count + 1;
+                //Add product to datagridview//
+                transactionDT.Rows.Add(no,ProductName, Unit, Qty, PurchasePrice, Amount, discount+"%", gst + "%", TotalAmount);
                 dgvAddedProducts.DataSource = transactionDT;
+
+                decimal subTotal;
+                decimal.TryParse(textSubTotal.Text,out subTotal);
+                subTotal = subTotal + Qty * PurchasePrice;
+                textSubTotal.Text = subTotal.ToString();
+
+                decimal subDiscount;
+                decimal.TryParse(textSubDiscount.Text, out subDiscount);
+                subDiscount = subDiscount +((PurchasePrice * Qty)*discount)/100;
+                textSubDiscount.Text = subDiscount.ToString();
+
+                decimal gTotal = subTotal - subDiscount;
+                textGrandTotal.Text = gTotal.ToString();
 
                 textItemSearch.Text = "";
                 textItemName.Text = "";
@@ -133,13 +149,15 @@ namespace Gorakshnath_Billing_System.UI
         private void frmPurchase_Load(object sender, EventArgs e)
         {
             //specify columns to our dataTable 
+            transactionDT.Columns.Add("Sr. No.");
             transactionDT.Columns.Add("ProductName");
             transactionDT.Columns.Add("Unit");
             transactionDT.Columns.Add("Quantity");
             transactionDT.Columns.Add("PurchasePrice");
-            transactionDT.Columns.Add("Discount");
-            transactionDT.Columns.Add("Tax%");
-            transactionDT.Columns.Add("Total");           
+            transactionDT.Columns.Add("Amount");
+            transactionDT.Columns.Add("(-)Discount");
+            transactionDT.Columns.Add("(+)Tax%");
+            transactionDT.Columns.Add("(=)Total");           
         }
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
@@ -156,7 +174,7 @@ namespace Gorakshnath_Billing_System.UI
                 decimal.TryParse(textDiscount.Text, out discount);
                 decimal.TryParse(textGst.Text, out gst);
 
-                decimal TotalAmount = Math.Round(((100 - discount) / 100) * ((100 + gst) / 100) * (PurchasePrice * Qty), 2);
+                decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100)*(PurchasePrice * Qty)), 2);
 
                 textTotalAmount.Text = TotalAmount.ToString();
 
@@ -180,7 +198,7 @@ namespace Gorakshnath_Billing_System.UI
                 decimal.TryParse(textDiscount.Text, out discount);
                 decimal.TryParse(textGst.Text, out gst);
 
-                decimal TotalAmount = Math.Round(((100 - discount) / 100) * ((100 + gst) / 100) * (PurchasePrice * Qty), 2);
+                decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (PurchasePrice * Qty)), 2);
 
                 textTotalAmount.Text = TotalAmount.ToString();
             }
@@ -203,7 +221,7 @@ namespace Gorakshnath_Billing_System.UI
                 decimal.TryParse(textDiscount.Text, out discount);
                 decimal.TryParse(textGst.Text, out gst);
 
-                decimal TotalAmount = Math.Round(((100 - discount) / 100) * ((100 + gst) / 100) * (PurchasePrice * Qty), 2);
+                decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (PurchasePrice * Qty)), 2);
 
                 textTotalAmount.Text = TotalAmount.ToString();
 
@@ -226,7 +244,7 @@ namespace Gorakshnath_Billing_System.UI
                 decimal.TryParse(textDiscount.Text, out discount);
                 decimal.TryParse(textGst.Text, out gst);
 
-                decimal TotalAmount = Math.Round(((100 - discount) / 100) * ((100 + gst) / 100) * (PurchasePrice * Qty), 2);
+                decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (PurchasePrice * Qty)), 2);
 
                 textTotalAmount.Text = TotalAmount.ToString();
             }
