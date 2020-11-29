@@ -28,7 +28,7 @@ namespace Gorakshnath_Billing_System.UI
         productDAL pDAL = new productDAL();
         private void clear()
         {
-            //Clear all detailsghghghfghfgfdffd
+            //Clear all details
             dgvAddedProduct.DataSource = null;
             dgvAddedProduct.Rows.Clear();
             salesdt.Rows.Clear();
@@ -120,6 +120,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 if(dgvAddedProduct.Rows.Count!=0)
                 {
+                    //save fun
                     save();
                 }
                 else

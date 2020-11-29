@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gorakshnath_Billing_System.BLL;
+using Gorakshnath_Billing_System.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +18,10 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
+        ProductMasterBLL pBLL = new ProductMasterBLL();
+        ProductMasterDAL pDAL = new ProductMasterDAL();
 
+        
         private void label15_Click(object sender, EventArgs e)
         {
 
