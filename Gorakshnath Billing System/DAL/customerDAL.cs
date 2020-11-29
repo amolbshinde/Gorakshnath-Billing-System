@@ -178,6 +178,8 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+        
+        
         #region Method  to search customer for sales module
 
         public customerBLL searchcustomerforsales(string keyword)

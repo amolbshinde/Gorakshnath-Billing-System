@@ -14,23 +14,23 @@ namespace Gorakshnath_Billing_System.DAL
     {
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
         #region Insert Sales Method
-        public bool insertsales(salesBLL s, out int salesID)
+        public bool insertpurchase(purchaseBLL s, out int purchaseID)
         {
             bool isSuccess = false;
-            salesID = -1;
+            purchaseID = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO tbl_purchase_transactions (type,sup_id,grandTotal,transaction_date,tax,discount,added_by) VALUES(@type,@custid,@grandTotal,@salesdate,@gst,@discount,@added_by);select @@IDENTITY;";
+                String sql = "INSERT INTO tbl_purchase_transactions (sup_id,grandTotal,transaction_date,tax,discount) VALUES(@dea_cust_id,@grandTotal,@transaction_date,@tax,@discount);select @@IDENTITY;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@type", "Sales");
-                cmd.Parameters.AddWithValue("@custid", s.custid);
+                
+                cmd.Parameters.AddWithValue("@dea_cust_id", s.supid);
                 cmd.Parameters.AddWithValue("@grandtotal", s.grandtotal);
-                cmd.Parameters.AddWithValue("@salesdate", s.salesdate);
-                cmd.Parameters.AddWithValue("@gst", s.gst);
+                cmd.Parameters.AddWithValue("@transaction_date", s.purchasedate);
+                cmd.Parameters.AddWithValue("@tax", s.gst);
                 cmd.Parameters.AddWithValue("@discount", s.discount);
-                cmd.Parameters.AddWithValue("@added_by", 8);
+                
 
                 con.Open();
 
@@ -39,7 +39,7 @@ namespace Gorakshnath_Billing_System.DAL
                 if (o != null)
                 {
                     isSuccess = true;
-                    salesID = int.Parse(o.ToString());
+                    purchaseID = int.Parse(o.ToString());
                 }
                 else
                 {
