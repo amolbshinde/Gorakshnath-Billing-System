@@ -90,7 +90,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.pictureBox1.Image = global::Gorakshnath_Billing_System.Properties.Resources._07_512;
             this.pictureBox1.Location = new System.Drawing.Point(1106, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(29, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -105,9 +105,9 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1153, 38);
+            this.panel1.Size = new System.Drawing.Size(1230, 38);
             this.panel1.TabIndex = 34;
             // 
             // panel2
@@ -137,7 +137,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textHSN_Code.Location = new System.Drawing.Point(224, 267);
             this.textHSN_Code.Margin = new System.Windows.Forms.Padding(4);
             this.textHSN_Code.Name = "textHSN_Code";
-            this.textHSN_Code.Size = new System.Drawing.Size(303, 29);
+            this.textHSN_Code.Size = new System.Drawing.Size(303, 25);
             this.textHSN_Code.TabIndex = 51;
             // 
             // label16
@@ -149,7 +149,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label16.Location = new System.Drawing.Point(56, 267);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(102, 25);
+            this.label16.Size = new System.Drawing.Size(82, 20);
             this.label16.TabIndex = 50;
             this.label16.Text = "HSN CODE";
             // 
@@ -159,7 +159,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtProduct_ID.Location = new System.Drawing.Point(224, 34);
             this.txtProduct_ID.Margin = new System.Windows.Forms.Padding(4);
             this.txtProduct_ID.Name = "txtProduct_ID";
-            this.txtProduct_ID.Size = new System.Drawing.Size(303, 29);
+            this.txtProduct_ID.Size = new System.Drawing.Size(303, 25);
             this.txtProduct_ID.TabIndex = 49;
             // 
             // label10
@@ -195,7 +195,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboProduct_Group.Location = new System.Drawing.Point(224, 85);
             this.comboProduct_Group.Margin = new System.Windows.Forms.Padding(4);
             this.comboProduct_Group.Name = "comboProduct_Group";
-            this.comboProduct_Group.Size = new System.Drawing.Size(303, 29);
+            this.comboProduct_Group.Size = new System.Drawing.Size(303, 25);
             this.comboProduct_Group.TabIndex = 46;
             // 
             // comboBrand
@@ -207,7 +207,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBrand.Location = new System.Drawing.Point(224, 128);
             this.comboBrand.Margin = new System.Windows.Forms.Padding(4);
             this.comboBrand.Name = "comboBrand";
-            this.comboBrand.Size = new System.Drawing.Size(303, 29);
+            this.comboBrand.Size = new System.Drawing.Size(303, 25);
             this.comboBrand.TabIndex = 44;
             // 
             // txtItem_Code
@@ -216,7 +216,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtItem_Code.Location = new System.Drawing.Point(224, 174);
             this.txtItem_Code.Margin = new System.Windows.Forms.Padding(4);
             this.txtItem_Code.Name = "txtItem_Code";
-            this.txtItem_Code.Size = new System.Drawing.Size(303, 29);
+            this.txtItem_Code.Size = new System.Drawing.Size(303, 25);
             this.txtItem_Code.TabIndex = 42;
             // 
             // txtProduct_Name
@@ -225,7 +225,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtProduct_Name.Location = new System.Drawing.Point(224, 222);
             this.txtProduct_Name.Margin = new System.Windows.Forms.Padding(4);
             this.txtProduct_Name.Name = "txtProduct_Name";
-            this.txtProduct_Name.Size = new System.Drawing.Size(303, 29);
+            this.txtProduct_Name.Size = new System.Drawing.Size(303, 25);
             this.txtProduct_Name.TabIndex = 40;
             // 
             // label7
@@ -297,7 +297,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtPurchase_Price.Location = new System.Drawing.Point(224, 28);
             this.txtPurchase_Price.Margin = new System.Windows.Forms.Padding(4);
             this.txtPurchase_Price.Name = "txtPurchase_Price";
-            this.txtPurchase_Price.Size = new System.Drawing.Size(303, 29);
+            this.txtPurchase_Price.Size = new System.Drawing.Size(303, 25);
             this.txtPurchase_Price.TabIndex = 49;
             // 
             // txtSales_Price
@@ -306,7 +306,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtSales_Price.Location = new System.Drawing.Point(224, 81);
             this.txtSales_Price.Margin = new System.Windows.Forms.Padding(4);
             this.txtSales_Price.Name = "txtSales_Price";
-            this.txtSales_Price.Size = new System.Drawing.Size(303, 29);
+            this.txtSales_Price.Size = new System.Drawing.Size(303, 25);
             this.txtSales_Price.TabIndex = 48;
             // 
             // label6
@@ -327,7 +327,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtMin_Sales_Price.Location = new System.Drawing.Point(224, 133);
             this.txtMin_Sales_Price.Margin = new System.Windows.Forms.Padding(4);
             this.txtMin_Sales_Price.Name = "txtMin_Sales_Price";
-            this.txtMin_Sales_Price.Size = new System.Drawing.Size(303, 29);
+            this.txtMin_Sales_Price.Size = new System.Drawing.Size(303, 25);
             this.txtMin_Sales_Price.TabIndex = 42;
             // 
             // label8
@@ -394,7 +394,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboUnit.Location = new System.Drawing.Point(224, 38);
             this.comboUnit.Margin = new System.Windows.Forms.Padding(4);
             this.comboUnit.Name = "comboUnit";
-            this.comboUnit.Size = new System.Drawing.Size(303, 29);
+            this.comboUnit.Size = new System.Drawing.Size(303, 25);
             this.comboUnit.TabIndex = 51;
             // 
             // label12
@@ -415,7 +415,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtOpening_Stock.Location = new System.Drawing.Point(224, 91);
             this.txtOpening_Stock.Margin = new System.Windows.Forms.Padding(4);
             this.txtOpening_Stock.Name = "txtOpening_Stock";
-            this.txtOpening_Stock.Size = new System.Drawing.Size(303, 29);
+            this.txtOpening_Stock.Size = new System.Drawing.Size(303, 25);
             this.txtOpening_Stock.TabIndex = 48;
             // 
             // label14
@@ -459,7 +459,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtSearch.Location = new System.Drawing.Point(769, 71);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(619, 29);
+            this.txtSearch.Size = new System.Drawing.Size(619, 25);
             this.txtSearch.TabIndex = 53;
             // 
             // label13
@@ -537,7 +537,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 603);
+            this.ClientSize = new System.Drawing.Size(1230, 731);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
