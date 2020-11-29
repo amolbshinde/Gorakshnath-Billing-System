@@ -16,7 +16,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
-
+        //hello.
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
