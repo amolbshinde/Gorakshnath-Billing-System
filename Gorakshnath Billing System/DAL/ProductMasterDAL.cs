@@ -75,5 +75,9 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Method to Update Product in database
+
+        #endregion
+
     }
 }
