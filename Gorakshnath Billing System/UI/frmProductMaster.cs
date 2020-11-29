@@ -66,6 +66,8 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Failed to Added Product Details");
             }
+            DataTable dt = pDAL.Select();
+            dgvProductMaster.DataSource = dt;
 
 
         }
@@ -73,6 +75,8 @@ namespace Gorakshnath_Billing_System.UI
         private void btnClear_Click(object sender, EventArgs e)
         {
             clear();
+            DataTable dt = pDAL.Select();
+            dgvProductMaster.DataSource = dt;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -91,6 +95,7 @@ namespace Gorakshnath_Billing_System.UI
             string Product_ID = txtProduct_ID.Text;
             if (Product_ID != "" && Product_ID != "Auto Genrated")
             {
+                pBLL.Product_ID = Convert.ToInt32(txtProduct_ID.Text);
                 pBLL.Product_Group = comboProduct_Group.Text;
                 pBLL.Brand = comboBrand.Text;
                 pBLL.Item_Code = txtItem_Code.Text;
@@ -113,10 +118,90 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     MessageBox.Show("Failed to Update Product Details");
                 }
+                DataTable dt = pDAL.Select();
+                dgvProductMaster.DataSource = dt;
             }
             else
             {
                 MessageBox.Show("Please Select Details to Update");
+            }
+        }
+
+        private void frmProductMaster_Load(object sender, EventArgs e)
+        {
+            DataTable dt = pDAL.Select();
+            dgvProductMaster.DataSource = dt;
+        }
+
+        private void dgvProductMaster_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+
+            txtProduct_ID.Text = dgvProductMaster.Rows[rowIndex].Cells[0].Value.ToString();
+
+            comboProduct_Group.Text = dgvProductMaster.Rows[rowIndex].Cells[1].Value.ToString();
+
+            comboBrand.Text = dgvProductMaster.Rows[rowIndex].Cells[2].Value.ToString();
+
+            txtItem_Code.Text = dgvProductMaster.Rows[rowIndex].Cells[3].Value.ToString();
+
+            txtProduct_Name.Text = dgvProductMaster.Rows[rowIndex].Cells[4].Value.ToString();
+
+            textHSN_Code.Text = dgvProductMaster.Rows[rowIndex].Cells[5].Value.ToString();
+
+            txtPurchase_Price.Text = dgvProductMaster.Rows[rowIndex].Cells[6].Value.ToString();
+
+            txtSales_Price.Text = dgvProductMaster.Rows[rowIndex].Cells[7].Value.ToString();
+
+            txtMin_Sales_Price.Text = dgvProductMaster.Rows[rowIndex].Cells[8].Value.ToString();
+
+            comboUnit.Text = dgvProductMaster.Rows[rowIndex].Cells[9].Value.ToString();
+
+            txtOpening_Stock.Text = dgvProductMaster.Rows[rowIndex].Cells[10].Value.ToString();
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string Product_ID = txtProduct_ID.Text;
+            if (Product_ID != "" && Product_ID != "Auto Genrated")
+            {
+                pBLL.Product_ID = Convert.ToInt32(txtProduct_ID.Text);
+                //
+
+                bool success = pDAL.Delete(pBLL);
+
+                if (success == true)
+                {
+                    MessageBox.Show("Custermer Details Successfully Deleted");
+                    clear();
+                }
+                else
+                {
+                    MessageBox.Show("Failed To Delete");
+                }
+                DataTable dt = pDAL.Select();
+                dgvProductMaster.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Please Selecte Details to Delete");
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keywords = txtSearch.Text;
+
+            if (keywords != null)
+            {
+                DataTable dt = pDAL.Search(keywords);
+                dgvProductMaster.DataSource = dt;
+            }
+            else
+            {
+                DataTable dt = pDAL.Select();
+                dgvProductMaster.DataSource = dt;
             }
         }
     }

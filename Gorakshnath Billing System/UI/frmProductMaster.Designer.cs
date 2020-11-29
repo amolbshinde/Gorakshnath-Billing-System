@@ -60,7 +60,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtOpening_Stock = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProductMaster = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
@@ -73,7 +73,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductMaster)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -446,15 +446,16 @@ namespace Gorakshnath_Billing_System.UI
             this.label15.Text = "Unit";
             this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
-            // dataGridView1
+            // dgvProductMaster
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 19);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(617, 363);
-            this.dataGridView1.TabIndex = 51;
+            this.dgvProductMaster.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductMaster.Location = new System.Drawing.Point(26, 19);
+            this.dgvProductMaster.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvProductMaster.Name = "dgvProductMaster";
+            this.dgvProductMaster.RowHeadersWidth = 51;
+            this.dgvProductMaster.Size = new System.Drawing.Size(617, 363);
+            this.dgvProductMaster.TabIndex = 51;
+            this.dgvProductMaster.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProductMaster_RowHeaderMouseClick);
             // 
             // txtSearch
             // 
@@ -464,6 +465,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(370, 25);
             this.txtSearch.TabIndex = 53;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label13
             // 
@@ -513,13 +515,14 @@ namespace Gorakshnath_Billing_System.UI
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Teal;
-            this.btnDelete.Location = new System.Drawing.Point(831, 512);
+            this.btnDelete.Location = new System.Drawing.Point(831, 514);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(102, 38);
             this.btnDelete.TabIndex = 55;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -539,7 +542,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dataGridView1);
+            this.panel4.Controls.Add(this.dgvProductMaster);
             this.panel4.Location = new System.Drawing.Point(464, 90);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(663, 395);
@@ -564,7 +567,9 @@ namespace Gorakshnath_Billing_System.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmProductMaster";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product Group";
+            this.Load += new System.EventHandler(this.frmProductMaster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -574,7 +579,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductMaster)).EndInit();
             this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -612,7 +617,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.ComboBox comboUnit;
         private System.Windows.Forms.TextBox txtProduct_ID;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProductMaster;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnClear;
