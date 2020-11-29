@@ -136,7 +136,7 @@ namespace Gorakshnath_Billing_System.UI
             // textHSN_Code
             // 
             this.textHSN_Code.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textHSN_Code.Location = new System.Drawing.Point(178, 204);
+            this.textHSN_Code.Location = new System.Drawing.Point(192, 204);
             this.textHSN_Code.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textHSN_Code.Name = "textHSN_Code";
             this.textHSN_Code.Size = new System.Drawing.Size(223, 25);
@@ -158,7 +158,7 @@ namespace Gorakshnath_Billing_System.UI
             // txtProduct_ID
             // 
             this.txtProduct_ID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProduct_ID.Location = new System.Drawing.Point(178, 29);
+            this.txtProduct_ID.Location = new System.Drawing.Point(192, 29);
             this.txtProduct_ID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtProduct_ID.Name = "txtProduct_ID";
             this.txtProduct_ID.Size = new System.Drawing.Size(223, 25);
@@ -195,7 +195,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboProduct_Group.FormattingEnabled = true;
             this.comboProduct_Group.Items.AddRange(new object[] {
             "Cement"});
-            this.comboProduct_Group.Location = new System.Drawing.Point(178, 61);
+            this.comboProduct_Group.Location = new System.Drawing.Point(192, 61);
             this.comboProduct_Group.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboProduct_Group.Name = "comboProduct_Group";
             this.comboProduct_Group.Size = new System.Drawing.Size(223, 25);
@@ -207,7 +207,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBrand.FormattingEnabled = true;
             this.comboBrand.Items.AddRange(new object[] {
             "Ultratech"});
-            this.comboBrand.Location = new System.Drawing.Point(178, 95);
+            this.comboBrand.Location = new System.Drawing.Point(192, 95);
             this.comboBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBrand.Name = "comboBrand";
             this.comboBrand.Size = new System.Drawing.Size(223, 25);
@@ -216,7 +216,7 @@ namespace Gorakshnath_Billing_System.UI
             // txtItem_Code
             // 
             this.txtItem_Code.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItem_Code.Location = new System.Drawing.Point(178, 136);
+            this.txtItem_Code.Location = new System.Drawing.Point(192, 136);
             this.txtItem_Code.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtItem_Code.Name = "txtItem_Code";
             this.txtItem_Code.Size = new System.Drawing.Size(223, 25);
@@ -225,7 +225,7 @@ namespace Gorakshnath_Billing_System.UI
             // txtProduct_Name
             // 
             this.txtProduct_Name.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProduct_Name.Location = new System.Drawing.Point(178, 171);
+            this.txtProduct_Name.Location = new System.Drawing.Point(192, 171);
             this.txtProduct_Name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtProduct_Name.Name = "txtProduct_Name";
             this.txtProduct_Name.Size = new System.Drawing.Size(223, 26);
@@ -297,7 +297,7 @@ namespace Gorakshnath_Billing_System.UI
             // txtPurchase_Price
             // 
             this.txtPurchase_Price.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPurchase_Price.Location = new System.Drawing.Point(178, 23);
+            this.txtPurchase_Price.Location = new System.Drawing.Point(192, 23);
             this.txtPurchase_Price.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPurchase_Price.Name = "txtPurchase_Price";
             this.txtPurchase_Price.Size = new System.Drawing.Size(223, 25);
@@ -306,7 +306,7 @@ namespace Gorakshnath_Billing_System.UI
             // txtSales_Price
             // 
             this.txtSales_Price.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSales_Price.Location = new System.Drawing.Point(178, 55);
+            this.txtSales_Price.Location = new System.Drawing.Point(192, 55);
             this.txtSales_Price.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSales_Price.Name = "txtSales_Price";
             this.txtSales_Price.Size = new System.Drawing.Size(223, 25);
@@ -327,7 +327,7 @@ namespace Gorakshnath_Billing_System.UI
             // txtMin_Sales_Price
             // 
             this.txtMin_Sales_Price.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMin_Sales_Price.Location = new System.Drawing.Point(178, 87);
+            this.txtMin_Sales_Price.Location = new System.Drawing.Point(192, 87);
             this.txtMin_Sales_Price.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMin_Sales_Price.Name = "txtMin_Sales_Price";
             this.txtMin_Sales_Price.Size = new System.Drawing.Size(223, 25);
@@ -394,7 +394,7 @@ namespace Gorakshnath_Billing_System.UI
             "BAG",
             "DOZ",
             "BOX"});
-            this.comboUnit.Location = new System.Drawing.Point(178, 32);
+            this.comboUnit.Location = new System.Drawing.Point(192, 23);
             this.comboUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboUnit.Name = "comboUnit";
             this.comboUnit.Size = new System.Drawing.Size(223, 25);
@@ -415,7 +415,7 @@ namespace Gorakshnath_Billing_System.UI
             // txtOpening_Stock
             // 
             this.txtOpening_Stock.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOpening_Stock.Location = new System.Drawing.Point(178, 73);
+            this.txtOpening_Stock.Location = new System.Drawing.Point(192, 64);
             this.txtOpening_Stock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOpening_Stock.Name = "txtOpening_Stock";
             this.txtOpening_Stock.Size = new System.Drawing.Size(223, 25);
