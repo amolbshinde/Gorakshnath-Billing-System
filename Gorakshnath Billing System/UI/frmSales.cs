@@ -28,7 +28,7 @@ namespace Gorakshnath_Billing_System.UI
         productDAL pDAL = new productDAL();
         private void clear()
         {
-            //Clear all detailsghghghfghfgf
+            //Clear all detailsghghghfghfgfdffd
             dgvAddedProduct.DataSource = null;
             dgvAddedProduct.Rows.Clear();
             salesdt.Rows.Clear();
