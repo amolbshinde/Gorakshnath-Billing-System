@@ -91,38 +91,70 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
-           
-            String ProductName = textItemName.Text;
-            string Unit = comboBoxUnit.Text;
-            decimal Qty = decimal.Parse(textQuantity.Text);
-            decimal rate = decimal.Parse(textRate.Text);
-            decimal discount = decimal.Parse(textDiscount.Text);
-            decimal GST = decimal.Parse(textGST.Text);
-            decimal Total = decimal.Parse( textTotalAmount.Text);
-
-            //          
-
-
-            // CHECK PRODUCT IS SELECTED OR NOT 
-            if (ProductName == "")
+            //checking product is already present or ot
+            if (textItemName.Text != "")
             {
-                MessageBox.Show("Please Enter Item/Product Details First");
-            }
-            else
-            {
-                int counter = 1;
-                transactionDT.Rows.Add(counter,ProductName,Unit, Qty,rate, discount, GST, Total);
-                
-                dgvAddedProducts.DataSource = transactionDT;
+                if (textQuantity.Text != "")
+                {
+                    if (dgvAddedProducts.Columns.Contains(textItemName.Text) != true)
+                    {
 
-                textItemName.Text = "";
-                comboBoxUnit.Text = "";
-                textInventory.Text = "0";
-                textQuantity.Text = "";
-                textRate.Text = "0";
-                textDiscount.Text = "";
-                textQuantity.Text = "0";
+
+                        // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
+
+                        String ProductName = textItemName.Text;
+                        string Unit = comboBoxUnit.Text;
+
+                        decimal Qty,rate,GST,Total,discount;
+                        decimal.TryParse(textQuantity.Text,out Qty);
+                        decimal.TryParse(textRate.Text, out rate);
+                        decimal.TryParse(textGST.Text, out GST);
+                        decimal.TryParse(textDiscount.Text, out discount);
+                        decimal.TryParse(textTotalAmount.Text, out Total);
+
+                        // decimal discount = decimal.Parse(textDiscount.Text);
+                       // decimal GST = decimal.TryParse(textGST.Text, out GST);
+                       // decimal Total = decimal.Parse(textTotalAmount.Text);
+                        //decimal discount = decimal.Parse(textDiscount.Text);
+
+                        //          
+
+
+                        // CHECK PRODUCT IS SELECTED OR NOT 
+                        if (ProductName == "")
+                        {
+                            MessageBox.Show("Please Enter Item/Product Details First");
+                        }
+                        else
+                        {
+                            int counter = 1;
+                            transactionDT.Rows.Add(counter, ProductName, Unit, Qty, rate, discount, GST, Total);
+
+                            dgvAddedProducts.DataSource = transactionDT;
+
+                            textItemName.Text = "";
+                            comboBoxUnit.Text = "";
+                            textInventory.Text = "0";
+                            textQuantity.Text = "0";
+                            textRate.Text = "0";
+                            textDiscount.Text = "0";
+                            textQuantity.Text = "0";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Product is already Added !");//,"Warning",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Warning);
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Please enter Quantity !");
+                }
+            }else
+            {
+                MessageBox.Show("Please Enter Product Name !");
             }
         }
 
