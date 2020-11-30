@@ -19,7 +19,8 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
         }
 
-        SupplierMasterDAL smDAL = new SupplierMasterDAL();
+        customerDAL cDAL = new customerDAL();
+       // customerBLL cBLL = new customerBLL();
         productDAL pDAL = new productDAL();
         DataTable transactionDT = new DataTable();
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,14 +58,14 @@ namespace Gorakshnath_Billing_System.UI
                 return;
             }
 
-            SupplierMasterBLL smBLL = smDAL.SearchSupplier(keyword);
+            customerBLL cBLL = cDAL.Search(keyword);
 
 
 
-            textSupplierName.Text = smBLL.CompanyName;
-            textContact.Text = smBLL.Phone_No;
-            textEmail.Text = smBLL.Email;
-            textAddress.Text = smBLL.Address;
+            textSupplierName.Text = cBLL.name;
+            textContact.Text = cBLL.contact;
+            textEmail.Text = cBLL.email;
+            textAddress.Text = cBLL.address;
 
         }
 
