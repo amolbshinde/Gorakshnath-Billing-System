@@ -77,7 +77,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 textItemName.Text = "";
                 textInventory.Text = "0";
-                textPurchasePrice.Text = "0";
+                textRate.Text = "0";
                 textQuantity.Text = "0";
                 return;
             }
@@ -85,7 +85,7 @@ namespace Gorakshnath_Billing_System.UI
             productBLL p = pDAL.GetProductsForTransaction(keyword);
             textItemName.Text = p.name;
             textInventory.Text = p.qty.ToString();
-            textPurchasePrice.Text = p.rate.ToString();
+            textRate.Text = p.rate.ToString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -93,37 +93,36 @@ namespace Gorakshnath_Billing_System.UI
             // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
 
             String ProductName = textItemName.Text;
-            String Unit = comboBoxUnit.Text;
+            decimal Qty = decimal.Parse(textQuantity.Text);
+            decimal rate = decimal.Parse(textRate.Text);
+            decimal discount = decimal.Parse(textDiscount.Text);
+            decimal GST = decimal.Parse(textGST.Text);
+            decimal Total = rate * Qty;
 
-            decimal Qty, PurchasePrice, discount, Amount,gst, TotalAmount;
-            decimal.TryParse(textQuantity.Text, out Qty);
-            decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
-            decimal.TryParse(textDiscount.Text, out discount);
-            decimal.TryParse(textGST.Text, out gst);
-            decimal.TryParse(textTotalAmount.Text, out TotalAmount);
-            Amount = PurchasePrice * Qty;
-
+            //          
 
 
             // CHECK PRODUCT IS SELECTED OR NOT 
             if (ProductName == "")
             {
-                MessageBox.Show("Please Enter Item/Product Details");
+                MessageBox.Show("Please Enter Item/Product Details First");
             }
             else
             {
-                int no = 1;
-                no = (transactionDT.Rows.Count) + 1;                
 
-                //Add product to datagridview
-                transactionDT.Rows.Add(no,ProductName, Unit, Qty, PurchasePrice, discount, gst, TotalAmount);
+                transactionDT.Rows.Add(ProductName, rate, Qty, Total, discount, GST);
+               // int no = 1;
+               // no = (transactionDT.Rows.Count) + 1;   [[             
+
+                //Add product  to datagridview
+              //  transactionDT.Rows.Add(no,ProductName, Unit, Qty, PurchasePrice, discount, gst, TotalAmount);
                 dgvAddedProducts.DataSource = transactionDT;
 
                 textItemName.Text = "";
                 comboBoxUnit.Text = "";
                 textInventory.Text = "0";
                 textQuantity.Text = "";
-                textPurchasePrice.Text = "0";
+                textRate.Text = "0";
                 textDiscount.Text = "";
                 textQuantity.Text = "0";
             }
@@ -142,68 +141,6 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-      /*  public void save()
-        {
-            purchaseBLL pBLL = new purchaseBLL();
-
-            string cname = textSupplierName.Text;
-            if (cname != "")
-            {
-                
-                customerBLL c = cDAL.getCustomerIdFromName(cname);
-
-                sales.salesdate = dtpBillDate.Value;
-                sales.custid = c.id;
-                sales.grandtotal = decimal.Parse(txtGrandTotal.Text);
-                sales.gst = decimal.Parse(txtGst.Text);
-                sales.discount = decimal.Parse(txtDiscount.Text);
-
-                sales.salesdetails = salesdt;
-                bool isSuccess = false;
-
-                // using (TransactionScope scope = new TransactionScope())
-                {
-                    int salesid = -1;
-                    bool b = s.insertsales(sales, out salesid);
-                    for (int i = 0; i < salesdt.Rows.Count; i++)
-                    {
-                        salesdetailsBLL sdb = new salesdetailsBLL();
-                        string productName = salesdt.Rows[i][1].ToString();
-
-                        productBLL p = pDAL.GetProductIDFromName(productName);
-
-                        sdb.productid = p.id;
-                        sdb.rate = decimal.Parse(salesdt.Rows[i][2].ToString());
-                        sdb.qty = decimal.Parse(salesdt.Rows[i][3].ToString());
-                        sdb.total = Math.Round(decimal.Parse(salesdt.Rows[i][4].ToString()), 2);
-                        sdb.custid = c.id;
-                        sdb.addeddate = dtpBillDate.Value;
-
-                        if (b == true)
-                        {
-                            bool x = pDAL.DecreaseProduct(sdb.productid, sdb.qty);
-                        }
-
-                        bool y = sd.insertsalesdetails(sdb);
-                        isSuccess = b && y;
-                    }
-                    if (isSuccess == true)
-                    {
-                        //scope.Complete();
-                        MessageBox.Show("Transaction Completed");
-                        clear();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Transaction Failed");
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please Select Customer Details");
-            }
-        }*/
 
                 
         private void button1_Click(object sender, EventArgs e)
@@ -231,14 +168,6 @@ namespace Gorakshnath_Billing_System.UI
 
 
 
-            //get data from dataGrid View
-
-            //check product is already available in stock or not
-
-            //
-            //if yes update the quantity if no add new product in stock 
-
-            //also add details in PTransactions and PTransaction Detail
         }
     }
 }
