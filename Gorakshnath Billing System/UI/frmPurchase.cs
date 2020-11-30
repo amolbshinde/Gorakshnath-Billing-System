@@ -285,8 +285,11 @@ namespace Gorakshnath_Billing_System.UI
 
                 purchaseBLL.purchasedate = dtpBillDate.Value;
                 purchaseBLL.supid = s.SupplierID;
-                purchaseBLL.grandtotal = decimal.Parse(textGrandTotal.Text);
-                purchaseBLL.gst = decimal.Parse(textSgst.Text);
+                decimal gtotal, gst;
+                decimal.TryParse(textGrandTotal.Text,out gtotal);
+                purchaseBLL.grandtotal = gtotal;
+                decimal.TryParse(textSgst.Text,out gst);
+                purchaseBLL.gst = gst;
                 purchaseBLL.discount = decimal.Parse(textSubDiscount.Text);
 
                 purchaseBLL.purchasedetails = purchasedt;
