@@ -186,6 +186,7 @@ namespace Gorakshnath_Billing_System.UI
             {
               //  int productCount;
                 //productCount = dgvAddedProduct.Rows.Count;
+                //need to changes
                 for (int rows = 0; rows < dgvAddedProduct.Rows.Count; rows++)
                 {
                     pname = dgvAddedProduct.Rows[rows].Cells["Product Name"].Value.ToString();
