@@ -99,7 +99,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label11 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboGstType = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -877,7 +877,7 @@ namespace Gorakshnath_Billing_System.UI
             // panel3
             // 
             this.panel3.Controls.Add(this.label18);
-            this.panel3.Controls.Add(this.comboBox3);
+            this.panel3.Controls.Add(this.comboGstType);
             this.panel3.Controls.Add(this.label31);
             this.panel3.Controls.Add(this.label35);
             this.panel3.Controls.Add(this.textItemCode);
@@ -918,18 +918,18 @@ namespace Gorakshnath_Billing_System.UI
             this.label18.TabIndex = 43;
             this.label18.Text = "GST(%)";
             // 
-            // comboBox3
+            // comboGstType
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.comboGstType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboGstType.FormattingEnabled = true;
+            this.comboGstType.Items.AddRange(new object[] {
             "SGST/CGST",
             "IGST"});
-            this.comboBox3.Location = new System.Drawing.Point(754, 43);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(56, 23);
-            this.comboBox3.TabIndex = 42;
+            this.comboGstType.Location = new System.Drawing.Point(754, 43);
+            this.comboGstType.Margin = new System.Windows.Forms.Padding(2);
+            this.comboGstType.Name = "comboGstType";
+            this.comboGstType.Size = new System.Drawing.Size(56, 23);
+            this.comboGstType.TabIndex = 42;
             // 
             // label31
             // 
@@ -1124,7 +1124,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox textCgst;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboGstType;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textIgst;

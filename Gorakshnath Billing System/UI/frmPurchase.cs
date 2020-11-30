@@ -97,6 +97,27 @@ namespace Gorakshnath_Billing_System.UI
                 decimal gTotal = subTotal - subDiscount;
                 textGrandTotal.Text = gTotal.ToString();
 
+                if(comboGstType.Text == "SGST/CGST")
+                {
+                    decimal sgst,cgst,subGst;
+                    decimal.TryParse(textSgst.Text, out sgst);
+                    decimal.TryParse(textCgst.Text, out cgst);
+                    subGst = sgst + cgst;
+                    subGst = subGst+((PurchasePrice * Qty) * gst) / 100;
+                    
+                    textSgst.Text =(subGst / 2).ToString();
+                    textCgst.Text = (subGst / 2).ToString();
+                }
+                if(comboGstType.Text== "IGST")
+                {
+                    decimal igst, subIGst;
+                    decimal.TryParse(textIgst.Text, out subIGst);                   
+                    
+                    subIGst = subIGst + ((PurchasePrice * Qty) * gst) / 100;
+
+                    textIgst.Text = subIGst.ToString();                    
+                }
+
                 textItemSearch.Text = "";
                 textItemName.Text = "";
                 comboBoxUnit.Text = "";
@@ -105,6 +126,7 @@ namespace Gorakshnath_Billing_System.UI
                 textPurchasePrice.Text = "0";
                 textDiscount.Text = "0";
                 textQuantity.Text = "0";
+                comboGstType.Text = "";
                 textGst.Text = "0";
             }
             else
