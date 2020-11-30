@@ -33,6 +33,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@added_by",8);
 
                 con.Open();
+                //open connection
 
                 object o = cmd.ExecuteScalar();
 

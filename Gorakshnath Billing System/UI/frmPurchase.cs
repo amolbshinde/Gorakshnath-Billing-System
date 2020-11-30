@@ -97,6 +97,27 @@ namespace Gorakshnath_Billing_System.UI
                 decimal gTotal = subTotal - subDiscount;
                 textGrandTotal.Text = gTotal.ToString();
 
+                if(comboGstType.Text == "SGST/CGST")
+                {
+                    decimal sgst,cgst,subGst;
+                    decimal.TryParse(textSgst.Text, out sgst);
+                    decimal.TryParse(textCgst.Text, out cgst);
+                    subGst = sgst + cgst;
+                    subGst = subGst+((PurchasePrice * Qty) * gst) / 100;
+                    
+                    textSgst.Text =(subGst / 2).ToString();
+                    textCgst.Text = (subGst / 2).ToString();
+                }
+                if(comboGstType.Text== "IGST")
+                {
+                    decimal igst, subIGst;
+                    decimal.TryParse(textIgst.Text, out subIGst);                   
+                    
+                    subIGst = subIGst + ((PurchasePrice * Qty) * gst) / 100;
+
+                    textIgst.Text = subIGst.ToString();                    
+                }
+
                 textItemSearch.Text = "";
                 textItemName.Text = "";
                 comboBoxUnit.Text = "";
@@ -105,6 +126,7 @@ namespace Gorakshnath_Billing_System.UI
                 textPurchasePrice.Text = "0";
                 textDiscount.Text = "0";
                 textQuantity.Text = "0";
+                comboGstType.Text = "";
                 textGst.Text = "0";
             }
             else
@@ -263,8 +285,11 @@ namespace Gorakshnath_Billing_System.UI
 
                 purchaseBLL.purchasedate = dtpBillDate.Value;
                 purchaseBLL.supid = s.SupplierID;
-                purchaseBLL.grandtotal = decimal.Parse(textGrandTotal.Text);
-                purchaseBLL.gst = decimal.Parse(textSgst.Text);
+                decimal gtotal, gst;
+                decimal.TryParse(textGrandTotal.Text,out gtotal);
+                purchaseBLL.grandtotal = gtotal;
+                decimal.TryParse(textSgst.Text,out gst);
+                purchaseBLL.gst = gst;
                 purchaseBLL.discount = decimal.Parse(textSubDiscount.Text);
 
                 purchaseBLL.purchasedetails = purchasedt;
@@ -312,8 +337,6 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Select Customer Details");
             }
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
