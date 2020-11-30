@@ -58,17 +58,14 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {        
-
-
+        {
             // CHECK PRODUCT IS SELECTED OR NOT 
             if (textItemName.Text != "")
             {
-                if (textQuantity.Text != "")
+                if(textQuantity.Text!="" && textQuantity.Text!="0")
                 {
-                    if (dgvAddedProducts.Columns.Contains(textItemName.Text) != true)
+                    if(comboGstType.Text!="")
                     {
-
                         // get Product name,unit ,Qty, price , Discount ,Tax. Amount to datagrid view
 
                         String ProductName = textItemName.Text;
@@ -99,15 +96,19 @@ namespace Gorakshnath_Billing_System.UI
                         subDiscount = subDiscount + ((PurchasePrice * Qty) * discount) / 100;
                         textSubDiscount.Text = subDiscount.ToString();
 
-                        decimal gTotal = subTotal - subDiscount;
+
+                        decimal ggst = ((PurchasePrice * Qty) * gst) / 100;
+                        decimal gTotal;
+                        decimal.TryParse(textGrandTotal.Text, out gTotal);
+                        gTotal = gTotal + ggst + (Qty * PurchasePrice) - (((PurchasePrice * Qty) * discount) / 100);
                         textGrandTotal.Text = gTotal.ToString();
 
                         if (comboGstType.Text == "SGST/CGST")
                         {
-                            decimal sgst, cgst, subGst;
-                            decimal.TryParse(textSgst.Text, out sgst);
-                            decimal.TryParse(textCgst.Text, out cgst);
-                            subGst = sgst + cgst;
+                            decimal subsgst, subcgst, subGst;
+                            decimal.TryParse(textSgst.Text, out subsgst);
+                            decimal.TryParse(textCgst.Text, out subcgst);
+                            subGst = subsgst + subcgst;
                             subGst = subGst + ((PurchasePrice * Qty) * gst) / 100;
 
                             textSgst.Text = (subGst / 2).ToString();
@@ -115,11 +116,9 @@ namespace Gorakshnath_Billing_System.UI
                         }
                         if (comboGstType.Text == "IGST")
                         {
-                            decimal igst, subIGst;
+                            decimal subIGst;
                             decimal.TryParse(textIgst.Text, out subIGst);
-
                             subIGst = subIGst + ((PurchasePrice * Qty) * gst) / 100;
-
                             textIgst.Text = subIGst.ToString();
                         }
 
@@ -133,15 +132,16 @@ namespace Gorakshnath_Billing_System.UI
                         textQuantity.Text = "0";
                         comboGstType.Text = "";
                         textGst.Text = "0";
+
                     }
                     else
-                    {                        
-                        MessageBox.Show("alreday addere product");
+                    {
+                        MessageBox.Show("Plsease Select GST type");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please Enter Product Quantity");
+                    MessageBox.Show("Please Enter Quantity");
                 }
             }
             else
