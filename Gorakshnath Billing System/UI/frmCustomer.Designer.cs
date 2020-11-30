@@ -104,6 +104,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtCustomerSearch.Name = "txtCustomerSearch";
             this.txtCustomerSearch.Size = new System.Drawing.Size(299, 27);
             this.txtCustomerSearch.TabIndex = 29;
+            this.txtCustomerSearch.TextChanged += new System.EventHandler(this.txtCustomerSearch_TextChanged);
             // 
             // lblCustomerSearch
             // 
@@ -261,7 +262,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.lblCustomerName);
             this.Controls.Add(this.txtCustomerId);
             this.Controls.Add(this.lblCustomerId);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCustomer";
             this.Text = "frmCustomer";
             this.Load += new System.EventHandler(this.frmCustomer_Load_1);

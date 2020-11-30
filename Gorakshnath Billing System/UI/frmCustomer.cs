@@ -281,5 +281,10 @@ namespace Gorakshnath_Billing_System.UI
                 MessageBox.Show("Please Selecte Details to Delete");
             }
         }
+
+        private void txtCustomerSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

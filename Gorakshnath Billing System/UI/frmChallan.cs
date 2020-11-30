@@ -58,7 +58,7 @@ namespace Gorakshnath_Billing_System.UI
                 return;
             }
 
-            customerBLL cBLL = cDAL.Search(keyword);
+            customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
 
 
 
