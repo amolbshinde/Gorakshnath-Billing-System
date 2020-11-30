@@ -272,20 +272,20 @@ namespace Gorakshnath_Billing_System.DAL
         #region Method to get id of the Supplier based on Name
         public SupplierMasterBLL getSuplierIdFromName(string Name)
         {
-            SupplierMasterBLL sBLL = new SupplierMasterBLL();
+            SupplierMasterBLL s = new SupplierMasterBLL();
             SqlConnection con = new SqlConnection(myconnstrng);
 
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT id FROM Supplier_Master WHERE CompanyName='" + Name + "'";
+                string sql = "SELECT SupplierID FROM Supplier_Master WHERE CompanyName='" + Name + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 con.Open();
                 adapter.Fill(dt);
 
                 if (dt.Rows.Count > 0)
                 {
-                    sBLL.SupplierID = int.Parse(dt.Rows[0]["id"].ToString());
+                    s.SupplierID = int.Parse(dt.Rows[0]["SupplierID"].ToString());
                 }
 
             }
@@ -299,7 +299,7 @@ namespace Gorakshnath_Billing_System.DAL
                 con.Close();
             }
 
-            return sBLL;
+            return s;
         }
         #endregion
 

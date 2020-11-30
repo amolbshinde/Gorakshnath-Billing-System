@@ -230,6 +230,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
+                //fetch details
                 string sql = "SELECT id FROM tbl_dea_cust WHERE name='" + Name + "'";
                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 con.Open();
