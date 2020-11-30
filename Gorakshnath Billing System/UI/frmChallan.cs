@@ -112,7 +112,7 @@ namespace Gorakshnath_Billing_System.UI
 
                 transactionDT.Rows.Add(ProductName, rate, Qty, Total, discount, GST);
                // int no = 1;
-               // no = (transactionDT.Rows.Count) + 1;   [[             
+               // no = (transactionDT.Rows.Count) + 1;           
 
                 //Add product  to datagridview
               //  transactionDT.Rows.Add(no,ProductName, Unit, Qty, PurchasePrice, discount, gst, TotalAmount);
