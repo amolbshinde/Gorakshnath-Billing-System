@@ -140,8 +140,8 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        public void save()
-        {/*
+      /*  public void save()
+        {
             purchaseBLL pBLL = new purchaseBLL();
 
             string cname = textSupplierName.Text;
@@ -201,10 +201,9 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Select Customer Details");
             }
-                */
-        }
+        }*/
 
-
+                
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -215,7 +214,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (dgvAddedProducts.Rows.Count != 0)
                 {
                     //save fun
-                    save();
+                    //save();
                 }
                 else
                 {
