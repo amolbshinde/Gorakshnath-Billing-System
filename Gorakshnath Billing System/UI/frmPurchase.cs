@@ -280,17 +280,21 @@ namespace Gorakshnath_Billing_System.UI
                         string productName = purchasedt.Rows[i][1].ToString();
 
                         productBLL p = productDAL.GetProductIDFromName(productName);
-
+                        
                         pdBLL.productid = p.id;
-                        pdBLL.rate = Math.Round(decimal.Parse(purchasedt.Rows[i][2].ToString()),2);
                         pdBLL.qty = Math.Round(decimal.Parse(purchasedt.Rows[i][3].ToString()),2);
-                        pdBLL.total = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
+                        pdBLL.rate = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()),2);                        
+                        pdBLL.total = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
                         pdBLL.supid = s.SupplierID;
-                        pdBLL.addeddate = dtpBillDate.Value;
+                            
+                        
                        
 
                         bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
                         isSuccess = b && y;
+                        
+                       
+                        isSuccess = true;
                     }
                     if (isSuccess == true)
                     {
