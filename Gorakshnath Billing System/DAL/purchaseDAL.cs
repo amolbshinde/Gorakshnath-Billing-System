@@ -14,23 +14,25 @@ namespace Gorakshnath_Billing_System.DAL
     {
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
         #region Insert Sales Method
-        public bool insertpurchase(purchaseBLL s, out int purchaseID)
+        public bool insertpurchase(purchaseBLL p, out int purchaseID)
         {
             bool isSuccess = false;
             purchaseID = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO tbl_purchase_transactions (sup_id,grandTotal,transaction_date,totalIgst,totalDiscount) VALUES(@dea_cust_id,@grandTotal,@transaction_date,@tax,@discount);select @@IDENTITY;";
+                String sql = "INSERT INTO tbl_purchase_transactions (type,sup_id,subTotal,totalDiscount,totalSgst,totalCgst,totalIgst,grandTotal) VALUES(@type,@sup_id,@subTotal,@totalDiscount,@totalSgst,@totalCgst,@totalIgst,@grandTotal);select @@IDENTITY;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
                 
-                cmd.Parameters.AddWithValue("@dea_cust_id", s.supid);
-                cmd.Parameters.AddWithValue("@grandtotal", s.grandtotal);
-                cmd.Parameters.AddWithValue("@transaction_date", s.purchasedate);
-                cmd.Parameters.AddWithValue("@tax", s.gst);
-                cmd.Parameters.AddWithValue("@discount", s.discount);
-                
+                cmd.Parameters.AddWithValue("@type", p.type);
+                cmd.Parameters.AddWithValue("@sup_id", p.supid);
+                cmd.Parameters.AddWithValue("@subTotal", p.subTotal);
+                cmd.Parameters.AddWithValue("@totalDiscount", p.totalDiscount);
+                cmd.Parameters.AddWithValue("@totalSgst", p.totalSgst);
+                cmd.Parameters.AddWithValue("@totalCgst", p.totalCgst);
+                cmd.Parameters.AddWithValue("@totalIgst", p.totalIgst);
+                cmd.Parameters.AddWithValue("@grandTotal", p.grandTotal);
 
                 con.Open();
 

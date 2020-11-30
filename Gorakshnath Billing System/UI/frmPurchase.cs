@@ -283,14 +283,27 @@ namespace Gorakshnath_Billing_System.UI
             {
                 SupplierMasterBLL s = smDAL.getSuplierIdFromName(sname);
 
-                purchaseBLL.purchasedate = dtpBillDate.Value;
+                decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
+
+                string type = comboPurchaseType.Text;
+                decimal.TryParse(textSubTotal.Text,out subTotal);
+                decimal.TryParse(textSubDiscount.Text,out totalDiscount);
+                decimal.TryParse(textSgst.Text,out totalSgst);
+                decimal.TryParse(textCgst.Text, out totalCgst);
+                decimal.TryParse(textIgst.Text, out totalIgst);
+                decimal.TryParse(textGrandTotal.Text,out grandTotal);
+
+
+                purchaseBLL.type = type;
                 purchaseBLL.supid = s.SupplierID;
-                decimal gtotal, gst;
-                decimal.TryParse(textGrandTotal.Text,out gtotal);
-                purchaseBLL.grandtotal = gtotal;
-                decimal.TryParse(textSgst.Text,out gst);
-                purchaseBLL.gst = gst;
-                purchaseBLL.discount = decimal.Parse(textSubDiscount.Text);
+                purchaseBLL.subTotal = subTotal;
+                purchaseBLL.totalDiscount = totalDiscount;
+                purchaseBLL.totalSgst = totalSgst;
+                purchaseBLL.totalCgst = totalCgst;
+                purchaseBLL.totalIgst = totalIgst;
+                purchaseBLL.grandTotal = grandTotal;
+
+                
 
                 purchaseBLL.purchasedetails = purchasedt;
                 bool isSuccess = false;

@@ -10,11 +10,14 @@ namespace Gorakshnath_Billing_System.BLL
     class purchaseBLL   
     {
         public int id { get; set; }
+        public string type { get; set; }
         public int supid { get; set; }
-        public string products { get; set; }
-        public decimal grandtotal { get; set; }
-        public decimal gst { get; set; }
-        public decimal discount { get; set; }
+        public decimal subTotal { get; set; }
+        public decimal totalDiscount { get; set; }
+        public decimal totalSgst { get; set; }
+        public decimal totalCgst { get; set; }
+        public decimal totalIgst { get; set; }
+        public decimal grandTotal { get; set; }
         public DateTime purchasedate { get; set; }
 
         public DataTable purchasedetails { get; set; }
