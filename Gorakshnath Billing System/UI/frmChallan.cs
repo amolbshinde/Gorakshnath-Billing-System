@@ -140,7 +140,7 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        public void save()
+      /*  public void save()
         {
             purchaseBLL pBLL = new purchaseBLL();
 
