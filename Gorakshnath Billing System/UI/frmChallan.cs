@@ -95,12 +95,14 @@ namespace Gorakshnath_Billing_System.UI
             String ProductName = textItemName.Text;
             String Unit = comboBoxUnit.Text;
 
-            decimal Qty, PurchasePrice, discount, gst, TotalAmount;
+            decimal Qty, PurchasePrice, discount, Amount,gst, TotalAmount;
             decimal.TryParse(textQuantity.Text, out Qty);
             decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
             decimal.TryParse(textDiscount.Text, out discount);
             decimal.TryParse(textGST.Text, out gst);
             decimal.TryParse(textTotalAmount.Text, out TotalAmount);
+            Amount = PurchasePrice * Qty;
+
 
 
             // CHECK PRODUCT IS SELECTED OR NOT 
