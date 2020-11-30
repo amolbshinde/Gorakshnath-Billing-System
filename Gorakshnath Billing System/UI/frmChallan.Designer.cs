@@ -200,6 +200,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textQuantity.Name = "textQuantity";
             this.textQuantity.Size = new System.Drawing.Size(33, 23);
             this.textQuantity.TabIndex = 24;
+            this.textQuantity.TextChanged += new System.EventHandler(this.textQuantity_TextChanged);
             // 
             // textBox11
             // 
@@ -425,6 +426,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textRate.Name = "textRate";
             this.textRate.Size = new System.Drawing.Size(99, 23);
             this.textRate.TabIndex = 27;
+            this.textRate.TextChanged += new System.EventHandler(this.textRate_TextChanged);
             // 
             // panel1
             // 
@@ -589,6 +591,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textGST.Name = "textGST";
             this.textGST.Size = new System.Drawing.Size(56, 23);
             this.textGST.TabIndex = 39;
+            this.textGST.TextChanged += new System.EventHandler(this.textGST_TextChanged);
             // 
             // label12
             // 
@@ -686,6 +689,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textDiscount.Name = "textDiscount";
             this.textDiscount.Size = new System.Drawing.Size(56, 23);
             this.textDiscount.TabIndex = 29;
+            this.textDiscount.TextChanged += new System.EventHandler(this.textDiscount_TextChanged);
             // 
             // label17
             // 
