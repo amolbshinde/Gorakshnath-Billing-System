@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmPurchase : Form
@@ -18,8 +20,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
-        DataTable transactionDT = new DataTable();
-
+        
         SupplierMasterDAL smDAL = new SupplierMasterDAL();
         DataTable purchasedt = new DataTable();
 
@@ -78,10 +79,10 @@ namespace Gorakshnath_Billing_System.UI
                 Amount = PurchasePrice * Qty;
 
                 int no = 1;
-                no = transactionDT.Rows.Count + 1;
+                no = purchasedt.Rows.Count + 1;
                 //Add product to datagridview//
-                transactionDT.Rows.Add(no,ProductName, Unit, Qty, PurchasePrice, Amount, discount+"%", gst + "%", TotalAmount);
-                dgvAddedProducts.DataSource = transactionDT;
+                purchasedt.Rows.Add(no,ProductName, Unit, Qty, PurchasePrice, Amount, discount+"%", gst + "%", TotalAmount);
+                dgvAddedProducts.DataSource = purchasedt;
 
                 decimal subTotal;
                 decimal.TryParse(textSubTotal.Text,out subTotal);
@@ -149,15 +150,15 @@ namespace Gorakshnath_Billing_System.UI
         private void frmPurchase_Load(object sender, EventArgs e)
         {
             //specify columns to our dataTable 
-            transactionDT.Columns.Add("Sr. No.");
-            transactionDT.Columns.Add("ProductName");
-            transactionDT.Columns.Add("Unit");
-            transactionDT.Columns.Add("Quantity");
-            transactionDT.Columns.Add("PurchasePrice");
-            transactionDT.Columns.Add("Amount");
-            transactionDT.Columns.Add("(-)Discount");
-            transactionDT.Columns.Add("(+)Tax%");
-            transactionDT.Columns.Add("(=)Total");           
+            purchasedt.Columns.Add("Sr. No.");
+            purchasedt.Columns.Add("ProductName");
+            purchasedt.Columns.Add("Unit");
+            purchasedt.Columns.Add("Quantity");
+            purchasedt.Columns.Add("PurchasePrice");
+            purchasedt.Columns.Add("Amount");
+            purchasedt.Columns.Add("(-)Discount");
+            purchasedt.Columns.Add("(+)Tax%");
+            purchasedt.Columns.Add("(=)Total");           
         }
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
@@ -263,33 +264,37 @@ namespace Gorakshnath_Billing_System.UI
                 purchaseBLL.purchasedate = dtpBillDate.Value;
                 purchaseBLL.supid = s.SupplierID;
                 purchaseBLL.grandtotal = decimal.Parse(textGrandTotal.Text);
-                purchaseBLL.gst = decimal.Parse(textGst.Text);
+                purchaseBLL.gst = decimal.Parse(textSgst.Text);
                 purchaseBLL.discount = decimal.Parse(textSubDiscount.Text);
 
-                purchaseBLL.purchasedetails = transactionDT;
+                purchaseBLL.purchasedetails = purchasedt;
                 bool isSuccess = false;
 
                 // using (TransactionScope scope = new TransactionScope())
                 {
                     int purchaseid = -1;
                     bool b = purchaseDAL.insertpurchase(purchaseBLL, out purchaseid);
-                    for (int i = 0; i < transactionDT.Rows.Count; i++)
+                    for (int i = 0; i < purchasedt.Rows.Count; i++)
                     {
                         purchasedetailsBLL pdBLL = new purchasedetailsBLL();
-                        string productName = transactionDT.Rows[i][1].ToString();
+                        string productName = purchasedt.Rows[i][1].ToString();
 
                         productBLL p = productDAL.GetProductIDFromName(productName);
-
+                        
                         pdBLL.productid = p.id;
-                        pdBLL.rate = decimal.Parse(transactionDT.Rows[i][2].ToString());
-                        pdBLL.qty = decimal.Parse(transactionDT.Rows[i][3].ToString());
-                        pdBLL.total = Math.Round(decimal.Parse(transactionDT.Rows[i][4].ToString()), 2);
+                        pdBLL.qty = Math.Round(decimal.Parse(purchasedt.Rows[i][3].ToString()),2);
+                        pdBLL.rate = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()),2);                        
+                        pdBLL.total = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
                         pdBLL.supid = s.SupplierID;
-                        pdBLL.addeddate = dtpBillDate.Value;
+                            
+                        
                        
 
                         bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
                         isSuccess = b && y;
+                        
+                       
+                        isSuccess = true;
                     }
                     if (isSuccess == true)
                     {

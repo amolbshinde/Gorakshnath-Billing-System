@@ -26,12 +26,11 @@ namespace Gorakshnath_Billing_System.DAL
                 //inserting transaction details
                 string sql = "INSERT INTO tbl_purchase_transaction_detail(product_id,rate,qty,total,sup_id) VALUES(@product_id,@rate,@qty,@total,@sup_id)";
                 SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@productid", st.productid);
+                cmd.Parameters.AddWithValue("@product_id", st.productid);
                 cmd.Parameters.AddWithValue("@rate", st.rate);
                 cmd.Parameters.AddWithValue("@qty", st.qty);
                 cmd.Parameters.AddWithValue("@total", st.total);
-                cmd.Parameters.AddWithValue("@sup_id", st.supid);
-                
+                cmd.Parameters.AddWithValue("@sup_id", st.supid);                
 
                 con.Open();
 

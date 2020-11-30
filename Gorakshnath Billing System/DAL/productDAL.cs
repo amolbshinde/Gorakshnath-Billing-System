@@ -85,6 +85,7 @@ namespace Gorakshnath_Billing_System.DAL
 
             try
             {
+                // GETID FROM PRODUCT TABLE
                 string sql = "SELECT id FROM tbl_products WHERE name='" + ProductName + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 con.Open();
