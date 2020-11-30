@@ -26,7 +26,7 @@ namespace Gorakshnath_Billing_System.UI
         purchaseDAL pur_DAL = new purchaseDAL();
 
 
-        salesdetailsDAL sd = new salesdetailsDAL();
+        purchasedetailsDAL purdetailsDAL = new purchasedetailsDAL();
         productDAL pDAL = new productDAL();
         //hello
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -250,14 +250,79 @@ namespace Gorakshnath_Billing_System.UI
             }
         }
 
+        public void save()
+        {
+            purchaseBLL pBLL = new purchaseBLL();
+
+            string supname = textSupplierName.Text;
+            if (supname != "")
+            {
+                SupplierMasterBLL sBLL = smDAL.getSuplierIdFromName(supname);
+
+                pBLL.purchasedate = dtpBillDate.Value;
+                pBLL.supid = sBLL.SupplierID;
+                decimal gtotal,gst,dis;
+                decimal.TryParse(textTotalAmount.Text,out gtotal);
+                pBLL.grandtotal = gtotal;
+                decimal.TryParse(textSgst.Text,out gst);
+                pBLL.gst = gst;
+                decimal.TryParse(textSubDiscount.Text,out dis);
+                pBLL.discount = dis;
+
+                pBLL.purchasedetails = transactionDT;
+                bool isSuccess = false;
+
+                // using (TransactionScope scope = new TransactionScope())
+                {
+                    int purchaseid = -1;
+                    bool b = pur_DAL.insertpurchase(pBLL, out purchaseid);
+                    for (int i = 0; i < transactionDT.Rows.Count; i++)
+                    {
+                        purchasedetailsBLL purdetails = new purchasedetailsBLL();
+                        string productName = transactionDT.Rows[i][1].ToString();
+
+                        productBLL p = pDAL.GetProductIDFromName(productName);
+
+
+                        purdetails.productid = p.id;
+                        purdetails.rate = decimal.Parse(transactionDT.Rows[i][2].ToString());
+                        purdetails.qty = decimal.Parse(transactionDT.Rows[i][3].ToString());
+                        purdetails.total = Math.Round(decimal.Parse(transactionDT.Rows[i][4].ToString()), 2);
+                        purdetails.supid = sBLL.SupplierID;
+                        purdetails.addeddate = dtpBillDate.Value;
+
+                        bool y = purdetailsDAL.insertpurchasedetails(purdetails);
+                        isSuccess = b && y;
+                    }
+                    if (isSuccess == true)
+                    {
+                        //scope.Complete();
+                        MessageBox.Show("Transaction Completed");
+                        //clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Transaction Failed");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select Customer Details");
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             //check product is already available in stock or not
-
             //
             //if yes update the quantity if no add new product in stock 
 
             //also add details in PTransactions and PTransaction Details 
+
+            //save transaction and transaction details
+            save();
+
         }
     }
 }
