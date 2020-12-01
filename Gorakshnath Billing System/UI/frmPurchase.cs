@@ -94,7 +94,7 @@ namespace Gorakshnath_Billing_System.UI
 
                         decimal subDiscount;
                         decimal.TryParse(textSubDiscount.Text, out subDiscount);
-                        subDiscount = subDiscount + ((PurchasePrice * Qty) * discount) / 100;
+                        subDiscount = subDiscount + Math.Round(((PurchasePrice * Qty) * discount) / 100,2);
                         textSubDiscount.Text = subDiscount.ToString();
                         
                         decimal gTotal;
@@ -108,16 +108,16 @@ namespace Gorakshnath_Billing_System.UI
                             decimal.TryParse(textSgst.Text, out subsgst);
                             decimal.TryParse(textCgst.Text, out subcgst);
                             subGst = subsgst + subcgst;
-                            subGst = subGst + (((PurchasePrice * Qty)-((PurchasePrice * Qty) * discount) / 100) * gst) / 100;
+                            subGst = subGst + Math.Round((((PurchasePrice * Qty)-((PurchasePrice * Qty) * discount) / 100) * gst) / 100,2);
 
-                            textSgst.Text = (subGst / 2).ToString();
-                            textCgst.Text = (subGst / 2).ToString();
+                            textSgst.Text = Math.Round((subGst / 2),2).ToString();
+                            textCgst.Text = Math.Round((subGst / 2),2).ToString();
                         }
                         if (comboGstType.Text == "IGST")
                         {
                             decimal subIGst;
                             decimal.TryParse(textIgst.Text, out subIGst);
-                            subIGst = subIGst + (((PurchasePrice * Qty) - ((PurchasePrice * Qty) * discount) / 100) * gst) / 100;
+                            subIGst = subIGst + Math.Round((((PurchasePrice * Qty) - ((PurchasePrice * Qty) * discount) / 100) * gst) / 100,2);
                             textIgst.Text = subIGst.ToString();
                         }
 
@@ -439,25 +439,25 @@ namespace Gorakshnath_Billing_System.UI
 
                 decimal subDiscount;
                 decimal.TryParse(textSubDiscount.Text, out subDiscount);
-                subDiscount = subDiscount - ((PurchasePrice * Qty) * discount) / 100;
+                subDiscount = subDiscount - Math.Round(((PurchasePrice * Qty) * discount) / 100,2);
                 textSubDiscount.Text = subDiscount.ToString();
-
+                
                 if (comboGstType.Text == "SGST/CGST")
                 {
                     decimal subsgst, subcgst, subGst;
                     decimal.TryParse(textSgst.Text, out subsgst);
                     decimal.TryParse(textCgst.Text, out subcgst);
                     subGst = subsgst + subcgst;
-                    subGst = subGst - ((PurchasePrice * Qty) * gst) / 100;
+                    subGst = subGst - Math.Round((((((100 - discount) / 100) * (PurchasePrice * Qty))) * gst) / 100,2);
 
-                    textSgst.Text = (subGst / 2).ToString();
-                    textCgst.Text = (subGst / 2).ToString();
+                    textSgst.Text = Math.Round((subGst / 2),2).ToString();
+                    textCgst.Text = Math.Round((subGst / 2),2).ToString();
                 }
                 if (comboGstType.Text == "IGST")
                 {
                     decimal subIGst;
                     decimal.TryParse(textIgst.Text, out subIGst);
-                    subIGst = subIGst - ((PurchasePrice * Qty) * gst) / 100;
+                    subIGst = subIGst - Math.Round((((((100 - discount) / 100) * (PurchasePrice * Qty))) * gst) / 100, 2);
                     textIgst.Text = subIGst.ToString();
                 }                
                 decimal gTotal;
