@@ -349,6 +349,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvAddedProducts.RowTemplate.Height = 24;
             this.dgvAddedProducts.Size = new System.Drawing.Size(1014, 214);
             this.dgvAddedProducts.TabIndex = 20;
+            this.dgvAddedProducts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAddedProducts_MouseClick);
             // 
             // label21
             // 
