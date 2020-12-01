@@ -70,6 +70,7 @@ namespace Gorakshnath_Billing_System.UI
 
                         String ProductName = textItemName.Text;
                         String Unit = comboBoxUnit.Text;
+                        string gstType = comboGstType.Text;
 
                         decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
                         decimal.TryParse(textQuantity.Text, out Qty);
@@ -83,7 +84,7 @@ namespace Gorakshnath_Billing_System.UI
                         int no = 1;
                         no = purchasedt.Rows.Count + 1;
                         //Add product to datagridview//
-                        purchasedt.Rows.Add(no, ProductName, Unit, Qty, PurchasePrice, Amount, discount, gst, TotalAmount);
+                        purchasedt.Rows.Add(no, ProductName, Unit, Qty, PurchasePrice, Amount, discount,gstType, gst, TotalAmount);
                         dgvAddedProducts.DataSource = purchasedt;
 
                         decimal subTotal;
@@ -95,12 +96,10 @@ namespace Gorakshnath_Billing_System.UI
                         decimal.TryParse(textSubDiscount.Text, out subDiscount);
                         subDiscount = subDiscount + ((PurchasePrice * Qty) * discount) / 100;
                         textSubDiscount.Text = subDiscount.ToString();
-
-
-                        decimal ggst = ((PurchasePrice * Qty) * gst) / 100;
+                        
                         decimal gTotal;
                         decimal.TryParse(textGrandTotal.Text, out gTotal);
-                        gTotal = gTotal + ggst + (Qty * PurchasePrice) - (((PurchasePrice * Qty) * discount) / 100);
+                        gTotal = gTotal + TotalAmount;
                         textGrandTotal.Text = gTotal.ToString();
 
                         if (comboGstType.Text == "SGST/CGST")
@@ -109,7 +108,7 @@ namespace Gorakshnath_Billing_System.UI
                             decimal.TryParse(textSgst.Text, out subsgst);
                             decimal.TryParse(textCgst.Text, out subcgst);
                             subGst = subsgst + subcgst;
-                            subGst = subGst + ((PurchasePrice * Qty) * gst) / 100;
+                            subGst = subGst + (((PurchasePrice * Qty)-((PurchasePrice * Qty) * discount) / 100) * gst) / 100;
 
                             textSgst.Text = (subGst / 2).ToString();
                             textCgst.Text = (subGst / 2).ToString();
@@ -118,7 +117,7 @@ namespace Gorakshnath_Billing_System.UI
                         {
                             decimal subIGst;
                             decimal.TryParse(textIgst.Text, out subIGst);
-                            subIGst = subIGst + ((PurchasePrice * Qty) * gst) / 100;
+                            subIGst = subIGst + (((PurchasePrice * Qty) - ((PurchasePrice * Qty) * discount) / 100) * gst) / 100;
                             textIgst.Text = subIGst.ToString();
                         }
 
@@ -194,6 +193,7 @@ namespace Gorakshnath_Billing_System.UI
             purchasedt.Columns.Add("PurchasePrice");
             purchasedt.Columns.Add("Amount");
             purchasedt.Columns.Add("(-)Discount");
+            purchasedt.Columns.Add("Gst Type");
             purchasedt.Columns.Add("(+)Tax%");
             purchasedt.Columns.Add("(=)Total");           
         }
@@ -412,16 +412,61 @@ namespace Gorakshnath_Billing_System.UI
                 for (int i = 0; i < purchasedt.Rows.Count; i++)
                 {
                     //assognto dategrid view values into textboxs
+
                     textItemName.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[1].Value.ToString();
                     comboBoxUnit.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
                     textQuantity.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString();
                     textPurchasePrice.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString();
                     textTotalAmount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[5].Value.ToString();
                     textDiscount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[6].Value.ToString();
-                    textGst.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
+                    comboGstType.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
+                    textGst.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString();                   
                 }
 
-                
+                decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
+                decimal.TryParse(textQuantity.Text, out Qty);
+                decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
+                decimal.TryParse(textDiscount.Text, out discount);
+                decimal.TryParse(textGst.Text, out gst);
+                decimal.TryParse(textTotalAmount.Text, out TotalAmount);
+
+                Amount = PurchasePrice * Qty;                
+
+                decimal subTotal;
+                decimal.TryParse(textSubTotal.Text, out subTotal);
+                subTotal = subTotal - Qty * PurchasePrice;
+                textSubTotal.Text = subTotal.ToString();
+
+                decimal subDiscount;
+                decimal.TryParse(textSubDiscount.Text, out subDiscount);
+                subDiscount = subDiscount - ((PurchasePrice * Qty) * discount) / 100;
+                textSubDiscount.Text = subDiscount.ToString();
+
+                if (comboGstType.Text == "SGST/CGST")
+                {
+                    decimal subsgst, subcgst, subGst;
+                    decimal.TryParse(textSgst.Text, out subsgst);
+                    decimal.TryParse(textCgst.Text, out subcgst);
+                    subGst = subsgst + subcgst;
+                    subGst = subGst - ((PurchasePrice * Qty) * gst) / 100;
+
+                    textSgst.Text = (subGst / 2).ToString();
+                    textCgst.Text = (subGst / 2).ToString();
+                }
+                if (comboGstType.Text == "IGST")
+                {
+                    decimal subIGst;
+                    decimal.TryParse(textIgst.Text, out subIGst);
+                    subIGst = subIGst - ((PurchasePrice * Qty) * gst) / 100;
+                    textIgst.Text = subIGst.ToString();
+                }                
+                decimal gTotal;
+                decimal.TryParse(textGrandTotal.Text, out gTotal);
+                gTotal = gTotal - TotalAmount;
+                textGrandTotal.Text = gTotal.ToString();
+
+                dgvAddedProducts.Rows.RemoveAt(dgvAddedProducts.CurrentCell.RowIndex);
+
             }
         }
     }   
