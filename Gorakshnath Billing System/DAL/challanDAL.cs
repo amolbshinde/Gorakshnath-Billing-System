@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Gorakshnath_Billing_System.BLL;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.DAL
 {
@@ -16,7 +19,7 @@ namespace Gorakshnath_Billing_System.DAL
         public bool insertChallan(chalanBLL c, out int SalesID)
         {
             bool isSuccess = false;
-            Sales_ID = -1;
+            SalesID = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
@@ -24,7 +27,7 @@ namespace Gorakshnath_Billing_System.DAL
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 
-                cmd.Parameters.AddWithValue("@Sales_ID", c.Sales_Id);
+                cmd.Parameters.AddWithValue("@Sales_ID", c.Sales_ID);
                 cmd.Parameters.AddWithValue("@Invoice_No", c.Invoice_No);
                 cmd.Parameters.AddWithValue("@Cust_ID", c.Cust_ID);
                 cmd.Parameters.AddWithValue("@Sub_Total", c.Sub_Total);
@@ -33,7 +36,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@TCGST", c.TCGST);
                 cmd.Parameters.AddWithValue("@TIGST", c.TIGST);
                 cmd.Parameters.AddWithValue("@Grand_Total", c.Grand_Total);
-                md.Parameters.AddWithValue("@Transaction_Date", c.Transaction_Date);
+                cmd.Parameters.AddWithValue("@Transaction_Date", c.Transaction_Date);
 
                 con.Open();
 

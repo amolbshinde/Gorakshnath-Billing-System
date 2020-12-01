@@ -183,7 +183,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (dgvAddedProducts.Rows.Count != 0)
                 {
                     //save fun
-                    //save();
+                    save();
                    
                 }
                 else
