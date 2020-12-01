@@ -290,80 +290,88 @@ namespace Gorakshnath_Billing_System.UI
 
         public void save()
         {
-
             purchaseBLL purchaseBLL = new purchaseBLL();
 
             string sname = textSupplierName.Text;
-            if (sname != "")
+            if (comboPurchaseType.Text != "")
             {
-                SupplierMasterBLL s = smDAL.getSuplierIdFromName(sname);
-
-                decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
-
-                string type = comboPurchaseType.Text;
-                decimal.TryParse(textSubTotal.Text,out subTotal);
-                decimal.TryParse(textSubDiscount.Text,out totalDiscount);
-                decimal.TryParse(textSgst.Text,out totalSgst);
-                decimal.TryParse(textCgst.Text, out totalCgst);
-                decimal.TryParse(textIgst.Text, out totalIgst);
-                decimal.TryParse(textGrandTotal.Text,out grandTotal);
-
-
-                purchaseBLL.type = type;
-                purchaseBLL.supid = s.SupplierID;
-                purchaseBLL.subTotal = subTotal;
-                purchaseBLL.totalDiscount = totalDiscount;
-                purchaseBLL.totalSgst = totalSgst;
-                purchaseBLL.totalCgst = totalCgst;
-                purchaseBLL.totalIgst = totalIgst;
-                purchaseBLL.grandTotal = grandTotal;
-
-                
-
-                purchaseBLL.purchasedetails = purchasedt;
-                bool isSuccess = false;
-
-                // using (TransactionScope scope = new TransactionScope())
+                if(sname != "")
                 {
-                    int purchaseid = -1;
-                    bool b = purchaseDAL.insertpurchase(purchaseBLL, out purchaseid);
-                    for (int i = 0; i < purchasedt.Rows.Count; i++)
-                    {
-                        purchasedetailsBLL pdBLL = new purchasedetailsBLL();
-                        string productName = purchasedt.Rows[i][1].ToString();
 
-                        productBLL p = productDAL.GetProductIDFromName(productName);
-                        
-                        pdBLL.productid = p.id;
-                        pdBLL.qty = Math.Round(decimal.Parse(purchasedt.Rows[i][3].ToString()),2);
-                        pdBLL.rate = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()),2);                        
-                        pdBLL.total = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
-                        pdBLL.supid = s.SupplierID;
-                            
-                        
-                       
-
-                        bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
-                        isSuccess = b && y;
-                        
-                       
-                        isSuccess = true;
-                    }
-                    if (isSuccess == true)
+                    if(dgvAddedProducts.Rows.Count!=0)
                     {
-                        //scope.Complete();
-                        MessageBox.Show("Transaction Completed");
-                        //clear();
+                        SupplierMasterBLL s = smDAL.getSuplierIdFromName(sname);
+
+                        decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
+
+                        string type = comboPurchaseType.Text;
+                        decimal.TryParse(textSubTotal.Text, out subTotal);
+                        decimal.TryParse(textSubDiscount.Text, out totalDiscount);
+                        decimal.TryParse(textSgst.Text, out totalSgst);
+                        decimal.TryParse(textCgst.Text, out totalCgst);
+                        decimal.TryParse(textIgst.Text, out totalIgst);
+                        decimal.TryParse(textGrandTotal.Text, out grandTotal);
+
+                        purchaseBLL.type = type;
+                        purchaseBLL.supid = s.SupplierID;
+                        purchaseBLL.subTotal = subTotal;
+                        purchaseBLL.totalDiscount = totalDiscount;
+                        purchaseBLL.totalSgst = totalSgst;
+                        purchaseBLL.totalCgst = totalCgst;
+                        purchaseBLL.totalIgst = totalIgst;
+                        purchaseBLL.grandTotal = grandTotal;
+
+                        purchaseBLL.purchasedetails = purchasedt;
+                        bool isSuccess = false;
+
+                        // using (TransactionScope scope = new TransactionScope())
+                        {
+                            int purchaseid = -1;
+                            bool b = purchaseDAL.insertpurchase(purchaseBLL, out purchaseid);
+                            for (int i = 0; i < purchasedt.Rows.Count; i++)
+                            {
+                                purchasedetailsBLL pdBLL = new purchasedetailsBLL();
+                                string productName = purchasedt.Rows[i][1].ToString();
+
+                                productBLL p = productDAL.GetProductIDFromName(productName);
+
+                                pdBLL.productid = p.id;
+                                pdBLL.qty = Math.Round(decimal.Parse(purchasedt.Rows[i][3].ToString()), 2);
+                                pdBLL.rate = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
+                                pdBLL.total = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
+                                pdBLL.supid = s.SupplierID;
+
+                                bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
+                                isSuccess = b && y;
+
+                                isSuccess = true;
+                            }
+                            if (isSuccess == true)
+                            {
+                                //scope.Complete();
+                                MessageBox.Show("Transaction Completed");
+                                //clear();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Transaction Failed");
+                            }
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Transaction Failed");
+                        MessageBox.Show("Please Add product Details");
                     }
+
+                }
+                else
+                {
+                    MessageBox.Show("Please Select Customer Details");
                 }
             }
             else
             {
-                MessageBox.Show("Please Select Customer Details");
+                MessageBox.Show("Please Select Purchase Type GST OR NOGST");
             }
         }
 
