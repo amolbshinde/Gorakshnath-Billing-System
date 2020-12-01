@@ -14,5 +14,7 @@ namespace Gorakshnath_Billing_System.BLL
         public string email { get; set; }
         public string address { get; set; }
         public DateTime adddate { get; set; }
+        public int Cust_ID { get; set; }//
+        public string Cust_Name { get; set; }
     }
 }
