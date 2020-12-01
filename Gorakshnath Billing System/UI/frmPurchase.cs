@@ -83,7 +83,7 @@ namespace Gorakshnath_Billing_System.UI
                         int no = 1;
                         no = purchasedt.Rows.Count + 1;
                         //Add product to datagridview//
-                        purchasedt.Rows.Add(no, ProductName, Unit, Qty, PurchasePrice, Amount, discount + "%", gst + "%", TotalAmount);
+                        purchasedt.Rows.Add(no, ProductName, Unit, Qty, PurchasePrice, Amount, discount, gst, TotalAmount);
                         dgvAddedProducts.DataSource = purchasedt;
 
                         decimal subTotal;
@@ -407,8 +407,20 @@ namespace Gorakshnath_Billing_System.UI
         private void my_menu_ItemClicked(object sender,ToolStripItemClickedEventArgs e)
         {
             if ("Edit" == e.ClickedItem.Name.ToString())
-            {
-                MessageBox.Show(e.ClickedItem.Text+dgvAddedProducts.);
+            {              
+
+                for (int i = 0; i < purchasedt.Rows.Count; i++)
+                {
+                    textItemName.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                    comboBoxUnit.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
+                    textQuantity.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString();
+                    textPurchasePrice.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString();
+                    textTotalAmount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[5].Value.ToString();
+                    textDiscount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[6].Value.ToString();
+                    textGst.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
+                }
+
+                
             }
         }
     }   
