@@ -171,7 +171,7 @@ namespace Gorakshnath_Billing_System.UI
             transactionDT.Columns.Add("Total");
 
         }
-
+        /*
         public void save()
         {
             challanBLL  challanBLL = new challanBLL();
@@ -264,7 +264,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Select Purchase Type GST OR NOGST");
             }
-        }
+        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -276,7 +276,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (dgvAddedProducts.Rows.Count != 0)
                 {
                     //save fun
-                    save();
+                    //save();
                    
                 }
                 else
