@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gorakshnath_Billing_System.BLL
 {
-    class chalanBLL
+    class challanBLL
     {
         public int Sales_ID { get; set; }
         public int Invoice_No { get; set; }

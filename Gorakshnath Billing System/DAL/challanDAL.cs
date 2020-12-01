@@ -16,7 +16,7 @@ namespace Gorakshnath_Billing_System.DAL
 
         #region Insert Data in Database
 
-        public bool insertChallan(chalanBLL c, out int SalesID)
+        public bool insertChallan(challanBLL c, out int SalesID)
         {
             bool isSuccess = false;
             SalesID = -1;

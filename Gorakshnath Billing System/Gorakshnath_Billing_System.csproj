@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\categoriesBLL.cs" />
-    <Compile Include="BLL\chalanBLL.cs" />
+    <Compile Include="BLL\challanBLL.cs" />
     <Compile Include="BLL\challandetailsBLL.cs" />
     <Compile Include="BLL\customerBLL.cs" />
     <Compile Include="BLL\loginBLL.cs" />
