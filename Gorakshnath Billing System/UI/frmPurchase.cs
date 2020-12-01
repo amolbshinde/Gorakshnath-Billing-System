@@ -59,7 +59,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // CHECK PRODUCT IS SELECTED OR NOT 
+            // CHECK PRODUCT IS SELECTED OR NOT.. 
             if (textItemName.Text != "")
             {
                 if(textQuantity.Text!="" && textQuantity.Text!="0")
