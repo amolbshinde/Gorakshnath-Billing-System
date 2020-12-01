@@ -16,14 +16,14 @@ namespace Gorakshnath_Billing_System.DAL
 
         #region Insert Data in Database
 
-        public bool insertChallan(challanBLL c, out int SalesID)
+        public bool insertChallan(challanBLL c, out int Cust_ID)
         {
             bool isSuccess = false;
-            SalesID = -1;
+            Cust_ID = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO Challan_Transactions (Sales_ID,Invoice_No,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Transaction_Date) VALUES(@Sales_ID,@Invoice_No,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Transaction_Date)";//select @@IDENTITY;";
+                String sql = "INSERT INTO Challan_Transactions (Sales_ID,Invoice_No,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Transaction_Date) VALUES(@Sales_ID,@Invoice_No,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Transaction_Date);select @@IDENTITY;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -45,7 +45,7 @@ namespace Gorakshnath_Billing_System.DAL
                 if (o != null)
                 {
                     isSuccess = true;
-                    SalesID = int.Parse(o.ToString());
+                    Cust_ID = int.Parse(o.ToString());
                 }
                 else
                 {

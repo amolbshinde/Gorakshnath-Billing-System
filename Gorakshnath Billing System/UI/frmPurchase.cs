@@ -417,7 +417,7 @@ namespace Gorakshnath_Billing_System.UI
                     comboBoxUnit.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
                     textQuantity.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString();
                     textPurchasePrice.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString();
-                    textTotalAmount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[5].Value.ToString();
+                    textTotalAmount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString();
                     textDiscount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[6].Value.ToString();
                     comboGstType.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
                     textGst.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString();                   
@@ -468,6 +468,60 @@ namespace Gorakshnath_Billing_System.UI
                 dgvAddedProducts.Rows.RemoveAt(dgvAddedProducts.CurrentCell.RowIndex);
 
             }
+
+
+            if ("Delete" == e.ClickedItem.Name.ToString())
+            {
+                decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
+
+                string gstType = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
+                
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString(), out Qty);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString(), out PurchasePrice);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[6].Value.ToString(), out discount);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString(), out gst);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString(), out TotalAmount);                
+
+                Amount = PurchasePrice * Qty;
+
+                decimal subTotal;
+                decimal.TryParse(textSubTotal.Text, out subTotal);
+                subTotal = subTotal - Qty * PurchasePrice;
+                textSubTotal.Text = subTotal.ToString();
+
+                decimal subDiscount;
+                decimal.TryParse(textSubDiscount.Text, out subDiscount);
+                subDiscount = subDiscount - Math.Round(((PurchasePrice * Qty) * discount) / 100, 2);
+                textSubDiscount.Text = subDiscount.ToString();
+
+                if (gstType == "SGST/CGST")
+                {
+                    decimal subsgst, subcgst, subGst;
+                    decimal.TryParse(textSgst.Text, out subsgst);
+                    decimal.TryParse(textCgst.Text, out subcgst);
+                    subGst = subsgst + subcgst;
+                    subGst = subGst - Math.Round((((((100 - discount) / 100) * (PurchasePrice * Qty))) * gst) / 100, 2);
+
+                    textSgst.Text = Math.Round((subGst / 2), 2).ToString();
+                    textCgst.Text = Math.Round((subGst / 2), 2).ToString();
+                }
+                if (gstType == "IGST")
+                {
+                    decimal subIGst;
+                    decimal.TryParse(textIgst.Text, out subIGst);
+                    subIGst = subIGst - Math.Round((((((100 - discount) / 100) * (PurchasePrice * Qty))) * gst) / 100, 2);
+                    textIgst.Text = subIGst.ToString();
+                }
+                decimal gTotal;
+                decimal.TryParse(textGrandTotal.Text, out gTotal);
+                gTotal = gTotal - TotalAmount;
+                textGrandTotal.Text = gTotal.ToString();
+
+                dgvAddedProducts.Rows.RemoveAt(dgvAddedProducts.CurrentCell.RowIndex);
+
+            }
+
+
         }
     }   
 }
