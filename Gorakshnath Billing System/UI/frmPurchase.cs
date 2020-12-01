@@ -59,7 +59,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // CHECK PRODUCT IS SELECTED OR NOT 
+            // CHECK PRODUCT IS SELECTED OR NOT.. 
             if (textItemName.Text != "")
             {
                 if(textQuantity.Text!="" && textQuantity.Text!="0")
@@ -387,5 +387,29 @@ namespace Gorakshnath_Billing_System.UI
             save();
 
         }
-    }
+
+        private void dgvAddedProducts_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button==MouseButtons.Left)
+            {
+                ContextMenuStrip my_menu = new System.Windows.Forms.ContextMenuStrip();
+                int position_mouse_click = dgvAddedProducts.HitTest(e.X, e.Y).RowIndex;
+                if (position_mouse_click >= 0)
+                {
+                    my_menu.Items.Add("Edit").Name = "Edit";
+                    my_menu.Items.Add("Delete").Name = "Delete";
+                }
+                my_menu.Show(dgvAddedProducts, new Point(e.X, e.Y));
+                my_menu.ItemClicked += new ToolStripItemClickedEventHandler(my_menu_ItemClicked);
+            }
+                       
+        }
+        private void my_menu_ItemClicked(object sender,ToolStripItemClickedEventArgs e)
+        {
+            if ("Edit" == e.ClickedItem.Name.ToString())
+            {
+                MessageBox.Show(e.ClickedItem.Text+dgvAddedProducts.);
+            }
+        }
+    }   
 }
