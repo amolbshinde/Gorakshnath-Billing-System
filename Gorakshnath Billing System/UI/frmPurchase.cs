@@ -411,6 +411,7 @@ namespace Gorakshnath_Billing_System.UI
 
                 for (int i = 0; i < purchasedt.Rows.Count; i++)
                 {
+                    //assognto dategrid view values into textboxs
                     textItemName.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[1].Value.ToString();
                     comboBoxUnit.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
                     textQuantity.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString();
