@@ -34,9 +34,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label29 = new System.Windows.Forms.Label();
             this.textInventory = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textQuantity = new System.Windows.Forms.TextBox();
             this.textCgst = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -168,31 +165,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label15.Size = new System.Drawing.Size(36, 20);
             this.label15.TabIndex = 21;
             this.label15.Text = "Unit";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(415, 573);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(75, 20);
-            this.textBox8.TabIndex = 24;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(334, 573);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(75, 20);
-            this.textBox7.TabIndex = 23;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(224, 573);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(113, 21);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "Discount To All";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // textQuantity
             // 
@@ -1015,9 +987,6 @@ namespace Gorakshnath_Billing_System.UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 744);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
@@ -1045,7 +1014,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1056,9 +1024,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox textInventory;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textQuantity;
         private System.Windows.Forms.TextBox textCgst;
         private System.Windows.Forms.Panel panel2;
