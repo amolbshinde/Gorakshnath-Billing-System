@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.DAL
 {
-    class loginDAL
+    class loginDAL//
     {
         //static string to connect Databse
         static string myconnstring = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
