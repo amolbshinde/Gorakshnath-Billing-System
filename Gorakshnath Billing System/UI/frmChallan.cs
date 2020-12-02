@@ -21,12 +21,14 @@ namespace Gorakshnath_Billing_System.UI
 
         customerDAL cDAL = new customerDAL();
         // customerBLL cBLL = new customerBLL();
-        productDAL pDAL = new productDAL();
+        productDAL productDAL = new productDAL();
 
         challanBLL challanBLL = new challanBLL();
+
         challanDAL challanDAL = new challanDAL();
 
-        DataTable transactionDT = new DataTable();
+        challandetailsDAL challandetailsDAL = new challandetailsDAL();
+        
         DataTable salesDT = new DataTable();
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -39,7 +41,6 @@ namespace Gorakshnath_Billing_System.UI
             {
                 comboGstType.Enabled = true;
                 textGST.Enabled = true;
-
             }
 
 
@@ -88,7 +89,7 @@ namespace Gorakshnath_Billing_System.UI
                 return;
             }
 
-            productBLL p = pDAL.GetProductsForTransaction(keyword);
+            productBLL p = productDAL.GetProductsForTransaction(keyword);
             textItemName.Text = p.name;
             textInventory.Text = p.qty.ToString();
             textRate.Text = p.rate.ToString();
@@ -134,8 +135,8 @@ namespace Gorakshnath_Billing_System.UI
                         else
                         {
                             int counter = 1;
-                            transactionDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST, TotalAmount);
-                            dgvAddedProducts.DataSource = transactionDT;
+                            salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST, TotalAmount);
+                            dgvAddedProducts.DataSource = salesDT;
 
 
                             decimal subTotal;
@@ -206,16 +207,16 @@ namespace Gorakshnath_Billing_System.UI
 
         private void frmChallan_Load(object sender, EventArgs e)
         {
-            transactionDT.Columns.Add("Sr. No.");
-            transactionDT.Columns.Add("ProductName");
-            transactionDT.Columns.Add("Unit");
-            transactionDT.Columns.Add("Quantity");
-            transactionDT.Columns.Add("PurchasePrice");
-            transactionDT.Columns.Add("Amount");
-            transactionDT.Columns.Add("(-)Discount");
-            transactionDT.Columns.Add("Gst Type");
-            transactionDT.Columns.Add("(+)Tax%");
-            transactionDT.Columns.Add("(=)Total");
+            salesDT.Columns.Add("Sr. No.");
+            salesDT.Columns.Add("ProductName");
+            salesDT.Columns.Add("Unit");
+            salesDT.Columns.Add("Quantity");
+            salesDT.Columns.Add("PurchasePrice");
+            salesDT.Columns.Add("Amount");
+            salesDT.Columns.Add("(-)Discount");
+            salesDT.Columns.Add("Gst Type");
+            salesDT.Columns.Add("(+)Tax%");
+            salesDT.Columns.Add("(=)Total");
 
         }
 
@@ -282,24 +283,27 @@ namespace Gorakshnath_Billing_System.UI
                             int salesid = -1;
                             bool b = challanDAL.insertChallan(challanBLL, out salesid);
 
-                            /* for (int i = 0; i < salesDT.Rows.Count; i++)
+                             for (int i = 0; i < salesDT.Rows.Count; i++)
                              {
-                                 purchasedetailsBLL pdBLL = new purchasedetailsBLL();
+                                challandetailsBLL cdBLL = new challandetailsBLL();
                                  string productName = salesDT.Rows[i][1].ToString();
 
                                  productBLL p = productDAL.GetProductIDFromName(productName);
-
-                                 pdBLL.productid = p.id;
-                                 pdBLL.qty = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
-                                 pdBLL.rate = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);
-                                 pdBLL.total = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
-                                 pdBLL.supid = c.Cust_ID
-
-                                 bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
+                                 cdBLL.Product_ID = p.id;
+                                cdBLL.Cust_ID = c.Cust_ID;
+                                 cdBLL.Product_Name = salesDT.Rows[i][1].ToString();
+                                 cdBLL.Unit = salesDT.Rows[i][2].ToString();
+                                 cdBLL.Qty = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
+                                cdBLL.Rate = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);                                
+                                cdBLL.Discount_Per = Math.Round(decimal.Parse(salesDT.Rows[i][6].ToString()), 2);
+                                cdBLL.GST_Type =salesDT.Rows[i][7].ToString();
+                                cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
+                                cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
+                                bool y = challandetailsDAL.insertchallandetails(cdBLL);
                                  isSuccess = b && y;
 
                                  isSuccess = true;
-                             }*/
+                             }
                             isSuccess = b;
                             if (isSuccess == true)
                             {
@@ -456,7 +460,7 @@ namespace Gorakshnath_Billing_System.UI
             if ("Edit" == e.ClickedItem.Name.ToString())
             {
 
-                for (int i = 0; i < transactionDT.Rows.Count; i++)
+                for (int i = 0; i < salesDT.Rows.Count; i++)
                 {
                     //assognto dategrid view values into textboxs
 

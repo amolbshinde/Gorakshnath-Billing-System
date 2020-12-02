@@ -13,7 +13,7 @@ namespace Gorakshnath_Billing_System.BLL
         public int Product_ID { get; set; }
         public int Cust_ID { get; set; }
         public string Product_Name { get; set; }
-        public decimal Unit { get; set; }
+        public string Unit { get; set; }
         public decimal Qty { get; set; }
         public decimal Rate { get; set; }
         public decimal Discount_Per { get; set; }
