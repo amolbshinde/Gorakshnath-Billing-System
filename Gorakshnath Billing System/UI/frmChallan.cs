@@ -20,7 +20,7 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         customerDAL cDAL = new customerDAL();
-       // customerBLL cBLL = new customerBLL();
+        // customerBLL cBLL = new customerBLL();
         productDAL pDAL = new productDAL();
 
         challanBLL challanBLL = new challanBLL();
@@ -111,8 +111,8 @@ namespace Gorakshnath_Billing_System.UI
                         string Unit = comboBoxUnit.Text;
                         string gstType = comboGstType.Text;
 
-                        decimal Qty,rate,GST, Amount,TotalAmount, discount;
-                        decimal.TryParse(textQuantity.Text,out Qty);
+                        decimal Qty, rate, GST, Amount, TotalAmount, discount;
+                        decimal.TryParse(textQuantity.Text, out Qty);
                         decimal.TryParse(textRate.Text, out rate);
                         decimal.TryParse(textGST.Text, out GST);
                         decimal.TryParse(textDiscount.Text, out discount);
@@ -133,7 +133,7 @@ namespace Gorakshnath_Billing_System.UI
                         }
                         else
                         {
-                            int counter = 1;                            
+                            int counter = 1;
                             transactionDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST, TotalAmount);
                             dgvAddedProducts.DataSource = transactionDT;
 
@@ -171,7 +171,7 @@ namespace Gorakshnath_Billing_System.UI
                                 subIGst = subIGst + Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
                                 textIgst.Text = subIGst.ToString();
                             }
-                            
+
 
                             textItemSearch.Text = "";
                             textItemName.Text = "";
@@ -197,7 +197,8 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     MessageBox.Show("Please enter Quantity !");
                 }
-            }else
+            }
+            else
             {
                 MessageBox.Show("Please Enter Product Name !");
             }
@@ -227,7 +228,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (dgvAddedProducts.Rows.Count != 0)
                 {
                     //save fun
-                    save();                   
+                    save();
                 }
                 else
                 {
@@ -242,7 +243,7 @@ namespace Gorakshnath_Billing_System.UI
 
 
         public void save()
-        {           
+        {
 
             string sname = textCust_Name.Text;
             if (comboTransactionType.Text != "")
@@ -280,25 +281,25 @@ namespace Gorakshnath_Billing_System.UI
                         {
                             int salesid = -1;
                             bool b = challanDAL.insertChallan(challanBLL, out salesid);
-                            /*
-                            for (int i = 0; i < salesDT.Rows.Count; i++)
-                            {
-                                purchasedetailsBLL pdBLL = new purchasedetailsBLL();
-                                string productName = salesDT.Rows[i][1].ToString();
 
-                                productBLL p = productDAL.GetProductIDFromName(productName);
+                            /* for (int i = 0; i < salesDT.Rows.Count; i++)
+                             {
+                                 purchasedetailsBLL pdBLL = new purchasedetailsBLL();
+                                 string productName = salesDT.Rows[i][1].ToString();
 
-                                pdBLL.productid = p.id;
-                                pdBLL.qty = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
-                                pdBLL.rate = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);
-                                pdBLL.total = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
-                                pdBLL.supid = c.Cust_ID
+                                 productBLL p = productDAL.GetProductIDFromName(productName);
 
-                                bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
-                                isSuccess = b && y;
+                                 pdBLL.productid = p.id;
+                                 pdBLL.qty = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
+                                 pdBLL.rate = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);
+                                 pdBLL.total = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
+                                 pdBLL.supid = c.Cust_ID
 
-                                isSuccess = true;
-                            }*/
+                                 bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
+                                 isSuccess = b && y;
+
+                                 isSuccess = true;
+                             }*/
                             isSuccess = b;
                             if (isSuccess == true)
                             {
@@ -310,7 +311,7 @@ namespace Gorakshnath_Billing_System.UI
                             {
                                 MessageBox.Show("Transaction Failed");
                             }
-                        
+                        }
                     }
                     else
                     {
@@ -365,7 +366,7 @@ namespace Gorakshnath_Billing_System.UI
                 textTotalAmount.Text = "";
             }
 
-            
+
             else
             {
                 decimal Qty, Rate, discount, gst;
@@ -388,8 +389,8 @@ namespace Gorakshnath_Billing_System.UI
             if (check == "")
             {
 
-              //  MessageBox.Show("Please Enter Discount.");
-                
+                //  MessageBox.Show("Please Enter Discount.");
+
             }
 
 
