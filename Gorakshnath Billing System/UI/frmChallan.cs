@@ -188,7 +188,7 @@ namespace Gorakshnath_Billing_System.UI
 
                         //Sales_ID,Invoice_No,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Transaction_Date
 
-                        int Sales_ID=1, Invoice_No=1, Cust_ID;
+                        int Sales_ID = 1, Invoice_No = 1; // Cust_ID;
                         decimal Sub_Total, TDiscount, TSGST, TCGST, TIGST, Grand_Total;
 ;
 
@@ -218,21 +218,21 @@ namespace Gorakshnath_Billing_System.UI
                         // using (TransactionScope scope = new TransactionScope())
                         {
                             int SalesID = -1;
-                            bool c = challanDAL.insertChallan(challanBLL, out SalesID);
+                            bool b = challanDAL.insertChallan(challanBLL, out SalesID);
                             for (int i = 0; i < salesDT.Rows.Count; i++)
                             {
                                 challandetailsBLL cdBLL = new challandetailsBLL();
                                 string Cust_Name = salesDT.Rows[i][1].ToString();
 
-                                customerBLL c = customerDAL.searchcustomerforsales(Cust_Name);
 
-                                pdBLL.productid = p.id;
-                                pdBLL.qty = Math.Round(decimal.Parse(purchasedt.Rows[i][3].ToString()), 2);
-                                pdBLL.rate = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
-                                pdBLL.total = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
-                                pdBLL.supid = s.SupplierID;
 
-                                bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
+                                cdBLL.Cust_ID = c.Cust_ID;
+                                cdBLL.Qty = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
+                                cdBLL.Rate = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);
+                                cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
+                                cdBLL.Cust_ID = c.Cust_ID;
+
+                                bool y = challandetailsDAL.insertchallandetails(cdBLL);
                                 isSuccess = b && y;
 
                                 isSuccess = true;
@@ -276,8 +276,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (dgvAddedProducts.Rows.Count != 0)
                 {
                     //save fun
-                    //save();
-                   
+                    //save();                   
                 }
                 else
                 {
