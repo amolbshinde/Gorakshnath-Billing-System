@@ -517,6 +517,7 @@ namespace Gorakshnath_Billing_System.UI
                 textGrandTotal.Text = gTotal.ToString();
 
                 dgvAddedProducts.Rows.RemoveAt(dgvAddedProducts.CurrentCell.RowIndex);
+                MessageBox.Show("Product Successfully Deleted");
 
             }
 
