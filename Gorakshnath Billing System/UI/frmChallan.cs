@@ -170,7 +170,7 @@ namespace Gorakshnath_Billing_System.UI
             transactionDT.Columns.Add("GST");
             transactionDT.Columns.Add("Total");
 
-        }
+        }//
         /*
         public void save()
         {
