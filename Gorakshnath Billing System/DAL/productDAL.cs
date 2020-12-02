@@ -82,7 +82,6 @@ namespace Gorakshnath_Billing_System.DAL
             productBLL p = new productBLL();
            SqlConnection con = new SqlConnection(myconnstrng);
             DataTable dt = new DataTable();
-
             try
             {
                 // GETID FROM PRODUCT TABLE
