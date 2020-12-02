@@ -23,7 +23,7 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO Challan_Transactions (Sales_ID,Invoice_No,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Transaction_Date) VALUES(@Sales_ID,@Invoice_No,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Transaction_Date);select @@IDENTITY;";
+                String sql = "INSERT INTO Challan_Transactions (Invoice_No,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Invoice_No,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total);select @@IDENTITY;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -35,8 +35,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@TSGST", c.TSGST);
                 cmd.Parameters.AddWithValue("@TCGST", c.TCGST);
                 cmd.Parameters.AddWithValue("@TIGST", c.TIGST);
-                cmd.Parameters.AddWithValue("@Grand_Total", c.Grand_Total);
-                cmd.Parameters.AddWithValue("@Transaction_Date", c.Transaction_Date);
+                cmd.Parameters.AddWithValue("@Grand_Total", c.Grand_Total);               
 
                 con.Open();
 
