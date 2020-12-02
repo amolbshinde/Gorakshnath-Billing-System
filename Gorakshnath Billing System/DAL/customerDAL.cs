@@ -22,7 +22,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                String sql = "SELECT * FROM tbl_dea_cust";
+                String sql = "SELECT * FROM Cust_Master";
                 SqlCommand cmd = new SqlCommand(sql, con);
                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();
@@ -46,7 +46,7 @@ namespace Gorakshnath_Billing_System.DAL
            SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO tbl_dea_cust (name, contact, email, address) VALUES(@name, @contact, @email, @address)";
+                String sql = "INSERT INTO Cust_Master (Cust_Name, Cust_Contact, Cust_Email, Cust_Address) VALUES(@name, @contact, @email, @address)";
 
                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@name", c.name);
@@ -86,7 +86,7 @@ namespace Gorakshnath_Billing_System.DAL
            SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "UPDATE tbl_dea_cust SET name=@name, contact=@contact, email=@email, address=@address WHERE id = @id";
+                String sql = "UPDATE Cust_Master SET Cust_Name=@name, Cust_Contact=@contact, Cust_Email=@email, Cust_Address=@address WHERE Cust_Id = @id";
                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@name", c.name);
                 cmd.Parameters.AddWithValue("@contact", c.contact);
@@ -126,7 +126,7 @@ namespace Gorakshnath_Billing_System.DAL
            SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                string sql = "DELETE FROM tbl_dea_cust WHERE id =@id";
+                string sql = "DELETE FROM Cust_Master WHERE Cust_Id =@id";
                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@id", c.id);
                 con.Open();
@@ -153,6 +153,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
+
         #region Search Customer On Database Using Keywords
         public DataTable Search(string keywords)
         {
@@ -161,7 +162,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                String sql = "SELECT * FROM tbl_dea_cust WHERE id LIKE'%" + keywords + "%' OR name LIKE'%" + keywords + "%' OR address LIKE'%" + keywords + "%' OR contact LIKE'%" + keywords + "%'";
+                String sql = "SELECT * FROM Cust_Master WHERE Cust_Id LIKE'%" + keywords + "%' OR Cust_Name LIKE'%" + keywords + "%' OR Cust_Address LIKE'%" + keywords + "%' OR Cust_Contact LIKE'%" + keywords + "%'";
                SqlCommand cmd = new SqlCommand(sql, con);
                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();
@@ -192,7 +193,7 @@ namespace Gorakshnath_Billing_System.DAL
 
             try
             {
-                string sql = "SELECT name, contact, email,address from tbl_dea_cust WHERE id LIKE '%" + keyword + "%' OR name LIKE '%" + keyword + "%'";
+                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address from Cust_Master WHERE Cust_Id LIKE '%" + keyword + "%' OR Cust_Name LIKE '%" + keyword + "%'";
 
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
 
@@ -202,10 +203,10 @@ namespace Gorakshnath_Billing_System.DAL
 
                 if (dt.Rows.Count > 0)
                 {
-                    c.name = dt.Rows[0]["name"].ToString();
-                    c.contact = dt.Rows[0]["contact"].ToString();
-                    c.email = dt.Rows[0]["email"].ToString();
-                    c.address = dt.Rows[0]["address"].ToString();
+                    c.name = dt.Rows[0]["Cust_Name"].ToString();
+                    c.contact = dt.Rows[0]["Cust_Contact"].ToString();
+                    c.email = dt.Rows[0]["Cust_Email"].ToString();
+                    c.address = dt.Rows[0]["Cust_Address"].ToString();
 
                 }
             }
@@ -223,7 +224,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-        #region Method to get id of the Supplier based on Name
+        #region Method to get id of the Customer based on Name
         public customerBLL getCustomerIdFromName(string Name)
         {
             customerBLL  c = new customerBLL();
