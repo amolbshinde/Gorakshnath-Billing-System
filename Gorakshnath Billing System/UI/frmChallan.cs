@@ -170,11 +170,11 @@ namespace Gorakshnath_Billing_System.UI
             transactionDT.Columns.Add("GST");
             transactionDT.Columns.Add("Total");
 
-        }//
+        }
         /*
         public void save()
         {
-            challanBLL  challanBLL = new challanBLL();
+            challanBLL  cBLL = new challanBLL();
 
             string cname = textCust_Name.Text;
             if (comboTransactionType.Text != "")
@@ -200,25 +200,25 @@ namespace Gorakshnath_Billing_System.UI
                         decimal.TryParse(textIgst.Text, out TIGST);
                         decimal.TryParse(textGrandTotal.Text, out Grand_Total);
 
-                        challanBLL.Sales_ID = Sales_ID;
-                        challanBLL.Invoice_No = Invoice_No;
-                        challanBLL.Cust_ID = c.Cust_ID;
-                        challanBLL.Sub_Total = Sub_Total;
-                        challanBLL.TDiscount = TDiscount;
-                        challanBLL.TSGST = TSGST;
-                        challanBLL.TCGST = TCGST;
-                        challanBLL.TIGST = TIGST;
-                        challanBLL.Grand_Total = Grand_Total;
-                        challanBLL.Transaction_Date = DateTime.Now;
+                        cBLL.Sales_ID = Sales_ID;
+                        cBLL.Invoice_No = Invoice_No;
+                        cBLL.Cust_ID = c.Cust_ID;
+                        cBLL.Sub_Total = Sub_Total;
+                        cBLL.TDiscount = TDiscount;
+                        cBLL.TSGST = TSGST;
+                        cBLL.TCGST = TCGST;
+                        cBLL.TIGST = TIGST;
+                        cBLL.Grand_Total = Grand_Total;
+                        cBLL.Transaction_Date = DateTime.Now;
 
 
-                        challanBLL.SalesDetails = salesDT;
+                        cBLL.SalesDetails = salesDT;
                         bool isSuccess = false;
 
                         // using (TransactionScope scope = new TransactionScope())
-                        {
-                            int SalesID = -1;
-                            bool b = challanDAL.insertChallan(challanBLL, out SalesID);
+                        
+                            int Cust_ID = -1;
+                        //    bool b = challanDAL.insertChallan(cBLL, out Cust_ID);
                             for (int i = 0; i < salesDT.Rows.Count; i++)
                             {
                                 challandetailsBLL cdBLL = new challandetailsBLL();
@@ -232,7 +232,7 @@ namespace Gorakshnath_Billing_System.UI
                                 cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
                                 cdBLL.Cust_ID = c.Cust_ID;
 
-                                bool y = challandetailsDAL.insertchallandetails(cdBLL);
+                              //  bool y = challandetailsDAL.insertchallandetails(cdBLL);
                                 isSuccess = b && y;
 
                                 isSuccess = true;
@@ -247,7 +247,7 @@ namespace Gorakshnath_Billing_System.UI
                             {
                                 MessageBox.Show("Transaction Failed");
                             }
-                        }
+                        
                     }
                     else
                     {

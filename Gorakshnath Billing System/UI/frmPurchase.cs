@@ -325,7 +325,7 @@ namespace Gorakshnath_Billing_System.UI
                         bool isSuccess = false;
 
                         // using (TransactionScope scope = new TransactionScope())
-                        {
+                        
                             int purchaseid = -1;
                             bool b = purchaseDAL.insertpurchase(purchaseBLL, out purchaseid);
                             for (int i = 0; i < purchasedt.Rows.Count; i++)
@@ -356,8 +356,7 @@ namespace Gorakshnath_Billing_System.UI
                             {
                                 MessageBox.Show("Transaction Failed");
                             }
-                        }
-                    }
+                                            }
                     else
                     {
                         MessageBox.Show("Please Add product Details");
