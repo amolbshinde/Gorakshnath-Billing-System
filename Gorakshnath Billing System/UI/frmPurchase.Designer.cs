@@ -105,9 +105,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label31 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
@@ -334,6 +331,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // dgvAddedProducts
             // 
+            this.dgvAddedProducts.AllowUserToAddRows = false;
             this.dgvAddedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAddedProducts.Location = new System.Drawing.Point(29, 25);
             this.dgvAddedProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -956,38 +954,32 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(299, 670);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Location = new System.Drawing.Point(224, 544);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(145, 27);
+            this.checkBox1.Size = new System.Drawing.Size(113, 21);
             this.checkBox1.TabIndex = 13;
             this.checkBox1.Text = "Discount To All";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(445, 670);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox7.Location = new System.Drawing.Point(334, 544);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(99, 22);
+            this.textBox7.Size = new System.Drawing.Size(75, 20);
             this.textBox7.TabIndex = 14;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(553, 670);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox8.Location = new System.Drawing.Point(415, 544);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(99, 22);
+            this.textBox8.Size = new System.Drawing.Size(75, 20);
             this.textBox8.TabIndex = 15;
             // 
             // frmPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1439, 918);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(1079, 746);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
@@ -1015,7 +1007,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1085,9 +1076,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.ComboBox comboPurchaseType;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox textSubDiscount;
         private System.Windows.Forms.TextBox textSgst;

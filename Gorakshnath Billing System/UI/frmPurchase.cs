@@ -262,7 +262,6 @@ namespace Gorakshnath_Billing_System.UI
                 decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (PurchasePrice * Qty)), 2);
 
                 textTotalAmount.Text = TotalAmount.ToString();
-
             }
         }
 
@@ -517,6 +516,7 @@ namespace Gorakshnath_Billing_System.UI
                 textGrandTotal.Text = gTotal.ToString();
 
                 dgvAddedProducts.Rows.RemoveAt(dgvAddedProducts.CurrentCell.RowIndex);
+                MessageBox.Show("Product Successfully Deleted");
 
             }
 
