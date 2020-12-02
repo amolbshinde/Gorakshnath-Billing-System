@@ -221,24 +221,25 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
-        #region Method to get id of the Customer based on Name
+
+
+        #region Method to get id of the Supplier based on Name
         public customerBLL getCustomerIdFromName(string Name)
         {
-            customerBLL c = new customerBLL();
-           SqlConnection con = new SqlConnection(myconnstrng);
+            customerBLL  c = new customerBLL();
+            SqlConnection con = new SqlConnection(myconnstrng);
 
             DataTable dt = new DataTable();
             try
             {
-                //fetch details
-                string sql = "SELECT id FROM tbl_dea_cust WHERE name='" + Name + "'";
-               SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                string sql = "SELECT Cust_Id FROM Cust_Master WHERE Cust_Name='" + Name + "'";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 con.Open();
                 adapter.Fill(dt);
 
                 if (dt.Rows.Count > 0)
                 {
-                    c.id = int.Parse(dt.Rows[0]["id"].ToString());
+                    c.Cust_ID = int.Parse(dt.Rows[0]["Cust_Id"].ToString());
                 }
 
             }
@@ -255,6 +256,8 @@ namespace Gorakshnath_Billing_System.DAL
             return c;
         }
         #endregion
+
+
     }
 }
 

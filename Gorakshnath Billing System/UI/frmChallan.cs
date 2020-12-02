@@ -22,6 +22,10 @@ namespace Gorakshnath_Billing_System.UI
         customerDAL cDAL = new customerDAL();
        // customerBLL cBLL = new customerBLL();
         productDAL pDAL = new productDAL();
+
+        challanBLL challanBLL = new challanBLL();
+        challanDAL challanDAL = new challanDAL();
+
         DataTable transactionDT = new DataTable();
         DataTable salesDT = new DataTable();
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -97,7 +101,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 if (textQuantity.Text != "")
                 {
-                    if (dgvAddedProducts.Columns.Contains(textItemName.Text) != true)
+                    if (comboGstType.Text != "")
                     {
 
 
@@ -212,73 +216,90 @@ namespace Gorakshnath_Billing_System.UI
             transactionDT.Columns.Add("(+)Tax%");
             transactionDT.Columns.Add("(=)Total");
 
-        }//
-        /*
-        public void save()
-        {
-            challanBLL  challanBLL = new challanBLL();
+        }
 
-            string cname = textCust_Name.Text;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Validate Supplier details are there or not 
+
+            if (textCust_Name.Text != "")
+            {
+                if (dgvAddedProducts.Rows.Count != 0)
+                {
+                    //save fun
+                    save();                   
+                }
+                else
+                {
+                    MessageBox.Show("Please Add Product Details");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter Supplier Details");
+            }
+        }
+
+
+        public void save()
+        {           
+
+            string sname = textCust_Name.Text;
             if (comboTransactionType.Text != "")
             {
-                if (cname != "")
+                if (sname != "")
                 {
 
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        customerBLL c = cDAL.searchcustomerforsales(cname);
+                        customerBLL c = cDAL.getCustomerIdFromName(sname);
 
-                        //Sales_ID,Invoice_No,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Transaction_Date
+                        decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
-                        int Sales_ID = 1, Invoice_No = 1; // Cust_ID;
-                        decimal Sub_Total, TDiscount, TSGST, TCGST, TIGST, Grand_Total;
-;
+                        string type = comboTransactionType.Text;
+                        decimal.TryParse(textSubTotal.Text, out subTotal);
+                        decimal.TryParse(textSubDiscount.Text, out totalDiscount);
+                        decimal.TryParse(textSgst.Text, out totalSgst);
+                        decimal.TryParse(textCgst.Text, out totalCgst);
+                        decimal.TryParse(textIgst.Text, out totalIgst);
+                        decimal.TryParse(textGrandTotal.Text, out grandTotal);
 
-                       // string TrnType = comboTransactionType.Text;
-                        decimal.TryParse(textSubTotal.Text, out Sub_Total);
-                        decimal.TryParse(textSubDiscount.Text, out TDiscount);
-                        decimal.TryParse(textSgst.Text, out TSGST);
-                        decimal.TryParse(textCgst.Text, out TCGST);
-                        decimal.TryParse(textIgst.Text, out TIGST);
-                        decimal.TryParse(textGrandTotal.Text, out Grand_Total);
-
-                        challanBLL.Sales_ID = Sales_ID;
-                        challanBLL.Invoice_No = Invoice_No;
+                        challanBLL.Transaction_Type = type;
                         challanBLL.Cust_ID = c.Cust_ID;
-                        challanBLL.Sub_Total = Sub_Total;
-                        challanBLL.TDiscount = TDiscount;
-                        challanBLL.TSGST = TSGST;
-                        challanBLL.TCGST = TCGST;
-                        challanBLL.TIGST = TIGST;
-                        challanBLL.Grand_Total = Grand_Total;
-                        challanBLL.Transaction_Date = DateTime.Now;
-
+                        challanBLL.Sub_Total = subTotal;
+                        challanBLL.TDiscount = totalDiscount;
+                        challanBLL.TSGST = totalSgst;
+                        challanBLL.TCGST = totalCgst;
+                        challanBLL.TIGST = totalIgst;
+                        challanBLL.Grand_Total = grandTotal;
 
                         challanBLL.SalesDetails = salesDT;
                         bool isSuccess = false;
 
                         // using (TransactionScope scope = new TransactionScope())
                         {
-                            int SalesID = -1;
-                            bool b = challanDAL.insertChallan(challanBLL, out SalesID);
+                            int salesid = -1;
+                            bool b = challanDAL.insertChallan(challanBLL, out salesid);
+                            /*
                             for (int i = 0; i < salesDT.Rows.Count; i++)
                             {
-                                challandetailsBLL cdBLL = new challandetailsBLL();
-                                string Cust_Name = salesDT.Rows[i][1].ToString();
+                                purchasedetailsBLL pdBLL = new purchasedetailsBLL();
+                                string productName = salesDT.Rows[i][1].ToString();
 
+                                productBLL p = productDAL.GetProductIDFromName(productName);
 
+                                pdBLL.productid = p.id;
+                                pdBLL.qty = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
+                                pdBLL.rate = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);
+                                pdBLL.total = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
+                                pdBLL.supid = c.Cust_ID
 
-                                cdBLL.Cust_ID = c.Cust_ID;
-                                cdBLL.Qty = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
-                                cdBLL.Rate = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);
-                                cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
-                                cdBLL.Cust_ID = c.Cust_ID;
-
-                                bool y = challandetailsDAL.insertchallandetails(cdBLL);
+                                bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
                                 isSuccess = b && y;
 
                                 isSuccess = true;
-                            }
+                            }*/
+                            isSuccess = b;
                             if (isSuccess == true)
                             {
                                 //scope.Complete();
@@ -306,34 +327,9 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Select Purchase Type GST OR NOGST");
             }
-        }*/
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            //Validate Supplier details are there or not 
-
-            if (textCust_Name.Text != "")
-            {
-                if (dgvAddedProducts.Rows.Count != 0)
-                {
-                    //save fun
-                    //save();                   
-                }
-                else
-                {
-                    MessageBox.Show("Please Add Product Details");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please enter Supplier Details");
-            }
-
-
-
-
         }
+
+
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
         {
