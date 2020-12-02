@@ -280,8 +280,8 @@ namespace Gorakshnath_Billing_System.UI
                         {
                             int salesid = -1;
                             bool b = challanDAL.insertChallan(challanBLL, out salesid);
-                            /*
-                            for (int i = 0; i < salesDT.Rows.Count; i++)
+                            
+                           /* for (int i = 0; i < salesDT.Rows.Count; i++)
                             {
                                 purchasedetailsBLL pdBLL = new purchasedetailsBLL();
                                 string productName = salesDT.Rows[i][1].ToString();
