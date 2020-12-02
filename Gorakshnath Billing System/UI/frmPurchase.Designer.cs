@@ -952,28 +952,32 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // checkBox1
             // 
-            this.checkBox1.AutoSize = true;
+           /* this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(224, 544);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(113, 21);
             this.checkBox1.TabIndex = 13;
             this.checkBox1.Text = "Discount To All";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.UseVisualStyleBackColor = true;*/
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(334, 544);
+            /*this.textBox7.Location = new System.Drawing.Point(334, 544);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(75, 20);
-            this.textBox7.TabIndex = 14;
+            this.textBox7.TabIndex = 14;*/
             // 
             // textBox8
+
             // 
+            /*
             this.textBox8.Location = new System.Drawing.Point(415, 544);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(75, 20);
             this.textBox8.TabIndex = 15;
+
+            */
             // 
             // frmPurchase
             // 
