@@ -130,6 +130,12 @@
     <Compile Include="UI\frmSalesReturn.Designer.cs">
       <DependentUpon>frmSalesReturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmStockMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmStockMaster.Designer.cs">
+      <DependentUpon>frmStockMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmSupplierMaster.cs">
       <SubType>Form</SubType>
     </Compile>
