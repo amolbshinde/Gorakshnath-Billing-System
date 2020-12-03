@@ -74,6 +74,7 @@
     <Compile Include="DAL\purchasedetailsDAL.cs" />
     <Compile Include="DAL\salesDAL.cs" />
     <Compile Include="DAL\salesdetailsDAL.cs" />
+    <Compile Include="DAL\stockDAL.cs" />
     <Compile Include="DAL\supplierDAL.cs" />
     <Compile Include="DAL\SupplierMasterDAL.cs" />
     <Compile Include="DAL\userDAL.cs" />

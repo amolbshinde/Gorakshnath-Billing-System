@@ -22,13 +22,19 @@ namespace Gorakshnath_Billing_System.UI
         }
         
         SupplierMasterDAL smDAL = new SupplierMasterDAL();
+        
         DataTable purchasedt = new DataTable();
 
         purchaseDAL purchaseDAL = new purchaseDAL();
 
 
         purchasedetailsDAL pdetailsDAL = new purchasedetailsDAL();
+        
         productDAL productDAL = new productDAL();
+
+        stockDAL stockDAL = new stockDAL();
+
+
         //hello
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -330,8 +336,10 @@ namespace Gorakshnath_Billing_System.UI
                             for (int i = 0; i < purchasedt.Rows.Count; i++)
                             {
                                 purchasedetailsBLL pdBLL = new purchasedetailsBLL();
-                                string productName = purchasedt.Rows[i][1].ToString();
 
+                                stockBLL stockBLL = new stockBLL();
+
+                                string productName = purchasedt.Rows[i][1].ToString();
                                 productBLL p = productDAL.GetProductIDFromName(productName);
 
                                 pdBLL.productid = p.id;
@@ -340,7 +348,22 @@ namespace Gorakshnath_Billing_System.UI
                                 pdBLL.total = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
                                 pdBLL.supid = s.SupplierID;
 
-                                bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
+                                int Product_id = p.id;
+                                stockBLL.Product_Id = Product_id;
+                                stockBLL.Quantity= Math.Round(decimal.Parse(purchasedt.Rows[i][3].ToString()), 2);
+                                stockBLL.Unit = purchasedt.Rows[i][2].ToString();
+
+                                bool y = pdetailsDAL.insertpurchasedetails(pdBLL);                            
+                                stockBLL Padded = stockDAL.CheakeProductAddedOrNot(Product_id);
+                                //MessageBox.Show("Product is added",Padded.Product_Id.ToString());
+                                if(Product_id == Padded.Product_Id)
+                                {
+                                    
+                                }
+                                else
+                                {
+                                    bool z = stockDAL.InsertStockNewProduct(stockBLL);
+                                }                           
 
                                 isSuccess = b && y;
 
