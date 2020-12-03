@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gorakshnath_Billing_System.BLL
 {
-    class loginBLL
+    class loginBLL///
     {
         public string username { get; set; }
         public string password { get; set; }
