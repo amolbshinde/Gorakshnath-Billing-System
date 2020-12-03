@@ -28,7 +28,9 @@ namespace Gorakshnath_Billing_System.UI
         challanDAL challanDAL = new challanDAL();
 
         challandetailsDAL challandetailsDAL = new challandetailsDAL();
-        
+
+        stockDAL stockDAL = new stockDAL();
+
         DataTable salesDT = new DataTable();
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -278,7 +280,9 @@ namespace Gorakshnath_Billing_System.UI
                              for (int i = 0; i < salesDT.Rows.Count; i++)
                              {
                                 challandetailsBLL cdBLL = new challandetailsBLL();
-                                 string productName = salesDT.Rows[i][1].ToString();
+
+                                stockBLL stockBLL = new stockBLL();
+                                string productName = salesDT.Rows[i][1].ToString();
 
                                  productBLL p = productDAL.GetProductIDFromName(productName);
                                  cdBLL.Product_ID = p.id;
@@ -291,8 +295,18 @@ namespace Gorakshnath_Billing_System.UI
                                 cdBLL.GST_Type =salesDT.Rows[i][7].ToString();
                                 cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
                                 cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
+
+
+                                int Product_id = p.id;
+                                stockBLL.Product_Id = Product_id;
+                                stockBLL.Quantity = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
+                                stockBLL.Unit = salesDT.Rows[i][2].ToString();
+
                                 bool y = challandetailsDAL.insertchallandetails(cdBLL);
-                                 isSuccess = b && y;
+
+                                bool x = stockDAL.dereaseUpdate(stockBLL);
+
+                                isSuccess = b && y;
 
                                  isSuccess = true;
                              }
