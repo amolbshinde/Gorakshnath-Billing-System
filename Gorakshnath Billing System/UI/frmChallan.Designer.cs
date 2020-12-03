@@ -105,6 +105,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -833,6 +834,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.btnClear);
             this.panel6.Controls.Add(this.textIgst);
             this.panel6.Controls.Add(this.label36);
             this.panel6.Controls.Add(this.textCgst);
@@ -982,11 +984,26 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4.Size = new System.Drawing.Size(1057, 247);
             this.panel4.TabIndex = 19;
             // 
+            // btnClear
+            // 
+            this.btnClear.FlatAppearance.BorderSize = 2;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.Teal;
+            this.btnClear.Location = new System.Drawing.Point(10, 192);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(91, 32);
+            this.btnClear.TabIndex = 37;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // frmChallan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 744);
+            this.ClientSize = new System.Drawing.Size(1111, 778);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
@@ -1095,5 +1112,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.TextBox textItemSearch;
         private System.Windows.Forms.TextBox textIgst;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Button btnClear;
     }
 }

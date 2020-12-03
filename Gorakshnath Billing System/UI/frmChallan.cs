@@ -104,8 +104,6 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     if (comboGstType.Text != "")
                     {
-
-
                         // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
 
                         String ProductName = textItemName.Text;
@@ -122,9 +120,8 @@ namespace Gorakshnath_Billing_System.UI
                         // decimal discount = decimal.Parse(textDiscount.Text);
                         // decimal GST = decimal.TryParse(textGST.Text, out GST);
                         //decimal TotalAmount = decimal.Parse(textTotalAmount.Text);
-                        //decimal discount = decimal.Parse(textDiscount.Text);
+                        //decimal discount = decimal.Parse(textDiscount.Text);                                                
 
-                        //          
 
 
                         // CHECK PRODUCT IS SELECTED OR NOT 
@@ -189,7 +186,7 @@ namespace Gorakshnath_Billing_System.UI
                     }
                     else
                     {
-                        MessageBox.Show("Product is already Added !");//,"Warning",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Warning);
+                        MessageBox.Show("Plsease Select GST type");//,"Warning",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Warning);
 
                     }
 
@@ -332,6 +329,39 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Select Purchase Type GST OR NOGST");
             }
+        }
+
+        public void Clear()
+        {
+            comboGstType.Text = "";
+            textSearch.Text = "";
+            textCust_Name.Text = "";
+            textEmail.Text = "";
+            textAddress.Text = "";
+            textContact.Text = "";
+
+            textItemCode.Text = "";
+            textItemSearch.Text = "";
+            textItemName.Text = "";
+            comboBoxUnit.Text = "";
+            textInventory.Text = "0";
+            textQuantity.Text = "0";
+            textRate.Text = "0";
+            textDiscount.Text = "0";            
+            comboGstType.Text = "";
+            textGST.Text = "0";
+            textTotalAmount.Text = "0";
+
+            textSubTotal.Text = "";
+            textSubDiscount.Text = "";
+            textSgst.Text = "";
+            textCgst.Text = "";
+            textIgst.Text = "";
+
+            dgvAddedProducts.DataSource = null;
+            dgvAddedProducts.Rows.Clear();
+            salesDT.Rows.Clear();
+
         }
 
 
@@ -576,7 +606,9 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-
-
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
     }
 }
