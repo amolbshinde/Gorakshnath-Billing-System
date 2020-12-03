@@ -52,6 +52,7 @@
     <Compile Include="BLL\challandetailsBLL.cs" />
     <Compile Include="BLL\customerBLL.cs" />
     <Compile Include="BLL\DummySalesBLL.cs" />
+    <Compile Include="BLL\DummySalesDetailsBLL.cs" />
     <Compile Include="BLL\loginBLL.cs" />
     <Compile Include="BLL\productBLL.cs" />
     <Compile Include="BLL\ProductMasterBLL.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="DAL\challanDAL.cs" />
     <Compile Include="DAL\challandetailsDAL.cs" />
     <Compile Include="DAL\DummySalesDAL.cs" />
+    <Compile Include="DAL\DummySalesDetailsDAL.cs" />
     <Compile Include="DAL\ProductMasterDAL.cs" />
     <Compile Include="DAL\customerDAL.cs" />
     <Compile Include="DAL\DGVPrinter.cs" />
@@ -224,6 +226,9 @@
     <EmbeddedResource Include="UI\frmProductMaster.resx">
       <DependentUpon>frmProductMaster.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
