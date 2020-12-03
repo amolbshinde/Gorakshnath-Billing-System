@@ -58,6 +58,7 @@
     <Compile Include="BLL\purchasedetailsBLL.cs" />
     <Compile Include="BLL\salesBLL.cs" />
     <Compile Include="BLL\salesdetailsBLL.cs" />
+    <Compile Include="BLL\stockBLL.cs" />
     <Compile Include="BLL\supplierBLL.cs" />
     <Compile Include="BLL\SupplierMasterBLL.cs" />
     <Compile Include="BLL\userBLL.cs" />

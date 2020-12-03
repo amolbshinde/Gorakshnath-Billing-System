@@ -341,6 +341,7 @@ namespace Gorakshnath_Billing_System.UI
                                 pdBLL.supid = s.SupplierID;
 
                                 bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
+
                                 isSuccess = b && y;
 
                                 isSuccess = true;
