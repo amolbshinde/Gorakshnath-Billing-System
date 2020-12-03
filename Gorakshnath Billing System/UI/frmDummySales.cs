@@ -340,13 +340,13 @@ namespace Gorakshnath_Billing_System.UI
                         challanBLL.TIGST = totalIgst;
                         challanBLL.Grand_Total = grandTotal;
 
-                        challanBLL.SalesDetails = salesDT;
+                        challanBLL.DummySalesDetails = salesDT;
                         bool isSuccess = false;
 
                         // using (TransactionScope scope = new TransactionScope())
                         {
                             int salesid = -1;
-                            bool b = challanDAL.insertChallan(challanBLL, out salesid);
+                            bool b = challanDAL.insertDummySales(challanBLL, out salesid);
 
                             for (int i = 0; i < salesDT.Rows.Count; i++)
                             {
