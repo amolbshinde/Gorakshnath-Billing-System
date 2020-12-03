@@ -343,7 +343,7 @@ namespace Gorakshnath_Billing_System.UI
                         challanBLL.DummySalesDetails = salesDT;
                         bool isSuccess = false;
 
-                        // using (TransactionScope scope = new TransactionScope())
+                        // using (TransactionScope scope = new TransactionScope())//
                         {
                             int salesid = -1;
                             bool b = challanDAL.insertDummySales(challanBLL, out salesid);
