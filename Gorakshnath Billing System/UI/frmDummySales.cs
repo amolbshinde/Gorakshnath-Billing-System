@@ -27,7 +27,7 @@ namespace Gorakshnath_Billing_System.UI
 
         DummySalesDAL challanDAL = new DummySalesDAL();
 
-        DummySalesDetailsDAL challandetailsDAL = new DummySalesDetailsDAL();
+        DummySalesDetailsDAL DummySalesDetailsDAL = new DummySalesDetailsDAL();
 
         DataTable salesDT = new DataTable();
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -350,7 +350,7 @@ namespace Gorakshnath_Billing_System.UI
 
                             for (int i = 0; i < salesDT.Rows.Count; i++)
                             {
-                                challandetailsBLL cdBLL = new challandetailsBLL();
+                                DummySalesDetailsBLL cdBLL = new DummySalesDetailsBLL();
                                 string productName = salesDT.Rows[i][1].ToString();
 
                                 productBLL p = productDAL.GetProductIDFromName(productName);
