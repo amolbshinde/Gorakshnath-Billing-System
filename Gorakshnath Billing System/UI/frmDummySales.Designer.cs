@@ -947,6 +947,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvAddedProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAddedProducts.Size = new System.Drawing.Size(1352, 263);
             this.dgvAddedProducts.TabIndex = 20;
+            this.dgvAddedProducts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAddedProducts_MouseClick);
             // 
             // btnClear
             // 
