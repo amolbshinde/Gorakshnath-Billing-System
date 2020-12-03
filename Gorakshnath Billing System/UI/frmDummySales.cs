@@ -343,14 +343,14 @@ namespace Gorakshnath_Billing_System.UI
                         challanBLL.DummySalesDetails = salesDT;
                         bool isSuccess = false;
 
-                        // using (TransactionScope scope = new TransactionScope())
+                        // using (TransactionScope scope = new TransactionScope())//
                         {
                             int salesid = -1;
                             bool b = challanDAL.insertDummySales(challanBLL, out salesid);
 
                             for (int i = 0; i < salesDT.Rows.Count; i++)
                             {
-                                challandetailsBLL cdBLL = new challandetailsBLL();
+                                DummySalesDetailsBLL cdBLL = new DummySalesDetailsBLL();
                                 string productName = salesDT.Rows[i][1].ToString();
 
                                 productBLL p = productDAL.GetProductIDFromName(productName);
