@@ -82,6 +82,12 @@
     <Compile Include="UI\frmChallan.Designer.cs">
       <DependentUpon>frmChallan.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmDummySales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmDummySales.Designer.cs">
+      <DependentUpon>frmDummySales.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmEstimate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </Compile>
     <EmbeddedResource Include="UI\frmChallan.resx">
       <DependentUpon>frmChallan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmDummySales.resx">
+      <DependentUpon>frmDummySales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmEstimate.resx">
       <DependentUpon>frmEstimate.cs</DependentUpon>

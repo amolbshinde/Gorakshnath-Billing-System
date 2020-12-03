@@ -89,8 +89,8 @@ namespace Gorakshnath_Billing_System
 
         private void newInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSales sales = new frmSales();
-            sales.Show();
+            frmDummySales DummySales = new frmDummySales();
+            DummySales.Show();
         }
 
         private void fgToolStripMenuItem_Click(object sender, EventArgs e)
