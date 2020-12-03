@@ -42,8 +42,6 @@ namespace Gorakshnath_Billing_System.UI
                 comboGstType.Enabled = true;
                 textGST.Enabled = true;
             }
-
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -121,8 +119,6 @@ namespace Gorakshnath_Billing_System.UI
                         // decimal GST = decimal.TryParse(textGST.Text, out GST);
                         //decimal TotalAmount = decimal.Parse(textTotalAmount.Text);
                         //decimal discount = decimal.Parse(textDiscount.Text);                                                
-
-
 
                         // CHECK PRODUCT IS SELECTED OR NOT 
                         if (ProductName == "")
@@ -214,7 +210,6 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("Gst Type");
             salesDT.Columns.Add("(+)Tax%");
             salesDT.Columns.Add("(=)Total");
-
         }
 
         private void button1_Click(object sender, EventArgs e)

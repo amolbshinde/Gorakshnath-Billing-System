@@ -151,8 +151,6 @@ namespace Gorakshnath_Billing_System.UI
 
             customerBLL cb = cDAL.searchcustomerforsales(keyword);
 
-
-
             txtName.Text = cb.name;
             txtContact.Text = cb.contact;
             txtEmail.Text = cb.email;
