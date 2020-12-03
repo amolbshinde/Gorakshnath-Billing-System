@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Gorakshnath_Billing_System.BLL;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.DAL
 {
@@ -23,15 +26,15 @@ namespace Gorakshnath_Billing_System.DAL
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 
-                cmd.Parameters.AddWithValue("@Sales_ID", c.Sales_ID);
-                cmd.Parameters.AddWithValue("@Invoice_No", c.Invoice_No);
-                cmd.Parameters.AddWithValue("@Cust_ID", c.Cust_ID);
-                cmd.Parameters.AddWithValue("@Sub_Total", c.Sub_Total);
-                cmd.Parameters.AddWithValue("@TDiscount", c.TDiscount);
-                cmd.Parameters.AddWithValue("@TSGST", c.TSGST);
-                cmd.Parameters.AddWithValue("@TCGST", c.TCGST);
-                cmd.Parameters.AddWithValue("@TIGST", c.TIGST);
-                cmd.Parameters.AddWithValue("@Grand_Total", c.Grand_Total);
+                cmd.Parameters.AddWithValue("@Sales_ID", dsb.Sales_ID);
+                cmd.Parameters.AddWithValue("@Invoice_No", dsb.Invoice_No);
+                cmd.Parameters.AddWithValue("@Cust_ID", dsb.Cust_ID);
+                cmd.Parameters.AddWithValue("@Sub_Total", dsb.Sub_Total);
+                cmd.Parameters.AddWithValue("@TDiscount", dsb.TDiscount);
+                cmd.Parameters.AddWithValue("@TSGST", dsb.TSGST);
+                cmd.Parameters.AddWithValue("@TCGST", dsb.TCGST);
+                cmd.Parameters.AddWithValue("@TIGST", dsb.TIGST);
+                cmd.Parameters.AddWithValue("@Grand_Total", dsb.Grand_Total);
 
                 con.Open();
 
