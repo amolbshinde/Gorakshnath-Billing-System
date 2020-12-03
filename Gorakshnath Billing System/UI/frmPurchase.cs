@@ -358,7 +358,7 @@ namespace Gorakshnath_Billing_System.UI
                                 //MessageBox.Show("Product is added",Padded.Product_Id.ToString());
                                 if(Product_id == Padded.Product_Id)
                                 {
-                                    
+                                bool x = stockDAL.Update(stockBLL);
                                 }
                                 else
                                 {

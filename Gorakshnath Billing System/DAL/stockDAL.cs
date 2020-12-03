@@ -48,7 +48,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-
         #region Insert Data in Database
         public bool InsertStockNewProduct(stockBLL s)
         {
@@ -89,5 +88,43 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Update Data in Database
+        public bool Update(stockBLL s)
+        {
+            bool isSuccess = false;
+            SqlConnection con = new SqlConnection(myconnstrng);
+            try
+            {
+                String sql = "UPDATE Stock_Master SET Quantity= Quantity+@Quantity WHERE Product_Id = @Product_Id";
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                cmd.Parameters.AddWithValue("@Quantity", s.Quantity);
+                cmd.Parameters.AddWithValue("@Product_Id", s.Product_Id);
+
+                con.Open();
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return isSuccess;
+
+        }
+        #endregion
     }
 }
