@@ -26,9 +26,14 @@ namespace Gorakshnath_Billing_System.UI
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
+            //
             this.Close();
         }
-        //
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             l.username = textBox1.Text.Trim();
