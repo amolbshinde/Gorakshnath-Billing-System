@@ -127,7 +127,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-
         #region Decrease Data in Database from Stock
         public bool dereaseUpdate(stockBLL s)
         {
@@ -164,6 +163,34 @@ namespace Gorakshnath_Billing_System.DAL
 
             return isSuccess;
 
+        }
+        #endregion
+
+
+
+        #region Select Data From Database
+        public DataTable SelectAllProductStock()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT * FROM Stock_Master";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
         }
         #endregion
 

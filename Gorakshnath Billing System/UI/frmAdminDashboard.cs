@@ -121,5 +121,13 @@ namespace Gorakshnath_Billing_System
             frmChallan challan = new frmChallan();
             challan.Show();
         }
+
+        private void totalPurchaseReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmStockReport StockReport = new frmStockReport();
+            StockReport.Show();
+
+        }
     }
 }
