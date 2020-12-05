@@ -13,6 +13,7 @@ namespace Gorakshnath_Billing_System.DAL
     class DummySalesDAL
     {
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
+        //insert recored into salestransaction
         #region Insert Data in Database
 
         public bool insertDummySales(DummySalesBLL dsb, out int Cust_ID)
