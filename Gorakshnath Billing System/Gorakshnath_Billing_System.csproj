@@ -33,9 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,6 +89,17 @@
     <Compile Include="DAL\supplierDAL.cs" />
     <Compile Include="DAL\SupplierMasterDAL.cs" />
     <Compile Include="DAL\userDAL.cs" />
+    <Compile Include="Report_Generator\CrystalReport\crptInvoice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crptInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report_Generator\DataSet\dsChallan_T.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsChallan_T.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmChallan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +198,16 @@
     <Compile Include="UI\frmProductMaster.Designer.cs">
       <DependentUpon>frmProductMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Invoice_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Invoice_Report.Designer.cs">
+      <DependentUpon>Invoice_Report.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Report_Generator\CrystalReport\crptInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crptInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmChallan.resx">
       <DependentUpon>frmChallan.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +263,9 @@
     <EmbeddedResource Include="UI\frmProductMaster.resx">
       <DependentUpon>frmProductMaster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Invoice_Report.resx">
+      <DependentUpon>Invoice_Report.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
@@ -252,6 +283,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Report_Generator\DataSet\dsChallan_T.xsc">
+      <DependentUpon>dsChallan_T.xsd</DependentUpon>
+    </None>
+    <None Include="Report_Generator\DataSet\dsChallan_T.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsChallan_T.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report_Generator\DataSet\dsChallan_T.xss">
+      <DependentUpon>dsChallan_T.xsd</DependentUpon>
+    </None>
     <None Include="Resources\images.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -278,6 +320,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\images %282%29.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
