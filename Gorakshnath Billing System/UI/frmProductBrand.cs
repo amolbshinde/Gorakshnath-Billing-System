@@ -24,7 +24,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            //add brand into table 
 
             BrandBLL.Brand_Name = textBrandName.Text;
             BrandBLL.Description = textDescription.Text;
