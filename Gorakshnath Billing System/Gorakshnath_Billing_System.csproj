@@ -104,11 +104,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsChallan_T.xsd</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmBrand.cs">
+    <Compile Include="UI\frmProductBrand.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmBrand.Designer.cs">
-      <DependentUpon>frmBrand.cs</DependentUpon>
+    <Compile Include="UI\frmProductBrand.Designer.cs">
+      <DependentUpon>frmProductBrand.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmChallan.cs">
       <SubType>Form</SubType>
@@ -224,8 +224,8 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptInvoice.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmBrand.resx">
-      <DependentUpon>frmBrand.cs</DependentUpon>
+    <EmbeddedResource Include="UI\frmProductBrand.resx">
+      <DependentUpon>frmProductBrand.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmChallan.resx">
       <DependentUpon>frmChallan.cs</DependentUpon>

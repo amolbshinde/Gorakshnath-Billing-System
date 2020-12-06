@@ -303,8 +303,8 @@ namespace Gorakshnath_Billing_System.UI
                                 stockBLL.Product_Id = Product_id;
                                 stockBLL.Quantity = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
                                 stockBLL.Unit = salesDT.Rows[i][2].ToString();
-                                int salesdid = -1;
-                                bool y = challandetailsDAL.insertchallandetails(cdBLL,out salesdid);
+                                
+                                bool y = challandetailsDAL.insertchallandetails(cdBLL);
 
                                 bool x = stockDAL.dereaseUpdate(stockBLL);
 
