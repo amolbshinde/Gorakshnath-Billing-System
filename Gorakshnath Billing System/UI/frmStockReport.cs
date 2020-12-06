@@ -25,6 +25,20 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            string keywords = textKeyword.Text;
+
+            //Product_Group Product_Brand
+            if (comboSearchBy.Text== "Product_Group")
+            {
+                DataTable dt = stockDAL.SelectGroupByProductGroupStock(keywords);
+                dgvStockReport.DataSource = dt;
+            }
+
+            if (comboSearchBy.Text == "Product_Brand")
+            {
+                DataTable dt = stockDAL.SelectGroupByProductBrandStock(keywords);
+                dgvStockReport.DataSource = dt;
+            }
 
         }
 
