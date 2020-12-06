@@ -44,6 +44,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.comboSearchBy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboSearchBy.FormattingEnabled = true;
+            this.comboSearchBy.Items.AddRange(new object[] {
+            "Product_Group",
+            "Product_Brand"});
             this.comboSearchBy.Location = new System.Drawing.Point(45, 36);
             this.comboSearchBy.Name = "comboSearchBy";
             this.comboSearchBy.Size = new System.Drawing.Size(156, 28);

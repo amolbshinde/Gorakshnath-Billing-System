@@ -166,8 +166,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-
-
         #region Select Data From Database
         public DataTable SelectAllProductStock()
         {
@@ -194,6 +192,67 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+
+
+        #region SEARCH Method for Stock Module Group By Product_Group
+        public DataTable SelectGroupByProductGroupStock(string keywords)
+        {
+            SqlConnection conn = new SqlConnection(myconnstrng);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Group LIKE '%" + keywords + "%'  group by Stock_Master.Quantity,Product_Master.Product_Group,Product_Master.Product_Name;";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
+
+
+
+        #region SEARCH Method for Stock Module Group By Product_Group
+        public DataTable SelectGroupByProductBrandStock(string keywords)
+        {
+            SqlConnection conn = new SqlConnection(myconnstrng);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Brand LIKE '%" + keywords + "%'  group by Stock_Master.Quantity,Product_Master.Product_Group,Product_Master.Product_Name;";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
 
 
     }
