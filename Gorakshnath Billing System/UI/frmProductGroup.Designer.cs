@@ -30,6 +30,7 @@ namespace Gorakshnath_Billing_System.UI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvGroup = new System.Windows.Forms.DataGridView();
@@ -41,7 +42,6 @@ namespace Gorakshnath_Billing_System.UI
             this.textGroupId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroup)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +65,17 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Size = new System.Drawing.Size(1046, 445);
             this.panel1.TabIndex = 18;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(48, 115);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 21);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Group Name";
+            // 
             // textSearch
             // 
             this.textSearch.BackColor = System.Drawing.SystemColors.Window;
@@ -74,6 +85,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(428, 27);
             this.textSearch.TabIndex = 37;
+            this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // label5
             // 
@@ -98,6 +110,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvGroup.RowTemplate.Height = 24;
             this.dgvGroup.Size = new System.Drawing.Size(497, 233);
             this.dgvGroup.TabIndex = 35;
+            this.dgvGroup.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvGroup_RowHeaderMouseClick);
             // 
             // btnDelete
             // 
@@ -111,6 +124,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnDelete.TabIndex = 34;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -124,6 +138,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnUpdate.TabIndex = 33;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -190,17 +205,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label2.TabIndex = 27;
             this.label2.Text = "Group ID";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(48, 115);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 21);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "Group Name";
-            // 
             // frmProductGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +213,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel1);
             this.Name = "frmProductGroup";
             this.Text = "frmProductGroup";
+            this.Load += new System.EventHandler(this.frmProductGroup_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroup)).EndInit();
