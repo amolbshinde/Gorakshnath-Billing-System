@@ -276,8 +276,9 @@ namespace Gorakshnath_Billing_System.UI
                         {
                             int salesid = -1;
                             bool b = challanDAL.insertChallan(challanBLL, out salesid);
+                            
 
-                             for (int i = 0; i < salesDT.Rows.Count; i++)
+                            for (int i = 0; i < salesDT.Rows.Count; i++)
                              {
                                 challandetailsBLL cdBLL = new challandetailsBLL();
 
@@ -286,6 +287,7 @@ namespace Gorakshnath_Billing_System.UI
 
                                  productBLL p = productDAL.GetProductIDFromName(productName);
                                  cdBLL.Product_ID = p.id;
+                                cdBLL.Invoice_No = salesid;
                                 cdBLL.Cust_ID = c.Cust_ID;
                                  cdBLL.Product_Name = salesDT.Rows[i][1].ToString();
                                  cdBLL.Unit = salesDT.Rows[i][2].ToString();
@@ -301,8 +303,8 @@ namespace Gorakshnath_Billing_System.UI
                                 stockBLL.Product_Id = Product_id;
                                 stockBLL.Quantity = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
                                 stockBLL.Unit = salesDT.Rows[i][2].ToString();
-
-                                bool y = challandetailsDAL.insertchallandetails(cdBLL);
+                                int salesdid = -1;
+                                bool y = challandetailsDAL.insertchallandetails(cdBLL,out salesdid);
 
                                 bool x = stockDAL.dereaseUpdate(stockBLL);
 

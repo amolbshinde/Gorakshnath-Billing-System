@@ -26,9 +26,9 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //inserting transaction details
-                string sql = "INSERT INTO Challan_Transactions_Details (Product_ID,Cust_ID,Product_Name,Unit,Qty,Rate,Dicount_Per,GST_Type,GST_Per,Total) VALUES(@Product_ID,@Cust_ID,@Product_Name,@Unit,@Qty,@Rate,@Discount_Per,@GST_Type,@GST_Per,@Total)";
+                string sql = "INSERT INTO Challan_Transactions_Details (Invoice_No,Product_ID,Cust_ID,Product_Name,Unit,Qty,Rate,Dicount_Per,GST_Type,GST_Per,Total) VALUES(@Invoice_No,@Product_ID,@Cust_ID,@Product_Name,@Unit,@Qty,@Rate,@Discount_Per,@GST_Type,@GST_Per,@Total)";
                 SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@Invoice_No", 1);
+                cmd.Parameters.AddWithValue("@Invoice_No", cb.Invoice_No);
                 cmd.Parameters.AddWithValue("@Product_ID", cb.Product_ID);
                 cmd.Parameters.AddWithValue("@Cust_ID", cb.Cust_ID);
                 cmd.Parameters.AddWithValue("@Product_Name", cb.Product_Name);
