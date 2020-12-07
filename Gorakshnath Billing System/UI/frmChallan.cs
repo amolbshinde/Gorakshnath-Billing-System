@@ -273,8 +273,8 @@ namespace Gorakshnath_Billing_System.UI
                         bool isSuccess = false;
 
                         // using (TransactionScope scope = new TransactionScope())
-                        {
-                            int salesid = -1;
+                        
+                             int salesid = -1;
                             bool b = challanDAL.insertChallan(challanBLL, out salesid);
 
                              for (int i = 0; i < salesDT.Rows.Count; i++)
@@ -321,7 +321,7 @@ namespace Gorakshnath_Billing_System.UI
                             {
                                 MessageBox.Show("Transaction Failed");
                             }
-                        }
+                        
                     }
                     else
                     {
