@@ -24,19 +24,22 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //add brand into table 
+            //add brand into table           
 
             BrandBLL.Brand_Name = textBrandName.Text;
             BrandBLL.Description = textDescription.Text;
 
-            BrandBLL BrandBLL = BrandDAL.checkBrandAvailableOrNot(textBrandName.Text);
+            BrandBLL = BrandDAL.checkBrandAvailableOrNot(textBrandName.Text);
 
             if(textBrandName.Text==BrandBLL.Brand_Name)
             {
-                MessageBox.Show("Added Brand");
+                MessageBox.Show("Brand is Already Added in Database Please choose another Brand");
             }
             else
             {
+                BrandBLL.Brand_Name = textBrandName.Text;
+                BrandBLL.Description = textDescription.Text;
+
                 bool success = BrandDAL.Insert(BrandBLL);
                 if (success == true)
                 {
@@ -56,43 +59,56 @@ namespace Gorakshnath_Billing_System.UI
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
-
-            BrandBLL.Brand_ID = int.Parse(textBrandId.Text);
-            BrandBLL.Brand_Name = textBrandName.Text;
-            BrandBLL.Description = textDescription.Text;
-            
-            bool success = BrandDAL.Update(BrandBLL);
-            if (success == true)
+            if (textBrandId.Text == "")
             {
-                MessageBox.Show("Brand Updated Succesfully ...");
-                clear();
-                DataTable dt = BrandDAL.Select();
-                dgvBrand.DataSource = dt;
+                MessageBox.Show("Please Select The Brand");
             }
             else
             {
-                MessageBox.Show("Update Failed :/  ");
+                BrandBLL.Brand_ID = int.Parse(textBrandId.Text);
+                BrandBLL.Brand_Name = textBrandName.Text;
+                BrandBLL.Description = textDescription.Text;
+
+                bool success = BrandDAL.Update(BrandBLL);
+                if (success == true)
+                {
+                    MessageBox.Show("Brand Updated Succesfully ...");
+                    clear();
+                    DataTable dt = BrandDAL.Select();
+                    dgvBrand.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Update Failed :/  ");
+                }
             }
+
+            
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
-            BrandBLL.Brand_ID = int.Parse(textBrandId.Text);
-            bool success = BrandDAL.Delete(BrandBLL);
-            if (success == true)
+            if(textBrandId.Text=="")
             {
-                MessageBox.Show("Record deleted Succesfully");
-                clear();
-                DataTable dt = BrandDAL.Select();
-                dgvBrand.DataSource = dt;
+                MessageBox.Show("Please Select The Brand");
             }
             else
             {
-                MessageBox.Show("Error occured..!!");
+                BrandBLL.Brand_ID = int.Parse(textBrandId.Text);
+                bool success = BrandDAL.Delete(BrandBLL);
+                if (success == true)
+                {
+                    MessageBox.Show("Record deleted Succesfully");
+                    clear();
+                    DataTable dt = BrandDAL.Select();
+                    dgvBrand.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Error occured..!!");
+                }
             }
-
         }
 
         private void frmProductBrand_Load(object sender, EventArgs e)

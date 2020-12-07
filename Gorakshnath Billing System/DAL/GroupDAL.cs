@@ -241,5 +241,45 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
+
+        #region Method  to check Group is added or not
+
+        public GroupBLL checkGroupAvailableOrNot(string keyword)
+        {
+            GroupBLL g = new GroupBLL();
+
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            //fdfd
+            try
+            {
+                string sql = "SELECT Group_Name from Group_Master WHERE Group_Name LIKE '%" + keyword + "%'";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+
+                con.Open();
+
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    g.Group_Name = dt.Rows[0]["Group_Name"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+
+            }
+            return g;
+        }
+
+        #endregion
+
+
     }
 }
