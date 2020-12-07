@@ -30,6 +30,7 @@ namespace Gorakshnath_Billing_System.UI
         private void InitializeComponent()
         {
             this.crptViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // crptViewer
@@ -44,11 +45,25 @@ namespace Gorakshnath_Billing_System.UI
             this.crptViewer.TabIndex = 0;
             this.crptViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.button1.Location = new System.Drawing.Point(575, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(183, 42);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Refresh and Print";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Invoice_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1164, 758);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.crptViewer);
             this.Name = "Invoice_Report";
             this.Text = "Invoice_Report";
@@ -60,5 +75,6 @@ namespace Gorakshnath_Billing_System.UI
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crptViewer;
+        private System.Windows.Forms.Button button1;
     }
 }

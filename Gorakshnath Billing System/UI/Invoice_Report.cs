@@ -32,8 +32,9 @@ namespace Gorakshnath_Billing_System.UI
         private void Invoice_Report_Load(object sender, EventArgs e)
         {
             Report_Generator.CrystalReport.crptInvoice crpt = new Report_Generator.CrystalReport.crptInvoice();
+            crpt.SetParameterValue("@Invoice_No", 2);
             crptViewer.ReportSource = null;
-            crptViewer.ReportSource = crpt;
+           crptViewer.ReportSource = crpt;
 
 
             /*
@@ -80,9 +81,19 @@ namespace Gorakshnath_Billing_System.UI
 
              */
             Report_Generator.CrystalReport.crptInvoice crpt = new Report_Generator.CrystalReport.crptInvoice();
+            crpt.SetParameterValue("@Invoice_No", 2);
             crptViewer.ReportSource = null;
             crptViewer.ReportSource = crpt;
+            
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Report_Generator.CrystalReport.crptInvoice crpt = new Report_Generator.CrystalReport.crptInvoice();
+            crpt.SetParameterValue("@Invoice_No", 2);
+            crptViewer.ReportSource = null;
+            crptViewer.ReportSource = crpt;
         }
     }
 }
