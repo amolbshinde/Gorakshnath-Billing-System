@@ -8,7 +8,7 @@ namespace Gorakshnath_Billing_System.BLL
 {
     class challandetailsBLL
     {
-        public int Sales_ID { get; set; }
+        public int ID { get; set; }
         public int Invoice_No { get; set; }
         public int Product_ID { get; set; }
         public int Cust_ID { get; set; }

@@ -119,5 +119,12 @@ namespace Gorakshnath_Billing_System.UI
                 dgvGroup.DataSource = dt;
             }
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            textGroupId.Text = "";
+            textGroupName.Text = "";
+            textDescription.Text = "";
+        }
     }
 }

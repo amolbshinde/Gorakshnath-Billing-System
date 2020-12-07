@@ -33,8 +33,8 @@ namespace Gorakshnath_Billing_System.UI
             bool success = BrandDAL.Insert(BrandBLL);
             if (success == true)
             {
-                MessageBox.Show("Categoriy Inserted Succesfully .!!");
-                //Clear();
+                MessageBox.Show("Brand Inserted Succesfully .!!");
+                clear();
                 DataTable dt = BrandDAL.Select();
                 dgvBrand.DataSource = dt;
             }
@@ -56,8 +56,8 @@ namespace Gorakshnath_Billing_System.UI
             bool success = BrandDAL.Update(BrandBLL);
             if (success == true)
             {
-                MessageBox.Show("Cetegory Updated Succesfully ...");
-                //Clear();
+                MessageBox.Show("Brand Updated Succesfully ...");
+                clear();
                 DataTable dt = BrandDAL.Select();
                 dgvBrand.DataSource = dt;
             }
@@ -65,9 +65,6 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Update Failed :/  ");
             }
-
-
-
 
         }
 
@@ -79,7 +76,7 @@ namespace Gorakshnath_Billing_System.UI
             if (success == true)
             {
                 MessageBox.Show("Record deleted Succesfully");
-                //Clear();
+                clear();
                 DataTable dt = BrandDAL.Select();
                 dgvBrand.DataSource = dt;
             }
@@ -87,7 +84,6 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Error occured..!!");
             }
-
 
         }
 
@@ -124,6 +120,19 @@ namespace Gorakshnath_Billing_System.UI
             }
 
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
+
+        public void clear()
+        {
+            textBrandId.Text = "";
+            textBrandName.Text = "";
+            textDescription.Text = "";
+            textSearch.Text = "";
         }
     }
 }

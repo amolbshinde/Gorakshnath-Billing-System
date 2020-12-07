@@ -22,7 +22,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT * FROM tbl_products WHERE id LIKE '%" + keywords + "%' OR name LIKE '%" + keywords + "%' OR category LIKE '%" + keywords + "%'";
+                string sql = "SELECT * FROM Product_Master WHERE Product_Master LIKE '%" + keywords + "%' OR Product_Name LIKE '%" + keywords + "%' OR Item_Code LIKE '%" + keywords + "%'";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -51,7 +51,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT name, rate, qty FROM tbl_products WHERE id LIKE '%" + keyword + "%' OR name LIKE '%" + keyword + "%'";
+                string sql = "SELECT Product_Name, Purchase_Price FROM Product_Master WHERE Product_ID LIKE '%" + keyword + "%' OR Product_Name LIKE '%" + keyword + "%'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
 
                 conn.Open();
@@ -59,9 +59,8 @@ namespace Gorakshnath_Billing_System.DAL
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    p.name = dt.Rows[0]["name"].ToString();
-                    p.rate = decimal.Parse(dt.Rows[0]["rate"].ToString());
-                    p.qty = decimal.Parse(dt.Rows[0]["qty"].ToString());
+                    p.name = dt.Rows[0]["Product_Name"].ToString();
+                    p.rate = decimal.Parse(dt.Rows[0]["Purchase_Price"].ToString());                    
                 }
             }
             catch (Exception ex)
@@ -85,14 +84,14 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 // GETID FROM PRODUCT TABLE
-                string sql = "SELECT id FROM tbl_products WHERE name='" + ProductName + "'";
+                string sql = "SELECT Product_ID FROM Product_Master WHERE Product_Name='" + ProductName + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 con.Open();
 
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    p.id = int.Parse(dt.Rows[0]["id"].ToString());
+                    p.id = int.Parse(dt.Rows[0]["Product_ID"].ToString());
                 }
             }
             catch (Exception ex)
