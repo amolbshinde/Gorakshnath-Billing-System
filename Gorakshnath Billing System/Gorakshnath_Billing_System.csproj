@@ -99,11 +99,6 @@
       <DependentUpon>crptInvoice.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Report_Generator\DataSet\dsChallan_T.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsChallan_T.xsd</DependentUpon>
-    </Compile>
     <Compile Include="UI\frmProductBrand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,17 +300,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Report_Generator\DataSet\dsChallan_T.xsc">
-      <DependentUpon>dsChallan_T.xsd</DependentUpon>
-    </None>
-    <None Include="Report_Generator\DataSet\dsChallan_T.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsChallan_T.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Report_Generator\DataSet\dsChallan_T.xss">
-      <DependentUpon>dsChallan_T.xsd</DependentUpon>
-    </None>
     <None Include="Resources\images.jpg" />
   </ItemGroup>
   <ItemGroup>

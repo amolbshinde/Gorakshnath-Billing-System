@@ -31,6 +31,11 @@ namespace Gorakshnath_Billing_System.UI
 
         private void Invoice_Report_Load(object sender, EventArgs e)
         {
+            Report_Generator.CrystalReport.crptInvoice crpt = new Report_Generator.CrystalReport.crptInvoice();
+            crptViewer.ReportSource = null;
+            crptViewer.ReportSource = crpt;
+
+
             /*
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
@@ -75,8 +80,8 @@ namespace Gorakshnath_Billing_System.UI
 
              */
             Report_Generator.CrystalReport.crptInvoice crpt = new Report_Generator.CrystalReport.crptInvoice();
-            crvViewer.ReportSource = null;
-            crvViewer.ReportSource = crpt;
+            crptViewer.ReportSource = null;
+            crptViewer.ReportSource = crpt;
 
         }
     }

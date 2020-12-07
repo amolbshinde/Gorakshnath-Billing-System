@@ -29,45 +29,27 @@ namespace Gorakshnath_Billing_System.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.crvViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.btnPrintInvoice = new System.Windows.Forms.Button();
+            this.crptViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.SuspendLayout();
             // 
-            // crvViewer
+            // crptViewer
             // 
-            this.crvViewer.ActiveViewIndex = -1;
-            this.crvViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crvViewer.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crvViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crvViewer.Location = new System.Drawing.Point(0, 0);
-            this.crvViewer.Name = "crvViewer";
-            this.crvViewer.Size = new System.Drawing.Size(1164, 758);
-            this.crvViewer.TabIndex = 0;
-            this.crvViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            this.crvViewer.Load += new System.EventHandler(this.crvDataTable_Load);
-            // 
-            // btnPrintInvoice
-            // 
-            this.btnPrintInvoice.FlatAppearance.BorderSize = 2;
-            this.btnPrintInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintInvoice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintInvoice.ForeColor = System.Drawing.Color.Teal;
-            this.btnPrintInvoice.Location = new System.Drawing.Point(690, 0);
-            this.btnPrintInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPrintInvoice.Name = "btnPrintInvoice";
-            this.btnPrintInvoice.Size = new System.Drawing.Size(134, 36);
-            this.btnPrintInvoice.TabIndex = 36;
-            this.btnPrintInvoice.Text = "Print Invoice";
-            this.btnPrintInvoice.UseVisualStyleBackColor = true;
-            this.btnPrintInvoice.Click += new System.EventHandler(this.btnPrintInvoice_Click);
+            this.crptViewer.ActiveViewIndex = -1;
+            this.crptViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crptViewer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crptViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crptViewer.Location = new System.Drawing.Point(0, 0);
+            this.crptViewer.Name = "crptViewer";
+            this.crptViewer.Size = new System.Drawing.Size(1164, 758);
+            this.crptViewer.TabIndex = 0;
+            this.crptViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // Invoice_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1164, 758);
-            this.Controls.Add(this.btnPrintInvoice);
-            this.Controls.Add(this.crvViewer);
+            this.Controls.Add(this.crptViewer);
             this.Name = "Invoice_Report";
             this.Text = "Invoice_Report";
             this.Load += new System.EventHandler(this.Invoice_Report_Load);
@@ -77,7 +59,6 @@ namespace Gorakshnath_Billing_System.UI
 
         #endregion
 
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crvViewer;
-        private System.Windows.Forms.Button btnPrintInvoice;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crptViewer;
     }
 }
