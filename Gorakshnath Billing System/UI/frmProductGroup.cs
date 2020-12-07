@@ -24,47 +24,46 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            GroupBLL.Group_Name = textGroupName.Text;
-            GroupBLL.Description = textDescription.Text;
-
-
-
-            if (textGroupName.Text == "")
+            if (textGroupName.Text != "")
             {
-                MessageBox.Show("Please enter Group Name");
-
-            }
-            else
-            {
-                GroupBLL = GroupDAL.checkGroupAvailableOrNot(textGroupName.Text);
-
-                if (textGroupName.Text == GroupBLL.Group_Name)
+                if(textDescription.Text!="")
                 {
-                    MessageBox.Show("Group is Already Added in Database Please choose another Group");
+                    GroupBLL = GroupDAL.checkGroupAvailableOrNot(textGroupName.Text);
 
-                }
-                else
-                {
-                    GroupBLL.Group_Name = textGroupName.Text;
-                    GroupBLL.Description = textDescription.Text;
-
-                    bool success = GroupDAL.Insert(GroupBLL);
-                    if (success == true)
+                    if (textGroupName.Text != GroupBLL.Group_Name)
                     {
-                        MessageBox.Show("Categoriy Inserted Succesfully .!!");
-                        //Clear();
-                        DataTable dt = GroupDAL.Select();
-                        dgvGroup.DataSource = dt;
+                        GroupBLL.Group_Name = textGroupName.Text;
+                        GroupBLL.Description = textDescription.Text;
+
+                        bool success = GroupDAL.Insert(GroupBLL);
+                        if (success == true)
+                        {
+                            MessageBox.Show("Categoriy Inserted Succesfully .!!");
+                            clear();
+                            DataTable dt = GroupDAL.Select();
+                            dgvGroup.DataSource = dt;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to insert category :/ ");
+                        }
+
                     }
                     else
                     {
-                        MessageBox.Show("Failed to insert category :/ ");
+                        MessageBox.Show("Group is Already Added in Database Please choose another Group");
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Please enter Description");
+                }
+                
             }
-
-            
-
+            else
+            {
+                MessageBox.Show("Please enter Group Name");
+            }
 
         }
 
@@ -86,7 +85,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (success == true)
                 {
                     MessageBox.Show("Cetegory Updated Succesfully ...");
-                    //Clear();
+                    clear();
                     DataTable dt = GroupDAL.Select();
                     dgvGroup.DataSource = dt;
                 }
@@ -96,10 +95,7 @@ namespace Gorakshnath_Billing_System.UI
                 }
 
 
-            }
-
-
-            
+            }           
 
 
         }
@@ -119,7 +115,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (success == true)
                 {
                     MessageBox.Show("Record deleted Succesfully");
-                    //Clear();
+                    clear();
                     DataTable dt = GroupDAL.Select();
                     dgvGroup.DataSource = dt;
                 }
@@ -171,6 +167,7 @@ namespace Gorakshnath_Billing_System.UI
 
         public void clear()
         {
+            textGroupId.Text = "";
             textGroupName.Text = "";
             textDescription.Text = "";
             textSearch.Text = "";

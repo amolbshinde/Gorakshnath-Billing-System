@@ -212,6 +212,122 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion      
 
 
+        #region Method  to check Product is added or not
+
+        public ProductMasterBLL checkProductAvailableOrNot(string keyword)
+        {
+            ProductMasterBLL p = new ProductMasterBLL();
+
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            //fdfd
+            try
+            {
+                string sql = "SELECT Product_Name from Product_Master WHERE Product_Name LIKE '%" + keyword + "%'";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+
+                con.Open();
+
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    p.Product_Name = dt.Rows[0]["Product_Name"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+
+            }
+            return p;
+        }
+
+        #endregion
+
+
+        #region Method  to check Product COde is added or not
+
+        public ProductMasterBLL checkProductCodeAvailableOrNot(string keyword)
+        {
+            ProductMasterBLL p = new ProductMasterBLL();
+
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            //fdfd
+            try
+            {
+                string sql = "SELECT Item_Code from Product_Master WHERE Item_Code LIKE '%" + keyword + "%'";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+
+                con.Open();
+
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    p.Product_Name = dt.Rows[0]["Item_Code"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+
+            }
+            return p;
+        }
+
+        #endregion
+
+        #region Method  to check Product COde is added or not
+
+        public ProductMasterBLL checkProductHSNAvailableOrNot(string keyword)
+        {
+            ProductMasterBLL p = new ProductMasterBLL();
+
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            //fdfd
+            try
+            {
+                string sql = "SELECT HSN_Code from Product_Master WHERE HSN_Code LIKE '%" + keyword + "%'";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+
+                con.Open();
+
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    p.Product_Name = dt.Rows[0]["HSN_Code"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+
+            }
+            return p;
+        }
+
+        #endregion
+
+
 
     }
 }
