@@ -24,35 +24,43 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //add brand into table           
+            //add brand into table 
 
-            BrandBLL.Brand_Name = textBrandName.Text;
-            BrandBLL.Description = textDescription.Text;
-
-            BrandBLL = BrandDAL.checkBrandAvailableOrNot(textBrandName.Text);
-
-            if(textBrandName.Text==BrandBLL.Brand_Name)
+            if(textBrandName.Text=="")
             {
-                MessageBox.Show("Brand is Already Added in Database Please choose another Brand");
+                MessageBox.Show("Please Enter Brnad Name");
             }
             else
             {
-                BrandBLL.Brand_Name = textBrandName.Text;
-                BrandBLL.Description = textDescription.Text;
 
-                bool success = BrandDAL.Insert(BrandBLL);
-                if (success == true)
+                BrandBLL = BrandDAL.checkBrandAvailableOrNot(textBrandName.Text);
+
+                if (textBrandName.Text == BrandBLL.Brand_Name)
                 {
-                    MessageBox.Show("Brand Inserted Succesfully .!!");
-                    clear();
-                    DataTable dt = BrandDAL.Select();
-                    dgvBrand.DataSource = dt;
+                    MessageBox.Show("Brand is Already Added in Database Please choose another Brand");
                 }
                 else
                 {
-                    MessageBox.Show("Failed to insert category :/ ");
+                    BrandBLL.Brand_Name = textBrandName.Text;
+                    BrandBLL.Description = textDescription.Text;
+
+                    bool success = BrandDAL.Insert(BrandBLL);
+                    if (success == true)
+                    {
+                        MessageBox.Show("Brand Inserted Succesfully .!!");
+                        clear();
+                        DataTable dt = BrandDAL.Select();
+                        dgvBrand.DataSource = dt;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to insert category :/ ");
+                    }
                 }
+
+
             }
+
 
         }
 

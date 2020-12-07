@@ -24,15 +24,9 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            GroupBLL.Group_Name = textGroupName.Text;
-            GroupBLL.Description = textDescription.Text;
-
-
-
             if (textGroupName.Text == "")
             {
                 MessageBox.Show("Please enter Group Name");
-
             }
             else
             {
@@ -52,7 +46,7 @@ namespace Gorakshnath_Billing_System.UI
                     if (success == true)
                     {
                         MessageBox.Show("Categoriy Inserted Succesfully .!!");
-                        //Clear();
+                        clear();
                         DataTable dt = GroupDAL.Select();
                         dgvGroup.DataSource = dt;
                     }
@@ -86,7 +80,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (success == true)
                 {
                     MessageBox.Show("Cetegory Updated Succesfully ...");
-                    //Clear();
+                    clear();
                     DataTable dt = GroupDAL.Select();
                     dgvGroup.DataSource = dt;
                 }
@@ -96,10 +90,7 @@ namespace Gorakshnath_Billing_System.UI
                 }
 
 
-            }
-
-
-            
+            }           
 
 
         }
@@ -119,7 +110,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (success == true)
                 {
                     MessageBox.Show("Record deleted Succesfully");
-                    //Clear();
+                    clear();
                     DataTable dt = GroupDAL.Select();
                     dgvGroup.DataSource = dt;
                 }
@@ -171,6 +162,7 @@ namespace Gorakshnath_Billing_System.UI
 
         public void clear()
         {
+            textGroupId.Text = "";
             textGroupName.Text = "";
             textDescription.Text = "";
             textSearch.Text = "";
