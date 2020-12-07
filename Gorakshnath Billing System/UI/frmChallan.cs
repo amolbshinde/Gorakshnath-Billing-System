@@ -184,7 +184,8 @@ namespace Gorakshnath_Billing_System.UI
                     }
                     else
                     {
-                        MessageBox.Show("Plsease Select GST type");//,"Warning",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Warning);
+                        MessageBox.Show("Plsease Select GST type");
+                        //"Warning",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Warning);
 
                     }
 
