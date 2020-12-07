@@ -14,6 +14,7 @@ namespace Gorakshnath_Billing_System.DAL
     class customerDAL
     {
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
+
         #region Select Data From Database
         public DataTable Select()
         {
@@ -39,6 +40,7 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+
         #region Insert Data in Database
         public bool Insert(customerBLL c)
         {
@@ -79,6 +81,7 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
+
         #region Update Data in Database
         public bool Update(customerBLL c)
         {
@@ -119,6 +122,7 @@ namespace Gorakshnath_Billing_System.DAL
 
         }
         #endregion
+
         #region Delete Data From Database
         public bool Delete(customerBLL c)
         {
@@ -178,9 +182,7 @@ namespace Gorakshnath_Billing_System.DAL
             }
             return dt;
         }
-        #endregion
-        
-        //jhjhj
+        #endregion               
         
         #region Method  to search customer for sales module
 
@@ -223,7 +225,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
-
 
         #region Method to get id of the Customer based on Name
         public customerBLL getCustomerIdFromName(string Name)
