@@ -3,7 +3,9 @@ using Gorakshnath_Billing_System.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,6 +20,10 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
+
+        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
+        //hello
+
         ProductMasterBLL pBLL = new ProductMasterBLL();
         ProductMasterDAL pDAL = new ProductMasterDAL();
 
@@ -319,6 +325,29 @@ namespace Gorakshnath_Billing_System.UI
                 DataTable dt = pDAL.Select();
                 dgvProductMaster.DataSource = dt;
             }
+        }
+
+        private void comboProduct_Group_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(myconnstrng);
+            conn.Open();
+            string sql = "SELECT * FROM Group_Master ";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+             SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+           // comboProduct_Group.DisplayMember = "Group_Name"; 
+           // comboProduct_Group.DataSource = dt;
+           
+            
+
+
+            comboProduct_Group.ValueMember = "id";
+
+            comboProduct_Group.DisplayMember = "Group_Name";
+            comboProduct_Group.DataSource = dt;
+            conn.Close();
         }
     }
 }
