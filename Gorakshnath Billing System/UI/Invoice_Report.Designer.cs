@@ -52,7 +52,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnPrintInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintInvoice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintInvoice.ForeColor = System.Drawing.Color.Teal;
-            this.btnPrintInvoice.Location = new System.Drawing.Point(542, 11);
+            this.btnPrintInvoice.Location = new System.Drawing.Point(690, 0);
             this.btnPrintInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrintInvoice.Name = "btnPrintInvoice";
             this.btnPrintInvoice.Size = new System.Drawing.Size(134, 36);
