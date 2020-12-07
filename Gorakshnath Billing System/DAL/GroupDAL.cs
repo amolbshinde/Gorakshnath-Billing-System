@@ -15,7 +15,7 @@ namespace Gorakshnath_Billing_System.DAL
     {
 
 
-        //Static String Method for Database Connection Stringjk
+        //Static String Method for Database Connection String
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
         #region Select Method
@@ -69,8 +69,7 @@ namespace Gorakshnath_Billing_System.DAL
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 //Passing Values through parameter
                 cmd.Parameters.AddWithValue("@Group_Name", g.Group_Name);
-                cmd.Parameters.AddWithValue("@Description", g.Description);
-                cmd.Parameters.AddWithValue("@added_date", g.added_date);
+                cmd.Parameters.AddWithValue("@Description", g.Description);               
                 
 
                 //Open Database Connection
@@ -124,8 +123,7 @@ namespace Gorakshnath_Billing_System.DAL
 
                 //Passing Value using cmd
                 cmd.Parameters.AddWithValue("@Group_Name", g.Group_Name);
-                cmd.Parameters.AddWithValue("@Description", g.Description);
-                cmd.Parameters.AddWithValue("@added_date", g.added_date);                
+                cmd.Parameters.AddWithValue("@Description", g.Description);                               
                 cmd.Parameters.AddWithValue("@Group_ID", g.Group_ID);
 
                 //Open DAtabase Connection
