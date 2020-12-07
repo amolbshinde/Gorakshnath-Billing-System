@@ -26,39 +26,43 @@ namespace Gorakshnath_Billing_System.UI
         {
             //add brand into table 
 
-            if(textBrandName.Text=="")
+            if(textBrandName.Text!="")
             {
-                MessageBox.Show("Please Enter Brnad Name");
-            }
-            else
-            {
-
-                BrandBLL = BrandDAL.checkBrandAvailableOrNot(textBrandName.Text);
-
-                if (textBrandName.Text == BrandBLL.Brand_Name)
+                if(textDescription.Text!="")
                 {
-                    MessageBox.Show("Brand is Already Added in Database Please choose another Brand");
-                }
-                else
-                {
-                    BrandBLL.Brand_Name = textBrandName.Text;
-                    BrandBLL.Description = textDescription.Text;
+                    BrandBLL = BrandDAL.checkBrandAvailableOrNot(textBrandName.Text);
 
-                    bool success = BrandDAL.Insert(BrandBLL);
-                    if (success == true)
+                    if (textBrandName.Text != BrandBLL.Brand_Name)
                     {
-                        MessageBox.Show("Brand Inserted Succesfully .!!");
-                        clear();
-                        DataTable dt = BrandDAL.Select();
-                        dgvBrand.DataSource = dt;
+                        BrandBLL.Brand_Name = textBrandName.Text;
+                        BrandBLL.Description = textDescription.Text;
+
+                        bool success = BrandDAL.Insert(BrandBLL);
+                        if (success == true)
+                        {
+                            MessageBox.Show("Brand Inserted Succesfully .!!");
+                            clear();
+                            DataTable dt = BrandDAL.Select();
+                            dgvBrand.DataSource = dt;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to insert category :/ ");
+                        }                        
                     }
                     else
                     {
-                        MessageBox.Show("Failed to insert category :/ ");
+                        MessageBox.Show("Brand is Already Added in Database Please choose another Brand");
                     }
                 }
-
-
+                else
+                {
+                    MessageBox.Show("Please Enter Description");
+                }                
+            }
+            else
+            {
+                MessageBox.Show("Please Enter Brnad Name");
             }
 
 

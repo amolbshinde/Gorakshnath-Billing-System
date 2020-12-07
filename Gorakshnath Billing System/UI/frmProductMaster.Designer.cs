@@ -224,11 +224,11 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // txtProduct_Name
             // 
-            this.txtProduct_Name.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProduct_Name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProduct_Name.Location = new System.Drawing.Point(192, 171);
             this.txtProduct_Name.Margin = new System.Windows.Forms.Padding(4);
             this.txtProduct_Name.Name = "txtProduct_Name";
-            this.txtProduct_Name.Size = new System.Drawing.Size(223, 26);
+            this.txtProduct_Name.Size = new System.Drawing.Size(223, 25);
             this.txtProduct_Name.TabIndex = 40;
             // 
             // label7

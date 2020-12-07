@@ -44,31 +44,147 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            pBLL.Product_Group = comboProduct_Group.Text;
-            pBLL.Brand = comboBrand.Text;
-            pBLL.Item_Code = txtItem_Code.Text;
-            pBLL.Product_Name = txtProduct_Name.Text;
-            pBLL.HSN_Code = textHSN_Code.Text;
-            pBLL.Purchase_Price = decimal.Parse(txtPurchase_Price.Text);
-            pBLL.Sales_Price = decimal.Parse(txtSales_Price.Text);
-            pBLL.Min_Sales_Price = decimal.Parse(txtMin_Sales_Price.Text);
-            pBLL.Unit = comboUnit.Text;
-            pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text);
+            
 
-            bool Success = pDAL.Insert(pBLL);
-
-            if (Success == true)
+            if (comboProduct_Group.Text != "")
             {
-                MessageBox.Show("Product Details Successfully Added");
-                clear();
+                if(comboBrand.Text != "")
+                {
+                    if(txtItem_Code.Text!="")
+                    {
+                        pBLL = pDAL.checkProductCodeAvailableOrNot(txtItem_Code.Text);
+                        if (txtItem_Code.Text != pBLL.Item_Code)
+                        {
+                            if (txtProduct_Name.Text != "")
+                            {
+                                pBLL = pDAL.checkProductAvailableOrNot(txtProduct_Name.Text);
+                                if (txtProduct_Name.Text != pBLL.Product_Name)
+                                {
+                                    if (textHSN_Code.Text != "")
+                                    {
+                                        pBLL = pDAL.checkProductHSNAvailableOrNot(textHSN_Code.Text);
+                                        if (textHSN_Code.Text != pBLL.HSN_Code)
+                                        {
+                                            if (txtPurchase_Price.Text != "")
+                                            {
+                                                if (txtPurchase_Price.Text != "0")
+                                                {
+
+                                                    if (txtMin_Sales_Price.Text != "")
+                                                    {
+                                                        if (txtMin_Sales_Price.Text != "0")
+                                                        {
+
+                                                            if (comboUnit.Text != "")
+                                                            {
+
+                                                                if (txtOpening_Stock.Text != "")
+                                                                {
+
+                                                                    pBLL.Product_Group = comboProduct_Group.Text;
+                                                                    pBLL.Brand = comboBrand.Text;
+                                                                    pBLL.Item_Code = txtItem_Code.Text;
+                                                                    pBLL.Product_Name = txtProduct_Name.Text;
+                                                                    pBLL.HSN_Code = textHSN_Code.Text;
+                                                                    pBLL.Purchase_Price = decimal.Parse(txtPurchase_Price.Text);
+                                                                    pBLL.Sales_Price = decimal.Parse(txtSales_Price.Text);
+                                                                    pBLL.Min_Sales_Price = decimal.Parse(txtMin_Sales_Price.Text);
+                                                                    pBLL.Unit = comboUnit.Text;
+                                                                    pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text);
+
+
+                                                                    bool Success = pDAL.Insert(pBLL);
+
+                                                                    if (Success == true)
+                                                                    {
+                                                                        MessageBox.Show("Product Details Successfully Added");
+                                                                        clear();
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        MessageBox.Show("Failed to Added Product Details");
+                                                                    }
+                                                                    DataTable dt = pDAL.Select();
+                                                                    dgvProductMaster.DataSource = dt;
+                                                                }
+                                                                else
+                                                                {
+                                                                    MessageBox.Show("Please Enter the Product Opening Stock");
+                                                                }
+
+                                                            }
+                                                            else
+                                                            {
+                                                                MessageBox.Show("Please Select Product Unit");
+                                                            }
+
+                                                        }
+                                                        else
+                                                        {
+                                                            MessageBox.Show("Please Enter the Product Minimum Sales Prise Greater Than 0");
+                                                        }
+
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("Please Enter the Product Minimum Sales Prise");
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Please Enter the Product Purchase Prise Greater Than 0");
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Please Enter the Product Purchase Prise");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("HSN Code is Already Added in Database Please choose another HSN Code");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Please Enter the Product HSN Code");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Product is Already Added in Database Please choose another Product");
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please Enter the Product Name");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Item Code is Already Added in Database Please choose another Item Code");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Enter the Product Code");
+                    }                            
+
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter the Product Brand"); 
+                }
+                
             }
             else
             {
-                MessageBox.Show("Failed to Added Product Details");
+                MessageBox.Show("Please Select Product Group"); 
             }
-            DataTable dt = pDAL.Select();
-            dgvProductMaster.DataSource = dt;
-
 
         }
 
