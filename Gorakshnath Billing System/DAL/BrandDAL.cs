@@ -241,7 +241,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-        #region Method  to search customer for sales module
+        #region Method  to check brand is added or not
 
         public BrandBLL checkBrandAvailableOrNot(string keyword)
         {
@@ -274,7 +274,7 @@ namespace Gorakshnath_Billing_System.DAL
             {
 
             }
-            return c;
+            return b;
         }
 
         #endregion

@@ -24,23 +24,46 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-            GroupBLL.Group_Name= textGroupName.Text;
+            GroupBLL.Group_Name = textGroupName.Text;
             GroupBLL.Description = textDescription.Text;
-            
-            
-            bool success = GroupDAL.Insert(GroupBLL);
-            if (success == true)
+
+
+
+            if (textGroupName.Text == "")
             {
-                MessageBox.Show("Categoriy Inserted Succesfully .!!");
-                //Clear();
-                DataTable dt = GroupDAL.Select();
-                dgvGroup.DataSource = dt;
+                MessageBox.Show("Please enter Group Name");
+
             }
             else
             {
-                MessageBox.Show("Failed to insert category :/ ");
+                GroupBLL = GroupDAL.checkGroupAvailableOrNot(textGroupName.Text);
+
+                if (textGroupName.Text == GroupBLL.Group_Name)
+                {
+                    MessageBox.Show("Group is Already Added in Database Please choose another Group");
+
+                }
+                else
+                {
+                    GroupBLL.Group_Name = textGroupName.Text;
+                    GroupBLL.Description = textDescription.Text;
+
+                    bool success = GroupDAL.Insert(GroupBLL);
+                    if (success == true)
+                    {
+                        MessageBox.Show("Categoriy Inserted Succesfully .!!");
+                        //Clear();
+                        DataTable dt = GroupDAL.Select();
+                        dgvGroup.DataSource = dt;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to insert category :/ ");
+                    }
+                }
             }
+
+            
 
 
         }
@@ -48,22 +71,35 @@ namespace Gorakshnath_Billing_System.UI
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
-            GroupBLL.Group_ID = int.Parse(textGroupId.Text);
-            GroupBLL.Group_Name = textGroupName.Text;
-            GroupBLL.Description = textDescription.Text;
-
-            bool success = GroupDAL.Update(GroupBLL);
-            if (success == true)
+            if (textGroupId.Text == "")
             {
-                MessageBox.Show("Cetegory Updated Succesfully ...");
-                //Clear();
-                DataTable dt = GroupDAL.Select();
-                dgvGroup.DataSource = dt;
+                MessageBox.Show("Please Select The Group");
             }
             else
             {
-                MessageBox.Show("Update Failed :/  ");
+
+                GroupBLL.Group_ID = int.Parse(textGroupId.Text);
+                GroupBLL.Group_Name = textGroupName.Text;
+                GroupBLL.Description = textDescription.Text;
+
+                bool success = GroupDAL.Update(GroupBLL);
+                if (success == true)
+                {
+                    MessageBox.Show("Cetegory Updated Succesfully ...");
+                    //Clear();
+                    DataTable dt = GroupDAL.Select();
+                    dgvGroup.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Update Failed :/  ");
+                }
+
+
             }
+
+
+            
 
 
         }
@@ -71,20 +107,28 @@ namespace Gorakshnath_Billing_System.UI
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            GroupBLL.Group_ID = int.Parse(textGroupId.Text);
-            bool success = GroupDAL.Delete(GroupBLL);
-            if (success == true)
+            if(textGroupId.Text=="")
             {
-                MessageBox.Show("Record deleted Succesfully");
-                //Clear();
-                DataTable dt = GroupDAL.Select();
-                dgvGroup.DataSource = dt;
+                MessageBox.Show("Please Select The Group");
             }
             else
             {
-                MessageBox.Show("Error occured..!!");
-            }
 
+                GroupBLL.Group_ID = int.Parse(textGroupId.Text);
+                bool success = GroupDAL.Delete(GroupBLL);
+                if (success == true)
+                {
+                    MessageBox.Show("Record deleted Succesfully");
+                    //Clear();
+                    DataTable dt = GroupDAL.Select();
+                    dgvGroup.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Error occured..!!");
+                }
+
+            }
 
         }
 
