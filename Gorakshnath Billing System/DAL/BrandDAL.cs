@@ -11,8 +11,10 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.DAL
 {
-    class categoriesDAL
+    class BrandDAL
     {
+
+
         //Static String Method for Database Connection Stringjk
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
@@ -27,7 +29,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT * FROM tbl_categories";
+                string sql = "SELECT * FROM Brand_Master";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -50,7 +52,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
         #region Insert New CAtegory
-        public bool Insert(categoriesBLL c)
+        public bool Insert(BrandBLL b)
         {
             //Creating A Boolean VAriable and set its default value to false
             bool isSucces = false;
@@ -61,15 +63,14 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Writing Query to Add New Category
-                string sql = "INSERT INTO tbl_categories (title, description, added_date, added_by) VALUES (@title, @description, @added_date, @added_by)";
+                string sql = "INSERT INTO Brand_Master (Brand_Name,Description) VALUES (@Brand_Name, @Description)";
 
                 //Creating SQL Command to pass values in our query
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 //Passing Values through parameter
-                cmd.Parameters.AddWithValue("@title", c.title);
-                cmd.Parameters.AddWithValue("@description", c.description);
-                cmd.Parameters.AddWithValue("@added_date", c.added_date);
-                cmd.Parameters.AddWithValue("@added_by", c.added_by);
+                cmd.Parameters.AddWithValue("@Brand_Name", b.Brand_Name);
+                cmd.Parameters.AddWithValue("@Description", b.Description);
+                
 
                 //Open Database Connection
                 conn.Open();
@@ -104,7 +105,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
         #region Update Method
-        public bool Update(categoriesBLL c)
+        public bool Update(BrandBLL b)
         {
             //Creating Boolean variable and set its default value to false
             bool isSuccess = false;
@@ -115,17 +116,16 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Query to Update Category
-                string sql = "UPDATE tbl_categories SET title=@title, description=@description, added_date=@added_date, added_by=@added_by WHERE id=@id";
+                string sql = "UPDATE Brand_Master SET Brand_Name=@Brand_Name, Description=@Description WHERE Brand_ID=@Brand_ID";
 
                 //SQl Command to Pass the Value on Sql Query
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 //Passing Value using cmd
-                cmd.Parameters.AddWithValue("@title", c.title);
-                cmd.Parameters.AddWithValue("@description", c.description);
-                cmd.Parameters.AddWithValue("@added_date", c.added_date);
-                cmd.Parameters.AddWithValue("@added_by", c.added_by);
-                cmd.Parameters.AddWithValue("@id", c.id);
+                cmd.Parameters.AddWithValue("@Brand_Name", b.Brand_Name);
+                cmd.Parameters.AddWithValue("@Description", b.Description);
+                cmd.Parameters.AddWithValue("@Brand_ID", b.Brand_ID);
+                
 
                 //Open DAtabase Connection
                 conn.Open();
@@ -158,7 +158,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
         #region Delete Category Method
-        public bool Delete(categoriesBLL c)
+        public bool Delete(BrandBLL b)
         {
             //Create a Boolean variable and set its value to false
             bool isSuccess = false;
@@ -168,11 +168,11 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //SQL Query to Delete from Database
-                string sql = "DELETE FROM tbl_categories WHERE id=@id";
+                string sql = "DELETE FROM Brand_Master WHERE Brand_ID=@Brand_ID";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 //Passing the value using cmd
-                cmd.Parameters.AddWithValue("@id", c.id);
+                cmd.Parameters.AddWithValue("@Brand_ID", b.Brand_ID);
 
                 //Open SqlConnection
                 conn.Open();
@@ -216,7 +216,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //SQL Query To Search Categories from DAtabase
-                String sql = "SELECT * FROM tbl_categories WHERE id LIKE '%" + keywords + "%' OR title LIKE '%" + keywords + "%' OR description LIKE '%" + keywords + "%'";
+                String sql = "SELECT * FROM Brand_Master WHERE Brand_ID LIKE '%" + keywords + "%' OR Brand_Name LIKE '%" + keywords + "%' OR Description LIKE '%" + keywords + "%'";
                 //Creating SQL Command to Execute the Query
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -240,5 +240,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+
     }
 }

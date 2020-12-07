@@ -129,5 +129,17 @@ namespace Gorakshnath_Billing_System
             StockReport.Show();
 
         }
+
+        private void manageBrandToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductBrand ProductBrand = new frmProductBrand();
+            ProductBrand.Show();
+        }
+
+        private void manageProductGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductGroup ProductGroup = new frmProductGroup();
+            ProductGroup.Show();
+        }
     }
 }

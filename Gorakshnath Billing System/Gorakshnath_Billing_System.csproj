@@ -54,12 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BrandBLL.cs" />
     <Compile Include="BLL\categoriesBLL.cs" />
     <Compile Include="BLL\challanBLL.cs" />
     <Compile Include="BLL\challandetailsBLL.cs" />
     <Compile Include="BLL\customerBLL.cs" />
     <Compile Include="BLL\DummySalesBLL.cs" />
     <Compile Include="BLL\DummySalesDetailsBLL.cs" />
+    <Compile Include="BLL\GroupBLL.cs" />
     <Compile Include="BLL\loginBLL.cs" />
     <Compile Include="BLL\productBLL.cs" />
     <Compile Include="BLL\ProductMasterBLL.cs" />
@@ -71,11 +73,13 @@
     <Compile Include="BLL\supplierBLL.cs" />
     <Compile Include="BLL\SupplierMasterBLL.cs" />
     <Compile Include="BLL\userBLL.cs" />
+    <Compile Include="DAL\BrandDAL.cs" />
     <Compile Include="DAL\categoriesDAL.cs" />
     <Compile Include="DAL\challanDAL.cs" />
     <Compile Include="DAL\challandetailsDAL.cs" />
     <Compile Include="DAL\DummySalesDAL.cs" />
     <Compile Include="DAL\DummySalesDetailsDAL.cs" />
+    <Compile Include="DAL\GroupDAL.cs" />
     <Compile Include="DAL\ProductMasterDAL.cs" />
     <Compile Include="DAL\customerDAL.cs" />
     <Compile Include="DAL\DGVPrinter.cs" />
@@ -99,6 +103,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsChallan_T.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmProductBrand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmProductBrand.Designer.cs">
+      <DependentUpon>frmProductBrand.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmChallan.cs">
       <SubType>Form</SubType>
@@ -141,6 +151,12 @@
     </Compile>
     <Compile Include="UI\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmProductGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmProductGroup.Designer.cs">
+      <DependentUpon>frmProductGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmPurchase.cs">
       <SubType>Form</SubType>
@@ -208,6 +224,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptInvoice.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmProductBrand.resx">
+      <DependentUpon>frmProductBrand.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmChallan.resx">
       <DependentUpon>frmChallan.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmProductGroup.resx">
+      <DependentUpon>frmProductGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPurchase.resx">
       <DependentUpon>frmPurchase.cs</DependentUpon>

@@ -166,6 +166,8 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+
+        //hghhhjg
         #region Select Data From Database
         public DataTable SelectAllProductStock()
         {
