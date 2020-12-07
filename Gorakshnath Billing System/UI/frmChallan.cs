@@ -625,10 +625,7 @@ namespace Gorakshnath_Billing_System.UI
         private void button2_Click(object sender, EventArgs e)
         {
            // int Invoice_No = 1;
-            Invoice_Report Report = new Invoice_Report();
-            // int LastInserted = save.salesid;
            
-            Report.Show();
         }
     }
 }
