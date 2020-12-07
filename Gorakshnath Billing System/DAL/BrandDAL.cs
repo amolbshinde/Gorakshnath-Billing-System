@@ -241,5 +241,44 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Method  to search customer for sales module
+
+        public BrandBLL checkBrandAvailableOrNot(string keyword)
+        {
+            BrandBLL b = new BrandBLL();
+
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            //fdfd
+            try
+            {
+                string sql = "SELECT Brand_Name from Brand_Master WHERE Brand_Name LIKE '%" + keyword + "%'";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+
+                con.Open();
+
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    b.Brand_Name = dt.Rows[0]["Brand_Name"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+
+            }
+            return c;
+        }
+
+        #endregion
+
+
     }
 }
