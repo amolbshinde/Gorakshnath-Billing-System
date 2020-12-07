@@ -250,7 +250,7 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
 
             DataTable dt = new DataTable();
-            //
+            //fdfd
             try
             {
                 string sql = "SELECT Brand_Name from Brand_Master WHERE Brand_Name LIKE '%" + keyword + "%'";
