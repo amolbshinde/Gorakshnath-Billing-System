@@ -122,9 +122,14 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            textGroupId.Text = "";
+            clear();
+        }
+
+        public void clear()
+        {
             textGroupName.Text = "";
             textDescription.Text = "";
+            textSearch.Text = "";
         }
     }
 }

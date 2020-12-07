@@ -29,18 +29,26 @@ namespace Gorakshnath_Billing_System.UI
             BrandBLL.Brand_Name = textBrandName.Text;
             BrandBLL.Description = textDescription.Text;
 
+            BrandBLL BrandBLL = BrandDAL.checkBrandAvailableOrNot(textBrandName.Text);
 
-            bool success = BrandDAL.Insert(BrandBLL);
-            if (success == true)
+            if(textBrandName.Text==BrandBLL.Brand_Name)
             {
-                MessageBox.Show("Brand Inserted Succesfully .!!");
-                clear();
-                DataTable dt = BrandDAL.Select();
-                dgvBrand.DataSource = dt;
+                MessageBox.Show("Added Brand");
             }
             else
             {
-                MessageBox.Show("Failed to insert category :/ ");
+                bool success = BrandDAL.Insert(BrandBLL);
+                if (success == true)
+                {
+                    MessageBox.Show("Brand Inserted Succesfully .!!");
+                    clear();
+                    DataTable dt = BrandDAL.Select();
+                    dgvBrand.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Failed to insert category :/ ");
+                }
             }
 
         }
