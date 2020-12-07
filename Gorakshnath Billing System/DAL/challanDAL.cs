@@ -23,11 +23,10 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO Challan_Transactions (Invoice_No,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Invoice_No,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total);select @@IDENTITY;";
+                String sql = "INSERT INTO Challan_Transactions (Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total);select @@IDENTITY;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
-
-                cmd.Parameters.AddWithValue("@Sales_ID", c.Sales_ID);
+                
                 cmd.Parameters.AddWithValue("@Invoice_No", c.Invoice_No);
                 cmd.Parameters.AddWithValue("@Cust_ID", c.Cust_ID);
                 cmd.Parameters.AddWithValue("@Sub_Total", c.Sub_Total);
@@ -62,7 +61,6 @@ namespace Gorakshnath_Billing_System.DAL
             }
             return isSuccess;
         }
-
         #endregion
 
 
