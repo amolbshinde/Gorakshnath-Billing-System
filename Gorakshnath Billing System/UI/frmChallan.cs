@@ -22,7 +22,7 @@ namespace Gorakshnath_Billing_System.UI
 
         customerDAL cDAL = new customerDAL();
         // customerBLL cBLL = new customerBLL();
-        productDAL productDAL = new productDAL();
+        ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
 
         challanBLL challanBLL = new challanBLL();
 
@@ -90,10 +90,10 @@ namespace Gorakshnath_Billing_System.UI
                 return;
             }
 
-            productBLL p = productDAL.GetProductsForTransaction(keyword);
-            textItemName.Text = p.name;
-            textInventory.Text = p.qty.ToString();
-            textRate.Text = p.rate.ToString();
+            ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
+            textItemName.Text = p.Product_Name;
+            comboBoxUnit.Text = p.Unit;            
+            textRate.Text = p.Purchase_Price.ToString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -287,8 +287,8 @@ namespace Gorakshnath_Billing_System.UI
                                 stockBLL stockBLL = new stockBLL();
                                 string productName = salesDT.Rows[i][1].ToString();
 
-                                 productBLL p = productDAL.GetProductIDFromName(productName);
-                                 cdBLL.Product_ID = p.id;
+                                 ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                                 cdBLL.Product_ID = p.Product_ID;
                                 cdBLL.Invoice_No = Invoice_No;
                                 cdBLL.Cust_ID = c.Cust_ID;
                                  cdBLL.Product_Name = salesDT.Rows[i][1].ToString();
@@ -301,7 +301,7 @@ namespace Gorakshnath_Billing_System.UI
                                 cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
 
 
-                                int Product_id = p.id;
+                                int Product_id = p.Product_ID;
                                 stockBLL.Product_Id = Product_id;
                                 stockBLL.Quantity = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
                                 stockBLL.Unit = salesDT.Rows[i][2].ToString();
