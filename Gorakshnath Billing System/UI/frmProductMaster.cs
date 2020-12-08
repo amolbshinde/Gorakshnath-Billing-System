@@ -262,7 +262,7 @@ namespace Gorakshnath_Billing_System.UI
             comboProduct_Group.DataSource = dtg;
 
             DataTable dtb = bDAL.Select();
-            comboProduct_Group.DisplayMember = "Brand_Name";
+            comboBrand.DisplayMember = "Brand_Name";
             comboBrand.DataSource = dtb;
 
         }
