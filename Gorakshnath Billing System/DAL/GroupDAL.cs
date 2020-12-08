@@ -15,7 +15,7 @@ namespace Gorakshnath_Billing_System.DAL
     {
 
 
-        //Static String Method for Database Connection String
+        //Static String Method for Database Connection String.
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
         #region Select Method
@@ -51,6 +51,42 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+
+        #region Select Method for Combo box
+        public DataTable SelectGroupName()
+        {
+            //Creating Database Connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Wrting SQL Query to get all the data from DAtabase
+                string sql = "SELECT Group_Name FROM Group_Master";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Open DAtabase Connection
+                conn.Open();
+                //Adding the value from adapter to Data TAble dt
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
+
+
         #region Insert New CAtegory
         public bool Insert(GroupBLL g)
         {

@@ -185,7 +185,74 @@ namespace Gorakshnath_Billing_System.DAL
 
         #endregion
 
-        #region Search Customer On Database Using Keywords
+        #region METHOD TO SEARCH PRODUCT IN TRANSACTION MODULE
+        public ProductMasterBLL GetProductsForTransaction(string keyword)
+        {
+            ProductMasterBLL p = new ProductMasterBLL();
+            SqlConnection conn = new SqlConnection(myconnstrng);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT Quantity, Product_Name , Product_Master.Unit , Purchase_Price FROM Product_Master,Stock_Master where Product_Master.Product_Id=Stock_Master.Product_Id AND Product_Master.Product_ID LIKE '%" + keyword + "%' OR Product_Name LIKE '%" + keyword + "%'";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+
+                conn.Open();
+
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    p.Quantity = decimal.Parse(dt.Rows[0]["Quantity"].ToString());
+                    p.Product_Name = dt.Rows[0]["Product_Name"].ToString();                    
+                    p.Unit = dt.Rows[0]["Unit"].ToString();
+                    p.Purchase_Price = decimal.Parse(dt.Rows[0]["Purchase_Price"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return p;
+        }
+        #endregion
+
+        #region METHOD TO GET PRODUCT ID BASED ON PRODUCT NAME
+        public ProductMasterBLL GetProductIDFromName(string ProductName)
+        {
+            ProductMasterBLL p = new ProductMasterBLL();
+            SqlConnection con = new SqlConnection(myconnstrng);
+            DataTable dt = new DataTable();
+            try
+            {
+                // GETID FROM PRODUCT TABLE
+                string sql = "SELECT Product_ID FROM Product_Master WHERE Product_Name='" + ProductName + "'";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                con.Open();
+
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    p.Product_ID = int.Parse(dt.Rows[0]["Product_ID"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return p;
+        }
+        #endregion
+
+        #region Search  On Database Using Keywords
         public DataTable Search(string keywords)
         {
             SqlConnection con = new SqlConnection(myconnstrng);
@@ -210,7 +277,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion      
-
 
         #region Method  to check Product is added or not
 
@@ -249,7 +315,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
-
 
         #region Method  to check Product COde is added or not
 

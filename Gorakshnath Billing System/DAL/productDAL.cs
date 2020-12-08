@@ -43,6 +43,7 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+
         #region METHOD TO SEARCH PRODUCT IN TRANSACTION MODULE
         public productBLL GetProductsForTransaction(string keyword)
         {
@@ -75,6 +76,7 @@ namespace Gorakshnath_Billing_System.DAL
             return p;
         }
         #endregion
+
         #region METHOD TO GET PRODUCT ID BASED ON PRODUCT NAME
         public productBLL GetProductIDFromName(string ProductName)
         {
@@ -106,6 +108,7 @@ namespace Gorakshnath_Billing_System.DAL
             return p;
         }
         #endregion
+
         #region METHOD TO GET CURRENT QUantity from the Database based on Product ID
         public decimal GetProductQty(int ProductID)
         {
@@ -145,6 +148,7 @@ namespace Gorakshnath_Billing_System.DAL
             return qty;
         }
         #endregion
+
         #region METHOD TO UPDATE QUANTITY
         public bool UpdateQuantity(int ProductID, decimal Qty)
         {
@@ -186,6 +190,7 @@ namespace Gorakshnath_Billing_System.DAL
             return success;
         }
         #endregion
+
         #region METHOD TO INCREASE PRODUCT
         public bool IncreaseProduct(int ProductID, decimal IncreaseQty)
         {
@@ -210,6 +215,7 @@ namespace Gorakshnath_Billing_System.DAL
             return success;
         }
         #endregion
+
         #region METHOD TO DECREASE PRODUCT
         public bool DecreaseProduct(int ProductID, decimal Qty)
         {
