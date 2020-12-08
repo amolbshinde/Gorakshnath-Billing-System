@@ -72,7 +72,8 @@ namespace Gorakshnath_Billing_System
 
         private void totalSalesReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmSalesReport SalesReport = new frmSalesReport();
+            SalesReport.Show();
         }
 
         private void addCustomerClientToolStripMenuItem_Click(object sender, EventArgs e)
