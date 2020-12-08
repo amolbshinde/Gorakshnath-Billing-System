@@ -257,8 +257,7 @@ namespace Gorakshnath_Billing_System.UI
             DataTable dt = pDAL.Select();
             dgvProductMaster.DataSource = dt;
             
-            DataTable dtg = gDAL.Select();
-            comboBrand.Text = "Select";
+            DataTable dtg = gDAL.Select();            
             comboProduct_Group.DisplayMember = "Group_Name";
             comboProduct_Group.DataSource = dtg;
 
@@ -344,5 +343,6 @@ namespace Gorakshnath_Billing_System.UI
         {
             
         }
+
     }
 }
