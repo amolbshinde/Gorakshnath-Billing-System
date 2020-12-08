@@ -17,14 +17,14 @@ namespace Gorakshnath_Billing_System.DAL
 
         #region Insert Data in Database
 
-        public bool insertChallan(challanBLL c, out int Invoice_No)
+        public bool insertChallan(EstimateBLL c, out int Invoice_No)
         {
             bool isSuccess = false;
             Invoice_No = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO Challan_Transactions (Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total);select @@IDENTITY;";
+                String sql = "INSERT INTO Estimate_Transactions (Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total);select @@IDENTITY;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 
