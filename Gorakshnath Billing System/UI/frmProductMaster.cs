@@ -258,12 +258,13 @@ namespace Gorakshnath_Billing_System.UI
             dgvProductMaster.DataSource = dt;
             
             DataTable dtg = gDAL.Select();
+            comboBrand.Text = "Select";
             comboProduct_Group.DisplayMember = "Group_Name";
             comboProduct_Group.DataSource = dtg;
 
             DataTable dtb = bDAL.Select();
             comboBrand.DisplayMember = "Brand_Name";
-            comboBrand.DataSource = dtb;
+            comboBrand.DataSource = dtb;          
 
         }
 
@@ -341,27 +342,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboProduct_Group_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            SqlConnection conn = new SqlConnection(myconnstrng);
-            conn.Open();
-            string sql = "SELECT * FROM Group_Master ";
-            SqlCommand cmd = new SqlCommand(sql, conn);
-             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-           // comboProduct_Group.DisplayMember = "Group_Name"; 
-           // comboProduct_Group.DataSource = dt;
-           
             
-
-
-            comboProduct_Group.ValueMember = "id";
-
-            comboProduct_Group.DisplayMember = "Group_Name";
-            comboProduct_Group.DataSource = dt;
-            conn.Close();
-            */
         }
     }
 }

@@ -204,6 +204,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboProduct_Group.Name = "comboProduct_Group";
             this.comboProduct_Group.Size = new System.Drawing.Size(223, 25);
             this.comboProduct_Group.TabIndex = 46;
+            this.comboProduct_Group.Text = "Select Group";
             this.comboProduct_Group.SelectedIndexChanged += new System.EventHandler(this.comboProduct_Group_SelectedIndexChanged);
             // 
             // comboBrand
@@ -220,6 +221,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBrand.Name = "comboBrand";
             this.comboBrand.Size = new System.Drawing.Size(223, 25);
             this.comboBrand.TabIndex = 44;
+            this.comboBrand.Text = "Select Brand";
             // 
             // txtItem_Code
             // 
