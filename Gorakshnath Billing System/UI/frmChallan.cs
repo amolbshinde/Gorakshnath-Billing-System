@@ -119,11 +119,7 @@ namespace Gorakshnath_Billing_System.UI
                         decimal.TryParse(textGST.Text, out GST);
                         decimal.TryParse(textDiscount.Text, out discount);
                         decimal.TryParse(textTotalAmount.Text, out TotalAmount);
-                        Amount = rate * Qty;
-                        // decimal discount = decimal.Parse(textDiscount.Text);
-                        // decimal GST = decimal.TryParse(textGST.Text, out GST);
-                        //decimal TotalAmount = decimal.Parse(textTotalAmount.Text);
-                        //decimal discount = decimal.Parse(textDiscount.Text);                                                
+                        Amount = rate * Qty;                                                                      
 
                         // CHECK PRODUCT IS SELECTED OR NOT 
                         if (ProductName == "")
@@ -133,9 +129,9 @@ namespace Gorakshnath_Billing_System.UI
                         else
                         {
                             int counter = 1;
+                            counter = salesDT.Rows.Count + 1;
                             salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST, TotalAmount);
                             dgvAddedProducts.DataSource = salesDT;
-
 
                             decimal subTotal;
                             decimal.TryParse(textSubTotal.Text, out subTotal);
