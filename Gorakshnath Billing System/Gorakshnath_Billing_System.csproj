@@ -93,6 +93,18 @@
     <Compile Include="DAL\supplierDAL.cs" />
     <Compile Include="DAL\SupplierMasterDAL.cs" />
     <Compile Include="DAL\userDAL.cs" />
+    <Compile Include="Report_Generator\CrystalReport\crptInvoice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crptInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\frmInvoiceCrpt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmInvoiceCrpt.Designer.cs">
+      <DependentUpon>frmInvoiceCrpt.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmProductBrand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +215,13 @@
     <Compile Include="UI\frmProductMaster.Designer.cs">
       <DependentUpon>frmProductMaster.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report_Generator\CrystalReport\crptInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crptInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmInvoiceCrpt.resx">
+      <DependentUpon>frmInvoiceCrpt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmProductBrand.resx">
       <DependentUpon>frmProductBrand.cs</DependentUpon>
     </EmbeddedResource>
@@ -309,7 +328,7 @@
     <None Include="Resources\images %282%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Report_Generator\CrystalReport\" />
+    <Folder Include="Report_Generator\DataSets\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

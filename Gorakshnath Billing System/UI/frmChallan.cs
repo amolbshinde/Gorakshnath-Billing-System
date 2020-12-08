@@ -14,6 +14,7 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmChallan : Form
     {
+        int Invoice_No = -1;
         public frmChallan()
         {
             InitializeComponent();
@@ -232,10 +233,10 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                MessageBox.Show("Please enter Supplier Details");
+                MessageBox.Show("Please enter Customer Details");
             }
         }
-
+       
 
         public void save()
         {
@@ -273,12 +274,13 @@ namespace Gorakshnath_Billing_System.UI
                         bool isSuccess = false;
 
                         // using (TransactionScope scope = new TransactionScope())
-                        
-                             int salesid = -1;
-                            bool b = challanDAL.insertChallan(challanBLL, out salesid);
-                            
 
-                            for (int i = 0; i < salesDT.Rows.Count; i++)
+                        //int Invoice_No = -1; alredy declared on top 
+                        bool b = challanDAL.insertChallan(challanBLL, out Invoice_No);
+
+                                             
+
+                        for (int i = 0; i < salesDT.Rows.Count; i++)
                              {
                                 challandetailsBLL cdBLL = new challandetailsBLL();
 
@@ -287,7 +289,7 @@ namespace Gorakshnath_Billing_System.UI
 
                                  productBLL p = productDAL.GetProductIDFromName(productName);
                                  cdBLL.Product_ID = p.id;
-                                cdBLL.Invoice_No = salesid;
+                                cdBLL.Invoice_No = Invoice_No;
                                 cdBLL.Cust_ID = c.Cust_ID;
                                  cdBLL.Product_Name = salesDT.Rows[i][1].ToString();
                                  cdBLL.Unit = salesDT.Rows[i][2].ToString();
@@ -340,6 +342,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Select Purchase Type GST OR NOGST");
             }
+            
         }
 
         public void Clear()
@@ -624,7 +627,8 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-           // int Invoice_No = 1;
+            frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(Invoice_No);
+            frmcrpt.Show();
            
         }
     }
