@@ -16,10 +16,10 @@ namespace Gorakshnath_Billing_System.DAL
 
         #region Insert Data in Database
 
-        public bool insertChallan(challanBLL c, out int Cust_ID)
+        public bool insertChallan(challanBLL c, out int Invoice_No)
         {
             bool isSuccess = false;
-            Cust_ID = -1;
+            Invoice_No = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
@@ -43,7 +43,7 @@ namespace Gorakshnath_Billing_System.DAL
                 if (o != null)
                 {
                     isSuccess = true;
-                    Cust_ID = int.Parse(o.ToString());
+                    Invoice_No = int.Parse(o.ToString());
                 }
                 else
                 {
