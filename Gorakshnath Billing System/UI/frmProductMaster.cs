@@ -27,6 +27,9 @@ namespace Gorakshnath_Billing_System.UI
         ProductMasterBLL pBLL = new ProductMasterBLL();
         ProductMasterDAL pDAL = new ProductMasterDAL();
 
+        GroupDAL gDAL = new GroupDAL();
+        BrandDAL bDAL = new BrandDAL();
+
         
         private void label15_Click(object sender, EventArgs e)
         {
@@ -253,6 +256,15 @@ namespace Gorakshnath_Billing_System.UI
         {
             DataTable dt = pDAL.Select();
             dgvProductMaster.DataSource = dt;
+            
+            DataTable dtg = gDAL.Select();
+            comboProduct_Group.DisplayMember = "Group_Name";
+            comboProduct_Group.DataSource = dtg;
+
+            DataTable dtb = bDAL.Select();
+            comboProduct_Group.DisplayMember = "Brand_Name";
+            comboBrand.DataSource = dtb;
+
         }
 
         private void dgvProductMaster_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -329,6 +341,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboProduct_Group_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*
             SqlConnection conn = new SqlConnection(myconnstrng);
             conn.Open();
             string sql = "SELECT * FROM Group_Master ";
@@ -348,6 +361,7 @@ namespace Gorakshnath_Billing_System.UI
             comboProduct_Group.DisplayMember = "Group_Name";
             comboProduct_Group.DataSource = dt;
             conn.Close();
+            */
         }
     }
 }
