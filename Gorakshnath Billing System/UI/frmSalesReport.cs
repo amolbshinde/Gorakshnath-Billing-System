@@ -29,7 +29,7 @@ namespace Gorakshnath_Billing_System.UI
             using (SqlConnection conn = new SqlConnection(myconnstrng))
             {
                 conn.Open();
-                string Query = "Select * from Challan_Transactions";
+                string Query = "Select Invoice_No,Cust_Name,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date from Challan_Transactions,Cust_Master where Challan_Transactions.Cust_ID=Cust_Master.Cust_Id";
                 SqlDataAdapter da = new SqlDataAdapter(Query, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -39,6 +39,16 @@ namespace Gorakshnath_Billing_System.UI
 
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
