@@ -254,7 +254,6 @@ namespace Gorakshnath_Billing_System.UI
 
             }
 
-
             else
             {
                 decimal Qty, Rate, discount, gst;

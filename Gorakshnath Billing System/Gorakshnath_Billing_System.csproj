@@ -61,6 +61,8 @@
     <Compile Include="BLL\customerBLL.cs" />
     <Compile Include="BLL\DummySalesBLL.cs" />
     <Compile Include="BLL\DummySalesDetailsBLL.cs" />
+    <Compile Include="BLL\EstimateBLL.cs" />
+    <Compile Include="BLL\EstimateDetailsBLL.cs" />
     <Compile Include="BLL\GroupBLL.cs" />
     <Compile Include="BLL\loginBLL.cs" />
     <Compile Include="BLL\productBLL.cs" />
@@ -79,6 +81,8 @@
     <Compile Include="DAL\challandetailsDAL.cs" />
     <Compile Include="DAL\DummySalesDAL.cs" />
     <Compile Include="DAL\DummySalesDetailsDAL.cs" />
+    <Compile Include="DAL\EstimateDAL.cs" />
+    <Compile Include="DAL\EstimateDetailsDAL.cs" />
     <Compile Include="DAL\GroupDAL.cs" />
     <Compile Include="DAL\ProductMasterDAL.cs" />
     <Compile Include="DAL\customerDAL.cs" />
