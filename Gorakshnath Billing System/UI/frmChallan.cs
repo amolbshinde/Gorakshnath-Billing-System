@@ -94,9 +94,7 @@ namespace Gorakshnath_Billing_System.UI
             textItemCode.Text = p.Item_Code;
             textItemName.Text = p.Product_Name;
             comboBoxUnit.Text = p.Unit;            
-            textRate.Text = p.Purchase_Price.ToString();
-            //int pid = p.Product_ID;
-            //decimal qty = stockDAL.GetProductQty(pid);
+            textRate.Text = p.Purchase_Price.ToString();            
             textInventory.Text = p.Quantity.ToString();
         }
 
