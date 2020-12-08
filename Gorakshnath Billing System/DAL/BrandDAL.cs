@@ -55,7 +55,7 @@ namespace Gorakshnath_Billing_System.DAL
         #region Select Method For combo box
         public DataTable SelectBrandName()
         {
-            //Creating Database Connection
+            //Creating Database Connection 
             SqlConnection conn = new SqlConnection(myconnstrng);
 
             DataTable dt = new DataTable();
