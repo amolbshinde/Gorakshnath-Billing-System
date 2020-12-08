@@ -119,7 +119,7 @@ namespace Gorakshnath_Billing_System.UI
                         decimal.TryParse(textGST.Text, out GST);
                         decimal.TryParse(textDiscount.Text, out discount);
                         decimal.TryParse(textTotalAmount.Text, out TotalAmount);
-                        Amount = rate * Qty;                                                                      
+                        Amount = rate * Qty;
 
                         // CHECK PRODUCT IS SELECTED OR NOT 
                         if (ProductName == "")
