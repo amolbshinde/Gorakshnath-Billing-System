@@ -50,5 +50,21 @@ namespace Gorakshnath_Billing_System.UI
         {
             this.Close();
         }
+
+        private void frmSalesReport_Load(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(myconnstrng))
+            {
+                conn.Open();
+                string Query = "Select Invoice_No,Cust_Name,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date from Challan_Transactions,Cust_Master where Challan_Transactions.Cust_ID=Cust_Master.Cust_Id";
+                SqlDataAdapter da = new SqlDataAdapter(Query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                //method 1 is direct method
+                dataGridView1.DataSource = dt;
+
+            }
+        }
     }
 }
