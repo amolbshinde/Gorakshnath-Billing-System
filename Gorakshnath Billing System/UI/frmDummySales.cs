@@ -21,7 +21,7 @@ namespace Gorakshnath_Billing_System.UI
 
         customerDAL cDAL = new customerDAL();
         // customerBLL cBLL = new customerBLL();
-        productDAL productDAL = new productDAL();
+        ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
 
         DummySalesBLL challanBLL = new DummySalesBLL();
 
@@ -57,12 +57,7 @@ namespace Gorakshnath_Billing_System.UI
                         decimal.TryParse(textDiscount.Text, out discount);
                         decimal.TryParse(textTotalAmount.Text, out TotalAmount);
                         Amount = rate * Qty;
-                        // decimal discount = decimal.Parse(textDiscount.Text);
-                        // decimal GST = decimal.TryParse(textGST.Text, out GST);
-                        //decimal TotalAmount = decimal.Parse(textTotalAmount.Text);
-                        //decimal discount = decimal.Parse(textDiscount.Text);                                                
-
-                        // CHECK PRODUCT IS SELECTED OR NOT 
+                        
                         if (ProductName == "")
                         {
                             MessageBox.Show("Please Enter Item/Product Details First");
@@ -70,6 +65,7 @@ namespace Gorakshnath_Billing_System.UI
                         else
                         {
                             int counter = 1;
+                            counter = salesDT.Rows.Count + 1;
                             salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST, TotalAmount);
                             dgvAddedProducts.DataSource = salesDT;
 
@@ -168,10 +164,11 @@ namespace Gorakshnath_Billing_System.UI
                 return;
             }
 
-            productBLL p = productDAL.GetProductsForTransaction(keyword);
-            textItemName.Text = p.name;
-            textInventory.Text = p.qty.ToString();
-            textRate.Text = p.rate.ToString();
+            ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
+            textItemName.Text = p.Product_Name;
+            comboBoxUnit.Text = p.Unit;
+            textInventory.Text = p.Quantity.ToString();
+            textRate.Text = p.Purchase_Price.ToString();
         }
 
         private void textRate_TextChanged(object sender, EventArgs e)
@@ -353,8 +350,8 @@ namespace Gorakshnath_Billing_System.UI
                                 DummySalesDetailsBLL cdBLL = new DummySalesDetailsBLL();
                                 string productName = salesDT.Rows[i][1].ToString();
 
-                                productBLL p = productDAL.GetProductIDFromName(productName);
-                                cdBLL.Product_ID = p.id;
+                                ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                                cdBLL.Product_ID = p.Product_ID;
                                 cdBLL.Cust_ID = c.Cust_ID;
                                 cdBLL.Product_Name = salesDT.Rows[i][1].ToString();
                                 cdBLL.Unit = salesDT.Rows[i][2].ToString();
@@ -557,6 +554,29 @@ namespace Gorakshnath_Billing_System.UI
             }
 
 
+        }
+
+        private void textSearch_TextChanged(object sender, EventArgs e)
+        {
+            //get search keyword from search text box
+            string keyword = textSearch.Text;
+            if (keyword == "")//clear all textboex
+            {
+                textCust_Name.Text = "";
+                textAddress.Text = "";
+                textContact.Text = "";
+                textEmail.Text = "";
+                return;
+            }
+
+            customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
+
+
+
+            textCust_Name.Text = cBLL.name;
+            textContact.Text = cBLL.contact;
+            textEmail.Text = cBLL.email;
+            textAddress.Text = cBLL.address;
         }
     }
 }
