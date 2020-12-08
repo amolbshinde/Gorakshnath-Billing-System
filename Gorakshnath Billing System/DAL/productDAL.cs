@@ -148,6 +148,7 @@ namespace Gorakshnath_Billing_System.DAL
             return qty;
         }
         #endregion
+
         #region METHOD TO UPDATE QUANTITY
         public bool UpdateQuantity(int ProductID, decimal Qty)
         {
@@ -189,6 +190,7 @@ namespace Gorakshnath_Billing_System.DAL
             return success;
         }
         #endregion
+
         #region METHOD TO INCREASE PRODUCT
         public bool IncreaseProduct(int ProductID, decimal IncreaseQty)
         {
@@ -213,6 +215,7 @@ namespace Gorakshnath_Billing_System.DAL
             return success;
         }
         #endregion
+
         #region METHOD TO DECREASE PRODUCT
         public bool DecreaseProduct(int ProductID, decimal Qty)
         {

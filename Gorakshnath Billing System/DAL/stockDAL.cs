@@ -166,8 +166,46 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region METHOD TO GET CURRENT QUantity from the Database based on Product ID
+        public decimal GetProductQty(int ProductID)
+        {
+            SqlConnection conn = new SqlConnection(myconnstrng);
 
-        //hghhhjg
+            decimal Quantity = 0;
+
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                string sql = "SELECT Quantity FROM Stock_Master WHERE Product_Id = " + ProductID;
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    Quantity = decimal.Parse(dt.Rows[0]["Quantity"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return Quantity;
+        }
+        #endregion
+
         #region Select Data From Database
         public DataTable SelectAllProductStock()
         {
@@ -193,8 +231,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
-
 
         #region SEARCH Method for Stock Module Group By Product_Group
         public DataTable SelectGroupByProductGroupStock(string keywords)
@@ -224,8 +260,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
-
 
         #region SEARCH Method for Stock Module Group By Product_Group
         public DataTable SelectGroupByProductBrandStock(string keywords)

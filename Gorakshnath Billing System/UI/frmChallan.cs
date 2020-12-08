@@ -91,9 +91,13 @@ namespace Gorakshnath_Billing_System.UI
             }
 
             ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
+            textItemCode.Text = p.Item_Code;
             textItemName.Text = p.Product_Name;
             comboBoxUnit.Text = p.Unit;            
             textRate.Text = p.Purchase_Price.ToString();
+            //int pid = p.Product_ID;
+            //decimal qty = stockDAL.GetProductQty(pid);
+            textInventory.Text = p.Quantity.ToString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

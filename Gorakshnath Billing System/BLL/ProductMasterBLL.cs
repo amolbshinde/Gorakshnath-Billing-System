@@ -18,6 +18,7 @@ namespace Gorakshnath_Billing_System.BLL
         public decimal Sales_Price { get; set; }
         public decimal Min_Sales_Price { get; set; }
         public string Unit { get; set; }
+        public decimal Quantity { get; set; }
         public decimal Opening_Stock { get; set; }
         public DateTime Added_Date { get; set; }
     }

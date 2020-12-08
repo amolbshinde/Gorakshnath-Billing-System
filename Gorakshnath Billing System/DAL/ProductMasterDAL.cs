@@ -193,15 +193,16 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Product_Name ,Unit , Purchase_Price FROM Product_Master WHERE Product_ID LIKE '%" + keyword + "%' OR Product_Name LIKE '%" + keyword + "%'";
+                string sql = "SELECT Quantity, Product_Name , Product_Master.Unit , Purchase_Price FROM Product_Master,Stock_Master where Product_Master.Product_Id=Stock_Master.Product_Id AND Product_ID LIKE '%" + keyword + "%' OR Product_Name LIKE '%" + keyword + "%'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
 
                 conn.Open();
 
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)
-                {
+                {                    
                     p.Product_Name = dt.Rows[0]["Product_Name"].ToString();
+                    p.Purchase_Price = decimal.Parse(dt.Rows[0]["Quantity"].ToString());
                     p.Unit = dt.Rows[0]["Unit"].ToString();
                     p.Purchase_Price = decimal.Parse(dt.Rows[0]["Purchase_Price"].ToString());
                 }
@@ -277,7 +278,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion      
 
-
         #region Method  to check Product is added or not
 
         public ProductMasterBLL checkProductAvailableOrNot(string keyword)
@@ -315,7 +315,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
-
 
         #region Method  to check Product COde is added or not
 
