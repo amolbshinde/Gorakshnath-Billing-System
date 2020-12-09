@@ -27,6 +27,10 @@ namespace Gorakshnath_Billing_System.UI
         ProductMasterBLL pBLL = new ProductMasterBLL();
         ProductMasterDAL pDAL = new ProductMasterDAL();
 
+        stockBLL sBLL = new stockBLL();
+        stockDAL sDAL = new stockDAL();
+
+
         GroupDAL gDAL = new GroupDAL();
         BrandDAL bDAL = new BrandDAL();
 
@@ -107,6 +111,10 @@ namespace Gorakshnath_Billing_System.UI
                                                                     if (Success == true)
                                                                     {
                                                                         MessageBox.Show("Product Details Successfully Added");
+
+                                                                        //sBLL.Product_Id=
+                                                                        sBLL.Quantity = decimal.Parse(txtOpening_Stock.Text);
+                                                                        sBLL.Unit = comboUnit.Text;
                                                                         clear();
                                                                     }
                                                                     else
