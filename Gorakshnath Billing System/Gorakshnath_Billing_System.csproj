@@ -97,11 +97,23 @@
     <Compile Include="DAL\supplierDAL.cs" />
     <Compile Include="DAL\SupplierMasterDAL.cs" />
     <Compile Include="DAL\userDAL.cs" />
+    <Compile Include="Report_Generator\CrystalReport\crptEstimate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crptEstimate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report_Generator\CrystalReport\crptInvoice.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crptInvoice.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\frmEstimateCrpt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmEstimateCrpt.Designer.cs">
+      <DependentUpon>frmEstimateCrpt.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmInvoiceCrpt.cs">
       <SubType>Form</SubType>
@@ -231,9 +243,16 @@
     <Compile Include="UI\frmProductMaster.Designer.cs">
       <DependentUpon>frmProductMaster.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report_Generator\CrystalReport\crptEstimate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crptEstimate.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report_Generator\CrystalReport\crptInvoice.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmEstimateCrpt.resx">
+      <DependentUpon>frmEstimateCrpt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmInvoiceCrpt.resx">
       <DependentUpon>frmInvoiceCrpt.cs</DependentUpon>

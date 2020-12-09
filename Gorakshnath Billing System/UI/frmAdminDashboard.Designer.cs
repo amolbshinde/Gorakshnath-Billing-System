@@ -43,6 +43,7 @@ namespace Gorakshnath_Billing_System
             this.newQuotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageQuotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCustomerClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchAndManageCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inverntoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPurchaseBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManagePurchaseBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +68,6 @@ namespace Gorakshnath_Billing_System
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.searchAndManageCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnllFooter.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -204,6 +204,13 @@ namespace Gorakshnath_Billing_System
             this.addCustomerClientToolStripMenuItem.Text = "Add/Manage Customer";
             this.addCustomerClientToolStripMenuItem.Click += new System.EventHandler(this.addCustomerClientToolStripMenuItem_Click);
             // 
+            // searchAndManageCustomerToolStripMenuItem
+            // 
+            this.searchAndManageCustomerToolStripMenuItem.Name = "searchAndManageCustomerToolStripMenuItem";
+            this.searchAndManageCustomerToolStripMenuItem.Size = new System.Drawing.Size(354, 28);
+            this.searchAndManageCustomerToolStripMenuItem.Text = "Search and Manage Customer";
+            this.searchAndManageCustomerToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageCustomerToolStripMenuItem_Click);
+            // 
             // inverntoryToolStripMenuItem
             // 
             this.inverntoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -313,6 +320,7 @@ namespace Gorakshnath_Billing_System
             this.searchAndManageProductToolStripMenuItem.Name = "searchAndManageProductToolStripMenuItem";
             this.searchAndManageProductToolStripMenuItem.Size = new System.Drawing.Size(311, 28);
             this.searchAndManageProductToolStripMenuItem.Text = "Search and Manage Product";
+            this.searchAndManageProductToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageProductToolStripMenuItem_Click);
             // 
             // manageCategoriesToolStripMenuItem
             // 
@@ -398,13 +406,6 @@ namespace Gorakshnath_Billing_System
             this.label4.Size = new System.Drawing.Size(406, 38);
             this.label4.TabIndex = 4;
             this.label4.Text = "Swami Software Billing System";
-            // 
-            // searchAndManageCustomerToolStripMenuItem
-            // 
-            this.searchAndManageCustomerToolStripMenuItem.Name = "searchAndManageCustomerToolStripMenuItem";
-            this.searchAndManageCustomerToolStripMenuItem.Size = new System.Drawing.Size(354, 28);
-            this.searchAndManageCustomerToolStripMenuItem.Text = "Search and Manage Customer";
-            this.searchAndManageCustomerToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageCustomerToolStripMenuItem_Click);
             // 
             // frmAdminDashboard
             // 

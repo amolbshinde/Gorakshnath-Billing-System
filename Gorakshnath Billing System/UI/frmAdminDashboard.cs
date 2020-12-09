@@ -160,5 +160,11 @@ namespace Gorakshnath_Billing_System
             frmCustomer customer = new frmCustomer();
             customer.Show();
         }
+
+        private void searchAndManageProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductMaster productMaster = new frmProductMaster();
+            productMaster.Show();
+        }
     }
 }

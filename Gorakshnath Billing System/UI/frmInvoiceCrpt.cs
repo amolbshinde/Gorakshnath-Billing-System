@@ -31,7 +31,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void frmInvoiceCrpt_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(GetInvoice.ToString());
+            //MessageBox.Show(GetInvoice.ToString());
             Report_Generator.CrystalReport.crptInvoice crptInvoice = new Report_Generator.CrystalReport.crptInvoice();
             crptInvoiceViewer.ReportSource = null;
             crptInvoice.SetParameterValue("@Invoice_No", GetInvoice.ToString());

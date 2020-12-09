@@ -18,7 +18,8 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
-        //hello.
+        
+        int Invoice_No = -1;
 
         customerDAL cDAL = new customerDAL();
         // customerBLL cBLL = new customerBLL();
@@ -242,7 +243,7 @@ namespace Gorakshnath_Billing_System.UI
 
                         // using (TransactionScope scope = new TransactionScope())
                         //alredy declared on top
-                        int Invoice_No = -1; 
+                       // int Invoice_No = -1; 
                         bool b = EstimateDAL.insertChallan(EstimateBLL, out Invoice_No);
 
 
@@ -707,6 +708,12 @@ namespace Gorakshnath_Billing_System.UI
                 MessageBox.Show("Please enter Customer Details");
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmEstimateCrpt Estimate = new frmEstimateCrpt(Invoice_No);
+            Estimate.Show();
         }
 
 
