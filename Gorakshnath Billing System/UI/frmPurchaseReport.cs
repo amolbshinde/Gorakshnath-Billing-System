@@ -27,7 +27,7 @@ namespace Gorakshnath_Billing_System.UI
                 using (SqlConnection conn = new SqlConnection(myconnstrng))
                 {
                     conn.Open();
-                    string Query = "Select  CompanyName,grandTotal,transaction_date from Supplier_Master,tbl_purchase_transactions where tbl_purchase_transactions.sup_id=Supplier_Master.SupplierID";
+                    string Query = "Select  CompanyName,Grand_Total,Purchase_Date from Supplier_Master,Purchase_Transactions where Purchase_Transactions.Sup_ID=Supplier_Master.SupplierID";
                     SqlDataAdapter da = new SqlDataAdapter(Query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
