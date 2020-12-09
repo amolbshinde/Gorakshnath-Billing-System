@@ -16,6 +16,7 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmProductMaster : Form
     {
+        int Product_ID = -1;
         public frmProductMaster()
         {
             InitializeComponent();
@@ -106,15 +107,18 @@ namespace Gorakshnath_Billing_System.UI
                                                                     pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text);
 
 
-                                                                    bool Success = pDAL.Insert(pBLL);
+                                                                    bool Success = pDAL.Insert(pBLL,out Product_ID);
 
                                                                     if (Success == true)
                                                                     {
                                                                         MessageBox.Show("Product Details Successfully Added");
-
-                                                                        //sBLL.Product_Id=0
+                                                                        //MessageBox.Show(Product_ID.ToString());
+                                                                        sBLL.Product_Id = Product_ID;
                                                                         sBLL.Quantity = decimal.Parse(txtOpening_Stock.Text);
                                                                         sBLL.Unit = comboUnit.Text;
+
+                                                                        sDAL.InsertStockNewProduct(sBLL);
+
                                                                         clear();
                                                                     }
                                                                     else

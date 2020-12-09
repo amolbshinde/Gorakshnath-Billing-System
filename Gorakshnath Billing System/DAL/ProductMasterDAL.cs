@@ -42,18 +42,19 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
         #region Method to Insert Product in database
-        public bool Insert(ProductMasterBLL pBLL)
+        public bool Insert(ProductMasterBLL pBLL, out int Product_ID)
         {
             //Creating Boolean Variable and set its default value to false
             bool isSuccess = false;
 
+            Product_ID = -1;
             //Sql Connection for DAtabase
             SqlConnection conn = new SqlConnection(myconnstrng);
 
             try
             {
                 //SQL Query to insert product into database
-                String sql = "INSERT INTO Product_Master (Product_Group,Brand,Item_Code,Product_Name,HSN_Code,Purchase_Price,Sales_Price,Min_Sales_Price,Unit,Opening_Stock) VALUES (@Product_Group, @Brand, @Item_Code, @Product_Name, @HSN_Code, @Purchase_Price, @Sales_Price,@Min_Sales_Price,@Unit,@Opening_Stock)";
+                String sql = "INSERT INTO Product_Master (Product_Group,Brand,Item_Code,Product_Name,HSN_Code,Purchase_Price,Sales_Price,Min_Sales_Price,Unit,Opening_Stock) VALUES (@Product_Group, @Brand, @Item_Code, @Product_Name, @HSN_Code, @Purchase_Price, @Sales_Price,@Min_Sales_Price,@Unit,@Opening_Stock);select @@IDENTITY;";
 
                 //Creating SQL Command to pass the values
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -73,13 +74,15 @@ namespace Gorakshnath_Billing_System.DAL
                 //Opening the Database connection
                 conn.Open();
 
-                int rows = cmd.ExecuteNonQuery();
+                object o = cmd.ExecuteScalar();
+                //int rows = cmd.ExecuteNonQuery();
 
                 //If the query is executed successfully then the value of rows will be greater than 0 else it will be less than 0
-                if (rows > 0)
+                if (o != null)
                 {
                     //Query Executed Successfully
                     isSuccess = true;
+                    Product_ID = int.Parse(o.ToString());
                 }
                 else
                 {
