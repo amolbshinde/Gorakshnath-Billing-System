@@ -109,7 +109,7 @@ namespace Gorakshnath_Billing_System.UI
 
                                                                     bool a = pDAL.Insert(pBLL,out Product_ID);
                                                       
-                                                                    // adding Opening stock 
+                                                                    //adding Opening stock 
                                                                     sBLL.Product_Id = Product_ID;
                                                                     sBLL.Quantity = decimal.Parse(txtOpening_Stock.Text);
                                                                     sBLL.Unit = comboUnit.Text;
