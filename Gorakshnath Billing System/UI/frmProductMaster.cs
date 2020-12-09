@@ -112,7 +112,7 @@ namespace Gorakshnath_Billing_System.UI
                                                                     {
                                                                         MessageBox.Show("Product Details Successfully Added");
 
-                                                                        //sBLL.Product_Id=
+                                                                        //sBLL.Product_Id=0
                                                                         sBLL.Quantity = decimal.Parse(txtOpening_Stock.Text);
                                                                         sBLL.Unit = comboUnit.Text;
                                                                         clear();
