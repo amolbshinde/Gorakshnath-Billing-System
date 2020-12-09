@@ -142,5 +142,23 @@ namespace Gorakshnath_Billing_System
             frmProductGroup ProductGroup = new frmProductGroup();
             ProductGroup.Show();
         }
+
+        private void itemWiseSalesReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPurchaseReport purchaseReport = new frmPurchaseReport();
+            purchaseReport.Show();
+        }
+
+        private void searchAndManageSupplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSupplierMaster supplierMaster = new frmSupplierMaster();
+            supplierMaster.Show();
+        }
+
+        private void searchAndManageCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustomer customer = new frmCustomer();
+            customer.Show();
+        }
     }
 }
