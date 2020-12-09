@@ -317,16 +317,16 @@ namespace Gorakshnath_Billing_System.UI
                         decimal.TryParse(textIgst.Text, out totalIgst);
                         decimal.TryParse(textGrandTotal.Text, out grandTotal);
 
-                        purchaseBLL.type = type;
-                        purchaseBLL.supid = s.SupplierID;
-                        purchaseBLL.subTotal = subTotal;
-                        purchaseBLL.totalDiscount = totalDiscount;
-                        purchaseBLL.totalSgst = totalSgst;
-                        purchaseBLL.totalCgst = totalCgst;
-                        purchaseBLL.totalIgst = totalIgst;
-                        purchaseBLL.grandTotal = grandTotal;
+                        purchaseBLL.Transaction_Type = type;
+                        purchaseBLL.Sup_ID = s.SupplierID;
+                        purchaseBLL.Sub_Total = subTotal;
+                        purchaseBLL.TDiscount = totalDiscount;
+                        purchaseBLL.TSGST = totalSgst;
+                        purchaseBLL.TCGST = totalCgst;
+                        purchaseBLL.TIGST = totalIgst;
+                        purchaseBLL.Grand_Total = grandTotal;
 
-                        purchaseBLL.purchasedetails = purchasedt;
+                        purchaseBLL.PurchaseDetails = purchasedt;
                         bool isSuccess = false;
 
                         // using (TransactionScope scope = new TransactionScope())
@@ -342,11 +342,21 @@ namespace Gorakshnath_Billing_System.UI
                                 string productName = purchasedt.Rows[i][1].ToString();
                                 productBLL p = productDAL.GetProductIDFromName(productName);
 
-                                pdBLL.productid = p.id;
-                                pdBLL.qty = Math.Round(decimal.Parse(purchasedt.Rows[i][3].ToString()), 2);
-                                pdBLL.rate = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
-                                pdBLL.total = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
-                                pdBLL.supid = s.SupplierID;
+
+                                pdBLL.Purchase_ID = purchaseid;
+                                pdBLL.Product_ID = p.id;
+                                pdBLL.Sup_ID = s.SupplierID;
+                                pdBLL.Product_Name = purchasedt.Rows[i][1].ToString();
+                                pdBLL.Unit = purchasedt.Rows[i][2].ToString();
+                                pdBLL.Qty = Math.Round(decimal.Parse(purchasedt.Rows[i][3].ToString()), 2);
+                                pdBLL.Purchase_Prise = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
+                                pdBLL.Discount_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][6].ToString()), 2);
+                                pdBLL.GST_Type = purchasedt.Rows[i][7].ToString();
+                                pdBLL.GST_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][8].ToString()), 2);
+                                pdBLL.Total = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
+                                
+
+
 
                                 int Product_id = p.id;
                                 stockBLL.Product_Id = Product_id;
