@@ -15,7 +15,6 @@ namespace Gorakshnath_Billing_System.DAL
     {
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
-
         #region Select Data From Database
         public DataTable Select()
         {
