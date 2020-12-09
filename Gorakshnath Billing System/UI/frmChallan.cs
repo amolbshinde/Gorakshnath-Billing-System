@@ -393,8 +393,6 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-
-
         private void textQuantity_TextChanged(object sender, EventArgs e)
         {
             string pname = textItemSearch.Text;
