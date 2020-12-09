@@ -397,23 +397,38 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
         {
-            if (textQuantity.Text == "")
+            string pname = textItemSearch.Text;
+            ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(pname);
+            decimal inv;
+            decimal.TryParse(textQuantity.Text, out inv);
+            decimal qunt = p.Quantity - inv;
+            if (qunt < 0)
             {
-                textTotalAmount.Text = "";
+                MessageBox.Show("No Inventory Please add Inventory First");
+                textQuantity.Text = "";
             }
             else
             {
-                decimal Qty, Rate, discount, gst;
-                decimal.TryParse(textQuantity.Text, out Qty);
-                decimal.TryParse(textRate.Text, out Rate);
-                decimal.TryParse(textDiscount.Text, out discount);
-                decimal.TryParse(textGST.Text, out gst);
 
-                decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (Rate * Qty)), 2);
+                if (textQuantity.Text == "")
+                {
+                    textTotalAmount.Text = "";
+                }
+                else
+                {
+                    decimal Qty, Rate, discount, gst;
+                    decimal.TryParse(textQuantity.Text, out Qty);
+                    decimal.TryParse(textRate.Text, out Rate);
+                    decimal.TryParse(textDiscount.Text, out discount);
+                    decimal.TryParse(textGST.Text, out gst);
 
-                textTotalAmount.Text = TotalAmount.ToString();
+                    decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (Rate * Qty)), 2);
 
-            }
+                    textTotalAmount.Text = TotalAmount.ToString();
+
+                }
+
+            }         
 
         }
 
