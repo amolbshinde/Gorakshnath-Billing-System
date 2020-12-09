@@ -625,6 +625,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Invoice_No = 2005;
             frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(Invoice_No);
             frmcrpt.Show();
            
