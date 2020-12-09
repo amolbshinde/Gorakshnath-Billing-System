@@ -100,86 +100,103 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //checking product is already present or ot
+            string pname = "";
+            //checking product is already present or ot           
+
             if (textItemName.Text != "")
             {
                 if (textQuantity.Text != "")
                 {
                     if (comboGstType.Text != "")
                     {
-                        // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
 
-                        String ProductName = textItemName.Text;
-                        string Unit = comboBoxUnit.Text;
-                        string gstType = comboGstType.Text;
-
-                        decimal Qty, rate, GST, Amount, TotalAmount, discount;
-                        decimal.TryParse(textQuantity.Text, out Qty);
-                        decimal.TryParse(textRate.Text, out rate);
-                        decimal.TryParse(textGST.Text, out GST);
-                        decimal.TryParse(textDiscount.Text, out discount);
-                        decimal.TryParse(textTotalAmount.Text, out TotalAmount);
-                        Amount = rate * Qty;
-
-                        // CHECK PRODUCT IS SELECTED OR NOT 
-                        if (ProductName == "")
+                        for (int rows = 0; rows < dgvAddedProducts.Rows.Count; rows++)
                         {
-                            MessageBox.Show("Please Enter Item/Product Details First");
+                            pname = dgvAddedProducts.Rows[rows].Cells["Product Name"].Value.ToString();
+                            break;
+                        }
+                        if(textItemName.Text!=pname)
+                        {
+                            // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
+
+                            String ProductName = textItemName.Text;
+                            string Unit = comboBoxUnit.Text;
+                            string gstType = comboGstType.Text;
+
+                            decimal Qty, rate, GST, Amount, TotalAmount, discount;
+                            decimal.TryParse(textQuantity.Text, out Qty);
+                            decimal.TryParse(textRate.Text, out rate);
+                            decimal.TryParse(textGST.Text, out GST);
+                            decimal.TryParse(textDiscount.Text, out discount);
+                            decimal.TryParse(textTotalAmount.Text, out TotalAmount);
+                            Amount = rate * Qty;
+
+                            // CHECK PRODUCT IS SELECTED OR NOT 
+                            if (ProductName == "")
+                            {
+                                MessageBox.Show("Please Enter Item/Product Details First");
+                            }
+                            else
+                            {
+                                int counter = 1;
+                                counter = salesDT.Rows.Count + 1;
+                                salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST, TotalAmount);
+                                dgvAddedProducts.DataSource = salesDT;
+
+                                decimal subTotal;
+                                decimal.TryParse(textSubTotal.Text, out subTotal);
+                                subTotal = subTotal + Qty * rate;
+                                textSubTotal.Text = subTotal.ToString();
+
+                                decimal subDiscount;
+                                decimal.TryParse(textSubDiscount.Text, out subDiscount);
+                                subDiscount = subDiscount + Math.Round(((rate * Qty) * discount) / 100, 2);
+                                textSubDiscount.Text = subDiscount.ToString();
+
+                                decimal gTotal;
+                                decimal.TryParse(textGrandTotal.Text, out gTotal);
+                                gTotal = gTotal + TotalAmount;
+                                textGrandTotal.Text = gTotal.ToString();
+
+                                if (comboGstType.Text == "SGST/CGST")
+                                {
+                                    decimal subsgst, subcgst, subGst;
+                                    decimal.TryParse(textSgst.Text, out subsgst);
+                                    decimal.TryParse(textCgst.Text, out subcgst);
+                                    subGst = subsgst + subcgst;
+                                    subGst = subGst + Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
+
+                                    textSgst.Text = Math.Round((subGst / 2), 2).ToString();
+                                    textCgst.Text = Math.Round((subGst / 2), 2).ToString();
+                                }
+                                if (comboGstType.Text == "IGST")
+                                {
+                                    decimal subIGst;
+                                    decimal.TryParse(textIgst.Text, out subIGst);
+                                    subIGst = subIGst + Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
+                                    textIgst.Text = subIGst.ToString();
+                                }
+
+
+                                textItemSearch.Text = "";
+                                textItemName.Text = "";
+                                comboBoxUnit.Text = "";
+                                textInventory.Text = "0";
+                                textQuantity.Text = "0";
+                                textRate.Text = "0";
+                                textDiscount.Text = "0";
+                                textQuantity.Text = "0";
+                                comboGstType.Text = "";
+                                textGST.Text = "0";
+
+                            }
                         }
                         else
                         {
-                            int counter = 1;
-                            counter = salesDT.Rows.Count + 1;
-                            salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST, TotalAmount);
-                            dgvAddedProducts.DataSource = salesDT;
-
-                            decimal subTotal;
-                            decimal.TryParse(textSubTotal.Text, out subTotal);
-                            subTotal = subTotal + Qty * rate;
-                            textSubTotal.Text = subTotal.ToString();
-
-                            decimal subDiscount;
-                            decimal.TryParse(textSubDiscount.Text, out subDiscount);
-                            subDiscount = subDiscount + Math.Round(((rate * Qty) * discount) / 100, 2);
-                            textSubDiscount.Text = subDiscount.ToString();
-
-                            decimal gTotal;
-                            decimal.TryParse(textGrandTotal.Text, out gTotal);
-                            gTotal = gTotal + TotalAmount;
-                            textGrandTotal.Text = gTotal.ToString();
-
-                            if (comboGstType.Text == "SGST/CGST")
-                            {
-                                decimal subsgst, subcgst, subGst;
-                                decimal.TryParse(textSgst.Text, out subsgst);
-                                decimal.TryParse(textCgst.Text, out subcgst);
-                                subGst = subsgst + subcgst;
-                                subGst = subGst + Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
-
-                                textSgst.Text = Math.Round((subGst / 2), 2).ToString();
-                                textCgst.Text = Math.Round((subGst / 2), 2).ToString();
-                            }
-                            if (comboGstType.Text == "IGST")
-                            {
-                                decimal subIGst;
-                                decimal.TryParse(textIgst.Text, out subIGst);
-                                subIGst = subIGst + Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
-                                textIgst.Text = subIGst.ToString();
-                            }
-
-
-                            textItemSearch.Text = "";
-                            textItemName.Text = "";
-                            comboBoxUnit.Text = "";
-                            textInventory.Text = "0";
-                            textQuantity.Text = "0";
-                            textRate.Text = "0";
-                            textDiscount.Text = "0";
-                            textQuantity.Text = "0";
-                            comboGstType.Text = "";
-                            textGST.Text = "0";
-
+                            MessageBox.Show("Product is already added please edit it Or Delete it");
                         }
+
+                        
                     }
                     else
                     {
@@ -202,7 +219,7 @@ namespace Gorakshnath_Billing_System.UI
         private void frmChallan_Load(object sender, EventArgs e)
         {
             salesDT.Columns.Add("Sr. No.");
-            salesDT.Columns.Add("ProductName");
+            salesDT.Columns.Add("Product Name");
             salesDT.Columns.Add("Unit");
             salesDT.Columns.Add("Quantity");
             salesDT.Columns.Add("PurchasePrice");
@@ -376,27 +393,40 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-
-
         private void textQuantity_TextChanged(object sender, EventArgs e)
         {
-            if (textQuantity.Text == "")
+            string pname = textItemSearch.Text;
+            ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(pname);
+            decimal inv;
+            decimal.TryParse(textQuantity.Text, out inv);
+            decimal qunt = p.Quantity - inv;
+            if (qunt < 0)
             {
-                textTotalAmount.Text = "";
+                MessageBox.Show("No Inventory Please add Inventory First");
+                textQuantity.Text = "";
             }
             else
             {
-                decimal Qty, Rate, discount, gst;
-                decimal.TryParse(textQuantity.Text, out Qty);
-                decimal.TryParse(textRate.Text, out Rate);
-                decimal.TryParse(textDiscount.Text, out discount);
-                decimal.TryParse(textGST.Text, out gst);
 
-                decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (Rate * Qty)), 2);
+                if (textQuantity.Text == "")
+                {
+                    textTotalAmount.Text = "";
+                }
+                else
+                {
+                    decimal Qty, Rate, discount, gst;
+                    decimal.TryParse(textQuantity.Text, out Qty);
+                    decimal.TryParse(textRate.Text, out Rate);
+                    decimal.TryParse(textDiscount.Text, out discount);
+                    decimal.TryParse(textGST.Text, out gst);
 
-                textTotalAmount.Text = TotalAmount.ToString();
+                    decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (Rate * Qty)), 2);
 
-            }
+                    textTotalAmount.Text = TotalAmount.ToString();
+
+                }
+
+            }         
 
         }
 
