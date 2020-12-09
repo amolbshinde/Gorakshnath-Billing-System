@@ -107,17 +107,20 @@ namespace Gorakshnath_Billing_System.UI
                                                                     pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text);
 
 
-                                                                    bool Success = pDAL.Insert(pBLL,out Product_ID);
+                                                                    bool a = pDAL.Insert(pBLL,out Product_ID);
+                                                      
+                                                                    // adding Opening stock 
+                                                                    sBLL.Product_Id = Product_ID;
+                                                                    sBLL.Quantity = decimal.Parse(txtOpening_Stock.Text);
+                                                                    sBLL.Unit = comboUnit.Text;
 
+                                                                    bool b =sDAL.InsertStockNewProduct(sBLL);
+
+                                                                    bool Success = a && b;
                                                                     if (Success == true)
                                                                     {
                                                                         MessageBox.Show("Product Details Successfully Added");
-                                                                        //MessageBox.Show(Product_ID.ToString());
-                                                                        sBLL.Product_Id = Product_ID;
-                                                                        sBLL.Quantity = decimal.Parse(txtOpening_Stock.Text);
-                                                                        sBLL.Unit = comboUnit.Text;
-
-                                                                        sDAL.InsertStockNewProduct(sBLL);
+                                                                        //MessageBox.Show(Product_ID.ToString());                                                                      
 
                                                                         clear();
                                                                     }
