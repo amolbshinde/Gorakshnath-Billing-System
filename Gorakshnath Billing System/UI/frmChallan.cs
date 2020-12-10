@@ -57,7 +57,7 @@ namespace Gorakshnath_Billing_System.UI
             //get search keyword from search text box
             string keyword = textSearch.Text;
             if (keyword == "")//clear all textboex
-            {
+            {                
                 textCust_Name.Text = "";
                 textAddress.Text = "";
                 textContact.Text = "";
@@ -82,11 +82,16 @@ namespace Gorakshnath_Billing_System.UI
 
 
             if (keyword == "")
-            {
+            {                
                 textItemName.Text = "";
+                comboBoxUnit.Text = "";
                 textInventory.Text = "0";
-                textRate.Text = "0";
                 textQuantity.Text = "0";
+                textRate.Text = "0";
+                textDiscount.Text = "0";
+                textQuantity.Text = "0";
+                comboGstType.Text = "";
+                textGST.Text = "0";
                 return;
             }
 
