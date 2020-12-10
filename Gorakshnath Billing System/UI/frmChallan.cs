@@ -168,7 +168,7 @@ namespace Gorakshnath_Billing_System.UI
                                 int counter = 1;
                                 counter = salesDT.Rows.Count + 1;
                                 decimal gstAmt = Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
-                                salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST,gstAmt, TotalAmount);
+                                salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, discount, gstType, GST,gstAmt, TotalAmount);
                                 dgvAddedProducts.DataSource = salesDT;
 
                                 decimal subTotal;
@@ -251,7 +251,7 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("Unit");
             salesDT.Columns.Add("Quantity");
             salesDT.Columns.Add("PurchasePrice");
-            salesDT.Columns.Add("Amount");
+            //salesDT.Columns.Add("Amount");
             salesDT.Columns.Add("(-)Discount");
             salesDT.Columns.Add("Gst Type");
             salesDT.Columns.Add("(+)GST%");
@@ -339,10 +339,10 @@ namespace Gorakshnath_Billing_System.UI
                                  cdBLL.Unit = salesDT.Rows[i][2].ToString();
                                  cdBLL.Qty = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
                                 cdBLL.Rate = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);                                
-                                cdBLL.Discount_Per = Math.Round(decimal.Parse(salesDT.Rows[i][6].ToString()), 2);
-                                cdBLL.GST_Type =salesDT.Rows[i][7].ToString();
-                                cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
-                                cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][10].ToString()), 2);
+                                cdBLL.Discount_Per = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
+                                cdBLL.GST_Type =salesDT.Rows[i][6].ToString();
+                                cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][7].ToString()), 2);
+                                cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
 
 
                                 int Product_id = p.Product_ID;
