@@ -182,6 +182,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // textCgst
             // 
+            this.textCgst.BackColor = System.Drawing.SystemColors.Window;
             this.textCgst.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCgst.Location = new System.Drawing.Point(175, 100);
             this.textCgst.Margin = new System.Windows.Forms.Padding(2);
@@ -711,6 +712,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // textSubDiscount
             // 
+            this.textSubDiscount.BackColor = System.Drawing.SystemColors.Window;
             this.textSubDiscount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSubDiscount.Location = new System.Drawing.Point(175, 37);
             this.textSubDiscount.Margin = new System.Windows.Forms.Padding(2);
@@ -721,6 +723,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // textSgst
             // 
+            this.textSgst.BackColor = System.Drawing.SystemColors.Window;
             this.textSgst.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSgst.Location = new System.Drawing.Point(175, 71);
             this.textSgst.Margin = new System.Windows.Forms.Padding(2);
@@ -813,6 +816,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // textSubTotal
             // 
+            this.textSubTotal.BackColor = System.Drawing.SystemColors.Window;
             this.textSubTotal.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSubTotal.Location = new System.Drawing.Point(175, 6);
             this.textSubTotal.Margin = new System.Windows.Forms.Padding(2);
@@ -823,6 +827,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // textGrandTotal
             // 
+            this.textGrandTotal.BackColor = System.Drawing.SystemColors.Window;
             this.textGrandTotal.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textGrandTotal.Location = new System.Drawing.Point(175, 158);
             this.textGrandTotal.Margin = new System.Windows.Forms.Padding(2);
@@ -901,6 +906,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // textIgst
             // 
+            this.textIgst.BackColor = System.Drawing.SystemColors.Window;
             this.textIgst.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIgst.Location = new System.Drawing.Point(175, 128);
             this.textIgst.Margin = new System.Windows.Forms.Padding(2);
