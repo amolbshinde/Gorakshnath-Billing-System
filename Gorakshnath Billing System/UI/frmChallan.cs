@@ -90,8 +90,6 @@ namespace Gorakshnath_Billing_System.UI
 
             customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
 
-
-
             textCust_Name.Text = cBLL.name;
             textContact.Text = cBLL.contact;
             textEmail.Text = cBLL.email;
@@ -105,16 +103,17 @@ namespace Gorakshnath_Billing_System.UI
 
 
             if (keyword == "")
-            {                
+            {
+                textItemCode.Text = "";
                 textItemName.Text = "";
                 comboBoxUnit.Text = "";
                 textInventory.Text = "0";
-                textQuantity.Text = "0";
                 textRate.Text = "0";
                 textDiscount.Text = "0";
                 textQuantity.Text = "0";
                 comboGstType.Text = "";
                 textGST.Text = "0";
+                textTotalAmount.Text = "";
                 return;
             }
 
