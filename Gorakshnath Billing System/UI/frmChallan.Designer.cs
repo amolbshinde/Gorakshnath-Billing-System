@@ -150,6 +150,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // textInventory
             // 
+            this.textInventory.BackColor = System.Drawing.SystemColors.Window;
             this.textInventory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInventory.Location = new System.Drawing.Point(396, 46);
             this.textInventory.Margin = new System.Windows.Forms.Padding(2);
@@ -541,6 +542,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // textItemName
             // 
+            this.textItemName.BackColor = System.Drawing.SystemColors.Window;
             this.textItemName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textItemName.Location = new System.Drawing.Point(220, 47);
             this.textItemName.Margin = new System.Windows.Forms.Padding(2);
@@ -596,6 +598,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // textItemCode
             // 
+            this.textItemCode.BackColor = System.Drawing.SystemColors.Window;
             this.textItemCode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textItemCode.Location = new System.Drawing.Point(3, 48);
             this.textItemCode.Margin = new System.Windows.Forms.Padding(2);
@@ -632,6 +635,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // textTotalAmount
             // 
+            this.textTotalAmount.BackColor = System.Drawing.SystemColors.Window;
             this.textTotalAmount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotalAmount.Location = new System.Drawing.Point(896, 45);
             this.textTotalAmount.Margin = new System.Windows.Forms.Padding(2);
