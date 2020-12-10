@@ -167,7 +167,8 @@ namespace Gorakshnath_Billing_System.UI
                             {
                                 int counter = 1;
                                 counter = salesDT.Rows.Count + 1;
-                                salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST, TotalAmount);
+                                decimal gstAmt = Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
+                                salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST,gstAmt, TotalAmount);
                                 dgvAddedProducts.DataSource = salesDT;
 
                                 decimal subTotal;
@@ -253,7 +254,8 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("Amount");
             salesDT.Columns.Add("(-)Discount");
             salesDT.Columns.Add("Gst Type");
-            salesDT.Columns.Add("(+)Tax%");
+            salesDT.Columns.Add("(+)GST%");
+            salesDT.Columns.Add("(+)GSTAMT");
             salesDT.Columns.Add("(=)Total");
         }
 
@@ -340,7 +342,7 @@ namespace Gorakshnath_Billing_System.UI
                                 cdBLL.Discount_Per = Math.Round(decimal.Parse(salesDT.Rows[i][6].ToString()), 2);
                                 cdBLL.GST_Type =salesDT.Rows[i][7].ToString();
                                 cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
-                                cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
+                                cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][10].ToString()), 2);
 
 
                                 int Product_id = p.Product_ID;
