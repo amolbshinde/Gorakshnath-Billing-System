@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Gorakshnath_Billing_System.BLL;
+using Gorakshnath_Billing_System.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,9 +21,19 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
         }
 
+        ChallanReturnDAL ChallanReturnDAL = new ChallanReturnDAL();
+
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmChallanReturn_Load(object sender, EventArgs e)
+        {
+            DataTable dtg = ChallanReturnDAL.SelectInvoiceNo();
+            comboInvoiceNo.DisplayMember = "Invoice_No";
+            comboInvoiceNo.DataSource = dtg;
         }
     }
 }

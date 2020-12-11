@@ -91,7 +91,6 @@ namespace Gorakshnath_Billing_System.UI
             this.textContact = new System.Windows.Forms.TextBox();
             this.textEmail = new System.Windows.Forms.TextBox();
             this.textCust_Name = new System.Windows.Forms.TextBox();
-            this.textSearch = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -104,6 +103,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboInvoiceNo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -830,15 +830,6 @@ namespace Gorakshnath_Billing_System.UI
             this.textCust_Name.Size = new System.Drawing.Size(210, 23);
             this.textCust_Name.TabIndex = 8;
             // 
-            // textSearch
-            // 
-            this.textSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSearch.Location = new System.Drawing.Point(8, 46);
-            this.textSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(178, 23);
-            this.textSearch.TabIndex = 7;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -874,6 +865,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.comboInvoiceNo);
             this.panel2.Controls.Add(this.comboBox2);
             this.panel2.Controls.Add(this.label30);
             this.panel2.Controls.Add(this.comboTransactionType);
@@ -885,7 +877,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Controls.Add(this.textContact);
             this.panel2.Controls.Add(this.textEmail);
             this.panel2.Controls.Add(this.textCust_Name);
-            this.panel2.Controls.Add(this.textSearch);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label5);
@@ -990,6 +981,20 @@ namespace Gorakshnath_Billing_System.UI
             this.label1.TabIndex = 0;
             this.label1.Text = "New Challan Return";
             // 
+            // comboInvoiceNo
+            // 
+            this.comboInvoiceNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboInvoiceNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboInvoiceNo.FormattingEnabled = true;
+            this.comboInvoiceNo.Items.AddRange(new object[] {
+            "GST",
+            "Non GST"});
+            this.comboInvoiceNo.Location = new System.Drawing.Point(8, 44);
+            this.comboInvoiceNo.Margin = new System.Windows.Forms.Padding(2);
+            this.comboInvoiceNo.Name = "comboInvoiceNo";
+            this.comboInvoiceNo.Size = new System.Drawing.Size(178, 21);
+            this.comboInvoiceNo.TabIndex = 20;
+            // 
             // frmChallanReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1004,6 +1009,7 @@ namespace Gorakshnath_Billing_System.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmChallanReturn";
             this.Text = "frmChallanReturn";
+            this.Load += new System.EventHandler(this.frmChallanReturn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1086,7 +1092,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.TextBox textContact;
         private System.Windows.Forms.TextBox textEmail;
         private System.Windows.Forms.TextBox textCust_Name;
-        private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
@@ -1099,5 +1104,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboInvoiceNo;
     }
 }

@@ -45,7 +45,6 @@ namespace Gorakshnath_Billing_System.UI
             this.textContact = new System.Windows.Forms.TextBox();
             this.textEmail = new System.Windows.Forms.TextBox();
             this.textCust_Name = new System.Windows.Forms.TextBox();
-            this.textSearch = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -107,6 +106,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.textSearch = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -296,16 +296,6 @@ namespace Gorakshnath_Billing_System.UI
             this.textCust_Name.Name = "textCust_Name";
             this.textCust_Name.Size = new System.Drawing.Size(210, 23);
             this.textCust_Name.TabIndex = 8;
-            // 
-            // textSearch
-            // 
-            this.textSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSearch.Location = new System.Drawing.Point(4, 91);
-            this.textSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(178, 23);
-            this.textSearch.TabIndex = 7;
-            this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // label7
             // 
@@ -1036,6 +1026,16 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4.Size = new System.Drawing.Size(1057, 247);
             this.panel4.TabIndex = 19;
             // 
+            // textSearch
+            // 
+            this.textSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSearch.Location = new System.Drawing.Point(4, 91);
+            this.textSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.textSearch.Name = "textSearch";
+            this.textSearch.Size = new System.Drawing.Size(178, 23);
+            this.textSearch.TabIndex = 7;
+            this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
+            // 
             // frmChallan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1090,7 +1090,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.TextBox textContact;
         private System.Windows.Forms.TextBox textEmail;
         private System.Windows.Forms.TextBox textCust_Name;
-        private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
@@ -1152,5 +1151,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textSearch;
     }
 }
