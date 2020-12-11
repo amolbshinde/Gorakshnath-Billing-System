@@ -618,7 +618,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textPurchaseBillNo.Location = new System.Drawing.Point(842, 90);
             this.textPurchaseBillNo.Margin = new System.Windows.Forms.Padding(2);
             this.textPurchaseBillNo.Name = "textPurchaseBillNo";
-            this.textPurchaseBillNo.Size = new System.Drawing.Size(157, 23);
+            this.textPurchaseBillNo.Size = new System.Drawing.Size(160, 23);
             this.textPurchaseBillNo.TabIndex = 15;
             // 
             // label9
@@ -635,7 +635,7 @@ namespace Gorakshnath_Billing_System.UI
             // dtpBillDate
             // 
             this.dtpBillDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpBillDate.Location = new System.Drawing.Point(838, 46);
+            this.dtpBillDate.Location = new System.Drawing.Point(841, 46);
             this.dtpBillDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpBillDate.Name = "dtpBillDate";
             this.dtpBillDate.Size = new System.Drawing.Size(161, 23);
