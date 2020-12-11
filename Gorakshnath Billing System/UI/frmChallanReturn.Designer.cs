@@ -793,7 +793,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboTransactionType.Items.AddRange(new object[] {
             "GST",
             "Non GST"});
-            this.comboTransactionType.Location = new System.Drawing.Point(6, 45);
+            this.comboTransactionType.Location = new System.Drawing.Point(7, 90);
             this.comboTransactionType.Margin = new System.Windows.Forms.Padding(2);
             this.comboTransactionType.Name = "comboTransactionType";
             this.comboTransactionType.Size = new System.Drawing.Size(178, 21);
@@ -803,7 +803,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(3, 25);
+            this.label29.Location = new System.Drawing.Point(4, 70);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(69, 17);
@@ -879,7 +879,7 @@ namespace Gorakshnath_Billing_System.UI
             // textSearch
             // 
             this.textSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSearch.Location = new System.Drawing.Point(4, 91);
+            this.textSearch.Location = new System.Drawing.Point(8, 46);
             this.textSearch.Margin = new System.Windows.Forms.Padding(2);
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(178, 23);
@@ -939,7 +939,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(4, 35);
+            this.panel2.Location = new System.Drawing.Point(4, 36);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1057, 125);
@@ -971,7 +971,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 68);
+            this.label3.Location = new System.Drawing.Point(7, 23);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 19);
