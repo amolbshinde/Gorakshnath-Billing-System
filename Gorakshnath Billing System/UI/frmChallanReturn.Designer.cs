@@ -570,7 +570,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboTransactionType.Items.AddRange(new object[] {
             "GST",
             "Non GST"});
-            this.comboTransactionType.Location = new System.Drawing.Point(6, 45);
+            this.comboTransactionType.Location = new System.Drawing.Point(8, 68);
             this.comboTransactionType.Margin = new System.Windows.Forms.Padding(2);
             this.comboTransactionType.Name = "comboTransactionType";
             this.comboTransactionType.Size = new System.Drawing.Size(178, 21);
