@@ -35,5 +35,10 @@ namespace Gorakshnath_Billing_System.UI
             comboInvoiceNo.DisplayMember = "Invoice_No";
             comboInvoiceNo.DataSource = dtg;
         }
+
+        private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

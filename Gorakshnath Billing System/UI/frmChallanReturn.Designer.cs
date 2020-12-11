@@ -95,6 +95,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboInvoiceNo = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -103,7 +104,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboInvoiceNo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -890,6 +890,21 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Size = new System.Drawing.Size(1057, 125);
             this.panel2.TabIndex = 23;
             // 
+            // comboInvoiceNo
+            // 
+            this.comboInvoiceNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboInvoiceNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboInvoiceNo.FormattingEnabled = true;
+            this.comboInvoiceNo.Items.AddRange(new object[] {
+            "GST",
+            "Non GST"});
+            this.comboInvoiceNo.Location = new System.Drawing.Point(8, 44);
+            this.comboInvoiceNo.Margin = new System.Windows.Forms.Padding(2);
+            this.comboInvoiceNo.Name = "comboInvoiceNo";
+            this.comboInvoiceNo.Size = new System.Drawing.Size(178, 21);
+            this.comboInvoiceNo.TabIndex = 20;
+            this.comboInvoiceNo.SelectedIndexChanged += new System.EventHandler(this.comboInvoiceNo_SelectedIndexChanged);
+            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
@@ -980,20 +995,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label1.Size = new System.Drawing.Size(149, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "New Challan Return";
-            // 
-            // comboInvoiceNo
-            // 
-            this.comboInvoiceNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboInvoiceNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboInvoiceNo.FormattingEnabled = true;
-            this.comboInvoiceNo.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
-            this.comboInvoiceNo.Location = new System.Drawing.Point(8, 44);
-            this.comboInvoiceNo.Margin = new System.Windows.Forms.Padding(2);
-            this.comboInvoiceNo.Name = "comboInvoiceNo";
-            this.comboInvoiceNo.Size = new System.Drawing.Size(178, 21);
-            this.comboInvoiceNo.TabIndex = 20;
             // 
             // frmChallanReturn
             // 
