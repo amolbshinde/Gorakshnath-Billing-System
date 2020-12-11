@@ -9,6 +9,7 @@ namespace Gorakshnath_Billing_System.BLL
 {
     class ChallanReturnBLL
     {
+        //jhjhjhj
         public string Transaction_Type { get; set; }
         public int Invoice_No { get; set; }
         public int Cust_ID { get; set; }
