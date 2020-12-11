@@ -904,6 +904,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboInvoiceNo.Size = new System.Drawing.Size(178, 21);
             this.comboInvoiceNo.TabIndex = 20;
             this.comboInvoiceNo.SelectedIndexChanged += new System.EventHandler(this.comboInvoiceNo_SelectedIndexChanged);
+            this.comboInvoiceNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboInvoiceNo_KeyPress);
             // 
             // comboBox2
             // 
