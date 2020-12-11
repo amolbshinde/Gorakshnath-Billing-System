@@ -21,11 +21,11 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO Purchase_Transactions (type,Sup_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@type,@sup_id,@subTotal,@totalDiscount,@totalSgst,@totalCgst,@totalIgst,@grandTotal);select @@IDENTITY;";
+                String sql = "INSERT INTO Purchase_Transactions (Transaction_Type,Sup_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Transaction_Type,@sup_id,@subTotal,@totalDiscount,@totalSgst,@totalCgst,@totalIgst,@grandTotal);select @@IDENTITY;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
                 //add parameteres  values 
-                cmd.Parameters.AddWithValue("@type", p.Transaction_Type);
+                cmd.Parameters.AddWithValue("@Transaction_Type", p.Transaction_Type);
                 cmd.Parameters.AddWithValue("@sup_id", p.Sup_ID);
                 cmd.Parameters.AddWithValue("@subTotal", p.Sub_Total);
                 cmd.Parameters.AddWithValue("@totalDiscount", p.TDiscount);
