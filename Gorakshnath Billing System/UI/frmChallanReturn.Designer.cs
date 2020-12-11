@@ -107,7 +107,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSearchInvoice = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -987,7 +987,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel7.Controls.Add(this.label38);
             this.panel7.Controls.Add(this.label37);
             this.panel7.Controls.Add(this.textBox4);
-            this.panel7.Controls.Add(this.button3);
+            this.panel7.Controls.Add(this.btnSearchInvoice);
             this.panel7.Location = new System.Drawing.Point(346, 37);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(472, 55);
@@ -1024,19 +1024,20 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox4.Size = new System.Drawing.Size(157, 23);
             this.textBox4.TabIndex = 20;
             // 
-            // button3
+            // btnSearchInvoice
             // 
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Teal;
-            this.button3.Location = new System.Drawing.Point(331, 21);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 28);
-            this.button3.TabIndex = 44;
-            this.button3.Text = "Search";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSearchInvoice.FlatAppearance.BorderSize = 2;
+            this.btnSearchInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchInvoice.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchInvoice.ForeColor = System.Drawing.Color.Teal;
+            this.btnSearchInvoice.Location = new System.Drawing.Point(331, 21);
+            this.btnSearchInvoice.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearchInvoice.Name = "btnSearchInvoice";
+            this.btnSearchInvoice.Size = new System.Drawing.Size(98, 28);
+            this.btnSearchInvoice.TabIndex = 44;
+            this.btnSearchInvoice.Text = "Search";
+            this.btnSearchInvoice.UseVisualStyleBackColor = true;
+            this.btnSearchInvoice.Click += new System.EventHandler(this.btnSearchInvoice_Click);
             // 
             // frmChallanReturn
             // 
@@ -1154,6 +1155,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSearchInvoice;
     }
 }

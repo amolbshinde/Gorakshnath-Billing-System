@@ -58,6 +58,7 @@
     <Compile Include="BLL\categoriesBLL.cs" />
     <Compile Include="BLL\challanBLL.cs" />
     <Compile Include="BLL\challandetailsBLL.cs" />
+    <Compile Include="BLL\ChallanReturnBLL.cs" />
     <Compile Include="BLL\customerBLL.cs" />
     <Compile Include="BLL\DummySalesBLL.cs" />
     <Compile Include="BLL\DummySalesDetailsBLL.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="DAL\categoriesDAL.cs" />
     <Compile Include="DAL\challanDAL.cs" />
     <Compile Include="DAL\challandetailsDAL.cs" />
+    <Compile Include="DAL\ChallanReturnDAL.cs" />
     <Compile Include="DAL\DummySalesDAL.cs" />
     <Compile Include="DAL\DummySalesDetailsDAL.cs" />
     <Compile Include="DAL\EstimateDAL.cs" />
