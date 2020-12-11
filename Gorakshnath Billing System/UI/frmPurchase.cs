@@ -127,7 +127,7 @@ namespace Gorakshnath_Billing_System.UI
                             subIGst = subIGst + Math.Round((((PurchasePrice * Qty) - ((PurchasePrice * Qty) * discount) / 100) * gst) / 100,2);
                             textIgst.Text = subIGst.ToString();
                         }
-
+                        textItemCode.Text = "";
                         textItemSearch.Text = "";
                         textItemName.Text = "";
                         comboBoxUnit.Text = "";
@@ -343,7 +343,7 @@ namespace Gorakshnath_Billing_System.UI
                                 stockBLL stockBLL = new stockBLL();
 
                                 string productName = purchasedt.Rows[i][1].ToString();
-                            ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                                ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
 
 
                                 pdBLL.Purchase_ID = purchaseid;
@@ -367,16 +367,20 @@ namespace Gorakshnath_Billing_System.UI
                                 stockBLL.Unit = purchasedt.Rows[i][2].ToString();
 
                                 bool y = pdetailsDAL.insertpurchasedetails(pdBLL);                            
-                                stockBLL Padded = stockDAL.CheakeProductAddedOrNot(Product_id);
-                                //MessageBox.Show("Product is added",Padded.Product_Id.ToString());
-                                if(Product_id == Padded.Product_Id)
+                                
+                                if(y==true)
                                 {
-                                    bool x = stockDAL.Update(stockBLL);
+                                    stockBLL Padded = stockDAL.CheakeProductAddedOrNot(Product_id);
+                                    //MessageBox.Show("Product is added",Padded.Product_Id.ToString());
+                                    if (Product_id == Padded.Product_Id)
+                                    {
+                                        bool x = stockDAL.Update(stockBLL);
+                                    }
+                                    else
+                                    {
+                                        bool z = stockDAL.InsertStockNewProduct(stockBLL);
+                                    }
                                 }
-                                else
-                                {
-                                    bool z = stockDAL.InsertStockNewProduct(stockBLL);
-                                }                                
 
                                 isSuccess = b && y;
 

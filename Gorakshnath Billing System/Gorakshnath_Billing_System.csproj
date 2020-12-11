@@ -58,6 +58,7 @@
     <Compile Include="BLL\categoriesBLL.cs" />
     <Compile Include="BLL\challanBLL.cs" />
     <Compile Include="BLL\challandetailsBLL.cs" />
+    <Compile Include="BLL\ChallanReturnBLL.cs" />
     <Compile Include="BLL\customerBLL.cs" />
     <Compile Include="BLL\DummySalesBLL.cs" />
     <Compile Include="BLL\DummySalesDetailsBLL.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="DAL\categoriesDAL.cs" />
     <Compile Include="DAL\challanDAL.cs" />
     <Compile Include="DAL\challandetailsDAL.cs" />
+    <Compile Include="DAL\ChallanReturnDAL.cs" />
     <Compile Include="DAL\DummySalesDAL.cs" />
     <Compile Include="DAL\DummySalesDetailsDAL.cs" />
     <Compile Include="DAL\EstimateDAL.cs" />
@@ -108,6 +110,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>crptInvoice.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\frmChallanReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmChallanReturn.Designer.cs">
+      <DependentUpon>frmChallanReturn.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmEstimateCrpt.cs">
       <SubType>Form</SubType>
@@ -250,6 +258,9 @@
     <EmbeddedResource Include="Report_Generator\CrystalReport\crptInvoice.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmChallanReturn.resx">
+      <DependentUpon>frmChallanReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmEstimateCrpt.resx">
       <DependentUpon>frmEstimateCrpt.cs</DependentUpon>

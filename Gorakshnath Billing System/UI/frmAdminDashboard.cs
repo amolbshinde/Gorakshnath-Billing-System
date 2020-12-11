@@ -84,8 +84,8 @@ namespace Gorakshnath_Billing_System
 
         private void newSalesReturnCreditNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSalesReturn salesReturn = new frmSalesReturn();
-            salesReturn.Show();
+            frmChallanReturn challanReturn = new frmChallanReturn();
+            challanReturn.Show();
         }
 
         private void newInvoiceToolStripMenuItem_Click(object sender, EventArgs e)

@@ -39,11 +39,34 @@ namespace Gorakshnath_Billing_System.UI
             {
                 comboGstType.Enabled = false;
                 textGST.Enabled = false;
+                textCgst.Enabled = false;
+                textSgst.Enabled = false;
+                textIgst.Enabled = false;
+                comboGstType.Text = "NA";
+                textGST.Text = "0";
+                textCgst.Text = "0";
+                textSgst.Text = "0";
+                textIgst.Text = "0";
+                label32.Enabled = false;
+                label34.Enabled = false;
+                label36.Enabled = false;
+                label18.Enabled = false;
+                label12.Enabled = false;
             }
             else if (comboTransactionType.Text == "GST")
             {
                 comboGstType.Enabled = true;
                 textGST.Enabled = true;
+                textCgst.Enabled = true;
+                textSgst.Enabled = true;
+                textIgst.Enabled = true;
+                comboGstType.Text = "";
+
+                label32.Enabled = true;
+                label34.Enabled = true;
+                label36.Enabled = true;
+                label18.Enabled = true;
+                label12.Enabled = true;
             }
         }
 
@@ -57,7 +80,7 @@ namespace Gorakshnath_Billing_System.UI
             //get search keyword from search text box
             string keyword = textSearch.Text;
             if (keyword == "")//clear all textboex
-            {
+            {                
                 textCust_Name.Text = "";
                 textAddress.Text = "";
                 textContact.Text = "";
@@ -66,8 +89,6 @@ namespace Gorakshnath_Billing_System.UI
             }
 
             customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
-
-
 
             textCust_Name.Text = cBLL.name;
             textContact.Text = cBLL.contact;
@@ -83,10 +104,16 @@ namespace Gorakshnath_Billing_System.UI
 
             if (keyword == "")
             {
+                textItemCode.Text = "";
                 textItemName.Text = "";
+                comboBoxUnit.Text = "";
                 textInventory.Text = "0";
                 textRate.Text = "0";
+                textDiscount.Text = "0";
                 textQuantity.Text = "0";
+                comboGstType.Text = "";
+                textGST.Text = "0";
+                textTotalAmount.Text = "";
                 return;
             }
 
@@ -140,7 +167,8 @@ namespace Gorakshnath_Billing_System.UI
                             {
                                 int counter = 1;
                                 counter = salesDT.Rows.Count + 1;
-                                salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST, TotalAmount);
+                                decimal gstAmt = Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
+                                salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, discount, gstType, GST,gstAmt, TotalAmount);
                                 dgvAddedProducts.DataSource = salesDT;
 
                                 decimal subTotal;
@@ -223,10 +251,11 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("Unit");
             salesDT.Columns.Add("Quantity");
             salesDT.Columns.Add("PurchasePrice");
-            salesDT.Columns.Add("Amount");
+            //salesDT.Columns.Add("Amount");
             salesDT.Columns.Add("(-)Discount");
             salesDT.Columns.Add("Gst Type");
-            salesDT.Columns.Add("(+)Tax%");
+            salesDT.Columns.Add("(+)GST%");
+            salesDT.Columns.Add("(+)GSTAMT");
             salesDT.Columns.Add("(=)Total");
         }
 
@@ -310,9 +339,9 @@ namespace Gorakshnath_Billing_System.UI
                                  cdBLL.Unit = salesDT.Rows[i][2].ToString();
                                  cdBLL.Qty = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
                                 cdBLL.Rate = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);                                
-                                cdBLL.Discount_Per = Math.Round(decimal.Parse(salesDT.Rows[i][6].ToString()), 2);
-                                cdBLL.GST_Type =salesDT.Rows[i][7].ToString();
-                                cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
+                                cdBLL.Discount_Per = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
+                                cdBLL.GST_Type =salesDT.Rows[i][6].ToString();
+                                cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][7].ToString()), 2);
                                 cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
 
 
@@ -323,11 +352,14 @@ namespace Gorakshnath_Billing_System.UI
                                 
                                 bool y = challandetailsDAL.insertchallandetails(cdBLL);
 
-                                bool x = stockDAL.dereaseUpdate(stockBLL);
+                                if (y == true)
+                                {
+                                    bool x = stockDAL.dereaseUpdate(stockBLL);
+                                }                                
 
                                 isSuccess = b && y;
 
-                                 isSuccess = true;
+                                isSuccess = true;
                              }
                             isSuccess = b;
                             if (isSuccess == true)
@@ -655,10 +687,16 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Invoice_No = 2005;
-            frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(Invoice_No);
-            frmcrpt.Show();
-           
+            if (Invoice_No != -1)
+            {
+                //Invoice_No = 2005;
+                frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(Invoice_No);
+                frmcrpt.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please Save details first");
+            }
         }
     }
 }
