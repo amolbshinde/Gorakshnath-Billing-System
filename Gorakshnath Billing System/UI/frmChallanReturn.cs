@@ -38,7 +38,13 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            String invoceNo = comboInvoiceNo.Text;
+            ChallanReturnBLL crBLL = ChallanReturnDAL.GetCustomerForChallanReturn(invoceNo);
+            comboTransactionType.Text = crBLL.Transaction_Type;
+            textCust_Name.Text = crBLL.Cust_Name;
+            textContact.Text = crBLL.Cust_Contact;
+            textEmail.Text = crBLL.Cust_Email;
+            textAddress.Text = crBLL.Cust_Address;
         }
     }
 }
