@@ -352,11 +352,14 @@ namespace Gorakshnath_Billing_System.UI
                                 
                                 bool y = challandetailsDAL.insertchallandetails(cdBLL);
 
-                                bool x = stockDAL.dereaseUpdate(stockBLL);
+                                if (y == true)
+                                {
+                                    bool x = stockDAL.dereaseUpdate(stockBLL);
+                                }                                
 
                                 isSuccess = b && y;
 
-                                 isSuccess = true;
+                                isSuccess = true;
                              }
                             isSuccess = b;
                             if (isSuccess == true)

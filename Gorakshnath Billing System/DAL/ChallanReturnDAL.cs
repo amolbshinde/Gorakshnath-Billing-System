@@ -73,7 +73,7 @@ namespace Gorakshnath_Billing_System.DAL
                     crBLL.Cust_Contact = dt.Rows[0]["Cust_Contact"].ToString();
                     crBLL.Cust_Address = dt.Rows[0]["Cust_Name"].ToString();
                     crBLL.Cust_Email = dt.Rows[0]["Cust_Name"].ToString();
-                    crBLL.Transaction_Type = dt.Rows[0]["Cust_Name"].ToString();                    
+                    crBLL.Transaction_Type = dt.Rows[0]["Transaction_Type"].ToString();                    
 
                 }
             }
