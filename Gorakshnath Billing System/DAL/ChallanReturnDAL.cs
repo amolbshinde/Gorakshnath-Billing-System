@@ -53,14 +53,14 @@ namespace Gorakshnath_Billing_System.DAL
 
 
         #region METHOD TO SEARCH PRODUCT IN TRANSACTION MODULE
-        public ChallanReturnBLL GetCustomerForChallanReturn(string keyword)
+        public ChallanReturnBLL GetCustomerForChallanReturn(int keyword)
         {
             ChallanReturnBLL crBLL = new ChallanReturnBLL();
             SqlConnection conn = new SqlConnection(myconnstrng);
             DataTable dt = new DataTable();
             try
             {                
-                string sql = "select * from Challan_Transactions,Cust_Master where Challan_Transactions.Cust_ID = Cust_Master.Cust_Id and Challan_Transactions.Invoice_No LIKE '%" + keyword + "%';";
+                string sql = "select * from Challan_Transactions,Cust_Master where Challan_Transactions.Cust_ID = Cust_Master.Cust_Id and Challan_Transactions.Invoice_No = " + keyword ;
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
 
                 conn.Open();
@@ -74,7 +74,6 @@ namespace Gorakshnath_Billing_System.DAL
                     crBLL.Cust_Address = dt.Rows[0]["Cust_Address"].ToString();
                     crBLL.Cust_Email = dt.Rows[0]["Cust_Email"].ToString();
                     crBLL.Transaction_Type = dt.Rows[0]["Transaction_Type"].ToString();                    
-
                 }
             }
             catch (Exception ex)
