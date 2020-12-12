@@ -74,6 +74,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboItemName.Items.Add("Select Product Name");
                 comboItemName.DataSource = dti;
 
+                Clear();
             }
         }
 
@@ -216,5 +217,36 @@ namespace Gorakshnath_Billing_System.UI
 
 
         }
+
+        public void Clear()
+        {
+            comboGstType.Text = "";            
+            textCust_Name.Text = "";
+            textEmail.Text = "";
+            textAddress.Text = "";
+            textContact.Text = "";            
+            
+            comboBoxUnit.Text = "";
+            textInventory.Text = "0";
+            textQuantity.Text = "0";
+            textRate.Text = "0";
+            textDiscount.Text = "0";
+            comboGstType.Text = "";
+            textGST.Text = "0";
+            textTotalAmount.Text = "0";
+
+            textSubTotal.Text = "";
+            textSubDiscount.Text = "";
+            textSgst.Text = "";
+            textCgst.Text = "";
+            textIgst.Text = "";
+            textGrandTotal.Text = "";
+
+            dgvAddedProducts.DataSource = null;
+            dgvAddedProducts.Rows.Clear();
+            salesReturnDT.Rows.Clear();
+        }
+
+
     }
 }

@@ -422,7 +422,6 @@ namespace Gorakshnath_Billing_System.UI
             dgvAddedProducts.DataSource = null;
             dgvAddedProducts.Rows.Clear();
             salesDT.Rows.Clear();
-
         }
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
