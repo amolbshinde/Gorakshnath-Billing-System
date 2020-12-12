@@ -85,80 +85,8 @@ namespace Gorakshnath_Billing_System.DAL
 
             return crBLL;
         }
-        #endregion
-
-        #region Select Method For combo box ItemName
-        public DataTable SelectItemName(int keyword)
-        {
-            //Creating Database Connection 
-            SqlConnection conn = new SqlConnection(myconnstrng);
-
-            DataTable dt = new DataTable();
-
-            try
-            {
-                //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT Product_Name FROM Challan_Transactions_Details WHERE Invoice_No="+keyword;
-
-                SqlCommand cmd = new SqlCommand(sql, conn);
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                //Open DAtabase Connection
-                conn.Open();
-                //Adding the value from adapter to Data TAble dt
-                adapter.Fill(dt);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            return dt;
-        }
-        #endregion
-
-        #region METHOD TO Get Customer Details for challan return
-        public ChallanReturnBLL GetProductForChallanReturn(string keyword)
-        {
-            ChallanReturnBLL crBLL = new ChallanReturnBLL();
-            SqlConnection conn = new SqlConnection(myconnstrng);
-            DataTable dt = new DataTable();
-            try
-            {
-                string sql = "select * from Challan_Transactions_Details where Product_Name LIKE'%" + keyword + "%' ";
-                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
-
-                conn.Open();
-
-                adapter.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {                    
-                    crBLL.Unit = dt.Rows[0]["Unit"].ToString();
-                    crBLL.Qty = decimal.Parse(dt.Rows[0]["Qty"].ToString());
-                    crBLL.Rate = decimal.Parse(dt.Rows[0]["Rate"].ToString());
-                    crBLL.Discount_Per= decimal.Parse(dt.Rows[0]["Dicount_Per"].ToString());
-                    crBLL.GST_Type = dt.Rows[0]["GST_Type"].ToString();
-                    crBLL.GST_Per= decimal.Parse(dt.Rows[0]["GST_Per"].ToString());
-                    crBLL.Total= decimal.Parse(dt.Rows[0]["Total"].ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            return crBLL;
-        }
-        #endregion
-
+        #endregion     
+                
         #region Insert Data in Sales Return
 
         public bool insertSalesReturn(ChallanReturnBLL cr, out int Invoice_No)
@@ -211,56 +139,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-        #region Insert Meathod for Sales Return Details
-
-        public bool insertSalesReturndetails(ChallanReturnBLL cr)
-        {
-            bool isSuccess = false;
-
-            SqlConnection con = new SqlConnection(myconnstrng);
-
-            try
-            {
-                //inserting transaction details
-                string sql = "INSERT INTO SalesReturn_Transactions_Details (Invoice_No,Product_ID,Cust_ID,Product_Name,Unit,Qty,Rate,Dicount_Per,GST_Type,GST_Per,Total) VALUES(@Invoice_No,@Product_ID,@Cust_ID,@Product_Name,@Unit,@Qty,@Rate,@Discount_Per,@GST_Type,@GST_Per,@Total)";
-                SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@Invoice_No", cr.Invoice_No);
-                cmd.Parameters.AddWithValue("@Product_ID", cr.Product_ID);
-                cmd.Parameters.AddWithValue("@Cust_ID", cr.Cust_ID);
-                cmd.Parameters.AddWithValue("@Product_Name", cr.Product_Name);
-                cmd.Parameters.AddWithValue("@Unit", cr.Unit);
-                cmd.Parameters.AddWithValue("@Qty", cr.Qty);    
-                cmd.Parameters.AddWithValue("@Rate", cr.Rate);
-                cmd.Parameters.AddWithValue("@Discount_Per", cr.Discount_Per);
-                cmd.Parameters.AddWithValue("@GST_Type", cr.GST_Type);
-                cmd.Parameters.AddWithValue("@GST_Per", cr.GST_Per);
-                cmd.Parameters.AddWithValue("@Total", cr.Total);
-                //Unit,Qty,Rate,Discount_Per,GST_Type,GST_Per,Total
-                con.Open();
-
-                int rows = cmd.ExecuteNonQuery();
-
-                if (rows > 0)
-                {
-                    isSuccess = true;
-                }
-                else
-                {
-                    isSuccess = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-
-            }
-            return isSuccess;
-        }
-        #endregion
-
-
+        
     }
 }
