@@ -8,14 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace Gorakshnath_Billing_System.DAL
 {
     class BrandDAL
     {
-
-
-        //Static String Method for Database Connection String.
+        //Static String Method for Database Connection String
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
         #region Select Method
@@ -86,7 +83,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-
         #region Insert New CAtegory
         public bool Insert(BrandBLL b)
         {
@@ -140,6 +136,7 @@ namespace Gorakshnath_Billing_System.DAL
             return isSucces;
         }
         #endregion
+
         #region Update Method
         public bool Update(BrandBLL b)
         {
@@ -193,6 +190,7 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
+
         #region Delete Category Method
         public bool Delete(BrandBLL b)
         {
@@ -240,6 +238,7 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
+
         #region Method for Searh Funtionality
         public DataTable Search(string keywords)
         {
