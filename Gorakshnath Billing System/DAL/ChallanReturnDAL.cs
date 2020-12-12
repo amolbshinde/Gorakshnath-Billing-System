@@ -50,9 +50,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-
-
-        #region METHOD TO SEARCH PRODUCT IN TRANSACTION MODULE
+        #region METHOD TO Get Customer Details for challan return
         public ChallanReturnBLL GetCustomerForChallanReturn(int keyword)
         {
             ChallanReturnBLL crBLL = new ChallanReturnBLL();
@@ -87,9 +85,59 @@ namespace Gorakshnath_Billing_System.DAL
 
             return crBLL;
         }
+        #endregion     
+                
+        #region Insert Data in Sales Return
+
+        public bool insertSalesReturn(ChallanReturnBLL cr, out int Invoice_No)
+        {
+            bool isSuccess = false;
+            Invoice_No = -1;
+            SqlConnection con = new SqlConnection(myconnstrng);
+            try
+            {
+                String sql = "INSERT INTO SalesReturn_Transactions(SalesID,Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Reson) VALUES(@SalesID,@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Reson);select @@IDENTITY;";
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                cmd.Parameters.AddWithValue("@SalesID", cr.SalesID);
+                cmd.Parameters.AddWithValue("@Invoice_No", cr.Invoice_No);
+                cmd.Parameters.AddWithValue("@Transaction_Type", cr.Transaction_Type);
+                cmd.Parameters.AddWithValue("@Cust_ID", cr.Cust_ID);
+                cmd.Parameters.AddWithValue("@Sub_Total", cr.Sub_Total);
+                cmd.Parameters.AddWithValue("@TDiscount", cr.TDiscount);
+                cmd.Parameters.AddWithValue("@TSGST", cr.TSGST);
+                cmd.Parameters.AddWithValue("@TCGST", cr.TCGST);
+                cmd.Parameters.AddWithValue("@TIGST", cr.TIGST);
+                cmd.Parameters.AddWithValue("@Grand_Total", cr.Grand_Total);
+                cmd.Parameters.AddWithValue("@Reson", cr.Reson);
+                
+                con.Open();
+
+                object o = cmd.ExecuteScalar();
+
+                if (o != null) 
+                {
+                    isSuccess = true;
+                    Invoice_No = int.Parse(o.ToString());
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return isSuccess;
+        }
         #endregion
-
-
-
+        
     }
 }
