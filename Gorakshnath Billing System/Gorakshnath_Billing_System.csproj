@@ -141,6 +141,12 @@
       <DependentUpon>crptInvoice.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report_Generator\CrystalReport\crptPurchase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crptPurchase.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\frmChallanReturn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,12 @@
     <Compile Include="UI\frmPurchase.Designer.cs">
       <DependentUpon>frmPurchase.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmPurchaseCrpt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmPurchaseCrpt.Designer.cs">
+      <DependentUpon>frmPurchaseCrpt.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmPurchaseReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +307,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptInvoice.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report_Generator\CrystalReport\crptPurchase.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crptPurchase.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmChallanReturn.resx">
       <DependentUpon>frmChallanReturn.cs</DependentUpon>
     </EmbeddedResource>
@@ -333,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPurchase.resx">
       <DependentUpon>frmPurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmPurchaseCrpt.resx">
+      <DependentUpon>frmPurchaseCrpt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPurchaseReport.resx">
       <DependentUpon>frmPurchaseReport.cs</DependentUpon>

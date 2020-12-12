@@ -15,7 +15,7 @@ namespace Gorakshnath_Billing_System.BLL
         public string Product_Name { get; set; }
         public string Unit { get; set; }
         public decimal Qty { get; set; }
-        public decimal Purchase_Prise { get; set; }
+        public decimal Rate { get; set; }
         public decimal Discount_Per { get; set; }
         public string GST_Type { get; set; }
         public decimal GST_Per { get; set; }
