@@ -27,7 +27,8 @@ namespace Gorakshnath_Billing_System.UI
                 using (SqlConnection conn = new SqlConnection(myconnstrng))
                 {
                     conn.Open();
-                    string Query = "Select  CompanyName,Grand_Total,Purchase_Date from Supplier_Master,Purchase_Transactions where Purchase_Transactions.Sup_ID=Supplier_Master.SupplierID";
+                    string Query = "Select  * from Supplier_Master,Purchase_Transactions where Purchase_Transactions.Sup_ID=Supplier_Master.SupplierID";
+                    /*CompanyName,Grand_Total,Purchase_Date*/
                     SqlDataAdapter da = new SqlDataAdapter(Query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
@@ -41,6 +42,11 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
