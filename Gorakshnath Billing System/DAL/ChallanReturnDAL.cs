@@ -159,7 +159,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-
         #region Insert Data in Sales Return
 
         public bool insertSalesReturn(ChallanReturnBLL cr, out int Invoice_No)
