@@ -138,8 +138,7 @@ namespace Gorakshnath_Billing_System.DAL
 
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)
-                {
-                    //p.Item_Code = dt.Rows[0]["Item_Code"].ToString();                    
+                {                    
                     crBLL.Unit = dt.Rows[0]["Unit"].ToString();
                     crBLL.Qty = decimal.Parse(dt.Rows[0]["Qty"].ToString());
                     crBLL.Rate = decimal.Parse(dt.Rows[0]["Rate"].ToString());
