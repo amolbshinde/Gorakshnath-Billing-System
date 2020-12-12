@@ -16,12 +16,18 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmChallanReturn : Form
     {
+        int Invoice_No = -1;
         public frmChallanReturn()
         {
             InitializeComponent();
         }
 
         ChallanReturnDAL ChallanReturnDAL = new ChallanReturnDAL();
+        ChallanReturnBLL ChallanReturnBLL = new ChallanReturnBLL();
+        customerDAL cDAL = new customerDAL();
+        stockDAL stockDAL = new stockDAL();
+
+        ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
 
         DataTable salesReturnDT = new DataTable();
 
@@ -219,12 +225,13 @@ namespace Gorakshnath_Billing_System.UI
 
         public void Clear()
         {
+            /*
             comboGstType.Text = "";            
             textCust_Name.Text = "";
             textEmail.Text = "";
             textAddress.Text = "";
             textContact.Text = "";            
-            
+            */
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
             textQuantity.Text = "0";
@@ -245,6 +252,123 @@ namespace Gorakshnath_Billing_System.UI
             dgvAddedProducts.Rows.Clear();
             salesReturnDT.Rows.Clear();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            save();
+        }
+
+
+        public void save()
+        {
+
+            string sname = textCust_Name.Text;
+            if (comboTransactionType.Text != "")
+            {
+                if (sname != "")
+                {
+
+                    if (dgvAddedProducts.Rows.Count != 0)
+                    {
+                        customerBLL c = cDAL.getCustomerIdFromName(sname);
+
+                        decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
+                      
+                        int invoceNo;
+                        int.TryParse(comboInvoiceNo.Text, out invoceNo);
+
+
+                        string type = comboTransactionType.Text;
+                        decimal.TryParse(textSubTotal.Text, out subTotal);
+                        decimal.TryParse(textSubDiscount.Text, out totalDiscount);
+                        decimal.TryParse(textSgst.Text, out totalSgst);
+                        decimal.TryParse(textCgst.Text, out totalCgst);
+                        decimal.TryParse(textIgst.Text, out totalIgst);
+                        decimal.TryParse(textGrandTotal.Text, out grandTotal);
+
+                        ChallanReturnBLL.SalesID = invoceNo;
+                        ChallanReturnBLL.Transaction_Type = type;
+                        ChallanReturnBLL.Cust_ID = c.Cust_ID;
+                        ChallanReturnBLL.Sub_Total = subTotal;
+                        ChallanReturnBLL.TDiscount = totalDiscount;
+                        ChallanReturnBLL.TSGST = totalSgst;
+                        ChallanReturnBLL.TCGST = totalCgst;
+                        ChallanReturnBLL.TIGST = totalIgst;
+                        ChallanReturnBLL.Grand_Total = grandTotal;
+
+                        ChallanReturnBLL.SalesDetails = salesReturnDT;
+                        bool isSuccess = false;
+
+                        // using (TransactionScope scope = new TransactionScope())
+
+                        //int Invoice_No = -1; alredy declared on top 
+                        bool b = ChallanReturnDAL.insertSalesReturn(ChallanReturnBLL, out Invoice_No);
+
+                        for (int i = 0; i < salesReturnDT.Rows.Count; i++)
+                        {
+                            ChallanReturnBLL cdBLL = new ChallanReturnBLL();
+
+                            stockBLL stockBLL = new stockBLL();
+                            string productName = salesReturnDT.Rows[i][1].ToString();
+                            ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                            
+                            cdBLL.Product_ID = p.Product_ID;
+                            cdBLL.Invoice_No = Invoice_No;
+                            cdBLL.Cust_ID = c.Cust_ID;
+                            cdBLL.Product_Name = salesReturnDT.Rows[i][1].ToString();
+                            cdBLL.Unit = salesReturnDT.Rows[i][2].ToString();
+                            cdBLL.Qty = Math.Round(decimal.Parse(salesReturnDT.Rows[i][3].ToString()), 2);
+                            cdBLL.Rate = Math.Round(decimal.Parse(salesReturnDT.Rows[i][4].ToString()), 2);
+                            cdBLL.Discount_Per = Math.Round(decimal.Parse(salesReturnDT.Rows[i][5].ToString()), 2);
+                            cdBLL.GST_Type = salesReturnDT.Rows[i][6].ToString();
+                            cdBLL.GST_Per = Math.Round(decimal.Parse(salesReturnDT.Rows[i][7].ToString()), 2);
+                            cdBLL.Total = Math.Round(decimal.Parse(salesReturnDT.Rows[i][9].ToString()), 2);
+
+                            int Product_id = p.Product_ID;
+                            stockBLL.Product_Id = Product_id;
+                            stockBLL.Quantity = Math.Round(decimal.Parse(salesReturnDT.Rows[i][3].ToString()), 2);
+                            stockBLL.Unit = salesReturnDT.Rows[i][2].ToString();
+
+                            bool y = ChallanReturnDAL.insertSalesReturndetails(cdBLL);
+
+                            if (y == true)
+                            {
+                                bool x = stockDAL.dereaseUpdate(stockBLL);
+                            }
+
+                            isSuccess = b && y;
+
+                            isSuccess = true;
+                        }
+                        isSuccess = b;
+                        if (isSuccess == true)
+                        {
+                            //scope.Complete();
+                            MessageBox.Show("Transaction Completed");
+                            //clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Transaction Failed");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Add product Details");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please Select Customer Details");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select Purchase Type GST OR NOGST");
+            }
+
+        }
+
 
 
     }

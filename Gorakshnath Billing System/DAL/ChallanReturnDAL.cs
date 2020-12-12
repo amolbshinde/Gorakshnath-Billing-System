@@ -87,7 +87,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-
         #region Select Method For combo box ItemName
         public DataTable SelectItemName(int keyword)
         {
@@ -121,7 +120,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
 
         #region METHOD TO Get Customer Details for challan return
         public ChallanReturnBLL GetProductForChallanReturn(string keyword)
@@ -158,6 +156,109 @@ namespace Gorakshnath_Billing_System.DAL
             }
 
             return crBLL;
+        }
+        #endregion
+
+
+        #region Insert Data in Sales Return
+
+        public bool insertSalesReturn(ChallanReturnBLL cr, out int Invoice_No)
+        {
+            bool isSuccess = false;
+            Invoice_No = -1;
+            SqlConnection con = new SqlConnection(myconnstrng);
+            try
+            {
+                String sql = "INSERT INTO SalesReturn_Transactions(SalesID,Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Reson) VALUES(@SalesID,@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Reson);select @@IDENTITY;";
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                cmd.Parameters.AddWithValue("@SalesID", cr.SalesID);
+                cmd.Parameters.AddWithValue("@Invoice_No", cr.Invoice_No);
+                cmd.Parameters.AddWithValue("@Transaction_Type", cr.Transaction_Type);
+                cmd.Parameters.AddWithValue("@Cust_ID", cr.Cust_ID);
+                cmd.Parameters.AddWithValue("@Sub_Total", cr.Sub_Total);
+                cmd.Parameters.AddWithValue("@TDiscount", cr.TDiscount);
+                cmd.Parameters.AddWithValue("@TSGST", cr.TSGST);
+                cmd.Parameters.AddWithValue("@TCGST", cr.TCGST);
+                cmd.Parameters.AddWithValue("@TIGST", cr.TIGST);
+                cmd.Parameters.AddWithValue("@Grand_Total", cr.Grand_Total);
+                cmd.Parameters.AddWithValue("@Reson", "NA");
+                
+                con.Open();
+
+                object o = cmd.ExecuteScalar();
+
+                if (o != null) 
+                {
+                    isSuccess = true;
+                    Invoice_No = int.Parse(o.ToString());
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return isSuccess;
+        }
+        #endregion
+
+        #region Insert Meathod for Sales Return Details
+
+        public bool insertSalesReturndetails(ChallanReturnBLL cr)
+        {
+            bool isSuccess = false;
+
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            try
+            {
+                //inserting transaction details
+                string sql = "INSERT INTO SalesReturn_Transactions_Details (Invoice_No,Product_ID,Cust_ID,Product_Name,Unit,Qty,Rate,Dicount_Per,GST_Type,GST_Per,Total) VALUES(@Invoice_No,@Product_ID,@Cust_ID,@Product_Name,@Unit,@Qty,@Rate,@Discount_Per,@GST_Type,@GST_Per,@Total)";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@Invoice_No", cr.Invoice_No);
+                cmd.Parameters.AddWithValue("@Product_ID", cr.Product_ID);
+                cmd.Parameters.AddWithValue("@Cust_ID", cr.Cust_ID);
+                cmd.Parameters.AddWithValue("@Product_Name", cr.Product_Name);
+                cmd.Parameters.AddWithValue("@Unit", cr.Unit);
+                cmd.Parameters.AddWithValue("@Qty", cr.Qty);    
+                cmd.Parameters.AddWithValue("@Rate", cr.Rate);
+                cmd.Parameters.AddWithValue("@Discount_Per", cr.Discount_Per);
+                cmd.Parameters.AddWithValue("@GST_Type", cr.GST_Type);
+                cmd.Parameters.AddWithValue("@GST_Per", cr.GST_Per);
+                cmd.Parameters.AddWithValue("@Total", cr.Total);
+                //Unit,Qty,Rate,Discount_Per,GST_Type,GST_Per,Total
+                con.Open();
+
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+
+            }
+            return isSuccess;
         }
         #endregion
 

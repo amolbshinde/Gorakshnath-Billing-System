@@ -12,6 +12,8 @@ namespace Gorakshnath_Billing_System.BLL
         //jhjhjhj
         public string Transaction_Type { get; set; }
         public int Invoice_No { get; set; }
+        public int SalesID { get; set; }
+
         public int Cust_ID { get; set; }
         public string Cust_Name { get; set; }
         public string Cust_Contact { get; set; }
@@ -38,6 +40,7 @@ namespace Gorakshnath_Billing_System.BLL
         public string GST_Type { get; set; }
         public decimal GST_Per { get; set; }
         public decimal Total { get; set; }
+        public string Reson { get; set; }
 
     }
 }
