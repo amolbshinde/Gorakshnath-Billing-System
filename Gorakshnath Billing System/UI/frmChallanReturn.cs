@@ -31,11 +31,11 @@ namespace Gorakshnath_Billing_System.UI
 
         private void frmChallanReturn_Load(object sender, EventArgs e)
         {
+            comboInvoiceNo.DataSource = null;
             DataTable dtg = ChallanReturnDAL.SelectInvoiceNo();
             comboInvoiceNo.DisplayMember = "Invoice_No";
             comboInvoiceNo.Items.Add("Select Invoice No");
-            comboInvoiceNo.DataSource = dtg;
-            
+            comboInvoiceNo.DataSource = dtg;            
         }
 
         private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,6 +51,12 @@ namespace Gorakshnath_Billing_System.UI
                 textContact.Text = crBLL.Cust_Contact;
                 textEmail.Text = crBLL.Cust_Email;
                 textAddress.Text = crBLL.Cust_Address;
+
+                comboItemName.DataSource = null;
+                DataTable dti = ChallanReturnDAL.SelectItemName(invoceNo);
+                comboItemName.DisplayMember = "Product_Name";
+                comboItemName.Items.Add("Select Product Name");
+                comboItemName.DataSource = dti;
 
             }
         }

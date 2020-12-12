@@ -40,7 +40,6 @@ namespace Gorakshnath_Billing_System.UI
             this.textSgst = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.textItemName = new System.Windows.Forms.TextBox();
             this.comboGstType = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
             this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
@@ -104,6 +103,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboItemName = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -244,17 +244,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label22.TabIndex = 20;
             this.label22.Text = "Payments";
             // 
-            // textItemName
-            // 
-            this.textItemName.BackColor = System.Drawing.SystemColors.Window;
-            this.textItemName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textItemName.Location = new System.Drawing.Point(107, 47);
-            this.textItemName.Margin = new System.Windows.Forms.Padding(2);
-            this.textItemName.Name = "textItemName";
-            this.textItemName.ReadOnly = true;
-            this.textItemName.Size = new System.Drawing.Size(172, 23);
-            this.textItemName.TabIndex = 41;
-            // 
             // comboGstType
             // 
             this.comboGstType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -293,7 +282,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textItemName);
+            this.panel3.Controls.Add(this.comboItemName);
             this.panel3.Controls.Add(this.comboGstType);
             this.panel3.Controls.Add(this.textGST);
             this.panel3.Controls.Add(this.label12);
@@ -997,6 +986,20 @@ namespace Gorakshnath_Billing_System.UI
             this.label1.TabIndex = 0;
             this.label1.Text = "New Challan Return";
             // 
+            // comboItemName
+            // 
+            this.comboItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboItemName.FormattingEnabled = true;
+            this.comboItemName.Items.AddRange(new object[] {
+            "GST",
+            "Non GST"});
+            this.comboItemName.Location = new System.Drawing.Point(91, 47);
+            this.comboItemName.Margin = new System.Windows.Forms.Padding(2);
+            this.comboItemName.Name = "comboItemName";
+            this.comboItemName.Size = new System.Drawing.Size(178, 21);
+            this.comboItemName.TabIndex = 21;
+            // 
             // frmChallanReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1043,7 +1046,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.TextBox textSgst;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textItemName;
         private System.Windows.Forms.ComboBox comboGstType;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.DataGridView dgvAddedProducts;
@@ -1107,5 +1109,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboInvoiceNo;
+        private System.Windows.Forms.ComboBox comboItemName;
     }
 }
