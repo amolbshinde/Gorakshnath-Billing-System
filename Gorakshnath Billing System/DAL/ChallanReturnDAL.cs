@@ -122,5 +122,46 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+
+        #region METHOD TO Get Customer Details for challan return
+        public ChallanReturnBLL GetProductForChallanReturn(string keyword)
+        {
+            ChallanReturnBLL crBLL = new ChallanReturnBLL();
+            SqlConnection conn = new SqlConnection(myconnstrng);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "select * from Challan_Transactions_Details where Product_Name LIKE'%" + keyword + "%' ";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+
+                conn.Open();
+
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    //p.Item_Code = dt.Rows[0]["Item_Code"].ToString();                    
+                    crBLL.Unit = dt.Rows[0]["Unit"].ToString();
+                    crBLL.Qty = decimal.Parse(dt.Rows[0]["Qty"].ToString());
+                    crBLL.Rate = decimal.Parse(dt.Rows[0]["Rate"].ToString());
+                    crBLL.Discount_Per= decimal.Parse(dt.Rows[0]["Dicount_Per"].ToString());
+                    crBLL.GST_Type = dt.Rows[0]["GST_Type"].ToString();
+                    crBLL.GST_Per= decimal.Parse(dt.Rows[0]["GST_Per"].ToString());
+                    crBLL.Total= decimal.Parse(dt.Rows[0]["Total"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return crBLL;
+        }
+        #endregion
+
+
     }
 }

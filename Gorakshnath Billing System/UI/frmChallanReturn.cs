@@ -65,5 +65,17 @@ namespace Gorakshnath_Billing_System.UI
         {
             
         }
+
+        private void comboItemName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string keyword = comboItemName.Text;
+            ChallanReturnBLL crBLL = ChallanReturnDAL.GetProductForChallanReturn(keyword);
+            comboBoxUnit.Text = crBLL.Unit;
+            textQuantity.Text = crBLL.Qty.ToString();
+            textRate.Text = crBLL.Rate.ToString();
+            textDiscount.Text = crBLL.Discount_Per.ToString();
+            comboGstType.Text = crBLL.GST_Type;
+            textTotalAmount.Text = crBLL.Total.ToString();
+        }
     }
 }

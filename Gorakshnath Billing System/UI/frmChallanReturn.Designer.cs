@@ -44,10 +44,9 @@ namespace Gorakshnath_Billing_System.UI
             this.label32 = new System.Windows.Forms.Label();
             this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.comboItemName = new System.Windows.Forms.ComboBox();
             this.textGST = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textItemCode = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.textTotalAmount = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -103,7 +102,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboItemName = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -286,8 +284,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Controls.Add(this.comboGstType);
             this.panel3.Controls.Add(this.textGST);
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.textItemCode);
-            this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.btnAdd);
             this.panel3.Controls.Add(this.textTotalAmount);
             this.panel3.Controls.Add(this.label19);
@@ -310,6 +306,21 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Size = new System.Drawing.Size(1057, 78);
             this.panel3.TabIndex = 24;
             // 
+            // comboItemName
+            // 
+            this.comboItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboItemName.FormattingEnabled = true;
+            this.comboItemName.Items.AddRange(new object[] {
+            "GST",
+            "Non GST"});
+            this.comboItemName.Location = new System.Drawing.Point(91, 47);
+            this.comboItemName.Margin = new System.Windows.Forms.Padding(2);
+            this.comboItemName.Name = "comboItemName";
+            this.comboItemName.Size = new System.Drawing.Size(178, 21);
+            this.comboItemName.TabIndex = 21;
+            this.comboItemName.SelectedIndexChanged += new System.EventHandler(this.comboItemName_SelectedIndexChanged);
+            // 
             // textGST
             // 
             this.textGST.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -329,28 +340,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label12.Size = new System.Drawing.Size(57, 20);
             this.label12.TabIndex = 38;
             this.label12.Text = "GST(%)";
-            // 
-            // textItemCode
-            // 
-            this.textItemCode.BackColor = System.Drawing.SystemColors.Window;
-            this.textItemCode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textItemCode.Location = new System.Drawing.Point(3, 48);
-            this.textItemCode.Margin = new System.Windows.Forms.Padding(2);
-            this.textItemCode.Name = "textItemCode";
-            this.textItemCode.ReadOnly = true;
-            this.textItemCode.Size = new System.Drawing.Size(66, 23);
-            this.textItemCode.TabIndex = 36;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(3, 28);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(66, 19);
-            this.label20.TabIndex = 35;
-            this.label20.Text = "Item  No.";
             // 
             // btnAdd
             // 
@@ -986,20 +975,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label1.TabIndex = 0;
             this.label1.Text = "New Challan Return";
             // 
-            // comboItemName
-            // 
-            this.comboItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboItemName.FormattingEnabled = true;
-            this.comboItemName.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
-            this.comboItemName.Location = new System.Drawing.Point(91, 47);
-            this.comboItemName.Margin = new System.Windows.Forms.Padding(2);
-            this.comboItemName.Name = "comboItemName";
-            this.comboItemName.Size = new System.Drawing.Size(178, 21);
-            this.comboItemName.TabIndex = 21;
-            // 
             // frmChallanReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1052,8 +1027,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textGST;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textItemCode;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox textTotalAmount;
         private System.Windows.Forms.Label label19;
