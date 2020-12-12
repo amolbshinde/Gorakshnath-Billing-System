@@ -166,5 +166,11 @@ namespace Gorakshnath_Billing_System
             frmProductMaster productMaster = new frmProductMaster();
             productMaster.Show();
         }
+
+        private void addPurchaseReturnDebitNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPurchaseReturn purchaseReturn = new frmPurchaseReturn();
+            purchaseReturn.Show();
+        }
     }
 }

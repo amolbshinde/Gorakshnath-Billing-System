@@ -698,5 +698,11 @@ namespace Gorakshnath_Billing_System.UI
                 MessageBox.Show("Please Save details first");
             }
         }
+
+        private void label31_MouseClick(object sender, MouseEventArgs e)
+        {
+            frmProductMaster productMaster = new frmProductMaster();
+            productMaster.Show();
+        }
     }
 }
