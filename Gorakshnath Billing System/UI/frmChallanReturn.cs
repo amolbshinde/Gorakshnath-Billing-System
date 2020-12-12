@@ -107,8 +107,6 @@ namespace Gorakshnath_Billing_System.UI
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-
-
             string pname = "";
             //checking product is already present or ot           
 
@@ -261,10 +259,8 @@ namespace Gorakshnath_Billing_System.UI
             save();
         }
 
-
         public void save()
         {
-
             string sname = textCust_Name.Text;
             if (comboTransactionType.Text != "")
             {
@@ -273,86 +269,96 @@ namespace Gorakshnath_Billing_System.UI
 
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        customerBLL c = cDAL.getCustomerIdFromName(sname);
-
-                        decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
-                      
-                        int invoceNo;
-                        int.TryParse(comboInvoiceNo.Text, out invoceNo);
-
-
-                        string type = comboTransactionType.Text;
-                        decimal.TryParse(textSubTotal.Text, out subTotal);
-                        decimal.TryParse(textSubDiscount.Text, out totalDiscount);
-                        decimal.TryParse(textSgst.Text, out totalSgst);
-                        decimal.TryParse(textCgst.Text, out totalCgst);
-                        decimal.TryParse(textIgst.Text, out totalIgst);
-                        decimal.TryParse(textGrandTotal.Text, out grandTotal);
-
-                        ChallanReturnBLL.SalesID = invoceNo;
-                        ChallanReturnBLL.Transaction_Type = type;
-                        ChallanReturnBLL.Cust_ID = c.Cust_ID;
-                        ChallanReturnBLL.Sub_Total = subTotal;
-                        ChallanReturnBLL.TDiscount = totalDiscount;
-                        ChallanReturnBLL.TSGST = totalSgst;
-                        ChallanReturnBLL.TCGST = totalCgst;
-                        ChallanReturnBLL.TIGST = totalIgst;
-                        ChallanReturnBLL.Grand_Total = grandTotal;
-
-                        ChallanReturnBLL.SalesDetails = salesReturnDT;
-                        bool isSuccess = false;
-
-                        // using (TransactionScope scope = new TransactionScope())
-
-                        //int Invoice_No = -1; alredy declared on top 
-                        bool b = ChallanReturnDAL.insertSalesReturn(ChallanReturnBLL, out Invoice_No);
-
-                        for (int i = 0; i < salesReturnDT.Rows.Count; i++)
+                        if(comboReturnReson.Text!="")
                         {
-                            ChallanReturnDetailsBLL crdBLL = new ChallanReturnDetailsBLL();                            
+                            customerBLL c = cDAL.getCustomerIdFromName(sname);
 
-                            stockBLL stockBLL = new stockBLL();
-                            string productName = salesReturnDT.Rows[i][1].ToString();
-                            ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                            decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
-                            crdBLL.Product_ID = p.Product_ID;
-                            crdBLL.Invoice_No = Invoice_No;
-                            crdBLL.Cust_ID = c.Cust_ID;
-                            crdBLL.Product_Name = salesReturnDT.Rows[i][1].ToString();
-                            crdBLL.Unit = salesReturnDT.Rows[i][2].ToString();
-                            crdBLL.Qty = Math.Round(decimal.Parse(salesReturnDT.Rows[i][3].ToString()), 2);
-                            crdBLL.Rate = Math.Round(decimal.Parse(salesReturnDT.Rows[i][4].ToString()), 2);
-                            crdBLL.Discount_Per = Math.Round(decimal.Parse(salesReturnDT.Rows[i][5].ToString()), 2);
-                            crdBLL.GST_Type = salesReturnDT.Rows[i][6].ToString();
-                            crdBLL.GST_Per = Math.Round(decimal.Parse(salesReturnDT.Rows[i][7].ToString()), 2);
-                            crdBLL.Total = Math.Round(decimal.Parse(salesReturnDT.Rows[i][9].ToString()), 2);
+                            int invoceNo;
+                            int.TryParse(comboInvoiceNo.Text, out invoceNo);
 
-                            int Product_id = p.Product_ID;
-                            stockBLL.Product_Id = Product_id;
-                            stockBLL.Quantity = Math.Round(decimal.Parse(salesReturnDT.Rows[i][3].ToString()), 2);
-                            stockBLL.Unit = salesReturnDT.Rows[i][2].ToString();
 
-                            bool y = ChallanReturnDetailsDAL.insertSalesReturndetails(crdBLL);
+                            string type = comboTransactionType.Text;
+                            decimal.TryParse(textSubTotal.Text, out subTotal);
+                            decimal.TryParse(textSubDiscount.Text, out totalDiscount);
+                            decimal.TryParse(textSgst.Text, out totalSgst);
+                            decimal.TryParse(textCgst.Text, out totalCgst);
+                            decimal.TryParse(textIgst.Text, out totalIgst);
+                            decimal.TryParse(textGrandTotal.Text, out grandTotal);
 
-                            if (y == true)
+                            string reson = comboReturnReson.Text;
+
+                            ChallanReturnBLL.SalesID = invoceNo;
+                            ChallanReturnBLL.Transaction_Type = type;
+                            ChallanReturnBLL.Cust_ID = c.Cust_ID;
+                            ChallanReturnBLL.Sub_Total = subTotal;
+                            ChallanReturnBLL.TDiscount = totalDiscount;
+                            ChallanReturnBLL.TSGST = totalSgst;
+                            ChallanReturnBLL.TCGST = totalCgst;
+                            ChallanReturnBLL.TIGST = totalIgst;
+                            ChallanReturnBLL.Grand_Total = grandTotal;
+                            ChallanReturnBLL.Reson = reson;
+
+                            ChallanReturnBLL.SalesDetails = salesReturnDT;
+                            bool isSuccess = false;
+
+                            // using (TransactionScope scope = new TransactionScope())
+
+                            //int Invoice_No = -1; alredy declared on top 
+                            bool b = ChallanReturnDAL.insertSalesReturn(ChallanReturnBLL, out Invoice_No);
+
+                            for (int i = 0; i < salesReturnDT.Rows.Count; i++)
                             {
-                                //bool x = stockDAL.dereaseUpdate(stockBLL);
+                                ChallanReturnDetailsBLL crdBLL = new ChallanReturnDetailsBLL();
+
+                                stockBLL stockBLL = new stockBLL();
+                                string productName = salesReturnDT.Rows[i][1].ToString();
+                                ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+
+                                crdBLL.Product_ID = p.Product_ID;
+                                crdBLL.Invoice_No = Invoice_No;
+                                crdBLL.Cust_ID = c.Cust_ID;
+                                crdBLL.Product_Name = salesReturnDT.Rows[i][1].ToString();
+                                crdBLL.Unit = salesReturnDT.Rows[i][2].ToString();
+                                crdBLL.Qty = Math.Round(decimal.Parse(salesReturnDT.Rows[i][3].ToString()), 2);
+                                crdBLL.Rate = Math.Round(decimal.Parse(salesReturnDT.Rows[i][4].ToString()), 2);
+                                crdBLL.Discount_Per = Math.Round(decimal.Parse(salesReturnDT.Rows[i][5].ToString()), 2);
+                                crdBLL.GST_Type = salesReturnDT.Rows[i][6].ToString();
+                                crdBLL.GST_Per = Math.Round(decimal.Parse(salesReturnDT.Rows[i][7].ToString()), 2);
+                                crdBLL.Total = Math.Round(decimal.Parse(salesReturnDT.Rows[i][9].ToString()), 2);
+
+                                int Product_id = p.Product_ID;
+                                stockBLL.Product_Id = Product_id;
+                                stockBLL.Quantity = Math.Round(decimal.Parse(salesReturnDT.Rows[i][3].ToString()), 2);
+                                stockBLL.Unit = salesReturnDT.Rows[i][2].ToString();
+
+                                bool y = ChallanReturnDetailsDAL.insertSalesReturndetails(crdBLL);
+
+                                if (y == true)
+                                {
+                                    //bool x = stockDAL.dereaseUpdate(stockBLL);
+                                }
+
+                                isSuccess = b && y;
+
+                                isSuccess = true;
                             }
-
-                            isSuccess = b && y;
-
-                            isSuccess = true;
-                        }
-                        isSuccess = b;
-                        if (isSuccess == true)
-                        {
-                            //scope.Complete();
-                            MessageBox.Show("Transaction Completed");
-                            //clear();
+                            isSuccess = b;
+                            if (isSuccess == true)
+                            {
+                                //scope.Complete();
+                                MessageBox.Show("Transaction Completed");
+                                //clear();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Transaction Failed");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Transaction Failed");
+                            MessageBox.Show("Please Select Retrun Reson");
                         }
                     }
                     else

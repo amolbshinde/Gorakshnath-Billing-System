@@ -94,7 +94,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboInvoiceNo = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboReturnReson = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -846,7 +846,7 @@ namespace Gorakshnath_Billing_System.UI
             // panel2
             // 
             this.panel2.Controls.Add(this.comboInvoiceNo);
-            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.comboReturnReson);
             this.panel2.Controls.Add(this.label30);
             this.panel2.Controls.Add(this.comboTransactionType);
             this.panel2.Controls.Add(this.label29);
@@ -886,17 +886,17 @@ namespace Gorakshnath_Billing_System.UI
             this.comboInvoiceNo.SelectedIndexChanged += new System.EventHandler(this.comboInvoiceNo_SelectedIndexChanged);
             this.comboInvoiceNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboInvoiceNo_KeyPress);
             // 
-            // comboBox2
+            // comboReturnReson
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
-            this.comboBox2.Location = new System.Drawing.Point(422, 90);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(178, 21);
-            this.comboBox2.TabIndex = 19;
+            this.comboReturnReson.FormattingEnabled = true;
+            this.comboReturnReson.Items.AddRange(new object[] {
+            "Quality Issue",
+            "Invoice Correction"});
+            this.comboReturnReson.Location = new System.Drawing.Point(422, 90);
+            this.comboReturnReson.Margin = new System.Windows.Forms.Padding(2);
+            this.comboReturnReson.Name = "comboReturnReson";
+            this.comboReturnReson.Size = new System.Drawing.Size(178, 21);
+            this.comboReturnReson.TabIndex = 19;
             // 
             // label6
             // 
@@ -1082,7 +1082,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboReturnReson;
         private System.Windows.Forms.ComboBox comboInvoiceNo;
         private System.Windows.Forms.ComboBox comboItemName;
     }

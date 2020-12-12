@@ -110,7 +110,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@TCGST", cr.TCGST);
                 cmd.Parameters.AddWithValue("@TIGST", cr.TIGST);
                 cmd.Parameters.AddWithValue("@Grand_Total", cr.Grand_Total);
-                cmd.Parameters.AddWithValue("@Reson", "NA");
+                cmd.Parameters.AddWithValue("@Reson", cr.Reson);
                 
                 con.Open();
 
