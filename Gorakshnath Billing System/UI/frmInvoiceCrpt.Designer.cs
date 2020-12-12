@@ -43,6 +43,7 @@ namespace Gorakshnath_Billing_System.UI
             this.crptInvoiceViewer.Size = new System.Drawing.Size(1467, 781);
             this.crptInvoiceViewer.TabIndex = 0;
             this.crptInvoiceViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            this.crptInvoiceViewer.Load += new System.EventHandler(this.crptInvoiceViewer_Load);
             // 
             // frmInvoiceCrpt
             // 

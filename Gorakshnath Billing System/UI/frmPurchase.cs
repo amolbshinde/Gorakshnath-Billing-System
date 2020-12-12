@@ -20,7 +20,8 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
-        
+        int purchaseid = -1;
+
         SupplierMasterDAL smDAL = new SupplierMasterDAL();
         
         DataTable purchasedt = new DataTable();
@@ -334,7 +335,7 @@ namespace Gorakshnath_Billing_System.UI
 
                         // using (TransactionScope scope = new TransactionScope())
                         
-                            int purchaseid = -1;
+                           //  int purchaseid = -1; already declaraed at the top as a global variable
                             bool b = purchaseDAL.insertpurchase(purchaseBLL, out purchaseid);
                             for (int i = 0; i < purchasedt.Rows.Count; i++)
                             {
@@ -567,6 +568,20 @@ namespace Gorakshnath_Billing_System.UI
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (purchaseid != -1)
+            {
+                //Invoice_No = 2005;
+                frmPurchaseCrpt purchaseCrpt = new frmPurchaseCrpt(purchaseid);
+                purchaseCrpt.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please Save details first");
+            }
         }
     }   
 }
