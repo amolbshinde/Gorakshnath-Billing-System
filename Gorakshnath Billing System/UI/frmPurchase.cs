@@ -425,6 +425,7 @@ namespace Gorakshnath_Billing_System.UI
 
             //save transaction and transaction details
             save();
+            textPurchaseBillNo.Text = purchaseid.ToString();
 
         }
 
