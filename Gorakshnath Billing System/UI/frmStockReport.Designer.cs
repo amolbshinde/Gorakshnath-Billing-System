@@ -33,13 +33,13 @@ namespace Gorakshnath_Billing_System.UI
             this.textKeyword = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvStockReport = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnDate = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@ namespace Gorakshnath_Billing_System.UI
             "Product_Group",
             "Product_Brand"});
             this.comboSearchBy.Location = new System.Drawing.Point(405, 27);
-            this.comboSearchBy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboSearchBy.Margin = new System.Windows.Forms.Padding(4);
             this.comboSearchBy.Name = "comboSearchBy";
             this.comboSearchBy.Size = new System.Drawing.Size(229, 33);
             this.comboSearchBy.TabIndex = 0;
@@ -67,7 +67,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textKeyword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textKeyword.Location = new System.Drawing.Point(99, 29);
-            this.textKeyword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKeyword.Margin = new System.Windows.Forms.Padding(4);
             this.textKeyword.Name = "textKeyword";
             this.textKeyword.Size = new System.Drawing.Size(189, 32);
             this.textKeyword.TabIndex = 1;
@@ -79,7 +79,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.Teal;
             this.btnSearch.Location = new System.Drawing.Point(10, 26);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(81, 37);
             this.btnSearch.TabIndex = 2;
@@ -100,70 +100,10 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Controls.Add(this.comboSearchBy);
             this.panel1.Controls.Add(this.textKeyword);
             this.panel1.Location = new System.Drawing.Point(3, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1415, 89);
             this.panel1.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Teal;
-            this.button1.Location = new System.Drawing.Point(307, 26);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 37);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Group";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dgvStockReport);
-            this.panel2.Location = new System.Drawing.Point(3, 144);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1415, 475);
-            this.panel2.TabIndex = 4;
-            // 
-            // dgvStockReport
-            // 
-            this.dgvStockReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStockReport.Location = new System.Drawing.Point(21, 16);
-            this.dgvStockReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvStockReport.Name = "dgvStockReport";
-            this.dgvStockReport.RowHeadersWidth = 51;
-            this.dgvStockReport.Size = new System.Drawing.Size(1364, 446);
-            this.dgvStockReport.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Teal;
-            this.button2.Location = new System.Drawing.Point(651, 26);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 37);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Brand";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Product_Group",
-            "Product_Brand"});
-            this.comboBox1.Location = new System.Drawing.Point(763, 26);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(263, 33);
-            this.comboBox1.TabIndex = 4;
             // 
             // button3
             // 
@@ -179,6 +119,20 @@ namespace Gorakshnath_Billing_System.UI
             this.button3.Text = "Product Name";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 2;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Teal;
+            this.button2.Location = new System.Drawing.Point(651, 26);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(104, 37);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Brand";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // comboBox2
             // 
             this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -191,6 +145,52 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(247, 33);
             this.comboBox2.TabIndex = 6;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Product_Group",
+            "Product_Brand"});
+            this.comboBox1.Location = new System.Drawing.Point(763, 26);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(263, 33);
+            this.comboBox1.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Teal;
+            this.button1.Location = new System.Drawing.Point(307, 26);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 37);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Group";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgvStockReport);
+            this.panel2.Location = new System.Drawing.Point(3, 144);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1415, 475);
+            this.panel2.TabIndex = 4;
+            // 
+            // dgvStockReport
+            // 
+            this.dgvStockReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStockReport.Location = new System.Drawing.Point(21, 16);
+            this.dgvStockReport.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvStockReport.Name = "dgvStockReport";
+            this.dgvStockReport.RowHeadersWidth = 51;
+            this.dgvStockReport.Size = new System.Drawing.Size(1364, 446);
+            this.dgvStockReport.TabIndex = 0;
             // 
             // button4
             // 
@@ -258,9 +258,10 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.button4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmStockReport";
             this.Text = "Stock Report";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmStockReport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
