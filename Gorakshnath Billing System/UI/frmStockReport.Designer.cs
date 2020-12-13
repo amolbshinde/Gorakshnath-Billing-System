@@ -57,10 +57,10 @@ namespace Gorakshnath_Billing_System.UI
             // textKeyword
             // 
             this.textKeyword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textKeyword.Location = new System.Drawing.Point(251, 27);
+            this.textKeyword.Location = new System.Drawing.Point(188, 27);
             this.textKeyword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textKeyword.Name = "textKeyword";
-            this.textKeyword.Size = new System.Drawing.Size(179, 32);
+            this.textKeyword.Size = new System.Drawing.Size(242, 32);
             this.textKeyword.TabIndex = 1;
             // 
             // btnSearch
@@ -89,26 +89,26 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Location = new System.Drawing.Point(3, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1278, 108);
+            this.panel1.Size = new System.Drawing.Size(1241, 88);
             this.panel1.TabIndex = 3;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgvStockReport);
-            this.panel2.Location = new System.Drawing.Point(3, 145);
+            this.panel2.Location = new System.Drawing.Point(3, 97);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1340, 636);
+            this.panel2.Size = new System.Drawing.Size(1241, 507);
             this.panel2.TabIndex = 4;
             // 
             // dgvStockReport
             // 
             this.dgvStockReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStockReport.Location = new System.Drawing.Point(5, 5);
+            this.dgvStockReport.Location = new System.Drawing.Point(21, 16);
             this.dgvStockReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvStockReport.Name = "dgvStockReport";
             this.dgvStockReport.RowHeadersWidth = 51;
-            this.dgvStockReport.Size = new System.Drawing.Size(1331, 607);
+            this.dgvStockReport.Size = new System.Drawing.Size(1124, 445);
             this.dgvStockReport.TabIndex = 0;
             // 
             // button1

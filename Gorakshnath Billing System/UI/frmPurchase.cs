@@ -357,7 +357,7 @@ namespace Gorakshnath_Billing_System.UI
                                 pdBLL.Discount_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][6].ToString()), 2);
                                 pdBLL.GST_Type = purchasedt.Rows[i][7].ToString();
                                 pdBLL.GST_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][8].ToString()), 2);
-                                pdBLL.Total = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
+                                pdBLL.Total = Math.Round(decimal.Parse(purchasedt.Rows[i][9].ToString()), 2);
                                 
 
 
