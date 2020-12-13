@@ -20,7 +20,8 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
-        
+        int purchaseid = -1;
+
         SupplierMasterDAL smDAL = new SupplierMasterDAL();
         
         DataTable purchasedt = new DataTable();
@@ -334,7 +335,7 @@ namespace Gorakshnath_Billing_System.UI
 
                         // using (TransactionScope scope = new TransactionScope())
                         
-                            int purchaseid = -1;
+                           //  int purchaseid = -1; already declaraed at the top as a global variable
                             bool b = purchaseDAL.insertpurchase(purchaseBLL, out purchaseid);
                             for (int i = 0; i < purchasedt.Rows.Count; i++)
                             {
@@ -352,11 +353,11 @@ namespace Gorakshnath_Billing_System.UI
                                 pdBLL.Product_Name = purchasedt.Rows[i][1].ToString();
                                 pdBLL.Unit = purchasedt.Rows[i][2].ToString();
                                 pdBLL.Qty = Math.Round(decimal.Parse(purchasedt.Rows[i][3].ToString()), 2);
-                                pdBLL.Purchase_Prise = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
+                                pdBLL.Rate = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
                                 pdBLL.Discount_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][6].ToString()), 2);
                                 pdBLL.GST_Type = purchasedt.Rows[i][7].ToString();
                                 pdBLL.GST_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][8].ToString()), 2);
-                                pdBLL.Total = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
+                                pdBLL.Total = Math.Round(decimal.Parse(purchasedt.Rows[i][9].ToString()), 2);
                                 
 
 
@@ -424,6 +425,7 @@ namespace Gorakshnath_Billing_System.UI
 
             //save transaction and transaction details
             save();
+            textPurchaseBillNo.Text = purchaseid.ToString();
 
         }
 
@@ -562,6 +564,25 @@ namespace Gorakshnath_Billing_System.UI
             }
 
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (purchaseid != -1)
+            {
+                //Invoice_No = 2005;
+                frmPurchaseCrpt purchaseCrpt = new frmPurchaseCrpt(purchaseid);
+                purchaseCrpt.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please Save details first");
+            }
         }
     }   
 }

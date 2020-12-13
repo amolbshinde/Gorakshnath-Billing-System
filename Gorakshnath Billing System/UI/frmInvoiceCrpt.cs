@@ -38,5 +38,10 @@ namespace Gorakshnath_Billing_System.UI
             crptInvoiceViewer.ReportSource = crptInvoice;
 
         }
+
+        private void crptInvoiceViewer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

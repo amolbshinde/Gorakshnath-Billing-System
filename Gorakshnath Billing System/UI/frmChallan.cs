@@ -279,6 +279,8 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please enter Customer Details");
             }
+            //set Invoice No.
+            textBox6.Text = Invoice_No.ToString();
         }
        
 
@@ -696,6 +698,12 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Save details first");
             }
+        }
+
+        private void label31_MouseClick(object sender, MouseEventArgs e)
+        {
+            frmProductMaster productMaster = new frmProductMaster();
+            productMaster.Show();
         }
     }
 }
