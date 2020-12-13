@@ -25,10 +25,23 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            
+
+        }
+
+        private void frmStockReport_Load(object sender, EventArgs e)
+        {
+            DataTable dt = stockDAL.SelectAllProductStock();
+            dgvStockReport.DataSource = dt;
+        }
+
+        private void comboSearchBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
             string keywords = textKeyword.Text;
 
             //Product_Group Product_Brand
-            if (comboSearchBy.Text== "Product_Group")
+            if (comboSearchBy.Text == "Product_Group")
             {
                 DataTable dt = stockDAL.SelectGroupByProductGroupStock(keywords);
                 dgvStockReport.DataSource = dt;
@@ -40,12 +53,6 @@ namespace Gorakshnath_Billing_System.UI
                 dgvStockReport.DataSource = dt;
             }
 
-        }
-
-        private void frmStockReport_Load(object sender, EventArgs e)
-        {
-            DataTable dt = stockDAL.SelectAllProductStock();
-            dgvStockReport.DataSource = dt;
         }
     }
 }

@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>81BB088DB7A160AAB2D02E74A30DCCE881EDE58E</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>862B029B9494F0B7D9BC24EDF3C74CC86A3041BC</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Gorakshnath_Billing_System_TemporaryKey.pfx</ManifestKeyFile>
@@ -396,6 +396,7 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
+    <None Include="Gorakshnath_Billing_System_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
