@@ -31,6 +31,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void frmStockReport_Load(object sender, EventArgs e)
         {
+            btnDate.Text= DateTime.Now.ToString();
             DataTable dt = stockDAL.SelectAllProductStock();
             dgvStockReport.DataSource = dt;
         }
