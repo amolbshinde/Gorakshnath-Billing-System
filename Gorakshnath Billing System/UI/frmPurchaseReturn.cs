@@ -47,7 +47,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             comboPurchaseID.DataSource = null;
             DataTable dtg = PurchaseReturnDAL.SelectPurchaseId();
-            comboPurchaseID.DisplayMember = "Invoice_No";
+            comboPurchaseID.DisplayMember = "Purchase_ID";
             comboPurchaseID.Items.Add("Select Invoice No");
             comboPurchaseID.DataSource = dtg;
         }
