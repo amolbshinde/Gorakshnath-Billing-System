@@ -22,11 +22,11 @@ namespace Gorakshnath_Billing_System.BLL
         public decimal Grand_Total { get; set; }
         public DateTime Transaction_Date { get; set; }
         public string Reson { get; set; }
-        public string Cust_Name { get; set; }
-        public string Cust_Contact { get; set; }
-        public string Cust_Email { get; set; }
-        public string Cust_Address { get; set; }
-        public DataTable SalesDetails { get; set; }
+        public string Sup_Name { get; set; }
+        public string Sup_Contact { get; set; }
+        public string Sup_Email { get; set; }
+        public string Sup_Address { get; set; }
+        public DataTable PurchaseDetails { get; set; }
 
 
     }
