@@ -99,6 +99,8 @@
     <Compile Include="BLL\ProductMasterBLL.cs" />
     <Compile Include="BLL\purchaseBLL.cs" />
     <Compile Include="BLL\purchasedetailsBLL.cs" />
+    <Compile Include="BLL\PurchaseReturnBLL.cs" />
+    <Compile Include="BLL\PurchaseReturnDetailsBLL.cs" />
     <Compile Include="BLL\salesBLL.cs" />
     <Compile Include="BLL\salesdetailsBLL.cs" />
     <Compile Include="BLL\stockBLL.cs" />
