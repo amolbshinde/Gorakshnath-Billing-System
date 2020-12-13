@@ -172,5 +172,10 @@ namespace Gorakshnath_Billing_System
             frmPurchaseReturn purchaseReturn = new frmPurchaseReturn();
             purchaseReturn.Show();
         }
+
+        private void searchAndManageInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
