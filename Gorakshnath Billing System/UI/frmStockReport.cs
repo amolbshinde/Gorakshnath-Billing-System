@@ -27,7 +27,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             string keywords = textKeyword.Text;
 
-            //Product_Group Product_Brand
+            //Product_Group Product_Brand//
             if (comboSearchBy.Text== "Product_Group")
             {
                 DataTable dt = stockDAL.SelectGroupByProductGroupStock(keywords);
