@@ -125,6 +125,8 @@
     <Compile Include="DAL\productDAL.cs" />
     <Compile Include="DAL\purchaseDAL.cs" />
     <Compile Include="DAL\purchasedetailsDAL.cs" />
+    <Compile Include="DAL\PurchaseReturnDAL.cs" />
+    <Compile Include="DAL\PurchaseReturnDetailsDAL.cs" />
     <Compile Include="DAL\salesDAL.cs" />
     <Compile Include="DAL\salesdetailsDAL.cs" />
     <Compile Include="DAL\stockDAL.cs" />
