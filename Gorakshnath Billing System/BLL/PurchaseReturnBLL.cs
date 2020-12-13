@@ -9,7 +9,7 @@ namespace Gorakshnath_Billing_System.BLL
 {
     class PurchaseReturnBLL
     {
-
+        //hghg
         public string Transaction_Type { get; set; }
         public int Invoice_No { get; set; }
         public int Purchase_ID { get; set; }
