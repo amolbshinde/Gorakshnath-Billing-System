@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gorakshnath_Billing_System.BLL;
+using Gorakshnath_Billing_System.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +19,20 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
         }
 
+
+        PurchaseReturnDAL PurchaseReturnDAL = new PurchaseReturnDAL();
+        PurchaseReturnBLL PurchaseReturnBLL = new PurchaseReturnBLL();
+
+        ChallanReturnDetailsDAL ChallanReturnDetailsDAL = new ChallanReturnDetailsDAL();
+
+        customerDAL cDAL = new customerDAL();
+        stockDAL stockDAL = new stockDAL();
+
+        ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
+
+        DataTable salesReturnDT = new DataTable();
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -25,6 +41,15 @@ namespace Gorakshnath_Billing_System.UI
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmPurchaseReturn_Load(object sender, EventArgs e)
+        {
+            comboPurchaseID.DataSource = null;
+            DataTable dtg = PurchaseReturnDAL.SelectPurchaseId();
+            comboPurchaseID.DisplayMember = "Invoice_No";
+            comboPurchaseID.Items.Add("Select Invoice No");
+            comboPurchaseID.DataSource = dtg;
         }
     }
 }

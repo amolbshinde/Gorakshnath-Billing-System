@@ -68,6 +68,9 @@ namespace Gorakshnath_Billing_System.UI
             this.label10 = new System.Windows.Forms.Label();
             this.textEmail = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboPurchaseID = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.textSupplierName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -105,9 +108,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label21 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -544,7 +544,7 @@ namespace Gorakshnath_Billing_System.UI
             // panel2
             // 
             this.panel2.Controls.Add(this.comboBox3);
-            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.comboPurchaseID);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label30);
             this.panel2.Controls.Add(this.comboPurchaseType);
@@ -567,6 +567,41 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1064, 124);
             this.panel2.TabIndex = 14;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "GST",
+            "Non GST"});
+            this.comboBox3.Location = new System.Drawing.Point(421, 89);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(181, 21);
+            this.comboBox3.TabIndex = 22;
+            // 
+            // comboPurchaseID
+            // 
+            this.comboPurchaseID.FormattingEnabled = true;
+            this.comboPurchaseID.Items.AddRange(new object[] {
+            "GST",
+            "Non GST"});
+            this.comboPurchaseID.Location = new System.Drawing.Point(6, 45);
+            this.comboPurchaseID.Margin = new System.Windows.Forms.Padding(2);
+            this.comboPurchaseID.Name = "comboPurchaseID";
+            this.comboPurchaseID.Size = new System.Drawing.Size(178, 21);
+            this.comboPurchaseID.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(4, 24);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(129, 19);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Purchase Order No.";
             // 
             // textSupplierName
             // 
@@ -992,41 +1027,6 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvAddedProducts.Size = new System.Drawing.Size(1014, 225);
             this.dgvAddedProducts.TabIndex = 20;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 24);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 19);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Purchase Order No.";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
-            this.comboBox2.Location = new System.Drawing.Point(6, 45);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(178, 21);
-            this.comboBox2.TabIndex = 21;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
-            this.comboBox3.Location = new System.Drawing.Point(421, 89);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(181, 21);
-            this.comboBox3.TabIndex = 22;
-            // 
             // frmPurchaseReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1043,6 +1043,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Name = "frmPurchaseReturn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Purchase Return";
+            this.Load += new System.EventHandler(this.frmPurchaseReturn_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1139,7 +1140,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvAddedProducts;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboPurchaseID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox3;
     }
