@@ -392,7 +392,6 @@ namespace Gorakshnath_Billing_System.UI
 
         public void PClear()
         {
-
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
             textQuantity.Text = "0";
