@@ -239,7 +239,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Group LIKE '" + keywords + "'";
+                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit, Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Group LIKE '" + keywords + "'";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -270,7 +270,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Brand LIKE '" + keywords + "'";
+                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit,Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Brand LIKE '" + keywords + "'";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -300,7 +300,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Name LIKE '" + keywords + "'";
+                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit,Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Name LIKE '" + keywords + "'";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);

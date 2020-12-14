@@ -330,7 +330,7 @@ namespace Gorakshnath_Billing_System.UI
 
                                 if (y == true)
                                 {
-                                    //bool x = stockDAL.dereaseUpdate(stockBLL);
+                                    bool x = stockDAL.Update(stockBLL);
                                 }
 
                                 isSuccess = b && y;
