@@ -48,7 +48,7 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
+        //get suplier details
         #region METHOD TO Get Suplier Details for Purchase return
         public PurchaseReturnBLL GetSuplierForPurchaseReturn(int keyword)
         {
