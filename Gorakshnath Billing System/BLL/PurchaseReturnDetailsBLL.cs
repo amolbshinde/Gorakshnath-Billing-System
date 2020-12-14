@@ -11,7 +11,7 @@ namespace Gorakshnath_Billing_System.BLL
         public int ID { get; set; }
         public int Invoice_No { get; set; }
         public int Product_ID { get; set; }
-        public int Cust_ID { get; set; }
+        public int Sup_ID { get; set; }
         public string Product_Name { get; set; }
         public string Unit { get; set; }
         public decimal Qty { get; set; }

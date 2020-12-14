@@ -758,6 +758,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboItemName.Name = "comboItemName";
             this.comboItemName.Size = new System.Drawing.Size(179, 21);
             this.comboItemName.TabIndex = 21;
+            this.comboItemName.SelectedIndexChanged += new System.EventHandler(this.comboItemName_SelectedIndexChanged);
             // 
             // comboGstType
             // 
@@ -805,6 +806,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnAdd.TabIndex = 34;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // textTotalAmount
             // 
