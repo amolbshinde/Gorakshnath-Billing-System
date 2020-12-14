@@ -312,9 +312,6 @@ namespace Gorakshnath_Billing_System.UI
             this.comboItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboItemName.FormattingEnabled = true;
-            this.comboItemName.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
             this.comboItemName.Location = new System.Drawing.Point(7, 47);
             this.comboItemName.Margin = new System.Windows.Forms.Padding(2);
             this.comboItemName.Name = "comboItemName";
@@ -468,7 +465,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(368, 24);
+            this.label15.Location = new System.Drawing.Point(281, 24);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(36, 20);
@@ -725,9 +722,6 @@ namespace Gorakshnath_Billing_System.UI
             // comboTransactionType
             // 
             this.comboTransactionType.FormattingEnabled = true;
-            this.comboTransactionType.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
             this.comboTransactionType.Location = new System.Drawing.Point(7, 90);
             this.comboTransactionType.Margin = new System.Windows.Forms.Padding(2);
             this.comboTransactionType.Name = "comboTransactionType";
@@ -876,9 +870,6 @@ namespace Gorakshnath_Billing_System.UI
             this.comboInvoiceNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboInvoiceNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboInvoiceNo.FormattingEnabled = true;
-            this.comboInvoiceNo.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
             this.comboInvoiceNo.Location = new System.Drawing.Point(8, 44);
             this.comboInvoiceNo.Margin = new System.Windows.Forms.Padding(2);
             this.comboInvoiceNo.Name = "comboInvoiceNo";

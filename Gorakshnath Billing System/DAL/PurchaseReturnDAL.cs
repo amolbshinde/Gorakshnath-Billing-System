@@ -57,7 +57,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "select * from tbl_purchase_transactions,Supplier_Master where tbl_purchase_transactions.id = Supplier_Master.SupplierID and tbl_purchase_transactions.id = " + keyword;
+                string sql = "select * from Purchase_Transactions,Supplier_Master where Purchase_Transactions.Sup_ID = Supplier_Master.SupplierID and Purchase_Transactions.Purchase_ID = " + keyword;
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
 
                 conn.Open();
