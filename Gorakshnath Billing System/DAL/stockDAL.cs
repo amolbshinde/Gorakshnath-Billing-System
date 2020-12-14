@@ -13,7 +13,7 @@ namespace Gorakshnath_Billing_System.DAL
 {
     class stockDAL
     {
-        //connetionc string 
+        //connetion string
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
         #region METHOD TO GET PRODUCT ID BASED ON PRODUCT NAME
