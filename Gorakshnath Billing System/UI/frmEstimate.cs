@@ -712,8 +712,16 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmEstimateCrpt Estimate = new frmEstimateCrpt(Invoice_No);
-            Estimate.Show();
+            if(Invoice_No!=-1)
+            {
+                frmEstimateCrpt Estimate = new frmEstimateCrpt(Invoice_No);
+                Estimate.Show(); 
+                            }
+            else
+            {
+                MessageBox.Show("Please save the Estimate First");
+            }
+            
         }
 
 
