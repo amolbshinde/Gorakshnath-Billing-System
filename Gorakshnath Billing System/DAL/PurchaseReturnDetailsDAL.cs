@@ -62,7 +62,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //inserting transaction details
-                string sql = "INSERT INTO SalesReturn_Transactions_Details (Invoice_No,Product_ID,Sup_ID,Product_Name,Unit,Qty,Rate,Discount_Per,GST_Type,GST_Per,Total) VALUES(@Invoice_No,@Product_ID,@Sup_ID,@Product_Name,@Unit,@Qty,@Rate,@Discount_Per,@GST_Type,@GST_Per,@Total)";
+                string sql = "INSERT INTO Purchase_Return_Transaction_Details (Invoice_No,Product_ID,Sup_ID,Product_Name,Unit,Qty,Rate,Discount_Per,GST_Type,GST_Per,Total) VALUES(@Invoice_No,@Product_ID,@Sup_ID,@Product_Name,@Unit,@Qty,@Rate,@Discount_Per,@GST_Type,@GST_Per,@Total)";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@Invoice_No", prdBLL.Invoice_No);
                 cmd.Parameters.AddWithValue("@Product_ID", prdBLL.Product_ID);
@@ -100,7 +100,6 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
-
 
         #region METHOD TO Get Product Details for challan return
         public PurchaseReturnDetailsBLL GetProductForPurchaseReturn(string keyword)

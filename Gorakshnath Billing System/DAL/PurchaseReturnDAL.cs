@@ -95,7 +95,7 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO SalesReturn_Transactions(Purchase_ID,Transaction_Type,Sup_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Reson) VALUES(@Purchase_ID,@Transaction_Type,@Sup_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Reson);select @@IDENTITY;";
+                String sql = "INSERT INTO Purchase_Return_Transactions(Purchase_ID,Transaction_Type,Sup_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Reson) VALUES(@Purchase_ID,@Transaction_Type,@Sup_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Reson);select @@IDENTITY;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 

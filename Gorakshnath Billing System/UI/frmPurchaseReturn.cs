@@ -228,7 +228,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            save();
         }
 
 
@@ -263,9 +263,9 @@ namespace Gorakshnath_Billing_System.UI
 
                             string reson = comboReturnReson.Text;
 
-                            PurchaseReturnBLL.Purchase_ID = invoceNo;
+                            PurchaseReturnBLL.Purchase_ID = Purchase_ID;
                             PurchaseReturnBLL.Transaction_Type = type;
-                            PurchaseReturnBLL.Sup_ID = c.Cust_ID;
+                            PurchaseReturnBLL.Sup_ID = c.SupplierID;
                             PurchaseReturnBLL.Sub_Total = subTotal;
                             PurchaseReturnBLL.TDiscount = totalDiscount;
                             PurchaseReturnBLL.TSGST = totalSgst;
@@ -274,7 +274,7 @@ namespace Gorakshnath_Billing_System.UI
                             PurchaseReturnBLL.Grand_Total = grandTotal;
                             PurchaseReturnBLL.Reson = reson;
 
-                            PurchaseReturnBLL.SalesDetails = PurchaseReturnDT;
+                            PurchaseReturnBLL.PurchaseDetails = PurchaseReturnDT;
                             bool isSuccess = false;
 
                             // using (TransactionScope scope = new TransactionScope())
@@ -284,30 +284,30 @@ namespace Gorakshnath_Billing_System.UI
 
                             for (int i = 0; i < PurchaseReturnDT.Rows.Count; i++)
                             {
-                                ChallanReturnDetailsBLL crdBLL = new ChallanReturnDetailsBLL();
+                                PurchaseReturnDetailsBLL prdBLL = new PurchaseReturnDetailsBLL();
 
                                 stockBLL stockBLL = new stockBLL();
                                 string productName = PurchaseReturnDT.Rows[i][1].ToString();
                                 ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
 
-                                crdBLL.Product_ID = p.Product_ID;
-                                crdBLL.Invoice_No = RInvoice_No;
-                                crdBLL.Sup_ID = c.Sup_ID;
-                                crdBLL.Product_Name = PurchaseReturnDT.Rows[i][1].ToString();
-                                crdBLL.Unit = PurchaseReturnDT.Rows[i][2].ToString();
-                                crdBLL.Qty = Math.Round(decimal.Parse(PurchaseReturnDT.Rows[i][3].ToString()), 2);
-                                crdBLL.Rate = Math.Round(decimal.Parse(PurchaseReturnDT.Rows[i][4].ToString()), 2);
-                                crdBLL.Discount_Per = Math.Round(decimal.Parse(PurchaseReturnDT.Rows[i][5].ToString()), 2);
-                                crdBLL.GST_Type = PurchaseReturnDT.Rows[i][6].ToString();
-                                crdBLL.GST_Per = Math.Round(decimal.Parse(PurchaseReturnDT.Rows[i][7].ToString()), 2);
-                                crdBLL.Total = Math.Round(decimal.Parse(PurchaseReturnDT.Rows[i][9].ToString()), 2);
+                                prdBLL.Product_ID = p.Product_ID;
+                                prdBLL.Invoice_No = RInvoice_No;
+                                prdBLL.Sup_ID = c.SupplierID;
+                                prdBLL.Product_Name = PurchaseReturnDT.Rows[i][1].ToString();
+                                prdBLL.Unit = PurchaseReturnDT.Rows[i][2].ToString();
+                                prdBLL.Qty = Math.Round(decimal.Parse(PurchaseReturnDT.Rows[i][3].ToString()), 2);
+                                prdBLL.Rate = Math.Round(decimal.Parse(PurchaseReturnDT.Rows[i][4].ToString()), 2);
+                                prdBLL.Discount_Per = Math.Round(decimal.Parse(PurchaseReturnDT.Rows[i][5].ToString()), 2);
+                                prdBLL.GST_Type = PurchaseReturnDT.Rows[i][6].ToString();
+                                prdBLL.GST_Per = Math.Round(decimal.Parse(PurchaseReturnDT.Rows[i][7].ToString()), 2);
+                                prdBLL.Total = Math.Round(decimal.Parse(PurchaseReturnDT.Rows[i][9].ToString()), 2);
 
                                 int Product_id = p.Product_ID;
                                 stockBLL.Product_Id = Product_id;
                                 stockBLL.Quantity = Math.Round(decimal.Parse(PurchaseReturnDT.Rows[i][3].ToString()), 2);
                                 stockBLL.Unit = PurchaseReturnDT.Rows[i][2].ToString();
 
-                                bool y = ChallanReturnDetailsDAL.insertSalesReturndetails(crdBLL);
+                                bool y = PurchaseReturnDetailsDAL.insertPurchaseReturnDetails(prdBLL);
 
                                 if (y == true)
                                 {
