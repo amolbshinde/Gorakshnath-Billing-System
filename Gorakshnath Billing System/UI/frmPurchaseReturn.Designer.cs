@@ -477,6 +477,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button4.TabIndex = 39;
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
