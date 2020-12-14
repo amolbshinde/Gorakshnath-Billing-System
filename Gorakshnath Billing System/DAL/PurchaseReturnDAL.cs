@@ -48,7 +48,7 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
+        //get suplier details
         #region METHOD TO Get Suplier Details for Purchase return
         public PurchaseReturnBLL GetSuplierForPurchaseReturn(int keyword)
         {
@@ -57,7 +57,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "select * from tbl_purchase_transactions,Supplier_Master where tbl_purchase_transactions.id = Supplier_Master.SupplierID and tbl_purchase_transactions.id = " + keyword;
+                string sql = "select * from Purchase_Transactions,Supplier_Master where Purchase_Transactions.Sup_ID = Supplier_Master.SupplierID and Purchase_Transactions.Purchase_ID = " + keyword;
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
 
                 conn.Open();
@@ -95,7 +95,7 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO SalesReturn_Transactions(Purchase_ID,Transaction_Type,Sup_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Reson) VALUES(@Purchase_ID,@Transaction_Type,@Sup_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Reson);select @@IDENTITY;";
+                String sql = "INSERT INTO Purchase_Return_Transactions(Purchase_ID,Transaction_Type,Sup_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Reson) VALUES(@Purchase_ID,@Transaction_Type,@Sup_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Reson);select @@IDENTITY;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 

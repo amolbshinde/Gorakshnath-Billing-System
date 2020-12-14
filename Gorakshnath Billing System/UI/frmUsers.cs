@@ -161,7 +161,7 @@ namespace Gorakshnath_Billing_System.UI
             bool success = dal.Delete(u);
             if(success==true)
             {
-                MessageBox.Show("User Deleted Succesfully");
+                MessageBox.Show("User Deleted Succesfully");//
                             }
             else
             {

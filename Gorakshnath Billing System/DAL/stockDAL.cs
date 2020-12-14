@@ -13,7 +13,7 @@ namespace Gorakshnath_Billing_System.DAL
 {
     class stockDAL
     {
-        //connetionc string 
+        //connetion string
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
         #region METHOD TO GET PRODUCT ID BASED ON PRODUCT NAME
@@ -233,13 +233,13 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
         #region SEARCH Method for Stock Module Group By Product_Group
-        public DataTable SelectGroupByProductGroupStock(string keywords)
+        public DataTable SelectStockByGroup(string keywords)
         {
             SqlConnection conn = new SqlConnection(myconnstrng);
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Group LIKE '%" + keywords + "%'  group by Stock_Master.Quantity,Product_Master.Product_Group,Product_Master.Product_Name;";
+                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit, Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Group LIKE '" + keywords + "'";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -261,14 +261,46 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-        #region SEARCH Method for Stock Module Group By Product_Brand
-        public DataTable SelectGroupByProductBrandStock(string keywords)
+
+
+        #region SEARCH Method for Stock Module Group By Product_Group
+        public DataTable SelectStockByBrand(string keywords)
         {
             SqlConnection conn = new SqlConnection(myconnstrng);
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Brand LIKE '%" + keywords + "%'  group by Stock_Master.Quantity,Product_Master.Product_Group,Product_Master.Product_Name;";
+                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit,Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Brand LIKE '" + keywords + "'";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
+
+
+        #region SEARCH Method for Stock Module Group By Product_Group
+        public DataTable SelectStockByProduct(string keywords)
+        {
+            SqlConnection conn = new SqlConnection(myconnstrng);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit,Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Name LIKE '" + keywords + "'";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
