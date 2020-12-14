@@ -42,7 +42,7 @@ namespace Gorakshnath_Billing_System.UI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textEmail = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboReturnReson = new System.Windows.Forms.ComboBox();
             this.comboPurchaseID = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textSupplierName = new System.Windows.Forms.TextBox();
@@ -238,7 +238,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.comboBox3);
+            this.panel2.Controls.Add(this.comboReturnReson);
             this.panel2.Controls.Add(this.comboPurchaseID);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label30);
@@ -263,17 +263,17 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Size = new System.Drawing.Size(1064, 124);
             this.panel2.TabIndex = 14;
             // 
-            // comboBox3
+            // comboReturnReson
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.comboReturnReson.FormattingEnabled = true;
+            this.comboReturnReson.Items.AddRange(new object[] {
             "Quality Issue",
             "Invoice Correction"});
-            this.comboBox3.Location = new System.Drawing.Point(421, 89);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(181, 21);
-            this.comboBox3.TabIndex = 22;
+            this.comboReturnReson.Location = new System.Drawing.Point(421, 89);
+            this.comboReturnReson.Margin = new System.Windows.Forms.Padding(2);
+            this.comboReturnReson.Name = "comboReturnReson";
+            this.comboReturnReson.Size = new System.Drawing.Size(181, 21);
+            this.comboReturnReson.TabIndex = 22;
             // 
             // comboPurchaseID
             // 
@@ -549,6 +549,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button1.TabIndex = 23;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label27
             // 
@@ -1059,7 +1060,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.DataGridView dgvAddedProducts;
         private System.Windows.Forms.ComboBox comboPurchaseID;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboReturnReson;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox comboItemName;
         private System.Windows.Forms.ComboBox comboGstType;
