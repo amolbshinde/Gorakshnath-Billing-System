@@ -22,6 +22,9 @@ namespace Gorakshnath_Billing_System.UI
         stockBLL stockBLL = new stockBLL();
         stockDAL stockDAL = new stockDAL();
 
+        ProductMasterDAL pDAL = new ProductMasterDAL();
+        BrandDAL bDAL = new BrandDAL();
+        GroupDAL gDAL = new GroupDAL();
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -34,26 +37,45 @@ namespace Gorakshnath_Billing_System.UI
             btnDate.Text= DateTime.Now.ToString();
             DataTable dt = stockDAL.SelectAllProductStock();
             dgvStockReport.DataSource = dt;
+
+            DataTable dtp = pDAL.Select();
+            comboProduct.DisplayMember = "Product_Name";
+            comboProduct.DataSource = dtp;
+
+            DataTable dtg = gDAL.Select();
+            comboGroup.DisplayMember = "Group_Name";
+            comboGroup.DataSource = dtg;
+
+            DataTable dtb = bDAL.Select();
+            comboBrand.DisplayMember = "Brand_Name";
+            comboBrand.DataSource = dtb;
         }
 
         private void comboSearchBy_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            string keywords = textKeyword.Text;
+            string keywords = comboGroup.Text;
+            
+            DataTable dt = stockDAL.SelectStockByGroup(keywords);
+            dgvStockReport.DataSource = dt;         
+           
 
-            //Product_Group Product_Brand
-            if (comboSearchBy.Text == "Product_Group")
-            {
-                DataTable dt = stockDAL.SelectGroupByProductGroupStock(keywords);
-                dgvStockReport.DataSource = dt;
-            }
+        }
 
-            if (comboSearchBy.Text == "Product_Brand")
-            {
-                DataTable dt = stockDAL.SelectGroupByProductBrandStock(keywords);
-                dgvStockReport.DataSource = dt;
-            }
+        private void comboBrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string keywords = comboBrand.Text;
 
+            DataTable dt = stockDAL.SelectStockByBrand(keywords);
+            dgvStockReport.DataSource = dt;
+        }
+
+        private void comboProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string keywords = comboProduct.Text;
+
+            DataTable dt = stockDAL.SelectStockByProduct(keywords);
+            dgvStockReport.DataSource = dt;
         }
     }
 }

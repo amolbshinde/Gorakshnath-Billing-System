@@ -29,12 +29,12 @@ namespace Gorakshnath_Billing_System.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboSearchBy = new System.Windows.Forms.ComboBox();
+            this.comboGroup = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboProduct = new System.Windows.Forms.ComboBox();
+            this.comboBrand = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvStockReport = new System.Windows.Forms.DataGridView();
@@ -47,18 +47,20 @@ namespace Gorakshnath_Billing_System.UI
             ((System.ComponentModel.ISupportInitialize)(this.dgvStockReport)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboSearchBy
+            // comboGroup
             // 
-            this.comboSearchBy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboSearchBy.FormattingEnabled = true;
-            this.comboSearchBy.Items.AddRange(new object[] {
+            this.comboGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboGroup.FormattingEnabled = true;
+            this.comboGroup.Items.AddRange(new object[] {
             "Product_Group",
             "Product_Brand"});
-            this.comboSearchBy.Location = new System.Drawing.Point(102, 22);
-            this.comboSearchBy.Name = "comboSearchBy";
-            this.comboSearchBy.Size = new System.Drawing.Size(173, 28);
-            this.comboSearchBy.TabIndex = 0;
-            this.comboSearchBy.SelectedIndexChanged += new System.EventHandler(this.comboSearchBy_SelectedIndexChanged);
+            this.comboGroup.Location = new System.Drawing.Point(102, 22);
+            this.comboGroup.Name = "comboGroup";
+            this.comboGroup.Size = new System.Drawing.Size(173, 28);
+            this.comboGroup.TabIndex = 0;
+            this.comboGroup.SelectedIndexChanged += new System.EventHandler(this.comboSearchBy_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -66,10 +68,10 @@ namespace Gorakshnath_Billing_System.UI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.comboProduct);
+            this.panel1.Controls.Add(this.comboBrand);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.comboSearchBy);
+            this.panel1.Controls.Add(this.comboGroup);
             this.panel1.Location = new System.Drawing.Point(2, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1248, 72);
@@ -101,29 +103,35 @@ namespace Gorakshnath_Billing_System.UI
             this.button2.Text = "Brand";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // comboProduct
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.comboProduct.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboProduct.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboProduct.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboProduct.FormattingEnabled = true;
+            this.comboProduct.Items.AddRange(new object[] {
             "Product_Group",
             "Product_Brand"});
-            this.comboBox2.Location = new System.Drawing.Point(738, 17);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(186, 28);
-            this.comboBox2.TabIndex = 6;
+            this.comboProduct.Location = new System.Drawing.Point(738, 17);
+            this.comboProduct.Name = "comboProduct";
+            this.comboProduct.Size = new System.Drawing.Size(186, 28);
+            this.comboProduct.TabIndex = 6;
+            this.comboProduct.SelectedIndexChanged += new System.EventHandler(this.comboProduct_SelectedIndexChanged);
             // 
-            // comboBox1
+            // comboBrand
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBrand.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBrand.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBrand.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBrand.FormattingEnabled = true;
+            this.comboBrand.Items.AddRange(new object[] {
             "Product_Group",
             "Product_Brand"});
-            this.comboBox1.Location = new System.Drawing.Point(405, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(198, 28);
-            this.comboBox1.TabIndex = 4;
+            this.comboBrand.Location = new System.Drawing.Point(405, 19);
+            this.comboBrand.Name = "comboBrand";
+            this.comboBrand.Size = new System.Drawing.Size(198, 28);
+            this.comboBrand.TabIndex = 4;
+            this.comboBrand.SelectedIndexChanged += new System.EventHandler(this.comboBrand_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -230,15 +238,15 @@ namespace Gorakshnath_Billing_System.UI
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboSearchBy;
+        private System.Windows.Forms.ComboBox comboGroup;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvStockReport;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboProduct;
+        private System.Windows.Forms.ComboBox comboBrand;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnDate;
