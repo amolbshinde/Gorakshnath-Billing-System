@@ -103,6 +103,16 @@ namespace Gorakshnath_Billing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Estimate {
+            get {
+                object obj = ResourceManager.GetObject("Estimate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Geeren_Background_18_512 {
             get {
                 object obj = ResourceManager.GetObject("Geeren_Background_18-512", resourceCulture);
@@ -166,6 +176,16 @@ namespace Gorakshnath_Billing_System.Properties {
         internal static System.Drawing.Bitmap master_data_icon_171 {
             get {
                 object obj = ResourceManager.GetObject("master-data-icon-171", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sales {
+            get {
+                object obj = ResourceManager.GetObject("Sales", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

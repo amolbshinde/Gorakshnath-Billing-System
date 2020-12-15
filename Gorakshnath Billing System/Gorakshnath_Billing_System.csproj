@@ -145,6 +145,12 @@
       <DependentUpon>crptInvoice.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report_Generator\CrystalReport\crptNewInvoice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crptNewInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report_Generator\CrystalReport\crptPurchase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -317,6 +323,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptInvoice.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report_Generator\CrystalReport\crptNewInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crptNewInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report_Generator\CrystalReport\crptPurchase.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptPurchase.cs</LastGenOutput>
@@ -473,6 +483,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\DGIF.gif" />
+    <None Include="Resources\Sales.gif" />
+    <None Include="Resources\Estimate.gif" />
     <None Include="Resources\try.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

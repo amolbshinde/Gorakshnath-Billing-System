@@ -767,6 +767,11 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
+        private void textItemCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 
