@@ -14,12 +14,14 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmEstimate : Form
     {
+
+        int Invoice_No = -1;
         public frmEstimate()
         {
             InitializeComponent();
         }
         
-        int Invoice_No = -1;
+        
 
         customerDAL cDAL = new customerDAL();
         // customerBLL cBLL = new customerBLL();
@@ -707,6 +709,8 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please enter Customer Details");
             }
+            //set Invoice No.
+            textBox6.Text = Invoice_No.ToString();
 
         }
 
