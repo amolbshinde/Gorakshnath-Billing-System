@@ -597,7 +597,7 @@ namespace Gorakshnath_Billing_System.UI
                 label34.Enabled = false;
                 label36.Enabled = false;
                 label18.Enabled = false;
-                label12.Enabled = false;
+                label35.Enabled = false;
             }
             else if (comboTransactionType.Text == "GST")
             {
@@ -612,7 +612,7 @@ namespace Gorakshnath_Billing_System.UI
                 label34.Enabled = true;
                 label36.Enabled = true;
                 label18.Enabled = true;
-                label12.Enabled = true;
+                label35.Enabled = true;
             }
 
         }
