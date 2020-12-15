@@ -27,6 +27,25 @@ namespace Gorakshnath_Billing_System.UI
         {
             DataTable dt = challanDAL.SelectTD();
             dgvChallanReport.DataSource = dt;
+
+            comboInvoiceNo.DataSource = null;
+            DataTable dtI = challanDAL.SelectTD();
+            comboInvoiceNo.DisplayMember = "Invoice_No";
+            comboInvoiceNo.Items.Add("Select Invoice No");
+            comboInvoiceNo.DataSource = dtI;
+
+            comboCustName.DataSource = null;
+            DataTable dtC = challanDAL.SelectTD();
+            comboCustName.DisplayMember = "Cust_Name";
+            comboCustName.Items.Add("Select Invoice No");
+            comboCustName.DataSource = dtC;
+
+            comboMobileNo.DataSource = null;
+            DataTable dtM = challanDAL.SelectTD();
+            comboMobileNo.DisplayMember = "Cust_Contact";
+            comboMobileNo.Items.Add("Select Invoice No");
+            comboMobileNo.DataSource = dtM;                       
+
         }
     }
 }
