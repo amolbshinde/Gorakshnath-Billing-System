@@ -18,6 +18,8 @@ namespace Gorakshnath_Billing_System.UI
         ReportDocument cryRpt;
 
         int GetInvoice;
+        
+
         public frmInvoiceCrpt(int InvoiceNo)
         {
             InitializeComponent();
@@ -41,18 +43,44 @@ namespace Gorakshnath_Billing_System.UI
             crptInvoiceViewer.ReportSource = null;
             crptInvoice.SetParameterValue("@Invoice_No", GetInvoice.ToString());
             crptInvoiceViewer.ReportSource = crptInvoice;
-
+            /*
             cryRpt = new ReportDocument();
             cryRpt.Load("C:\\Users\\sopan\\Documents\\CrystalReport1.rpt");
             crptInvoiceViewer.ReportSource = cryRpt;
             crptInvoiceViewer.Refresh();
+            */
+            
+
+        }
+
+        private void crptInvoiceViewer_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSendMail_Click(object sender, EventArgs e)
+        {
 
             try
             {
+                cryRpt = new ReportDocument();
+                //cryRpt.Load(".\\crptInvoice.rpt");
+                cryRpt.Load("C:\\Users\\sopan\\source\\repos\\amolbshinde\\Gorakshnath-Billing-System\\Gorakshnath Billing System\\Report_Generator\\CrystalReport\\crptInvoice.rpt");
+
+
+                crptInvoiceViewer.ReportSource = cryRpt;
+                crptInvoiceViewer.Refresh();
+
+
                 ExportOptions CrExportOptions;
                 DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
                 PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                CrDiskFileDestinationOptions.DiskFileName = "c:\\csharp.net-informations.pdf";
+                CrDiskFileDestinationOptions.DiskFileName = "C:\\SampleReport.pdf";
                 CrExportOptions = cryRpt.ExportOptions;
                 {
                     CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
@@ -67,12 +95,6 @@ namespace Gorakshnath_Billing_System.UI
                 MessageBox.Show(ex.ToString());
             }
 
-
-
-        }
-
-        private void crptInvoiceViewer_Load(object sender, EventArgs e)
-        {
 
         }
 
