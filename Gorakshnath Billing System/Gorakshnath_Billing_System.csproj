@@ -372,6 +372,9 @@
     <EmbeddedResource Include="UI\frmSalesReturn.resx">
       <DependentUpon>frmSalesReturn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmStockMaster.resx">
+      <DependentUpon>frmStockMaster.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmStockReport.resx">
       <DependentUpon>frmStockReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -458,6 +461,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\DGIF.gif" />
+    <None Include="Resources\try.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
