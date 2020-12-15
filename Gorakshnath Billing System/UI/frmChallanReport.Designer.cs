@@ -103,6 +103,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboMobileNo.Name = "comboMobileNo";
             this.comboMobileNo.Size = new System.Drawing.Size(186, 28);
             this.comboMobileNo.TabIndex = 12;
+            this.comboMobileNo.SelectedIndexChanged += new System.EventHandler(this.comboMobileNo_SelectedIndexChanged);
             // 
             // comboCustName
             // 
@@ -117,6 +118,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboCustName.Name = "comboCustName";
             this.comboCustName.Size = new System.Drawing.Size(198, 28);
             this.comboCustName.TabIndex = 10;
+            this.comboCustName.SelectedIndexChanged += new System.EventHandler(this.comboCustName_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -144,6 +146,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboInvoiceNo.Name = "comboInvoiceNo";
             this.comboInvoiceNo.Size = new System.Drawing.Size(173, 28);
             this.comboInvoiceNo.TabIndex = 8;
+            this.comboInvoiceNo.SelectedIndexChanged += new System.EventHandler(this.comboInvoiceNo_SelectedIndexChanged);
             // 
             // panel2
             // 
