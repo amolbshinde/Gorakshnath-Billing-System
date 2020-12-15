@@ -77,5 +77,10 @@ namespace Gorakshnath_Billing_System.UI
             DataTable dt = stockDAL.SelectStockByProduct(keywords);
             dgvStockReport.DataSource = dt;
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
