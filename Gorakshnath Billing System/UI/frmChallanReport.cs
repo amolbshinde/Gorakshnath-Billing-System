@@ -76,9 +76,9 @@ namespace Gorakshnath_Billing_System.UI
 
             if (comboMobileNo.Text != "Select By Mobile No")
             {
-                string CName;
-                CName = comboCustName.Text.ToString();
-                DataTable dt = challanDAL.SelectByMobileNo(CName);
+                string mobNo;
+                mobNo = comboMobileNo.Text.ToString();
+                DataTable dt = challanDAL.SelectByMobileNo(mobNo);
                 dgvChallanReport.DataSource = dt;
             }
 
