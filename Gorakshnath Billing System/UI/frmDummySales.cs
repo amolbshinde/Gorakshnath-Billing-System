@@ -350,6 +350,7 @@ namespace Gorakshnath_Billing_System.UI
                                 string productName = salesDT.Rows[i][1].ToString();
 
                                 ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                                cdBLL.Invoice_No = salesid;
                                 cdBLL.Product_ID = p.Product_ID;
                                 cdBLL.Cust_ID = c.Cust_ID;
                                 cdBLL.Product_Name = salesDT.Rows[i][1].ToString();
