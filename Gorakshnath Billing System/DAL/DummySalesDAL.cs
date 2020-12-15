@@ -16,19 +16,18 @@ namespace Gorakshnath_Billing_System.DAL
         //insert recored into salestransaction
         #region Insert Data in Database
 
-        public bool insertDummySales(DummySalesBLL dsb, out int Cust_ID)
+        public bool insertDummySales(DummySalesBLL dsb, out int Invoice_No)
         {
             bool isSuccess = false;
-            Cust_ID = -1;
+            Invoice_No = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO DummySales_Transactions (Invoice_No,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Invoice_No,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total);select @@IDENTITY;";
+                String sql = "INSERT INTO DummySales_Transactions (Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total);select @@IDENTITY;";
 
-                SqlCommand cmd = new SqlCommand(sql, con);
-
-                cmd.Parameters.AddWithValue("@Sales_ID", dsb.Sales_ID);
+                SqlCommand cmd = new SqlCommand(sql, con);                
                 cmd.Parameters.AddWithValue("@Invoice_No", dsb.Invoice_No);
+                cmd.Parameters.AddWithValue("@Transaction_Type", dsb.Transaction_Type);
                 cmd.Parameters.AddWithValue("@Cust_ID", dsb.Cust_ID);
                 cmd.Parameters.AddWithValue("@Sub_Total", dsb.Sub_Total);
                 cmd.Parameters.AddWithValue("@TDiscount", dsb.TDiscount);
@@ -44,7 +43,7 @@ namespace Gorakshnath_Billing_System.DAL
                 if (o != null)
                 {
                     isSuccess = true;
-                    Cust_ID = int.Parse(o.ToString());
+                    Invoice_No = int.Parse(o.ToString());
                 }
                 else
                 {
