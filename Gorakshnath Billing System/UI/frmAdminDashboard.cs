@@ -175,7 +175,8 @@ namespace Gorakshnath_Billing_System
 
         private void searchAndManageInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmDummySalesReport dummySalesReport = new frmDummySalesReport();
+            dummySalesReport.Show();
         }
 
         private void challanReportToolStripMenuItem_Click(object sender, EventArgs e)
