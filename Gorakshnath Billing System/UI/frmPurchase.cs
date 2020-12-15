@@ -584,5 +584,44 @@ namespace Gorakshnath_Billing_System.UI
                 MessageBox.Show("Please Save details first");
             }
         }
+
+        private void comboPurchaseType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboPurchaseType.Text == "Non GST")
+            {
+                comboGstType.Enabled = false;
+                textGst.Enabled = false;
+                textCgst.Enabled = false;
+                textSgst.Enabled = false;
+                textIgst.Enabled = false;
+                comboGstType.Text = "NA";
+                textGst.Text = "0";
+                textCgst.Text = "0";
+                textSgst.Text = "0";
+                textIgst.Text = "0";
+                label32.Enabled = false;
+                label34.Enabled = false;
+                label36.Enabled = false;
+                label18.Enabled = false;
+                label12.Enabled = false;
+            }
+            else if (comboPurchaseType.Text == "GST")
+            {
+                comboGstType.Enabled = true;
+                textGst.Enabled = true;
+                textCgst.Enabled = true;
+                textSgst.Enabled = true;
+                textIgst.Enabled = true;
+                comboGstType.Text = "";
+
+                label32.Enabled = true;
+                label34.Enabled = true;
+                label36.Enabled = true;
+                label18.Enabled = true;
+                label12.Enabled = true;
+            }
+
+        }
     }   
 }

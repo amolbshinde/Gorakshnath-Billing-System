@@ -194,6 +194,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboTransactionType.Name = "comboTransactionType";
             this.comboTransactionType.Size = new System.Drawing.Size(178, 21);
             this.comboTransactionType.TabIndex = 17;
+            this.comboTransactionType.SelectedIndexChanged += new System.EventHandler(this.comboTransactionType_SelectedIndexChanged);
             // 
             // label29
             // 
