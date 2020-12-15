@@ -345,6 +345,7 @@ namespace Gorakshnath_Billing_System.UI
         private void btnclear_Click(object sender, EventArgs e)
         {
             clear();
+            //
         }
 
         private void txtQuntity_Leave(object sender, EventArgs e)

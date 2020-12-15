@@ -690,7 +690,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             if (Invoice_No != -1)
             {
-                //Invoice_No = 2005;
+                ////Invoice_No = 7;
                 frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(Invoice_No);
                 frmcrpt.Show();
             }

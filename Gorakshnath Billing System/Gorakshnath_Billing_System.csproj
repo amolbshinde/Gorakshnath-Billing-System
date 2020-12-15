@@ -247,12 +247,6 @@
     <Compile Include="UI\frmPurchaseReturn.Designer.cs">
       <DependentUpon>frmPurchaseReturn.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\frmSales.Designer.cs">
-      <DependentUpon>frmSales.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\frmSalesReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -362,9 +356,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPurchaseReturn.resx">
       <DependentUpon>frmPurchaseReturn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmSales.resx">
-      <DependentUpon>frmSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmSalesReport.resx">
       <DependentUpon>frmSalesReport.cs</DependentUpon>
