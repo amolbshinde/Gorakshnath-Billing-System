@@ -196,5 +196,11 @@ namespace Gorakshnath_Billing_System
             frmPurchaseReport purchaseReport = new frmPurchaseReport();
             purchaseReport.Show();
         }
+
+        private void searchAndManageQuotationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEstimateReport estimateReport = new frmEstimateReport();
+            estimateReport.Show();
+        }
     }
 }

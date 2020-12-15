@@ -175,6 +175,12 @@
     <Compile Include="UI\frmEstimateCrpt.Designer.cs">
       <DependentUpon>frmEstimateCrpt.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmEstimateReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmEstimateReport.Designer.cs">
+      <DependentUpon>frmEstimateReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmInvoiceCrpt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmEstimateCrpt.resx">
       <DependentUpon>frmEstimateCrpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmEstimateReport.resx">
+      <DependentUpon>frmEstimateReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmInvoiceCrpt.resx">
       <DependentUpon>frmInvoiceCrpt.cs</DependentUpon>
