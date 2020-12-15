@@ -199,6 +199,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnDate.Name = "btnDate";
             this.btnDate.Size = new System.Drawing.Size(219, 30);
             this.btnDate.TabIndex = 8;
+            this.btnDate.Text = "btn";
             this.btnDate.UseVisualStyleBackColor = true;
             // 
             // button6

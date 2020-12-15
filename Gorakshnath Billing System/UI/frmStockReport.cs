@@ -57,8 +57,7 @@ namespace Gorakshnath_Billing_System.UI
             string keywords = comboGroup.Text;
             
             DataTable dt = stockDAL.SelectStockByGroup(keywords);
-            dgvStockReport.DataSource = dt;         
-           
+            dgvStockReport.DataSource = dt;
 
         }
 
