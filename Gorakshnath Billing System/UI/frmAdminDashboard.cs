@@ -177,5 +177,11 @@ namespace Gorakshnath_Billing_System
         {
 
         }
+
+        private void challanReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChallanReport frmChallanReport = new frmChallanReport();
+            frmChallanReport.Show();
+        }
     }
 }

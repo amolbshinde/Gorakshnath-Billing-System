@@ -577,5 +577,44 @@ namespace Gorakshnath_Billing_System.UI
             textEmail.Text = cBLL.email;
             textAddress.Text = cBLL.address;
         }
+
+        private void comboTransactionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboTransactionType.Text == "Non GST")
+            {
+                comboGstType.Enabled = false;
+                textGST.Enabled = false;
+                textCgst.Enabled = false;
+                textSgst.Enabled = false;
+                textIgst.Enabled = false;
+                comboGstType.Text = "NA";
+                textGST.Text = "0";
+                textCgst.Text = "0";
+                textSgst.Text = "0";
+                textIgst.Text = "0";
+                label32.Enabled = false;
+                label34.Enabled = false;
+                label36.Enabled = false;
+                label18.Enabled = false;
+                label35.Enabled = false;
+            }
+            else if (comboTransactionType.Text == "GST")
+            {
+                comboGstType.Enabled = true;
+                textGST.Enabled = true;
+                textCgst.Enabled = true;
+                textSgst.Enabled = true;
+                textIgst.Enabled = true;
+                comboGstType.Text = "";
+
+                label32.Enabled = true;
+                label34.Enabled = true;
+                label36.Enabled = true;
+                label18.Enabled = true;
+                label35.Enabled = true;
+            }
+
+        }
     }
 }
