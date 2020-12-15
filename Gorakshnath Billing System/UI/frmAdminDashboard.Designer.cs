@@ -47,12 +47,8 @@ namespace Gorakshnath_Billing_System
             this.inverntoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPurchaseBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManagePurchaseBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addPurchaseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchAndManagePurchaseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPurchaseReturnDebitNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManagePurchaseReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addStockAdjustmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchAndManageStockAdjustmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -187,6 +183,7 @@ namespace Gorakshnath_Billing_System
             this.searchAndManageDeliveryNoteToolStripMenuItem.Name = "searchAndManageDeliveryNoteToolStripMenuItem";
             this.searchAndManageDeliveryNoteToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.searchAndManageDeliveryNoteToolStripMenuItem.Text = "Search and Manage Delivery Note";
+            this.searchAndManageDeliveryNoteToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageDeliveryNoteToolStripMenuItem_Click);
             // 
             // newQuotationToolStripMenuItem
             // 
@@ -220,12 +217,8 @@ namespace Gorakshnath_Billing_System
             this.inverntoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addPurchaseBillToolStripMenuItem,
             this.searchAndManagePurchaseBillToolStripMenuItem,
-            this.addPurchaseOrderToolStripMenuItem,
-            this.searchAndManagePurchaseOrderToolStripMenuItem,
             this.addPurchaseReturnDebitNoteToolStripMenuItem,
             this.searchAndManagePurchaseReturnToolStripMenuItem,
-            this.addStockAdjustmentToolStripMenuItem,
-            this.searchAndManageStockAdjustmentToolStripMenuItem,
             this.addSupplierToolStripMenuItem,
             this.searchAndManageSupplierToolStripMenuItem});
             this.inverntoryToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -247,18 +240,7 @@ namespace Gorakshnath_Billing_System
             this.searchAndManagePurchaseBillToolStripMenuItem.Name = "searchAndManagePurchaseBillToolStripMenuItem";
             this.searchAndManagePurchaseBillToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
             this.searchAndManagePurchaseBillToolStripMenuItem.Text = "Search and Manage Purchase Bill";
-            // 
-            // addPurchaseOrderToolStripMenuItem
-            // 
-            this.addPurchaseOrderToolStripMenuItem.Name = "addPurchaseOrderToolStripMenuItem";
-            this.addPurchaseOrderToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
-            this.addPurchaseOrderToolStripMenuItem.Text = "Add Purchase Order";
-            // 
-            // searchAndManagePurchaseOrderToolStripMenuItem
-            // 
-            this.searchAndManagePurchaseOrderToolStripMenuItem.Name = "searchAndManagePurchaseOrderToolStripMenuItem";
-            this.searchAndManagePurchaseOrderToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
-            this.searchAndManagePurchaseOrderToolStripMenuItem.Text = "Search and Manage Purchase Order";
+            this.searchAndManagePurchaseBillToolStripMenuItem.Click += new System.EventHandler(this.searchAndManagePurchaseBillToolStripMenuItem_Click);
             // 
             // addPurchaseReturnDebitNoteToolStripMenuItem
             // 
@@ -272,18 +254,6 @@ namespace Gorakshnath_Billing_System
             this.searchAndManagePurchaseReturnToolStripMenuItem.Name = "searchAndManagePurchaseReturnToolStripMenuItem";
             this.searchAndManagePurchaseReturnToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
             this.searchAndManagePurchaseReturnToolStripMenuItem.Text = "Search and Manage Purchase Return";
-            // 
-            // addStockAdjustmentToolStripMenuItem
-            // 
-            this.addStockAdjustmentToolStripMenuItem.Name = "addStockAdjustmentToolStripMenuItem";
-            this.addStockAdjustmentToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
-            this.addStockAdjustmentToolStripMenuItem.Text = "Add Stock Adjustment";
-            // 
-            // searchAndManageStockAdjustmentToolStripMenuItem
-            // 
-            this.searchAndManageStockAdjustmentToolStripMenuItem.Name = "searchAndManageStockAdjustmentToolStripMenuItem";
-            this.searchAndManageStockAdjustmentToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
-            this.searchAndManageStockAdjustmentToolStripMenuItem.Text = "Search and Manage Stock Adjustment";
             // 
             // addSupplierToolStripMenuItem
             // 
@@ -364,28 +334,28 @@ namespace Gorakshnath_Billing_System
             // totalSalesReportToolStripMenuItem
             // 
             this.totalSalesReportToolStripMenuItem.Name = "totalSalesReportToolStripMenuItem";
-            this.totalSalesReportToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.totalSalesReportToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.totalSalesReportToolStripMenuItem.Text = "Sales";
             this.totalSalesReportToolStripMenuItem.Click += new System.EventHandler(this.totalSalesReportToolStripMenuItem_Click);
             // 
             // itemWiseSalesReportToolStripMenuItem
             // 
             this.itemWiseSalesReportToolStripMenuItem.Name = "itemWiseSalesReportToolStripMenuItem";
-            this.itemWiseSalesReportToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.itemWiseSalesReportToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.itemWiseSalesReportToolStripMenuItem.Text = "Purchase";
             this.itemWiseSalesReportToolStripMenuItem.Click += new System.EventHandler(this.itemWiseSalesReportToolStripMenuItem_Click);
             // 
             // totalPurchaseReportToolStripMenuItem
             // 
             this.totalPurchaseReportToolStripMenuItem.Name = "totalPurchaseReportToolStripMenuItem";
-            this.totalPurchaseReportToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.totalPurchaseReportToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.totalPurchaseReportToolStripMenuItem.Text = "Inventory";
             this.totalPurchaseReportToolStripMenuItem.Click += new System.EventHandler(this.totalPurchaseReportToolStripMenuItem_Click);
             // 
             // challanReportToolStripMenuItem
             // 
             this.challanReportToolStripMenuItem.Name = "challanReportToolStripMenuItem";
-            this.challanReportToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.challanReportToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.challanReportToolStripMenuItem.Text = "Challan Report";
             this.challanReportToolStripMenuItem.Click += new System.EventHandler(this.challanReportToolStripMenuItem_Click);
             // 
@@ -465,19 +435,13 @@ namespace Gorakshnath_Billing_System
         private System.Windows.Forms.ToolStripMenuItem newInvoiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchAndManageInvoiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newSalesReturnCreditNoteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchAndManageSalesReturnCreditNoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newDeliveryNoteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchAndManageDeliveryNoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newQuotationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchAndManageQuotationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addPurchaseBillToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchAndManagePurchaseBillToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addPurchaseOrderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchAndManagePurchaseOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addPurchaseReturnDebitNoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchAndManagePurchaseReturnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addStockAdjustmentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchAndManageStockAdjustmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addSupplierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchAndManageSupplierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addCustomerClientToolStripMenuItem;
@@ -493,6 +457,8 @@ namespace Gorakshnath_Billing_System
         private System.Windows.Forms.ToolStripMenuItem searchAndManageCustomerToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem challanReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchAndManageSalesReturnCreditNoteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchAndManageDeliveryNoteToolStripMenuItem;
     }
 }
 

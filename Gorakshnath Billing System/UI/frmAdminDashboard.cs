@@ -183,5 +183,18 @@ namespace Gorakshnath_Billing_System
             frmChallanReport frmChallanReport = new frmChallanReport();
             frmChallanReport.Show();
         }
+
+        private void searchAndManageDeliveryNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmChallanReport frmChallanReport = new frmChallanReport();
+            frmChallanReport.Show();
+        }
+
+        private void searchAndManagePurchaseBillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPurchaseReport purchaseReport = new frmPurchaseReport();
+            purchaseReport.Show();
+        }
     }
 }
