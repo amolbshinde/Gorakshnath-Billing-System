@@ -23,7 +23,7 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
-        //hello
+        //hellO.
 
         ProductMasterBLL pBLL = new ProductMasterBLL();
         ProductMasterDAL pDAL = new ProductMasterDAL();

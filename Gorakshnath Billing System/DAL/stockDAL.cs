@@ -262,7 +262,6 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-
         #region SEARCH Method for Stock Module Group By Product_Group
         public DataTable SelectStockByBrand(string keywords)
         {
