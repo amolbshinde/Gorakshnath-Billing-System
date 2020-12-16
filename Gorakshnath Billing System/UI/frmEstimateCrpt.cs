@@ -54,17 +54,18 @@ namespace Gorakshnath_Billing_System.UI
             try
             {
                 cryRpt = new ReportDocument();
-                //cryRpt.Load(".\\crptEstimate.rpt");
-                cryRpt.Load("C:\\Users\\sopan\\source\\repos\\amolbshinde\\Gorakshnath-Billing-System\\Gorakshnath Billing System\\Report_Generator\\CrystalReport\\crptEstimate.rpt");
+                //cryRpt.Load(".\\crptInvoice.rpt");
+                cryRpt.Load("C:\\Users\\sopan\\source\\repos\\amolbshinde\\Gorakshnath-Billing-System\\Gorakshnath Billing System\\Report_Generator\\CrystalReport\\crptInvoice.rpt");
 
 
                 crptEstimateViewer.ReportSource = cryRpt;
                 crptEstimateViewer.Refresh();
 
+
                 ExportOptions CrExportOptions;
                 DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
                 PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                CrDiskFileDestinationOptions.DiskFileName = "E:\\EstimateSampleReport.pdf";
+                CrDiskFileDestinationOptions.DiskFileName = "C:\\EstimateSampleReport.pdf";
                 CrExportOptions = cryRpt.ExportOptions;
                 {
                     CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
