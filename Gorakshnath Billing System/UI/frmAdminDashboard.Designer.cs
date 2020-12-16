@@ -197,6 +197,7 @@ namespace Gorakshnath_Billing_System
             this.searchAndManageQuotationToolStripMenuItem.Name = "searchAndManageQuotationToolStripMenuItem";
             this.searchAndManageQuotationToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.searchAndManageQuotationToolStripMenuItem.Text = "Search and Manage Quotation";
+            this.searchAndManageQuotationToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageQuotationToolStripMenuItem_Click);
             // 
             // addCustomerClientToolStripMenuItem
             // 
@@ -231,41 +232,41 @@ namespace Gorakshnath_Billing_System
             // addPurchaseBillToolStripMenuItem
             // 
             this.addPurchaseBillToolStripMenuItem.Name = "addPurchaseBillToolStripMenuItem";
-            this.addPurchaseBillToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
+            this.addPurchaseBillToolStripMenuItem.Size = new System.Drawing.Size(303, 24);
             this.addPurchaseBillToolStripMenuItem.Text = "Add Purchase Bill";
             this.addPurchaseBillToolStripMenuItem.Click += new System.EventHandler(this.addPurchaseBillToolStripMenuItem_Click);
             // 
             // searchAndManagePurchaseBillToolStripMenuItem
             // 
             this.searchAndManagePurchaseBillToolStripMenuItem.Name = "searchAndManagePurchaseBillToolStripMenuItem";
-            this.searchAndManagePurchaseBillToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
+            this.searchAndManagePurchaseBillToolStripMenuItem.Size = new System.Drawing.Size(303, 24);
             this.searchAndManagePurchaseBillToolStripMenuItem.Text = "Search and Manage Purchase Bill";
             this.searchAndManagePurchaseBillToolStripMenuItem.Click += new System.EventHandler(this.searchAndManagePurchaseBillToolStripMenuItem_Click);
             // 
             // addPurchaseReturnDebitNoteToolStripMenuItem
             // 
             this.addPurchaseReturnDebitNoteToolStripMenuItem.Name = "addPurchaseReturnDebitNoteToolStripMenuItem";
-            this.addPurchaseReturnDebitNoteToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
+            this.addPurchaseReturnDebitNoteToolStripMenuItem.Size = new System.Drawing.Size(303, 24);
             this.addPurchaseReturnDebitNoteToolStripMenuItem.Text = "Add Purchase Return (Debit Note)";
             this.addPurchaseReturnDebitNoteToolStripMenuItem.Click += new System.EventHandler(this.addPurchaseReturnDebitNoteToolStripMenuItem_Click);
             // 
             // searchAndManagePurchaseReturnToolStripMenuItem
             // 
             this.searchAndManagePurchaseReturnToolStripMenuItem.Name = "searchAndManagePurchaseReturnToolStripMenuItem";
-            this.searchAndManagePurchaseReturnToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
+            this.searchAndManagePurchaseReturnToolStripMenuItem.Size = new System.Drawing.Size(303, 24);
             this.searchAndManagePurchaseReturnToolStripMenuItem.Text = "Search and Manage Purchase Return";
             // 
             // addSupplierToolStripMenuItem
             // 
             this.addSupplierToolStripMenuItem.Name = "addSupplierToolStripMenuItem";
-            this.addSupplierToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
+            this.addSupplierToolStripMenuItem.Size = new System.Drawing.Size(303, 24);
             this.addSupplierToolStripMenuItem.Text = "Add Supplier";
             this.addSupplierToolStripMenuItem.Click += new System.EventHandler(this.addSupplierToolStripMenuItem_Click);
             // 
             // searchAndManageSupplierToolStripMenuItem
             // 
             this.searchAndManageSupplierToolStripMenuItem.Name = "searchAndManageSupplierToolStripMenuItem";
-            this.searchAndManageSupplierToolStripMenuItem.Size = new System.Drawing.Size(311, 24);
+            this.searchAndManageSupplierToolStripMenuItem.Size = new System.Drawing.Size(303, 24);
             this.searchAndManageSupplierToolStripMenuItem.Text = "Search and Manage Supplier";
             this.searchAndManageSupplierToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageSupplierToolStripMenuItem_Click);
             // 
@@ -334,28 +335,28 @@ namespace Gorakshnath_Billing_System
             // totalSalesReportToolStripMenuItem
             // 
             this.totalSalesReportToolStripMenuItem.Name = "totalSalesReportToolStripMenuItem";
-            this.totalSalesReportToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
+            this.totalSalesReportToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.totalSalesReportToolStripMenuItem.Text = "Sales";
             this.totalSalesReportToolStripMenuItem.Click += new System.EventHandler(this.totalSalesReportToolStripMenuItem_Click);
             // 
             // itemWiseSalesReportToolStripMenuItem
             // 
             this.itemWiseSalesReportToolStripMenuItem.Name = "itemWiseSalesReportToolStripMenuItem";
-            this.itemWiseSalesReportToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
+            this.itemWiseSalesReportToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.itemWiseSalesReportToolStripMenuItem.Text = "Purchase";
             this.itemWiseSalesReportToolStripMenuItem.Click += new System.EventHandler(this.itemWiseSalesReportToolStripMenuItem_Click);
             // 
             // totalPurchaseReportToolStripMenuItem
             // 
             this.totalPurchaseReportToolStripMenuItem.Name = "totalPurchaseReportToolStripMenuItem";
-            this.totalPurchaseReportToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
+            this.totalPurchaseReportToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.totalPurchaseReportToolStripMenuItem.Text = "Inventory";
             this.totalPurchaseReportToolStripMenuItem.Click += new System.EventHandler(this.totalPurchaseReportToolStripMenuItem_Click);
             // 
             // challanReportToolStripMenuItem
             // 
             this.challanReportToolStripMenuItem.Name = "challanReportToolStripMenuItem";
-            this.challanReportToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.challanReportToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.challanReportToolStripMenuItem.Text = "Sales Report";
             this.challanReportToolStripMenuItem.Click += new System.EventHandler(this.challanReportToolStripMenuItem_Click);
             // 

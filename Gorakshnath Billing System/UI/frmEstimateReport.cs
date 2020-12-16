@@ -12,38 +12,38 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.UI
 {
-    public partial class frmChallanReport : Form
+    public partial class frmEstimateReport : Form
     {
-        public frmChallanReport()
+        public frmEstimateReport()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
-        challanBLL ChallanBLL = new challanBLL();
-        challanDAL challanDAL = new challanDAL();
-        
+        EstimateBLL EstimateBLL = new EstimateBLL();
+        EstimateDAL EstimateDAL = new EstimateDAL();
 
-        private void frmChallanReport_Load(object sender, EventArgs e)
+        private void frmEstimateReport_Load(object sender, EventArgs e)
         {
-            DataTable dt = challanDAL.SelectTD();
+
+            DataTable dt = EstimateDAL.SelectTD();
             dgvChallanReport.DataSource = dt;
 
             comboInvoiceNo.DataSource = null;
-            DataTable dtI = challanDAL.SelectTD();
+            DataTable dtI = EstimateDAL.SelectTD();
             comboInvoiceNo.DisplayMember = "Invoice_No";
-            comboInvoiceNo.ValueMember = "Invoice_No";            
+            comboInvoiceNo.ValueMember = "Invoice_No";
             comboInvoiceNo.DataSource = dtI;
             comboInvoiceNo.Text = "Select By Invoice No";
 
             comboCustName.DataSource = null;
-            DataTable dtC = challanDAL.SelectTD();
+            DataTable dtC = EstimateDAL.SelectTD();
             comboCustName.DisplayMember = "Cust_Name";
             comboCustName.DataSource = dtC;
             comboCustName.Text = "Select By Cust Name";
 
             comboMobileNo.DataSource = null;
-            DataTable dtM = challanDAL.SelectTD();
-            comboMobileNo.DisplayMember = "Cust_Contact";            
+            DataTable dtM = EstimateDAL.SelectTD();
+            comboMobileNo.DisplayMember = "Cust_Contact";
             comboMobileNo.DataSource = dtM;
             comboMobileNo.Text = "Select By Mobile No";
 
@@ -51,57 +51,57 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboInvoiceNo.Text != "Select By Invoice No")
+
+            if (comboInvoiceNo.Text != "Select By Invoice No")
             {
                 string iNo;
                 iNo = comboInvoiceNo.Text.ToString();
-                DataTable dt = challanDAL.SelectByInvoiceNo(iNo);
+                DataTable dt = EstimateDAL.SelectByInvoiceNo(iNo);
                 dgvChallanReport.DataSource = dt;
             }
             else
             {
-                DataTable dt = challanDAL.SelectTD();
+                DataTable dt = EstimateDAL.SelectTD();
                 dgvChallanReport.DataSource = dt;
             }
+
         }
 
         private void comboCustName_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (comboCustName.Text != "Select By Cust Name")
             {
                 string CName;
                 CName = comboCustName.Text.ToString();
-                DataTable dt = challanDAL.SelectByCustName(CName);
+                DataTable dt = EstimateDAL.SelectByCustName(CName);
                 dgvChallanReport.DataSource = dt;
             }
             else
             {
-                DataTable dt = challanDAL.SelectTD();
+                DataTable dt = EstimateDAL.SelectTD();
                 dgvChallanReport.DataSource = dt;
             }
+
         }
 
         private void comboMobileNo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
             if (comboMobileNo.Text != "Select By Mobile No")
             {
                 string mobNo;
                 mobNo = comboMobileNo.Text.ToString();
-                DataTable dt = challanDAL.SelectByMobileNo(mobNo);
+                DataTable dt = EstimateDAL.SelectByMobileNo(mobNo);
                 dgvChallanReport.DataSource = dt;
             }
             else
             {
-                DataTable dt = challanDAL.SelectTD();
+                DataTable dt = EstimateDAL.SelectTD();
                 dgvChallanReport.DataSource = dt;
             }
 
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
