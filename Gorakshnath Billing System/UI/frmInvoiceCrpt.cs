@@ -80,7 +80,7 @@ namespace Gorakshnath_Billing_System.UI
                 ExportOptions CrExportOptions;
                 DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
                 PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                CrDiskFileDestinationOptions.DiskFileName = "C:\\SampleReport.pdf";
+                CrDiskFileDestinationOptions.DiskFileName = "E:\\SampleReport.pdf";
                 CrExportOptions = cryRpt.ExportOptions;
                 {
                     CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
