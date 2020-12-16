@@ -18,7 +18,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
-
+        int salesid = -1;
         customerDAL cDAL = new customerDAL();
         // customerBLL cBLL = new customerBLL();
         ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
@@ -341,7 +341,7 @@ namespace Gorakshnath_Billing_System.UI
 
                         // using (TransactionScope scope = new TransactionScope())//
                         {
-                            int salesid = -1;
+                            // int salesid = -1; declared at top as a global variable
                             bool b = challanDAL.insertDummySales(challanBLL, out salesid);
 
                             for (int i = 0; i < salesDT.Rows.Count; i++)
@@ -622,5 +622,20 @@ namespace Gorakshnath_Billing_System.UI
         {
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (salesid!= -1)
+            {
+                ////Invoice_No = 7;
+                frmDummySalesCrpt frmDummySalesCrpt = new frmDummySalesCrpt(salesid);
+                frmDummySalesCrpt.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please Save details first");
+            }
+        }
     }
+    
 }
