@@ -125,7 +125,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             if ("Print" == e.ClickedItem.Name.ToString())
             {
-                
+                //get inoice no from datagrid view
                 int iNo;
                 Int32.TryParse(dgvChallanReport.Rows[dgvChallanReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
 
