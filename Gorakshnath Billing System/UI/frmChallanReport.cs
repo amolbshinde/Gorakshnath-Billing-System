@@ -128,14 +128,18 @@ namespace Gorakshnath_Billing_System.UI
                 //get inoice no from datagrid view
                 int iNo;
                 Int32.TryParse(dgvChallanReport.Rows[dgvChallanReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
+                frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(iNo);
+                frmcrpt.Show();
 
-                MessageBox.Show(iNo.ToString());
+                //MessageBox.Show(iNo.ToString());
 
             }
 
         }
 
+        private void dgvChallanReport_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-
+        }
     }
 }
