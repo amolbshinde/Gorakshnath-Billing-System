@@ -103,5 +103,35 @@ namespace Gorakshnath_Billing_System.UI
             }
 
         }
+
+        private void dgvChallanReport_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ContextMenuStrip my_menu = new System.Windows.Forms.ContextMenuStrip();
+                int position_mouse_click = dgvChallanReport.HitTest(e.X, e.Y).RowIndex;
+                if (position_mouse_click >= 0)
+                {
+                    my_menu.Items.Add("Print").Name = "Print";
+                }
+                my_menu.Show(dgvChallanReport, new Point(e.X, e.Y));
+                my_menu.ItemClicked += new ToolStripItemClickedEventHandler(my_menu_ItemClicked);
+            }
+        }
+
+        private void my_menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if ("Print" == e.ClickedItem.Name.ToString())
+            {
+                //get inoice no from datagrid view
+                int iNo;
+                Int32.TryParse(dgvChallanReport.Rows[dgvChallanReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
+
+                MessageBox.Show(iNo.ToString());
+
+            }
+
+        }
+
     }
 }

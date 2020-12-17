@@ -55,6 +55,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvChallanReport.Name = "dgvChallanReport";
             this.dgvChallanReport.Size = new System.Drawing.Size(1168, 465);
             this.dgvChallanReport.TabIndex = 0;
+            this.dgvChallanReport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvChallanReport_MouseClick);
             // 
             // panel1
             // 
