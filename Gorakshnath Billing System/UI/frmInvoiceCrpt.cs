@@ -101,6 +101,7 @@ namespace Gorakshnath_Billing_System.UI
                 mail.Attachments.Add(attachment);
 
                 SmtpServer.Port = 587;
+                SmtpServer.UseDefaultCredentials = false;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("sopanpit@gmail.com", "Pooja@123");
                 SmtpServer.EnableSsl = true;
 

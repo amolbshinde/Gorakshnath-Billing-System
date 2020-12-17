@@ -147,7 +147,6 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-
         #region Select Data By Mobile NO
         public DataTable SelectByMobileNo(string Cust_Mobile)
         {
@@ -173,7 +172,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
 
 
 
