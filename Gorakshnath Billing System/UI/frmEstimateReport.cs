@@ -127,7 +127,15 @@ namespace Gorakshnath_Billing_System.UI
                 int iNo;
                 Int32.TryParse(dgvChallanReport.Rows[dgvChallanReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
 
-                MessageBox.Show(iNo.ToString());
+                if (iNo != -1)
+                {
+                    frmEstimateCrpt Estimate = new frmEstimateCrpt(iNo);
+                    Estimate.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong");
+                }
 
             }
 

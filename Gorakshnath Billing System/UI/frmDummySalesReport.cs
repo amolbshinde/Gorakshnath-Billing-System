@@ -130,8 +130,11 @@ namespace Gorakshnath_Billing_System.UI
                 int iNo;
                 Int32.TryParse(dgvChallanReport.Rows[dgvChallanReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
 
-                MessageBox.Show(iNo.ToString());
-
+               MessageBox.Show(iNo.ToString());
+                                   ////Invoice_No = 7;
+                    frmDummySalesCrpt frmDummySalesCrpt = new frmDummySalesCrpt(iNo);
+                    frmDummySalesCrpt.Show();
+               
             }
 
         }
