@@ -836,7 +836,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel6.Location = new System.Drawing.Point(887, 613);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(634, 329);
+            this.panel6.Size = new System.Drawing.Size(634, 296);
             this.panel6.TabIndex = 21;
             // 
             // button3
@@ -920,7 +920,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5.Location = new System.Drawing.Point(122, 616);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(759, 327);
+            this.panel5.Size = new System.Drawing.Size(759, 276);
             this.panel5.TabIndex = 20;
             // 
             // textBox3
