@@ -710,5 +710,17 @@ namespace Gorakshnath_Billing_System.UI
         {
             this.Close();
         }
+
+        private void label31_Click(object sender, EventArgs e)
+        {
+            frmProductMaster productMaster = new frmProductMaster();
+            productMaster.Show();
+
+        }
+
+        private void label31_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
