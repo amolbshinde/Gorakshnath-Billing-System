@@ -14,8 +14,8 @@ using CrystalDecisions.Shared;
 namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmInvoiceCrpt : Form
-    {
-        ReportDocument cryRpt;
+    {        
+        Report_Generator.CrystalReport.crptInvoice crptInvoice = new Report_Generator.CrystalReport.crptInvoice();
 
         int GetInvoice;
         
@@ -37,20 +37,10 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         private void frmInvoiceCrpt_Load(object sender, EventArgs e)
-        {
-            //MessageBox.Show(GetInvoice.ToString());
-            Report_Generator.CrystalReport.crptInvoice crptInvoice = new Report_Generator.CrystalReport.crptInvoice();
+        {            
             crptInvoiceViewer.ReportSource = null;
             crptInvoice.SetParameterValue("@Invoice_No", GetInvoice.ToString());
-            crptInvoiceViewer.ReportSource = crptInvoice;
-            /*
-            cryRpt = new ReportDocument();
-            cryRpt.Load("C:\\Users\\sopan\\Documents\\CrystalReport1.rpt");
-            crptInvoiceViewer.ReportSource = cryRpt;
-            crptInvoiceViewer.Refresh();
-            */
-            
-
+            crptInvoiceViewer.ReportSource = crptInvoice;   
         }
 
         private void crptInvoiceViewer_Load(object sender, EventArgs e)
@@ -67,28 +57,20 @@ namespace Gorakshnath_Billing_System.UI
         {
 
             try
-            {
-                cryRpt = new ReportDocument();
-                //cryRpt.Load(".\\crptInvoice.rpt");
-                cryRpt.Load("C:\\Users\\sopan\\source\\repos\\amolbshinde\\Gorakshnath-Billing-System\\Gorakshnath Billing System\\Report_Generator\\CrystalReport\\crptInvoice.rpt");
-
-
-                crptInvoiceViewer.ReportSource = cryRpt;
-                crptInvoiceViewer.Refresh();
-
+            {                
 
                 ExportOptions CrExportOptions;
                 DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
                 PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                CrDiskFileDestinationOptions.DiskFileName = "E:\\SampleReport.pdf";
-                CrExportOptions = cryRpt.ExportOptions;
+                CrDiskFileDestinationOptions.DiskFileName = "E:\\"+ GetInvoice + ".pdf";                
+                CrExportOptions = crptInvoice.ExportOptions;
                 {
                     CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
                     CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
                     CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
                     CrExportOptions.FormatOptions = CrFormatTypeOptions;
                 }
-                cryRpt.Export();
+                crptInvoice.Export();
             }
             catch (Exception ex)
             {
@@ -96,9 +78,7 @@ namespace Gorakshnath_Billing_System.UI
             }
 
 
-        }
-
-        //for storing crestal report
+        }      
 
 
 
