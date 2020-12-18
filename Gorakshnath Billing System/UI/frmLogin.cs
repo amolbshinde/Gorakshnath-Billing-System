@@ -30,7 +30,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Close();
         }
         /// <summary>
-        /// 
+        /// //
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
