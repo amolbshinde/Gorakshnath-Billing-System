@@ -57,6 +57,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BC927ED5965C4A3E99FE463C4E8AD6A7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_BEC839391EBE2BB5604B659F9F0D9FE3"
         "OwnerKey" = "8:_0E8ACB068EE67EC4469950588D5B5465"
         "MsmSig" = "8:_UNDEFINED"
@@ -77,12 +83,6 @@
         {
         "MsmKey" = "8:_FFAD21F2E4A275FBE6A18D6A0709F7EE"
         "OwnerKey" = "8:_9D95465EF485407E9F4EBBE51DC142E8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_65F3E927BDA7DA5936C0BDFECD82DC8A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -121,6 +121,12 @@
         "OwnerKey" = "8:_FFAD21F2E4A275FBE6A18D6A0709F7EE"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_65F3E927BDA7DA5936C0BDFECD82DC8A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -139,6 +145,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -155,6 +177,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -328,6 +366,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC927ED5965C4A3E99FE463C4E8AD6A7"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\Downloads\\vista_style_base_software_icons_icons_pack_120745\\Checked_Shield_Green.ico"
+            "TargetName" = "8:Checked_Shield_Green.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_2139F8A828394222A04971C3963DD2B8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BEC839391EBE2BB5604B659F9F0D9FE3"
             {
             "AssemblyRegister" = "3:1"
@@ -478,7 +536,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Shiv Gorakshnath Billing System"
         "ProductCode" = "8:{D260136A-F16A-4422-A2A4-7CDE000A0B3A}"
-        "PackageCode" = "8:{C35F3ACE-7EAA-47BB-9340-4A2194068C78}"
+        "PackageCode" = "8:{C3119AC2-3901-420C-BCD1-D1FB85AFA666}"
         "UpgradeCode" = "8:{6716ACE5-0B20-4D31-B996-CF361A4CB6C2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -609,7 +667,7 @@
             "Target" = "8:_9D95465EF485407E9F4EBBE51DC142E8"
             "Folder" = "8:_48D8064958E74E3B8392AC0FE8425391"
             "WorkingFolder" = "8:_2139F8A828394222A04971C3963DD2B8"
-            "Icon" = "8:_E7A076CA69C54286A7C2ECA1392E6026"
+            "Icon" = "8:_BC927ED5965C4A3E99FE463C4E8AD6A7"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CB686AB362DE4FD99160F48FA4DBC517"
