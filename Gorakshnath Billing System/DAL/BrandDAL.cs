@@ -12,7 +12,7 @@ namespace Gorakshnath_Billing_System.DAL
 {
     class BrandDAL
     {
-        //Static String Method for Database Connection String
+        //Static String Method for Database Connection String.
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
         #region Select Method
