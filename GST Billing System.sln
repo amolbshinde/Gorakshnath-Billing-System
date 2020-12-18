@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SwamiSoftware", "..\..\..\..\Desktop\Videos\SwamiSoftware\SwamiSoftware.vdproj", "{FDC8245F-8CF9-4B46-9E66-3C2BE11BD1F3}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Shiv Gorakshnath Billing System", "Shiv Gorakshnath Billing System\Shiv Gorakshnath Billing System.vdproj", "{89AEA9B4-E8E4-49F7-A620-AD0A2BBC2E99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,14 +24,12 @@ Global
 		{C14A4FF9-BA79-4DD2-9C45-CB65A2873A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C14A4FF9-BA79-4DD2-9C45-CB65A2873A5F}.Debug|x64.ActiveCfg = Debug|x64
 		{C14A4FF9-BA79-4DD2-9C45-CB65A2873A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C14A4FF9-BA79-4DD2-9C45-CB65A2873A5F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C14A4FF9-BA79-4DD2-9C45-CB65A2873A5F}.Release|x64.ActiveCfg = Release|x64
-		{FDC8245F-8CF9-4B46-9E66-3C2BE11BD1F3}.Debug|Any CPU.ActiveCfg = Debug
-		{FDC8245F-8CF9-4B46-9E66-3C2BE11BD1F3}.Debug|x64.ActiveCfg = Debug
-		{FDC8245F-8CF9-4B46-9E66-3C2BE11BD1F3}.Debug|x64.Build.0 = Debug
-		{FDC8245F-8CF9-4B46-9E66-3C2BE11BD1F3}.Release|Any CPU.ActiveCfg = Release
-		{FDC8245F-8CF9-4B46-9E66-3C2BE11BD1F3}.Release|Any CPU.Build.0 = Release
-		{FDC8245F-8CF9-4B46-9E66-3C2BE11BD1F3}.Release|x64.ActiveCfg = Release
-		{FDC8245F-8CF9-4B46-9E66-3C2BE11BD1F3}.Release|x64.Build.0 = Release
+		{89AEA9B4-E8E4-49F7-A620-AD0A2BBC2E99}.Debug|Any CPU.ActiveCfg = Debug
+		{89AEA9B4-E8E4-49F7-A620-AD0A2BBC2E99}.Debug|x64.ActiveCfg = Debug
+		{89AEA9B4-E8E4-49F7-A620-AD0A2BBC2E99}.Release|Any CPU.ActiveCfg = Release
+		{89AEA9B4-E8E4-49F7-A620-AD0A2BBC2E99}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
