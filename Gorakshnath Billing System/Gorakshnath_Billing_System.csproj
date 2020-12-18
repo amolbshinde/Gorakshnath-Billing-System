@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Gorakshnath_Billing_System</RootNamespace>
     <AssemblyName>Gorakshnath Billing System</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -48,7 +48,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>862B029B9494F0B7D9BC24EDF3C74CC86A3041BC</ManifestCertificateThumbprint>
@@ -83,6 +83,9 @@
     <PlatformTarget>x64</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>software.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
@@ -534,6 +537,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\DGIF.gif" />
+    <Content Include="software.ico" />
     <None Include="Resources\Sales.gif" />
     <None Include="Resources\Estimate.gif" />
     <None Include="Resources\try.gif" />
