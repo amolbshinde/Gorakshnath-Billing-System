@@ -64,7 +64,7 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
-        //;l;l;l;l
+        
 
         #region Select Data From Database
         public DataTable SelectTD()
