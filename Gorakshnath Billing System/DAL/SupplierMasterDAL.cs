@@ -50,6 +50,7 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+
         #region Insert Method to add data in database
         public bool Insert(SupplierMasterBLL sm)
         {
@@ -100,6 +101,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
+
         #region Update Supplier Details 
         public bool Update(SupplierMasterBLL sm)
         {
@@ -150,6 +152,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
+
         #region Delete Supplier Details or Dealer Detais from Table 
         public bool Delete(SupplierMasterBLL sm)
         {
@@ -221,6 +224,7 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+
         #region method to search Supplier
         public SupplierMasterBLL SearchSupplier (String keyword)
         {
@@ -236,7 +240,7 @@ namespace Gorakshnath_Billing_System.DAL
 
             try
             {
-                string sql="Select CompanyName,Phone_No,Email,Address from Supplier_Master where SupplierID like'%"+keyword+"%' OR CompanyName Like'%"+keyword+"%'";
+                string sql="Select CompanyName,Phone_No,Email,Address from Supplier_Master where SupplierID like'%"+keyword+"%' OR CompanyName Like'%"+keyword+ "%' OR Contact_No Like'%" + keyword + "%'";
                 //Sql data adapter to execute query
                 SqlDataAdapter adapter = new SqlDataAdapter(sql,conn);
                 //open connecton to databaase

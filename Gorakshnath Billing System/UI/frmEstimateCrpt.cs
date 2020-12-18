@@ -44,12 +44,13 @@ namespace Gorakshnath_Billing_System.UI
             Report_Generator.CrystalReport.crptEstimate Estimate = new Report_Generator.CrystalReport.crptEstimate();
             crptEstimateViewer.ReportSource = null;
             Estimate.SetParameterValue("@Invoice_No", GetInvoice.ToString());
-            crptEstimateViewer.ReportSource = Estimate;            
+            crptEstimateViewer.ReportSource = Estimate;
+            btnSendMail.Enabled = false;
         }
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-
+            /*
 
             try
             {
@@ -79,7 +80,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show(ex.ToString());
             }
-
+            */
 
         }
     }

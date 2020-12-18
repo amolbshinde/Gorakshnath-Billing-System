@@ -196,7 +196,7 @@ namespace Gorakshnath_Billing_System.DAL
             //
             try
             {
-                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address from Cust_Master WHERE Cust_Id LIKE '%" + keyword + "%' OR Cust_Name LIKE '%" + keyword + "%'";
+                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address from Cust_Master WHERE Cust_Id LIKE '%" + keyword + "%' OR Cust_Name LIKE '%" + keyword + "%' OR Cust_Contact LIKE '%" + keyword + "%'";
 
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
 

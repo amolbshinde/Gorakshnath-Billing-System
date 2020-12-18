@@ -37,6 +37,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             if (comboTransactionType.Text == "Non GST")
             {
+                Clear();
                 comboGstType.Enabled = false;
                 textGST.Enabled = false;
                 textCgst.Enabled = false;
@@ -52,9 +53,11 @@ namespace Gorakshnath_Billing_System.UI
                 label36.Enabled = false;
                 label18.Enabled = false;
                 label12.Enabled = false;
+                
             }
-            else if (comboTransactionType.Text == "GST")
+            if (comboTransactionType.Text == "GST")
             {
+                Clear();
                 comboGstType.Enabled = true;
                 textGST.Enabled = true;
                 textCgst.Enabled = true;
@@ -66,7 +69,7 @@ namespace Gorakshnath_Billing_System.UI
                 label34.Enabled = true;
                 label36.Enabled = true;
                 label18.Enabled = true;
-                label12.Enabled = true;
+                label12.Enabled = true;                
             }
         }
 
@@ -117,8 +120,7 @@ namespace Gorakshnath_Billing_System.UI
                 textInventory.Text = "0";
                 textRate.Text = "0";
                 textDiscount.Text = "0";
-                textQuantity.Text = "0";
-                comboGstType.Text = "";
+                textQuantity.Text = "0";                
                 textGST.Text = "0";
                 textTotalAmount.Text = "0";
                 return;
@@ -222,7 +224,7 @@ namespace Gorakshnath_Billing_System.UI
                                     textRate.Text = "0";
                                     textDiscount.Text = "0";
                                     textQuantity.Text = "0";
-                                    if (comboTransactionType.Text == "GST")
+                                    if(comboTransactionType.Text != "Non GST")
                                     {
                                         comboGstType.Text = "";
                                         textGST.Text = "0";
@@ -426,9 +428,14 @@ namespace Gorakshnath_Billing_System.UI
             textInventory.Text = "0";
             textQuantity.Text = "0";
             textRate.Text = "0";
-            textDiscount.Text = "0";            
-            comboGstType.Text = "";
-            textGST.Text = "0";
+            textDiscount.Text = "0";
+
+            if (comboTransactionType.Text != "Non GST")
+            {
+                comboGstType.Text = "";
+                textGST.Text = "0";
+            }
+
             textTotalAmount.Text = "0";
 
             textSubTotal.Text = "0";
@@ -487,7 +494,6 @@ namespace Gorakshnath_Billing_System.UI
             string check = textRate.Text;
             if (check == "" && check == "0")
             {
-
                 MessageBox.Show("Please entery Purchase Price.");
                 textTotalAmount.Text = "0";
             }
@@ -540,7 +546,7 @@ namespace Gorakshnath_Billing_System.UI
             if (check == "" && check == "0")
             {
 
-                MessageBox.Show("Please Enter GST %.");
+                textGST.Text = "0";
 
             }
 
