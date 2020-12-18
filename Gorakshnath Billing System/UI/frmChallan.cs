@@ -540,7 +540,7 @@ namespace Gorakshnath_Billing_System.UI
             if (check == "" && check == "0")
             {
 
-                MessageBox.Show("Please Enter GST %.");
+                textGST.Text = "0";
 
             }
 
