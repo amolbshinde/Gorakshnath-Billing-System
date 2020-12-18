@@ -494,7 +494,6 @@ namespace Gorakshnath_Billing_System.UI
             string check = textRate.Text;
             if (check == "" && check == "0")
             {
-
                 MessageBox.Show("Please entery Purchase Price.");
                 textTotalAmount.Text = "0";
             }
