@@ -31,8 +31,7 @@ namespace Gorakshnath_Billing_System
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUsers user = new frmUsers();
-            user.Show();
+            
         }
 
         private void frmAdminDashboard_Load(object sender, EventArgs e)
@@ -205,6 +204,16 @@ namespace Gorakshnath_Billing_System
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void manageUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsers user = new frmUsers();
+            user.Show();
+        }
+
+        private void exitToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             DialogResult dialog = new DialogResult();
 

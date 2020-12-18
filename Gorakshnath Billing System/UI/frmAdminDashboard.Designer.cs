@@ -33,7 +33,6 @@ namespace Gorakshnath_Billing_System
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +54,6 @@ namespace Gorakshnath_Billing_System
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageCategoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageBrandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageProductGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +63,12 @@ namespace Gorakshnath_Billing_System
             this.challanReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.salesReturnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchasaaeReturnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estimateReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deliveryChallanReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnllFooter.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -76,10 +80,10 @@ namespace Gorakshnath_Billing_System
             this.pnllFooter.BackColor = System.Drawing.Color.Teal;
             this.pnllFooter.Controls.Add(this.label1);
             this.pnllFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnllFooter.Location = new System.Drawing.Point(0, 586);
+            this.pnllFooter.Location = new System.Drawing.Point(0, 593);
             this.pnllFooter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnllFooter.Name = "pnllFooter";
-            this.pnllFooter.Size = new System.Drawing.Size(1513, 39);
+            this.pnllFooter.Size = new System.Drawing.Size(1513, 32);
             this.pnllFooter.TabIndex = 0;
             // 
             // label1
@@ -87,7 +91,7 @@ namespace Gorakshnath_Billing_System
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(911, 6);
+            this.label1.Location = new System.Drawing.Point(807, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(227, 20);
             this.label1.TabIndex = 0;
@@ -117,6 +121,7 @@ namespace Gorakshnath_Billing_System
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageUsersToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.usersToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usersToolStripMenuItem.Image = global::Gorakshnath_Billing_System.Properties.Resources._3fe2835;
@@ -124,13 +129,6 @@ namespace Gorakshnath_Billing_System
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(81, 25);
             this.usersToolStripMenuItem.Text = "Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
@@ -284,7 +282,6 @@ namespace Gorakshnath_Billing_System
             this.transactionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNewProductToolStripMenuItem,
             this.searchAndManageProductToolStripMenuItem,
-            this.manageCategoriesToolStripMenuItem,
             this.manageBrandToolStripMenuItem,
             this.manageProductGroupToolStripMenuItem});
             this.transactionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -303,29 +300,22 @@ namespace Gorakshnath_Billing_System
             // searchAndManageProductToolStripMenuItem
             // 
             this.searchAndManageProductToolStripMenuItem.Name = "searchAndManageProductToolStripMenuItem";
-            this.searchAndManageProductToolStripMenuItem.Size = new System.Drawing.Size(275, 26);
-            this.searchAndManageProductToolStripMenuItem.Text = "Search and Manage Product";
+            this.searchAndManageProductToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.searchAndManageProductToolStripMenuItem.Text = "Manage Product";
             this.searchAndManageProductToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageProductToolStripMenuItem_Click);
-            // 
-            // manageCategoriesToolStripMenuItem
-            // 
-            this.manageCategoriesToolStripMenuItem.Name = "manageCategoriesToolStripMenuItem";
-            this.manageCategoriesToolStripMenuItem.Size = new System.Drawing.Size(275, 26);
-            this.manageCategoriesToolStripMenuItem.Text = "Manage Categories";
-            this.manageCategoriesToolStripMenuItem.Click += new System.EventHandler(this.manageCategoriesToolStripMenuItem_Click);
             // 
             // manageBrandToolStripMenuItem
             // 
             this.manageBrandToolStripMenuItem.Name = "manageBrandToolStripMenuItem";
-            this.manageBrandToolStripMenuItem.Size = new System.Drawing.Size(275, 26);
-            this.manageBrandToolStripMenuItem.Text = "Manage Brand";
+            this.manageBrandToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.manageBrandToolStripMenuItem.Text = "Brand Master";
             this.manageBrandToolStripMenuItem.Click += new System.EventHandler(this.manageBrandToolStripMenuItem_Click);
             // 
             // manageProductGroupToolStripMenuItem
             // 
             this.manageProductGroupToolStripMenuItem.Name = "manageProductGroupToolStripMenuItem";
-            this.manageProductGroupToolStripMenuItem.Size = new System.Drawing.Size(275, 26);
-            this.manageProductGroupToolStripMenuItem.Text = "Manage Product Group";
+            this.manageProductGroupToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.manageProductGroupToolStripMenuItem.Text = "Group Master";
             this.manageProductGroupToolStripMenuItem.Click += new System.EventHandler(this.manageProductGroupToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
@@ -334,7 +324,11 @@ namespace Gorakshnath_Billing_System
             this.totalSalesReportToolStripMenuItem,
             this.itemWiseSalesReportToolStripMenuItem,
             this.totalPurchaseReportToolStripMenuItem,
-            this.challanReportToolStripMenuItem});
+            this.challanReportToolStripMenuItem,
+            this.salesReturnReportToolStripMenuItem,
+            this.purchasaaeReturnReportToolStripMenuItem,
+            this.estimateReportToolStripMenuItem,
+            this.deliveryChallanReportToolStripMenuItem});
             this.reportsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportsToolStripMenuItem.Image = global::Gorakshnath_Billing_System.Properties.Resources.images__1_1;
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
@@ -358,8 +352,8 @@ namespace Gorakshnath_Billing_System
             // totalPurchaseReportToolStripMenuItem
             // 
             this.totalPurchaseReportToolStripMenuItem.Name = "totalPurchaseReportToolStripMenuItem";
-            this.totalPurchaseReportToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.totalPurchaseReportToolStripMenuItem.Text = "Inventory";
+            this.totalPurchaseReportToolStripMenuItem.Size = new System.Drawing.Size(270, 26);
+            this.totalPurchaseReportToolStripMenuItem.Text = "Stock Report";
             this.totalPurchaseReportToolStripMenuItem.Click += new System.EventHandler(this.totalPurchaseReportToolStripMenuItem_Click);
             // 
             // challanReportToolStripMenuItem
@@ -384,19 +378,56 @@ namespace Gorakshnath_Billing_System
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label4.Location = new System.Drawing.Point(791, 507);
+            this.label4.Location = new System.Drawing.Point(756, 532);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(408, 30);
             this.label4.TabIndex = 4;
             this.label4.Text = "Shiv Gorakshnath Traders Billing System";
             // 
+            // salesReturnReportToolStripMenuItem
+            // 
+            this.salesReturnReportToolStripMenuItem.Name = "salesReturnReportToolStripMenuItem";
+            this.salesReturnReportToolStripMenuItem.Size = new System.Drawing.Size(270, 26);
+            this.salesReturnReportToolStripMenuItem.Text = "Sales Return Report";
+            // 
+            // purchasaaeReturnReportToolStripMenuItem
+            // 
+            this.purchasaaeReturnReportToolStripMenuItem.Name = "purchasaaeReturnReportToolStripMenuItem";
+            this.purchasaaeReturnReportToolStripMenuItem.Size = new System.Drawing.Size(270, 26);
+            this.purchasaaeReturnReportToolStripMenuItem.Text = "Purchase Return Report";
+            // 
+            // estimateReportToolStripMenuItem
+            // 
+            this.estimateReportToolStripMenuItem.Name = "estimateReportToolStripMenuItem";
+            this.estimateReportToolStripMenuItem.Size = new System.Drawing.Size(270, 26);
+            this.estimateReportToolStripMenuItem.Text = "Estimate/Quotation  Report";
+            // 
+            // deliveryChallanReportToolStripMenuItem
+            // 
+            this.deliveryChallanReportToolStripMenuItem.Name = "deliveryChallanReportToolStripMenuItem";
+            this.deliveryChallanReportToolStripMenuItem.Size = new System.Drawing.Size(270, 26);
+            this.deliveryChallanReportToolStripMenuItem.Text = "Delivery Challan Report";
+            // 
+            // manageUsersToolStripMenuItem
+            // 
+            this.manageUsersToolStripMenuItem.Name = "manageUsersToolStripMenuItem";
+            this.manageUsersToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.manageUsersToolStripMenuItem.Text = "Manage Users";
+            this.manageUsersToolStripMenuItem.Click += new System.EventHandler(this.manageUsersToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Gorakshnath_Billing_System.Properties.Resources._try;
-            this.pictureBox1.Location = new System.Drawing.Point(771, 226);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(761, 232);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(419, 279);
+            this.pictureBox1.Size = new System.Drawing.Size(403, 297);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -459,15 +490,19 @@ namespace Gorakshnath_Billing_System
         private System.Windows.Forms.ToolStripMenuItem totalSalesReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemWiseSalesReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem totalPurchaseReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageCategoriesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageBrandToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageProductGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchAndManageCustomerToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem challanReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchAndManageSalesReturnCreditNoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchAndManageDeliveryNoteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salesReturnReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem purchasaaeReturnReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estimateReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deliveryChallanReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageUsersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
