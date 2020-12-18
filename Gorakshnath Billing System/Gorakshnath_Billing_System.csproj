@@ -244,12 +244,6 @@
     <Compile Include="UI\frmDummySales.Designer.cs">
       <DependentUpon>frmDummySales.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmEstimate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\frmEstimate.Designer.cs">
-      <DependentUpon>frmEstimate.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\frmAdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +297,12 @@
     </Compile>
     <Compile Include="UI\frmPurchaseReturn.Designer.cs">
       <DependentUpon>frmPurchaseReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmQuotation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmQuotation.Designer.cs">
+      <DependentUpon>frmQuotation.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmSales.cs">
       <SubType>Form</SubType>
@@ -406,9 +406,6 @@
     <EmbeddedResource Include="UI\frmDummySales.resx">
       <DependentUpon>frmDummySales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmEstimate.resx">
-      <DependentUpon>frmEstimate.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmAdminDashboard.resx">
       <DependentUpon>frmAdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -435,6 +432,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPurchaseReturn.resx">
       <DependentUpon>frmPurchaseReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmQuotation.resx">
+      <DependentUpon>frmQuotation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmSales.resx">
       <DependentUpon>frmSales.cs</DependentUpon>
