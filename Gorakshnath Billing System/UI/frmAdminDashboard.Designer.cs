@@ -65,6 +65,7 @@ namespace Gorakshnath_Billing_System
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnllFooter.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -115,6 +116,8 @@ namespace Gorakshnath_Billing_System
             // 
             // usersToolStripMenuItem
             // 
+            this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
             this.usersToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usersToolStripMenuItem.Image = global::Gorakshnath_Billing_System.Properties.Resources._3fe2835;
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
@@ -391,6 +394,13 @@ namespace Gorakshnath_Billing_System
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // frmAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -457,6 +467,7 @@ namespace Gorakshnath_Billing_System
         private System.Windows.Forms.ToolStripMenuItem challanReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchAndManageSalesReturnCreditNoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchAndManageDeliveryNoteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 
