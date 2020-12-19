@@ -1024,7 +1024,6 @@ namespace Gorakshnath_Billing_System.UI
             // dgvAddedProducts
             // 
             this.dgvAddedProducts.AllowUserToAddRows = false;
-            this.dgvAddedProducts.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvAddedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAddedProducts.Location = new System.Drawing.Point(12, 20);
             this.dgvAddedProducts.Margin = new System.Windows.Forms.Padding(2);
