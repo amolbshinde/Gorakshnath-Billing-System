@@ -113,6 +113,7 @@ namespace Gorakshnath_Billing_System.UI
 
             if (keyword == "")
             {
+                comboItemSearch.Text= "Select Product";
                 textItemCode.Text = "";
                 textItemName.Text = "";
                 comboBoxUnit.Text = "";
@@ -215,7 +216,7 @@ namespace Gorakshnath_Billing_System.UI
                                     }
 
 
-                                    comboItemSearch.Text = "";
+                                    comboItemSearch.Text = "Select Product";
                                     textItemName.Text = "";
                                     comboBoxUnit.Text = "";
                                     textInventory.Text = "0";
@@ -427,7 +428,7 @@ namespace Gorakshnath_Billing_System.UI
         public void Clear()
         {
 
-            comboSearchCust.Text = "";
+            comboSearchCust.Text = "Select Cust";
             textCust_Name.Text = "";
             textEmail.Text = "";
             textAddress.Text = "";
@@ -435,7 +436,7 @@ namespace Gorakshnath_Billing_System.UI
             textBox6.Text = "";
 
             textItemCode.Text = "";
-            comboItemSearch.Text = "";
+            comboItemSearch.Text = "Select Product";
             textItemName.Text = "";
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
@@ -753,6 +754,80 @@ namespace Gorakshnath_Billing_System.UI
 
         private void label31_Click_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void comboItemSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboItemSearch.Text != "Select Product")
+            {
+
+                string keyword = comboItemSearch.Text;
+                if (keyword == "")
+                {
+                    comboItemSearch.Text = "Select Product";
+                    textItemCode.Text = "";
+                    textItemName.Text = "";
+                    comboBoxUnit.Text = "";
+                    textInventory.Text = "0";
+                    textRate.Text = "0";
+                    textDiscount.Text = "0";
+                    textQuantity.Text = "0";
+                    textGST.Text = "0";
+                    textTotalAmount.Text = "0";
+                    return;
+                }
+
+                ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
+                textItemCode.Text = p.Item_Code;
+                textItemName.Text = p.Product_Name;
+                comboBoxUnit.Text = p.Unit;
+                textRate.Text = p.Sales_Price.ToString();
+                textInventory.Text = p.Quantity.ToString();
+
+            }
+            else
+            {
+                //dsd
+            }
+        }
+
+        private void comboSearchCust_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if(comboSearchCust.Text != "Select Cust")
+            {
+
+                if (comboTransactionType.Text != "")
+                {
+                    //get search keyword from search text box
+                    string keyword = comboSearchCust.Text;
+                    if (keyword == "")//clear all textboex
+                    {
+                        textCust_Name.Text = "";
+                        textAddress.Text = "";
+                        textContact.Text = "";
+                        textEmail.Text = "";
+                        return;
+                    }
+
+                    customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
+
+                    textCust_Name.Text = cBLL.name;
+                    textContact.Text = cBLL.contact;
+                    textEmail.Text = cBLL.email;
+                    textAddress.Text = cBLL.address;
+                }
+                else
+                {
+                    MessageBox.Show("Please Select The Transaction Type First, You Cannot Change the Transaction type during this Transaction");
+                }
+
+            }
+            else
+            {
+                //dsd
+            }
 
         }
     }

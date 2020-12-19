@@ -62,7 +62,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.comboItemSearch = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
             this.textItemName = new System.Windows.Forms.TextBox();
             this.comboGstType = new System.Windows.Forms.ComboBox();
@@ -108,6 +107,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.comboItemSearch = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -233,6 +233,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboSearchCust.Name = "comboSearchCust";
             this.comboSearchCust.Size = new System.Drawing.Size(180, 23);
             this.comboSearchCust.TabIndex = 20;
+            this.comboSearchCust.SelectedIndexChanged += new System.EventHandler(this.comboSearchCust_SelectedIndexChanged);
             // 
             // comboTransactionType
             // 
@@ -513,21 +514,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1057, 88);
             this.panel3.TabIndex = 18;
-            // 
-            // comboItemSearch
-            // 
-            this.comboItemSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboItemSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboItemSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboItemSearch.FormattingEnabled = true;
-            this.comboItemSearch.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
-            this.comboItemSearch.Location = new System.Drawing.Point(73, 49);
-            this.comboItemSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.comboItemSearch.Name = "comboItemSearch";
-            this.comboItemSearch.Size = new System.Drawing.Size(143, 23);
-            this.comboItemSearch.TabIndex = 21;
             // 
             // label35
             // 
@@ -1066,6 +1052,22 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4.Size = new System.Drawing.Size(1057, 247);
             this.panel4.TabIndex = 19;
             // 
+            // comboItemSearch
+            // 
+            this.comboItemSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboItemSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboItemSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboItemSearch.FormattingEnabled = true;
+            this.comboItemSearch.Items.AddRange(new object[] {
+            "GST",
+            "Non GST"});
+            this.comboItemSearch.Location = new System.Drawing.Point(73, 49);
+            this.comboItemSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.comboItemSearch.Name = "comboItemSearch";
+            this.comboItemSearch.Size = new System.Drawing.Size(143, 23);
+            this.comboItemSearch.TabIndex = 21;
+            this.comboItemSearch.SelectedIndexChanged += new System.EventHandler(this.comboItemSearch_SelectedIndexChanged);
+            // 
             // frmChallan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1077,10 +1079,11 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmChallan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "New Challan";
+            this.Text = "Challan";
             this.Load += new System.EventHandler(this.frmChallan_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
