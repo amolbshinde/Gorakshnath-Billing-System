@@ -47,6 +47,8 @@ namespace Gorakshnath_Billing_System.UI
             comboMobileNo.DataSource = dtM;
             comboMobileNo.Text = "Select By Mobile No";
 
+            //MessageBox.Show(comboInvoiceNo.Text);
+
         }
 
         private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
