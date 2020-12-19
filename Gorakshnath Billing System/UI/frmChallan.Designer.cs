@@ -37,6 +37,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textQuantity = new System.Windows.Forms.TextBox();
             this.textCgst = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboSearchCust = new System.Windows.Forms.ComboBox();
             this.comboTransactionType = new System.Windows.Forms.ComboBox();
             this.textPurchaseBillNo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label11 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label35 = new System.Windows.Forms.Label();
-            this.textItemSearch = new System.Windows.Forms.TextBox();
             this.textItemName = new System.Windows.Forms.TextBox();
             this.comboGstType = new System.Windows.Forms.ComboBox();
             this.textGST = new System.Windows.Forms.TextBox();
@@ -107,7 +107,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.comboSearchCust = new System.Windows.Forms.ComboBox();
+            this.comboItemSearch = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -218,6 +218,21 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1057, 119);
             this.panel2.TabIndex = 17;
+            // 
+            // comboSearchCust
+            // 
+            this.comboSearchCust.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboSearchCust.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboSearchCust.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboSearchCust.FormattingEnabled = true;
+            this.comboSearchCust.Items.AddRange(new object[] {
+            "GST",
+            "Non GST"});
+            this.comboSearchCust.Location = new System.Drawing.Point(6, 89);
+            this.comboSearchCust.Margin = new System.Windows.Forms.Padding(2);
+            this.comboSearchCust.Name = "comboSearchCust";
+            this.comboSearchCust.Size = new System.Drawing.Size(180, 23);
+            this.comboSearchCust.TabIndex = 20;
             // 
             // comboTransactionType
             // 
@@ -468,8 +483,8 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.comboItemSearch);
             this.panel3.Controls.Add(this.label35);
-            this.panel3.Controls.Add(this.textItemSearch);
             this.panel3.Controls.Add(this.textItemName);
             this.panel3.Controls.Add(this.comboGstType);
             this.panel3.Controls.Add(this.textGST);
@@ -509,16 +524,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label35.Size = new System.Drawing.Size(49, 19);
             this.label35.TabIndex = 43;
             this.label35.Text = "Search";
-            // 
-            // textItemSearch
-            // 
-            this.textItemSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textItemSearch.Location = new System.Drawing.Point(73, 48);
-            this.textItemSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.textItemSearch.Name = "textItemSearch";
-            this.textItemSearch.Size = new System.Drawing.Size(143, 26);
-            this.textItemSearch.TabIndex = 42;
-            this.textItemSearch.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
             // textItemName
             // 
@@ -1046,20 +1051,20 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4.Size = new System.Drawing.Size(1057, 247);
             this.panel4.TabIndex = 19;
             // 
-            // comboSearchCust
+            // comboItemSearch
             // 
-            this.comboSearchCust.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboSearchCust.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboSearchCust.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboSearchCust.FormattingEnabled = true;
-            this.comboSearchCust.Items.AddRange(new object[] {
+            this.comboItemSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboItemSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboItemSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboItemSearch.FormattingEnabled = true;
+            this.comboItemSearch.Items.AddRange(new object[] {
             "GST",
             "Non GST"});
-            this.comboSearchCust.Location = new System.Drawing.Point(6, 89);
-            this.comboSearchCust.Margin = new System.Windows.Forms.Padding(2);
-            this.comboSearchCust.Name = "comboSearchCust";
-            this.comboSearchCust.Size = new System.Drawing.Size(180, 23);
-            this.comboSearchCust.TabIndex = 20;
+            this.comboItemSearch.Location = new System.Drawing.Point(73, 49);
+            this.comboItemSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.comboItemSearch.Name = "comboItemSearch";
+            this.comboItemSearch.Size = new System.Drawing.Size(143, 23);
+            this.comboItemSearch.TabIndex = 21;
             // 
             // frmChallan
             // 
@@ -1169,7 +1174,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textItemName;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox textItemSearch;
         private System.Windows.Forms.TextBox textIgst;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Button btnClear;
@@ -1177,5 +1181,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboSearchCust;
+        private System.Windows.Forms.ComboBox comboItemSearch;
     }
 }

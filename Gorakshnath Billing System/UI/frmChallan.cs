@@ -109,7 +109,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
-            string keyword = textItemSearch.Text;
+            string keyword = comboItemSearch.Text;
 
             if (keyword == "")
             {
@@ -215,7 +215,7 @@ namespace Gorakshnath_Billing_System.UI
                                     }
 
 
-                                    textItemSearch.Text = "";
+                                    comboItemSearch.Text = "";
                                     textItemName.Text = "";
                                     comboBoxUnit.Text = "";
                                     textInventory.Text = "0";
@@ -275,12 +275,19 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("(=)Total");
             //*
             comboSearchCust.DataSource = null;
-            DataTable dtI = cDAL.Select();
-            //comboSearchCust.DisplayMember = "Cust_Name";
-            comboSearchCust.ValueMember = "Cust_Name";
-            comboSearchCust.DataSource = dtI;
-            comboSearchCust.Text = "Select By Invoice No";
-            
+            DataTable dtC = cDAL.SelectForCombo();
+            comboSearchCust.DisplayMember = "Column123";
+            comboSearchCust.ValueMember = "Column123";
+            comboSearchCust.DataSource = dtC;
+            comboSearchCust.Text = "Select Cust";
+
+            comboItemSearch.DataSource = null;
+            DataTable dtI = ProductMasterDAL.SelectForCombo();
+            comboItemSearch.DisplayMember = "Column12";
+            comboItemSearch.ValueMember = "Column12";
+            comboItemSearch.DataSource = dtI;
+            comboItemSearch.Text = "Select Product";
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -428,7 +435,7 @@ namespace Gorakshnath_Billing_System.UI
             textBox6.Text = "";
 
             textItemCode.Text = "";
-            textItemSearch.Text = "";
+            comboItemSearch.Text = "";
             textItemName.Text = "";
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
@@ -458,7 +465,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
         {
-            string pname = textItemSearch.Text;
+            string pname = textItemName.Text;
             ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(pname);
             decimal inv;
             decimal.TryParse(textQuantity.Text, out inv);
