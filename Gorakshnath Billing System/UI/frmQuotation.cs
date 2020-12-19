@@ -678,7 +678,67 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
+        public void Clear()
+        {
 
+            textSearch.Text = "";
+            textCust_Name.Text = "";
+            textEmail.Text = "";
+            textAddress.Text = "";
+            textContact.Text = "";
+            textInvoiceNo.Text = "";
 
+            textItemCode.Text = "";
+            textItemSearch.Text = "";
+            textItemName.Text = "";
+            comboBoxUnit.Text = "";
+            textInventory.Text = "0";
+            textQuantity.Text = "0";
+            textRate.Text = "0";
+            textDiscount.Text = "0";
+
+            if (comboTransactionType.Text != "Non GST")
+            {
+                comboGstType.Text = "";
+                textGST.Text = "0";
+            }
+
+            textTotalAmount.Text = "0";
+
+            textSubTotal.Text = "0";
+            textSubDiscount.Text = "0";
+            textSgst.Text = "0";
+            textCgst.Text = "0";
+            textIgst.Text = "0";
+            textGrandTotal.Text = "0";
+
+            dgvAddedProducts.DataSource = null;
+            dgvAddedProducts.Rows.Clear();
+            estimateDT.Rows.Clear();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (Invoice_No != -1)
+            {
+                ////Invoice_No = 7;
+                frmEstimateCrpt frmcrpt = new frmEstimateCrpt(Invoice_No);
+                frmcrpt.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please Save details first");
+            }
+        }
     }
 }

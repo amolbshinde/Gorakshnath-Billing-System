@@ -154,6 +154,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnExit.TabIndex = 39;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnPrint
             // 
@@ -168,6 +169,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnPrint.TabIndex = 38;
             this.btnPrint.Text = " Print";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnClear
             // 
@@ -182,6 +184,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnClear.TabIndex = 37;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // textIgst
             // 
