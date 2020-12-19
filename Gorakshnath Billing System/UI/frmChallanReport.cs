@@ -69,7 +69,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboCustName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboCustName.Text != "Select By Cust Name")
+            if (comboCustName.Text != "Select By Mobile No")
             {
                 string CName;
                 CName = comboCustName.Text.ToString();

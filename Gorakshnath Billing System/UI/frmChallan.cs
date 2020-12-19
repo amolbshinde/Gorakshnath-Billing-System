@@ -83,7 +83,7 @@ namespace Gorakshnath_Billing_System.UI
             if (comboTransactionType.Text != "")
             {
                 //get search keyword from search text box
-                string keyword = textSearch.Text;
+                string keyword = comboSearchCust.Text;
                 if (keyword == "")//clear all textboex
                 {
                     textCust_Name.Text = "";
@@ -273,6 +273,14 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("(+)GST%");
             salesDT.Columns.Add("(+)GSTAMT");
             salesDT.Columns.Add("(=)Total");
+            //*
+            comboSearchCust.DataSource = null;
+            DataTable dtI = cDAL.Select();
+            //comboSearchCust.DisplayMember = "Cust_Name";
+            comboSearchCust.ValueMember = "Cust_Name";
+            comboSearchCust.DataSource = dtI;
+            comboSearchCust.Text = "Select By Invoice No";
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -308,7 +316,6 @@ namespace Gorakshnath_Billing_System.UI
             {
                 if (sname != "")
                 {
-
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
                         customerBLL c = cDAL.getCustomerIdFromName(sname);
@@ -412,8 +419,8 @@ namespace Gorakshnath_Billing_System.UI
 
         public void Clear()
         {
-            
-            textSearch.Text = "";
+
+            comboSearchCust.Text = "";
             textCust_Name.Text = "";
             textEmail.Text = "";
             textAddress.Text = "";
