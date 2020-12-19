@@ -112,6 +112,8 @@ namespace Gorakshnath_Billing_System
 
         private void newQuotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmQuotation Quotation = new frmQuotation();
+            Quotation.Show();
             //frmEstimate estimate = new frmEstimate();
             //estimate.Show();
         }

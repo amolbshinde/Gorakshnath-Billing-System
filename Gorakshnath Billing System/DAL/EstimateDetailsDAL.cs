@@ -17,7 +17,7 @@ namespace Gorakshnath_Billing_System.DAL
 
         #region Insert Meathod for Challan Details
 
-        public bool insertchallandetails(EstimateDetailsBLL cb)
+        public bool insertEstimatedetails(EstimateDetailsBLL cb)
         {
             bool isSuccess = false;
 

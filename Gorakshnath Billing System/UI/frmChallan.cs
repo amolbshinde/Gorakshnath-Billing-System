@@ -111,7 +111,6 @@ namespace Gorakshnath_Billing_System.UI
         {
             string keyword = textItemSearch.Text;
 
-
             if (keyword == "")
             {
                 textItemCode.Text = "";
@@ -549,8 +548,6 @@ namespace Gorakshnath_Billing_System.UI
                 textGST.Text = "0";
 
             }
-
-
             else
             {
                 decimal Qty, Rate, discount, gst;
