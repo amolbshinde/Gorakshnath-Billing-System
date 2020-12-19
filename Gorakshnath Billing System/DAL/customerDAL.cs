@@ -261,7 +261,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-        #region Select Data From Database
+        #region Select Data From Database for challan combo
         public DataTable SelectForCombo()
         {
             SqlConnection con = new SqlConnection(myconnstrng);
