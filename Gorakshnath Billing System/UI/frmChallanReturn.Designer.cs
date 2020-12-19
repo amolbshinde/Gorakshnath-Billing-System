@@ -68,6 +68,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textGrandTotal = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.textCgst = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -102,7 +103,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -589,6 +589,21 @@ namespace Gorakshnath_Billing_System.UI
             this.panel6.Size = new System.Drawing.Size(451, 267);
             this.panel6.TabIndex = 27;
             // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 2;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.BlueViolet;
+            this.button3.Location = new System.Drawing.Point(13, 208);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(90, 32);
+            this.button3.TabIndex = 39;
+            this.button3.Text = "Exit";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // textCgst
             // 
             this.textCgst.BackColor = System.Drawing.SystemColors.Window;
@@ -945,7 +960,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1203, 31);
+            this.panel1.Size = new System.Drawing.Size(1093, 31);
             this.panel1.TabIndex = 22;
             // 
             // pictureBox1
@@ -971,35 +986,20 @@ namespace Gorakshnath_Billing_System.UI
             this.label1.TabIndex = 0;
             this.label1.Text = "New Challan Return";
             // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.BlueViolet;
-            this.button3.Location = new System.Drawing.Point(13, 208);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 32);
-            this.button3.TabIndex = 39;
-            this.button3.Text = "Exit";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // frmChallanReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 788);
+            this.ClientSize = new System.Drawing.Size(1093, 784);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmChallanReturn";
-            this.Text = "frmChallanReturn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Invoice Return";
             this.Load += new System.EventHandler(this.frmChallanReturn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).EndInit();
             this.panel3.ResumeLayout(false);

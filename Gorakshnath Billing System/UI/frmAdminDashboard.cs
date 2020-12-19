@@ -25,8 +25,7 @@ namespace Gorakshnath_Billing_System
 
         private void catageoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCategories category = new frmCategories();
-            category.Show();
+            
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,8 +64,7 @@ namespace Gorakshnath_Billing_System
 
         private void manageCategoriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCategories category = new frmCategories();
-            category.Show();
+            
         }
 
         private void totalSalesReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -226,6 +224,11 @@ namespace Gorakshnath_Billing_System
                 MessageBox.Show("Goodbye !!!");
                 System.Environment.Exit(1);
             }
+        }
+
+        private void searchAndManageSalesReturnCreditNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

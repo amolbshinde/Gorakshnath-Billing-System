@@ -110,7 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BrandBLL.cs" />
-    <Compile Include="BLL\categoriesBLL.cs" />
     <Compile Include="BLL\challanBLL.cs" />
     <Compile Include="BLL\challandetailsBLL.cs" />
     <Compile Include="BLL\ChallanReturnBLL.cs" />
@@ -135,7 +134,6 @@
     <Compile Include="BLL\SupplierMasterBLL.cs" />
     <Compile Include="BLL\userBLL.cs" />
     <Compile Include="DAL\BrandDAL.cs" />
-    <Compile Include="DAL\categoriesDAL.cs" />
     <Compile Include="DAL\challanDAL.cs" />
     <Compile Include="DAL\challandetailsDAL.cs" />
     <Compile Include="DAL\ChallanReturnDAL.cs" />
@@ -250,12 +248,6 @@
     <Compile Include="UI\frmAdminDashboard.Designer.cs">
       <DependentUpon>frmAdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmCategories.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\frmCategories.Designer.cs">
-      <DependentUpon>frmCategories.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\frmCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,29 +296,11 @@
     <Compile Include="UI\frmQuotation.Designer.cs">
       <DependentUpon>frmQuotation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\frmSales.Designer.cs">
-      <DependentUpon>frmSales.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\frmSalesReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\frmSalesReport.Designer.cs">
       <DependentUpon>frmSalesReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\frmSalesReturn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\frmSalesReturn.Designer.cs">
-      <DependentUpon>frmSalesReturn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\frmStockMaster.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\frmStockMaster.Designer.cs">
-      <DependentUpon>frmStockMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmStockReport.cs">
       <SubType>Form</SubType>
@@ -409,9 +383,6 @@
     <EmbeddedResource Include="UI\frmAdminDashboard.resx">
       <DependentUpon>frmAdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmCategories.resx">
-      <DependentUpon>frmCategories.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -436,17 +407,8 @@
     <EmbeddedResource Include="UI\frmQuotation.resx">
       <DependentUpon>frmQuotation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmSales.resx">
-      <DependentUpon>frmSales.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmSalesReport.resx">
       <DependentUpon>frmSalesReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmSalesReturn.resx">
-      <DependentUpon>frmSalesReturn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmStockMaster.resx">
-      <DependentUpon>frmStockMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmStockReport.resx">
       <DependentUpon>frmStockReport.cs</DependentUpon>

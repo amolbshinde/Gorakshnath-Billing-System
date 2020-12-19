@@ -80,10 +80,10 @@ namespace Gorakshnath_Billing_System
             this.pnllFooter.BackColor = System.Drawing.Color.Teal;
             this.pnllFooter.Controls.Add(this.label1);
             this.pnllFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnllFooter.Location = new System.Drawing.Point(0, 482);
+            this.pnllFooter.Location = new System.Drawing.Point(0, 563);
             this.pnllFooter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnllFooter.Name = "pnllFooter";
-            this.pnllFooter.Size = new System.Drawing.Size(1135, 26);
+            this.pnllFooter.Size = new System.Drawing.Size(1251, 26);
             this.pnllFooter.TabIndex = 0;
             // 
             // label1
@@ -115,7 +115,7 @@ namespace Gorakshnath_Billing_System
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(1135, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(1251, 29);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -192,6 +192,7 @@ namespace Gorakshnath_Billing_System
             this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Name = "searchAndManageSalesReturnCreditNoteToolStripMenuItem";
             this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Size = new System.Drawing.Size(316, 26);
             this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Text = "Search and Manage Sales Return";
+            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageSalesReturnCreditNoteToolStripMenuItem_Click);
             // 
             // newDeliveryNoteToolStripMenuItem
             // 
@@ -418,7 +419,7 @@ namespace Gorakshnath_Billing_System
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label4.Location = new System.Drawing.Point(509, 358);
+            this.label4.Location = new System.Drawing.Point(534, 491);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(400, 30);
@@ -428,7 +429,7 @@ namespace Gorakshnath_Billing_System
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Gorakshnath_Billing_System.Properties.Resources._try;
-            this.pictureBox1.Location = new System.Drawing.Point(508, 90);
+            this.pictureBox1.Location = new System.Drawing.Point(539, 210);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(387, 266);
@@ -440,7 +441,7 @@ namespace Gorakshnath_Billing_System
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1135, 508);
+            this.ClientSize = new System.Drawing.Size(1251, 589);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

@@ -32,6 +32,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvChallanReport = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.comboMobileNo = new System.Windows.Forms.ComboBox();
@@ -53,6 +54,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // dgvChallanReport
             // 
+            this.dgvChallanReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvChallanReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChallanReport.Location = new System.Drawing.Point(9, 8);
             this.dgvChallanReport.Name = "dgvChallanReport";
@@ -62,6 +64,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.comboMobileNo);
@@ -72,6 +75,19 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1185, 121);
             this.panel1.TabIndex = 3;
+            // 
+            // button4
+            // 
+            this.button4.FlatAppearance.BorderSize = 2;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.Teal;
+            this.button4.Location = new System.Drawing.Point(1026, 77);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(119, 30);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Clear";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -161,12 +177,13 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1225, 657);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmEstimateReport";
-            this.Text = "frmEstimateReport";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Estimate Report";
             this.Load += new System.EventHandler(this.frmEstimateReport_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChallanReport)).EndInit();
@@ -186,5 +203,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.ComboBox comboCustName;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboInvoiceNo;
+        private System.Windows.Forms.Button button4;
     }
 }
