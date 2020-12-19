@@ -61,7 +61,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (success == true)
                 {
                     MessageBox.Show(" Login Succesfull..!! ");
-                    //need to code what happen when login is sucesffull//
+                    //need to code what happen when login is sucesffull
                     loggedIn = l.username;
 
                     switch (l.user_type)
