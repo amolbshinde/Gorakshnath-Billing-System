@@ -617,8 +617,6 @@ namespace Gorakshnath_Billing_System.UI
                         //int Invoice_No = -1; alredy declared on top 
                         bool b = EstimateDAL.insertEstimate(EstimateBLL, out Invoice_No);
 
-
-
                         for (int i = 0; i < estimateDT.Rows.Count; i++)
                         {
                             EstimateDetailsBLL edBLL = new EstimateDetailsBLL();
@@ -639,9 +637,7 @@ namespace Gorakshnath_Billing_System.UI
                             edBLL.GST_Per = Math.Round(decimal.Parse(estimateDT.Rows[i][7].ToString()), 2);
                             edBLL.Total = Math.Round(decimal.Parse(estimateDT.Rows[i][9].ToString()), 2);
                            
-
-                            bool y = EstimateDetailsDAL.insertchallandetails(edBLL);
-                            
+                            bool y = EstimateDetailsDAL.insertEstimatedetails(edBLL);                            
 
                             isSuccess = b && y;
 
