@@ -18,7 +18,7 @@ namespace Gorakshnath_Billing_System.DAL
 
         #region Insert Data in Database
 
-        public bool insertChallan(EstimateBLL c, out int Invoice_No)
+        public bool insertEstimate(EstimateBLL c, out int Invoice_No)
         {
             bool isSuccess = false;
             Invoice_No = -1;

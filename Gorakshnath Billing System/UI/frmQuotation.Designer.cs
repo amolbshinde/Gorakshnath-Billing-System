@@ -139,6 +139,7 @@ namespace Gorakshnath_Billing_System.UI
             this.picBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxExit.TabIndex = 1;
             this.picBoxExit.TabStop = false;
+            this.picBoxExit.Click += new System.EventHandler(this.picBoxExit_Click);
             // 
             // btnExit
             // 
@@ -204,6 +205,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvAddedProducts.RowTemplate.Height = 24;
             this.dgvAddedProducts.Size = new System.Drawing.Size(1014, 214);
             this.dgvAddedProducts.TabIndex = 20;
+            this.dgvAddedProducts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAddedProducts_MouseClick);
             // 
             // label36
             // 
@@ -270,6 +272,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textGST.Name = "textGST";
             this.textGST.Size = new System.Drawing.Size(56, 26);
             this.textGST.TabIndex = 39;
+            this.textGST.TextChanged += new System.EventHandler(this.textGST_TextChanged);
             // 
             // label32
             // 
@@ -356,6 +359,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textItemSearch.Name = "textItemSearch";
             this.textItemSearch.Size = new System.Drawing.Size(143, 26);
             this.textItemSearch.TabIndex = 42;
+            this.textItemSearch.TextChanged += new System.EventHandler(this.textItemSearch_TextChanged);
             // 
             // btnSave
             // 
@@ -370,6 +374,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Save ";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label27
             // 
@@ -435,6 +440,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboTransactionType.Name = "comboTransactionType";
             this.comboTransactionType.Size = new System.Drawing.Size(180, 23);
             this.comboTransactionType.TabIndex = 17;
+            this.comboTransactionType.SelectedIndexChanged += new System.EventHandler(this.comboTransactionType_SelectedIndexChanged);
             // 
             // label29
             // 
@@ -521,6 +527,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(180, 23);
             this.textSearch.TabIndex = 7;
+            this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // label7
             // 
@@ -574,6 +581,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textQuantity.Name = "textQuantity";
             this.textQuantity.Size = new System.Drawing.Size(33, 26);
             this.textQuantity.TabIndex = 24;
+            this.textQuantity.TextChanged += new System.EventHandler(this.textQuantity_TextChanged);
             // 
             // textInventory
             // 
@@ -712,6 +720,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textRate.Name = "textRate";
             this.textRate.Size = new System.Drawing.Size(99, 26);
             this.textRate.TabIndex = 27;
+            this.textRate.TextChanged += new System.EventHandler(this.textRate_TextChanged);
             // 
             // label16
             // 
@@ -818,6 +827,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnAdd.TabIndex = 34;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // textTotalAmount
             // 
@@ -849,6 +859,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textDiscount.Name = "textDiscount";
             this.textDiscount.Size = new System.Drawing.Size(56, 26);
             this.textDiscount.TabIndex = 29;
+            this.textDiscount.TextChanged += new System.EventHandler(this.textDiscount_TextChanged);
             // 
             // label17
             // 
@@ -1055,6 +1066,7 @@ namespace Gorakshnath_Billing_System.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmQuotation";
             this.Text = "frmQuotation";
+            this.Load += new System.EventHandler(this.frmQuotation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).EndInit();
             this.panel4.ResumeLayout(false);
