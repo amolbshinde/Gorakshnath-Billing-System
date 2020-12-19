@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_28D2E796877259A42EB9B8C4AC702223"
+        "OwnerKey" = "8:_9D95465EF485407E9F4EBBE51DC142E8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5F9A3603368E81440C40C7789478082C"
         "OwnerKey" = "8:_9D95465EF485407E9F4EBBE51DC142E8"
         "MsmSig" = "8:_UNDEFINED"
@@ -81,12 +87,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_FFAD21F2E4A275FBE6A18D6A0709F7EE"
-        "OwnerKey" = "8:_9D95465EF485407E9F4EBBE51DC142E8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9D95465EF485407E9F4EBBE51DC142E8"
         "MsmSig" = "8:_UNDEFINED"
@@ -118,7 +118,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FFAD21F2E4A275FBE6A18D6A0709F7EE"
+        "OwnerKey" = "8:_28D2E796877259A42EB9B8C4AC702223"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -236,6 +236,37 @@
                     }
                 }
             "SourcePath" = "8:AxShockwaveFlashObjects.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2139F8A828394222A04971C3963DD2B8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_28D2E796877259A42EB9B8C4AC702223"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                "ScatterAssemblies"
+                {
+                    "_28D2E796877259A42EB9B8C4AC702223"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2139F8A828394222A04971C3963DD2B8"
@@ -437,37 +468,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FFAD21F2E4A275FBE6A18D6A0709F7EE"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-                "ScatterAssemblies"
-                {
-                    "_FFAD21F2E4A275FBE6A18D6A0709F7EE"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.Net.Http.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_2139F8A828394222A04971C3963DD2B8"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -536,7 +536,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Shiv Gorakshnath Billing System"
         "ProductCode" = "8:{D260136A-F16A-4422-A2A4-7CDE000A0B3A}"
-        "PackageCode" = "8:{C3119AC2-3901-420C-BCD1-D1FB85AFA666}"
+        "PackageCode" = "8:{783CA963-1DC0-40A1-A5CC-76E8C4200D15}"
         "UpgradeCode" = "8:{6716ACE5-0B20-4D31-B996-CF361A4CB6C2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1085,7 +1085,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9D95465EF485407E9F4EBBE51DC142E8"
             {
-            "SourcePath" = "8:..\\Gorakshnath Billing System\\obj\\Release\\Gorakshnath Billing System.exe"
+            "SourcePath" = "8:"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2139F8A828394222A04971C3963DD2B8"

@@ -44,7 +44,9 @@ namespace Gorakshnath_Billing_System.UI
         private void button1_Click(object sender, EventArgs e)
         {
             DateTime dt1 = DateTime.Now;
-            DateTime dt2 = DateTime.Parse("25/12/2019");
+            DateTime dt2;
+            DateTime.TryParse("25/12/2019", out dt2);
+           // DateTime dt2 = DateTime.Parse("25/12/2019");
             if (dt1.Date>dt2.Date)
             {
                 if (MessageBox.Show("Your licence has expired please do renewal of the software"+"\n"+ "OR Contact our Customer Care No.: 8087448384/9561948924"+"\n"+"Do you want to visit Companies Website. ", "Product Activation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
