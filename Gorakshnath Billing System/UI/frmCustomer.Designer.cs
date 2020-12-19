@@ -264,7 +264,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.lblCustomerId);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCustomer";
-            this.Text = "frmCustomer";
+            this.Text = "Add New Customer ";
             this.Load += new System.EventHandler(this.frmCustomer_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
             this.ResumeLayout(false);

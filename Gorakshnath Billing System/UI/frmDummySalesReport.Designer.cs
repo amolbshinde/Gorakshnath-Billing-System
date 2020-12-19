@@ -53,6 +53,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // dgvChallanReport
             // 
+            this.dgvChallanReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvChallanReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChallanReport.Location = new System.Drawing.Point(9, 8);
             this.dgvChallanReport.Name = "dgvChallanReport";
@@ -165,8 +166,8 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmDummySalesReport";
-            this.Text = "frmDummySalesReport";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = " New Invoice Report";
             this.Load += new System.EventHandler(this.frmDummySalesReport_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChallanReport)).EndInit();

@@ -905,7 +905,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1244, 31);
+            this.panel1.Size = new System.Drawing.Size(1120, 31);
             this.panel1.TabIndex = 22;
             // 
             // panel3
@@ -1059,16 +1059,15 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1244, 764);
+            this.ClientSize = new System.Drawing.Size(1120, 764);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmQuotation";
-            this.Text = "frmQuotation";
+            this.Text = "New Quotation";
             this.Load += new System.EventHandler(this.frmQuotation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).EndInit();

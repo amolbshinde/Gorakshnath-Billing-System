@@ -31,6 +31,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@ namespace Gorakshnath_Billing_System.UI
             this.textBrandId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrand)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +78,20 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1046, 445);
             this.panel1.TabIndex = 17;
+            // 
+            // btnClear
+            // 
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.Navy;
+            this.btnClear.Location = new System.Drawing.Point(779, 368);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(116, 35);
+            this.btnClear.TabIndex = 39;
+            this.btnClear.Text = "CLEAR";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // label1
             // 
@@ -219,20 +233,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label2.TabIndex = 27;
             this.label2.Text = "Brand ID";
             // 
-            // btnClear
-            // 
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.Navy;
-            this.btnClear.Location = new System.Drawing.Point(779, 368);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(116, 35);
-            this.btnClear.TabIndex = 39;
-            this.btnClear.Text = "CLEAR";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // frmProductBrand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,7 +241,8 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Name = "frmProductBrand";
-            this.Text = "frmProductBrand";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Brand Master";
             this.Load += new System.EventHandler(this.frmProductBrand_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
