@@ -26,8 +26,15 @@ namespace Gorakshnath_Billing_System.UI
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            //
-            this.Close();
+            DialogResult dialog = new DialogResult();
+
+            dialog = MessageBox.Show("Do you really want to close?", "Alert!", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.Yes)
+            {
+              
+                System.Environment.Exit(1);
+            }
         }
         /// <summary>
         /// //

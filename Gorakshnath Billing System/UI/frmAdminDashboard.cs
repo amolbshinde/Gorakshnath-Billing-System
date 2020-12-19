@@ -31,8 +31,7 @@ namespace Gorakshnath_Billing_System
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUsers user = new frmUsers();
-            user.Show();
+            
         }
 
         private void frmAdminDashboard_Load(object sender, EventArgs e)
@@ -113,8 +112,8 @@ namespace Gorakshnath_Billing_System
 
         private void newQuotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmEstimate estimate = new frmEstimate();
-            estimate.Show();
+            //frmEstimate estimate = new frmEstimate();
+            //estimate.Show();
         }
 
         private void newDeliveryNoteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -202,6 +201,29 @@ namespace Gorakshnath_Billing_System
         {
             frmEstimateReport estimateReport = new frmEstimateReport();
             estimateReport.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void manageUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsers user = new frmUsers();
+            user.Show();
+        }
+
+        private void exitToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            DialogResult dialog = new DialogResult();
+
+            dialog = MessageBox.Show("Do you really want to close?", "Alert!", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.Yes)
+            {
+                MessageBox.Show("Goodbye !!!");
+                System.Environment.Exit(1);
+            }
         }
     }
 }
