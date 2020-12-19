@@ -47,7 +47,7 @@ namespace Gorakshnath_Billing_System.UI
             DateTime dt2 = DateTime.Parse("25/12/2019");
             if (dt1.Date>dt2.Date)
             {
-                if (MessageBox.Show("Your licence has expired please do renewal of the software. Do you want to visit Companies Website", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+                if (MessageBox.Show("Your licence has expired please do renewal of the software"+"\n"+ "OR Contact our Customer Care No.: 8087448384/9561948924"+"\n"+"Do you want to visit Companies Website. ", "Product Activation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     System.Diagnostics.Process.Start("http://swamisoftware.ml/");
                 }
