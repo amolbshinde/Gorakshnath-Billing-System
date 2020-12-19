@@ -53,7 +53,6 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // dgvChallanReport
             // 
-            this.dgvChallanReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvChallanReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChallanReport.Location = new System.Drawing.Point(9, 8);
             this.dgvChallanReport.Name = "dgvChallanReport";
