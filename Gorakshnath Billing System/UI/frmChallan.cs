@@ -275,9 +275,9 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("(=)Total");
             //*
             comboSearchCust.DataSource = null;
-            DataTable dtI = cDAL.Select();
-            //comboSearchCust.DisplayMember = "Cust_Name";
-            comboSearchCust.ValueMember = "Cust_Name";
+            DataTable dtI = cDAL.SelectForCombo();
+            comboSearchCust.DisplayMember = "Column123";
+            comboSearchCust.ValueMember = "Column123";
             comboSearchCust.DataSource = dtI;
             comboSearchCust.Text = "Select By Invoice No";
             

@@ -261,6 +261,35 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
+        #region Select Data From Database
+        public DataTable SelectForCombo()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT Column123 FROM(SELECT Cust_Name, Cust_Contact FROM Cust_Master) AS tmp UNPIVOT(Column123 FOR ColumnAll IN (Cust_Name, Cust_Contact))AS unpvt;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+
+
+
     }
 }
 

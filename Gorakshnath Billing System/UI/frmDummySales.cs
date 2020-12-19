@@ -169,7 +169,7 @@ namespace Gorakshnath_Billing_System.UI
         private void frmDummySales_Load(object sender, EventArgs e)
         {
             salesDT.Columns.Add("Sr. No.");
-            salesDT.Columns.Add("ProductName");
+            salesDT.Columns.Add("Product Name");
             salesDT.Columns.Add("Unit");
             salesDT.Columns.Add("Quantity");
             salesDT.Columns.Add("PurchasePrice");
