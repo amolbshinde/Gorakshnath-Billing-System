@@ -32,7 +32,7 @@ namespace Gorakshnath_Billing_System.UI
 
             if (dialog == DialogResult.Yes)
             {
-                MessageBox.Show("Goodbye !!!");
+              
                 System.Environment.Exit(1);
             }
         }
