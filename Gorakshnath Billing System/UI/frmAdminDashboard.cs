@@ -69,8 +69,8 @@ namespace Gorakshnath_Billing_System
 
         private void totalSalesReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSalesReport SalesReport = new frmSalesReport();
-            SalesReport.Show();
+            frmDummySalesReport dummySalesReport = new frmDummySalesReport();
+            dummySalesReport.Show();
         }
 
         private void addCustomerClientToolStripMenuItem_Click(object sender, EventArgs e)
@@ -234,6 +234,12 @@ namespace Gorakshnath_Billing_System
         private void deliveryChallanReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void estimateReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEstimateReport estimateReport = new frmEstimateReport();
+            estimateReport.Show();
         }
     }
 }
