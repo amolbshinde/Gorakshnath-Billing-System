@@ -375,7 +375,7 @@ namespace Gorakshnath_Billing_System
             // 
             this.challanReportToolStripMenuItem.Name = "challanReportToolStripMenuItem";
             this.challanReportToolStripMenuItem.Size = new System.Drawing.Size(270, 26);
-            this.challanReportToolStripMenuItem.Text = "Sales Report";
+            this.challanReportToolStripMenuItem.Text = "Challan Report";
             this.challanReportToolStripMenuItem.Click += new System.EventHandler(this.challanReportToolStripMenuItem_Click);
             // 
             // salesReturnReportToolStripMenuItem
