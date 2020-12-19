@@ -169,7 +169,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1149, 31);
             this.panel3.TabIndex = 17;
@@ -211,8 +211,7 @@ namespace Gorakshnath_Billing_System.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmChallanReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmChallanReport";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "Delivery ChallanReport";
             this.Load += new System.EventHandler(this.frmChallanReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChallanReport)).EndInit();
             this.panel1.ResumeLayout(false);

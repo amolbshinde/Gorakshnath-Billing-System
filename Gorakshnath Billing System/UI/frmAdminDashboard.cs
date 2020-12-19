@@ -230,5 +230,10 @@ namespace Gorakshnath_Billing_System
         {
 
         }
+
+        private void deliveryChallanReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

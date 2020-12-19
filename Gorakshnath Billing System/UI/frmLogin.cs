@@ -43,47 +43,59 @@ namespace Gorakshnath_Billing_System.UI
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            l.username = textBox1.Text.Trim();
-            l.password = textBox2.Text.Trim();
-            l.user_type = comboBox1.Text.Trim();
-            bool success = dal.loginCheck(l);
-            if(success==true)
+            DateTime dt1 = DateTime.Now;
+            DateTime dt2 = DateTime.Parse("25/12/2019");
+            if (dt1.Date>dt2.Date)
             {
-                MessageBox.Show(" Login Succesfull..!! ");
-                //need to code what happen when login is sucesffull//
-                loggedIn = l.username;
-
-                switch(l.user_type)
+                if (MessageBox.Show("Your licence has expired please do renewal of the software. Do you want to visit Companies Website", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
                 {
-                    case "Admin":
-                        {
-
-                            //show admin dashboard 
-                            frmAdminDashboard admin = new frmAdminDashboard();
-                            admin.Show();
-                            this.Hide();
-                        }break;
-
-                    case "User":
-                        {
-
-                            frmUserDashboard user = new frmUserDashboard();
-                            user.Show();
-                            this.Hide();
-                        }break;
-
-                    default:
-                        {
-                            // display un error message 
-                            MessageBox.Show("Invalid user type ");
-                        }break;
-
-
+                    System.Diagnostics.Process.Start("http://swamisoftware.ml/");
                 }
             }
             else
             {
-                MessageBox.Show(" Login Failed ..!! ");
+                l.username = textBox1.Text.Trim();
+                l.password = textBox2.Text.Trim();
+                l.user_type = comboBox1.Text.Trim();
+                bool success = dal.loginCheck(l);
+                if (success == true)
+                {
+                    MessageBox.Show(" Login Succesfull..!! ");
+                    //need to code what happen when login is sucesffull//
+                    loggedIn = l.username;
+
+                    switch (l.user_type)
+                    {
+                        case "Admin":
+                            {
+
+                                //show admin dashboard 
+                                frmAdminDashboard admin = new frmAdminDashboard();
+                                admin.Show();
+                                this.Hide();
+                            } break;
+
+                        case "User":
+                            {
+
+                                frmUserDashboard user = new frmUserDashboard();
+                                user.Show();
+                                this.Hide();
+                            } break;
+
+                        default:
+                            {
+                                // display un error message 
+                                MessageBox.Show("Invalid user type ");
+                            } break;
+
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(" Login Failed ..!! ");
+                }
             }
         }
     }
