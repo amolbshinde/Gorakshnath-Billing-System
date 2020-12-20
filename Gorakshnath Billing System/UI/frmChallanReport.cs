@@ -31,7 +31,7 @@ namespace Gorakshnath_Billing_System.UI
             comboInvoiceNo.DataSource = null;
             DataTable dtI = challanDAL.SelectTD();
             comboInvoiceNo.DisplayMember = "Invoice_No";
-            comboInvoiceNo.ValueMember = "Invoice_No";            
+            //comboInvoiceNo.ValueMember = "Invoice_No";            
             comboInvoiceNo.DataSource = dtI;
             comboInvoiceNo.Text = "Select By Invoice No";
 
@@ -59,6 +59,7 @@ namespace Gorakshnath_Billing_System.UI
                 iNo = comboInvoiceNo.Text.ToString();
                 DataTable dt = challanDAL.SelectByInvoiceNo(iNo);
                 dgvChallanReport.DataSource = dt;
+                MessageBox.Show(comboInvoiceNo.Text);
             }
             else
             {
@@ -85,8 +86,8 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboMobileNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (comboMobileNo.Text != "Select By Mobile No")
+            
+            if (comboMobileNo.Text != "Select By Cust Name")
             {
                 string mobNo;
                 mobNo = comboMobileNo.Text.ToString();
@@ -98,7 +99,7 @@ namespace Gorakshnath_Billing_System.UI
                 DataTable dt = challanDAL.SelectTD();
                 dgvChallanReport.DataSource = dt;
             }
-
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
