@@ -18,6 +18,7 @@ namespace Gorakshnath_Billing_System.UI
         public frmChallan()
         {
             InitializeComponent();
+            fillCombo();
         }
 
         customerDAL cDAL = new customerDAL();
@@ -33,6 +34,26 @@ namespace Gorakshnath_Billing_System.UI
         stockDAL stockDAL = new stockDAL();
 
         DataTable salesDT = new DataTable();
+
+        public void fillCombo()
+        {
+            comboSearchCust.DataSource = null;
+            DataTable dtC = cDAL.SelectForCombo();
+            comboSearchCust.DisplayMember = "Column123";
+            comboSearchCust.ValueMember = "Column123";
+            comboSearchCust.DataSource = dtC;
+            comboSearchCust.Text = "Select Cust";
+
+
+            comboItemSearch.DataSource = null;
+            DataTable dtI = ProductMasterDAL.SelectForCombo();
+            comboItemSearch.DisplayMember = "Column12";
+            comboItemSearch.ValueMember = "Column12";
+            comboItemSearch.DataSource = dtI;
+            comboItemSearch.Text = "Select Product";
+
+        }
+
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboTransactionType.Text == "Non GST")
@@ -280,21 +301,7 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("Gst Type");
             salesDT.Columns.Add("(+)GST%");
             salesDT.Columns.Add("(+)GSTAMT");
-            salesDT.Columns.Add("(=)Total");
-            //*
-            comboSearchCust.DataSource = null;
-            DataTable dtC = cDAL.SelectForCombo();
-            comboSearchCust.DisplayMember = "Column123";
-            comboSearchCust.ValueMember = "Column123";
-            comboSearchCust.DataSource = dtC;
-            comboSearchCust.Text = "Select Cust";
-
-            comboItemSearch.DataSource = null;
-            DataTable dtI = ProductMasterDAL.SelectForCombo();
-            comboItemSearch.DisplayMember = "Column12";
-            comboItemSearch.ValueMember = "Column12";
-            comboItemSearch.DataSource = dtI;
-            comboItemSearch.Text = "Select Product";
+            salesDT.Columns.Add("(=)Total");                     
 
         }
 

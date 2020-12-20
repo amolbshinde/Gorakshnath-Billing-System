@@ -17,19 +17,14 @@ namespace Gorakshnath_Billing_System.UI
         public frmChallanReturnReport()
         {
             InitializeComponent();
+            fillCombo();
         }
 
         ChallanReturnBLL ChallanReturnBLL = new ChallanReturnBLL();
         ChallanReturnDAL ChallanReturnDAL = new ChallanReturnDAL();
 
-
-
-        private void frmChallanReturnReport_Load(object sender, EventArgs e)
+        public void fillCombo()
         {
-
-            DataTable dt = ChallanReturnDAL.SelectSRR();
-            dgvChallanReturnReport.DataSource = dt;
-
             comboInvoiceNo.DataSource = null;
             DataTable dtI = ChallanReturnDAL.SelectSRR();
             comboInvoiceNo.DisplayMember = "Invoice_No";
@@ -48,7 +43,14 @@ namespace Gorakshnath_Billing_System.UI
             comboMobileNo.DisplayMember = "Cust_Contact";
             comboMobileNo.DataSource = dtM;
             comboMobileNo.Text = "Select By Mobile No";
+        }
 
+        private void frmChallanReturnReport_Load(object sender, EventArgs e)
+        {
+
+            DataTable dt = ChallanReturnDAL.SelectSRR();
+            dgvChallanReturnReport.DataSource = dt;
+          
         }
 
         private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)

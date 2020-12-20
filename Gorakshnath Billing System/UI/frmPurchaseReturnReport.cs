@@ -17,17 +17,14 @@ namespace Gorakshnath_Billing_System.UI
         public frmPurchaseReturnReport()
         {
             InitializeComponent();
+            fillCombo();
         }
 
         PurchaseReturnBLL PurchaseReturnBLL = new PurchaseReturnBLL();
         PurchaseReturnDAL PurchaseReturnDAL = new PurchaseReturnDAL();
 
-        private void frmPurchaseReturnReport_Load(object sender, EventArgs e)
+        public void fillCombo()
         {
-
-            DataTable dt = PurchaseReturnDAL.SelectPRD();
-            dgvPurchaseReturnReport.DataSource = dt;
-
             comboInvoiceNo.DataSource = null;
             DataTable dtP = PurchaseReturnDAL.SelectPRD();
             comboInvoiceNo.DisplayMember = "Invoice_No";
@@ -48,6 +45,13 @@ namespace Gorakshnath_Billing_System.UI
             comboMobileNo.ValueMember = "Phone_No";
             comboMobileNo.DataSource = dtC;
             comboMobileNo.Text = "Select By Mobile No";
+        }
+
+        private void frmPurchaseReturnReport_Load(object sender, EventArgs e)
+        {
+
+            DataTable dt = PurchaseReturnDAL.SelectPRD();
+            dgvPurchaseReturnReport.DataSource = dt;
 
         }
 

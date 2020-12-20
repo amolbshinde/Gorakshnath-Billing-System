@@ -17,6 +17,7 @@ namespace Gorakshnath_Billing_System.UI
         public frmStockReport()
         {
             InitializeComponent();
+            fillCombp();
         }
 
         stockBLL stockBLL = new stockBLL();
@@ -25,6 +26,21 @@ namespace Gorakshnath_Billing_System.UI
         ProductMasterDAL pDAL = new ProductMasterDAL();
         BrandDAL bDAL = new BrandDAL();
         GroupDAL gDAL = new GroupDAL();
+
+        public void fillCombp()
+        {
+            DataTable dtp = pDAL.Select();
+            comboProduct.DisplayMember = "Product_Name";
+            comboProduct.DataSource = dtp;
+
+            DataTable dtg = gDAL.Select();
+            comboGroup.DisplayMember = "Group_Name";
+            comboGroup.DataSource = dtg;
+
+            DataTable dtb = bDAL.Select();
+            comboBrand.DisplayMember = "Brand_Name";
+            comboBrand.DataSource = dtb;
+        }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -38,17 +54,6 @@ namespace Gorakshnath_Billing_System.UI
             DataTable dt = stockDAL.SelectAllProductStock();
             dgvStockReport.DataSource = dt;
 
-            DataTable dtp = pDAL.Select();
-            comboProduct.DisplayMember = "Product_Name";
-            comboProduct.DataSource = dtp;
-
-            DataTable dtg = gDAL.Select();
-            comboGroup.DisplayMember = "Group_Name";
-            comboGroup.DataSource = dtg;
-
-            DataTable dtb = bDAL.Select();
-            comboBrand.DisplayMember = "Brand_Name";
-            comboBrand.DataSource = dtb;
         }
 
         private void comboSearchBy_SelectedIndexChanged(object sender, EventArgs e)
