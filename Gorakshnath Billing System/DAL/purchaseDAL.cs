@@ -13,6 +13,7 @@ namespace Gorakshnath_Billing_System.DAL
 {
     class purchaseDAL   
     {
+        //jhdff
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
         #region Insert Purchase_Transactions Method
         public bool insertpurchase(purchaseBLL p, out int purchaseID)
