@@ -30,7 +30,7 @@ namespace Gorakshnath_Billing_System.UI
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvChallanReport = new System.Windows.Forms.DataGridView();
+            this.dgvChallanReturnReport = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -39,26 +39,27 @@ namespace Gorakshnath_Billing_System.UI
             this.button1 = new System.Windows.Forms.Button();
             this.comboInvoiceNo = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvChallanReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChallanReturnReport)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dgvChallanReport);
+            this.panel2.Controls.Add(this.dgvChallanReturnReport);
             this.panel2.Location = new System.Drawing.Point(62, 146);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1009, 449);
             this.panel2.TabIndex = 4;
             // 
-            // dgvChallanReport
+            // dgvChallanReturnReport
             // 
-            this.dgvChallanReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChallanReport.Location = new System.Drawing.Point(9, 8);
-            this.dgvChallanReport.Name = "dgvChallanReport";
-            this.dgvChallanReport.RowHeadersWidth = 51;
-            this.dgvChallanReport.Size = new System.Drawing.Size(982, 428);
-            this.dgvChallanReport.TabIndex = 0;
+            this.dgvChallanReturnReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChallanReturnReport.Location = new System.Drawing.Point(9, 8);
+            this.dgvChallanReturnReport.Name = "dgvChallanReturnReport";
+            this.dgvChallanReturnReport.RowHeadersWidth = 51;
+            this.dgvChallanReturnReport.Size = new System.Drawing.Size(982, 428);
+            this.dgvChallanReturnReport.TabIndex = 0;
+            this.dgvChallanReturnReport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvChallanReport_MouseClick);
             // 
             // panel1
             // 
@@ -112,6 +113,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboMobileNo.Name = "comboMobileNo";
             this.comboMobileNo.Size = new System.Drawing.Size(159, 28);
             this.comboMobileNo.TabIndex = 12;
+            this.comboMobileNo.SelectedIndexChanged += new System.EventHandler(this.comboMobileNo_SelectedIndexChanged);
             // 
             // comboCustName
             // 
@@ -126,6 +128,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboCustName.Name = "comboCustName";
             this.comboCustName.Size = new System.Drawing.Size(171, 28);
             this.comboCustName.TabIndex = 10;
+            this.comboCustName.SelectedIndexChanged += new System.EventHandler(this.comboCustName_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -153,6 +156,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboInvoiceNo.Name = "comboInvoiceNo";
             this.comboInvoiceNo.Size = new System.Drawing.Size(146, 28);
             this.comboInvoiceNo.TabIndex = 8;
+            this.comboInvoiceNo.SelectedIndexChanged += new System.EventHandler(this.comboInvoiceNo_SelectedIndexChanged);
             // 
             // frmChallanReturnReport
             // 
@@ -163,8 +167,9 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel1);
             this.Name = "frmChallanReturnReport";
             this.Text = "Sales Return Report";
+            this.Load += new System.EventHandler(this.frmChallanReturnReport_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvChallanReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChallanReturnReport)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -173,7 +178,7 @@ namespace Gorakshnath_Billing_System.UI
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvChallanReport;
+        private System.Windows.Forms.DataGridView dgvChallanReturnReport;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;

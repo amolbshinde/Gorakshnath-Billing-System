@@ -59,7 +59,7 @@ namespace Gorakshnath_Billing_System.UI
                 iNo = comboInvoiceNo.Text.ToString();
                 DataTable dt = challanDAL.SelectByInvoiceNo(iNo);
                 dgvChallanReport.DataSource = dt;
-                MessageBox.Show(comboInvoiceNo.Text);
+                //MessageBox.Show(comboInvoiceNo.Text);
             }
             else
             {
@@ -70,7 +70,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboCustName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboCustName.Text != "Select By Mobile No")
+            if (comboCustName.Text != "Select By Cust Name")
             {
                 string CName;
                 CName = comboCustName.Text.ToString();
@@ -87,7 +87,7 @@ namespace Gorakshnath_Billing_System.UI
         private void comboMobileNo_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            if (comboMobileNo.Text != "Select By Cust Name")
+            if (comboMobileNo.Text != "Select By Mobile No")
             {
                 string mobNo;
                 mobNo = comboMobileNo.Text.ToString();

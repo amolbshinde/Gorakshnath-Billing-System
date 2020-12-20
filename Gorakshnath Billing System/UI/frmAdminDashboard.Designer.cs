@@ -389,6 +389,7 @@ namespace Gorakshnath_Billing_System
             this.salesReturnReportToolStripMenuItem.Name = "salesReturnReportToolStripMenuItem";
             this.salesReturnReportToolStripMenuItem.Size = new System.Drawing.Size(261, 24);
             this.salesReturnReportToolStripMenuItem.Text = "Sales Return Report";
+            this.salesReturnReportToolStripMenuItem.Click += new System.EventHandler(this.salesReturnReportToolStripMenuItem_Click);
             // 
             // purchasaaeReturnReportToolStripMenuItem
             // 

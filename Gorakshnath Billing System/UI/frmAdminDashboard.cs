@@ -228,7 +228,8 @@ namespace Gorakshnath_Billing_System
 
         private void searchAndManageSalesReturnCreditNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmChallanReturnReport challanReturnReport = new frmChallanReturnReport();
+            challanReturnReport.Show();
         }
 
         private void deliveryChallanReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -240,6 +241,12 @@ namespace Gorakshnath_Billing_System
         {
             frmEstimateReport estimateReport = new frmEstimateReport();
             estimateReport.Show();
+        }
+
+        private void salesReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChallanReturnReport challanReturnReport = new frmChallanReturnReport();
+            challanReturnReport.Show();
         }
     }
 }
