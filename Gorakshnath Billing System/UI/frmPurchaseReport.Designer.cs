@@ -73,6 +73,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvPurchaseReport.RowHeadersWidth = 51;
             this.dgvPurchaseReport.Size = new System.Drawing.Size(982, 428);
             this.dgvPurchaseReport.TabIndex = 0;
+            this.dgvPurchaseReport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvPurchaseReport_MouseClick);
             // 
             // panel1
             // 
@@ -126,6 +127,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboMobileNo.Name = "comboMobileNo";
             this.comboMobileNo.Size = new System.Drawing.Size(159, 28);
             this.comboMobileNo.TabIndex = 12;
+            this.comboMobileNo.SelectedIndexChanged += new System.EventHandler(this.comboMobileNo_SelectedIndexChanged);
             // 
             // comboSupName
             // 
@@ -140,6 +142,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboSupName.Name = "comboSupName";
             this.comboSupName.Size = new System.Drawing.Size(171, 28);
             this.comboSupName.TabIndex = 10;
+            this.comboSupName.SelectedIndexChanged += new System.EventHandler(this.comboSupName_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -167,6 +170,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboPurchaseId.Name = "comboPurchaseId";
             this.comboPurchaseId.Size = new System.Drawing.Size(146, 28);
             this.comboPurchaseId.TabIndex = 8;
+            this.comboPurchaseId.SelectedIndexChanged += new System.EventHandler(this.comboPurchaseId_SelectedIndexChanged);
             // 
             // frmPurchaseReport
             // 

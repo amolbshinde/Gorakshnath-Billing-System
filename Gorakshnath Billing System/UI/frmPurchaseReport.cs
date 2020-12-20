@@ -49,5 +49,88 @@ namespace Gorakshnath_Billing_System.UI
             comboMobileNo.Text = "Select By Mobile No";
 
         }
+
+        private void comboPurchaseId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboPurchaseId.Text != "Select By Invoice No")
+            {
+                string iNo;
+                iNo = comboPurchaseId.Text.ToString();
+                DataTable dt = purchaseDAL.SelectByPurchaseId(iNo);
+                dgvPurchaseReport.DataSource = dt;
+                //MessageBox.Show(comboInvoiceNo.Text);
+            }
+            else
+            {
+                DataTable dt = purchaseDAL.SelectPD();
+                dgvPurchaseReport.DataSource = dt;
+            }
+        }
+
+        private void comboSupName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboSupName.Text != "Select By Cust Name")
+            {
+                string CName;
+                CName = comboSupName.Text.ToString();
+                DataTable dt = purchaseDAL.SelectBySupName(CName);
+                dgvPurchaseReport.DataSource = dt;
+            }
+            else
+            {
+                DataTable dt = purchaseDAL.SelectPD();
+                dgvPurchaseReport.DataSource = dt;
+            }
+        }
+
+        private void comboMobileNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboMobileNo.Text != "Select By Mobile No")
+            {
+                string mobNo;
+                mobNo = comboMobileNo.Text.ToString();
+                DataTable dt = purchaseDAL.SelectByMobileNo(mobNo);
+                dgvPurchaseReport.DataSource = dt;
+            }
+            else
+            {
+                DataTable dt = purchaseDAL.SelectPD();
+                dgvPurchaseReport.DataSource = dt;
+            }
+        }
+
+        private void dgvPurchaseReport_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            if (e.Button == MouseButtons.Left)
+            {
+                ContextMenuStrip my_menu = new System.Windows.Forms.ContextMenuStrip();
+                int position_mouse_click = dgvPurchaseReport.HitTest(e.X, e.Y).RowIndex;
+                if (position_mouse_click >= 0)
+                {
+                    my_menu.Items.Add("Print").Name = "Print";
+                }
+                my_menu.Show(dgvPurchaseReport, new Point(e.X, e.Y));
+                my_menu.ItemClicked += new ToolStripItemClickedEventHandler(my_menu_ItemClicked);
+            }
+
+        }
+
+        private void my_menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if ("Print" == e.ClickedItem.Name.ToString())
+            {
+                //get inoice no from datagrid view
+                int iNo;
+                Int32.TryParse(dgvPurchaseReport.Rows[dgvPurchaseReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
+                frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(iNo);
+                frmcrpt.Show();
+
+                //MessageBox.Show(iNo.ToString());
+
+            }
+
+        }
+
     }
 }
