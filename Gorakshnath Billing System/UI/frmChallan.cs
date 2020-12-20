@@ -101,58 +101,12 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
-            if (comboTransactionType.Text != "")
-            {
-                //get search keyword from search text box
-                string keyword = comboSearchCust.Text;
-                if (keyword == "")//clear all textboex
-                {
-                    textCust_Name.Text = "";
-                    textAddress.Text = "";
-                    textContact.Text = "";
-                    textEmail.Text = "";
-                    return;
-                }
-
-                customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
-
-                textCust_Name.Text = cBLL.name;
-                textContact.Text = cBLL.contact;
-                textEmail.Text = cBLL.email;
-                textAddress.Text = cBLL.address;
-            }
-            else
-            {
-                MessageBox.Show("Please Select The Transaction Type First, You Cannot Change the Transaction type during this Transaction");
-            }
-
+            
         }
 
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
-            string keyword = comboItemSearch.Text;
-
-            if (keyword == "")
-            {
-                comboItemSearch.Text= "Select Product";
-                textItemCode.Text = "";
-                textItemName.Text = "";
-                comboBoxUnit.Text = "";
-                textInventory.Text = "0";
-                textRate.Text = "0";
-                textDiscount.Text = "0";
-                textQuantity.Text = "0";                
-                textGST.Text = "0";
-                textTotalAmount.Text = "0";
-                return;
-            }
-
-            ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
-            textItemCode.Text = p.Item_Code;
-            textItemName.Text = p.Product_Name;
-            comboBoxUnit.Text = p.Unit;            
-            textRate.Text = p.Sales_Price.ToString();            
-            textInventory.Text = p.Quantity.ToString();
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -302,7 +256,6 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("(+)GST%");
             salesDT.Columns.Add("(+)GSTAMT");
             salesDT.Columns.Add("(=)Total");                     
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -822,7 +775,6 @@ namespace Gorakshnath_Billing_System.UI
                     textEmail.Text = "";
                     return;
                 }
-
                 customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
 
                 textCust_Name.Text = cBLL.name;
