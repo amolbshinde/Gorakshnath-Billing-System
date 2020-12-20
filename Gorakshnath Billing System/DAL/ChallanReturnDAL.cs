@@ -16,7 +16,7 @@ namespace Gorakshnath_Billing_System.DAL
         //hello
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
-        #region Select Method For combo box Invoice NO
+        #region Select Method For combo box Invoice NO for  return form
         public DataTable SelectInvoiceNo()
         {
             //Creating Database Connection 
@@ -138,6 +138,117 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
-        
+
+
+        #region Select Data From Database for Sales REturn report
+        public DataTable SelectSRR()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "select Invoice_No,Cust_Name,Cust_Contact,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,SalesReturn_date from SalesReturn_Transactions,Cust_Master where Cust_Master.Cust_ID=SalesReturn_Transactions.Cust_ID;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+
+
+        #region Select Data By Invoice NO
+        public DataTable SelectByInvoiceNo(string Invoice_No)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "select Invoice_No,Cust_Name,Cust_Contact,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,SalesReturn_date from SalesReturn_Transactions,Cust_Master where Cust_Master.Cust_ID=SalesReturn_Transactions.Cust_ID and SalesReturn_Transactions.Invoice_No LIKE '%" + Invoice_No + "%';";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+
+        #region Select Data By Customer Name
+        public DataTable SelectByCustName(string Cust_Name)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "select Invoice_No,Cust_Name,Cust_Contact,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,SalesReturn_date from SalesReturn_Transactions,Cust_Master where Cust_Master.Cust_ID=SalesReturn_Transactions.Cust_ID and Cust_Master.Cust_Name LIKE '%" + Cust_Name + "%';";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+
+        #region Select Data By Mobile NO
+        public DataTable SelectByMobileNo(string Cust_Contact)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "select Invoice_No,Cust_Name,Cust_Contact,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,SalesReturn_date from SalesReturn_Transactions,Cust_Master where Cust_Master.Cust_ID=SalesReturn_Transactions.Cust_ID and Cust_Master.Cust_Contact LIKE '%" + Cust_Contact + "%';";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+
+
     }
 }

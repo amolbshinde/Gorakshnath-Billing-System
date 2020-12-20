@@ -277,6 +277,7 @@ namespace Gorakshnath_Billing_System
             this.searchAndManagePurchaseReturnToolStripMenuItem.Name = "searchAndManagePurchaseReturnToolStripMenuItem";
             this.searchAndManagePurchaseReturnToolStripMenuItem.Size = new System.Drawing.Size(318, 24);
             this.searchAndManagePurchaseReturnToolStripMenuItem.Text = "Search and Manage Purchase Return";
+            this.searchAndManagePurchaseReturnToolStripMenuItem.Click += new System.EventHandler(this.searchAndManagePurchaseReturnToolStripMenuItem_Click);
             // 
             // addSupplierToolStripMenuItem
             // 
@@ -389,12 +390,14 @@ namespace Gorakshnath_Billing_System
             this.salesReturnReportToolStripMenuItem.Name = "salesReturnReportToolStripMenuItem";
             this.salesReturnReportToolStripMenuItem.Size = new System.Drawing.Size(261, 24);
             this.salesReturnReportToolStripMenuItem.Text = "Sales Return Report";
+            this.salesReturnReportToolStripMenuItem.Click += new System.EventHandler(this.salesReturnReportToolStripMenuItem_Click);
             // 
             // purchasaaeReturnReportToolStripMenuItem
             // 
             this.purchasaaeReturnReportToolStripMenuItem.Name = "purchasaaeReturnReportToolStripMenuItem";
             this.purchasaaeReturnReportToolStripMenuItem.Size = new System.Drawing.Size(261, 24);
             this.purchasaaeReturnReportToolStripMenuItem.Text = "Purchase Return Report";
+            this.purchasaaeReturnReportToolStripMenuItem.Click += new System.EventHandler(this.purchasaaeReturnReportToolStripMenuItem_Click);
             // 
             // label3
             // 

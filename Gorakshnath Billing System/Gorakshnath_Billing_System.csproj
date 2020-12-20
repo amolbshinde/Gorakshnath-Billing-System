@@ -194,6 +194,12 @@
     <Compile Include="UI\frmChallanReturn.Designer.cs">
       <DependentUpon>frmChallanReturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmChallanReturnReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmChallanReturnReport.Designer.cs">
+      <DependentUpon>frmChallanReturnReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmDummySalesCrpt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +296,12 @@
     <Compile Include="UI\frmPurchaseReturn.Designer.cs">
       <DependentUpon>frmPurchaseReturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmPurchaseReturnReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmPurchaseReturnReport.Designer.cs">
+      <DependentUpon>frmPurchaseReturnReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmQuotation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +368,9 @@
     <EmbeddedResource Include="UI\frmChallanReturn.resx">
       <DependentUpon>frmChallanReturn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmChallanReturnReport.resx">
+      <DependentUpon>frmChallanReturnReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmDummySalesCrpt.resx">
       <DependentUpon>frmDummySalesCrpt.cs</DependentUpon>
     </EmbeddedResource>
@@ -403,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPurchaseReturn.resx">
       <DependentUpon>frmPurchaseReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmPurchaseReturnReport.resx">
+      <DependentUpon>frmPurchaseReturnReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmQuotation.resx">
       <DependentUpon>frmQuotation.cs</DependentUpon>

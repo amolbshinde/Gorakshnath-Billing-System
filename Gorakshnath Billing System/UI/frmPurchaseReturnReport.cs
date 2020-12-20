@@ -12,37 +12,38 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.UI
 {
-    public partial class frmPurchaseReport : Form
+    public partial class frmPurchaseReturnReport : Form
     {
-        public frmPurchaseReport()
+        public frmPurchaseReturnReport()
         {
             InitializeComponent();
         }
 
-        purchaseBLL purchaseBLL = new purchaseBLL();
-        purchaseDAL purchaseDAL = new purchaseDAL();
+        PurchaseReturnBLL PurchaseReturnBLL = new PurchaseReturnBLL();
+        PurchaseReturnDAL PurchaseReturnDAL = new PurchaseReturnDAL();
 
-        private void frmPurchaseReport_Load(object sender, EventArgs e)
+        private void frmPurchaseReturnReport_Load(object sender, EventArgs e)
         {
-            DataTable dt = purchaseDAL.SelectPD();
-            dgvPurchaseReport.DataSource = dt;
 
-            comboPurchaseId.DataSource = null;
-            DataTable dtP = purchaseDAL.SelectPD();
-            comboPurchaseId.DisplayMember = "Purchase_ID";
-            comboPurchaseId.ValueMember = "Purchase_ID";
-            comboPurchaseId.DataSource = dtP;
-            comboPurchaseId.Text = "Select By Purchase ID";
+            DataTable dt = PurchaseReturnDAL.SelectPRD();
+            dgvPurchaseReturnReport.DataSource = dt;
+
+            comboInvoiceNo.DataSource = null;
+            DataTable dtP = PurchaseReturnDAL.SelectPRD();
+            comboInvoiceNo.DisplayMember = "Invoice_No";
+            comboInvoiceNo.ValueMember = "Invoice_No";
+            comboInvoiceNo.DataSource = dtP;
+            comboInvoiceNo.Text = "Select By Invoice No";
 
             comboSupName.DataSource = null;
-            DataTable dtNP = purchaseDAL.SelectPD();
+            DataTable dtNP = PurchaseReturnDAL.SelectPRD();
             comboSupName.DisplayMember = "CompanyName";
-            comboSupName.ValueMember="CompanyName";
+            comboSupName.ValueMember = "CompanyName";
             comboSupName.DataSource = dtNP;
             comboSupName.Text = "Select By Supplier Name";
 
             comboMobileNo.DataSource = null;
-            DataTable dtC = purchaseDAL.SelectPD();
+            DataTable dtC = PurchaseReturnDAL.SelectPRD();
             comboMobileNo.DisplayMember = "Phone_No";
             comboMobileNo.ValueMember = "Phone_No";
             comboMobileNo.DataSource = dtC;
@@ -50,70 +51,72 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        private void comboPurchaseId_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboPurchaseId.Text != "Select By Purchase ID")
+            if (comboInvoiceNo.Text != "Select By Invoice No")
             {
                 string iNo;
-                iNo = comboPurchaseId.Text.ToString();
-                DataTable dt = purchaseDAL.SelectByPurchaseId(iNo);
-                dgvPurchaseReport.DataSource = dt;
+                iNo = comboInvoiceNo.Text.ToString();
+                DataTable dt = PurchaseReturnDAL.SelectByPurchaseReturnId(iNo);
+                dgvPurchaseReturnReport.DataSource = dt;
                 //MessageBox.Show(comboInvoiceNo.Text);
             }
             else
             {
-                DataTable dt = purchaseDAL.SelectPD();
-                dgvPurchaseReport.DataSource = dt;
+                DataTable dt = PurchaseReturnDAL.SelectPRD();
+                dgvPurchaseReturnReport.DataSource = dt;
             }
         }
 
         private void comboSupName_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (comboSupName.Text != "Select By Supplier Name")
             {
                 string CName;
                 CName = comboSupName.Text.ToString();
-                DataTable dt = purchaseDAL.SelectBySupName(CName);
-                dgvPurchaseReport.DataSource = dt;
+                DataTable dt = PurchaseReturnDAL.SelectBySupName(CName);
+                dgvPurchaseReturnReport.DataSource = dt;
             }
             else
             {
-                DataTable dt = purchaseDAL.SelectPD();
-                dgvPurchaseReport.DataSource = dt;
+                DataTable dt = PurchaseReturnDAL.SelectPRD();
+                dgvPurchaseReturnReport.DataSource = dt;
             }
+
         }
 
         private void comboMobileNo_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (comboMobileNo.Text != "Select By Mobile No")
             {
                 string mobNo;
                 mobNo = comboMobileNo.Text.ToString();
-                DataTable dt = purchaseDAL.SelectByMobileNo(mobNo);
-                dgvPurchaseReport.DataSource = dt;
+                DataTable dt = PurchaseReturnDAL.SelectByMobileNo(mobNo);
+                dgvPurchaseReturnReport.DataSource = dt;
             }
             else
             {
-                DataTable dt = purchaseDAL.SelectPD();
-                dgvPurchaseReport.DataSource = dt;
+                DataTable dt = PurchaseReturnDAL.SelectPRD();
+                dgvPurchaseReturnReport.DataSource = dt;
             }
+
         }
 
-        private void dgvPurchaseReport_MouseClick(object sender, MouseEventArgs e)
+        private void dgvPurchaseReturnReport_MouseClick(object sender, MouseEventArgs e)
         {
-
             if (e.Button == MouseButtons.Left)
             {
                 ContextMenuStrip my_menu = new System.Windows.Forms.ContextMenuStrip();
-                int position_mouse_click = dgvPurchaseReport.HitTest(e.X, e.Y).RowIndex;
+                int position_mouse_click = dgvPurchaseReturnReport.HitTest(e.X, e.Y).RowIndex;
                 if (position_mouse_click >= 0)
                 {
                     my_menu.Items.Add("Print").Name = "Print";
                 }
-                my_menu.Show(dgvPurchaseReport, new Point(e.X, e.Y));
+                my_menu.Show(dgvPurchaseReturnReport, new Point(e.X, e.Y));
                 my_menu.ItemClicked += new ToolStripItemClickedEventHandler(my_menu_ItemClicked);
             }
-
         }
 
         private void my_menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -122,7 +125,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 //get inoice no from datagrid view
                 int iNo;
-                Int32.TryParse(dgvPurchaseReport.Rows[dgvPurchaseReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
+                Int32.TryParse(dgvPurchaseReturnReport.Rows[dgvPurchaseReturnReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
                 frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(iNo);
                 frmcrpt.Show();
 
@@ -131,6 +134,5 @@ namespace Gorakshnath_Billing_System.UI
             }
 
         }
-
     }
 }
