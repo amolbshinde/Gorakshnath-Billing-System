@@ -66,8 +66,6 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-
-
         #region Select Data From Database
         public DataTable SelectTD()
         {
