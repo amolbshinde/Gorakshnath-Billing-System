@@ -52,7 +52,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboPurchaseId_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboPurchaseId.Text != "Select By Invoice No")
+            if (comboPurchaseId.Text != "Select By Purchase ID")
             {
                 string iNo;
                 iNo = comboPurchaseId.Text.ToString();
@@ -69,7 +69,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboSupName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboSupName.Text != "Select By Cust Name")
+            if (comboSupName.Text != "Select By Supplier Name")
             {
                 string CName;
                 CName = comboSupName.Text.ToString();

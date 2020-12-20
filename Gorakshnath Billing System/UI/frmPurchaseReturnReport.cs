@@ -71,7 +71,7 @@ namespace Gorakshnath_Billing_System.UI
         private void comboSupName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (comboSupName.Text != "Select By Cust Name")
+            if (comboSupName.Text != "Select By Supplier Name")
             {
                 string CName;
                 CName = comboSupName.Text.ToString();
