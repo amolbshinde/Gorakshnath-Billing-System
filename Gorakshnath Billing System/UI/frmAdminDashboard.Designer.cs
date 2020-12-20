@@ -61,11 +61,11 @@ namespace Gorakshnath_Billing_System
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.totalSalesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemWiseSalesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estimateReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.totalPurchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.challanReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReturnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchasaaeReturnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estimateReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -133,14 +133,14 @@ namespace Gorakshnath_Billing_System
             // manageUsersToolStripMenuItem
             // 
             this.manageUsersToolStripMenuItem.Name = "manageUsersToolStripMenuItem";
-            this.manageUsersToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.manageUsersToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.manageUsersToolStripMenuItem.Text = "Manage Users";
             this.manageUsersToolStripMenuItem.Click += new System.EventHandler(this.manageUsersToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
             // 
@@ -363,6 +363,13 @@ namespace Gorakshnath_Billing_System
             this.itemWiseSalesReportToolStripMenuItem.Text = "Purchase Report";
             this.itemWiseSalesReportToolStripMenuItem.Click += new System.EventHandler(this.itemWiseSalesReportToolStripMenuItem_Click);
             // 
+            // estimateReportToolStripMenuItem
+            // 
+            this.estimateReportToolStripMenuItem.Name = "estimateReportToolStripMenuItem";
+            this.estimateReportToolStripMenuItem.Size = new System.Drawing.Size(261, 24);
+            this.estimateReportToolStripMenuItem.Text = "Estimate/Quotation  Report";
+            this.estimateReportToolStripMenuItem.Click += new System.EventHandler(this.estimateReportToolStripMenuItem_Click);
+            // 
             // totalPurchaseReportToolStripMenuItem
             // 
             this.totalPurchaseReportToolStripMenuItem.Name = "totalPurchaseReportToolStripMenuItem";
@@ -388,12 +395,6 @@ namespace Gorakshnath_Billing_System
             this.purchasaaeReturnReportToolStripMenuItem.Name = "purchasaaeReturnReportToolStripMenuItem";
             this.purchasaaeReturnReportToolStripMenuItem.Size = new System.Drawing.Size(261, 24);
             this.purchasaaeReturnReportToolStripMenuItem.Text = "Purchase Return Report";
-            // 
-            // estimateReportToolStripMenuItem
-            // 
-            this.estimateReportToolStripMenuItem.Name = "estimateReportToolStripMenuItem";
-            this.estimateReportToolStripMenuItem.Size = new System.Drawing.Size(261, 24);
-            this.estimateReportToolStripMenuItem.Text = "Estimate/Quotation  Report";
             // 
             // label3
             // 

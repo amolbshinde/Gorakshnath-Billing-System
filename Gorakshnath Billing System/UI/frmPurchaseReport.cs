@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Gorakshnath_Billing_System.BLL;
+using Gorakshnath_Billing_System.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,34 +19,35 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
         }
 
-        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
-        private void button1_Click(object sender, EventArgs e)
+        purchaseBLL purchaseBLL = new purchaseBLL();
+        purchaseDAL purchaseDAL = new purchaseDAL();
+
+        private void frmPurchaseReport_Load(object sender, EventArgs e)
         {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(myconnstrng))
-                {
-                    conn.Open();
-                    string Query = "Select  * from Supplier_Master,Purchase_Transactions where Purchase_Transactions.Sup_ID=Supplier_Master.SupplierID";
-                    /*CompanyName,Grand_Total,Purchase_Date*/
-                    SqlDataAdapter da = new SqlDataAdapter(Query, conn);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+            DataTable dt = purchaseDAL.SelectPD();
+            dgvPurchaseReport.DataSource = dt;
 
-                    //method 1 is direct method
-                    dataGridView1.DataSource = dt;
+            comboPurchaseId.DataSource = null;
+            DataTable dtP = purchaseDAL.SelectPD();
+            comboPurchaseId.DisplayMember = "Purchase_ID";
+            comboPurchaseId.ValueMember = "Purchase_ID";
+            comboPurchaseId.DataSource = dtP;
+            comboPurchaseId.Text = "Select By Purchase ID";
 
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+            comboSupName.DataSource = null;
+            DataTable dtNP = purchaseDAL.SelectPD();
+            comboSupName.DisplayMember = "CompanyName";
+            comboSupName.ValueMember="CompanyName";
+            comboSupName.DataSource = dtNP;
+            comboSupName.Text = "Select By Supplier Name";
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            comboMobileNo.DataSource = null;
+            DataTable dtC = purchaseDAL.SelectPD();
+            comboMobileNo.DisplayMember = "Phone_No";
+            comboMobileNo.ValueMember = "Phone_No";
+            comboMobileNo.DataSource = dtC;
+            comboMobileNo.Text = "Select By Mobile No";
+
         }
     }
 }
