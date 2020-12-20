@@ -248,5 +248,17 @@ namespace Gorakshnath_Billing_System
             frmChallanReturnReport challanReturnReport = new frmChallanReturnReport();
             challanReturnReport.Show();
         }
+
+        private void searchAndManagePurchaseReturnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPurchaseReturnReport purchaseReturnReport = new frmPurchaseReturnReport();
+            purchaseReturnReport.Show();
+        }
+
+        private void purchasaaeReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPurchaseReturnReport purchaseReturnReport = new frmPurchaseReturnReport();
+            purchaseReturnReport.Show();
+        }
     }
 }

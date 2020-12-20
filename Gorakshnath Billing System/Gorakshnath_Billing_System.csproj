@@ -296,6 +296,12 @@
     <Compile Include="UI\frmPurchaseReturn.Designer.cs">
       <DependentUpon>frmPurchaseReturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmPurchaseReturnReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmPurchaseReturnReport.Designer.cs">
+      <DependentUpon>frmPurchaseReturnReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmQuotation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -412,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPurchaseReturn.resx">
       <DependentUpon>frmPurchaseReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmPurchaseReturnReport.resx">
+      <DependentUpon>frmPurchaseReturnReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmQuotation.resx">
       <DependentUpon>frmQuotation.cs</DependentUpon>
