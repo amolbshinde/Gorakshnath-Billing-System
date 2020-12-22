@@ -40,7 +40,7 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchCust.DataSource = null;
             DataTable dtC = cDAL.SelectForCombo();
             comboSearchCust.DisplayMember = "Column123";
-            comboSearchCust.ValueMember = "Column123";
+            //comboSearchCust.ValueMember = "Column123";
             comboSearchCust.DataSource = dtC;
             comboSearchCust.Text = "Select Cust";
 
@@ -48,7 +48,7 @@ namespace Gorakshnath_Billing_System.UI
             comboItemSearch.DataSource = null;
             DataTable dtI = ProductMasterDAL.SelectForCombo();
             comboItemSearch.DisplayMember = "Column12";
-            comboItemSearch.ValueMember = "Column12";
+            //comboItemSearch.ValueMember = "Column12";
             comboItemSearch.DataSource = dtI;
             comboItemSearch.Text = "Select Product";
 
@@ -755,7 +755,16 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                //dsd
+                comboItemSearch.Text = "Select Product";
+                textItemCode.Text = "";
+                textItemName.Text = "";
+                comboBoxUnit.Text = "";
+                textInventory.Text = "0";
+                textRate.Text = "0";
+                textDiscount.Text = "0";
+                textQuantity.Text = "0";
+                textGST.Text = "0";
+                textTotalAmount.Text = "0";
             }
         }
 
@@ -785,7 +794,10 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                //dsd
+                textCust_Name.Text = "";
+                textAddress.Text = "";
+                textContact.Text = "";
+                textEmail.Text = "";
             }
 
         }
