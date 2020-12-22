@@ -74,18 +74,15 @@ namespace Gorakshnath_Billing_System.UI
                                 pBLL = pDAL.checkProductAvailableOrNot(txtProduct_Name.Text);
                                 if (txtProduct_Name.Text != pBLL.Product_Name)
                                 {
-                                    if (textHSN_Code.Text != "")
-                                    {
+                                    
                                         pBLL = pDAL.checkProductHSNAvailableOrNot(textHSN_Code.Text);
                                         if (textHSN_Code.Text != pBLL.HSN_Code)
                                         {
-                                            if (txtPurchase_Price.Text != "")
-                                            {
+                                            
                                                 if (txtPurchase_Price.Text != "0")
                                                 {
 
-                                                    if (txtMin_Sales_Price.Text != "")
-                                                    {
+                                                    
                                                         if (txtMin_Sales_Price.Text != "0")
                                                         {
 
@@ -148,11 +145,7 @@ namespace Gorakshnath_Billing_System.UI
                                                             MessageBox.Show("Please Enter the Product Minimum Sales Prise Greater Than 0");
                                                         }
 
-                                                    }
-                                                    else
-                                                    {
-                                                        MessageBox.Show("Please Enter the Product Minimum Sales Prise");
-                                                    }
+                                                    
 
                                                 }
                                                 else
@@ -160,21 +153,13 @@ namespace Gorakshnath_Billing_System.UI
                                                     MessageBox.Show("Please Enter the Product Purchase Prise Greater Than 0");
                                                 }
 
-                                            }
-                                            else
-                                            {
-                                                MessageBox.Show("Please Enter the Product Purchase Prise");
-                                            }
+                                            
                                         }
                                         else
                                         {
                                             MessageBox.Show("HSN Code is Already Added in Database Please choose another HSN Code");
                                         }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Please Enter the Product HSN Code");
-                                    }
+                                    
                                 }
                                 else
                                 {
