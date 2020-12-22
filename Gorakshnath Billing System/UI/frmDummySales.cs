@@ -17,6 +17,7 @@ namespace Gorakshnath_Billing_System.UI
         public frmDummySales()
         {
             InitializeComponent();
+            fillCombo();
         }
         int salesid = -1;
         customerDAL cDAL = new customerDAL();
@@ -30,6 +31,25 @@ namespace Gorakshnath_Billing_System.UI
         DummySalesDetailsDAL DummySalesDetailsDAL = new DummySalesDetailsDAL();
 
         DataTable salesDT = new DataTable();
+
+        public void fillCombo()
+        {
+            comboSearchCust.DataSource = null;
+            DataTable dtC = cDAL.SelectForCombo();
+            comboSearchCust.DisplayMember = "Column123";
+            //comboSearchCust.ValueMember = "Column123";
+            comboSearchCust.DataSource = dtC;
+            comboSearchCust.Text = "Select Cust";
+
+
+            comboSearchItem.DataSource = null;
+            DataTable dtI = ProductMasterDAL.SelectForCombo();
+            comboSearchItem.DisplayMember = "Column12";
+            //comboItemSearch.ValueMember = "Column12";
+            comboSearchItem.DataSource = dtI;
+            comboSearchItem.Text = "Select Product";
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -119,7 +139,7 @@ namespace Gorakshnath_Billing_System.UI
                                     }
 
 
-                                    textItemSearch.Text = "";
+                                    comboSearchItem.Text = "";
                                     textItemName.Text = "";
                                     comboBoxUnit.Text = "";
                                     textInventory.Text = "0";
@@ -182,7 +202,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textItemSearch_TextChanged(object sender, EventArgs e)
         {
-            string keyword = textItemSearch.Text;
+            string keyword = comboSearchItem.Text;
 
 
             if (keyword == "")
@@ -301,14 +321,14 @@ namespace Gorakshnath_Billing_System.UI
         public void Clear()
         {
             
-            textSearch.Text = "";
+            comboSearchCust.Text = "";
             textCust_Name.Text = "";
             textEmail.Text = "";
             textAddress.Text = "";
             textContact.Text = "";
 
             textItemCode.Text = "";
-            textItemSearch.Text = "";
+            comboSearchItem.Text = "";
             textItemName.Text = "";
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
@@ -594,7 +614,7 @@ namespace Gorakshnath_Billing_System.UI
             if (comboTransactionType.Text != "")
             {
                 //get search keyword from search text box
-                string keyword = textSearch.Text;
+                string keyword = comboSearchCust.Text;
                 if (keyword == "")//clear all textboex
                 {
                     textCust_Name.Text = "";

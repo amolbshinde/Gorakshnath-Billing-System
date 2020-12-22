@@ -42,7 +42,7 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchCust.DisplayMember = "Column123";
             //comboSearchCust.ValueMember = "Column123";
             comboSearchCust.DataSource = dtC;
-            comboSearchCust.Text = "Select Cust";
+            //comboSearchCust.Text = "Select Cust";
 
 
             comboItemSearch.DataSource = null;
@@ -245,6 +245,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void frmChallan_Load(object sender, EventArgs e)
         {
+            Clear();
             salesDT.Columns.Add("Sr. No.");
             salesDT.Columns.Add("Product Name");
             salesDT.Columns.Add("Unit");
@@ -255,7 +256,10 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("Gst Type");
             salesDT.Columns.Add("(+)GST%");
             salesDT.Columns.Add("(+)GSTAMT");
-            salesDT.Columns.Add("(=)Total");                     
+            salesDT.Columns.Add("(=)Total");
+
+
+            comboSearchCust.Text = "Select Cust";
         }
 
         private void button1_Click(object sender, EventArgs e)
