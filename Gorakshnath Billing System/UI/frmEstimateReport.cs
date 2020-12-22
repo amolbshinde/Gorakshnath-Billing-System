@@ -17,17 +17,14 @@ namespace Gorakshnath_Billing_System.UI
         public frmEstimateReport()
         {
             InitializeComponent();
+            fillCombo();
         }
 
         EstimateBLL EstimateBLL = new EstimateBLL();
         EstimateDAL EstimateDAL = new EstimateDAL();
 
-        private void frmEstimateReport_Load(object sender, EventArgs e)
+        public void fillCombo()
         {
-
-            DataTable dt = EstimateDAL.SelectTD();
-            dgvChallanReport.DataSource = dt;
-
             comboInvoiceNo.DataSource = null;
             DataTable dtI = EstimateDAL.SelectTD();
             comboInvoiceNo.DisplayMember = "Invoice_No";
@@ -46,6 +43,13 @@ namespace Gorakshnath_Billing_System.UI
             comboMobileNo.DisplayMember = "Cust_Contact";
             comboMobileNo.DataSource = dtM;
             comboMobileNo.Text = "Select By Mobile No";
+        }
+
+        private void frmEstimateReport_Load(object sender, EventArgs e)
+        {
+
+            DataTable dt = EstimateDAL.SelectTD();
+            dgvChallanReport.DataSource = dt;
 
         }
 

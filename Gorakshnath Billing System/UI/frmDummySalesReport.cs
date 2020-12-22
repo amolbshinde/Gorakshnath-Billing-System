@@ -17,16 +17,14 @@ namespace Gorakshnath_Billing_System.UI
         public frmDummySalesReport()
         {
             InitializeComponent();
+            fillCombo();
         }
 
         DummySalesBLL DummySalesBLL = new DummySalesBLL();
         DummySalesDAL DummySalesDAL = new DummySalesDAL();
 
-        private void frmDummySalesReport_Load(object sender, EventArgs e)
+        public void fillCombo()
         {
-
-            DataTable dt = DummySalesDAL.SelectTD();
-            dgvChallanReport.DataSource = dt;
 
             comboInvoiceNo.DataSource = null;
             DataTable dtI = DummySalesDAL.SelectTD();
@@ -46,6 +44,15 @@ namespace Gorakshnath_Billing_System.UI
             comboMobileNo.DisplayMember = "Cust_Contact";
             comboMobileNo.DataSource = dtM;
             comboMobileNo.Text = "Select By Mobile No";
+
+        }
+
+        private void frmDummySalesReport_Load(object sender, EventArgs e)
+        {
+
+            DataTable dt = DummySalesDAL.SelectTD();
+            dgvChallanReport.DataSource = dt;
+
 
         }
 

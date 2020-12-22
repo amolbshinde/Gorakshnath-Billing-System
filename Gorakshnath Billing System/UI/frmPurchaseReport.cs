@@ -17,16 +17,14 @@ namespace Gorakshnath_Billing_System.UI
         public frmPurchaseReport()
         {
             InitializeComponent();
+            fillCombo();
         }
 
         purchaseBLL purchaseBLL = new purchaseBLL();
         purchaseDAL purchaseDAL = new purchaseDAL();
 
-        private void frmPurchaseReport_Load(object sender, EventArgs e)
+        public void fillCombo()
         {
-            DataTable dt = purchaseDAL.SelectPD();
-            dgvPurchaseReport.DataSource = dt;
-
             comboPurchaseId.DataSource = null;
             DataTable dtP = purchaseDAL.SelectPD();
             comboPurchaseId.DisplayMember = "Purchase_ID";
@@ -37,7 +35,7 @@ namespace Gorakshnath_Billing_System.UI
             comboSupName.DataSource = null;
             DataTable dtNP = purchaseDAL.SelectPD();
             comboSupName.DisplayMember = "CompanyName";
-            comboSupName.ValueMember="CompanyName";
+            comboSupName.ValueMember = "CompanyName";
             comboSupName.DataSource = dtNP;
             comboSupName.Text = "Select By Supplier Name";
 
@@ -47,6 +45,11 @@ namespace Gorakshnath_Billing_System.UI
             comboMobileNo.ValueMember = "Phone_No";
             comboMobileNo.DataSource = dtC;
             comboMobileNo.Text = "Select By Mobile No";
+        }
+        private void frmPurchaseReport_Load(object sender, EventArgs e)
+        {
+            DataTable dt = purchaseDAL.SelectPD();
+            dgvPurchaseReport.DataSource = dt;
 
         }
 

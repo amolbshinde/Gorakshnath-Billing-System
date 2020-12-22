@@ -16,18 +16,16 @@ namespace Gorakshnath_Billing_System.UI
     {
         public frmChallanReport()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            fillcombo();
         }
 
         challanBLL ChallanBLL = new challanBLL();
         challanDAL challanDAL = new challanDAL();
         
 
-        private void frmChallanReport_Load(object sender, EventArgs e)
+        public void fillcombo()
         {
-            DataTable dt = challanDAL.SelectTD();
-            dgvChallanReport.DataSource = dt;
-
             comboInvoiceNo.DataSource = null;
             DataTable dtI = challanDAL.SelectTD();
             comboInvoiceNo.DisplayMember = "Invoice_No";
@@ -43,12 +41,17 @@ namespace Gorakshnath_Billing_System.UI
 
             comboMobileNo.DataSource = null;
             DataTable dtM = challanDAL.SelectTD();
-            comboMobileNo.DisplayMember = "Cust_Contact";            
+            comboMobileNo.DisplayMember = "Cust_Contact";
             comboMobileNo.DataSource = dtM;
             comboMobileNo.Text = "Select By Mobile No";
 
             //MessageBox.Show(comboInvoiceNo.Text);
+        }
 
+        private void frmChallanReport_Load(object sender, EventArgs e)
+        {
+            DataTable dt = challanDAL.SelectTD();
+            dgvChallanReport.DataSource = dt;
         }
 
         private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
