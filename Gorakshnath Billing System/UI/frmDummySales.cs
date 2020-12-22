@@ -737,7 +737,7 @@ namespace Gorakshnath_Billing_System.UI
             if (comboSearchItem.Text != "Select Product")
             {
 
-                string keyword = comboSearchItem.Text;
+                string keyword = textItemName.Text;
                 if (keyword == "")
                 {
                     comboSearchItem.Text = "Select Product";
