@@ -28,8 +28,7 @@ namespace Gorakshnath_Billing_System.UI
 
             if(textBrandName.Text!="")
             {
-                if(textDescription.Text!="")
-                {
+              
                     BrandBLL = BrandDAL.checkBrandAvailableOrNot(textBrandName.Text);
 
                     if (textBrandName.Text != BrandBLL.Brand_Name)
@@ -54,11 +53,7 @@ namespace Gorakshnath_Billing_System.UI
                     {
                         MessageBox.Show("Brand is Already Added in Database Please choose another Brand");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Please Enter Description");
-                }                
+                             
             }
             else
             {

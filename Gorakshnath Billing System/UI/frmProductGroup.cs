@@ -26,8 +26,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             if (textGroupName.Text != "")
             {
-                if(textDescription.Text!="")
-                {
+                
                     GroupBLL = GroupDAL.checkGroupAvailableOrNot(textGroupName.Text);
 
                     if (textGroupName.Text != GroupBLL.Group_Name)
@@ -38,7 +37,7 @@ namespace Gorakshnath_Billing_System.UI
                         bool success = GroupDAL.Insert(GroupBLL);
                         if (success == true)
                         {
-                            MessageBox.Show("Categoriy Inserted Succesfully .!!");
+                            MessageBox.Show("Product Group Inserted Succesfully .!!");
                             clear();
                             DataTable dt = GroupDAL.Select();
                             dgvGroup.DataSource = dt;
@@ -53,11 +52,8 @@ namespace Gorakshnath_Billing_System.UI
                     {
                         MessageBox.Show("Group is Already Added in Database Please choose another Group");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Please enter Description");
-                }
+                
+                
                 
             }
             else
@@ -84,7 +80,7 @@ namespace Gorakshnath_Billing_System.UI
                 bool success = GroupDAL.Update(GroupBLL);
                 if (success == true)
                 {
-                    MessageBox.Show("Cetegory Updated Succesfully ...");
+                    MessageBox.Show("Group Updated Succesfully ...");
                     clear();
                     DataTable dt = GroupDAL.Select();
                     dgvGroup.DataSource = dt;
