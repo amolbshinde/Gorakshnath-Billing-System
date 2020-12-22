@@ -308,6 +308,31 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
+        #region Select Data From Database for challan combo
+        public DataTable SelectForCombo()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT Column12 FROM(SELECT CompanyName, Phone_No FROM Supplier_Master) AS tmp UNPIVOT(Column12 FOR ColumnAll IN (CompanyName, Phone_No))AS unpvt;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
 
     }
 

@@ -39,7 +39,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             comboSearchCust.DataSource = null;
             DataTable dtC = cDAL.SelectForCombo();
-            comboSearchCust.DisplayMember = "Column123";            
+            comboSearchCust.DisplayMember = "Column12";            
             comboSearchCust.DataSource = dtC;
             comboSearchCust.Text = "Select Cust";
 

@@ -104,7 +104,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label35 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.comboItemSearch = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboSearchSup = new System.Windows.Forms.ComboBox();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -889,7 +888,6 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.comboBox3);
             this.panel3.Controls.Add(this.comboItemSearch);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.comboGstType);
@@ -990,19 +988,6 @@ namespace Gorakshnath_Billing_System.UI
             this.comboItemSearch.Name = "comboItemSearch";
             this.comboItemSearch.Size = new System.Drawing.Size(143, 23);
             this.comboItemSearch.TabIndex = 20;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
-            this.comboBox3.Location = new System.Drawing.Point(444, 33);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(178, 23);
-            this.comboBox3.TabIndex = 44;
             // 
             // comboSearchSup
             // 
@@ -1124,7 +1109,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboSearchSup;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboItemSearch;
     }
 }

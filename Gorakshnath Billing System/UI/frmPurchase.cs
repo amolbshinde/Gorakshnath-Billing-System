@@ -19,6 +19,7 @@ namespace Gorakshnath_Billing_System.UI
         public frmPurchase()
         {
             InitializeComponent();
+            fillCombo();
         }
         int purchaseid = -1;
 
@@ -35,6 +36,23 @@ namespace Gorakshnath_Billing_System.UI
         
 
         stockDAL stockDAL = new stockDAL();
+
+        public void fillCombo()
+        {
+            comboSearchSup.DataSource = null;
+            DataTable dtC = smDAL.SelectForCombo();
+            comboSearchSup.DisplayMember = "Column12";
+            comboSearchSup.DataSource = dtC;
+            comboSearchSup.Text = "Select Cust";
+
+
+            comboItemSearch.DataSource = null;
+            DataTable dtI = ProductMasterDAL.SelectForCombo();
+            comboItemSearch.DisplayMember = "Product_Name";
+            comboItemSearch.DataSource = dtI;
+            comboItemSearch.Text = "Select Product";
+
+        }
 
 
         //hello
