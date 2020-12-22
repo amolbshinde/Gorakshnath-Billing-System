@@ -335,7 +335,7 @@ namespace Gorakshnath_Billing_System.UI
 
                         // using (TransactionScope scope = new TransactionScope())
                         
-                           //int purchaseid = -1; already declaraed at the top as a global variable
+                           //int purchaseid = -1; already declaraed at the top as a global variable.
                             bool b = purchaseDAL.insertpurchase(purchaseBLL, out purchaseid);
                             for (int i = 0; i < purchasedt.Rows.Count; i++)
                             {
