@@ -988,6 +988,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboItemSearch.Name = "comboItemSearch";
             this.comboItemSearch.Size = new System.Drawing.Size(143, 23);
             this.comboItemSearch.TabIndex = 20;
+            this.comboItemSearch.SelectedIndexChanged += new System.EventHandler(this.comboItemSearch_SelectedIndexChanged);
             // 
             // comboSearchSup
             // 
@@ -1001,6 +1002,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboSearchSup.Name = "comboSearchSup";
             this.comboSearchSup.Size = new System.Drawing.Size(178, 23);
             this.comboSearchSup.TabIndex = 20;
+            this.comboSearchSup.SelectedIndexChanged += new System.EventHandler(this.comboSearchSup_SelectedIndexChanged);
             // 
             // frmPurchase
             // 

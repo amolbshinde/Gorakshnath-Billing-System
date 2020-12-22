@@ -199,7 +199,7 @@ namespace Gorakshnath_Billing_System.DAL
 
         #endregion
 
-        #region Search Customer On Database Using Keywords
+        #region Search Supplier On Database Using Keywords
         public DataTable Search(string keywords)
         {
             SqlConnection con = new SqlConnection(myconnstrng);
@@ -240,7 +240,7 @@ namespace Gorakshnath_Billing_System.DAL
 
             try
             {
-                string sql="Select CompanyName,Phone_No,Email,Address from Supplier_Master where SupplierID like'%"+keyword+"%' OR CompanyName Like'%"+keyword+ "%' OR Contact_No Like'%" + keyword + "%'";
+                string sql="Select CompanyName,Phone_No,Email,Address from Supplier_Master where CompanyName Like'%"+keyword+ "%' OR Phone_No Like'%" + keyword + "%'";
                 //Sql data adapter to execute query
                 SqlDataAdapter adapter = new SqlDataAdapter(sql,conn);
                 //open connecton to databaase
