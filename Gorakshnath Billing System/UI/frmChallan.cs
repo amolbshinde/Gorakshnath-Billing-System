@@ -258,8 +258,6 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("(+)GSTAMT");
             salesDT.Columns.Add("(=)Total");
 
-
-            comboSearchCust.Text = "Select Cust";
         }
 
         private void button1_Click(object sender, EventArgs e)
