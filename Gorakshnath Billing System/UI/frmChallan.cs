@@ -396,14 +396,14 @@ namespace Gorakshnath_Billing_System.UI
         {
 
             comboSearchCust.Text = "Select Cust";
+            comboItemSearch.Text = "Select Product";
             textCust_Name.Text = "";
             textEmail.Text = "";
             textAddress.Text = "";
             textContact.Text = "";
             textBox6.Text = "";
 
-            textItemCode.Text = "";
-            comboItemSearch.Text = "Select Product";
+            textItemCode.Text = "";            
             textItemName.Text = "";
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
