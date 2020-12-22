@@ -196,7 +196,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Item_Code, Quantity,Purchase_Price, Product_Name, Product_Master.Unit , Sales_Price FROM Product_Master,Stock_Master where Product_Master.Product_Id=Stock_Master.Product_Id AND Product_Master.Product_ID LIKE '%" + keyword + "%' OR Product_Name LIKE '%" + keyword + "%'";
+                string sql = "SELECT Item_Code, Quantity,Purchase_Price, Product_Name, Product_Master.Unit , Sales_Price FROM Product_Master,Stock_Master where Product_Master.Product_Id=Stock_Master.Product_Id AND Product_Name LIKE '%" + keyword + "%'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
 
                 conn.Open();
@@ -405,7 +405,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                String sql = "SELECT Column12 FROM(SELECT Product_Name, Item_Code FROM Product_Master) AS tmp UNPIVOT(Column12 FOR ColumnAll IN (Product_Name, Item_Code))AS unpvt;";
+                String sql = "SELECT Product_Name FROM Product_Master;";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();

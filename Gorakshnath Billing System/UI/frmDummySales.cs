@@ -44,7 +44,7 @@ namespace Gorakshnath_Billing_System.UI
 
             comboSearchItem.DataSource = null;
             DataTable dtI = ProductMasterDAL.SelectForCombo();
-            comboSearchItem.DisplayMember = "Column12";
+            comboSearchItem.DisplayMember = "Product_Name";
             //comboItemSearch.ValueMember = "Column12";
             comboSearchItem.DataSource = dtI;
             comboSearchItem.Text = "Select Product";
@@ -737,7 +737,7 @@ namespace Gorakshnath_Billing_System.UI
             if (comboSearchItem.Text != "Select Product")
             {
 
-                string keyword = textItemName.Text;
+                string keyword = comboSearchItem.Text;
                 if (keyword == "")
                 {
                     comboSearchItem.Text = "Select Product";
