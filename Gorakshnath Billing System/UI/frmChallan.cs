@@ -39,16 +39,14 @@ namespace Gorakshnath_Billing_System.UI
         {
             comboSearchCust.DataSource = null;
             DataTable dtC = cDAL.SelectForCombo();
-            comboSearchCust.DisplayMember = "Column123";
-            //comboSearchCust.ValueMember = "Column123";
+            comboSearchCust.DisplayMember = "Column123";            
             comboSearchCust.DataSource = dtC;
-            //comboSearchCust.Text = "Select Cust";
+            comboSearchCust.Text = "Select Cust";
 
 
             comboItemSearch.DataSource = null;
             DataTable dtI = ProductMasterDAL.SelectForCombo();
-            comboItemSearch.DisplayMember = "Product_Name";
-            //comboItemSearch.ValueMember = "Column12";
+            comboItemSearch.DisplayMember = "Product_Name";            
             comboItemSearch.DataSource = dtI;
             comboItemSearch.Text = "Select Product";
 

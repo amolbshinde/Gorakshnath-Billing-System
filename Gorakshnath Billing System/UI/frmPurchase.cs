@@ -46,7 +46,7 @@ namespace Gorakshnath_Billing_System.UI
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
          //get search keyword from search text box
-            string keyword = textSearch.Text;
+            string keyword = comboSearchSup.Text;
             if (keyword == "")//clear all textboex
             {
                 textSupplierName.Text = "";
@@ -129,7 +129,7 @@ namespace Gorakshnath_Billing_System.UI
                             textIgst.Text = subIGst.ToString();
                         }
                         textItemCode.Text = "";
-                        textItemSearch.Text = "";
+                        comboItemSearch.Text = "";
                         textItemName.Text = "";
                         comboBoxUnit.Text = "";
                         textInventory.Text = "0";
@@ -161,7 +161,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textItemSearch_TextChanged(object sender, EventArgs e)
         {
-            string keyword = textItemSearch.Text;
+            string keyword = comboItemSearch.Text;
 
 
             if (keyword == "")
