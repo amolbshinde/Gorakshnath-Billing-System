@@ -269,7 +269,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                String sql = "SELECT Column123 FROM(SELECT Cust_Name, Cust_Contact FROM Cust_Master) AS tmp UNPIVOT(Column123 FOR ColumnAll IN (Cust_Name, Cust_Contact))AS unpvt;";
+                String sql = "SELECT Column12 FROM(SELECT Cust_Name, Cust_Contact FROM Cust_Master) AS tmp UNPIVOT(Column12 FOR ColumnAll IN (Cust_Name, Cust_Contact))AS unpvt;";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();

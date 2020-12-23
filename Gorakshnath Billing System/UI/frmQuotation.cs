@@ -18,6 +18,7 @@ namespace Gorakshnath_Billing_System.UI
         public frmQuotation()
         {
             InitializeComponent();
+            fillCombo();
         }
 
         customerDAL cDAL = new customerDAL();
@@ -33,6 +34,23 @@ namespace Gorakshnath_Billing_System.UI
         stockDAL stockDAL = new stockDAL();
 
         DataTable estimateDT = new DataTable();
+
+        public void fillCombo()
+        {
+            comboSearchCust.DataSource = null;
+            DataTable dtC = cDAL.SelectForCombo();
+            comboSearchCust.DisplayMember = "Column12";
+            comboSearchCust.DataSource = dtC;
+            comboSearchCust.Text = "Select Cust";
+
+
+            comboItemSearch.DataSource = null;
+            DataTable dtI = ProductMasterDAL.SelectForCombo();
+            comboItemSearch.DisplayMember = "Product_Name";
+            comboItemSearch.DataSource = dtI;
+            comboItemSearch.Text = "Select Product";
+
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -92,9 +110,10 @@ namespace Gorakshnath_Billing_System.UI
             if (comboTransactionType.Text != "")
             {
                 //get search keyword from search text box
-                string keyword = textSearch.Text;
+                string keyword = comboSearchCust.Text;
                 if (keyword == "")//clear all textboex
                 {
+                    comboSearchCust.Text = "Select Cust";                    
                     textCust_Name.Text = "";
                     textAddress.Text = "";
                     textContact.Text = "";
@@ -119,10 +138,11 @@ namespace Gorakshnath_Billing_System.UI
         private void textItemSearch_TextChanged(object sender, EventArgs e)
         {
 
-            string keyword = textItemSearch.Text;
+            string keyword = comboItemSearch.Text;
 
             if (keyword == "")
-            {
+            {                
+                comboItemSearch.Text = "Select Product";
                 textItemCode.Text = "";
                 textItemName.Text = "";
                 comboBoxUnit.Text = "";
@@ -226,8 +246,8 @@ namespace Gorakshnath_Billing_System.UI
                                         textIgst.Text = subIGst.ToString();
                                     }
 
-
-                                    textItemSearch.Text = "";
+                                    
+                                    comboItemSearch.Text = "Select Product";
                                     textItemName.Text = "";
                                     comboBoxUnit.Text = "";
                                     textInventory.Text = "0";
@@ -275,7 +295,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void frmQuotation_Load(object sender, EventArgs e)
         {
-
+            Clear();
             estimateDT.Columns.Add("Sr. No.");
             estimateDT.Columns.Add("Product Name");
             estimateDT.Columns.Add("Unit");
@@ -294,7 +314,7 @@ namespace Gorakshnath_Billing_System.UI
         {
 
 
-            string pname = textItemSearch.Text;
+            string pname = comboItemSearch.Text;
             ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(pname);
             decimal inv;
             decimal.TryParse(textQuantity.Text, out inv);
@@ -677,7 +697,8 @@ namespace Gorakshnath_Billing_System.UI
         public void Clear()
         {
 
-            textSearch.Text = "";
+            comboSearchCust.Text = "Select Cust";
+            comboItemSearch.Text = "Select Product";
             textCust_Name.Text = "";
             textEmail.Text = "";
             textAddress.Text = "";
@@ -685,7 +706,7 @@ namespace Gorakshnath_Billing_System.UI
             textInvoiceNo.Text = "";
 
             textItemCode.Text = "";
-            textItemSearch.Text = "";
+            
             textItemName.Text = "";
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
@@ -735,6 +756,87 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Save details first");
             }
+        }
+
+        private void comboSearchCust_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboSearchCust.Text != "Select Cust")
+            {
+
+                //get search keyword from search text box
+                string keyword = comboSearchCust.Text;
+                if (keyword == "")//clear all textboex
+                {
+                    comboSearchCust.Text = "Select Cust";                    
+                    textCust_Name.Text = "";
+                    textAddress.Text = "";
+                    textContact.Text = "";
+                    textEmail.Text = "";
+                    return;
+                }
+                customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
+
+                textCust_Name.Text = cBLL.name;
+                textContact.Text = cBLL.contact;
+                textEmail.Text = cBLL.email;
+                textAddress.Text = cBLL.address;
+
+            }
+            else
+            {
+                textCust_Name.Text = "";
+                textAddress.Text = "";
+                textContact.Text = "";
+                textEmail.Text = "";
+            }
+
+        }
+
+        private void comboItemSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboItemSearch.Text != "Select Product")
+            {
+
+                string keyword = comboItemSearch.Text;
+                if (keyword == "")
+                {
+                    comboItemSearch.Text = "Select Product";
+                    textItemCode.Text = "";
+                    textItemName.Text = "";
+                    comboBoxUnit.Text = "";
+                    textInventory.Text = "0";
+                    textRate.Text = "0";
+                    textDiscount.Text = "0";
+                    textQuantity.Text = "0";
+                    textGST.Text = "0";
+                    textTotalAmount.Text = "0";
+                    return;
+                }
+
+                ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
+                textItemCode.Text = p.Item_Code;
+                textItemName.Text = p.Product_Name;
+                comboBoxUnit.Text = p.Unit;
+                textRate.Text = p.Sales_Price.ToString();
+                textInventory.Text = p.Quantity.ToString();
+
+            }
+            else
+            {
+                comboItemSearch.Text = "Select Product";
+                textItemCode.Text = "";
+                textItemName.Text = "";
+                comboBoxUnit.Text = "";
+                textInventory.Text = "0";
+                textRate.Text = "0";
+                textDiscount.Text = "0";
+                textQuantity.Text = "0";
+                textGST.Text = "0";
+                textTotalAmount.Text = "0";
+            }
+
         }
     }
 }

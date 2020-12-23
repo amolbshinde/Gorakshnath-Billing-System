@@ -19,6 +19,7 @@ namespace Gorakshnath_Billing_System.UI
         public frmPurchase()
         {
             InitializeComponent();
+            fillCombo();
         }
         int purchaseid = -1;
 
@@ -35,6 +36,23 @@ namespace Gorakshnath_Billing_System.UI
         
 
         stockDAL stockDAL = new stockDAL();
+
+        public void fillCombo()
+        {
+            comboSearchSup.DataSource = null;
+            DataTable dtC = smDAL.SelectForCombo();
+            comboSearchSup.DisplayMember = "Column12";
+            comboSearchSup.DataSource = dtC;
+            comboSearchSup.Text = "Select Sup";
+
+
+            comboItemSearch.DataSource = null;
+            DataTable dtI = ProductMasterDAL.SelectForCombo();
+            comboItemSearch.DisplayMember = "Product_Name";
+            comboItemSearch.DataSource = dtI;
+            comboItemSearch.Text = "Select Product";
+
+        }
 
 
         //hello
@@ -128,8 +146,8 @@ namespace Gorakshnath_Billing_System.UI
                             subIGst = subIGst + Math.Round((((PurchasePrice * Qty) - ((PurchasePrice * Qty) * discount) / 100) * gst) / 100,2);
                             textIgst.Text = subIGst.ToString();
                         }
-                        textItemCode.Text = "";
-                        comboItemSearch.Text = "";
+                        textItemCode.Text = "";                        
+                        comboItemSearch.Text = "Select Product";
                         textItemName.Text = "";
                         comboBoxUnit.Text = "";
                         textInventory.Text = "0";
@@ -195,6 +213,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void frmPurchase_Load(object sender, EventArgs e)
         {
+            Clear();
             //specify columns to our dataTable 
             purchasedt.Columns.Add("Sr. No.");
             purchasedt.Columns.Add("ProductName");
@@ -359,8 +378,6 @@ namespace Gorakshnath_Billing_System.UI
                                 pdBLL.GST_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][8].ToString()), 2);
                                 pdBLL.Total = Math.Round(decimal.Parse(purchasedt.Rows[i][9].ToString()), 2);
                                 
-
-
 
                                 int Product_id = p.Product_ID;
                                 stockBLL.Product_Id = Product_id;
@@ -623,5 +640,124 @@ namespace Gorakshnath_Billing_System.UI
             }
 
         }
+
+        private void comboSearchSup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboSearchSup.Text != "Select Sup")
+            {
+                string keyword = comboSearchSup.Text;
+                if (keyword == "")//clear all textboex
+                {
+                    textSupplierName.Text = "";
+                    textAddress.Text = "";
+                    textContact.Text = "";
+                    textEmail.Text = "";
+                    return;
+                }
+
+                SupplierMasterBLL smBLL = smDAL.SearchSupplier(keyword);
+
+                textSupplierName.Text = smBLL.CompanyName;
+                textContact.Text = smBLL.Phone_No;
+                textEmail.Text = smBLL.Email;
+                textAddress.Text = smBLL.Address;
+            }
+            else
+            {
+                textSupplierName.Text = "";
+                textAddress.Text = "";
+                textContact.Text = "";
+                textEmail.Text = "";
+            }
+        }
+
+        private void comboItemSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboItemSearch.Text != "Select Product")
+            {
+
+                string keyword = comboItemSearch.Text;
+                if (keyword == "")
+                {
+                    comboItemSearch.Text = "Select Product";
+                    textItemCode.Text = "";
+                    textItemName.Text = "";
+                    comboBoxUnit.Text = "";
+                    textInventory.Text = "0";
+                    textPurchasePrice.Text = "0";
+                    textDiscount.Text = "0";
+                    textQuantity.Text = "0";
+                    textGst.Text = "0";
+                    textTotalAmount.Text = "0";
+                    return;
+                }
+
+                ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
+                textItemCode.Text = p.Item_Code;
+                textItemName.Text = p.Product_Name;
+                comboBoxUnit.Text = p.Unit;
+                textPurchasePrice.Text = p.Sales_Price.ToString();
+                textInventory.Text = p.Quantity.ToString();
+
+            }
+            else
+            {
+                comboItemSearch.Text = "Select Product";
+                textItemCode.Text = "";
+                textItemName.Text = "";
+                comboBoxUnit.Text = "";
+                textInventory.Text = "0";
+                textPurchasePrice.Text = "0";
+                textDiscount.Text = "0";
+                textQuantity.Text = "0";
+                textGst.Text = "0";
+                textTotalAmount.Text = "0";
+            }
+
+        }
+
+
+        public void Clear()
+        {
+
+            comboSearchSup.Text = "Select Sup";
+            comboItemSearch.Text = "Select Product";
+            textSupplierName.Text = "";
+            textEmail.Text = "";
+            textAddress.Text = "";
+            textContact.Text = "";
+            textBox6.Text = "";
+
+            textItemCode.Text = "";
+            
+            textItemName.Text = "";
+            comboBoxUnit.Text = "";
+            textInventory.Text = "0";
+            textQuantity.Text = "0";
+            textPurchasePrice.Text = "0";
+            textDiscount.Text = "0";
+
+            if (comboPurchaseType.Text != "Non GST")
+            {
+                comboGstType.Text = "";
+                textGst.Text = "0";
+            }
+
+            textTotalAmount.Text = "0";
+
+            textSubTotal.Text = "0";
+            textSubDiscount.Text = "0";
+            textSgst.Text = "0";
+            textCgst.Text = "0";
+            textIgst.Text = "0";
+            textGrandTotal.Text = "0";
+
+            dgvAddedProducts.DataSource = null;
+            dgvAddedProducts.Rows.Clear();
+            purchasedt.Rows.Clear();
+        }
+
+
     }   
 }
