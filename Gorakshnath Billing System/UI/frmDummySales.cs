@@ -20,8 +20,7 @@ namespace Gorakshnath_Billing_System.UI
             fillCombo();
         }
         int salesid = -1;
-        customerDAL cDAL = new customerDAL();
-        // customerBLL cBLL = new customerBLL();
+        
         ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
 
         DummySalesBLL challanBLL = new DummySalesBLL();
@@ -38,14 +37,14 @@ namespace Gorakshnath_Billing_System.UI
         public void fillCombo()
         {
             comboSearchCust.DataSource = null;
-            DataTable dtC = cDAL.SelectForCombo();
+            DataTable dtC = customerDAL.SelectForCombo();
             comboSearchCust.DisplayMember = "Cust_Name";
             //comboSearchCust.ValueMember = "Column123";
             comboSearchCust.DataSource = dtC;
             comboSearchCust.Text = "Select Cust";
 
             comboContact.DataSource = null;
-            DataTable dtP = cDAL.SelectForCombo();
+            DataTable dtP = customerDAL.SelectForCombo();
             comboContact.DisplayMember = "Cust_Contact";
             //comboSearchCust.ValueMember = "Column123";
             comboContact.DataSource = dtP;
@@ -371,10 +370,10 @@ namespace Gorakshnath_Billing_System.UI
             string sname = comboSearchCust.Text;
             if (comboTransactionType.Text != "")
             {
-                if (sname != "")
+                if (sname != "" && sname != "Select Cust")
                 {
                     string Contact = comboContact.Text;
-                    customerBLL cust = cDAL.getCustomerIdFromContact(Contact);
+                    customerBLL cust = customerDAL.getCustomerIdFromContact(Contact);
                     if(cust.contact != comboContact.Text)
                     {
 
@@ -390,7 +389,7 @@ namespace Gorakshnath_Billing_System.UI
 
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        customerBLL c = cDAL.getCustomerIdFromName(sname);
+                        customerBLL c = customerDAL.getCustomerIdFromName(sname);
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
@@ -649,7 +648,7 @@ namespace Gorakshnath_Billing_System.UI
                     return;
                 }
 
-                customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
+                customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
                 //textCust_Name.Text = cBLL.name;
                 comboContact.Text = cBLL.contact;
                 textEmail.Text = cBLL.email;
@@ -737,7 +736,7 @@ namespace Gorakshnath_Billing_System.UI
                     textEmail.Text = "";
                     return;
                 }
-                customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
+                customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
 
                 //textCust_Name.Text = cBLL.name;
                 comboContact.Text = cBLL.contact;
@@ -818,7 +817,7 @@ namespace Gorakshnath_Billing_System.UI
                     textEmail.Text = "";
                     return;
                 }
-                customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
+                customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
 
                 //textCust_Name.Text = cBLL.name;
 

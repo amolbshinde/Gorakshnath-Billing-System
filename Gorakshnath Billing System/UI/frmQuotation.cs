@@ -21,7 +21,9 @@ namespace Gorakshnath_Billing_System.UI
             fillCombo();
         }
 
-        customerDAL cDAL = new customerDAL();
+        customerBLL customerBLL = new customerBLL();
+        customerDAL customerDAL = new customerDAL();
+
         // customerBLL cBLL = new customerBLL();
         ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
 
@@ -38,13 +40,13 @@ namespace Gorakshnath_Billing_System.UI
         public void fillCombo()
         {
             comboSearchCust.DataSource = null;
-            DataTable dtC = cDAL.SelectForCombo();
+            DataTable dtC = customerDAL.SelectForCombo();
             comboSearchCust.DisplayMember = "Cust_Name";
             comboSearchCust.DataSource = dtC;
             comboSearchCust.Text = "Select Cust";
 
             comboContact.DataSource = null;
-            DataTable dtP = cDAL.SelectForCombo();
+            DataTable dtP = customerDAL.SelectForCombo();
             comboContact.DisplayMember = "Cust_Contact";
             //comboSearchCust.ValueMember = "Column123";
             comboContact.DataSource = dtP;
@@ -127,7 +129,7 @@ namespace Gorakshnath_Billing_System.UI
                     return;
                 }
 
-                customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
+                customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
 
                 comboSearchCust.Text = cBLL.name;
                 comboContact.Text = cBLL.contact;
@@ -612,9 +614,23 @@ namespace Gorakshnath_Billing_System.UI
                 if (sname != "" && sname != "Select Cust")
                 {
 
+                    string Contact = comboContact.Text;
+                    customerBLL cust = customerDAL.getCustomerIdFromContact(Contact);
+                    if (cust.contact != comboContact.Text)
+                    {
+
+                        customerBLL.name = comboSearchCust.Text;
+                        customerBLL.contact = comboContact.Text;
+                        customerBLL.email = textEmail.Text;
+                        customerBLL.address = textAddress.Text;
+
+                        bool Success = customerDAL.Insert(customerBLL);
+
+                    }
+
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        customerBLL c = cDAL.getCustomerIdFromName(sname);
+                        customerBLL c = customerDAL.getCustomerIdFromName(sname);
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
@@ -779,7 +795,7 @@ namespace Gorakshnath_Billing_System.UI
                     textEmail.Text = "";
                     return;
                 }
-                customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
+                customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
 
                 comboSearchCust.Text = cBLL.name;
                 comboContact.Text = cBLL.contact;
@@ -859,7 +875,7 @@ namespace Gorakshnath_Billing_System.UI
                     textEmail.Text = "";
                     return;
                 }
-                customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
+                customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
 
                 comboSearchCust.Text = cBLL.name;
                 comboContact.Text = cBLL.contact;
