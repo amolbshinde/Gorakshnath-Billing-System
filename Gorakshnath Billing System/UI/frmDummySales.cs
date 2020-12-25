@@ -45,10 +45,10 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchCust.Text = "Select Cust";
 
             comboContact.DataSource = null;
-            DataTable dtC = cDAL.SelectForCombo();
+            DataTable dtP = cDAL.SelectForCombo();
             comboContact.DisplayMember = "Cust_Contact";
             //comboSearchCust.ValueMember = "Column123";
-            comboContact.DataSource = dtC;
+            comboContact.DataSource = dtP;
             comboContact.Text = "Select Phone";
 
 
@@ -67,8 +67,6 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-
             string pname = "";
             //checking product is already present or ot           
             if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
@@ -485,7 +483,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 if (dgvAddedProducts.Rows.Count != 0)
                 {
-                    //save fun
+                    //save fun.
                     save();
                 }
                 else
@@ -807,7 +805,7 @@ namespace Gorakshnath_Billing_System.UI
         private void comboContact_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
+            if (comboContact.Text != "Select Phone" && comboContact.Text != "")
             {
 
                 //get search keyword from search text box
@@ -823,7 +821,8 @@ namespace Gorakshnath_Billing_System.UI
                 customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
 
                 //textCust_Name.Text = cBLL.name;
-                comboContact.Text = cBLL.contact;
+
+                comboSearchCust.Text = cBLL.name;
                 textEmail.Text = cBLL.email;
                 textAddress.Text = cBLL.address;
 
