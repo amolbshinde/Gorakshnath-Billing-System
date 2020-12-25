@@ -15,7 +15,7 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmEstimateCrpt : Form
     {
-        ReportDocument cryRpt;
+        //ReportDocument cryRpt;
 
         int GetInvoice;
         public frmEstimateCrpt(int InvoiceNo)
