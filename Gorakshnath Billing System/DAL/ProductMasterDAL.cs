@@ -111,7 +111,7 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "UPDATE Product_Master SET Product_Group=@Product_Group,Brand=@Brand,Item_Code=@Item_Code,Product_Name=@Product_Name,HSN_Code=@HSN_Code,Purchase_Price=@Purchase_Price,Sales_Price=@Sales_Price,Min_Sales_Price=@Min_Sales_Price,Unit=@Unit,Opening_Stock=@Opening_Stock WHERE Product_ID = @Product_ID";
+                String sql = "UPDATE Product_Master SET Product_Group=@Product_Group,Brand=@Brand,Item_Code=@Item_Code,Product_Name=@Product_Name,HSN_Code=@HSN_Code,Purchase_Price=@Purchase_Price,Sales_Price=@Sales_Price,Min_Sales_Price=@Min_Sales_Price,Unit=@Unit WHERE Product_ID = @Product_ID";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 
                 cmd.Parameters.AddWithValue("@Product_ID", pBLL.Product_ID);
@@ -124,7 +124,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Sales_Price", pBLL.Sales_Price);
                 cmd.Parameters.AddWithValue("@Min_Sales_Price", pBLL.Min_Sales_Price);
                 cmd.Parameters.AddWithValue("@Unit", pBLL.Unit);
-                cmd.Parameters.AddWithValue("@Opening_Stock", pBLL.Opening_Stock);
+                //cmd.Parameters.AddWithValue("@Opening_Stock", pBLL.Opening_Stock);
                 
 
                 con.Open();

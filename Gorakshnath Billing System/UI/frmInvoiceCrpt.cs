@@ -42,8 +42,7 @@ namespace Gorakshnath_Billing_System.UI
         {            
             crptInvoiceViewer.ReportSource = null;
             crptInvoice.SetParameterValue("@Invoice_No", GetInvoice.ToString());
-            crptInvoiceViewer.ReportSource = crptInvoice;
-            btnSendMail.Enabled = false;
+            crptInvoiceViewer.ReportSource = crptInvoice;            
         }
 
         private void crptInvoiceViewer_Load(object sender, EventArgs e)
@@ -58,7 +57,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-            /*
+            
             try
             {                
 
@@ -75,13 +74,13 @@ namespace Gorakshnath_Billing_System.UI
                 }
                 crptInvoice.Export();
 
-                sendmail();
+                //sendmail();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-*/
+
 
         }
         /*
