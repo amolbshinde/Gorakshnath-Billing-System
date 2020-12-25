@@ -43,6 +43,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void clear()
         {
+            txtOpening_Stock.ReadOnly = false;
             txtProduct_ID.Text = "";
             txtProduct_Name.Text = "";
             comboProduct_Group.Text = "";
@@ -230,7 +231,7 @@ namespace Gorakshnath_Billing_System.UI
                 pBLL.Sales_Price = decimal.Parse(txtSales_Price.Text);
                 pBLL.Min_Sales_Price = decimal.Parse(txtMin_Sales_Price.Text);
                 pBLL.Unit = comboUnit.Text;
-                pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text);
+                //pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text);
 
                 bool Success = pDAL.Update(pBLL);
 
@@ -271,6 +272,8 @@ namespace Gorakshnath_Billing_System.UI
         {
             int rowIndex = e.RowIndex;
 
+            txtOpening_Stock.ReadOnly = true;
+
             txtProduct_ID.Text = dgvProductMaster.Rows[rowIndex].Cells[0].Value.ToString();
 
             comboProduct_Group.Text = dgvProductMaster.Rows[rowIndex].Cells[1].Value.ToString();
@@ -297,7 +300,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string Product_ID = txtProduct_ID.Text;
+            /*string Product_ID = txtProduct_ID.Text;
             if (Product_ID != "" && Product_ID != "Auto Genrated")
             {
                 pBLL.Product_ID = Convert.ToInt32(txtProduct_ID.Text);
@@ -321,6 +324,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Selecte Details to Delete");
             }
+            */
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
