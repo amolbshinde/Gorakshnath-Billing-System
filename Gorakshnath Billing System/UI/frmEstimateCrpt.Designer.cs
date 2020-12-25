@@ -40,9 +40,9 @@ namespace Gorakshnath_Billing_System.UI
             this.crptEstimateViewer.Cursor = System.Windows.Forms.Cursors.Default;
             this.crptEstimateViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crptEstimateViewer.Location = new System.Drawing.Point(0, 0);
-            this.crptEstimateViewer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.crptEstimateViewer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.crptEstimateViewer.Name = "crptEstimateViewer";
-            this.crptEstimateViewer.Size = new System.Drawing.Size(963, 609);
+            this.crptEstimateViewer.Size = new System.Drawing.Size(1284, 750);
             this.crptEstimateViewer.TabIndex = 0;
             this.crptEstimateViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -52,10 +52,10 @@ namespace Gorakshnath_Billing_System.UI
             this.btnSendMail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSendMail.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendMail.ForeColor = System.Drawing.Color.BlueViolet;
-            this.btnSendMail.Location = new System.Drawing.Point(603, 3);
-            this.btnSendMail.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSendMail.Location = new System.Drawing.Point(804, 4);
+            this.btnSendMail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSendMail.Name = "btnSendMail";
-            this.btnSendMail.Size = new System.Drawing.Size(122, 32);
+            this.btnSendMail.Size = new System.Drawing.Size(163, 39);
             this.btnSendMail.TabIndex = 40;
             this.btnSendMail.Text = "Send Mail";
             this.btnSendMail.UseVisualStyleBackColor = true;
@@ -63,13 +63,13 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // frmEstimateCrpt
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 609);
+            this.ClientSize = new System.Drawing.Size(1284, 750);
             this.Controls.Add(this.btnSendMail);
             this.Controls.Add(this.crptEstimateViewer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmEstimateCrpt";
             this.Text = "frmEstimateCrpt";
             this.Load += new System.EventHandler(this.frmEstimateCrpt_Load);

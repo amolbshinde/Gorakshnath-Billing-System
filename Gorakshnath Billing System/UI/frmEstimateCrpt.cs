@@ -15,7 +15,7 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmEstimateCrpt : Form
     {
-        //ReportDocument cryRpt;
+        ReportDocument cryRpt;
 
         int GetInvoice;
         public frmEstimateCrpt(int InvoiceNo)
@@ -50,7 +50,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-            /*
+            
 
             try
             {
@@ -80,7 +80,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show(ex.ToString());
             }
-            */
+            
         }
     }
 }
