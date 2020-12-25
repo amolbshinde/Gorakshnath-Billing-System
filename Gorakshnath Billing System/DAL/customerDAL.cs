@@ -261,7 +261,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-        #region Select Data From Database for challan combo
+        #region Select Data From Database for  combo
         public DataTable SelectForCombo()
         {
             SqlConnection con = new SqlConnection(myconnstrng);
@@ -269,7 +269,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                String sql = "SELECT Column12 FROM(SELECT Cust_Name, Cust_Contact FROM Cust_Master) AS tmp UNPIVOT(Column12 FOR ColumnAll IN (Cust_Name, Cust_Contact))AS unpvt;";
+                String sql = "SELECT Cust_Name, Cust_Contact FROM Cust_Master;";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();
@@ -288,7 +288,39 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
+        #region Method to get id of the Customer based on Name
+        public customerBLL getCustomerIdFromContact(string contact)
+        {
+            customerBLL c = new customerBLL();
+            SqlConnection con = new SqlConnection(myconnstrng);
 
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT Cust_Contact FROM Cust_Master WHERE Cust_Contact='" + contact + "'";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                con.Open();
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    c.contact = dt.Rows[0]["Cust_Contact"].ToString();
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return c;
+        }
+        #endregion
 
     }
 }

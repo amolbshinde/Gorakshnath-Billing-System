@@ -20,9 +20,10 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
             fillCombo();
         }
+        
+        customerBLL customerBLL = new customerBLL();
+        customerDAL customerDAL = new customerDAL();
 
-        customerDAL cDAL = new customerDAL();
-        // customerBLL cBLL = new customerBLL();
         ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
 
         challanBLL challanBLL = new challanBLL();
@@ -38,11 +39,17 @@ namespace Gorakshnath_Billing_System.UI
         public void fillCombo()
         {
             comboSearchCust.DataSource = null;
-            DataTable dtC = cDAL.SelectForCombo();
-            comboSearchCust.DisplayMember = "Column12";            
+            DataTable dtC = customerDAL.SelectForCombo();
+            comboSearchCust.DisplayMember = "Cust_Name";            
             comboSearchCust.DataSource = dtC;
             comboSearchCust.Text = "Select Cust";
 
+            comboContact.DataSource = null;
+            DataTable dtP = customerDAL.SelectForCombo();
+            comboContact.DisplayMember = "Cust_Contact";
+            //comboSearchCust.ValueMember = "Column123";
+            comboContact.DataSource = dtP;
+            comboContact.Text = "Select Phone";
 
             comboItemSearch.DataSource = null;
             DataTable dtI = ProductMasterDAL.SelectForCombo();
@@ -113,7 +120,7 @@ namespace Gorakshnath_Billing_System.UI
             if (comboTransactionType.Text != "")
             {
                 //checking product is already present or ot           
-                if (textCust_Name.Text != "")
+                if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
                 {
                     if (textItemName.Text != "")
                     {
@@ -262,7 +269,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             //Validate Supplier details are there or not 
 
-            if (textCust_Name.Text != "")
+            if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
             {
                 if (dgvAddedProducts.Rows.Count != 0)
                 {
@@ -286,14 +293,28 @@ namespace Gorakshnath_Billing_System.UI
         public void save()
         {
 
-            string sname = textCust_Name.Text;
+            string sname = comboSearchCust.Text;
             if (comboTransactionType.Text != "")
             {
-                if (sname != "")
+                if (sname != "" && sname != "Select Cust")
                 {
+                    string Contact = comboContact.Text;
+                    customerBLL cust = customerDAL.getCustomerIdFromContact(Contact);
+                    if (cust.contact != comboContact.Text)
+                    {
+
+                        customerBLL.name = comboSearchCust.Text;
+                        customerBLL.contact = comboContact.Text;
+                        customerBLL.email = textEmail.Text;
+                        customerBLL.address = textAddress.Text;
+
+                        bool Success = customerDAL.Insert(customerBLL);
+
+                    }
+
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        customerBLL c = cDAL.getCustomerIdFromName(sname);
+                        customerBLL c = customerDAL.getCustomerIdFromName(sname);
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
@@ -396,11 +417,11 @@ namespace Gorakshnath_Billing_System.UI
         {
 
             comboSearchCust.Text = "Select Cust";
-            comboItemSearch.Text = "Select Product";
-            textCust_Name.Text = "";
+            comboContact.Text = "Select Phone";
+            comboItemSearch.Text = "Select Product";            
             textEmail.Text = "";
             textAddress.Text = "";
-            textContact.Text = "";
+            
             textBox6.Text = "";
 
             textItemCode.Text = "";            
@@ -778,25 +799,59 @@ namespace Gorakshnath_Billing_System.UI
                 string keyword = comboSearchCust.Text;
                 if (keyword == "")//clear all textboex
                 {
-                    textCust_Name.Text = "";
+                    comboSearchCust.Text = "Select Cust";
                     textAddress.Text = "";
-                    textContact.Text = "";
+                    comboContact.Text = "Select Phone";
                     textEmail.Text = "";
                     return;
                 }
-                customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
+                customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
 
-                textCust_Name.Text = cBLL.name;
-                textContact.Text = cBLL.contact;
+                comboSearchCust.Text = cBLL.name;
+                comboContact.Text = cBLL.contact;
                 textEmail.Text = cBLL.email;
                 textAddress.Text = cBLL.address;
                                 
             }
             else
             {
-                textCust_Name.Text = "";
+                comboSearchCust.Text = "Select Cust";
                 textAddress.Text = "";
-                textContact.Text = "";
+                comboContact.Text = "Select Phone";
+                textEmail.Text = "";
+            }
+
+        }
+
+        private void comboContact_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboContact.Text != "Select Phone")
+            {
+
+                //get search keyword from search text box
+                string keyword = comboContact.Text;
+                if (keyword == "")//clear all textboex
+                {
+                    comboSearchCust.Text = "Select Cust";
+                    textAddress.Text = "";
+                    comboContact.Text = "Select Phone";
+                    textEmail.Text = "";
+                    return;
+                }
+                customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
+
+                comboSearchCust.Text = cBLL.name;
+                comboContact.Text = cBLL.contact;
+                textEmail.Text = cBLL.email;
+                textAddress.Text = cBLL.address;
+
+            }
+            else
+            {
+                comboSearchCust.Text = "Select Cust";
+                textAddress.Text = "";
+                comboContact.Text = "Select Phone";
                 textEmail.Text = "";
             }
 
