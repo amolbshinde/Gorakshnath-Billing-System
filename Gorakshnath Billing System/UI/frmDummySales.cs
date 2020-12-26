@@ -736,7 +736,7 @@ namespace Gorakshnath_Billing_System.UI
                     textEmail.Text = "";
                     return;
                 }
-                customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
+                customerBLL cBLL = customerDAL.searchcustomerByName(keyword);
 
                 //textCust_Name.Text = cBLL.name;
                 comboContact.Text = cBLL.contact;
@@ -817,7 +817,7 @@ namespace Gorakshnath_Billing_System.UI
                     textEmail.Text = "";
                     return;
                 }
-                customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
+                customerBLL cBLL = customerDAL.searchcustomerByPhone(keyword);
 
                 //textCust_Name.Text = cBLL.name;
 

@@ -196,7 +196,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Item_Code, Quantity,Purchase_Price, Product_Name, Product_Master.Unit , Sales_Price FROM Product_Master,Stock_Master where Product_Master.Product_Id=Stock_Master.Product_Id AND Product_Name LIKE '%" + keyword + "%'";
+                string sql = "SELECT Item_Code, Quantity,Purchase_Price, Product_Name, Product_Master.Unit , Sales_Price FROM Product_Master,Stock_Master where Product_Master.Product_Id=Stock_Master.Product_Id AND Product_Name='" + keyword + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
 
                 conn.Open();
