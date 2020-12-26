@@ -288,7 +288,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-        #region Method to get id of the Customer based on Name
+        #region Method to customer already available or not Customer based on Phone
         public customerBLL getCustomerIdFromContact(string contact)
         {
             customerBLL c = new customerBLL();
