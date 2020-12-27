@@ -14,9 +14,16 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmChallanManage : Form
     {
-        public frmChallanManage()
+        int GetInvoice;
+        public frmChallanManage(int InvoiceNo)
         {
             InitializeComponent();
+            int i = 1;
+            while (i == 1)
+            {
+                GetInvoice = InvoiceNo;
+                i++;
+            }
         }
 
         customerBLL customerBLL = new customerBLL();
@@ -34,5 +41,9 @@ namespace Gorakshnath_Billing_System.UI
 
         DataTable salesDT = new DataTable();
 
+        private void frmChallanManage_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show(GetInvoice.ToString());
+        }
     }
 }

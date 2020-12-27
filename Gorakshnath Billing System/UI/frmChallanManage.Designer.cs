@@ -1007,6 +1007,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel4);
             this.Name = "frmChallanManage";
             this.Text = "Challan Manage";
+            this.Load += new System.EventHandler(this.frmChallanManage_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
