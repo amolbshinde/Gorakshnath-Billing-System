@@ -172,6 +172,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textInvoiceNo.Location = new System.Drawing.Point(421, 89);
             this.textInvoiceNo.Margin = new System.Windows.Forms.Padding(2);
             this.textInvoiceNo.Name = "textInvoiceNo";
+            this.textInvoiceNo.ReadOnly = true;
             this.textInvoiceNo.Size = new System.Drawing.Size(180, 23);
             this.textInvoiceNo.TabIndex = 19;
             // 
@@ -246,6 +247,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textAddress.Margin = new System.Windows.Forms.Padding(2);
             this.textAddress.Multiline = true;
             this.textAddress.Name = "textAddress";
+            this.textAddress.ReadOnly = true;
             this.textAddress.Size = new System.Drawing.Size(209, 70);
             this.textAddress.TabIndex = 11;
             // 
@@ -255,6 +257,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textEmail.Location = new System.Drawing.Point(421, 45);
             this.textEmail.Margin = new System.Windows.Forms.Padding(2);
             this.textEmail.Name = "textEmail";
+            this.textEmail.ReadOnly = true;
             this.textEmail.Size = new System.Drawing.Size(180, 23);
             this.textEmail.TabIndex = 9;
             // 
@@ -869,6 +872,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvAddedProducts.RowTemplate.Height = 24;
             this.dgvAddedProducts.Size = new System.Drawing.Size(1014, 214);
             this.dgvAddedProducts.TabIndex = 20;
+            this.dgvAddedProducts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAddedProducts_MouseClick);
             // 
             // label21
             // 
