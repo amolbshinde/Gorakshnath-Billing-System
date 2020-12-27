@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gorakshnath_Billing_System.BLL;
+using Gorakshnath_Billing_System.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +18,21 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
+
+        customerBLL customerBLL = new customerBLL();
+        customerDAL customerDAL = new customerDAL();
+
+        ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
+
+        challanBLL challanBLL = new challanBLL();
+
+        challanDAL challanDAL = new challanDAL();
+
+        challandetailsDAL challandetailsDAL = new challandetailsDAL();
+
+        stockDAL stockDAL = new stockDAL();
+
+        DataTable salesDT = new DataTable();
+
     }
 }

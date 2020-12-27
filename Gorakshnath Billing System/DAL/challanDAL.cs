@@ -66,7 +66,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
         
 
-        #region Select Data From Database
+        #region Select Data From Database for combobox
         public DataTable SelectTD()
         {
             SqlConnection con = new SqlConnection(myconnstrng);
