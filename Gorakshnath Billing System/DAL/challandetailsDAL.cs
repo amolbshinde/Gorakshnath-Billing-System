@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -64,5 +65,32 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
+
+        #region Select Data By Invoice NO
+        public DataTable SelectByInvoiceNo(string Invoice_No)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "select Product_Name,Unit,Qty,Rate,Dicount_Per,GST_Type,GST_Per,Total,Challan_Transactions_Details.Challan_date from Challan_Transactions,Challan_Transactions_Details where Challan_Transactions_Details.Invoice_No=Challan_Transactions.Invoice_No and Challan_Transactions.Invoice_No ='" + Invoice_No + "';";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
     }
 }

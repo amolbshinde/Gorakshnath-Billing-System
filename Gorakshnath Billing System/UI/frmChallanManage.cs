@@ -41,9 +41,31 @@ namespace Gorakshnath_Billing_System.UI
 
         DataTable salesDT = new DataTable();
 
+        public void getChallanDetails()
+        {
+
+        }
+          
         private void frmChallanManage_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(GetInvoice.ToString());
+            //MessageBox.Show(GetInvoice.ToString());
+            textInvoiceNo.Text = GetInvoice.ToString();
+
+            DataTable dtc = challanDAL.SelectByInvoiceNoManage(GetInvoice.ToString());
+            comboSearchCust.Text = dtc.Rows[0][1].ToString();
+            comboContact.Text= dtc.Rows[0][2].ToString();
+            textEmail.Text = dtc.Rows[0][3].ToString();
+            textAddress.Text = dtc.Rows[0][4].ToString();            
+            comboTransactionType.Text= dtc.Rows[0][5].ToString();
+            textSubTotal.Text= dtc.Rows[0][6].ToString();
+            textSubDiscount.Text= dtc.Rows[0][9].ToString();
+            textSgst.Text= dtc.Rows[0][8].ToString();
+            textCgst.Text = dtc.Rows[0][9].ToString();
+            textIgst.Text = dtc.Rows[0][10].ToString();
+            textGrandTotal.Text = dtc.Rows[0][11].ToString();
+
+            DataTable dtcd = challandetailsDAL.SelectByInvoiceNo(GetInvoice.ToString());
+            dgvAddedProducts.DataSource = dtcd;
         }
     }
 }
