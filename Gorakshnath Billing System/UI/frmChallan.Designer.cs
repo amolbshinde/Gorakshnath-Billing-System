@@ -37,6 +37,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textQuantity = new System.Windows.Forms.TextBox();
             this.textCgst = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboContact = new System.Windows.Forms.ComboBox();
             this.comboSearchCust = new System.Windows.Forms.ComboBox();
             this.comboTransactionType = new System.Windows.Forms.ComboBox();
             this.textPurchaseBillNo = new System.Windows.Forms.TextBox();
@@ -103,7 +104,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.comboContact = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
@@ -211,6 +211,22 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1057, 119);
             this.panel2.TabIndex = 17;
+            // 
+            // comboContact
+            // 
+            this.comboContact.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboContact.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboContact.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboContact.FormattingEnabled = true;
+            this.comboContact.Items.AddRange(new object[] {
+            "GST",
+            "Non GST"});
+            this.comboContact.Location = new System.Drawing.Point(202, 92);
+            this.comboContact.Margin = new System.Windows.Forms.Padding(2);
+            this.comboContact.Name = "comboContact";
+            this.comboContact.Size = new System.Drawing.Size(204, 23);
+            this.comboContact.TabIndex = 21;
+            this.comboContact.SelectedIndexChanged += new System.EventHandler(this.comboContact_SelectedIndexChanged);
             // 
             // comboSearchCust
             // 
@@ -1007,22 +1023,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1057, 247);
             this.panel4.TabIndex = 19;
-            // 
-            // comboContact
-            // 
-            this.comboContact.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboContact.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboContact.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboContact.FormattingEnabled = true;
-            this.comboContact.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
-            this.comboContact.Location = new System.Drawing.Point(202, 92);
-            this.comboContact.Margin = new System.Windows.Forms.Padding(2);
-            this.comboContact.Name = "comboContact";
-            this.comboContact.Size = new System.Drawing.Size(204, 23);
-            this.comboContact.TabIndex = 21;
-            this.comboContact.SelectedIndexChanged += new System.EventHandler(this.comboContact_SelectedIndexChanged);
             // 
             // frmChallan
             // 
