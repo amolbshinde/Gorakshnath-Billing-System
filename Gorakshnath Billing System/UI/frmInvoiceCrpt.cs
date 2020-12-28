@@ -12,6 +12,7 @@ using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using System.Net.Mail;
 using System.Net;
+using System.IO;
 
 namespace Gorakshnath_Billing_System.UI
 {
@@ -57,31 +58,43 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-            
-            try
-            {                
+            System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Challan\\");
 
-                ExportOptions CrExportOptions;
-                DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
-                PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                CrDiskFileDestinationOptions.DiskFileName = "E:\\"+ GetInvoice + ".pdf";                
-                CrExportOptions = crptInvoice.ExportOptions;
-                {
-                    CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
-                    CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
-                    CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
-                    CrExportOptions.FormatOptions = CrFormatTypeOptions;
-                }
-                crptInvoice.Export();
-
-                sendmail();
-            }
-            catch (Exception ex)
+            foreach (FileInfo file in di.GetFiles())
             {
-                MessageBox.Show(ex.ToString());
+                file.Delete();
             }
 
+            if (textBox1.Text != "")
+            {
 
+                try
+                {
+
+                    ExportOptions CrExportOptions;
+                    DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
+                    PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
+                    CrDiskFileDestinationOptions.DiskFileName = "E:\\Challan\\" + GetInvoice + ".pdf";
+                    CrExportOptions = crptInvoice.ExportOptions;
+                    {
+                        CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                        CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                        CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
+                        CrExportOptions.FormatOptions = CrFormatTypeOptions;
+                    }
+                    crptInvoice.Export();
+
+                    sendmail();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+            }else
+            {
+                MessageBox.Show("Please enter valid Email Address!!");
+            }
         }
 
         private void sendmail()
@@ -96,7 +109,7 @@ namespace Gorakshnath_Billing_System.UI
                 mail.From = new MailAddress(fromAddress);
                 mail.Body = "Hi Sir,"+"\n"+"Please Find Attached Invoice" + "\n" +"Regards," + "\n" + "Ghiv Gorakshnath Traders Cell-8999150129";
                 mail.To.Add(new MailAddress(toAddress));
-                System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\" + GetInvoice + ".pdf");
+                System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\Challan\\" + GetInvoice + ".pdf");
                 mail.Attachments.Add(at);
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";

@@ -18,7 +18,7 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmEstimateCrpt : Form
     {
-        ReportDocument cryRpt;
+        
         Report_Generator.CrystalReport.crptEstimate crptEstimate = new Report_Generator.CrystalReport.crptEstimate();
 
         int GetInvoice;
@@ -49,45 +49,50 @@ namespace Gorakshnath_Billing_System.UI
             crptEstimateViewer.ReportSource = null;
             Estimate.SetParameterValue("@Invoice_No", GetInvoice.ToString());
             crptEstimateViewer.ReportSource = Estimate;
-            btnSendMail.Enabled = false;
+            //btnSendMail.Enabled = false;
         }
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-
-            System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Estimate\\");
-
-            foreach (FileInfo file in di.GetFiles())
+            if (textBox1.Text != "")
             {
-                file.Delete();
-            }
+                System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Estimate\\");
 
-
-            try
-            {
-
-                ExportOptions CrExportOptions;
-                DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
-                PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                CrDiskFileDestinationOptions.DiskFileName = "E:\\Estimate\\" + GetInvoice + ".pdf";
-                CrExportOptions = crptEstimate.ExportOptions;
+                foreach (FileInfo file in di.GetFiles())
                 {
-                    CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
-                    CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
-                    CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
-                    CrExportOptions.FormatOptions = CrFormatTypeOptions;
+                    file.Delete();
                 }
-                crptEstimate.Export();
 
-                sendMail();
-            }
-            catch (Exception ex)
+
+                try
+                {
+
+                    ExportOptions CrExportOptions;
+                    DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
+                    PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
+                    CrDiskFileDestinationOptions.DiskFileName = "E:\\Estimate\\" + GetInvoice + ".pdf";
+                    CrExportOptions = crptEstimate.ExportOptions;
+                    {
+                        CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                        CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                        CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
+                        CrExportOptions.FormatOptions = CrFormatTypeOptions;
+                    }
+                    crptEstimate.Export();
+
+                    sendMail();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error Occured in export");
+                    MessageBox.Show(ex.ToString());
+                }
+
+
+            }else
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Please enter valid email Address");
             }
-            
-
-          
                         
         }
         private void sendMail()
@@ -117,6 +122,7 @@ namespace Gorakshnath_Billing_System.UI
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Error Occured while sending");
                 MessageBox.Show(ex.ToString());
             }
 

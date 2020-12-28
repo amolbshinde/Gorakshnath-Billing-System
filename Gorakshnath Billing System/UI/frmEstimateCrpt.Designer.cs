@@ -30,9 +30,9 @@ namespace Gorakshnath_Billing_System.UI
         private void InitializeComponent()
         {
             this.crptEstimateViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.btnSendMail = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSendMail = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // crptEstimateViewer
@@ -47,21 +47,6 @@ namespace Gorakshnath_Billing_System.UI
             this.crptEstimateViewer.Size = new System.Drawing.Size(1284, 750);
             this.crptEstimateViewer.TabIndex = 0;
             this.crptEstimateViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
-            // btnSendMail
-            // 
-            this.btnSendMail.FlatAppearance.BorderSize = 2;
-            this.btnSendMail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSendMail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendMail.ForeColor = System.Drawing.Color.BlueViolet;
-            this.btnSendMail.Location = new System.Drawing.Point(1000, 12);
-            this.btnSendMail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSendMail.Name = "btnSendMail";
-            this.btnSendMail.Size = new System.Drawing.Size(111, 32);
-            this.btnSendMail.TabIndex = 40;
-            this.btnSendMail.Text = "Send Mail";
-            this.btnSendMail.UseVisualStyleBackColor = true;
-            this.btnSendMail.Click += new System.EventHandler(this.btnSendMail_Click);
             // 
             // textBox1
             // 
@@ -81,6 +66,21 @@ namespace Gorakshnath_Billing_System.UI
             this.label1.Size = new System.Drawing.Size(161, 23);
             this.label1.TabIndex = 42;
             this.label1.Text = "Enter Email Address";
+            // 
+            // btnSendMail
+            // 
+            this.btnSendMail.FlatAppearance.BorderSize = 2;
+            this.btnSendMail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSendMail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendMail.ForeColor = System.Drawing.Color.BlueViolet;
+            this.btnSendMail.Location = new System.Drawing.Point(1000, 12);
+            this.btnSendMail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSendMail.Name = "btnSendMail";
+            this.btnSendMail.Size = new System.Drawing.Size(111, 32);
+            this.btnSendMail.TabIndex = 40;
+            this.btnSendMail.Text = "Send Mail";
+            this.btnSendMail.UseVisualStyleBackColor = true;
+            this.btnSendMail.Click += new System.EventHandler(this.btnSendMail_Click);
             // 
             // frmEstimateCrpt
             // 
@@ -104,8 +104,8 @@ namespace Gorakshnath_Billing_System.UI
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crptEstimateViewer;
-        private System.Windows.Forms.Button btnSendMail;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSendMail;
     }
 }
