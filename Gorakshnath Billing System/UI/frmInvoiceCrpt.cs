@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using System.Net.Mail;
-
+using System.Net;
 
 namespace Gorakshnath_Billing_System.UI
 {
@@ -74,7 +74,7 @@ namespace Gorakshnath_Billing_System.UI
                 }
                 crptInvoice.Export();
 
-                //sendmail();
+                sendmail();
             }
             catch (Exception ex)
             {
@@ -83,11 +83,33 @@ namespace Gorakshnath_Billing_System.UI
 
 
         }
-        /*
+
         private void sendmail()
         {
             try
             {
+               string fromAddress = "amols693@gmail.com";
+               String toAddress = "sopanpit@gmail.com";
+                string password = "Sambhaji$0346";
+                MailMessage mail = new MailMessage();
+                mail.Subject = "Testing mail from Amol Bhai";
+                mail.From = new MailAddress(fromAddress);
+                mail.Body = "Hello Sopan Bhai, Tere bhai ne kar dikhaya";
+                mail.To.Add(new MailAddress(toAddress));
+                System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\" + GetInvoice + ".pdf");
+                mail.Attachments.Add(at);
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.EnableSsl = true;
+                NetworkCredential nec = new NetworkCredential(fromAddress, password);
+                smtp.Credentials = nec;
+                smtp.Send(mail);
+                MessageBox.Show("Sucesfully Sent");
+
+
+/*
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
@@ -106,15 +128,15 @@ namespace Gorakshnath_Billing_System.UI
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
-                MessageBox.Show("mail Send");
+                MessageBox.Show("mail Send");*/
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
 
-        */
 
+        }
 
     }
 }
