@@ -89,12 +89,12 @@ namespace Gorakshnath_Billing_System.UI
             try
             {
                string fromAddress = "amols693@gmail.com";
-               String toAddress = "sopanpit@gmail.com";
+               String toAddress = textBox1.Text;
                 string password = "Sambhaji$0346";
                 MailMessage mail = new MailMessage();
-                mail.Subject = "Testing mail from Amol Bhai";
+                mail.Subject = "Ghiv Gorakshnath Billing System Invoice";
                 mail.From = new MailAddress(fromAddress);
-                mail.Body = "Hello Sopan Bhai, Tere bhai ne kar dikhaya";
+                mail.Body = "Hi Sir,"+"\n"+"Please Find Attached Invoice" + "\n" +"Regards," + "\n" + "Ghiv Gorakshnath Traders Cell-8999150129";
                 mail.To.Add(new MailAddress(toAddress));
                 System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\" + GetInvoice + ".pdf");
                 mail.Attachments.Add(at);
@@ -107,28 +107,7 @@ namespace Gorakshnath_Billing_System.UI
                 smtp.Credentials = nec;
                 smtp.Send(mail);
                 MessageBox.Show("Sucesfully Sent");
-
-
-/*
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-
-                mail.From = new MailAddress("sopanpit@gmail.com");
-                mail.To.Add("amols693@gmail.com");
-                mail.Subject = "Test Mail";
-                mail.Body = "This is for testing SMTP mail from GMAIL";
-
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment("E:\\" + GetInvoice + ".pdf");
-                mail.Attachments.Add(attachment);
-
-                SmtpServer.Port = 587;
-                SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("sopanpit@gmail.com", "Pooja@123");
-                SmtpServer.EnableSsl = true;
-
-                SmtpServer.Send(mail);
-                MessageBox.Show("mail Send");*/
+               
             }
             catch (Exception ex)
             {
