@@ -589,7 +589,7 @@ namespace Gorakshnath_Billing_System.UI
 
                 for (int i = 0; i < salesDT.Rows.Count; i++)
                 {
-                    //assognto dategrid view values into textboxs
+                    //assognto dategrid view values into textboxs.
 
                     textItemName.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[1].Value.ToString();
                     comboBoxUnit.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
@@ -600,6 +600,7 @@ namespace Gorakshnath_Billing_System.UI
                     comboGstType.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
                     textGST.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString();
                 }
+
 
                 decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
                 decimal.TryParse(textQuantity.Text, out Qty);
