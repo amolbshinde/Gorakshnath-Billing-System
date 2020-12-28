@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,7 +18,8 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmEstimateCrpt : Form
     {
-        ReportDocument cryRpt;
+        
+        Report_Generator.CrystalReport.crptEstimate crptEstimate = new Report_Generator.CrystalReport.crptEstimate();
 
         int GetInvoice;
         public frmEstimateCrpt(int InvoiceNo)
@@ -45,42 +49,83 @@ namespace Gorakshnath_Billing_System.UI
             crptEstimateViewer.ReportSource = null;
             Estimate.SetParameterValue("@Invoice_No", GetInvoice.ToString());
             crptEstimateViewer.ReportSource = Estimate;
-            btnSendMail.Enabled = false;
+            //btnSendMail.Enabled = false;
         }
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-            
+            if (textBox1.Text != "")
+            {
+                System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Estimate\\");
 
+                foreach (FileInfo file in di.GetFiles())
+                {
+                    file.Delete();
+                }
+
+
+                try
+                {
+
+                    ExportOptions CrExportOptions;
+                    DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
+                    PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
+                    CrDiskFileDestinationOptions.DiskFileName = "E:\\Estimate\\" + GetInvoice + ".pdf";
+                    CrExportOptions = crptEstimate.ExportOptions;
+                    {
+                        CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                        CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                        CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
+                        CrExportOptions.FormatOptions = CrFormatTypeOptions;
+                    }
+                    crptEstimate.Export();
+
+                    sendMail();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error Occured in export");
+                    MessageBox.Show(ex.ToString());
+                }
+
+
+            }else
+            {
+                MessageBox.Show("Please enter valid email Address");
+            }
+                        
+        }
+        private void sendMail()
+        {
             try
             {
-                cryRpt = new ReportDocument();
-                //cryRpt.Load(".\\crptInvoice.rpt");
-                cryRpt.Load("C:\\Users\\sopan\\source\\repos\\amolbshinde\\Gorakshnath-Billing-System\\Gorakshnath Billing System\\Report_Generator\\CrystalReport\\frmEstimateCrpt.rpt");
-
-
-                crptEstimateViewer.ReportSource = cryRpt;
-                crptEstimateViewer.Refresh();
-
-
-                ExportOptions CrExportOptions;
-                DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
-                PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                CrDiskFileDestinationOptions.DiskFileName = "E:\\EstimateSampleReport.pdf";
-                CrExportOptions = cryRpt.ExportOptions;
-                {
-                    CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
-                    CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
-                    CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
-                    CrExportOptions.FormatOptions = CrFormatTypeOptions;
-                }
-                cryRpt.Export();
+                string fromAddress = "amols693@gmail.com";
+                String toAddress = textBox1.Text;
+                string password = "Sambhaji$0346";
+                MailMessage mail = new MailMessage();
+                mail.Subject = "Ghiv Gorakshnath Billing System Invoice";
+                mail.From = new MailAddress(fromAddress);
+                mail.Body = "Hi Sir," + "\n\n" + "Please Find Attached Estimate" + "\n\n\n" + "Regards," + "\n" + "Ghiv Gorakshnath Traders " + "\n" + "Cell-8999150129";
+                mail.To.Add(new MailAddress(toAddress));
+                System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\Estimate\\" + GetInvoice + ".pdf");
+                mail.Attachments.Add(at);
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.EnableSsl = true;
+                NetworkCredential nec = new NetworkCredential(fromAddress, password);
+                smtp.Credentials = nec;
+                smtp.Send(mail);
+                MessageBox.Show("Sucesfully Sent");
+                
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Error Occured while sending");
                 MessageBox.Show(ex.ToString());
             }
-            
+
         }
     }
 }

@@ -12,6 +12,7 @@ using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using System.Net.Mail;
 using System.Net;
+using System.IO;
 
 namespace Gorakshnath_Billing_System.UI
 {
@@ -57,31 +58,43 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-            
-            try
-            {                
+            System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Challan\\");
 
-                ExportOptions CrExportOptions;
-                DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
-                PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                CrDiskFileDestinationOptions.DiskFileName = "E:\\"+ GetInvoice + ".pdf";                
-                CrExportOptions = crptInvoice.ExportOptions;
-                {
-                    CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
-                    CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
-                    CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
-                    CrExportOptions.FormatOptions = CrFormatTypeOptions;
-                }
-                crptInvoice.Export();
-
-                sendmail();
-            }
-            catch (Exception ex)
+            foreach (FileInfo file in di.GetFiles())
             {
-                MessageBox.Show(ex.ToString());
+                file.Delete();
             }
 
+            if (textBox1.Text != "")
+            {
 
+                try
+                {
+
+                    ExportOptions CrExportOptions;
+                    DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
+                    PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
+                    CrDiskFileDestinationOptions.DiskFileName = "E:\\Challan\\" + GetInvoice + ".pdf";
+                    CrExportOptions = crptInvoice.ExportOptions;
+                    {
+                        CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                        CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                        CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
+                        CrExportOptions.FormatOptions = CrFormatTypeOptions;
+                    }
+                    crptInvoice.Export();
+
+                    sendmail();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+            }else
+            {
+                MessageBox.Show("Please enter valid Email Address!!");
+            }
         }
 
         private void sendmail()
@@ -89,14 +102,14 @@ namespace Gorakshnath_Billing_System.UI
             try
             {
                string fromAddress = "amols693@gmail.com";
-               String toAddress = "sopanpit@gmail.com";
+               String toAddress = textBox1.Text;
                 string password = "Sambhaji$0346";
                 MailMessage mail = new MailMessage();
-                mail.Subject = "Testing mail from Amol Bhai";
+                mail.Subject = "Ghiv Gorakshnath Billing System Invoice";
                 mail.From = new MailAddress(fromAddress);
-                mail.Body = "Hello Sopan Bhai, Tere bhai ne kar dikhaya";
+                mail.Body = "Hi Sir,"+"\n"+"Please Find Attached Invoice" + "\n" +"Regards," + "\n" + "Ghiv Gorakshnath Traders Cell-8999150129";
                 mail.To.Add(new MailAddress(toAddress));
-                System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\" + GetInvoice + ".pdf");
+                System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\Challan\\" + GetInvoice + ".pdf");
                 mail.Attachments.Add(at);
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
@@ -107,28 +120,7 @@ namespace Gorakshnath_Billing_System.UI
                 smtp.Credentials = nec;
                 smtp.Send(mail);
                 MessageBox.Show("Sucesfully Sent");
-
-
-/*
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-
-                mail.From = new MailAddress("sopanpit@gmail.com");
-                mail.To.Add("amols693@gmail.com");
-                mail.Subject = "Test Mail";
-                mail.Body = "This is for testing SMTP mail from GMAIL";
-
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment("E:\\" + GetInvoice + ".pdf");
-                mail.Attachments.Add(attachment);
-
-                SmtpServer.Port = 587;
-                SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("sopanpit@gmail.com", "Pooja@123");
-                SmtpServer.EnableSsl = true;
-
-                SmtpServer.Send(mail);
-                MessageBox.Show("mail Send");*/
+               
             }
             catch (Exception ex)
             {
