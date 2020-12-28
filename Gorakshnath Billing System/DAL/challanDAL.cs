@@ -66,7 +66,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
         
 
-        #region Select Data From Database
+        #region Select Data From Database for combobox
         public DataTable SelectTD()
         {
             SqlConnection con = new SqlConnection(myconnstrng);
@@ -101,7 +101,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                String sql = "select Invoice_No,Cust_Name,Cust_Contact,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date from Challan_Transactions,Cust_Master where Cust_Master.Cust_ID=Challan_Transactions.Cust_ID and Challan_Transactions.Invoice_No LIKE '%" + Invoice_No + "%';";
+                String sql = "select Invoice_No,Cust_Name,Cust_Contact,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date from Challan_Transactions,Cust_Master where Cust_Master.Cust_ID=Challan_Transactions.Cust_ID and Challan_Transactions.Invoice_No = '" + Invoice_No + "';";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();
@@ -156,6 +156,33 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 String sql = "select Invoice_No,Cust_Name,Cust_Contact,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date from Challan_Transactions,Cust_Master where Cust_Master.Cust_ID=Challan_Transactions.Cust_ID and Cust_Master.Cust_Contact LIKE '%" + Cust_Mobile + "%';";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+
+        #region Select Data By Invoice NO
+        public DataTable SelectByInvoiceNoManage(string Invoice_No)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "select Invoice_No,Cust_Name,Cust_Contact,Cust_Email,Cust_Address,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date from Challan_Transactions,Cust_Master where Cust_Master.Cust_ID=Challan_Transactions.Cust_ID and Challan_Transactions.Invoice_No = '" + Invoice_No + "';";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();

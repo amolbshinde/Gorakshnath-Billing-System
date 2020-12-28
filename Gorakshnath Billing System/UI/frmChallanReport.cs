@@ -14,6 +14,7 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmChallanReport : Form
     {
+        int Invoice_No = -1;
         public frmChallanReport()
         {
             InitializeComponent();
@@ -118,7 +119,8 @@ namespace Gorakshnath_Billing_System.UI
                 int position_mouse_click = dgvChallanReport.HitTest(e.X, e.Y).RowIndex;
                 if (position_mouse_click >= 0)
                 {
-                    my_menu.Items.Add("Print").Name = "Print";                    
+                    my_menu.Items.Add("Print").Name = "Print";
+                    my_menu.Items.Add("Edit").Name = "Edit";
                 }
                 my_menu.Show(dgvChallanReport, new Point(e.X, e.Y));
                 my_menu.ItemClicked += new ToolStripItemClickedEventHandler(my_menu_ItemClicked);
@@ -129,7 +131,14 @@ namespace Gorakshnath_Billing_System.UI
 
         private void my_menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            if ("Print" == e.ClickedItem.Name.ToString())
+            if ("Edit" == e.ClickedItem.Name.ToString())
+            {
+                int iNo;
+                Int32.TryParse(dgvChallanReport.Rows[dgvChallanReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
+                frmChallanManage frmchmanage = new frmChallanManage(iNo);
+                frmchmanage.Show();
+            }
+                if ("Print" == e.ClickedItem.Name.ToString())
             {
                 //get inoice no from datagrid view
                 int iNo;

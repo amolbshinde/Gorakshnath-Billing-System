@@ -226,6 +226,91 @@ namespace Gorakshnath_Billing_System.DAL
 
         #endregion
 
+
+        #region Method  to search customer By Name
+        public customerBLL searchcustomerByName(string keyword)
+        {
+            customerBLL c = new customerBLL();
+
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            //
+            try
+            {
+                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address from Cust_Master WHERE Cust_Name='" + keyword + "'";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+
+                con.Open();
+
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    c.name = dt.Rows[0]["Cust_Name"].ToString();
+                    c.contact = dt.Rows[0]["Cust_Contact"].ToString();
+                    c.email = dt.Rows[0]["Cust_Email"].ToString();
+                    c.address = dt.Rows[0]["Cust_Address"].ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+
+            }
+            return c;
+        }
+
+        #endregion
+
+
+        #region Method  to search customer By Phone
+        public customerBLL searchcustomerByPhone(string keyword)
+        {
+            customerBLL c = new customerBLL();
+
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            //
+            try
+            {
+                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address from Cust_Master WHERE Cust_Contact='" + keyword + "'";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+
+                con.Open();
+
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    c.name = dt.Rows[0]["Cust_Name"].ToString();
+                    c.contact = dt.Rows[0]["Cust_Contact"].ToString();
+                    c.email = dt.Rows[0]["Cust_Email"].ToString();
+                    c.address = dt.Rows[0]["Cust_Address"].ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+
+            }
+            return c;
+        }
+
+        #endregion
+
+
         #region Method to get id of the Customer based on Name
         public customerBLL getCustomerIdFromName(string Name)
         {
@@ -288,7 +373,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-        #region Method to get id of the Customer based on Name
+        #region Method to customer already available or not Customer based on Phone
         public customerBLL getCustomerIdFromContact(string contact)
         {
             customerBLL c = new customerBLL();

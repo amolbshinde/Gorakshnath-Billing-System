@@ -23,7 +23,8 @@ namespace Gorakshnath_Billing_System.UI
         }
         int purchaseid = -1;
 
-        SupplierMasterDAL smDAL = new SupplierMasterDAL();
+        SupplierMasterBLL SupplierMasterBLL = new SupplierMasterBLL();
+        SupplierMasterDAL SupplierMasterDAL = new SupplierMasterDAL();
         
         DataTable purchasedt = new DataTable();
 
@@ -40,11 +41,16 @@ namespace Gorakshnath_Billing_System.UI
         public void fillCombo()
         {
             comboSearchSup.DataSource = null;
-            DataTable dtC = smDAL.SelectForCombo();
-            comboSearchSup.DisplayMember = "Column12";
+            DataTable dtC = SupplierMasterDAL.SelectForCombo();
+            comboSearchSup.DisplayMember = "CompanyName";
             comboSearchSup.DataSource = dtC;
             comboSearchSup.Text = "Select Sup";
 
+            comboContact.DataSource = null;
+            DataTable dtP = SupplierMasterDAL.SelectForCombo();
+            comboContact.DisplayMember = "Phone_No";
+            comboContact.DataSource = dtP;
+            comboContact.Text = "Select Phone";
 
             comboItemSearch.DataSource = null;
             DataTable dtI = ProductMasterDAL.SelectForCombo();
@@ -67,17 +73,17 @@ namespace Gorakshnath_Billing_System.UI
             string keyword = comboSearchSup.Text;
             if (keyword == "")//clear all textboex
             {
-                textSupplierName.Text = "";
+                comboSearchSup.Text = "Select Sup";
                 textAddress.Text = "";
-                textContact.Text = "";
+                comboContact.Text = "Select Phone";
                 textEmail.Text = "";
                 return;
             }
 
-            SupplierMasterBLL smBLL = smDAL.SearchSupplier(keyword);
+            SupplierMasterBLL smBLL = SupplierMasterDAL.SearchSupplierByName(keyword);
 
-            textSupplierName.Text = smBLL.CompanyName;
-            textContact.Text = smBLL.Phone_No;
+            comboSearchSup.Text = smBLL.CompanyName;
+            comboContact.Text = smBLL.Phone_No;
             textEmail.Text = smBLL.Email;
             textAddress.Text =smBLL.Address;
 
@@ -320,15 +326,30 @@ namespace Gorakshnath_Billing_System.UI
         {
             purchaseBLL purchaseBLL = new purchaseBLL();
 
-            string sname = textSupplierName.Text;
+            string sname = comboSearchSup.Text;
             if (comboPurchaseType.Text != "")
             {
-                if(sname != "")
+                if(sname != "" && sname != "Select Sup")
                 {
 
-                    if(dgvAddedProducts.Rows.Count!=0)
+                    string Contact = comboContact.Text;
+                    SupplierMasterBLL sup = SupplierMasterDAL.getSuplierIdFromName(Contact);
+                    if (sup.Phone_No != comboContact.Text)
                     {
-                        SupplierMasterBLL s = smDAL.getSuplierIdFromName(sname);
+
+                        SupplierMasterBLL.CompanyName = comboSearchSup.Text;
+                        SupplierMasterBLL.Phone_No = comboContact.Text;
+                        SupplierMasterBLL.Email = textEmail.Text;
+                        SupplierMasterBLL.Address = textAddress.Text;
+
+                        bool Success = SupplierMasterDAL.InsertByPurchasebill(SupplierMasterBLL);
+
+                    }
+
+
+                    if (dgvAddedProducts.Rows.Count!=0)
+                    {
+                        SupplierMasterBLL s = SupplierMasterDAL.getSuplierIdFromName(sname);
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
@@ -648,25 +669,25 @@ namespace Gorakshnath_Billing_System.UI
                 string keyword = comboSearchSup.Text;
                 if (keyword == "")//clear all textboex
                 {
-                    textSupplierName.Text = "";
+                    comboSearchSup.Text = "Select Sup";
                     textAddress.Text = "";
-                    textContact.Text = "";
+                    comboContact.Text = "Select Phone";
                     textEmail.Text = "";
                     return;
                 }
 
-                SupplierMasterBLL smBLL = smDAL.SearchSupplier(keyword);
+                SupplierMasterBLL smBLL = SupplierMasterDAL.SearchSupplierByName(keyword);
 
-                textSupplierName.Text = smBLL.CompanyName;
-                textContact.Text = smBLL.Phone_No;
+                comboSearchSup.Text = smBLL.CompanyName;
+                comboContact.Text = smBLL.Phone_No;
                 textEmail.Text = smBLL.Email;
                 textAddress.Text = smBLL.Address;
             }
             else
             {
-                textSupplierName.Text = "";
+                comboSearchSup.Text = "Select Sup";
                 textAddress.Text = "";
-                textContact.Text = "";
+                comboContact.Text = "Select Phone";
                 textEmail.Text = "";
             }
         }
@@ -722,11 +743,10 @@ namespace Gorakshnath_Billing_System.UI
         {
 
             comboSearchSup.Text = "Select Sup";
-            comboItemSearch.Text = "Select Product";
-            textSupplierName.Text = "";
+            comboItemSearch.Text = "Select Product";            
             textEmail.Text = "";
             textAddress.Text = "";
-            textContact.Text = "";
+            comboContact.Text = "Select Phone";
             textBox6.Text = "";
 
             textItemCode.Text = "";
@@ -758,6 +778,36 @@ namespace Gorakshnath_Billing_System.UI
             purchasedt.Rows.Clear();
         }
 
+        private void comboContact_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+            if (comboContact.Text != "Select Phone")
+            {
+                string keyword = comboContact.Text;
+                if (keyword == "")//clear all textboex
+                {
+                    comboSearchSup.Text = "Select Sup";
+                    textAddress.Text = "";
+                    comboContact.Text = "Select Phone";
+                    textEmail.Text = "";
+                    return;
+                }
+
+                SupplierMasterBLL smBLL = SupplierMasterDAL.SearchSupplierByPhone(keyword);
+
+                comboSearchSup.Text = smBLL.CompanyName;
+                comboContact.Text = smBLL.Phone_No;
+                textEmail.Text = smBLL.Email;
+                textAddress.Text = smBLL.Address;
+            }
+            else
+            {
+                comboSearchSup.Text = "Select Sup";
+                textAddress.Text = "";
+                comboContact.Text = "Select Phone";
+                textEmail.Text = "";
+            }
+
+        }
     }   
 }
