@@ -10,7 +10,6 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 
@@ -45,10 +44,10 @@ namespace Gorakshnath_Billing_System.UI
 
         private void frmEstimateCrpt_Load(object sender, EventArgs e)
         {
-            Report_Generator.CrystalReport.crptEstimate Estimate = new Report_Generator.CrystalReport.crptEstimate();
+            //Report_Generator.CrystalReport.crptEstimate Estimate = new Report_Generator.CrystalReport.crptEstimate();
             crptEstimateViewer.ReportSource = null;
-            Estimate.SetParameterValue("@Invoice_No", GetInvoice.ToString());
-            crptEstimateViewer.ReportSource = Estimate;
+            crptEstimate.SetParameterValue("@Invoice_No", GetInvoice.ToString());
+            crptEstimateViewer.ReportSource = crptEstimate;
             //btnSendMail.Enabled = false;
         }
 
