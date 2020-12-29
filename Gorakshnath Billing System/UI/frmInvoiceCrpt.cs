@@ -57,11 +57,22 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-            System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Challan\\");
-
-            foreach (FileInfo file in di.GetFiles())
+            try
             {
-                file.Delete();
+                {
+                    System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Challan\\");
+
+                    foreach (FileInfo file in di.GetFiles())
+                    {
+                        file.Delete();
+                        
+                    }
+                    
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
             if (textBox1.Text != "")
@@ -119,6 +130,7 @@ namespace Gorakshnath_Billing_System.UI
                 smtp.Credentials = nec;
                 smtp.Send(mail);
                 MessageBox.Show("Sucesfully Sent");
+                return;
                
             }
             catch (Exception ex)
