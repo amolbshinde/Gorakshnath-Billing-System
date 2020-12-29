@@ -14,8 +14,7 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmChallanManage : Form
     {
-        int GetInvoice;
-        int Invoice_No = -1;
+        int GetInvoice;        
         public frmChallanManage(int InvoiceNo)
         {
             InitializeComponent();
@@ -770,6 +769,16 @@ namespace Gorakshnath_Billing_System.UI
 
                         challandetailsDAL.DeleteByInvoiceNo(GetInvoice.ToString());
 
+                        for (int i = 0; i < chDT.Rows.Count; i++)
+                        {                          
+                            stockBLL stockBLL = new stockBLL();
+                            string productName = chDT.Rows[i][0].ToString();
+                            ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                            int Product_id = p.Product_ID;
+                            stockBLL.Product_Id = Product_id;
+                            stockBLL.Quantity = Math.Round(decimal.Parse(chDT.Rows[i][2].ToString()), 2);                            
+                            bool x = stockDAL.Update(stockBLL);
+                        }
 
                         for (int i = 0; i < salesDT.Rows.Count; i++)
                         {
