@@ -41,7 +41,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label22 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboContact = new System.Windows.Forms.ComboBox();
-            this.comboSearchCust = new System.Windows.Forms.ComboBox();
+            this.comboSearchSup = new System.Windows.Forms.ComboBox();
             this.textInvoiceNo = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.comboTransactionType = new System.Windows.Forms.ComboBox();
@@ -228,7 +228,7 @@ namespace Gorakshnath_Billing_System.UI
             // panel2
             // 
             this.panel2.Controls.Add(this.comboContact);
-            this.panel2.Controls.Add(this.comboSearchCust);
+            this.panel2.Controls.Add(this.comboSearchSup);
             this.panel2.Controls.Add(this.textInvoiceNo);
             this.panel2.Controls.Add(this.label30);
             this.panel2.Controls.Add(this.comboTransactionType);
@@ -265,20 +265,20 @@ namespace Gorakshnath_Billing_System.UI
             this.comboContact.Size = new System.Drawing.Size(204, 23);
             this.comboContact.TabIndex = 21;
             // 
-            // comboSearchCust
+            // comboSearchSup
             // 
-            this.comboSearchCust.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboSearchCust.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboSearchCust.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboSearchCust.FormattingEnabled = true;
-            this.comboSearchCust.Items.AddRange(new object[] {
+            this.comboSearchSup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboSearchSup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboSearchSup.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboSearchSup.FormattingEnabled = true;
+            this.comboSearchSup.Items.AddRange(new object[] {
             "GST",
             "Non GST"});
-            this.comboSearchCust.Location = new System.Drawing.Point(202, 45);
-            this.comboSearchCust.Margin = new System.Windows.Forms.Padding(2);
-            this.comboSearchCust.Name = "comboSearchCust";
-            this.comboSearchCust.Size = new System.Drawing.Size(204, 23);
-            this.comboSearchCust.TabIndex = 20;
+            this.comboSearchSup.Location = new System.Drawing.Point(202, 45);
+            this.comboSearchSup.Margin = new System.Windows.Forms.Padding(2);
+            this.comboSearchSup.Name = "comboSearchSup";
+            this.comboSearchSup.Size = new System.Drawing.Size(204, 23);
+            this.comboSearchSup.TabIndex = 20;
             // 
             // textInvoiceNo
             // 
@@ -1039,7 +1039,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboContact;
-        private System.Windows.Forms.ComboBox comboSearchCust;
+        private System.Windows.Forms.ComboBox comboSearchSup;
         private System.Windows.Forms.TextBox textInvoiceNo;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox comboTransactionType;
