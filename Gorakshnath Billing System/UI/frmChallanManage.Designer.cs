@@ -150,6 +150,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboContact.Name = "comboContact";
             this.comboContact.Size = new System.Drawing.Size(204, 23);
             this.comboContact.TabIndex = 21;
+            this.comboContact.SelectedIndexChanged += new System.EventHandler(this.comboContact_SelectedIndexChanged);
             // 
             // comboSearchCust
             // 
@@ -165,6 +166,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboSearchCust.Name = "comboSearchCust";
             this.comboSearchCust.Size = new System.Drawing.Size(204, 23);
             this.comboSearchCust.TabIndex = 20;
+            this.comboSearchCust.SelectedIndexChanged += new System.EventHandler(this.comboSearchCust_SelectedIndexChanged);
             // 
             // textInvoiceNo
             // 
@@ -199,6 +201,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboTransactionType.Name = "comboTransactionType";
             this.comboTransactionType.Size = new System.Drawing.Size(180, 23);
             this.comboTransactionType.TabIndex = 17;
+            this.comboTransactionType.SelectedIndexChanged += new System.EventHandler(this.comboTransactionType_SelectedIndexChanged);
             // 
             // label29
             // 
@@ -374,6 +377,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboItemSearch.Name = "comboItemSearch";
             this.comboItemSearch.Size = new System.Drawing.Size(143, 23);
             this.comboItemSearch.TabIndex = 21;
+            this.comboItemSearch.SelectedIndexChanged += new System.EventHandler(this.comboItemSearch_SelectedIndexChanged);
             // 
             // label35
             // 
@@ -476,6 +480,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnAdd.TabIndex = 34;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // textTotalAmount
             // 
