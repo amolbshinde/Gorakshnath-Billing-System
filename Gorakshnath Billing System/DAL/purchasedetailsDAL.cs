@@ -93,5 +93,32 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Delete Data By Invoice NO
+        public DataTable DeleteByPurchaseID(string Purchase_ID)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "delete from Purchase_Transaction_Details where Purchase_ID ='" + Purchase_ID + "';";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+
     }
 }

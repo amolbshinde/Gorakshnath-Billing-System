@@ -22,6 +22,7 @@ namespace Gorakshnath_Billing_System.UI
 
         purchaseBLL purchaseBLL = new purchaseBLL();
         purchaseDAL purchaseDAL = new purchaseDAL();
+        purchasedetailsDAL purchasedetailsDAL = new purchasedetailsDAL();
 
         public void fillCombo()
         {
@@ -112,6 +113,8 @@ namespace Gorakshnath_Billing_System.UI
                 if (position_mouse_click >= 0)
                 {
                     my_menu.Items.Add("Print").Name = "Print";
+                    my_menu.Items.Add("Edit").Name = "Edit";
+                    my_menu.Items.Add("Delete").Name = "Delete";
                 }
                 my_menu.Show(dgvPurchaseReport, new Point(e.X, e.Y));
                 my_menu.ItemClicked += new ToolStripItemClickedEventHandler(my_menu_ItemClicked);
@@ -132,6 +135,23 @@ namespace Gorakshnath_Billing_System.UI
                 //MessageBox.Show(iNo.ToString());
 
             }
+
+            if ("Edit" == e.ClickedItem.Name.ToString())
+            {
+                int pId;
+                Int32.TryParse(dgvPurchaseReport.Rows[dgvPurchaseReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out pId);
+                frmPurchaseManage frmpmanage = new frmPurchaseManage(pId);
+                frmpmanage.Show();
+            }
+
+            if ("Delete" == e.ClickedItem.Name.ToString())
+            {
+                int pId;
+                Int32.TryParse(dgvPurchaseReport.Rows[dgvPurchaseReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out pId);
+                purchasedetailsDAL.DeleteByPurchaseID(pId.ToString());
+                purchaseDAL.DeleteByPurchaseID(pId.ToString());
+            }
+
 
         }
 

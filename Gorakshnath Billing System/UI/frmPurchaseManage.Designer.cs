@@ -73,7 +73,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label18 = new System.Windows.Forms.Label();
             this.textDiscount = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textRate = new System.Windows.Forms.TextBox();
+            this.textPurchasePrice = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.comboBoxUnit = new System.Windows.Forms.ComboBox();
             this.textQuantity = new System.Windows.Forms.TextBox();
@@ -264,6 +264,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboContact.Name = "comboContact";
             this.comboContact.Size = new System.Drawing.Size(204, 23);
             this.comboContact.TabIndex = 21;
+            this.comboContact.SelectedIndexChanged += new System.EventHandler(this.comboContact_SelectedIndexChanged);
             // 
             // comboSearchSup
             // 
@@ -279,6 +280,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboSearchSup.Name = "comboSearchSup";
             this.comboSearchSup.Size = new System.Drawing.Size(204, 23);
             this.comboSearchSup.TabIndex = 20;
+            this.comboSearchSup.SelectedIndexChanged += new System.EventHandler(this.comboSearchSup_SelectedIndexChanged);
             // 
             // textInvoiceNo
             // 
@@ -313,6 +315,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboTransactionType.Name = "comboTransactionType";
             this.comboTransactionType.Size = new System.Drawing.Size(180, 23);
             this.comboTransactionType.TabIndex = 17;
+            this.comboTransactionType.SelectedIndexChanged += new System.EventHandler(this.comboTransactionType_SelectedIndexChanged);
             // 
             // label29
             // 
@@ -458,7 +461,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.textDiscount);
             this.panel3.Controls.Add(this.label17);
-            this.panel3.Controls.Add(this.textRate);
+            this.panel3.Controls.Add(this.textPurchasePrice);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.comboBoxUnit);
             this.panel3.Controls.Add(this.textQuantity);
@@ -488,6 +491,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboItemSearch.Name = "comboItemSearch";
             this.comboItemSearch.Size = new System.Drawing.Size(143, 23);
             this.comboItemSearch.TabIndex = 21;
+            this.comboItemSearch.SelectedIndexChanged += new System.EventHandler(this.comboItemSearch_SelectedIndexChanged);
             // 
             // label35
             // 
@@ -532,6 +536,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textGST.Name = "textGST";
             this.textGST.Size = new System.Drawing.Size(56, 26);
             this.textGST.TabIndex = 39;
+            this.textGST.TextChanged += new System.EventHandler(this.textGST_TextChanged);
             // 
             // label12
             // 
@@ -590,6 +595,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnAdd.TabIndex = 34;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // textTotalAmount
             // 
@@ -632,6 +638,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textDiscount.Name = "textDiscount";
             this.textDiscount.Size = new System.Drawing.Size(56, 26);
             this.textDiscount.TabIndex = 29;
+            this.textDiscount.TextChanged += new System.EventHandler(this.textDiscount_TextChanged);
             // 
             // label17
             // 
@@ -644,14 +651,15 @@ namespace Gorakshnath_Billing_System.UI
             this.label17.TabIndex = 28;
             this.label17.Text = "Disc.( %)";
             // 
-            // textRate
+            // textPurchasePrice
             // 
-            this.textRate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRate.Location = new System.Drawing.Point(569, 48);
-            this.textRate.Margin = new System.Windows.Forms.Padding(2);
-            this.textRate.Name = "textRate";
-            this.textRate.Size = new System.Drawing.Size(99, 26);
-            this.textRate.TabIndex = 27;
+            this.textPurchasePrice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPurchasePrice.Location = new System.Drawing.Point(569, 48);
+            this.textPurchasePrice.Margin = new System.Windows.Forms.Padding(2);
+            this.textPurchasePrice.Name = "textPurchasePrice";
+            this.textPurchasePrice.Size = new System.Drawing.Size(99, 26);
+            this.textPurchasePrice.TabIndex = 27;
+            this.textPurchasePrice.TextChanged += new System.EventHandler(this.textPurchasePrice_TextChanged);
             // 
             // label16
             // 
@@ -686,6 +694,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textQuantity.Name = "textQuantity";
             this.textQuantity.Size = new System.Drawing.Size(33, 26);
             this.textQuantity.TabIndex = 24;
+            this.textQuantity.TextChanged += new System.EventHandler(this.textQuantity_TextChanged);
             // 
             // textInventory
             // 
@@ -942,6 +951,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Save ";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label27
             // 
@@ -986,6 +996,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvAddedProducts.RowTemplate.Height = 24;
             this.dgvAddedProducts.Size = new System.Drawing.Size(1014, 214);
             this.dgvAddedProducts.TabIndex = 20;
+            this.dgvAddedProducts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAddedProducts_MouseClick);
             // 
             // label21
             // 
@@ -1072,7 +1083,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textDiscount;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textRate;
+        private System.Windows.Forms.TextBox textPurchasePrice;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox comboBoxUnit;
         private System.Windows.Forms.TextBox textQuantity;
