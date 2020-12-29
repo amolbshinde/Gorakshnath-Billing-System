@@ -92,7 +92,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-        #region Select Data By Invoice NO
+        #region Delete Data By Invoice NO
         public DataTable DeleteByInvoiceNo(string Invoice_No)
         {
             SqlConnection con = new SqlConnection(myconnstrng);
