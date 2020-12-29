@@ -1010,6 +1010,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel4);
             this.Name = "frmPurchaseManage";
             this.Text = "Purchase Manage";
+            this.Load += new System.EventHandler(this.frmPurchaseManage_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);

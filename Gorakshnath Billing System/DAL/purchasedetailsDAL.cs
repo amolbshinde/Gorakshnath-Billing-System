@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -64,5 +65,33 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
+
+
+        #region Select Data By Purchase Id
+        public DataTable SelectByPurchaseId(string Purchase_ID)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = " select Product_Name,Unit,Qty,Rate,Discount_Per,GST_Type,GST_Per,Total from Purchase_Transactions,Purchase_Transaction_Details where Purchase_Transactions.Purchase_ID=Purchase_Transaction_Details.Purchase_ID and Purchase_Transactions.Purchase_ID = '" + Purchase_ID + "';";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
     }
 }
