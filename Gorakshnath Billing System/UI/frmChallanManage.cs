@@ -88,6 +88,20 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchCust.Text = "Select Cust";
             comboContact.Text = "Select Phone";
             comboItemSearch.Text = "Select Product";
+            textItemCode.Text = "";
+            textItemName.Text = "";
+            comboBoxUnit.Text = "";
+            textInventory.Text = "0";
+            textQuantity.Text = "0";
+            textRate.Text = "0";
+            textDiscount.Text = "0";
+
+            if (comboTransactionType.Text != "Non GST")
+            {
+                comboGstType.Text = "";
+                textGST.Text = "0";
+            }
+
 
             //MessageBox.Show(GetInvoice.ToString());
             textInvoiceNo.Text = GetInvoice.ToString();
@@ -561,6 +575,116 @@ namespace Gorakshnath_Billing_System.UI
                 label12.Enabled = true;
             }
 
+        }
+
+        private void textQuantity_TextChanged(object sender, EventArgs e)
+        {
+            string pname = textItemName.Text;
+            ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(pname);
+            decimal inv;
+            decimal.TryParse(textQuantity.Text, out inv);
+            decimal qunt = p.Quantity - inv;
+            if (qunt < 0)
+            {
+                MessageBox.Show("No Inventory Please add Inventory First");
+                textQuantity.Text = "0";
+            }
+            else
+            {
+
+                if (textQuantity.Text == "" && textQuantity.Text == "0")
+                {
+                    textTotalAmount.Text = "0";
+                }
+                else
+                {
+                    decimal Qty, Rate, discount, gst;
+                    decimal.TryParse(textQuantity.Text, out Qty);
+                    decimal.TryParse(textRate.Text, out Rate);
+                    decimal.TryParse(textDiscount.Text, out discount);
+                    decimal.TryParse(textGST.Text, out gst);
+
+                    decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (Rate * Qty)), 2);
+
+                    textTotalAmount.Text = TotalAmount.ToString();
+
+                }
+
+            }
+        }
+
+        private void textRate_TextChanged(object sender, EventArgs e)
+        {
+            string check = textRate.Text;
+            if (check == "" && check == "0")
+            {
+                MessageBox.Show("Please entery Purchase Price.");
+                textTotalAmount.Text = "0";
+            }
+
+
+            else
+            {
+                decimal Qty, Rate, discount, gst;
+                decimal.TryParse(textQuantity.Text, out Qty);
+                decimal.TryParse(textRate.Text, out Rate);
+                decimal.TryParse(textDiscount.Text, out discount);
+                decimal.TryParse(textGST.Text, out gst);
+
+                decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (Rate * Qty)), 2);
+
+                textTotalAmount.Text = TotalAmount.ToString();
+
+            }
+        }
+
+        private void textDiscount_TextChanged(object sender, EventArgs e)
+        {
+            string check = textDiscount.Text;
+            if (check == "" && check == "0")
+            {
+
+                textDiscount.Text = "0";
+
+            }
+
+            else
+            {
+                decimal Qty, Rate, discount, gst;
+                decimal.TryParse(textQuantity.Text, out Qty);
+                decimal.TryParse(textRate.Text, out Rate);
+                decimal.TryParse(textDiscount.Text, out discount);
+                decimal.TryParse(textGST.Text, out gst);
+
+                decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (Rate * Qty)), 2);
+
+                textTotalAmount.Text = TotalAmount.ToString();
+
+            }
+        }
+
+        private void textGST_TextChanged(object sender, EventArgs e)
+        {
+            string check = textGST.Text;
+            if (check == "" && check == "0")
+            {
+
+                textGST.Text = "0";
+
+            }
+            else
+            {
+                decimal Qty, Rate, discount, gst;
+                decimal.TryParse(textQuantity.Text, out Qty);
+                decimal.TryParse(textRate.Text, out Rate);
+                decimal.TryParse(textDiscount.Text, out discount);
+                decimal.TryParse(textGST.Text, out gst);
+
+                decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (Rate * Qty)), 2);
+
+                textTotalAmount.Text = TotalAmount.ToString();
+
+            }
         }
     }
 }
