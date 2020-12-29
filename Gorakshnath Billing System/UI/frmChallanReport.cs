@@ -13,8 +13,7 @@ using System.Windows.Forms;
 namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmChallanReport : Form
-    {
-        int Invoice_No = -1;
+    {        
         public frmChallanReport()
         {
             InitializeComponent();
