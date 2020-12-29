@@ -53,7 +53,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            try
             {
                 System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Estimate\\");
 
@@ -61,8 +61,15 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     file.Delete();
                 }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
 
-
+            if (textBox1.Text != "")
+            {
+               
                 try
                 {
 
