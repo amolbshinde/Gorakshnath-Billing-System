@@ -64,7 +64,83 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
-        
+
+
+        #region Update Data in Database challan
+        public bool Update(challanBLL c)
+        {
+            bool isSuccess = false;
+            SqlConnection con = new SqlConnection(myconnstrng);
+            try
+            {
+                String sql = "UPDATE Challan_Transactions SET Transaction_Type=@Transaction_Type, Cust_ID=@Cust_ID, Sub_Total=@Sub_Total, TDiscount=@TDiscount, TSGST=@TSGST, TCGST=@TCGST, TIGST=@TIGST, Grand_Total=@Grand_Total WHERE Invoice_No = @Invoice_No";
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                cmd.Parameters.AddWithValue("@Invoice_No", c.Invoice_No);
+                cmd.Parameters.AddWithValue("@Transaction_Type", c.Transaction_Type);
+                cmd.Parameters.AddWithValue("@Cust_ID", c.Cust_ID);
+                cmd.Parameters.AddWithValue("@Sub_Total", c.Sub_Total);
+                cmd.Parameters.AddWithValue("@TDiscount", c.TDiscount);
+                cmd.Parameters.AddWithValue("@TSGST", c.TSGST);
+                cmd.Parameters.AddWithValue("@TCGST", c.TCGST);
+                cmd.Parameters.AddWithValue("@TIGST", c.TIGST);
+                cmd.Parameters.AddWithValue("@Grand_Total", c.Grand_Total);
+
+                con.Open();
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return isSuccess;
+
+        }
+        #endregion
+
+
+        #region Delete Data By Invoice NO
+        public DataTable DeleteByInvoiceNo(string Invoice_No)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "delete from Challan_Transactions where Invoice_No ='" + Invoice_No + "';";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+
+
 
         #region Select Data From Database for combobox
         public DataTable SelectTD()

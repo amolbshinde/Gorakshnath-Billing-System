@@ -14,8 +14,7 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmChallanManage : Form
     {
-        int GetInvoice;
-        int Invoice_No = -1;
+        int GetInvoice;        
         public frmChallanManage(int InvoiceNo)
         {
             InitializeComponent();
@@ -709,9 +708,6 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please enter Customer Details");
             }
-            //set Invoice No.
-            textInvoiceNo.Text = Invoice_No.ToString();
-
         }
 
 
@@ -751,6 +747,7 @@ namespace Gorakshnath_Billing_System.UI
                         decimal.TryParse(textIgst.Text, out totalIgst);
                         decimal.TryParse(textGrandTotal.Text, out grandTotal);
 
+                        challanBLL.Invoice_No = GetInvoice;
                         challanBLL.Transaction_Type = type;
                         challanBLL.Cust_ID = c.Cust_ID;
                         challanBLL.Sub_Total = subTotal;
@@ -766,9 +763,22 @@ namespace Gorakshnath_Billing_System.UI
                         // using (TransactionScope scope = new TransactionScope())
 
                         //int Invoice_No = -1; alredy declared on top 
-                        bool b = challanDAL.insertChallan(challanBLL, out Invoice_No);
+                        bool b = challanDAL.Update(challanBLL);
+                        challandetailsBLL cddBLL = new challandetailsBLL();
+                        cddBLL.Invoice_No = GetInvoice;
 
+                        challandetailsDAL.DeleteByInvoiceNo(GetInvoice.ToString());
 
+                        for (int i = 0; i < chDT.Rows.Count; i++)
+                        {                          
+                            stockBLL stockBLL = new stockBLL();
+                            string productName = chDT.Rows[i][0].ToString();
+                            ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                            int Product_id = p.Product_ID;
+                            stockBLL.Product_Id = Product_id;
+                            stockBLL.Quantity = Math.Round(decimal.Parse(chDT.Rows[i][2].ToString()), 2);                            
+                            bool x = stockDAL.Update(stockBLL);
+                        }
 
                         for (int i = 0; i < salesDT.Rows.Count; i++)
                         {
@@ -779,7 +789,7 @@ namespace Gorakshnath_Billing_System.UI
 
                             ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
                             cdBLL.Product_ID = p.Product_ID;
-                            cdBLL.Invoice_No = Invoice_No;
+                            cdBLL.Invoice_No = GetInvoice;
                             cdBLL.Cust_ID = c.Cust_ID;
                             cdBLL.Product_Name = salesDT.Rows[i][1].ToString();
                             cdBLL.Unit = salesDT.Rows[i][2].ToString();
@@ -788,8 +798,7 @@ namespace Gorakshnath_Billing_System.UI
                             cdBLL.Discount_Per = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
                             cdBLL.GST_Type = salesDT.Rows[i][6].ToString();
                             cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][7].ToString()), 2);
-                            cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
-
+                            cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
 
                             int Product_id = p.Product_ID;
                             stockBLL.Product_Id = Product_id;
