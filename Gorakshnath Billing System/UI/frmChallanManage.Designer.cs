@@ -837,6 +837,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Save ";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label27
             // 
