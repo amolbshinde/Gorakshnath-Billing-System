@@ -53,6 +53,7 @@ namespace Gorakshnath_Billing_System.UI
             string PaymentId = textPaymentId.Text;
             if (PaymentId != "")
             {
+                SalesPaymentDetailsBLL.PaymentId= Convert.ToInt32(PaymentId);
                 SalesPaymentDetailsBLL.Invoice_No = Convert.ToInt32(textInvoiceNo.Text);
                 SalesPaymentDetailsBLL.PaymentMode = textPayMode.Text;
                 SalesPaymentDetailsBLL.Remarks = textRemarks.Text;

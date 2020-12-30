@@ -17,7 +17,5 @@ namespace Gorakshnath_Billing_System.BLL
         public decimal TrAmount { get; set; }
         public decimal AmountPiad { get; set; }
         public decimal Balance { get; set; }
-
-
     }
 }

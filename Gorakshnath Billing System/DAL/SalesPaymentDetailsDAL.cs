@@ -62,19 +62,19 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Query to Update Category
-                string sql = "UPDATE SalesPaymentDetails SET Invoice_No=@Invoice_No, PaymentMode=@PaymentMode, TrMode=@TrMode,TrAmount =@TrAmount, AmountPiad=@AmountPiad, Balance=@Balance WHERE PaymentId=@PaymentId";
+                string sql = "UPDATE SalesPaymentDetails SET Invoice_No=@Invoice_No, PaymentMode=@PaymentMode, TrAmount =@TrAmount, AmountPiad=@AmountPiad, Balance=@Balance,Remarks=@Remarks WHERE PaymentId=@PaymentId;";
 
                 //SQl Command to Pass the Value on Sql Query
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 //Passing Value using cmd
                 cmd.Parameters.AddWithValue("@Invoice_No", b.Invoice_No);
-                cmd.Parameters.AddWithValue("@PaymentMode", b.PaymentMode);
-                cmd.Parameters.AddWithValue("@TrMode", b.TrMode);
+                cmd.Parameters.AddWithValue("@PaymentMode", b.PaymentMode);                
                 cmd.Parameters.AddWithValue("@TrAmount", b.TrAmount);
                 cmd.Parameters.AddWithValue("@AmountPiad", b.AmountPiad);
                 cmd.Parameters.AddWithValue("@Balance", b.Balance);                
                 cmd.Parameters.AddWithValue("@PaymentId", b.PaymentId);
+                cmd.Parameters.AddWithValue("@Remarks", b.Remarks);
 
 
                 //Open DAtabase Connection
