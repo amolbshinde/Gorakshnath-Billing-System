@@ -281,7 +281,8 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("(+)GST%");
             salesDT.Columns.Add("(+)GSTAMT");
             salesDT.Columns.Add("(=)Total");
-
+            comboTrType.SelectedIndex=0;
+            comboPaymentMode.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -298,7 +299,17 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        //save fun
+                        /*
+                         * 
+                         * Variables for salesPayment Save
+                         * 
+                        comboTrType.Text;
+                        comboPaymentMode;
+                        txtTrAmount
+                        txtPaidAmount
+                        txtBalance
+
+                        */
                         save();
                     }
                     else
@@ -904,12 +915,14 @@ namespace Gorakshnath_Billing_System.UI
                 TrAmount = Convert.ToDecimal(textGrandTotal.Text);
                 PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
                 txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
+                txtPaidAmount.ReadOnly = true;
 
             }
             else if (comboTrType.SelectedIndex == 1)
             {
                 txtPaidAmount.Text = "0.00";
-                              
+                txtPaidAmount.ReadOnly = false;
+
 
             }
 

@@ -340,6 +340,12 @@
     <Compile Include="UI\frmStockReport.Designer.cs">
       <DependentUpon>frmStockReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmSupDrCr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmSupDrCr.Designer.cs">
+      <DependentUpon>frmSupDrCr.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmSupplierMaster.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmStockReport.resx">
       <DependentUpon>frmStockReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmSupDrCr.resx">
+      <DependentUpon>frmSupDrCr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmSupplierMaster.resx">
       <DependentUpon>frmSupplierMaster.cs</DependentUpon>
