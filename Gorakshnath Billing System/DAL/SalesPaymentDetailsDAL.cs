@@ -136,10 +136,10 @@ namespace Gorakshnath_Billing_System.DAL
 
                 //Passing Value using cmd
                 cmd.Parameters.AddWithValue("@Invoice_No", b.Invoice_No);
-                cmd.Parameters.AddWithValue("@PaymentMode", b.PaymentMode);                
+                cmd.Parameters.AddWithValue("@PaymentMode", b.PaymentMode);
                 cmd.Parameters.AddWithValue("@TrAmount", b.TrAmount);
                 cmd.Parameters.AddWithValue("@AmountPiad", b.AmountPiad);
-                cmd.Parameters.AddWithValue("@Balance", b.Balance);                
+                cmd.Parameters.AddWithValue("@Balance", b.Balance);
                 cmd.Parameters.AddWithValue("@PaymentId", b.PaymentId);
                 cmd.Parameters.AddWithValue("@Remarks", b.Remarks);
 
@@ -175,6 +175,64 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Insert Data into SalesPayment Details 
+        public bool InsertSalesPayment(SalesPaymentDetailsBLL sp)
+        {
+            //Creating Boolean variable and set its default value to false
+            bool isSuccess = false;
+
+            //Creating SQL Connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            try
+            {
+                //Query to Update Category
+                string sql = "Insert into SalesPaymentDetails (Invoice_No,PaymentMode,TrMode,TrAmount,AmountPiad,Balance,Remarks)VALUES(@Invoice_No,@PaymentMode,@TrMode,@TrAmount,@AmountPiad,@Balance,@Remarks)select @@IDENTITY;";
+                
+                //SQl Command to Pass the Value on Sql Query
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //Passing Value using cmd
+                cmd.Parameters.AddWithValue("@Invoice_No", sp.Invoice_No);
+                cmd.Parameters.AddWithValue("@PaymentMode", sp.PaymentMode);
+                cmd.Parameters.AddWithValue("@TrMode", sp.TrMode);
+                cmd.Parameters.AddWithValue("@TrAmount", sp.TrAmount);
+                cmd.Parameters.AddWithValue("@AmountPiad", sp.AmountPiad);
+                cmd.Parameters.AddWithValue("@Balance", sp.Balance);
+                cmd.Parameters.AddWithValue("@PaymentId", sp.PaymentId);
+                cmd.Parameters.AddWithValue("@Remarks", sp.Remarks);
+
+
+                //Open DAtabase Connection
+                conn.Open();
+
+                //Create Int Variable to execute query
+                int rows = cmd.ExecuteNonQuery();
+
+                //if the query is successfully executed then the value will be grater than zero 
+                if (rows > 0)
+                {
+                    //Query Executed Successfully
+                    isSuccess = true;
+                }
+                else
+                {
+                    //Failed to Execute Query
+                    isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isSuccess;
+        }
+        #endregion
 
     }
 }
