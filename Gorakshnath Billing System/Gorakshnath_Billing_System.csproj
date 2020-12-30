@@ -182,11 +182,11 @@
       <DependentUpon>crptPurchase.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Debtors and Creditors.cs">
+    <Compile Include="UI\frmDebtors_Creditors.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Debtors and Creditors.Designer.cs">
-      <DependentUpon>Debtors and Creditors.cs</DependentUpon>
+    <Compile Include="UI\frmDebtors_Creditors.Designer.cs">
+      <DependentUpon>frmDebtors_Creditors.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmChallanManage.cs">
       <SubType>Form</SubType>
@@ -380,8 +380,8 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptPurchase.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Debtors and Creditors.resx">
-      <DependentUpon>Debtors and Creditors.cs</DependentUpon>
+    <EmbeddedResource Include="UI\frmDebtors_Creditors.resx">
+      <DependentUpon>frmDebtors_Creditors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmChallanManage.resx">
       <DependentUpon>frmChallanManage.cs</DependentUpon>
