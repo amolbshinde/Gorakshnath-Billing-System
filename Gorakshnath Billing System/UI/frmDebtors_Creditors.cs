@@ -36,6 +36,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void dgvDebtorNCreditors_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            //
             int rowIndex = e.RowIndex;
             textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
             textTrAmount.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
