@@ -416,6 +416,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboDrCrType.Name = "comboDrCrType";
             this.comboDrCrType.Size = new System.Drawing.Size(175, 23);
             this.comboDrCrType.TabIndex = 25;
+            this.comboDrCrType.SelectedIndexChanged += new System.EventHandler(this.comboDrCrType_SelectedIndexChanged);
             // 
             // label12
             // 

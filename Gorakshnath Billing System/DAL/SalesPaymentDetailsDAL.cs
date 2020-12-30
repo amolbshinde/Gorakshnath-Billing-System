@@ -48,6 +48,73 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+        #region Select Method For Debtors
+        public DataTable SelectDebtors()
+        {
+            //Creating Database Connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Wrting SQL Query to get all the data from DAtabase
+                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and Balance<0;";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Open DAtabase Connection
+                conn.Open();
+                //Adding the value from adapter to Data TAble dt
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
+
+        #region Select Method
+        public DataTable SelectCreditors()
+        {
+            //Creating Database Connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Wrting SQL Query to get all the data from DAtabase
+                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and Balance>0;";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Open DAtabase Connection
+                conn.Open();
+                //Adding the value from adapter to Data TAble dt
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
 
 
         #region Update Method

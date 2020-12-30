@@ -123,5 +123,28 @@ namespace Gorakshnath_Billing_System.UI
                 textBalance.Text = Convert.ToString(TrAmount - PaidAmount);
             }
         }
+
+        private void comboDrCrType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboDrCrType.Text == "All")
+            {
+                Clear();
+            }
+            
+
+
+
+            if (comboDrCrType.Text == "Debtors")
+            {
+                DataTable dt = SalesPaymentDetailsDAL.SelectDebtors();
+                dgvDebtorNCreditors.DataSource = dt;
+            }
+
+            if (comboDrCrType.Text == "Creditors")
+            {
+                DataTable dt = SalesPaymentDetailsDAL.SelectCreditors();
+                dgvDebtorNCreditors.DataSource = dt;
+            }
+        }
     }
 }
