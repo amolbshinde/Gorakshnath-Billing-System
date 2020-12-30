@@ -37,6 +37,7 @@ namespace Gorakshnath_Billing_System.UI
         private void dgvDebtorNCreditors_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int rowIndex = e.RowIndex;
+            textPaymentId.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
             textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[1].Value.ToString();
             textCustomerName.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[2].Value.ToString();
             textPayMode.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[3].Value.ToString();            
@@ -45,6 +46,38 @@ namespace Gorakshnath_Billing_System.UI
             textBalance.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[7].Value.ToString();
             textRemarks.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[8].Value.ToString();
             textTrDate.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[9].Value.ToString();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string PaymentId = textPaymentId.Text()
+            if (PaymentId != "")
+            {
+                SalesPaymentDetailsBLL.Invoice_No = Convert.ToInt32(textInvoiceNo.Text);
+                SalesPaymentDetailsBLL.PaymentMode = textPayMode.Text;
+                SalesPaymentDetailsBLL.Remarks = textRemarks.Text;
+                SalesPaymentDetailsBLL.TrAmount = decimal.Parse(textTrAmount.Text);
+                SalesPaymentDetailsBLL.AmountPiad = decimal.Parse(textAmountRecieved.Text);
+                SalesPaymentDetailsBLL.Balance = decimal.Parse(textBalance.Text);
+
+                bool success = SalesPaymentDetailsDAL.Update(SalesPaymentDetailsBLL);
+
+                if (success == true)
+                {
+                    MessageBox.Show("Payment Details Successfully Updated");
+                    clear();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to Update");
+                }
+                DataTable dt = SalesPaymentDetailsDAL.Select();
+                dgvDebtorNCreditors.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Please Select Details to Update");
+            }
         }
     }
 }
