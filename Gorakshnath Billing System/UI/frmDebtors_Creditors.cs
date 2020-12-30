@@ -17,11 +17,28 @@ namespace Gorakshnath_Billing_System.UI
         public Debtors_and_Creditors()
         {
             InitializeComponent();
+            fillCombo();
         }
 
         SalesPaymentDetailsBLL SalesPaymentDetailsBLL = new SalesPaymentDetailsBLL();
         SalesPaymentDetailsDAL SalesPaymentDetailsDAL = new SalesPaymentDetailsDAL();
 
+        public void fillCombo()
+        {
+            comboInvoiceNo.DataSource = null;
+            DataTable dtC = SalesPaymentDetailsDAL.Select();
+            comboInvoiceNo.DisplayMember = "Invoice_No";
+            comboInvoiceNo.DataSource = dtC;
+            comboInvoiceNo.Text = "Select Invoice";
+
+            comboPhoneNo.DataSource = null;
+            DataTable dtP = SalesPaymentDetailsDAL.Select();
+            comboPhoneNo.DisplayMember = "Cust_Contact";
+            //comboSearchCust.ValueMember = "Column123";
+            comboPhoneNo.DataSource = dtP;
+            comboPhoneNo.Text = "Select Phone";           
+
+        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -30,15 +47,14 @@ namespace Gorakshnath_Billing_System.UI
 
         private void Debtors_and_Creditors_Load(object sender, EventArgs e)
         {
-            DataTable dt = SalesPaymentDetailsDAL.Select();
-            dgvDebtorNCreditors.DataSource = dt;
+            Clear();
         }
 
         private void dgvDebtorNCreditors_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int rowIndex = e.RowIndex;
             textPaymentId.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
-            textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[1].Value.ToString();
+            comboInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[1].Value.ToString();
             textCustomerName.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[2].Value.ToString();
             textPayMode.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[3].Value.ToString();            
             textTrAmount.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[5].Value.ToString();
@@ -46,6 +62,7 @@ namespace Gorakshnath_Billing_System.UI
             textBalance.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[7].Value.ToString();
             textRemarks.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[8].Value.ToString();
             textTrDate.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[9].Value.ToString();
+            comboPhoneNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[10].Value.ToString();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -54,7 +71,7 @@ namespace Gorakshnath_Billing_System.UI
             if (PaymentId != "")
             {
                 SalesPaymentDetailsBLL.PaymentId= Convert.ToInt32(PaymentId);
-                SalesPaymentDetailsBLL.Invoice_No = Convert.ToInt32(textInvoiceNo.Text);
+                SalesPaymentDetailsBLL.Invoice_No = Convert.ToInt32(comboInvoiceNo.Text);
                 SalesPaymentDetailsBLL.PaymentMode = textPayMode.Text;
                 SalesPaymentDetailsBLL.Remarks = textRemarks.Text;
                 SalesPaymentDetailsBLL.TrAmount = decimal.Parse(textTrAmount.Text);
@@ -82,7 +99,8 @@ namespace Gorakshnath_Billing_System.UI
         public void Clear()
         {
             textPaymentId.Text = "";
-            textInvoiceNo.Text = "";
+            comboInvoiceNo.Text = "Select Invoice";
+            comboPhoneNo.Text = "Select Phone";
             textCustomerName.Text = "";
             textPayMode.Text = "";
             textTrAmount.Text = "";
