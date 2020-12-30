@@ -129,6 +129,7 @@
     <Compile Include="BLL\PurchaseReturnDetailsBLL.cs" />
     <Compile Include="BLL\salesBLL.cs" />
     <Compile Include="BLL\salesdetailsBLL.cs" />
+    <Compile Include="BLL\SalesPaymentDetailsBLL.cs" />
     <Compile Include="BLL\stockBLL.cs" />
     <Compile Include="BLL\supplierBLL.cs" />
     <Compile Include="BLL\SupplierMasterBLL.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="DAL\PurchaseReturnDetailsDAL.cs" />
     <Compile Include="DAL\salesDAL.cs" />
     <Compile Include="DAL\salesdetailsDAL.cs" />
+    <Compile Include="DAL\SalesPaymentDetailsDAL.cs" />
     <Compile Include="DAL\stockDAL.cs" />
     <Compile Include="DAL\supplierDAL.cs" />
     <Compile Include="DAL\SupplierMasterDAL.cs" />
