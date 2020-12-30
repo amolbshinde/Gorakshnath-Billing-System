@@ -37,9 +37,13 @@ namespace Gorakshnath_Billing_System.UI
             this.textQuantity = new System.Windows.Forms.TextBox();
             this.textCgst = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboTrType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.comboContact = new System.Windows.Forms.ComboBox();
             this.comboSearchCust = new System.Windows.Forms.ComboBox();
             this.comboTransactionType = new System.Windows.Forms.ComboBox();
+            this.textPurchaseBillNo = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.dtpBillDate = new System.Windows.Forms.DateTimePicker();
             this.textAddress = new System.Windows.Forms.TextBox();
             this.textEmail = new System.Windows.Forms.TextBox();
@@ -77,7 +81,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textSgst = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboPaymentMode = new System.Windows.Forms.ComboBox();
             this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
             this.label21 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -94,17 +98,13 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtBalance = new System.Windows.Forms.TextBox();
             this.txtPaidAmount = new System.Windows.Forms.TextBox();
+            this.txtTrAmount = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textPurchaseBillNo = new System.Windows.Forms.TextBox();
-            this.comboTrType = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.txtTrAmount = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
@@ -211,6 +211,32 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Size = new System.Drawing.Size(1409, 143);
             this.panel2.TabIndex = 17;
             // 
+            // comboTrType
+            // 
+            this.comboTrType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboTrType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboTrType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboTrType.FormattingEnabled = true;
+            this.comboTrType.Items.AddRange(new object[] {
+            "CASH",
+            "CREDIT"});
+            this.comboTrType.Location = new System.Drawing.Point(6, 108);
+            this.comboTrType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboTrType.Name = "comboTrType";
+            this.comboTrType.Size = new System.Drawing.Size(241, 28);
+            this.comboTrType.TabIndex = 23;
+            this.comboTrType.SelectedIndexChanged += new System.EventHandler(this.comboTrType_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 23);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Transaction Type";
+            // 
             // comboContact
             // 
             this.comboContact.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -250,6 +276,26 @@ namespace Gorakshnath_Billing_System.UI
             this.comboTransactionType.Size = new System.Drawing.Size(239, 28);
             this.comboTransactionType.TabIndex = 17;
             this.comboTransactionType.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // textPurchaseBillNo
+            // 
+            this.textPurchaseBillNo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPurchaseBillNo.Location = new System.Drawing.Point(1121, 102);
+            this.textPurchaseBillNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textPurchaseBillNo.Name = "textPurchaseBillNo";
+            this.textPurchaseBillNo.Size = new System.Drawing.Size(239, 27);
+            this.textPurchaseBillNo.TabIndex = 15;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(1113, 81);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 20);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Transaction ID";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // dtpBillDate
             // 
@@ -666,20 +712,20 @@ namespace Gorakshnath_Billing_System.UI
             this.label32.TabIndex = 29;
             this.label32.Text = "SGST(+)";
             // 
-            // comboBox1
+            // comboPaymentMode
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboPaymentMode.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPaymentMode.FormattingEnabled = true;
+            this.comboPaymentMode.Items.AddRange(new object[] {
             "Cash",
             "Cheque",
             "Online",
-            "Credit"});
-            this.comboBox1.Location = new System.Drawing.Point(239, 42);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(340, 31);
-            this.comboBox1.TabIndex = 29;
+            "Credit Card"});
+            this.comboPaymentMode.Location = new System.Drawing.Point(239, 42);
+            this.comboPaymentMode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboPaymentMode.Name = "comboPaymentMode";
+            this.comboPaymentMode.Size = new System.Drawing.Size(340, 31);
+            this.comboPaymentMode.TabIndex = 29;
             // 
             // dgvAddedProducts
             // 
@@ -854,7 +900,7 @@ namespace Gorakshnath_Billing_System.UI
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel5.Controls.Add(this.comboBox1);
+            this.panel5.Controls.Add(this.comboPaymentMode);
             this.panel5.Controls.Add(this.txtBalance);
             this.panel5.Controls.Add(this.txtPaidAmount);
             this.panel5.Controls.Add(this.txtTrAmount);
@@ -875,6 +921,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtBalance.Location = new System.Drawing.Point(239, 164);
             this.txtBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBalance.Name = "txtBalance";
+            this.txtBalance.ReadOnly = true;
             this.txtBalance.Size = new System.Drawing.Size(340, 30);
             this.txtBalance.TabIndex = 28;
             // 
@@ -887,6 +934,26 @@ namespace Gorakshnath_Billing_System.UI
             this.txtPaidAmount.Size = new System.Drawing.Size(340, 30);
             this.txtPaidAmount.TabIndex = 27;
             this.txtPaidAmount.TextChanged += new System.EventHandler(this.txtPaidAmount_TextChanged);
+            // 
+            // txtTrAmount
+            // 
+            this.txtTrAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrAmount.Location = new System.Drawing.Point(239, 79);
+            this.txtTrAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTrAmount.Name = "txtTrAmount";
+            this.txtTrAmount.ReadOnly = true;
+            this.txtTrAmount.Size = new System.Drawing.Size(340, 30);
+            this.txtTrAmount.TabIndex = 26;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(43, 85);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(184, 25);
+            this.label26.TabIndex = 25;
+            this.label26.Text = "Transaction Amount";
             // 
             // label25
             // 
@@ -937,71 +1004,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1409, 304);
             this.panel4.TabIndex = 19;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(1113, 81);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 20);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Transaction ID";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // textPurchaseBillNo
-            // 
-            this.textPurchaseBillNo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPurchaseBillNo.Location = new System.Drawing.Point(1121, 102);
-            this.textPurchaseBillNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textPurchaseBillNo.Name = "textPurchaseBillNo";
-            this.textPurchaseBillNo.Size = new System.Drawing.Size(239, 27);
-            this.textPurchaseBillNo.TabIndex = 15;
-            // 
-            // comboTrType
-            // 
-            this.comboTrType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboTrType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboTrType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboTrType.FormattingEnabled = true;
-            this.comboTrType.Items.AddRange(new object[] {
-            "CASH",
-            "CREDIT"});
-            this.comboTrType.Location = new System.Drawing.Point(6, 108);
-            this.comboTrType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboTrType.Name = "comboTrType";
-            this.comboTrType.Size = new System.Drawing.Size(241, 28);
-            this.comboTrType.TabIndex = 23;
-            this.comboTrType.SelectedIndexChanged += new System.EventHandler(this.comboTrType_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 23);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Transaction Type";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(43, 85);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(184, 25);
-            this.label26.TabIndex = 25;
-            this.label26.Text = "Transaction Amount";
-            // 
-            // txtTrAmount
-            // 
-            this.txtTrAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTrAmount.Location = new System.Drawing.Point(239, 79);
-            this.txtTrAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTrAmount.Name = "txtTrAmount";
-            this.txtTrAmount.Size = new System.Drawing.Size(340, 30);
-            this.txtTrAmount.TabIndex = 26;
             // 
             // frmChallan
             // 
@@ -1075,7 +1077,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.TextBox textSgst;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboPaymentMode;
         private System.Windows.Forms.DataGridView dgvAddedProducts;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label27;
