@@ -38,15 +38,15 @@ namespace Gorakshnath_Billing_System.UI
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textPayMode = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textTrAmount = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textInvoiceNo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -126,15 +126,15 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton1);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox8);
+            this.panel1.Controls.Add(this.textPayMode);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.textBox7);
             this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.textBox5);
             this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.textTrAmount);
             this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.textInvoiceNo);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label1);
@@ -186,14 +186,14 @@ namespace Gorakshnath_Billing_System.UI
             this.label10.TabIndex = 16;
             this.label10.Text = "Transaction Type";
             // 
-            // textBox8
+            // textPayMode
             // 
-            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(422, 38);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(182, 23);
-            this.textBox8.TabIndex = 15;
+            this.textPayMode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPayMode.Location = new System.Drawing.Point(422, 38);
+            this.textPayMode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textPayMode.Name = "textPayMode";
+            this.textPayMode.Size = new System.Drawing.Size(182, 23);
+            this.textPayMode.TabIndex = 15;
             // 
             // label9
             // 
@@ -243,14 +243,14 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox4.Size = new System.Drawing.Size(176, 23);
             this.textBox4.TabIndex = 10;
             // 
-            // textBox3
+            // textTrAmount
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(224, 38);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(176, 23);
-            this.textBox3.TabIndex = 9;
+            this.textTrAmount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTrAmount.Location = new System.Drawing.Point(224, 38);
+            this.textTrAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textTrAmount.Name = "textTrAmount";
+            this.textTrAmount.Size = new System.Drawing.Size(176, 23);
+            this.textTrAmount.TabIndex = 9;
             // 
             // textBox2
             // 
@@ -261,14 +261,14 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox2.Size = new System.Drawing.Size(176, 23);
             this.textBox2.TabIndex = 8;
             // 
-            // textBox1
+            // textInvoiceNo
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(11, 38);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 23);
-            this.textBox1.TabIndex = 7;
+            this.textInvoiceNo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInvoiceNo.Location = new System.Drawing.Point(11, 38);
+            this.textInvoiceNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textInvoiceNo.Name = "textInvoiceNo";
+            this.textInvoiceNo.Size = new System.Drawing.Size(176, 23);
+            this.textInvoiceNo.TabIndex = 7;
             // 
             // label7
             // 
@@ -314,6 +314,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvDebtorNCreditors.RowTemplate.Height = 24;
             this.dgvDebtorNCreditors.Size = new System.Drawing.Size(942, 352);
             this.dgvDebtorNCreditors.TabIndex = 15;
+            this.dgvDebtorNCreditors.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDebtorNCreditors_RowHeaderMouseClick);
             // 
             // label8
             // 
@@ -414,9 +415,9 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textTrAmount;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textInvoiceNo;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvDebtorNCreditors;
         private System.Windows.Forms.Label label8;
@@ -424,7 +425,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textPayMode;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
