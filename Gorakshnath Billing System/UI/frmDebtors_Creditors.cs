@@ -50,7 +50,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string PaymentId = textPaymentId.Text();
+            string PaymentId = textPaymentId.Text;
             if (PaymentId != "")
             {
                 SalesPaymentDetailsBLL.Invoice_No = Convert.ToInt32(textInvoiceNo.Text);
@@ -64,8 +64,7 @@ namespace Gorakshnath_Billing_System.UI
 
                 if (success == true)
                 {
-                    MessageBox.Show("Payment Details Successfully Updated");
-                    clear();
+                    MessageBox.Show("Payment Details Successfully Updated");                    
                 }
                 else
                 {
