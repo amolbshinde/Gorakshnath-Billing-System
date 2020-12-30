@@ -94,5 +94,16 @@ namespace Gorakshnath_Billing_System.UI
             DataTable dt = SalesPaymentDetailsDAL.Select();
             dgvDebtorNCreditors.DataSource = dt;
         }
+
+        private void textAmountRecieved_TextChanged(object sender, EventArgs e)
+        {
+            if (textAmountRecieved.Text != "")
+            {
+                Decimal TrAmount, PaidAmount;
+                TrAmount = Convert.ToDecimal(textTrAmount.Text);
+                PaidAmount = Convert.ToDecimal(textAmountRecieved.Text);
+                textBalance.Text = Convert.ToString(TrAmount - PaidAmount);
+            }
+        }
     }
 }
