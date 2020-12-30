@@ -58,6 +58,8 @@ namespace Gorakshnath_Billing_System.UI
             this.comboPhoneNo = new System.Windows.Forms.ComboBox();
             this.comboInvoiceNo = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.comboDrCrType = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDebtorNCreditors)).BeginInit();
@@ -69,12 +71,12 @@ namespace Gorakshnath_Billing_System.UI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label1.Location = new System.Drawing.Point(344, 16);
+            this.label1.Location = new System.Drawing.Point(215, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 21);
+            this.label1.Size = new System.Drawing.Size(95, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Show Debtors/Creditors";
+            this.label1.Text = "Invoice No : ";
             // 
             // label2
             // 
@@ -126,10 +128,12 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.comboInvoiceNo);
             this.panel1.Controls.Add(this.comboPhoneNo);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.textPaymentId);
             this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textPayMode);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.textTrDate);
@@ -281,7 +285,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.panel2.Controls.Add(this.dgvDebtorNCreditors);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Location = new System.Drawing.Point(9, 210);
+            this.panel2.Location = new System.Drawing.Point(9, 206);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1099, 397);
@@ -386,23 +390,44 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.comboInvoiceNo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboInvoiceNo.FormattingEnabled = true;
-            this.comboInvoiceNo.Items.AddRange(new object[] {
-            "All",
-            "Debtors",
-            "Creditors"});
-            this.comboInvoiceNo.Location = new System.Drawing.Point(546, 16);
+            this.comboInvoiceNo.Location = new System.Drawing.Point(219, 39);
             this.comboInvoiceNo.Name = "comboInvoiceNo";
             this.comboInvoiceNo.Size = new System.Drawing.Size(175, 23);
             this.comboInvoiceNo.TabIndex = 23;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.comboInvoiceNo);
-            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.comboDrCrType);
+            this.panel3.Controls.Add(this.label12);
             this.panel3.Location = new System.Drawing.Point(9, 151);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1099, 50);
+            this.panel3.Size = new System.Drawing.Size(1099, 46);
             this.panel3.TabIndex = 11;
+            // 
+            // comboDrCrType
+            // 
+            this.comboDrCrType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboDrCrType.FormattingEnabled = true;
+            this.comboDrCrType.Items.AddRange(new object[] {
+            "All",
+            "Debtors",
+            "Creditors"});
+            this.comboDrCrType.Location = new System.Drawing.Point(505, 12);
+            this.comboDrCrType.Name = "comboDrCrType";
+            this.comboDrCrType.Size = new System.Drawing.Size(175, 23);
+            this.comboDrCrType.TabIndex = 25;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label12.Location = new System.Drawing.Point(321, 10);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(178, 21);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Show Debtors/Creditors";
             // 
             // Debtors_and_Creditors
             // 
@@ -462,5 +487,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.ComboBox comboInvoiceNo;
         private System.Windows.Forms.ComboBox comboPhoneNo;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ComboBox comboDrCrType;
+        private System.Windows.Forms.Label label12;
     }
 }
