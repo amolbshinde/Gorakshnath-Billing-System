@@ -246,6 +246,26 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Select The Transaction Type First, You Cannot Change the Transaction type during this Transaction");
             }
+            txtTrAmount.Text = textGrandTotal.Text;
+            if(comboTrType.Text=="CASH")
+            {
+                txtPaidAmount.Text = textGrandTotal.Text;
+                Decimal TrAmount, PaidAmount;
+                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
+                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
+
+            }
+            else if (comboTrType.SelectedIndex==1)
+            {
+                txtPaidAmount.Text="";
+                Decimal TrAmount, PaidAmount;
+                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
+                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
+
+            }
+
         }
 
         private void frmChallan_Load(object sender, EventArgs e)
@@ -267,25 +287,32 @@ namespace Gorakshnath_Billing_System.UI
         private void button1_Click(object sender, EventArgs e)
         {
             //Validate Supplier details are there or not 
-
-            if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
+            if (txtPaidAmount.Text == "")
             {
-                if (dgvAddedProducts.Rows.Count != 0)
-                {
-                    //save fun
-                    save();
-                }
-                else
-                {
-                    MessageBox.Show("Please Add Product Details");
-                }
+                MessageBox.Show("Please Enter Paid Amount by Customer");
             }
             else
             {
-                MessageBox.Show("Please enter Customer Details");
+
+                if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
+                {
+                    if (dgvAddedProducts.Rows.Count != 0)
+                    {
+                        //save fun
+                        save();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Add Product Details");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter Customer Details");
+                }
+                //set Invoice No.
+                textBox6.Text = Invoice_No.ToString();
             }
-            //set Invoice No.
-            textBox6.Text = Invoice_No.ToString();
         }
        
 
@@ -861,6 +888,42 @@ namespace Gorakshnath_Billing_System.UI
                 textEmail.Text = "";
             }
 
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboTrType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboTrType.SelectedIndex == 0)
+            {
+                txtPaidAmount.Text = textGrandTotal.Text;
+                Decimal TrAmount, PaidAmount;
+                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
+                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
+
+            }
+            else if (comboTrType.SelectedIndex == 1)
+            {
+                txtPaidAmount.Text = "0.00";
+                              
+
+            }
+
+        }
+
+        private void txtPaidAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPaidAmount.Text != "")
+            {
+                Decimal TrAmount, PaidAmount;
+                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
+                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
+            }
         }
     }
 }
