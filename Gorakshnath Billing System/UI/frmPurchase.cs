@@ -180,6 +180,34 @@ namespace Gorakshnath_Billing_System.UI
                 MessageBox.Show("Please Enter Item/Product Details");                
             }
 
+            if (comboTrMode.SelectedIndex == 0)
+            {
+
+                txtTrAmount.Text = textGrandTotal.Text;
+                Decimal TrAmount, PaidAmount;
+                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
+                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
+                /*
+                txtPaidAmount.Text = textGrandTotal.Text;
+                Decimal TrAmount, PaidAmount;
+                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
+                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);*/
+
+            }
+            else if (comboTrMode.SelectedIndex == 1)
+            {
+                txtPaidAmount.Text = "";
+                Decimal TrAmount, PaidAmount;
+                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
+                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
+
+            }
+
+            
+
         }
 
 
@@ -230,7 +258,10 @@ namespace Gorakshnath_Billing_System.UI
             purchasedt.Columns.Add("(-)Discount");
             purchasedt.Columns.Add("Gst Type");
             purchasedt.Columns.Add("(+)Tax%");
-            purchasedt.Columns.Add("(=)Total");           
+            purchasedt.Columns.Add("(=)Total");
+            txtTrAmount.ReadOnly = true;
+            comboTrMode.SelectedIndex = 0;
+            comboPaymentMode.SelectedIndex = 0;
         }
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
@@ -808,6 +839,16 @@ namespace Gorakshnath_Billing_System.UI
                 textEmail.Text = "";
             }
 
+        }
+
+        private void comboTrMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboTrMode.SelectedIndex == 0)
+            {
+                txtPaidAmount.Text = txtTrAmount.Text;
+                txtPaidAmount.ReadOnly = true;
+                txtTrAmount.ReadOnly = true;
+            }
         }
     }   
 }

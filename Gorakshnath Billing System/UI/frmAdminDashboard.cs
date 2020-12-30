@@ -284,5 +284,17 @@ namespace Gorakshnath_Billing_System
             Debtors_and_Creditors Debtors_and_Creditors = new Debtors_and_Creditors();
             Debtors_and_Creditors.Show();
         }
+
+        private void debtorsAndCreditorsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Debtors_and_Creditors Debtors_and_Creditors = new Debtors_and_Creditors();
+            Debtors_and_Creditors.Show();
+        }
+
+        private void debtorsAndCreditorsToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmSupDrCr supDrCr = new frmSupDrCr();
+            supDrCr.Show();
+        }
     }
 }
