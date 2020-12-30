@@ -37,13 +37,14 @@ namespace Gorakshnath_Billing_System.UI
         private void dgvDebtorNCreditors_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
-            textTrAmount.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
-            textPayMode.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
-            textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
-            textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
-            textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
-
+            textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[1].Value.ToString();
+            textCustomerName.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[2].Value.ToString();
+            textPayMode.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[3].Value.ToString();            
+            textTrAmount.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[5].Value.ToString();
+            textAmountRecieved.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[6].Value.ToString();
+            textBalance.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[7].Value.ToString();
+            textRemarks.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[8].Value.ToString();
+            textTrDate.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[9].Value.ToString();
         }
     }
 }
