@@ -71,13 +71,28 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     MessageBox.Show("Failed to Update");
                 }
-                DataTable dt = SalesPaymentDetailsDAL.Select();
-                dgvDebtorNCreditors.DataSource = dt;
+                Clear();
             }
             else
             {
                 MessageBox.Show("Please Select Details to Update");
             }
+        }
+
+        public void Clear()
+        {
+            textPaymentId.Text = "";
+            textInvoiceNo.Text = "";
+            textCustomerName.Text = "";
+            textPayMode.Text = "";
+            textTrAmount.Text = "";
+            textAmountRecieved.Text = "";
+            textBalance.Text = "";
+            textRemarks.Text = "";
+            textTrDate.Text = "";
+
+            DataTable dt = SalesPaymentDetailsDAL.Select();
+            dgvDebtorNCreditors.DataSource = dt;
         }
     }
 }
