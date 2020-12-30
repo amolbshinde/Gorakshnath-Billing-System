@@ -38,6 +38,7 @@ namespace Gorakshnath_Billing_System.UI
             this.ClientSize = new System.Drawing.Size(1458, 745);
             this.Name = "frmSupDrCr";
             this.Text = "frmSupDrCr";
+            this.Load += new System.EventHandler(this.frmSupDrCr_Load);
             this.ResumeLayout(false);
 
         }

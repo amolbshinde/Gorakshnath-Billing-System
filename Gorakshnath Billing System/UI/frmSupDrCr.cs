@@ -16,5 +16,10 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
         }
+
+        private void frmSupDrCr_Load(object sender, EventArgs e)
+        {
+            //
+        }
     }
 }
