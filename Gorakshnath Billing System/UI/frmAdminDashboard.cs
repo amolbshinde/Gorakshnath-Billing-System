@@ -278,5 +278,11 @@ namespace Gorakshnath_Billing_System
         {
 
         }
+
+        private void debtorsAndCreditorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Debtors_and_Creditors Debtors_and_Creditors = new Debtors_and_Creditors();
+            Debtors_and_Creditors.Show();
+        }
     }
 }

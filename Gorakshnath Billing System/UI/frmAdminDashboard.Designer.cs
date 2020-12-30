@@ -73,6 +73,7 @@ namespace Gorakshnath_Billing_System
             this.Time = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Date = new System.Windows.Forms.Label();
+            this.debtorsAndCreditorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnllFooter.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -84,9 +85,9 @@ namespace Gorakshnath_Billing_System
             this.pnllFooter.Controls.Add(this.label1);
             this.pnllFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnllFooter.Location = new System.Drawing.Point(0, 563);
-            this.pnllFooter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnllFooter.Margin = new System.Windows.Forms.Padding(2);
             this.pnllFooter.Name = "pnllFooter";
-            this.pnllFooter.Size = new System.Drawing.Size(1389, 26);
+            this.pnllFooter.Size = new System.Drawing.Size(1284, 26);
             this.pnllFooter.TabIndex = 0;
             // 
             // label1
@@ -118,7 +119,7 @@ namespace Gorakshnath_Billing_System
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(1389, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1284, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -347,7 +348,8 @@ namespace Gorakshnath_Billing_System
             this.totalPurchaseReportToolStripMenuItem,
             this.challanReportToolStripMenuItem,
             this.salesReturnReportToolStripMenuItem,
-            this.purchasaaeReturnReportToolStripMenuItem});
+            this.purchasaaeReturnReportToolStripMenuItem,
+            this.debtorsAndCreditorsToolStripMenuItem});
             this.reportsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportsToolStripMenuItem.Image = global::Gorakshnath_Billing_System.Properties.Resources.images__1_1;
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
@@ -430,7 +432,7 @@ namespace Gorakshnath_Billing_System
             // 
             this.pictureBox1.Image = global::Gorakshnath_Billing_System.Properties.Resources._try;
             this.pictureBox1.Location = new System.Drawing.Point(553, 197);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(451, 298);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -468,11 +470,18 @@ namespace Gorakshnath_Billing_System
             this.Date.Text = "label5";
             this.Date.Click += new System.EventHandler(this.Date_Click);
             // 
+            // debtorsAndCreditorsToolStripMenuItem
+            // 
+            this.debtorsAndCreditorsToolStripMenuItem.Name = "debtorsAndCreditorsToolStripMenuItem";
+            this.debtorsAndCreditorsToolStripMenuItem.Size = new System.Drawing.Size(261, 24);
+            this.debtorsAndCreditorsToolStripMenuItem.Text = "Debtors And Creditors";
+            this.debtorsAndCreditorsToolStripMenuItem.Click += new System.EventHandler(this.debtorsAndCreditorsToolStripMenuItem_Click);
+            // 
             // frmAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1389, 589);
+            this.ClientSize = new System.Drawing.Size(1284, 589);
             this.Controls.Add(this.Date);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.pictureBox1);
@@ -481,7 +490,7 @@ namespace Gorakshnath_Billing_System
             this.Controls.Add(this.pnllFooter);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Dashboard";
@@ -543,6 +552,7 @@ namespace Gorakshnath_Billing_System
         private System.Windows.Forms.Label Time;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label Date;
+        private System.Windows.Forms.ToolStripMenuItem debtorsAndCreditorsToolStripMenuItem;
     }
 }
 

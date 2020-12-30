@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gorakshnath_Billing_System.BLL;
+using Gorakshnath_Billing_System.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +19,19 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
         }
 
+        SalesPaymentDetailsBLL SalesPaymentDetailsBLL = new SalesPaymentDetailsBLL();
+        SalesPaymentDetailsDAL SalesPaymentDetailsDAL = new SalesPaymentDetailsDAL();
+
+
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Debtors_and_Creditors_Load(object sender, EventArgs e)
+        {
+            DataTable dt = SalesPaymentDetailsDAL.Select();
+            dgvDebtorNCreditors.DataSource = dt;
         }
     }
 }
