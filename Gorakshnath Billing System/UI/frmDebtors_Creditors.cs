@@ -33,5 +33,17 @@ namespace Gorakshnath_Billing_System.UI
             DataTable dt = SalesPaymentDetailsDAL.Select();
             dgvDebtorNCreditors.DataSource = dt;
         }
+
+        private void dgvDebtorNCreditors_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
+            textTrAmount.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
+            textPayMode.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
+            textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
+            textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
+            textInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
+
+        }
     }
 }
