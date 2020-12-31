@@ -299,9 +299,9 @@ namespace Gorakshnath_Billing_System.UI
             this.label30.Location = new System.Drawing.Point(422, 68);
             this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(77, 19);
+            this.label30.Size = new System.Drawing.Size(85, 19);
             this.label30.TabIndex = 18;
-            this.label30.Text = "Invoice No.";
+            this.label30.Text = "Purchase ID.";
             // 
             // comboTransactionType
             // 
@@ -324,9 +324,9 @@ namespace Gorakshnath_Billing_System.UI
             this.label29.Location = new System.Drawing.Point(3, 25);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(71, 19);
+            this.label29.Size = new System.Drawing.Size(96, 19);
             this.label29.TabIndex = 16;
-            this.label29.Text = "Sales Type";
+            this.label29.Text = "Purchase Type";
             // 
             // textPurchaseBillNo
             // 
@@ -429,9 +429,9 @@ namespace Gorakshnath_Billing_System.UI
             this.label4.Location = new System.Drawing.Point(198, 24);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 19);
+            this.label4.Size = new System.Drawing.Size(98, 19);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Customer Name";
+            this.label4.Text = "Supplier Name";
             // 
             // label2
             // 
@@ -440,9 +440,9 @@ namespace Gorakshnath_Billing_System.UI
             this.label2.Location = new System.Drawing.Point(2, 6);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 19);
+            this.label2.Size = new System.Drawing.Size(114, 19);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Customer Details";
+            this.label2.Text = "Supplier Details";
             // 
             // panel3
             // 
