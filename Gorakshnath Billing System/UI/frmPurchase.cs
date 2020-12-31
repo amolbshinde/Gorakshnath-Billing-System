@@ -804,6 +804,11 @@ namespace Gorakshnath_Billing_System.UI
             textIgst.Text = "0";
             textGrandTotal.Text = "0";
 
+            comboPaymentMode.Text = "Cash";
+            txtTrAmount.Text = "0";
+            txtPaidAmount.Text = "0";
+            txtBalance.Text = "0";
+
             dgvAddedProducts.DataSource = null;
             dgvAddedProducts.Rows.Clear();
             purchasedt.Rows.Clear();
