@@ -117,9 +117,9 @@ namespace Gorakshnath_Billing_System.UI
         {
             if (textAmountRecieved.Text != "")
             {
-                Decimal TrAmount, PaidAmount;
-                TrAmount = Convert.ToDecimal(textTrAmount.Text);
-                PaidAmount = Convert.ToDecimal(textAmountRecieved.Text);
+                Decimal TrAmount, PaidAmount;                
+                decimal.TryParse(textTrAmount.Text,out TrAmount);
+                decimal.TryParse(textAmountRecieved.Text, out PaidAmount);                
                 textBalance.Text = Convert.ToString(TrAmount - PaidAmount);
             }
         }

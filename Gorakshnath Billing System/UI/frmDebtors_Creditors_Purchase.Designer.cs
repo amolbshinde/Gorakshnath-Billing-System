@@ -102,6 +102,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -181,6 +182,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvDebtorNCreditors.RowTemplate.Height = 24;
             this.dgvDebtorNCreditors.Size = new System.Drawing.Size(1047, 352);
             this.dgvDebtorNCreditors.TabIndex = 15;
+            this.dgvDebtorNCreditors.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDebtorNCreditors_RowHeaderMouseClick);
             // 
             // label8
             // 
@@ -448,7 +450,8 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmDebtors_Creditors_Purchase";
-            this.Text = "frmDebtors_Creditors_Purchase";
+            this.Text = "Debtors_Creditors_Purchase";
+            this.Load += new System.EventHandler(this.frmDebtors_Creditors_Purchase_Load);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

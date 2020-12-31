@@ -11,8 +11,9 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.DAL
 {
-    class SalesPaymentDetailsDAL
+    class PurchasePaymentDetailsDAL
     {
+
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
         #region Select Method
@@ -26,7 +27,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID;";
+                string sql = "SELECT PaymentId,PurchasePaymentDetails.Invoice_No, CompanyName,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Purchase_Transactions.Purchase_Date, Phone_No FROM PurchasePaymentDetails,Purchase_Transactions,Supplier_Master Where PurchasePaymentDetails.Invoice_No=Purchase_Transactions.Purchase_ID and Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID;";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -60,7 +61,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and Balance<0;";
+                string sql = "SELECT PaymentId,PurchasePaymentDetails.Invoice_No, CompanyName,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Purchase_Transactions.Purchase_Date, Phone_No FROM PurchasePaymentDetails,Purchase_Transactions,Supplier_Master Where PurchasePaymentDetails.Invoice_No=Purchase_Transactions.Purchase_ID and Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and Balance>0;";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -94,7 +95,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and Balance>0;";
+                string sql = "SELECT PaymentId,PurchasePaymentDetails.Invoice_No, CompanyName,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Purchase_Transactions.Purchase_Date, Phone_No FROM PurchasePaymentDetails,Purchase_Transactions,Supplier_Master Where PurchasePaymentDetails.Invoice_No=Purchase_Transactions.Purchase_ID and Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and Balance<0;";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -119,7 +120,7 @@ namespace Gorakshnath_Billing_System.DAL
 
 
         #region Update Method
-        public bool Update(SalesPaymentDetailsBLL b)
+        public bool Update(PurchasePaymentDetailsBLL b)
         {
             //Creating Boolean variable and set its default value to false
             bool isSuccess = false;
@@ -130,7 +131,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Query to Update Category
-                string sql = "UPDATE SalesPaymentDetails SET Invoice_No=@Invoice_No, PaymentMode=@PaymentMode, TrAmount =@TrAmount, AmountPiad=@AmountPiad, Balance=@Balance,Remarks=@Remarks WHERE PaymentId=@PaymentId;";
+                string sql = "UPDATE PurchasePaymentDetails SET Invoice_No=@Invoice_No, PaymentMode=@PaymentMode, TrAmount =@TrAmount, AmountPiad=@AmountPiad, Balance=@Balance,Remarks=@Remarks WHERE PaymentId=@PaymentId;";
 
                 //SQl Command to Pass the Value on Sql Query
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -188,8 +189,8 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Query to Update Category
-                string sql = "Insert into SalesPaymentDetails (Invoice_No,PaymentMode,TrMode,TrAmount,AmountPiad,Balance,Remarks)VALUES(@Invoice_No,@PaymentMode,@TrMode,@TrAmount,@AmountPiad,@Balance,@Remarks)select @@IDENTITY;";
-                
+                string sql = "Insert into PurchasePaymentDetails (Invoice_No,PaymentMode,TrMode,TrAmount,AmountPiad,Balance,Remarks)VALUES(@Invoice_No,@PaymentMode,@TrMode,@TrAmount,@AmountPiad,@Balance,@Remarks)select @@IDENTITY;";
+
                 //SQl Command to Pass the Value on Sql Query
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -234,6 +235,7 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
+
 
     }
 }
