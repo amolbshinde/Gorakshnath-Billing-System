@@ -55,7 +55,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
             this.label21 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.comboPaymentMode = new System.Windows.Forms.ComboBox();
+            this.comboTrType = new System.Windows.Forms.ComboBox();
             this.txtBalance = new System.Windows.Forms.TextBox();
             this.txtPaidAmount = new System.Windows.Forms.TextBox();
             this.txtTrAmount = new System.Windows.Forms.TextBox();
@@ -410,7 +410,7 @@ namespace Gorakshnath_Billing_System.UI
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel5.Controls.Add(this.comboPaymentMode);
+            this.panel5.Controls.Add(this.comboTrType);
             this.panel5.Controls.Add(this.txtBalance);
             this.panel5.Controls.Add(this.txtPaidAmount);
             this.panel5.Controls.Add(this.txtTrAmount);
@@ -426,20 +426,20 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5.TabIndex = 11;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
-            // comboPaymentMode
+            // comboTrType
             // 
-            this.comboPaymentMode.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboPaymentMode.FormattingEnabled = true;
-            this.comboPaymentMode.Items.AddRange(new object[] {
+            this.comboTrType.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboTrType.FormattingEnabled = true;
+            this.comboTrType.Items.AddRange(new object[] {
             "Cash",
             "Cheque",
             "Online",
             "Credit Card"});
-            this.comboPaymentMode.Location = new System.Drawing.Point(179, 34);
-            this.comboPaymentMode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboPaymentMode.Name = "comboPaymentMode";
-            this.comboPaymentMode.Size = new System.Drawing.Size(234, 27);
-            this.comboPaymentMode.TabIndex = 29;
+            this.comboTrType.Location = new System.Drawing.Point(179, 34);
+            this.comboTrType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboTrType.Name = "comboTrType";
+            this.comboTrType.Size = new System.Drawing.Size(234, 27);
+            this.comboTrType.TabIndex = 29;
             // 
             // txtBalance
             // 
@@ -1098,7 +1098,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.TextBox txtBalance;
         private System.Windows.Forms.TextBox txtPaidAmount;
         private System.Windows.Forms.TextBox txtTrAmount;
-        private System.Windows.Forms.ComboBox comboPaymentMode;
+        private System.Windows.Forms.ComboBox comboTrType;
         private System.Windows.Forms.ComboBox comboPurchaseType;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label30;

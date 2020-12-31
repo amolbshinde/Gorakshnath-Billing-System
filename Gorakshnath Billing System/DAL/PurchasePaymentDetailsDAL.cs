@@ -247,8 +247,8 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-        #region Insert Data into SalesPayment Details 
-        public bool InsertSalesPayment(SalesPaymentDetailsBLL sp)
+        #region Insert Data into Purchase Payment Details 
+        public bool InsertSalesPayment(PurchasePaymentDetailsBLL sp)
         {
             //Creating Boolean variable and set its default value to false
             bool isSuccess = false;
@@ -305,6 +305,7 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
+
 
 
     }
