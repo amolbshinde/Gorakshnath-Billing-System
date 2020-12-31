@@ -84,7 +84,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-        #region Select Method
+        #region Select Method By Creditors
         public DataTable SelectCreditors()
         {
             //Creating Database Connection
@@ -117,6 +117,76 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+
+
+        #region Select Method By Purchase_Id
+        public DataTable SelectByPurchaseId(string Purchase_Id)
+        {
+            //Creating Database Connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Wrting SQL Query to get all the data from DAtabase
+                string sql = "SELECT PaymentId,PurchasePaymentDetails.Invoice_No, CompanyName,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Purchase_Transactions.Purchase_Date, Phone_No FROM PurchasePaymentDetails,Purchase_Transactions,Supplier_Master Where PurchasePaymentDetails.Invoice_No=Purchase_Transactions.Purchase_ID and Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and Invoice_No='"+ Purchase_Id +"';";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Open DAtabase Connection
+                conn.Open();
+                //Adding the value from adapter to Data TAble dt
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
+
+        #region Select Method By Phone_No
+        public DataTable SelectByPhone_No(string Phone_No)
+        {
+            //Creating Database Connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Wrting SQL Query to get all the data from DAtabase
+                string sql = "SELECT PaymentId,PurchasePaymentDetails.Invoice_No, CompanyName,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Purchase_Transactions.Purchase_Date, Phone_No FROM PurchasePaymentDetails,Purchase_Transactions,Supplier_Master Where PurchasePaymentDetails.Invoice_No=Purchase_Transactions.Purchase_ID and Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and Phone_No='" + Phone_No + "';";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Open DAtabase Connection
+                conn.Open();
+                //Adding the value from adapter to Data TAble dt
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
+
 
 
         #region Update Method

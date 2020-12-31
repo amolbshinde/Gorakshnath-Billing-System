@@ -115,6 +115,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClear
             // 
@@ -127,6 +128,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // panel3
             // 
@@ -233,6 +235,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboInvoiceNo.Name = "comboInvoiceNo";
             this.comboInvoiceNo.Size = new System.Drawing.Size(175, 23);
             this.comboInvoiceNo.TabIndex = 23;
+            this.comboInvoiceNo.SelectedIndexChanged += new System.EventHandler(this.comboInvoiceNo_SelectedIndexChanged);
             // 
             // comboPhoneNo
             // 
@@ -242,6 +245,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboPhoneNo.Name = "comboPhoneNo";
             this.comboPhoneNo.Size = new System.Drawing.Size(175, 23);
             this.comboPhoneNo.TabIndex = 22;
+            this.comboPhoneNo.SelectedIndexChanged += new System.EventHandler(this.comboPhoneNo_SelectedIndexChanged);
             // 
             // label10
             // 
