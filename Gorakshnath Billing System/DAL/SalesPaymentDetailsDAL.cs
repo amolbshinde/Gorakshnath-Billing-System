@@ -118,6 +118,74 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
+        #region Select Method By Purchase_Id
+        public DataTable SelectByPurchaseId(string Cust_Contact)
+        {
+            //Creating Database Connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Wrting SQL Query to get all the data from DAtabase
+                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and Cust_Contact= '" + Cust_Contact + "';";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Open DAtabase Connection
+                conn.Open();
+                //Adding the value from adapter to Data TAble dt
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
+
+        #region Select Method By Phone_No
+        public DataTable SelectByPhone_No(string Invoice_No)
+        {
+            //Creating Database Connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Wrting SQL Query to get all the data from DAtabase
+                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and SalesPaymentDetails.Invoice_No= '" + Invoice_No + "';";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Open DAtabase Connection
+                conn.Open();
+                //Adding the value from adapter to Data TAble dt
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
+
         #region Update Method
         public bool Update(SalesPaymentDetailsBLL b)
         {
