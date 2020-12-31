@@ -184,9 +184,9 @@ namespace Gorakshnath_Billing_System.UI
             {
 
                 txtTrAmount.Text = textGrandTotal.Text;
-                Decimal TrAmount, PaidAmount;
-                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
-                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                Decimal TrAmount, PaidAmount;                
+                decimal.TryParse(textGrandTotal.Text, out TrAmount);
+                decimal.TryParse(txtPaidAmount.Text, out PaidAmount);
                 txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
                 /*
                 txtPaidAmount.Text = textGrandTotal.Text;
@@ -200,8 +200,8 @@ namespace Gorakshnath_Billing_System.UI
             {
                 txtPaidAmount.Text = "";
                 Decimal TrAmount, PaidAmount;
-                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
-                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                decimal.TryParse(textGrandTotal.Text, out TrAmount);
+                decimal.TryParse(txtPaidAmount.Text, out PaidAmount);
                 txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
 
             }
@@ -850,6 +850,11 @@ namespace Gorakshnath_Billing_System.UI
                 txtPaidAmount.ReadOnly = true;
                 txtTrAmount.ReadOnly = true;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }   
 }
