@@ -296,5 +296,11 @@ namespace Gorakshnath_Billing_System
             frmSupDrCr supDrCr = new frmSupDrCr();
             supDrCr.Show();
         }
+
+        private void purchaseeDebtorsAndCreditorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDebtors_Creditors_Purchase frmpurDrCr = new frmDebtors_Creditors_Purchase();
+            frmpurDrCr.Show();
+        }
     }
 }

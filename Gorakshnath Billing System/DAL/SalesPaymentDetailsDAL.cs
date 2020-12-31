@@ -60,7 +60,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and Balance<0;";
+                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and Balance>0;";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -83,7 +83,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-        #region Select Method
+        #region Select Method for Creditros
         public DataTable SelectCreditors()
         {
             //Creating Database Connection
@@ -94,7 +94,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and Balance>0;";
+                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and Balance<0;";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 

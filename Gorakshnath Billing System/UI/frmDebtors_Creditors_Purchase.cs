@@ -107,5 +107,39 @@ namespace Gorakshnath_Billing_System.UI
             DataTable dt = PurchasePaymentDetailsDAL.Select();
             dgvDebtorNCreditors.DataSource = dt;
         }
+
+        private void textAmountRecieved_TextChanged(object sender, EventArgs e)
+        {
+            if (textAmountRecieved.Text != "")
+            {
+                Decimal TrAmount, PaidAmount;
+                decimal.TryParse(textTrAmount.Text, out TrAmount);
+                decimal.TryParse(textAmountRecieved.Text, out PaidAmount);
+                textBalance.Text = Convert.ToString(TrAmount - PaidAmount);
+            }
+        }
+
+        private void comboDrCrType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboDrCrType.Text == "All")
+            {
+                Clear();
+            }
+
+            //ds
+
+
+            if (comboDrCrType.Text == "Debtors")
+            {
+                DataTable dt = PurchasePaymentDetailsDAL.SelectDebtors();
+                dgvDebtorNCreditors.DataSource = dt;
+            }
+
+            if (comboDrCrType.Text == "Creditors")
+            {
+                DataTable dt = PurchasePaymentDetailsDAL.SelectCreditors();
+                dgvDebtorNCreditors.DataSource = dt;
+            }
+        }
     }
 }

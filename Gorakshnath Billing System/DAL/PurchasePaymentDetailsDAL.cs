@@ -61,7 +61,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT PaymentId,PurchasePaymentDetails.Invoice_No, CompanyName,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Purchase_Transactions.Purchase_Date, Phone_No FROM PurchasePaymentDetails,Purchase_Transactions,Supplier_Master Where PurchasePaymentDetails.Invoice_No=Purchase_Transactions.Purchase_ID and Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and Balance>0;";
+                string sql = "SELECT PaymentId,PurchasePaymentDetails.Invoice_No, CompanyName,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Purchase_Transactions.Purchase_Date, Phone_No FROM PurchasePaymentDetails,Purchase_Transactions,Supplier_Master Where PurchasePaymentDetails.Invoice_No=Purchase_Transactions.Purchase_ID and Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and Balance<0;";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -95,7 +95,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT PaymentId,PurchasePaymentDetails.Invoice_No, CompanyName,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Purchase_Transactions.Purchase_Date, Phone_No FROM PurchasePaymentDetails,Purchase_Transactions,Supplier_Master Where PurchasePaymentDetails.Invoice_No=Purchase_Transactions.Purchase_ID and Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and Balance<0;";
+                string sql = "SELECT PaymentId,PurchasePaymentDetails.Invoice_No, CompanyName,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Purchase_Transactions.Purchase_Date, Phone_No FROM PurchasePaymentDetails,Purchase_Transactions,Supplier_Master Where PurchasePaymentDetails.Invoice_No=Purchase_Transactions.Purchase_ID and Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and Balance>0;";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
