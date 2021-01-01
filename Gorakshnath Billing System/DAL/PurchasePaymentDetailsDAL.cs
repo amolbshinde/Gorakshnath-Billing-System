@@ -130,7 +130,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT PaymentId,PurchasePaymentDetails.Invoice_No, CompanyName,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Purchase_Transactions.Purchase_Date, Phone_No FROM PurchasePaymentDetails,Purchase_Transactions,Supplier_Master Where PurchasePaymentDetails.Invoice_No=Purchase_Transactions.Purchase_ID and Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and Invoice_No='"+ Purchase_Id +"';";
+                string sql = "SELECT PaymentId,PurchasePaymentDetails.Invoice_No, CompanyName,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Purchase_Transactions.Purchase_Date, Phone_No FROM PurchasePaymentDetails,Purchase_Transactions,Supplier_Master Where PurchasePaymentDetails.Invoice_No=Purchase_Transactions.Purchase_ID and Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and PurchasePaymentDetails.Invoice_No='" + Purchase_Id +"';";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -306,6 +306,56 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+
+        #region Delete method By PurchaseId
+        public bool DeleteByPurchaseId(int PurchaseId)
+        {
+            //Creating Boolean variable and set its default value to false
+            bool isSuccess = false;
+
+            //Creating SQL Connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            try
+            {
+                //Query to Update Category
+                string sql = "delete from PurchasePaymentDetails where Invoice_No='" + PurchaseId + "';";
+
+                //SQl Command to Pass the Value on Sql Query
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+
+
+                //Open DAtabase Connection
+                conn.Open();
+
+                //Create Int Variable to execute query
+                int rows = cmd.ExecuteNonQuery();
+
+                //if the query is successfully executed then the value will be grater than zero 
+                if (rows > 0)
+                {
+                    //Query Executed Successfully
+                    isSuccess = true;
+                }
+                else
+                {
+                    //Failed to Execute Query
+                    isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isSuccess;
+        }
+        #endregion
 
 
     }

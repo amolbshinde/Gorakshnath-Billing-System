@@ -49,6 +49,42 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Select Method For Combo
+        public DataTable SelectForCombo()
+        {
+            //Creating Database Connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Wrting SQL Query to get all the data from DAtabase
+                string sql = "SELECT SalesPaymentDetails.Invoice_No, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID;";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Open DAtabase Connection
+                conn.Open();
+                //Adding the value from adapter to Data TAble dt
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
+
+
+
         #region Select Method For Debtors
         public DataTable SelectDebtors()
         {
@@ -118,8 +154,8 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-        #region Select Method By Purchase_Id
-        public DataTable SelectByPurchaseId(string Cust_Contact)
+        #region Select Method By Invoice_No
+        public DataTable SelectByInvoice_No(string Invoice_No)
         {
             //Creating Database Connection
             SqlConnection conn = new SqlConnection(myconnstrng);
@@ -129,7 +165,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and Cust_Contact= '" + Cust_Contact + "';";
+                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and SalesPaymentDetails.Invoice_No = '" + Invoice_No + "';";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -153,7 +189,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
         #region Select Method By Phone_No
-        public DataTable SelectByPhone_No(string Invoice_No)
+        public DataTable SelectByPhone_No(string Cust_Contact)
         {
             //Creating Database Connection
             SqlConnection conn = new SqlConnection(myconnstrng);
@@ -163,7 +199,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and SalesPaymentDetails.Invoice_No= '" + Invoice_No + "';";
+                string sql = "SELECT PaymentId,SalesPaymentDetails.Invoice_No, Cust_Name,PaymentMode,TrMode ,TrAmount ,AmountPiad ,Balance, Remarks, Challan_Transactions.Challan_date, Cust_Contact FROM SalesPaymentDetails,Challan_Transactions,Cust_Master Where SalesPaymentDetails.Invoice_No=Challan_Transactions.Invoice_No and Cust_Master.Cust_Id=Challan_Transactions.Cust_ID and Cust_Contact= '" + Cust_Contact + "';";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -302,6 +338,59 @@ namespace Gorakshnath_Billing_System.DAL
             return isSuccess;
         }
         #endregion
+        
+
+
+        #region Delete method By Invoice
+        public bool DeleteByInvoice_No(int Invoice_No)
+        {
+            //Creating Boolean variable and set its default value to false
+            bool isSuccess = false;
+
+            //Creating SQL Connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            try
+            {
+                //Query to Update Category
+                string sql = "delete from SalesPaymentDetails where Invoice_No='" + Invoice_No + "';";
+
+                //SQl Command to Pass the Value on Sql Query
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+              
+
+                //Open DAtabase Connection
+                conn.Open();
+
+                //Create Int Variable to execute query
+                int rows = cmd.ExecuteNonQuery();
+
+                //if the query is successfully executed then the value will be grater than zero 
+                if (rows > 0)
+                {
+                    //Query Executed Successfully
+                    isSuccess = true;
+                }
+                else
+                {
+                    //Failed to Execute Query
+                    isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isSuccess;
+        }
+        #endregion
+
 
     }
 }

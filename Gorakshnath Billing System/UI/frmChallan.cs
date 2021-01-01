@@ -298,25 +298,17 @@ namespace Gorakshnath_Billing_System.UI
                 if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
                 {
                     if (dgvAddedProducts.Rows.Count != 0)
-                    {
-                        /*       comboTrType.Text;
-                        comboPaymentMode;
-                        txtTrAmount
-                        txtPaidAmount
-                        txtBalance*/
-
-                        
-                        
-
+                    { 
+                        save();
                         //Getting Data from UI
                         SalesPaymentDetailsBLL sp = new SalesPaymentDetailsBLL();
                         sp.TrMode = comboTrType.SelectedItem.ToString();
-                        String S= comboTrType.SelectedItem.ToString();
+                        String S = comboTrType.SelectedItem.ToString();
                         //MessageBox.Show(S);
                         sp.PaymentMode = comboPaymentMode.SelectedItem.ToString();
-                        decimal TransactionAmt,Paid_Amount, balance;
+                        decimal TransactionAmt, Paid_Amount, balance;
 
-                         decimal.TryParse(txtTrAmount.Text, out TransactionAmt);
+                        decimal.TryParse(txtTrAmount.Text, out TransactionAmt);
                         decimal.TryParse(txtPaidAmount.Text, out Paid_Amount);
                         decimal.TryParse(txtBalance.Text, out balance);
 
@@ -332,15 +324,13 @@ namespace Gorakshnath_Billing_System.UI
                         {
                             //data inserted sucesfully
                             MessageBox.Show("Payment Added Succesfully");
-                            
+
                         }
                         else
                         {
                             //error occured
                             MessageBox.Show("Sorry..!! , Failed to add user");
                         }
-
-                        save();
                     }
                     else
                     {
