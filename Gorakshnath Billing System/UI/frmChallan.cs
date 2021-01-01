@@ -306,13 +306,13 @@ namespace Gorakshnath_Billing_System.UI
                         txtBalance*/
 
                         
-                        save();
+                        
 
                         //Getting Data from UI
                         SalesPaymentDetailsBLL sp = new SalesPaymentDetailsBLL();
                         sp.TrMode = comboTrType.SelectedItem.ToString();
                         String S= comboTrType.SelectedItem.ToString();
-                        MessageBox.Show(S);
+                        //MessageBox.Show(S);
                         sp.PaymentMode = comboPaymentMode.SelectedItem.ToString();
                         decimal TransactionAmt,Paid_Amount, balance;
 
@@ -339,6 +339,8 @@ namespace Gorakshnath_Billing_System.UI
                             //error occured
                             MessageBox.Show("Sorry..!! , Failed to add user");
                         }
+
+                        save();
                     }
                     else
                     {

@@ -189,5 +189,15 @@ namespace Gorakshnath_Billing_System.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap to_do_icon_153795 {
+            get {
+                object obj = ResourceManager.GetObject("to_do_icon_153795", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

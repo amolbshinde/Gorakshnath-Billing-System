@@ -186,22 +186,28 @@ namespace Gorakshnath_Billing_System.UI
             if (comboTrMode.SelectedIndex == 0)
             {
 
+
+                /* Decimal TrAmount, PaidAmount;                
+                 decimal.TryParse(textGrandTotal.Text, out TrAmount);
+                 decimal.TryParse(textGrandTotal.Text, out PaidAmount);
+                 txtTrAmount.Text = Convert.ToString(TrAmount);
+                 txtPaidAmount.Text= Convert.ToString(PaidAmount);*/
+
+                //txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
                 txtTrAmount.Text = textGrandTotal.Text;
-                Decimal TrAmount, PaidAmount;                
-                decimal.TryParse(textGrandTotal.Text, out TrAmount);
-                decimal.TryParse(txtPaidAmount.Text, out PaidAmount);
-                txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
+                txtPaidAmount.Text = textGrandTotal.Text;                
+                txtBalance.Text = "00.00";
                 /*
-                txtPaidAmount.Text = textGrandTotal.Text;
-                Decimal TrAmount, PaidAmount;
+                    Decimal TrAmount, PaidAmount;
                 TrAmount = Convert.ToDecimal(textGrandTotal.Text);
-                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
-                txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);*/
+                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);*/
 
             }
             else if (comboTrMode.SelectedIndex == 1)
             {
-                txtPaidAmount.Text = "";
+                txtTrAmount.Text = textGrandTotal.Text;
+                txtPaidAmount.Text = "00.00";
+                txtPaidAmount.ReadOnly=false;
                 Decimal TrAmount, PaidAmount;
                 decimal.TryParse(textGrandTotal.Text, out TrAmount);
                 decimal.TryParse(txtPaidAmount.Text, out PaidAmount);
@@ -457,7 +463,7 @@ namespace Gorakshnath_Billing_System.UI
                                 //Getting Data from UI                                
                                 PurchasePaymentDetailsBLL.TrMode = comboTrMode.SelectedItem.ToString();
                                 String S = comboTrType.SelectedItem.ToString();
-                                MessageBox.Show(S);
+                                //MessageBox.Show(S);
                                 PurchasePaymentDetailsBLL.PaymentMode = comboTrType.SelectedItem.ToString();
                                 decimal TransactionAmt, Paid_Amount, balance;
 
@@ -517,8 +523,11 @@ namespace Gorakshnath_Billing_System.UI
             //also add details in PTransactions and PTransaction Details 
 
             //save transaction and transaction details
+
             save();
             textPurchaseBillNo.Text = purchaseid.ToString();
+
+
 
         }
 
@@ -884,6 +893,14 @@ namespace Gorakshnath_Billing_System.UI
         private void button4_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void txtPaidAmount_TextChanged(object sender, EventArgs e)
+        {
+            Decimal TrAmount, PaidAmount;
+            decimal.TryParse(textGrandTotal.Text, out TrAmount);
+            decimal.TryParse(txtPaidAmount.Text, out PaidAmount);
+            txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
         }
     }   
 }

@@ -566,6 +566,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\DGIF.gif" />
+    <None Include="Resources\to_do_icon_153795.ico" />
     <Content Include="software.ico" />
     <None Include="Resources\Sales.gif" />
     <None Include="Resources\Estimate.gif" />

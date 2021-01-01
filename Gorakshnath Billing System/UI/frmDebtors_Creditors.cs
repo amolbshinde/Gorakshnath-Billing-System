@@ -99,8 +99,8 @@ namespace Gorakshnath_Billing_System.UI
         public void Clear()
         {
             textPaymentId.Text = "";
-            comboInvoiceNo.Text = "Select Invoice";
-            comboPhoneNo.Text = "Select Phone";
+            //comboInvoiceNo.Text = "Select Invoice";
+            //comboPhoneNo.Text = "Select Phone";
             textCustomerName.Text = "";
             textPayMode.Text = "";
             textTrAmount.Text = "";
@@ -149,19 +149,25 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = SalesPaymentDetailsDAL.SelectByPurchaseId(comboInvoiceNo.Text);
-            textPaymentId.Text = dt.Rows[0][0].ToString();
-            comboInvoiceNo.Text = dt.Rows[0][1].ToString();
-            textCustomerName.Text = dt.Rows[0][2].ToString();
-            textPayMode.Text = dt.Rows[0][3].ToString();
-            textTrAmount.Text = dt.Rows[0][5].ToString();
-            textAmountRecieved.Text = dt.Rows[0][6].ToString();
-            textBalance.Text = dt.Rows[0][7].ToString();
-            textRemarks.Text = dt.Rows[0][8].ToString();
-            textTrDate.Text = dt.Rows[0][9].ToString();
-            comboPhoneNo.Text = dt.Rows[0][10].ToString();
+            try
+            {
+                DataTable dt = SalesPaymentDetailsDAL.SelectByPurchaseId(comboInvoiceNo.Text);
+                textPaymentId.Text = dt.Rows[0][0].ToString();
+                comboInvoiceNo.Text = dt.Rows[0][1].ToString();
+                textCustomerName.Text = dt.Rows[0][2].ToString();
+                textPayMode.Text = dt.Rows[0][3].ToString();
+                textTrAmount.Text = dt.Rows[0][5].ToString();
+                textAmountRecieved.Text = dt.Rows[0][6].ToString();
+                textBalance.Text = dt.Rows[0][7].ToString();
+                textRemarks.Text = dt.Rows[0][8].ToString();
+                textTrDate.Text = dt.Rows[0][9].ToString();
+                comboPhoneNo.Text = dt.Rows[0][10].ToString();
 
-            dgvDebtorNCreditors.DataSource = dt;
+                dgvDebtorNCreditors.DataSource = dt;
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
