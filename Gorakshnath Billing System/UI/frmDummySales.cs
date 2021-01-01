@@ -54,7 +54,7 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchItem.DataSource = null;
             DataTable dtI = ProductMasterDAL.SelectForCombo();
             comboSearchItem.DisplayMember = "Product_Name";
-            //comboItemSearch.ValueMember = "Column12";
+            
             comboSearchItem.DataSource = dtI;
             comboSearchItem.Text = "Select Product";
         }
@@ -389,7 +389,8 @@ namespace Gorakshnath_Billing_System.UI
 
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        customerBLL c = customerDAL.getCustomerIdFromName(sname);
+                        string phone=comboContact.Text;
+                        customerBLL c = customerDAL.getCustomerIdFromPhone(phone);
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
