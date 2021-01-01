@@ -512,6 +512,12 @@ namespace Gorakshnath_Billing_System.UI
             textIgst.Text = "0";
             textGrandTotal.Text = "0";
 
+            comboPaymentMode.Text = "Cash";
+            txtTrAmount.Text = "0";
+            txtPaidAmount.Text = "0";
+            txtBalance.Text = "0";
+            
+
             dgvAddedProducts.DataSource = null;
             dgvAddedProducts.Rows.Clear();
             salesDT.Rows.Clear();
@@ -940,8 +946,8 @@ namespace Gorakshnath_Billing_System.UI
             {
                 txtPaidAmount.Text = textGrandTotal.Text;
                 Decimal TrAmount, PaidAmount;
-                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
-                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                decimal.TryParse(textGrandTotal.Text, out TrAmount);
+                decimal.TryParse(txtPaidAmount.Text, out PaidAmount);
                 txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
                 txtPaidAmount.ReadOnly = true;
 
@@ -961,8 +967,8 @@ namespace Gorakshnath_Billing_System.UI
             if (txtPaidAmount.Text != "")
             {
                 Decimal TrAmount, PaidAmount;
-                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
-                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                decimal.TryParse(textGrandTotal.Text, out TrAmount);
+                decimal.TryParse(txtPaidAmount.Text, out PaidAmount);
                 txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
             }
         }

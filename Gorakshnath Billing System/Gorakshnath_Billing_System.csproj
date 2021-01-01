@@ -125,6 +125,7 @@
     <Compile Include="BLL\ProductMasterBLL.cs" />
     <Compile Include="BLL\purchaseBLL.cs" />
     <Compile Include="BLL\purchasedetailsBLL.cs" />
+    <Compile Include="BLL\PurchasePaymentDetailsBLL.cs" />
     <Compile Include="BLL\PurchaseReturnBLL.cs" />
     <Compile Include="BLL\PurchaseReturnDetailsBLL.cs" />
     <Compile Include="BLL\salesBLL.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="DAL\productDAL.cs" />
     <Compile Include="DAL\purchaseDAL.cs" />
     <Compile Include="DAL\purchasedetailsDAL.cs" />
+    <Compile Include="DAL\PurchasePaymentDetailsDAL.cs" />
     <Compile Include="DAL\PurchaseReturnDAL.cs" />
     <Compile Include="DAL\PurchaseReturnDetailsDAL.cs" />
     <Compile Include="DAL\salesDAL.cs" />
@@ -213,6 +215,12 @@
     </Compile>
     <Compile Include="UI\frmChallanReturnReport.Designer.cs">
       <DependentUpon>frmChallanReturnReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmDebtors_Creditors_Purchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmDebtors_Creditors_Purchase.Designer.cs">
+      <DependentUpon>frmDebtors_Creditors_Purchase.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmDummySalesCrpt.cs">
       <SubType>Form</SubType>
@@ -402,6 +410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmChallanReturnReport.resx">
       <DependentUpon>frmChallanReturnReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmDebtors_Creditors_Purchase.resx">
+      <DependentUpon>frmDebtors_Creditors_Purchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmDummySalesCrpt.resx">
       <DependentUpon>frmDummySalesCrpt.cs</DependentUpon>

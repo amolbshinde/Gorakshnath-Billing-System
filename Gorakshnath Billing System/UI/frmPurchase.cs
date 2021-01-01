@@ -38,6 +38,9 @@ namespace Gorakshnath_Billing_System.UI
 
         stockDAL stockDAL = new stockDAL();
 
+        PurchasePaymentDetailsBLL PurchasePaymentDetailsBLL = new PurchasePaymentDetailsBLL();
+        PurchasePaymentDetailsDAL PurchasePaymentDetailsDAL = new PurchasePaymentDetailsDAL();
+
         public void fillCombo()
         {
             comboSearchSup.DataSource = null;
@@ -184,9 +187,9 @@ namespace Gorakshnath_Billing_System.UI
             {
 
                 txtTrAmount.Text = textGrandTotal.Text;
-                Decimal TrAmount, PaidAmount;
-                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
-                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                Decimal TrAmount, PaidAmount;                
+                decimal.TryParse(textGrandTotal.Text, out TrAmount);
+                decimal.TryParse(txtPaidAmount.Text, out PaidAmount);
                 txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
                 /*
                 txtPaidAmount.Text = textGrandTotal.Text;
@@ -200,8 +203,8 @@ namespace Gorakshnath_Billing_System.UI
             {
                 txtPaidAmount.Text = "";
                 Decimal TrAmount, PaidAmount;
-                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
-                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                decimal.TryParse(textGrandTotal.Text, out TrAmount);
+                decimal.TryParse(txtPaidAmount.Text, out PaidAmount);
                 txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
 
             }
@@ -261,7 +264,7 @@ namespace Gorakshnath_Billing_System.UI
             purchasedt.Columns.Add("(=)Total");
             txtTrAmount.ReadOnly = true;
             comboTrMode.SelectedIndex = 0;
-            comboPaymentMode.SelectedIndex = 0;
+            comboTrType.SelectedIndex = 0;
         }
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
@@ -450,9 +453,30 @@ namespace Gorakshnath_Billing_System.UI
                                     {
                                         bool z = stockDAL.InsertStockNewProduct(stockBLL);
                                     }
-                                }
 
-                                isSuccess = b && y;
+                                //Getting Data from UI                                
+                                PurchasePaymentDetailsBLL.TrMode = comboTrMode.SelectedItem.ToString();
+                                String S = comboTrType.SelectedItem.ToString();
+                                MessageBox.Show(S);
+                                PurchasePaymentDetailsBLL.PaymentMode = comboTrType.SelectedItem.ToString();
+                                decimal TransactionAmt, Paid_Amount, balance;
+
+                                decimal.TryParse(txtTrAmount.Text, out TransactionAmt);
+                                decimal.TryParse(txtPaidAmount.Text, out Paid_Amount);
+                                decimal.TryParse(txtBalance.Text, out balance);
+
+                                PurchasePaymentDetailsBLL.TrAmount = TransactionAmt;
+                                PurchasePaymentDetailsBLL.AmountPiad = Paid_Amount;
+                                PurchasePaymentDetailsBLL.Balance = balance;
+                                PurchasePaymentDetailsBLL.Remarks = "Credit Sales";
+                                PurchasePaymentDetailsBLL.Invoice_No = purchaseid;                                
+                                bool success = PurchasePaymentDetailsDAL.InsertSalesPayment(PurchasePaymentDetailsBLL);
+
+                            }
+
+
+                            isSuccess = b && y;
+
 
                                 isSuccess = true;
                             }
@@ -804,6 +828,11 @@ namespace Gorakshnath_Billing_System.UI
             textIgst.Text = "0";
             textGrandTotal.Text = "0";
 
+            comboTrType.Text = "Cash";
+            txtTrAmount.Text = "0";
+            txtPaidAmount.Text = "0";
+            txtBalance.Text = "0";
+
             dgvAddedProducts.DataSource = null;
             dgvAddedProducts.Rows.Clear();
             purchasedt.Rows.Clear();
@@ -850,6 +879,11 @@ namespace Gorakshnath_Billing_System.UI
                 txtPaidAmount.ReadOnly = true;
                 txtTrAmount.ReadOnly = true;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }   
 }
