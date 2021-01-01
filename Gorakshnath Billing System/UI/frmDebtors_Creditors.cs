@@ -28,13 +28,14 @@ namespace Gorakshnath_Billing_System.UI
             comboInvoiceNo.DataSource = null;
             DataTable dtC = SalesPaymentDetailsDAL.Select();
             comboInvoiceNo.DisplayMember = "Invoice_No";
+            comboInvoiceNo.ValueMember = "Invoice_No";
             comboInvoiceNo.DataSource = dtC;
             comboInvoiceNo.Text = "Select Invoice";
 
             comboPhoneNo.DataSource = null;
             DataTable dtP = SalesPaymentDetailsDAL.Select();
             comboPhoneNo.DisplayMember = "Cust_Contact";
-            //comboSearchCust.ValueMember = "Column123";
+            comboPhoneNo.ValueMember= "Cust_Contact";
             comboPhoneNo.DataSource = dtP;
             comboPhoneNo.Text = "Select Phone";           
 
@@ -52,17 +53,24 @@ namespace Gorakshnath_Billing_System.UI
 
         private void dgvDebtorNCreditors_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int rowIndex = e.RowIndex;
-            textPaymentId.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
-            comboInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[1].Value.ToString();
-            textCustomerName.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[2].Value.ToString();
-            textPayMode.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[3].Value.ToString();            
-            textTrAmount.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[5].Value.ToString();
-            textAmountRecieved.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[6].Value.ToString();
-            textBalance.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[7].Value.ToString();
-            textRemarks.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[8].Value.ToString();
-            textTrDate.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[9].Value.ToString();
-            comboPhoneNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[10].Value.ToString();
+            try
+            {
+                int rowIndex = e.RowIndex;
+                textPaymentId.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[0].Value.ToString();
+                comboInvoiceNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[1].Value.ToString();
+                textCustomerName.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[2].Value.ToString();
+                textPayMode.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[3].Value.ToString();
+                textTrAmount.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[5].Value.ToString();
+                textAmountRecieved.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[6].Value.ToString();
+                textBalance.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[7].Value.ToString();
+                textRemarks.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[8].Value.ToString();
+                textTrDate.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[9].Value.ToString();
+                comboPhoneNo.Text = dgvDebtorNCreditors.Rows[rowIndex].Cells[10].Value.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -99,18 +107,20 @@ namespace Gorakshnath_Billing_System.UI
         public void Clear()
         {
             textPaymentId.Text = "";
-            comboInvoiceNo.Text = "Select Invoice";
-           comboPhoneNo.Text = "Select Phone";
+            //comboInvoiceNo.Text = "Select Invoice";
+            //comboPhoneNo.Text = "Select Phone";
             textCustomerName.Text = "";
             textPayMode.Text = "";
             textTrAmount.Text = "";
             textAmountRecieved.Text = "";
             textBalance.Text = "";
             textRemarks.Text = "";
-            textTrDate.Text = "";
+            textTrDate.Text = "";           
 
             DataTable dt = SalesPaymentDetailsDAL.Select();
+            
             dgvDebtorNCreditors.DataSource = dt;
+            
         }
 
         private void textAmountRecieved_TextChanged(object sender, EventArgs e)
@@ -149,43 +159,84 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if(comboInvoiceNo.Text != "Select Invoice" && comboInvoiceNo.Text != " ")
             {
-                DataTable dt = SalesPaymentDetailsDAL.SelectByPurchaseId(comboInvoiceNo.Text);
-                textPaymentId.Text = dt.Rows[0][0].ToString();
-                comboInvoiceNo.Text = dt.Rows[0][1].ToString();
-                textCustomerName.Text = dt.Rows[0][2].ToString();
-                textPayMode.Text = dt.Rows[0][3].ToString();
-                textTrAmount.Text = dt.Rows[0][5].ToString();
-                textAmountRecieved.Text = dt.Rows[0][6].ToString();
-                textBalance.Text = dt.Rows[0][7].ToString();
-                textRemarks.Text = dt.Rows[0][8].ToString();
-                textTrDate.Text = dt.Rows[0][9].ToString();
-                comboPhoneNo.Text = dt.Rows[0][10].ToString();
-
-                dgvDebtorNCreditors.DataSource = dt;
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    DataTable dt = SalesPaymentDetailsDAL.SelectByInvoice_No(comboInvoiceNo.Text);
+                    textPaymentId.Text = dt.Rows[0][0].ToString();
+                    comboInvoiceNo.Text = dt.Rows[0][1].ToString();
+                    textCustomerName.Text = dt.Rows[0][2].ToString();
+                    textPayMode.Text = dt.Rows[0][3].ToString();
+                    textTrAmount.Text = dt.Rows[0][5].ToString();
+                    textAmountRecieved.Text = dt.Rows[0][6].ToString();
+                    textBalance.Text = dt.Rows[0][7].ToString();
+                    textRemarks.Text = dt.Rows[0][8].ToString();
+                    textTrDate.Text = dt.Rows[0][9].ToString();
+                    comboPhoneNo.Text = dt.Rows[0][10].ToString();
+                                     
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+            
 
         }
 
         private void comboPhoneNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = SalesPaymentDetailsDAL.SelectByPhone_No(comboPhoneNo.Text);
-            textPaymentId.Text = dt.Rows[0][0].ToString();
-            comboInvoiceNo.Text = dt.Rows[0][1].ToString();
-            textCustomerName.Text = dt.Rows[0][2].ToString();
-            textPayMode.Text = dt.Rows[0][3].ToString();
-            textTrAmount.Text = dt.Rows[0][5].ToString();
-            textAmountRecieved.Text = dt.Rows[0][6].ToString();
-            textBalance.Text = dt.Rows[0][7].ToString();
-            textRemarks.Text = dt.Rows[0][8].ToString();
-            textTrDate.Text = dt.Rows[0][9].ToString();
-            comboPhoneNo.Text = dt.Rows[0][10].ToString();
+            if(comboPhoneNo.Text != "Select Phone" && comboPhoneNo.Text != " ")
+            {
+                try
+                {
+                    DataTable dt = SalesPaymentDetailsDAL.SelectByPhone_No(comboPhoneNo.Text);
+                    textPaymentId.Text = dt.Rows[0][0].ToString();
+                    comboInvoiceNo.Text = dt.Rows[0][1].ToString();
+                    textCustomerName.Text = dt.Rows[0][2].ToString();
+                    textPayMode.Text = dt.Rows[0][3].ToString();
+                    textTrAmount.Text = dt.Rows[0][5].ToString();
+                    textAmountRecieved.Text = dt.Rows[0][6].ToString();
+                    textBalance.Text = dt.Rows[0][7].ToString();
+                    textRemarks.Text = dt.Rows[0][8].ToString();
+                    textTrDate.Text = dt.Rows[0][9].ToString();
+                    comboPhoneNo.Text = dt.Rows[0][10].ToString();
+                                        
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }                
+            }
+            
+        }
 
-            dgvDebtorNCreditors.DataSource = dt;
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int Invoice_No;
+            int.TryParse(comboInvoiceNo.Text, out Invoice_No);
+            if (textPaymentId.Text != "")
+            {
+                bool  y = SalesPaymentDetailsDAL.DeleteByInvoice_No(Invoice_No);
+
+                if(y == true)
+                {
+                    MessageBox.Show("Successfully Deleted");
+                    Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Failed To Delete");
+                }
+                 
+
+
+            }
+            else
+            {
+                MessageBox.Show("Please Selecte The Details First");
+            }
         }
     }
 }
