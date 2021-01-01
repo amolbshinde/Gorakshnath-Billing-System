@@ -157,6 +157,8 @@ namespace Gorakshnath_Billing_System.UI
             {
                 int iNo;
                 Int32.TryParse(dgvChallanReport.Rows[dgvChallanReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
+                SalesPaymentDetailsDAL SalesPaymentDetailsDAL = new SalesPaymentDetailsDAL();
+                SalesPaymentDetailsDAL.DeleteByInvoice_No(iNo);
                 challandetailsDAL.DeleteByInvoiceNo(iNo.ToString());
                 challanDAL.DeleteByInvoiceNo(iNo.ToString());
                 DataTable dt = challanDAL.SelectTD();
