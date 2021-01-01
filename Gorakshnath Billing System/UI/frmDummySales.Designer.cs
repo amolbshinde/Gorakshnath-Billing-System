@@ -180,7 +180,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboTransactionType.Items.AddRange(new object[] {
             "GST",
             "Non GST"});
-            this.comboTransactionType.Location = new System.Drawing.Point(9, 48);
+            this.comboTransactionType.Location = new System.Drawing.Point(9, 100);
             this.comboTransactionType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboTransactionType.Name = "comboTransactionType";
             this.comboTransactionType.Size = new System.Drawing.Size(236, 28);
@@ -191,7 +191,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(5, 22);
+            this.label29.Location = new System.Drawing.Point(5, 74);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(137, 23);
             this.label29.TabIndex = 16;
@@ -608,10 +608,10 @@ namespace Gorakshnath_Billing_System.UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(4, -2);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 23);
+            this.label2.Size = new System.Drawing.Size(162, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Customer Details";
             // 
@@ -945,7 +945,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDummySales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Invoice";

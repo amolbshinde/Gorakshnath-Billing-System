@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_040BD82617DF487D979E1A5ABB9C52FC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_0E8ACB068EE67EC4469950588D5B5465"
         "OwnerKey" = "8:_9D95465EF485407E9F4EBBE51DC142E8"
         "MsmSig" = "8:_UNDEFINED"
@@ -63,12 +69,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BC927ED5965C4A3E99FE463C4E8AD6A7"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_BEC839391EBE2BB5604B659F9F0D9FE3"
         "OwnerKey" = "8:_0E8ACB068EE67EC4469950588D5B5465"
         "MsmSig" = "8:_UNDEFINED"
@@ -77,12 +77,6 @@
         {
         "MsmKey" = "8:_BEC839391EBE2BB5604B659F9F0D9FE3"
         "OwnerKey" = "8:_9D95465EF485407E9F4EBBE51DC142E8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E7A076CA69C54286A7C2ECA1392E6026"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -222,6 +216,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_040BD82617DF487D979E1A5ABB9C52FC"
+            {
+            "SourcePath" = "8:..\\Gorakshnath Billing System\\Resources\\to_do_icon_153795.ico"
+            "TargetName" = "8:to_do_icon_153795.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_2139F8A828394222A04971C3963DD2B8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0E8ACB068EE67EC4469950588D5B5465"
             {
             "AssemblyRegister" = "3:1"
@@ -397,26 +411,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC927ED5965C4A3E99FE463C4E8AD6A7"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\Downloads\\vista_style_base_software_icons_icons_pack_120745\\Checked_Shield_Green.ico"
-            "TargetName" = "8:Checked_Shield_Green.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_2139F8A828394222A04971C3963DD2B8"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BEC839391EBE2BB5604B659F9F0D9FE3"
             {
             "AssemblyRegister" = "3:1"
@@ -446,26 +440,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E7A076CA69C54286A7C2ECA1392E6026"
-            {
-            "SourcePath" = "8:..\\Gorakshnath Billing System\\software.ico"
-            "TargetName" = "8:software.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_2139F8A828394222A04971C3963DD2B8"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -535,25 +509,25 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Shiv Gorakshnath Billing System"
-        "ProductCode" = "8:{D260136A-F16A-4422-A2A4-7CDE000A0B3A}"
-        "PackageCode" = "8:{783CA963-1DC0-40A1-A5CC-76E8C4200D15}"
+        "ProductCode" = "8:{C54D46FA-068C-4007-933C-7F7DE34F2EA4}"
+        "PackageCode" = "8:{96138230-FF06-4C65-A2B7-454277D77B67}"
         "UpgradeCode" = "8:{6716ACE5-0B20-4D31-B996-CF361A4CB6C2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "ProductVersion" = "8:1.0.1"
+        "Manufacturer" = "8:Swami Software Services Ltd"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Shiv Gorakshnath Billing System"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
+        "ARPCONTACT" = "8:Swami Software Services Ltd"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_040BD82617DF487D979E1A5ABB9C52FC"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -667,7 +641,7 @@
             "Target" = "8:_9D95465EF485407E9F4EBBE51DC142E8"
             "Folder" = "8:_48D8064958E74E3B8392AC0FE8425391"
             "WorkingFolder" = "8:_2139F8A828394222A04971C3963DD2B8"
-            "Icon" = "8:_BC927ED5965C4A3E99FE463C4E8AD6A7"
+            "Icon" = "8:_040BD82617DF487D979E1A5ABB9C52FC"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CB686AB362DE4FD99160F48FA4DBC517"
@@ -681,7 +655,7 @@
             "Target" = "8:_9D95465EF485407E9F4EBBE51DC142E8"
             "Folder" = "8:_0D0BCAA135CF4C1E9D513CD0C1F59B6E"
             "WorkingFolder" = "8:_2139F8A828394222A04971C3963DD2B8"
-            "Icon" = "8:_E7A076CA69C54286A7C2ECA1392E6026"
+            "Icon" = "8:_040BD82617DF487D979E1A5ABB9C52FC"
             "Feature" = "8:"
             }
         }
@@ -1085,7 +1059,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9D95465EF485407E9F4EBBE51DC142E8"
             {
-            "SourcePath" = "8:"
+            "SourcePath" = "8:..\\Gorakshnath Billing System\\obj\\Release\\Gorakshnath Billing System.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2139F8A828394222A04971C3963DD2B8"
