@@ -129,7 +129,7 @@ namespace Gorakshnath_Billing_System.UI
                 //get inoice no from datagrid view
                 int iNo;
                 Int32.TryParse(dgvPurchaseReport.Rows[dgvPurchaseReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
-                frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(iNo);
+                frmPurchaseCrpt frmcrpt = new frmPurchaseCrpt(iNo);
                 frmcrpt.Show();
 
                 //MessageBox.Show(iNo.ToString());

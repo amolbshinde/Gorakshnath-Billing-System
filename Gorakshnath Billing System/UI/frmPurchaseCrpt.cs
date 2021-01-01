@@ -34,50 +34,57 @@ namespace Gorakshnath_Billing_System.UI
         {
             //Report_Generator.CrystalReport.crptPurchase crptPurchase = new Report_Generator.CrystalReport.crptPurchase();
             CrptPurchaseViewer.ReportSource = null;
+            MessageBox.Show(GetPurchaseID.ToString());
             crptPurchase.SetParameterValue("@Purchase_ID", GetPurchaseID.ToString());
             CrptPurchaseViewer.ReportSource = crptPurchase;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             try
             {
-                System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Reports\\Purchase");
+                System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Reports\\Purchase\\");
 
                 foreach (FileInfo file in di.GetFiles())
                 {
                     file.Delete();
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            try
+            {
 
+                ExportOptions CrExportOptions;
+                DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
+                PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
+                CrDiskFileDestinationOptions.DiskFileName = "E:\\Reports\\Purchase\\" + GetPurchaseID + ".pdf";
+                CrExportOptions = crptPurchase.ExportOptions;
+                {
+                    CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                    CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                    CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
+                    CrExportOptions.FormatOptions = CrFormatTypeOptions;
+                }
+                crptPurchase.Export();
+
+                //sendMail();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occured in export");
+                MessageBox.Show(ex.ToString());
+            }
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
             if (textBox1.Text != "")
             {
-                try
-                {
-
-                    ExportOptions CrExportOptions;
-                    DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
-                    PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                    CrDiskFileDestinationOptions.DiskFileName = "E:\\Reports\\Purchase" + GetPurchaseID + ".pdf";
-                    CrExportOptions = crptPurchase.ExportOptions;
-                    {
-                        CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
-                        CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
-                        CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
-                        CrExportOptions.FormatOptions = CrFormatTypeOptions;
-                    }
-                    crptPurchase.Export();
-
-                    sendMail();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error Occured in export");
-                    MessageBox.Show(ex.ToString());
-                }
+                
+                //calling send mail 
+                sendMail();
 
 
             }
@@ -91,15 +98,15 @@ namespace Gorakshnath_Billing_System.UI
         {
             try
             {
-                string fromAddress = "amols693@gmail.com";
+                string fromAddress = "shivgorakshnathagrotechnology@gmail.com";
                 String toAddress = textBox1.Text;
-                string password = "Sambhaji$0346";
+                string password = "shivtech@7178";
                 MailMessage mail = new MailMessage();
-                mail.Subject = "Ghiv Gorakshnath Billing System Invoice";
+                mail.Subject = "Shiv Gorakshnath Traders Purchase Bill";
                 mail.From = new MailAddress(fromAddress);
                 mail.Body = "Hi Sir," + "\n\n" + "Please Find Attached Estimate" + "\n\n\n" + "Regards," + "\n" + "Ghiv Gorakshnath Traders " + "\n" + "Cell-8999150129";
                 mail.To.Add(new MailAddress(toAddress));
-                System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\Reports\\Purchase" + GetPurchaseID + ".pdf");
+                System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\Reports\\Purchase\\" + GetPurchaseID + ".pdf");
                 mail.Attachments.Add(at);
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
