@@ -44,7 +44,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void frmEstimateCrpt_Load(object sender, EventArgs e)
         {
-            //Report_Generator.CrystalReport.crptEstimate Estimate = new Report_Generator.CrystalReport.crptEstimate();//
+            //Report_Generator.CrystalReport.crptEstimate Estimate = new Report_Generator.CrystalReport.crptEstimate();//''
             crptEstimateViewer.ReportSource = null;
             crptEstimate.SetParameterValue("@Invoice_No", GetInvoice.ToString());
             crptEstimateViewer.ReportSource = crptEstimate;
