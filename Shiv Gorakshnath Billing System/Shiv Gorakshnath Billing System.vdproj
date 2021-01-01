@@ -510,7 +510,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Shiv Gorakshnath Billing System"
         "ProductCode" = "8:{C54D46FA-068C-4007-933C-7F7DE34F2EA4}"
-        "PackageCode" = "8:{96138230-FF06-4C65-A2B7-454277D77B67}"
+        "PackageCode" = "8:{A068A46C-5BBC-4149-A828-3FEC1B731E6A}"
         "UpgradeCode" = "8:{6716ACE5-0B20-4D31-B996-CF361A4CB6C2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
