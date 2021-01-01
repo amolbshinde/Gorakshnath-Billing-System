@@ -842,7 +842,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Location = new System.Drawing.Point(12, 145);
+            this.panel3.Location = new System.Drawing.Point(12, 147);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1409, 108);

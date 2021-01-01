@@ -42,7 +42,47 @@ namespace Gorakshnath_Billing_System.UI
         {            
             crptInvoiceViewer.ReportSource = null;
             crptInvoice.SetParameterValue("@Invoice_No", GetInvoice.ToString());
-            crptInvoiceViewer.ReportSource = crptInvoice;            
+            crptInvoiceViewer.ReportSource = crptInvoice;
+
+            try
+            {
+                {
+                    System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Reports\\Challan\\");
+
+                    foreach (FileInfo file in di.GetFiles())
+                    {
+                        file.Delete();
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            try
+            {
+
+                ExportOptions CrExportOptions;
+                DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
+                PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
+                CrDiskFileDestinationOptions.DiskFileName = "E:\\Reports\\Challan\\" + GetInvoice + ".pdf";
+                CrExportOptions = crptInvoice.ExportOptions;
+                {
+                    CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                    CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                    CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
+                    CrExportOptions.FormatOptions = CrFormatTypeOptions;
+                }
+                crptInvoice.Export();
+
+               // sendmail();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void crptInvoiceViewer_Load(object sender, EventArgs e)
@@ -57,51 +97,15 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-            try
-            {
-                {
-                    System.IO.DirectoryInfo di = new DirectoryInfo("E:\\Challan\\");
-
-                    foreach (FileInfo file in di.GetFiles())
-                    {
-                        file.Delete();
-                        
-                    }
-                    
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
 
             if (textBox1.Text != "")
             {
 
-                try
-                {
+                sendmail();
 
-                    ExportOptions CrExportOptions;
-                    DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
-                    PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                    CrDiskFileDestinationOptions.DiskFileName = "E:\\Challan\\" + GetInvoice + ".pdf";
-                    CrExportOptions = crptInvoice.ExportOptions;
-                    {
-                        CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
-                        CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
-                        CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
-                        CrExportOptions.FormatOptions = CrFormatTypeOptions;
-                    }
-                    crptInvoice.Export();
-
-                    sendmail();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-
-            }else
+            }
+            else
             {
                 MessageBox.Show("Please enter valid Email Address!!");
             }
@@ -111,15 +115,15 @@ namespace Gorakshnath_Billing_System.UI
         {
             try
             {
-               string fromAddress = "amols693@gmail.com";
+               string fromAddress = "shivgorakshnathagrotechnology@gmail.com";
                String toAddress = textBox1.Text;
-                string password = "Sambhaji$0346";
+                string password = "shivtech@7178";
                 MailMessage mail = new MailMessage();
-                mail.Subject = "Ghiv Gorakshnath Billing System Invoice";
+                mail.Subject = "Shiv Gorakshnath Billing System :Invoice";
                 mail.From = new MailAddress(fromAddress);
-                mail.Body = "Hi Sir,"+"\n"+"Please Find Attached Invoice" + "\n" +"Regards," + "\n" + "Ghiv Gorakshnath Traders Cell-8999150129";
+                mail.Body = "Hi Sir,"+"\n\n"+"Please Find Attached Invoice" + "\n\n\n" +"Regards," + "\n" + "Ghiv Gorakshnath Traders" + "\n" +" Cell-8999150129";
                 mail.To.Add(new MailAddress(toAddress));
-                System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\Challan\\" + GetInvoice + ".pdf");
+                System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\Reports\\Challan\\" + GetInvoice + ".pdf");
                 mail.Attachments.Add(at);
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
@@ -129,7 +133,7 @@ namespace Gorakshnath_Billing_System.UI
                 NetworkCredential nec = new NetworkCredential(fromAddress, password);
                 smtp.Credentials = nec;
                 smtp.Send(mail);
-                MessageBox.Show("Sucesfully Sent");
+                MessageBox.Show("Mail Sent successfully .!!");
                 return;
                
             }

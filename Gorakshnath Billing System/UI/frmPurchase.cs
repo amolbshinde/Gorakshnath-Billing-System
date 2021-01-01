@@ -460,24 +460,7 @@ namespace Gorakshnath_Billing_System.UI
                                         bool z = stockDAL.InsertStockNewProduct(stockBLL);
                                     }
 
-                                //Getting Data from UI                                
-                                PurchasePaymentDetailsBLL.TrMode = comboTrMode.SelectedItem.ToString();
-                                String S = comboTrType.SelectedItem.ToString();
-                                //MessageBox.Show(S);
-                                PurchasePaymentDetailsBLL.PaymentMode = comboTrType.SelectedItem.ToString();
-                                decimal TransactionAmt, Paid_Amount, balance;
-
-                                decimal.TryParse(txtTrAmount.Text, out TransactionAmt);
-                                decimal.TryParse(txtPaidAmount.Text, out Paid_Amount);
-                                decimal.TryParse(txtBalance.Text, out balance);
-
-                                PurchasePaymentDetailsBLL.TrAmount = TransactionAmt;
-                                PurchasePaymentDetailsBLL.AmountPiad = Paid_Amount;
-                                PurchasePaymentDetailsBLL.Balance = balance;
-                                PurchasePaymentDetailsBLL.Remarks = "Credit Sales";
-                                PurchasePaymentDetailsBLL.Invoice_No = purchaseid;                                
-                                bool success = PurchasePaymentDetailsDAL.InsertSalesPayment(PurchasePaymentDetailsBLL);
-
+                                
                             }
 
 
@@ -488,8 +471,27 @@ namespace Gorakshnath_Billing_System.UI
                             }
                             if (isSuccess == true)
                             {
-                                //scope.Complete();
-                                MessageBox.Show("Transaction Completed");
+                            //scope.Complete();
+                            //Getting Data from UI                                
+                            PurchasePaymentDetailsBLL.TrMode = comboTrMode.SelectedItem.ToString();
+                            String S = comboTrType.SelectedItem.ToString();
+                            //MessageBox.Show(S);
+                            PurchasePaymentDetailsBLL.PaymentMode = comboTrType.SelectedItem.ToString();
+                            decimal TransactionAmt, Paid_Amount, balance;
+
+                            decimal.TryParse(txtTrAmount.Text, out TransactionAmt);
+                            decimal.TryParse(txtPaidAmount.Text, out Paid_Amount);
+                            decimal.TryParse(txtBalance.Text, out balance);
+
+                            PurchasePaymentDetailsBLL.TrAmount = TransactionAmt;
+                            PurchasePaymentDetailsBLL.AmountPiad = Paid_Amount;
+                            PurchasePaymentDetailsBLL.Balance = balance;
+                            PurchasePaymentDetailsBLL.Remarks = "Credit Sales";
+                            PurchasePaymentDetailsBLL.Invoice_No = purchaseid;
+                            //bool success = 
+                            PurchasePaymentDetailsDAL.InsertSalesPayment(PurchasePaymentDetailsBLL);
+                            
+                            MessageBox.Show("Transaction Completed");
                                 //clear();
                             }
                             else

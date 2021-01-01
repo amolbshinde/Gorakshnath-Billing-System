@@ -106,9 +106,9 @@ namespace Gorakshnath_Billing_System.UI
 
         public void Clear()
         {
-            comboInvoiceNo.Text = "Select Invoice";
-            comboPhoneNo.Text = "Select Phone";
-            textPaymentId.Text = "";            
+            textPaymentId.Text = "";
+            //comboInvoiceNo.Text = "Select Invoice";
+            //comboPhoneNo.Text = "Select Phone";
             textCustomerName.Text = "";
             textPayMode.Text = "";
             textTrAmount.Text = "";
