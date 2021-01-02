@@ -117,6 +117,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (position_mouse_click >= 0)
                 {
                     my_menu.Items.Add("Print").Name = "Print";
+                    my_menu.Items.Add("Delete").Name = "Delete";
                 }
                 my_menu.Show(dgvChallanReport, new Point(e.X, e.Y));
                 my_menu.ItemClicked += new ToolStripItemClickedEventHandler(my_menu_ItemClicked);
@@ -142,7 +143,16 @@ namespace Gorakshnath_Billing_System.UI
                 }
 
             }
-
+            if ("Delete" == e.ClickedItem.Name.ToString())
+            {
+                EstimateDetailsDAL EstimateDetailsDAL = new EstimateDetailsDAL();
+                int iNo;
+                Int32.TryParse(dgvChallanReport.Rows[dgvChallanReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
+                EstimateDetailsDAL.DeleteByInvoiceNo(iNo.ToString());
+                EstimateDAL.DeleteByInvoiceNo(iNo.ToString());
+                DataTable dt = EstimateDAL.SelectTD();
+                dgvChallanReport.DataSource = dt;
+            }
         }
 
     }

@@ -695,7 +695,8 @@ namespace Gorakshnath_Billing_System.UI
 
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        SupplierMasterBLL s = SupplierMasterDAL.getSuplierIdFromName(sname);
+                        string Contact = comboContact.Text;
+                        SupplierMasterBLL s = SupplierMasterDAL.getSuplierIdFromPhone(Contact);
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 

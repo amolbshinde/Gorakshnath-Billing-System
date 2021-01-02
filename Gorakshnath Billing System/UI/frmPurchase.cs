@@ -373,7 +373,7 @@ namespace Gorakshnath_Billing_System.UI
                 {
 
                     string Contact = comboContact.Text;
-                    SupplierMasterBLL sup = SupplierMasterDAL.getSuplierIdFromName(Contact);
+                    SupplierMasterBLL sup = SupplierMasterDAL.SelectSuplierPhone(Contact);
                     if (sup.Phone_No != comboContact.Text)
                     {
 
@@ -385,11 +385,11 @@ namespace Gorakshnath_Billing_System.UI
                         bool Success = SupplierMasterDAL.InsertByPurchasebill(SupplierMasterBLL);
 
                     }
-
+                    //hello
 
                     if (dgvAddedProducts.Rows.Count!=0)
                     {
-                        SupplierMasterBLL s = SupplierMasterDAL.getSuplierIdFromName(sname);
+                        SupplierMasterBLL s = SupplierMasterDAL.getSuplierIdFromPhone(Contact);
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 

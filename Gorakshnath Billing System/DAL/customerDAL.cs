@@ -345,6 +345,39 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Method to get id of the Customer based on Phone
+        public customerBLL getCustomerIdFromPhone(string Phone)
+        {
+            customerBLL c = new customerBLL();
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT Cust_Id FROM Cust_Master WHERE Cust_Contact='" + Phone + "'";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                con.Open();
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    c.Cust_ID = int.Parse(dt.Rows[0]["Cust_Id"].ToString());
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return c;
+        }
+        #endregion
 
         #region Select Data From Database for  combo
         public DataTable SelectForCombo()

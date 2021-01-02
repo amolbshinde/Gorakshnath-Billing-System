@@ -738,7 +738,7 @@ namespace Gorakshnath_Billing_System.UI
 
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        customerBLL c = customerDAL.getCustomerIdFromName(sname);
+                        customerBLL c = customerDAL.getCustomerIdFromPhone(Contact);
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
@@ -850,7 +850,9 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-
-
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
