@@ -430,7 +430,7 @@ namespace Gorakshnath_Billing_System.DAL
 
 
         #region Method to get id of the Supplier based on Name
-        public SupplierMasterBLL getSuplierIdFromPhone(string Name)
+        public SupplierMasterBLL getSuplierIdFromPhone(string Phone_No)
         {
             SupplierMasterBLL s = new SupplierMasterBLL();
             SqlConnection con = new SqlConnection(myconnstrng);
@@ -438,7 +438,43 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Phone_No FROM Supplier_Master WHERE Phone_No='" + Name + "'";
+                string sql = "SELECT SupplierID FROM Supplier_Master WHERE Phone_No='" + Phone_No + "'";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                con.Open();
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    int pid;
+                    int.TryParse(dt.Rows[0]["SupplierID"].ToString(),out pid);
+                    s.SupplierID = pid;
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return s;
+        }
+        #endregion
+
+        #region Method to Select Suplier Phone by Phone
+        public SupplierMasterBLL SelectSuplierPhone(string Phone_No)
+        {
+            SupplierMasterBLL s = new SupplierMasterBLL();
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT Phone_No FROM Supplier_Master WHERE Phone_No='" + Phone_No + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 con.Open();
                 adapter.Fill(dt);

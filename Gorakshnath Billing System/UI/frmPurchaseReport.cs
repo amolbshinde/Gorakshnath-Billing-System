@@ -148,8 +148,12 @@ namespace Gorakshnath_Billing_System.UI
             {
                 int pId;
                 Int32.TryParse(dgvPurchaseReport.Rows[dgvPurchaseReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out pId);
+                PurchasePaymentDetailsDAL PurchasePaymentDetailsDAL = new PurchasePaymentDetailsDAL();
+                PurchasePaymentDetailsDAL.DeleteByPurchaseId(pId);
                 purchasedetailsDAL.DeleteByPurchaseID(pId.ToString());
                 purchaseDAL.DeleteByPurchaseID(pId.ToString());
+                DataTable dt = purchaseDAL.SelectPD();
+                dgvPurchaseReport.DataSource = dt;
             }
 
 
