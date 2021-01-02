@@ -88,7 +88,7 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                MessageBox.Show("Please enter valid email Address");
+                MessageBox.Show("Please enter valid email Address");//
             }
         }
         private void sendMail()
