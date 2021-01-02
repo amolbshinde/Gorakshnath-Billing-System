@@ -159,5 +159,9 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
