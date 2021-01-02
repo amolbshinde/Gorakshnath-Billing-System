@@ -121,6 +121,7 @@ namespace Gorakshnath_Billing_System.UI
                 int position_mouse_click = dgvChallanReport.HitTest(e.X, e.Y).RowIndex;
                 if (position_mouse_click >= 0)
                 {
+                    my_menu.Items.Add("Edit").Name = "Edit";                    
                     my_menu.Items.Add("Print").Name = "Print";                    
                     my_menu.Items.Add("Delete").Name = "Delete";
                 }
