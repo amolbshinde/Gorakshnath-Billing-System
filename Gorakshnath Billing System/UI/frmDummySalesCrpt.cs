@@ -82,7 +82,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             if (textBox1.Text != "")
             {
-                //sending email
+                //sending email//
                 sendMail();
 
             }
