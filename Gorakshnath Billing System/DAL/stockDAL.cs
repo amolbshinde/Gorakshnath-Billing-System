@@ -127,6 +127,48 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Update Data in Database for Opening_Stock
+        public bool Update_Opening_Stock(stockBLL s)
+        {
+            bool isSuccess = false;
+            SqlConnection con = new SqlConnection(myconnstrng);
+            try
+            {
+                String sql = "UPDATE Stock_Master SET Quantity= Quantity+@Quantity,Unit=@Unit WHERE Product_Id = @Product_Id";
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                cmd.Parameters.AddWithValue("@Quantity", s.Quantity);
+                cmd.Parameters.AddWithValue("@Product_Id", s.Product_Id);
+                cmd.Parameters.AddWithValue("@Unit", s.Unit);                
+
+                con.Open();
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return isSuccess;
+
+        }
+        #endregion
+
+
+
         #region Decrease Data in Database from Stock
         public bool dereaseUpdate(stockBLL s)
         {
@@ -261,7 +303,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-
         #region SEARCH Method for Stock Module Group By Product_Group
         public DataTable SelectStockByBrand(string keywords)
         {
@@ -290,7 +331,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
 
         #region SEARCH Method for Stock Module Group By Product_Group
         public DataTable SelectStockByProduct(string keywords)
