@@ -113,9 +113,9 @@ namespace Gorakshnath_Billing_System.UI
         {
             try
             {
-                string fromAddress = "shivgorakshnathagrotechnology@gmail.com";
+                string fromAddress = "shivgorakshnathtraders@gmail.com";
                 String toAddress = textBox1.Text;
-                string password = "shivtech@7178";
+                string password = "Kishor@7178";
                 MailMessage mail = new MailMessage();
                 mail.Subject = "Shiv Gorakshnath Billing System :Estimate";
                 mail.From = new MailAddress(fromAddress);
