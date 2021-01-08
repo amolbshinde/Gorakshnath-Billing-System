@@ -17,8 +17,9 @@ namespace Gorakshnath_Billing_System.UI
     public partial class frmProductMaster : Form
     {
         int Product_ID = -1;
+        decimal Curr_Opening_Stock;
         public frmProductMaster()
-        {
+        {            
             InitializeComponent();
         }
 
@@ -231,9 +232,19 @@ namespace Gorakshnath_Billing_System.UI
                 pBLL.Sales_Price = decimal.Parse(txtSales_Price.Text);
                 pBLL.Min_Sales_Price = decimal.Parse(txtMin_Sales_Price.Text);
                 pBLL.Unit = comboUnit.Text;
-                //pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text);
+                decimal U_Opening_Stock;
+                decimal.TryParse(txtOpening_Stock.Text, out U_Opening_Stock);
+                pBLL.Opening_Stock = U_Opening_Stock;
 
                 bool Success = pDAL.Update(pBLL);
+
+                stockBLL stockBLL = new stockBLL();
+                stockDAL stockDAL = new stockDAL();
+                stockBLL.Product_Id= Convert.ToInt32(txtProduct_ID.Text);
+                stockBLL.Unit = comboUnit.Text;
+                stockBLL.Quantity = U_Opening_Stock - Curr_Opening_Stock;
+
+                bool s = stockDAL.Update_Opening_Stock(stockBLL);
 
                 if (Success == true)
                 {
@@ -272,7 +283,8 @@ namespace Gorakshnath_Billing_System.UI
         {
             int rowIndex = e.RowIndex;
 
-            txtOpening_Stock.ReadOnly = true;
+            //txtOpening_Stock.ReadOnly = true;
+            decimal.TryParse(dgvProductMaster.Rows[rowIndex].Cells[10].Value.ToString(), out Curr_Opening_Stock);
 
             txtProduct_ID.Text = dgvProductMaster.Rows[rowIndex].Cells[0].Value.ToString();
 
