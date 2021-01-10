@@ -57,7 +57,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label1.Location = new System.Drawing.Point(590, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 23);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 3;
             this.label1.Text = "Enter Email ID :";
             // 
             // textBox1
@@ -66,7 +66,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox1.Location = new System.Drawing.Point(747, 6);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(256, 30);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 1;
             // 
             // button1
             // 
@@ -77,7 +77,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button1.Location = new System.Drawing.Point(1009, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 35);
-            this.button1.TabIndex = 3;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Send Mail";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

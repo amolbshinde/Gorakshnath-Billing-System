@@ -42,7 +42,7 @@ namespace Gorakshnath_Billing_System.UI
             this.crptNewInvoiceViewer.Cursor = System.Windows.Forms.Cursors.Default;
             this.crptNewInvoiceViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crptNewInvoiceViewer.Location = new System.Drawing.Point(0, 0);
-            this.crptNewInvoiceViewer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.crptNewInvoiceViewer.Margin = new System.Windows.Forms.Padding(4);
             this.crptNewInvoiceViewer.Name = "crptNewInvoiceViewer";
             this.crptNewInvoiceViewer.Size = new System.Drawing.Size(1311, 834);
             this.crptNewInvoiceViewer.TabIndex = 0;
@@ -89,7 +89,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.crptNewInvoiceViewer);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDummySalesCrpt";
             this.Text = "frmDummySalesCrpt";
             this.Load += new System.EventHandler(this.frmDummySalesCrpt_Load);

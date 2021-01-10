@@ -50,10 +50,11 @@ namespace Gorakshnath_Billing_System.UI
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Teal;
-            this.btnExit.Location = new System.Drawing.Point(495, 583);
+            this.btnExit.Location = new System.Drawing.Point(660, 718);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(154, 30);
-            this.btnExit.TabIndex = 21;
+            this.btnExit.Size = new System.Drawing.Size(205, 37);
+            this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -67,10 +68,11 @@ namespace Gorakshnath_Billing_System.UI
             this.comboPurchaseId.Items.AddRange(new object[] {
             "Product_Group",
             "Product_Brand"});
-            this.comboPurchaseId.Location = new System.Drawing.Point(134, 48);
+            this.comboPurchaseId.Location = new System.Drawing.Point(179, 59);
+            this.comboPurchaseId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboPurchaseId.Name = "comboPurchaseId";
-            this.comboPurchaseId.Size = new System.Drawing.Size(146, 28);
-            this.comboPurchaseId.TabIndex = 8;
+            this.comboPurchaseId.Size = new System.Drawing.Size(193, 33);
+            this.comboPurchaseId.TabIndex = 0;
             this.comboPurchaseId.SelectedIndexChanged += new System.EventHandler(this.comboPurchaseId_SelectedIndexChanged);
             // 
             // button1
@@ -79,9 +81,10 @@ namespace Gorakshnath_Billing_System.UI
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Teal;
-            this.button1.Location = new System.Drawing.Point(13, 48);
+            this.button1.Location = new System.Drawing.Point(17, 59);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 30);
+            this.button1.Size = new System.Drawing.Size(143, 37);
             this.button1.TabIndex = 9;
             this.button1.Text = "Purchase Id";
             this.button1.UseVisualStyleBackColor = true;
@@ -95,10 +98,11 @@ namespace Gorakshnath_Billing_System.UI
             this.comboSupName.Items.AddRange(new object[] {
             "Product_Group",
             "Product_Brand"});
-            this.comboSupName.Location = new System.Drawing.Point(467, 45);
+            this.comboSupName.Location = new System.Drawing.Point(623, 55);
+            this.comboSupName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboSupName.Name = "comboSupName";
-            this.comboSupName.Size = new System.Drawing.Size(171, 28);
-            this.comboSupName.TabIndex = 10;
+            this.comboSupName.Size = new System.Drawing.Size(227, 33);
+            this.comboSupName.TabIndex = 1;
             this.comboSupName.SelectedIndexChanged += new System.EventHandler(this.comboSupName_SelectedIndexChanged);
             // 
             // comboMobileNo
@@ -110,10 +114,11 @@ namespace Gorakshnath_Billing_System.UI
             this.comboMobileNo.Items.AddRange(new object[] {
             "Product_Group",
             "Product_Brand"});
-            this.comboMobileNo.Location = new System.Drawing.Point(831, 43);
+            this.comboMobileNo.Location = new System.Drawing.Point(1108, 53);
+            this.comboMobileNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboMobileNo.Name = "comboMobileNo";
-            this.comboMobileNo.Size = new System.Drawing.Size(159, 28);
-            this.comboMobileNo.TabIndex = 12;
+            this.comboMobileNo.Size = new System.Drawing.Size(211, 33);
+            this.comboMobileNo.TabIndex = 2;
             this.comboMobileNo.SelectedIndexChanged += new System.EventHandler(this.comboMobileNo_SelectedIndexChanged);
             // 
             // button2
@@ -122,9 +127,10 @@ namespace Gorakshnath_Billing_System.UI
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Teal;
-            this.button2.Location = new System.Drawing.Point(321, 46);
+            this.button2.Location = new System.Drawing.Point(428, 57);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 30);
+            this.button2.Size = new System.Drawing.Size(171, 37);
             this.button2.TabIndex = 11;
             this.button2.Text = "Supplier Name";
             this.button2.UseVisualStyleBackColor = true;
@@ -135,9 +141,10 @@ namespace Gorakshnath_Billing_System.UI
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Teal;
-            this.button3.Location = new System.Drawing.Point(679, 43);
+            this.button3.Location = new System.Drawing.Point(905, 53);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 30);
+            this.button3.Size = new System.Drawing.Size(169, 37);
             this.button3.TabIndex = 13;
             this.button3.Text = "Mobile No";
             this.button3.UseVisualStyleBackColor = true;
@@ -150,37 +157,41 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Controls.Add(this.comboSupName);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.comboPurchaseId);
-            this.panel1.Location = new System.Drawing.Point(63, 4);
+            this.panel1.Location = new System.Drawing.Point(84, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1008, 121);
-            this.panel1.TabIndex = 19;
+            this.panel1.Size = new System.Drawing.Size(1344, 149);
+            this.panel1.TabIndex = 0;
             // 
             // dgvPurchaseReport
             // 
             this.dgvPurchaseReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPurchaseReport.Location = new System.Drawing.Point(9, 8);
+            this.dgvPurchaseReport.Location = new System.Drawing.Point(12, 10);
+            this.dgvPurchaseReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvPurchaseReport.Name = "dgvPurchaseReport";
             this.dgvPurchaseReport.RowHeadersWidth = 51;
-            this.dgvPurchaseReport.Size = new System.Drawing.Size(982, 428);
+            this.dgvPurchaseReport.Size = new System.Drawing.Size(1309, 527);
             this.dgvPurchaseReport.TabIndex = 0;
             this.dgvPurchaseReport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvPurchaseReport_MouseClick);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgvPurchaseReport);
-            this.panel2.Location = new System.Drawing.Point(62, 128);
+            this.panel2.Location = new System.Drawing.Point(83, 158);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1009, 449);
-            this.panel2.TabIndex = 20;
+            this.panel2.Size = new System.Drawing.Size(1345, 553);
+            this.panel2.TabIndex = 1;
             // 
             // frmPurchaseReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 616);
+            this.ClientSize = new System.Drawing.Size(1511, 758);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmPurchaseReport";
             this.Text = "PurchaseReport";
             this.Load += new System.EventHandler(this.frmPurchaseReport_Load);

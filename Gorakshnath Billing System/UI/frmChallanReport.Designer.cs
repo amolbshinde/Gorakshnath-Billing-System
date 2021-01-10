@@ -51,7 +51,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.dgvChallanReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChallanReport.Location = new System.Drawing.Point(12, 10);
-            this.dgvChallanReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvChallanReport.Margin = new System.Windows.Forms.Padding(4);
             this.dgvChallanReport.Name = "dgvChallanReport";
             this.dgvChallanReport.RowHeadersWidth = 51;
             this.dgvChallanReport.Size = new System.Drawing.Size(1309, 527);
@@ -68,10 +68,10 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.comboInvoiceNo);
             this.panel1.Location = new System.Drawing.Point(91, 44);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1343, 71);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 0;
             // 
             // button3
             // 
@@ -80,7 +80,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Teal;
             this.button3.Location = new System.Drawing.Point(902, 15);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(143, 37);
             this.button3.TabIndex = 13;
@@ -94,7 +94,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Teal;
             this.button2.Location = new System.Drawing.Point(425, 15);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(143, 37);
             this.button2.TabIndex = 11;
@@ -111,10 +111,10 @@ namespace Gorakshnath_Billing_System.UI
             "Product_Group",
             "Product_Brand"});
             this.comboMobileNo.Location = new System.Drawing.Point(1105, 15);
-            this.comboMobileNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboMobileNo.Margin = new System.Windows.Forms.Padding(4);
             this.comboMobileNo.Name = "comboMobileNo";
             this.comboMobileNo.Size = new System.Drawing.Size(227, 33);
-            this.comboMobileNo.TabIndex = 12;
+            this.comboMobileNo.TabIndex = 2;
             this.comboMobileNo.SelectedIndexChanged += new System.EventHandler(this.comboMobileNo_SelectedIndexChanged);
             // 
             // comboCustName
@@ -127,10 +127,10 @@ namespace Gorakshnath_Billing_System.UI
             "Product_Group",
             "Product_Brand"});
             this.comboCustName.Location = new System.Drawing.Point(620, 15);
-            this.comboCustName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboCustName.Margin = new System.Windows.Forms.Padding(4);
             this.comboCustName.Name = "comboCustName";
             this.comboCustName.Size = new System.Drawing.Size(227, 33);
-            this.comboCustName.TabIndex = 10;
+            this.comboCustName.TabIndex = 1;
             this.comboCustName.SelectedIndexChanged += new System.EventHandler(this.comboCustName_SelectedIndexChanged);
             // 
             // button1
@@ -140,7 +140,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Teal;
             this.button1.Location = new System.Drawing.Point(14, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 37);
             this.button1.TabIndex = 9;
@@ -157,20 +157,20 @@ namespace Gorakshnath_Billing_System.UI
             "Product_Group",
             "Product_Brand"});
             this.comboInvoiceNo.Location = new System.Drawing.Point(176, 15);
-            this.comboInvoiceNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboInvoiceNo.Margin = new System.Windows.Forms.Padding(4);
             this.comboInvoiceNo.Name = "comboInvoiceNo";
             this.comboInvoiceNo.Size = new System.Drawing.Size(227, 33);
-            this.comboInvoiceNo.TabIndex = 8;
+            this.comboInvoiceNo.TabIndex = 0;
             this.comboInvoiceNo.SelectedIndexChanged += new System.EventHandler(this.comboInvoiceNo_SelectedIndexChanged);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgvChallanReport);
             this.panel2.Location = new System.Drawing.Point(89, 123);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1345, 569);
-            this.panel2.TabIndex = 2;
+            this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
@@ -200,10 +200,10 @@ namespace Gorakshnath_Billing_System.UI
             this.button4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.DeepPink;
             this.button4.Location = new System.Drawing.Point(651, 700);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(205, 37);
-            this.button4.TabIndex = 18;
+            this.button4.TabIndex = 2;
             this.button4.Text = "Exit";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -217,7 +217,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmChallanReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Delivery ChallanReport";

@@ -136,7 +136,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textRate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textRate.Name = "textRate";
             this.textRate.Size = new System.Drawing.Size(131, 27);
-            this.textRate.TabIndex = 6;
+            this.textRate.TabIndex = 7;
             this.textRate.TextChanged += new System.EventHandler(this.textRate_TextChanged);
             // 
             // label16
@@ -161,7 +161,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBoxUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(60, 28);
-            this.comboBoxUnit.TabIndex = 4;
+            this.comboBoxUnit.TabIndex = 5;
             // 
             // textQuantity
             // 
@@ -170,7 +170,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textQuantity.Name = "textQuantity";
             this.textQuantity.Size = new System.Drawing.Size(43, 27);
-            this.textQuantity.TabIndex = 5;
+            this.textQuantity.TabIndex = 6;
             this.textQuantity.TextChanged += new System.EventHandler(this.textQuantity_TextChanged);
             // 
             // comboTransactionType
@@ -184,7 +184,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboTransactionType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboTransactionType.Name = "comboTransactionType";
             this.comboTransactionType.Size = new System.Drawing.Size(236, 28);
-            this.comboTransactionType.TabIndex = 1;
+            this.comboTransactionType.TabIndex = 0;
             this.comboTransactionType.SelectedIndexChanged += new System.EventHandler(this.comboTransactionType_SelectedIndexChanged);
             // 
             // label29
@@ -204,7 +204,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dtpBillDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpBillDate.Name = "dtpBillDate";
             this.dtpBillDate.Size = new System.Drawing.Size(213, 27);
-            this.dtpBillDate.TabIndex = 12;
+            this.dtpBillDate.TabIndex = 6;
             // 
             // textItemName
             // 
@@ -213,7 +213,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textItemName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textItemName.Name = "textItemName";
             this.textItemName.Size = new System.Drawing.Size(219, 27);
-            this.textItemName.TabIndex = 23;
+            this.textItemName.TabIndex = 2;
             // 
             // textInventory
             // 
@@ -222,7 +222,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textInventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textInventory.Name = "textInventory";
             this.textInventory.Size = new System.Drawing.Size(99, 27);
-            this.textInventory.TabIndex = 22;
+            this.textInventory.TabIndex = 4;
             // 
             // label15
             // 
@@ -241,7 +241,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(240, 27);
-            this.textBox6.TabIndex = 19;
+            this.textBox6.TabIndex = 4;
             // 
             // label30
             // 
@@ -260,7 +260,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textPurchaseBillNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textPurchaseBillNo.Name = "textPurchaseBillNo";
             this.textPurchaseBillNo.Size = new System.Drawing.Size(208, 27);
-            this.textPurchaseBillNo.TabIndex = 15;
+            this.textPurchaseBillNo.TabIndex = 7;
             // 
             // label9
             // 
@@ -280,7 +280,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textAddress.Multiline = true;
             this.textAddress.Name = "textAddress";
             this.textAddress.Size = new System.Drawing.Size(277, 85);
-            this.textAddress.TabIndex = 11;
+            this.textAddress.TabIndex = 5;
             // 
             // label14
             // 
@@ -353,7 +353,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1419, 94);
-            this.panel3.TabIndex = 15;
+            this.panel3.TabIndex = 1;
             // 
             // comboSearchItem
             // 
@@ -368,7 +368,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboSearchItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboSearchItem.Name = "comboSearchItem";
             this.comboSearchItem.Size = new System.Drawing.Size(191, 28);
-            this.comboSearchItem.TabIndex = 21;
+            this.comboSearchItem.TabIndex = 1;
             this.comboSearchItem.SelectedIndexChanged += new System.EventHandler(this.comboSearchItem_SelectedIndexChanged);
             // 
             // label18
@@ -392,7 +392,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboGstType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboGstType.Name = "comboGstType";
             this.comboGstType.Size = new System.Drawing.Size(73, 28);
-            this.comboGstType.TabIndex = 8;
+            this.comboGstType.TabIndex = 9;
             // 
             // label31
             // 
@@ -403,7 +403,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(71, 20);
-            this.label31.TabIndex = 37;
+            this.label31.TabIndex = 3;
             this.label31.Text = "Add Item";
             // 
             // textItemCode
@@ -413,7 +413,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textItemCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textItemCode.Name = "textItemCode";
             this.textItemCode.Size = new System.Drawing.Size(87, 27);
-            this.textItemCode.TabIndex = 36;
+            this.textItemCode.TabIndex = 0;
             // 
             // label20
             // 
@@ -435,7 +435,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(108, 46);
-            this.btnAdd.TabIndex = 11;
+            this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -447,7 +447,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textTotalAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textTotalAmount.Name = "textTotalAmount";
             this.textTotalAmount.Size = new System.Drawing.Size(101, 27);
-            this.textTotalAmount.TabIndex = 10;
+            this.textTotalAmount.TabIndex = 11;
             // 
             // label19
             // 
@@ -466,7 +466,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textGST.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textGST.Name = "textGST";
             this.textGST.Size = new System.Drawing.Size(73, 27);
-            this.textGST.TabIndex = 9;
+            this.textGST.TabIndex = 10;
             this.textGST.TextChanged += new System.EventHandler(this.textGST_TextChanged);
             // 
             // textDiscount
@@ -476,7 +476,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textDiscount.Name = "textDiscount";
             this.textDiscount.Size = new System.Drawing.Size(73, 27);
-            this.textDiscount.TabIndex = 7;
+            this.textDiscount.TabIndex = 8;
             this.textDiscount.TextChanged += new System.EventHandler(this.textDiscount_TextChanged);
             // 
             // label10
@@ -496,7 +496,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(240, 27);
-            this.textEmail.TabIndex = 9;
+            this.textEmail.TabIndex = 3;
             // 
             // panel2
             // 
@@ -521,7 +521,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1419, 142);
-            this.panel2.TabIndex = 14;
+            this.panel2.TabIndex = 0;
             // 
             // comboContact
             // 
@@ -536,7 +536,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboContact.Name = "comboContact";
             this.comboContact.Size = new System.Drawing.Size(279, 28);
-            this.comboContact.TabIndex = 21;
+            this.comboContact.TabIndex = 2;
             this.comboContact.SelectedIndexChanged += new System.EventHandler(this.comboContact_SelectedIndexChanged);
             // 
             // comboSearchCust
@@ -552,7 +552,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboSearchCust.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboSearchCust.Name = "comboSearchCust";
             this.comboSearchCust.Size = new System.Drawing.Size(279, 28);
-            this.comboSearchCust.TabIndex = 20;
+            this.comboSearchCust.TabIndex = 1;
             this.comboSearchCust.SelectedIndexChanged += new System.EventHandler(this.comboSearchCust_SelectedIndexChanged);
             // 
             // label7
@@ -632,7 +632,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textIgst.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textIgst.Name = "textIgst";
             this.textIgst.Size = new System.Drawing.Size(180, 30);
-            this.textIgst.TabIndex = 36;
+            this.textIgst.TabIndex = 8;
             // 
             // label36
             // 
@@ -651,7 +651,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textCgst.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textCgst.Name = "textCgst";
             this.textCgst.Size = new System.Drawing.Size(180, 30);
-            this.textCgst.TabIndex = 34;
+            this.textCgst.TabIndex = 7;
             // 
             // textSubDiscount
             // 
@@ -660,7 +660,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textSubDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textSubDiscount.Name = "textSubDiscount";
             this.textSubDiscount.Size = new System.Drawing.Size(180, 30);
-            this.textSubDiscount.TabIndex = 32;
+            this.textSubDiscount.TabIndex = 5;
             // 
             // textSgst
             // 
@@ -669,7 +669,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textSgst.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textSgst.Name = "textSgst";
             this.textSgst.Size = new System.Drawing.Size(180, 30);
-            this.textSgst.TabIndex = 31;
+            this.textSgst.TabIndex = 6;
             // 
             // label33
             // 
@@ -703,7 +703,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(655, 322);
-            this.panel6.TabIndex = 18;
+            this.panel6.TabIndex = 4;
             // 
             // button3
             // 
@@ -715,7 +715,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(135, 39);
-            this.button3.TabIndex = 16;
+            this.button3.TabIndex = 3;
             this.button3.Text = "Exit";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -730,7 +730,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 39);
-            this.button2.TabIndex = 14;
+            this.button2.TabIndex = 1;
             this.button2.Text = " Print";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -745,7 +745,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(133, 39);
-            this.btnClear.TabIndex = 15;
+            this.btnClear.TabIndex = 2;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -767,7 +767,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textSubTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textSubTotal.Name = "textSubTotal";
             this.textSubTotal.Size = new System.Drawing.Size(180, 30);
-            this.textSubTotal.TabIndex = 28;
+            this.textSubTotal.TabIndex = 4;
             // 
             // textGrandTotal
             // 
@@ -776,7 +776,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textGrandTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textGrandTotal.Name = "textGrandTotal";
             this.textGrandTotal.Size = new System.Drawing.Size(180, 30);
-            this.textGrandTotal.TabIndex = 27;
+            this.textGrandTotal.TabIndex = 9;
             // 
             // button1
             // 
@@ -788,7 +788,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 39);
-            this.button1.TabIndex = 13;
+            this.button1.TabIndex = 0;
             this.button1.Text = "Save ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -825,7 +825,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(279, 31);
-            this.comboBox1.TabIndex = 17;
+            this.comboBox1.TabIndex = 0;
             // 
             // panel5
             // 
@@ -841,7 +841,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(749, 281);
-            this.panel5.TabIndex = 17;
+            this.panel5.TabIndex = 2;
             // 
             // textBox3
             // 
@@ -850,7 +850,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(279, 30);
-            this.textBox3.TabIndex = 28;
+            this.textBox3.TabIndex = 2;
             // 
             // textBox2
             // 
@@ -859,7 +859,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(279, 30);
-            this.textBox2.TabIndex = 19;
+            this.textBox2.TabIndex = 1;
             // 
             // label25
             // 
