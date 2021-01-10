@@ -399,7 +399,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1465, 57);
-            this.panel3.TabIndex = 1;
+            this.panel3.TabIndex = 0;
             // 
             // comboDrCrType
             // 
