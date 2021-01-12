@@ -151,11 +151,11 @@ namespace Gorakshnath_Billing_System.UI
             txtCustomerName.Text = dgvCustomer.Rows[rowIndex].Cells[1].Value.ToString();
             txtCustomerName.ForeColor = Color.Black;
 
-            txtCustomerContact.Text = dgvCustomer.Rows[rowIndex].Cells[2].Value.ToString();
-            txtCustomerContact.ForeColor = Color.Black;
-
-            txtCustomerEmail.Text = dgvCustomer.Rows[rowIndex].Cells[3].Value.ToString();
+            txtCustomerEmail.Text = dgvCustomer.Rows[rowIndex].Cells[2].Value.ToString();
             txtCustomerEmail.ForeColor = Color.Black;
+
+            txtCustomerContact.Text = dgvCustomer.Rows[rowIndex].Cells[3].Value.ToString();
+            txtCustomerContact.ForeColor = Color.Black;
 
             txtCustomerAddress.Text = dgvCustomer.Rows[rowIndex].Cells[4].Value.ToString();
             txtCustomerAddress.ForeColor = Color.Black;

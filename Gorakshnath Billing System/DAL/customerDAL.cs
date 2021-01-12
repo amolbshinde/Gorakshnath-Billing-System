@@ -240,7 +240,7 @@ namespace Gorakshnath_Billing_System.DAL
             //
             try
             {
-                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address from Cust_Master WHERE Cust_Name='" + keyword + "'";
+                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address,Gst_No from Cust_Master WHERE Cust_Name='" + keyword + "'";
 
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
 
@@ -254,6 +254,7 @@ namespace Gorakshnath_Billing_System.DAL
                     c.contact = dt.Rows[0]["Cust_Contact"].ToString();
                     c.email = dt.Rows[0]["Cust_Email"].ToString();
                     c.address = dt.Rows[0]["Cust_Address"].ToString();
+                    c.Gst_No = dt.Rows[0]["Gst_No"].ToString();
 
                 }
             }
@@ -282,7 +283,7 @@ namespace Gorakshnath_Billing_System.DAL
             //
             try
             {
-                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address from Cust_Master WHERE Cust_Contact='" + keyword + "'";
+                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address,Gst_No from Cust_Master WHERE Cust_Contact='" + keyword + "'";
 
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
 
@@ -296,6 +297,7 @@ namespace Gorakshnath_Billing_System.DAL
                     c.contact = dt.Rows[0]["Cust_Contact"].ToString();
                     c.email = dt.Rows[0]["Cust_Email"].ToString();
                     c.address = dt.Rows[0]["Cust_Address"].ToString();
+                    c.Gst_No = dt.Rows[0]["Gst_No"].ToString();
 
                 }
             }

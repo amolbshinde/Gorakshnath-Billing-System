@@ -258,7 +258,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                String sql = "select Invoice_No,Cust_Name,Cust_Contact,Cust_Email,Cust_Address,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date from Challan_Transactions,Cust_Master where Cust_Master.Cust_ID=Challan_Transactions.Cust_ID and Challan_Transactions.Invoice_No = '" + Invoice_No + "';";
+                String sql = "select Invoice_No,Cust_Name,Cust_Contact,Cust_Email,Cust_Address,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date,Gst_No from Challan_Transactions,Cust_Master where Cust_Master.Cust_ID=Challan_Transactions.Cust_ID and Challan_Transactions.Invoice_No = '" + Invoice_No + "';";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();
