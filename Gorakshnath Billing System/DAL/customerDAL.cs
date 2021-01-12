@@ -48,13 +48,14 @@ namespace Gorakshnath_Billing_System.DAL
            SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO Cust_Master (Cust_Name, Cust_Contact, Cust_Email, Cust_Address) VALUES(@name, @contact, @email, @address)";
+                String sql = "INSERT INTO Cust_Master (Cust_Name, Cust_Contact, Cust_Email, Cust_Address,Gst_No) VALUES(@name, @contact, @email, @address,@Gst_No)";
 
                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@name", c.name);
                 cmd.Parameters.AddWithValue("@contact", c.contact);
                 cmd.Parameters.AddWithValue("@email", c.email);
                 cmd.Parameters.AddWithValue("@address", c.address);
+                cmd.Parameters.AddWithValue("@Gst_No", c.Gst_No);
 
                 con.Open();
 
@@ -89,13 +90,14 @@ namespace Gorakshnath_Billing_System.DAL
            SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "UPDATE Cust_Master SET Cust_Name=@name, Cust_Contact=@contact, Cust_Email=@email, Cust_Address=@address WHERE Cust_Id = @id";
+                String sql = "UPDATE Cust_Master SET Cust_Name=@name, Cust_Contact=@contact, Cust_Email=@email, Cust_Address=@address,Gst_No=@Gst_No WHERE Cust_Id = @id";
                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@name", c.name);
                 cmd.Parameters.AddWithValue("@contact", c.contact);
                 cmd.Parameters.AddWithValue("@email", c.email);
                 cmd.Parameters.AddWithValue("@address", c.address);
                 cmd.Parameters.AddWithValue("@id", c.id);
+                cmd.Parameters.AddWithValue("@Gst_No", c.Gst_No);
 
                 con.Open();
                 int rows = cmd.ExecuteNonQuery();

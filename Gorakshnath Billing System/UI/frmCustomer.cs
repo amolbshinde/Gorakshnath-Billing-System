@@ -28,6 +28,7 @@ namespace Gorakshnath_Billing_System.UI
             c.contact = txtCustomerContact.Text;
             c.email = txtCustomerEmail.Text;
             c.address = txtCustomerAddress.Text;
+            c.Gst_No = txtCustomerGSTNo.Text;
 
             string cid = txtCustomerId.Text;
             if (dgvCustomer.SelectedRows.Count < 1)
@@ -40,20 +41,27 @@ namespace Gorakshnath_Billing_System.UI
                         {
                             if (c.address != "" && c.address != "Customer Address")
                             {
-                                bool Success = dal.Insert(c);
-
-                                if (Success == true)
+                                if (c.Gst_No != "" && c.Gst_No != "Customer GST No")
                                 {
-                                    MessageBox.Show("Customer Details Successfully Added");
-                                    clear();
+                                    bool Success = dal.Insert(c);
+
+                                    if (Success == true)
+                                    {
+                                        MessageBox.Show("Customer Details Successfully Added");
+                                        clear();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Failed to Added Customer Details");
+                                    }
+                                    DataTable dt = dal.Select();
+                                    dgvCustomer.DataSource = dt;
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Failed to Added Customer Details");
+                                    MessageBox.Show("Please Enter customer GST No");
+                                    txtCustomerGSTNo.Focus();
                                 }
-                                DataTable dt = dal.Select();
-                                dgvCustomer.DataSource = dt;
-
                             }
                             else
                             {
