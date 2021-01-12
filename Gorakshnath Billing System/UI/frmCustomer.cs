@@ -159,6 +159,9 @@ namespace Gorakshnath_Billing_System.UI
 
             txtCustomerAddress.Text = dgvCustomer.Rows[rowIndex].Cells[4].Value.ToString();
             txtCustomerAddress.ForeColor = Color.Black;
+
+            txtCustomerGSTNo.Text = dgvCustomer.Rows[rowIndex].Cells[6].Value.ToString();
+            txtCustomerGSTNo.ForeColor = Color.Black;
         }
 
         private void frmCustomer_Load_1(object sender, EventArgs e)
@@ -239,6 +242,7 @@ namespace Gorakshnath_Billing_System.UI
                 c.contact = txtCustomerContact.Text;
                 c.email = txtCustomerEmail.Text;
                 c.address = txtCustomerAddress.Text;
+                c.Gst_No = txtCustomerGSTNo.Text;
 
                 bool success = dal.Update(c);
 
