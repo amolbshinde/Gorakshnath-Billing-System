@@ -59,7 +59,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnSendMail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSendMail.Name = "btnSendMail";
             this.btnSendMail.Size = new System.Drawing.Size(107, 32);
-            this.btnSendMail.TabIndex = 39;
+            this.btnSendMail.TabIndex = 2;
             this.btnSendMail.Text = "Send Mail";
             this.btnSendMail.UseVisualStyleBackColor = true;
             this.btnSendMail.Click += new System.EventHandler(this.btnSendMail_Click);
@@ -72,7 +72,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label1.Location = new System.Drawing.Point(651, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 25);
-            this.label1.TabIndex = 40;
+            this.label1.TabIndex = 3;
             this.label1.Text = "Enter Email Id";
             // 
             // textBox1
@@ -81,7 +81,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox1.Location = new System.Drawing.Point(785, 7);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(262, 30);
-            this.textBox1.TabIndex = 41;
+            this.textBox1.TabIndex = 1;
             // 
             // frmInvoiceCrpt
             // 
