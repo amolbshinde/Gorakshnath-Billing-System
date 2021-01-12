@@ -103,6 +103,9 @@ namespace Gorakshnath_Billing_System.UI
 
             txtCustomerAddress.Text = "Customer Address";
             txtCustomerAddress.ForeColor = Color.Gray;
+            
+            txtCustomerGSTNo.Text = "Customer GST No";
+            txtCustomerGSTNo.ForeColor = Color.Gray;
 
             dgvCustomer.ClearSelection();
 
@@ -285,6 +288,24 @@ namespace Gorakshnath_Billing_System.UI
         private void txtCustomerSearch_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtCustomerGSTNo_Enter(object sender, EventArgs e)
+        {
+            if (txtCustomerGSTNo.Text == "Customer GST No")
+            {
+                txtCustomerGSTNo.Text = "";
+                txtCustomerGSTNo.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtCustomerGSTNo_Leave(object sender, EventArgs e)
+        {
+            if (txtCustomerGSTNo.Text == "")
+            {
+                txtCustomerGSTNo.Text = "Customer GST No";
+                txtCustomerGSTNo.ForeColor = Color.Gray;
+            }
         }
     }
 }
