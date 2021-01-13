@@ -180,7 +180,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboTransactionType.Items.AddRange(new object[] {
             "GST",
             "Non GST"});
-            this.comboTransactionType.Location = new System.Drawing.Point(9, 100);
+            this.comboTransactionType.Location = new System.Drawing.Point(16, 101);
             this.comboTransactionType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboTransactionType.Name = "comboTransactionType";
             this.comboTransactionType.Size = new System.Drawing.Size(236, 28);
@@ -191,7 +191,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(5, 74);
+            this.label29.Location = new System.Drawing.Point(12, 75);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(137, 23);
             this.label29.TabIndex = 16;
@@ -249,9 +249,9 @@ namespace Gorakshnath_Billing_System.UI
             this.label30.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Location = new System.Drawing.Point(564, 75);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(145, 23);
+            this.label30.Size = new System.Drawing.Size(115, 23);
             this.label30.TabIndex = 18;
-            this.label30.Text = "Invoice Order No.";
+            this.label30.Text = "Party GST No.";
             // 
             // textPurchaseBillNo
             // 
@@ -268,9 +268,9 @@ namespace Gorakshnath_Billing_System.UI
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(1121, 80);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(123, 23);
+            this.label9.Size = new System.Drawing.Size(96, 23);
             this.label9.TabIndex = 13;
-            this.label9.Text = "Invoice Bill No.";
+            this.label9.Text = "Invoice No.";
             // 
             // textAddress
             // 
