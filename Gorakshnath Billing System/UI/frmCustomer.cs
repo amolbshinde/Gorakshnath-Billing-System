@@ -41,27 +41,21 @@ namespace Gorakshnath_Billing_System.UI
                         {
                             if (c.address != "" && c.address != "Customer Address")
                             {
-                                if (c.Gst_No != "" && c.Gst_No != "Customer GST No")
-                                {
-                                    bool Success = dal.Insert(c);
+                                
+                                bool Success = dal.Insert(c);
 
-                                    if (Success == true)
-                                    {
-                                        MessageBox.Show("Customer Details Successfully Added");
-                                        clear();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Failed to Added Customer Details");
-                                    }
-                                    DataTable dt = dal.Select();
-                                    dgvCustomer.DataSource = dt;
+                                if (Success == true)
+                                {
+                                    MessageBox.Show("Customer Details Successfully Added");
+                                    clear();
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Please Enter customer GST No");
-                                    txtCustomerGSTNo.Focus();
+                                    MessageBox.Show("Failed to Added Customer Details");
                                 }
+                                DataTable dt = dal.Select();
+                                dgvCustomer.DataSource = dt;
+                                
                             }
                             else
                             {

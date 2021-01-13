@@ -60,7 +60,7 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
-                string sql = "insert into Supplier_Master(CompanyName,Address,City,State,Pincode,Country,Email,Phone_No,Contact_Person,Contact_No) Values(@CompanyName,@Address,@City,@State,@Pincode,@Country,@Email,@Phone_No,@Contact_Person,@Contact_No)";
+                string sql = "insert into Supplier_Master(CompanyName,Address,City,State,Pincode,Country,Email,Phone_No,Contact_Person,Contact_No,Gst_No) Values(@CompanyName,@Address,@City,@State,@Pincode,@Country,@Email,@Phone_No,@Contact_Person,@Contact_No,@Gst_No)";
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 //
@@ -74,6 +74,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Phone_No", sm.Phone_No);
                 cmd.Parameters.AddWithValue("@Contact_Person", sm.Contact_Person);
                 cmd.Parameters.AddWithValue("@Contact_No", sm.Contact_No);                
+                cmd.Parameters.AddWithValue("@Gst_No", sm.Gst_No);                
                 conn.Open();
                 
                 int rows = cmd.ExecuteNonQuery();
@@ -157,7 +158,7 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
-                string sql = "UPDATE  Supplier_Master set CompanyName=@CompanyName,Address=@Address,City=@City,State=@State,Pincode=@Pincode,Country=@Country,Email=@Email,Phone_No=@Phone_No,Contact_Person=@Contact_Person,Contact_No=@Contact_No where SupplierID=@id";
+                string sql = "UPDATE  Supplier_Master set CompanyName=@CompanyName,Address=@Address,City=@City,State=@State,Pincode=@Pincode,Country=@Country,Email=@Email,Phone_No=@Phone_No,Contact_Person=@Contact_Person,Contact_No=@Contact_No,Gst_No=@Gst_No where SupplierID=@id";
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -171,6 +172,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Phone_No", sm.Phone_No);
                 cmd.Parameters.AddWithValue("@Contact_Person", sm.Contact_Person);
                 cmd.Parameters.AddWithValue("@Contact_No", sm.Contact_No);
+                cmd.Parameters.AddWithValue("@Gst_No", sm.Gst_No);
                 cmd.Parameters.AddWithValue("@id",sm.SupplierID);
                 conn.Open();
 

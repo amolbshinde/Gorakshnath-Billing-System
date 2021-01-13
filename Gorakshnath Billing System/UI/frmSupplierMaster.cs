@@ -104,6 +104,7 @@ namespace Gorakshnath_Billing_System.UI
                 sm.Phone_No = textPhone_No.Text;
                 sm.Contact_Person = textContact_Person.Text;
                 sm.Contact_No = textContact_No.Text; 
+                sm.Gst_No = textGSTNo.Text; 
 
                 bool success = smd.Update(sm);
 
@@ -138,6 +139,7 @@ namespace Gorakshnath_Billing_System.UI
             sm.Phone_No = textPhone_No.Text;
             sm.Contact_Person = textContact_Person.Text;
             sm.Contact_No =textContact_No.Text;            
+            sm.Gst_No = textGSTNo.Text;            
             bool Success = smd.Insert(sm);
             if(Success==true)
             {
@@ -166,6 +168,7 @@ namespace Gorakshnath_Billing_System.UI
             textPhone_No.Text = "";
             textContact_Person.Text = "";
             textContact_No.Text = "";
+            textGSTNo.Text = "";
         }
 
         private void frmSupplierMaster_Load(object sender, EventArgs e)
@@ -211,7 +214,8 @@ namespace Gorakshnath_Billing_System.UI
             textContact_No.Text = dgvSupplier.Rows[rowIndex].Cells[10].Value.ToString();
             textContact_No.ForeColor = Color.Black;
 
-
+            textGSTNo.Text = dgvSupplier.Rows[rowIndex].Cells[12].Value.ToString();
+            textGSTNo.ForeColor = Color.Black;
         }
 
         private void textSearch_TextChanged(object sender, EventArgs e)

@@ -228,7 +228,6 @@ namespace Gorakshnath_Billing_System.DAL
 
         #endregion
 
-
         #region Method  to search customer By Name
         public customerBLL searchcustomerByName(string keyword)
         {
@@ -271,7 +270,6 @@ namespace Gorakshnath_Billing_System.DAL
 
         #endregion
 
-
         #region Method  to search customer By Phone
         public customerBLL searchcustomerByPhone(string keyword)
         {
@@ -313,7 +311,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
-
 
         #region Method to get id of the Customer based on Name
         public customerBLL getCustomerIdFromName(string Name)
@@ -408,7 +405,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
 
         #region Method to customer already available or not Customer based on Phone
         public customerBLL getCustomerIdFromContact(string contact)
