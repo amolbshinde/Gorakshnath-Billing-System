@@ -381,6 +381,7 @@ namespace Gorakshnath_Billing_System.UI
                         SupplierMasterBLL.Phone_No = comboContact.Text;
                         SupplierMasterBLL.Email = textEmail.Text;
                         SupplierMasterBLL.Address = textAddress.Text;
+                        SupplierMasterBLL.Gst_No = textGSTNo.Text;
 
                         bool Success = SupplierMasterDAL.InsertByPurchasebill(SupplierMasterBLL);
 
@@ -748,6 +749,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboContact.Text = smBLL.Phone_No;
                 textEmail.Text = smBLL.Email;
                 textAddress.Text = smBLL.Address;
+                textGSTNo.Text = smBLL.Gst_No;
             }
             else
             {
@@ -813,7 +815,7 @@ namespace Gorakshnath_Billing_System.UI
             textEmail.Text = "";
             textAddress.Text = "";
             comboContact.Text = "Select Phone";
-            textBox6.Text = "";
+            textGSTNo.Text = "";
 
             textItemCode.Text = "";
             
@@ -870,6 +872,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboContact.Text = smBLL.Phone_No;
                 textEmail.Text = smBLL.Email;
                 textAddress.Text = smBLL.Address;
+                textGSTNo.Text = smBLL.Gst_No;
             }
             else
             {

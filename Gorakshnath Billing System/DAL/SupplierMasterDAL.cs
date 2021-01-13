@@ -103,7 +103,7 @@ namespace Gorakshnath_Billing_System.DAL
 
         #endregion
 
-        #region Insert Method to add data in database
+        #region Insert Method to add data in database from Purchase bill
         public bool InsertByPurchasebill(SupplierMasterBLL sm)
         {
             // Creating Sql Connection First
@@ -112,7 +112,7 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
-                string sql = "insert into Supplier_Master(CompanyName,Address,Email,Phone_No) Values(@CompanyName,@Address,@Email,@Phone_No)";
+                string sql = "insert into Supplier_Master(CompanyName,Address,Email,Phone_No,Gst_No) Values(@CompanyName,@Address,@Email,@Phone_No,@Gst_No)";
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 //
@@ -120,6 +120,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Address", sm.Address);                           
                 cmd.Parameters.AddWithValue("@Email", sm.Email);
                 cmd.Parameters.AddWithValue("@Phone_No", sm.Phone_No);               
+                cmd.Parameters.AddWithValue("@Gst_No", sm.Gst_No);               
                 conn.Open();
 
                 int rows = cmd.ExecuteNonQuery();
@@ -289,7 +290,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {                
 
-                string sql= "Select CompanyName,Phone_No,Email,Address from Supplier_Master WHERE CompanyName='" + keyword + "'";
+                string sql= "Select CompanyName,Phone_No,Email,Address,Gst_No from Supplier_Master WHERE CompanyName='" + keyword + "'";
                 //Sql data adapter to execute query
                 SqlDataAdapter adapter = new SqlDataAdapter(sql,conn);
                 //open connecton to databaase
@@ -336,7 +337,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
 
-                string sql = "Select CompanyName,Phone_No,Email,Address from Supplier_Master WHERE Phone_No='" + keyword + "'";
+                string sql = "Select CompanyName,Phone_No,Email,Address,Gst_No from Supplier_Master WHERE Phone_No='" + keyword + "'";
                 //Sql data adapter to execute query
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
                 //open connecton to databaase
