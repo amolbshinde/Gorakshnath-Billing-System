@@ -14,7 +14,7 @@ namespace Gorakshnath_Billing_System.DAL
     class customerDAL
     {
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
-
+        //jhjh
         #region Select Data From Database
         public DataTable Select()
         {
@@ -48,13 +48,14 @@ namespace Gorakshnath_Billing_System.DAL
            SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO Cust_Master (Cust_Name, Cust_Contact, Cust_Email, Cust_Address) VALUES(@name, @contact, @email, @address)";
+                String sql = "INSERT INTO Cust_Master (Cust_Name, Cust_Contact, Cust_Email, Cust_Address,Gst_No) VALUES(@name, @contact, @email, @address,@Gst_No)";
 
                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@name", c.name);
                 cmd.Parameters.AddWithValue("@contact", c.contact);
                 cmd.Parameters.AddWithValue("@email", c.email);
                 cmd.Parameters.AddWithValue("@address", c.address);
+                cmd.Parameters.AddWithValue("@Gst_No", c.Gst_No);
 
                 con.Open();
 
@@ -89,13 +90,14 @@ namespace Gorakshnath_Billing_System.DAL
            SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "UPDATE Cust_Master SET Cust_Name=@name, Cust_Contact=@contact, Cust_Email=@email, Cust_Address=@address WHERE Cust_Id = @id";
+                String sql = "UPDATE Cust_Master SET Cust_Name=@name, Cust_Contact=@contact, Cust_Email=@email, Cust_Address=@address,Gst_No=@Gst_No WHERE Cust_Id = @id";
                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@name", c.name);
                 cmd.Parameters.AddWithValue("@contact", c.contact);
                 cmd.Parameters.AddWithValue("@email", c.email);
                 cmd.Parameters.AddWithValue("@address", c.address);
                 cmd.Parameters.AddWithValue("@id", c.id);
+                cmd.Parameters.AddWithValue("@Gst_No", c.Gst_No);
 
                 con.Open();
                 int rows = cmd.ExecuteNonQuery();
@@ -226,7 +228,6 @@ namespace Gorakshnath_Billing_System.DAL
 
         #endregion
 
-
         #region Method  to search customer By Name
         public customerBLL searchcustomerByName(string keyword)
         {
@@ -238,7 +239,7 @@ namespace Gorakshnath_Billing_System.DAL
             //
             try
             {
-                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address from Cust_Master WHERE Cust_Name='" + keyword + "'";
+                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address,Gst_No from Cust_Master WHERE Cust_Name='" + keyword + "'";
 
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
 
@@ -252,6 +253,7 @@ namespace Gorakshnath_Billing_System.DAL
                     c.contact = dt.Rows[0]["Cust_Contact"].ToString();
                     c.email = dt.Rows[0]["Cust_Email"].ToString();
                     c.address = dt.Rows[0]["Cust_Address"].ToString();
+                    c.Gst_No = dt.Rows[0]["Gst_No"].ToString();
 
                 }
             }
@@ -267,7 +269,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
-
 
         #region Method  to search customer By Phone
         public customerBLL searchcustomerByPhone(string keyword)
@@ -280,7 +281,7 @@ namespace Gorakshnath_Billing_System.DAL
             //
             try
             {
-                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address from Cust_Master WHERE Cust_Contact='" + keyword + "'";
+                string sql = "SELECT Cust_Name, Cust_Contact, Cust_Email,Cust_Address,Gst_No from Cust_Master WHERE Cust_Contact='" + keyword + "'";
 
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
 
@@ -294,6 +295,7 @@ namespace Gorakshnath_Billing_System.DAL
                     c.contact = dt.Rows[0]["Cust_Contact"].ToString();
                     c.email = dt.Rows[0]["Cust_Email"].ToString();
                     c.address = dt.Rows[0]["Cust_Address"].ToString();
+                    c.Gst_No = dt.Rows[0]["Gst_No"].ToString();
 
                 }
             }
@@ -309,7 +311,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
-
 
         #region Method to get id of the Customer based on Name
         public customerBLL getCustomerIdFromName(string Name)
@@ -404,7 +405,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
 
         #region Method to customer already available or not Customer based on Phone
         public customerBLL getCustomerIdFromContact(string contact)

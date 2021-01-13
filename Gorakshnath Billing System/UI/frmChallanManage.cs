@@ -95,6 +95,7 @@ namespace Gorakshnath_Billing_System.UI
             textQuantity.Text = "0";
             textRate.Text = "0";
             textDiscount.Text = "0";
+            textGstNo.Text = "";
 
             if (comboTransactionType.Text != "Non GST")
             {
@@ -118,6 +119,7 @@ namespace Gorakshnath_Billing_System.UI
             textCgst.Text = dtc.Rows[0][9].ToString();
             textIgst.Text = dtc.Rows[0][10].ToString();
             textGrandTotal.Text = dtc.Rows[0][11].ToString();
+            textGstNo.Text = dtc.Rows[0][12].ToString();
                         
 
             chDT = challandetailsDAL.SelectByInvoiceNo(GetInvoice.ToString());
@@ -440,6 +442,7 @@ namespace Gorakshnath_Billing_System.UI
                     textAddress.Text = "";
                     comboContact.Text = "Select Phone";
                     textEmail.Text = "";
+                    textGstNo.Text = "";
                     return;
                 }
                 customerBLL cBLL = customerDAL.searchcustomerByName(keyword);
@@ -448,6 +451,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboContact.Text = cBLL.contact;
                 textEmail.Text = cBLL.email;
                 textAddress.Text = cBLL.address;
+                textGstNo.Text = cBLL.Gst_No;
 
             }
             else
@@ -456,6 +460,7 @@ namespace Gorakshnath_Billing_System.UI
                 textAddress.Text = "";
                 comboContact.Text = "Select Phone";
                 textEmail.Text = "";
+                textGstNo.Text = "";
             }
 
         }
@@ -474,6 +479,7 @@ namespace Gorakshnath_Billing_System.UI
                     textAddress.Text = "";
                     comboContact.Text = "Select Phone";
                     textEmail.Text = "";
+                    textGstNo.Text = "";
                     return;
                 }
                 customerBLL cBLL = customerDAL.searchcustomerByPhone(keyword);
@@ -482,7 +488,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboContact.Text = cBLL.contact;
                 textEmail.Text = cBLL.email;
                 textAddress.Text = cBLL.address;
-
+                textGstNo.Text = cBLL.Gst_No;
             }
             else
             {
@@ -490,6 +496,7 @@ namespace Gorakshnath_Billing_System.UI
                 textAddress.Text = "";
                 comboContact.Text = "Select Phone";
                 textEmail.Text = "";
+                textGstNo.Text = "";
             }
 
         }
@@ -731,6 +738,7 @@ namespace Gorakshnath_Billing_System.UI
                         customerBLL.contact = comboContact.Text;
                         customerBLL.email = textEmail.Text;
                         customerBLL.address = textAddress.Text;
+                        customerBLL.Gst_No = textGstNo.Text;
 
                         bool Success = customerDAL.Insert(customerBLL);
 

@@ -28,6 +28,7 @@ namespace Gorakshnath_Billing_System.UI
             c.contact = txtCustomerContact.Text;
             c.email = txtCustomerEmail.Text;
             c.address = txtCustomerAddress.Text;
+            c.Gst_No = txtCustomerGSTNo.Text;
 
             string cid = txtCustomerId.Text;
             if (dgvCustomer.SelectedRows.Count < 1)
@@ -40,6 +41,7 @@ namespace Gorakshnath_Billing_System.UI
                         {
                             if (c.address != "" && c.address != "Customer Address")
                             {
+                                
                                 bool Success = dal.Insert(c);
 
                                 if (Success == true)
@@ -53,7 +55,7 @@ namespace Gorakshnath_Billing_System.UI
                                 }
                                 DataTable dt = dal.Select();
                                 dgvCustomer.DataSource = dt;
-
+                                
                             }
                             else
                             {
@@ -103,6 +105,9 @@ namespace Gorakshnath_Billing_System.UI
 
             txtCustomerAddress.Text = "Customer Address";
             txtCustomerAddress.ForeColor = Color.Gray;
+            
+            txtCustomerGSTNo.Text = "Customer GST No";
+            txtCustomerGSTNo.ForeColor = Color.Gray;
 
             dgvCustomer.ClearSelection();
 
@@ -140,14 +145,17 @@ namespace Gorakshnath_Billing_System.UI
             txtCustomerName.Text = dgvCustomer.Rows[rowIndex].Cells[1].Value.ToString();
             txtCustomerName.ForeColor = Color.Black;
 
-            txtCustomerContact.Text = dgvCustomer.Rows[rowIndex].Cells[2].Value.ToString();
-            txtCustomerContact.ForeColor = Color.Black;
-
-            txtCustomerEmail.Text = dgvCustomer.Rows[rowIndex].Cells[3].Value.ToString();
+            txtCustomerEmail.Text = dgvCustomer.Rows[rowIndex].Cells[2].Value.ToString();
             txtCustomerEmail.ForeColor = Color.Black;
+
+            txtCustomerContact.Text = dgvCustomer.Rows[rowIndex].Cells[3].Value.ToString();
+            txtCustomerContact.ForeColor = Color.Black;
 
             txtCustomerAddress.Text = dgvCustomer.Rows[rowIndex].Cells[4].Value.ToString();
             txtCustomerAddress.ForeColor = Color.Black;
+
+            txtCustomerGSTNo.Text = dgvCustomer.Rows[rowIndex].Cells[6].Value.ToString();
+            txtCustomerGSTNo.ForeColor = Color.Black;
         }
 
         private void frmCustomer_Load_1(object sender, EventArgs e)
@@ -228,6 +236,7 @@ namespace Gorakshnath_Billing_System.UI
                 c.contact = txtCustomerContact.Text;
                 c.email = txtCustomerEmail.Text;
                 c.address = txtCustomerAddress.Text;
+                c.Gst_No = txtCustomerGSTNo.Text;
 
                 bool success = dal.Update(c);
 
@@ -285,6 +294,24 @@ namespace Gorakshnath_Billing_System.UI
         private void txtCustomerSearch_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtCustomerGSTNo_Enter(object sender, EventArgs e)
+        {
+            if (txtCustomerGSTNo.Text == "Customer GST No")
+            {
+                txtCustomerGSTNo.Text = "";
+                txtCustomerGSTNo.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtCustomerGSTNo_Leave(object sender, EventArgs e)
+        {
+            if (txtCustomerGSTNo.Text == "")
+            {
+                txtCustomerGSTNo.Text = "Customer GST No";
+                txtCustomerGSTNo.ForeColor = Color.Gray;
+            }
         }
     }
 }

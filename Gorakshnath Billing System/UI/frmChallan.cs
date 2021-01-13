@@ -319,7 +319,7 @@ namespace Gorakshnath_Billing_System.UI
                         sp.Invoice_No = Invoice_No;
                         SalesPaymentDetailsDAL dal = new SalesPaymentDetailsDAL();
                         bool success = dal.InsertSalesPayment(sp);
-
+                        /*
                         if (success == true)
                         {
                             //data inserted sucesfully
@@ -331,6 +331,7 @@ namespace Gorakshnath_Billing_System.UI
                             //error occured
                             MessageBox.Show("Sorry..!! , Failed to add user");
                         }
+                        */
                     }
                     else
                     {
@@ -358,12 +359,13 @@ namespace Gorakshnath_Billing_System.UI
                     string Contact = comboContact.Text;
                     customerBLL cust = customerDAL.getCustomerIdFromContact(Contact);
                     if (cust.contact != comboContact.Text)
-                    {
-
+                    {                        
                         customerBLL.name = comboSearchCust.Text;
                         customerBLL.contact = comboContact.Text;
                         customerBLL.email = textEmail.Text;
                         customerBLL.address = textAddress.Text;
+                        customerBLL.Gst_No = textGstNo.Text;
+
 
                         bool Success = customerDAL.Insert(customerBLL);
 
@@ -882,6 +884,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboContact.Text = cBLL.contact;
                 textEmail.Text = cBLL.email;
                 textAddress.Text = cBLL.address;
+                textGstNo.Text = cBLL.Gst_No;
                                 
             }
             else
@@ -916,6 +919,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboContact.Text = cBLL.contact;
                 textEmail.Text = cBLL.email;
                 textAddress.Text = cBLL.address;
+                textGstNo.Text = cBLL.Gst_No;
 
             }
             else
