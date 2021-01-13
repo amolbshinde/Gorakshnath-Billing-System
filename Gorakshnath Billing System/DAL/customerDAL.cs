@@ -14,7 +14,7 @@ namespace Gorakshnath_Billing_System.DAL
     class customerDAL
     {
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
-
+        //jhjh
         #region Select Data From Database
         public DataTable Select()
         {

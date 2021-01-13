@@ -95,6 +95,7 @@ namespace Gorakshnath_Billing_System.UI
             textQuantity.Text = "0";
             textRate.Text = "0";
             textDiscount.Text = "0";
+            textGstNo.Text = "";
 
             if (comboTransactionType.Text != "Non GST")
             {
