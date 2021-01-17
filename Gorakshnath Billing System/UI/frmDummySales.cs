@@ -334,7 +334,6 @@ namespace Gorakshnath_Billing_System.UI
             textAddress.Text = "";
             comboContact.Text = "Select Phone";
             textGstNo.Text = "";
-
             textItemCode.Text = "";
             comboSearchItem.Text = "Select Product";
             textItemName.Text = "";

@@ -304,6 +304,7 @@ namespace Gorakshnath_Billing_System.DAL
                     sm.Email = dt.Rows[0]["Email"].ToString();
                     sm.Address = dt.Rows[0]["Address"].ToString();
                     sm.Phone_No = dt.Rows[0]["Phone_No"].ToString();
+                    sm.Gst_No = dt.Rows[0]["Gst_No"].ToString();
                 }
 
 
@@ -351,6 +352,7 @@ namespace Gorakshnath_Billing_System.DAL
                     sm.Email = dt.Rows[0]["Email"].ToString();
                     sm.Address = dt.Rows[0]["Address"].ToString();
                     sm.Phone_No = dt.Rows[0]["Phone_No"].ToString();
+                    sm.Gst_No = dt.Rows[0]["Gst_No"].ToString();
                 }
 
 
