@@ -248,7 +248,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-        #region Select Data By Select By Purchase Id Manage
+        #region Select Data By Select By Purchase Id Manage.
         public DataTable SelectByPurchaseIdManage(string Purchase_ID)
         {
             SqlConnection con = new SqlConnection(myconnstrng);
