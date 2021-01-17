@@ -121,7 +121,7 @@ namespace Gorakshnath_Billing_System.UI
                 MailMessage mail = new MailMessage();
                 mail.Subject = "Shiv Gorakshnath Billing System :Invoice";
                 mail.From = new MailAddress(fromAddress);
-                mail.Body = "Hi Sir,"+"\n\n"+"Please Find Attached Invoice" + "\n\n\n" +"Regards," + "\n" + "Ghiv Gorakshnath Traders" + "\n" +" Cell-8999150129";
+                mail.Body = "Hi Sir,"+"\n\n"+"Please Find Attached Invoice" + "\n\n\n" +"Regards," + "\n" + "Shiv Gorakshnath Traders" + "\n" +" Cell-8999150129";
                 mail.To.Add(new MailAddress(toAddress));
                 System.Net.Mail.Attachment at = new System.Net.Mail.Attachment("E:\\Reports\\Challan\\" + GetInvoice + ".pdf");
                 mail.Attachments.Add(at);
