@@ -80,6 +80,7 @@ namespace Gorakshnath_Billing_System.UI
                 textAddress.Text = "";
                 comboContact.Text = "Select Phone";
                 textEmail.Text = "";
+                textGSTNo.Text = "";
                 return;
             }
 
@@ -89,6 +90,7 @@ namespace Gorakshnath_Billing_System.UI
             comboContact.Text = smBLL.Phone_No;
             textEmail.Text = smBLL.Email;
             textAddress.Text =smBLL.Address;
+            textGSTNo.Text = smBLL.Gst_No;
 
         }
 
@@ -740,6 +742,7 @@ namespace Gorakshnath_Billing_System.UI
                     textAddress.Text = "";
                     comboContact.Text = "Select Phone";
                     textEmail.Text = "";
+                    textGSTNo.Text = "";
                     return;
                 }
 
@@ -757,6 +760,7 @@ namespace Gorakshnath_Billing_System.UI
                 textAddress.Text = "";
                 comboContact.Text = "Select Phone";
                 textEmail.Text = "";
+                textGSTNo.Text = "";
             }
         }
 
@@ -863,6 +867,7 @@ namespace Gorakshnath_Billing_System.UI
                     textAddress.Text = "";
                     comboContact.Text = "Select Phone";
                     textEmail.Text = "";
+                    textGSTNo.Text = "";
                     return;
                 }
 
@@ -880,6 +885,7 @@ namespace Gorakshnath_Billing_System.UI
                 textAddress.Text = "";
                 comboContact.Text = "Select Phone";
                 textEmail.Text = "";
+                textGSTNo.Text = "";
                 //---
             }
 
