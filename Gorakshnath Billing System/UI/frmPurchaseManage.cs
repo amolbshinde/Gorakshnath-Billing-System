@@ -111,6 +111,7 @@ namespace Gorakshnath_Billing_System.UI
             textCgst.Text = dtc.Rows[0][9].ToString();
             textIgst.Text = dtc.Rows[0][10].ToString();
             textGrandTotal.Text = dtc.Rows[0][11].ToString();
+            textGSTNo.Text= dtc.Rows[0][12].ToString();
 
 
             chDT = purchasedetailsDAL.SelectByPurchaseId(GetPurchase_Id.ToString());
@@ -429,6 +430,7 @@ namespace Gorakshnath_Billing_System.UI
                     textAddress.Text = "";
                     comboContact.Text = "Select Phone";
                     textEmail.Text = "";
+                    textGSTNo.Text = "";
                     return;
                 }
 
@@ -438,6 +440,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboContact.Text = smBLL.Phone_No;
                 textEmail.Text = smBLL.Email;
                 textAddress.Text = smBLL.Address;
+                textGSTNo.Text = smBLL.Gst_No;
             }
             else
             {
@@ -445,6 +448,7 @@ namespace Gorakshnath_Billing_System.UI
                 textAddress.Text = "";
                 comboContact.Text = "Select Phone";
                 textEmail.Text = "";
+                textGSTNo.Text = "";
             }
 
         }
@@ -461,6 +465,7 @@ namespace Gorakshnath_Billing_System.UI
                     textAddress.Text = "";
                     comboContact.Text = "Select Phone";
                     textEmail.Text = "";
+                    textGSTNo.Text = "";
                     return;
                 }
 
@@ -470,6 +475,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboContact.Text = smBLL.Phone_No;
                 textEmail.Text = smBLL.Email;
                 textAddress.Text = smBLL.Address;
+                textGSTNo.Text = smBLL.Gst_No;
             }
             else
             {
@@ -477,6 +483,7 @@ namespace Gorakshnath_Billing_System.UI
                 textAddress.Text = "";
                 comboContact.Text = "Select Phone";
                 textEmail.Text = "";
+                textGSTNo.Text = "";
             }
 
         }

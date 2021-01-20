@@ -333,7 +333,7 @@ namespace Gorakshnath_Billing_System.UI
             textEmail.Text = "";
             textAddress.Text = "";
             comboContact.Text = "Select Phone";
-
+            textGstNo.Text = "";
             textItemCode.Text = "";
             comboSearchItem.Text = "Select Product";
             textItemName.Text = "";
@@ -381,6 +381,7 @@ namespace Gorakshnath_Billing_System.UI
                         customerBLL.contact = comboContact.Text;
                         customerBLL.email = textEmail.Text;
                         customerBLL.address = textAddress.Text;
+                        customerBLL.Gst_No = textGstNo.Text;
 
                         bool Success = customerDAL.Insert(customerBLL);
 
@@ -646,6 +647,7 @@ namespace Gorakshnath_Billing_System.UI
                     textAddress.Text = "";
                     comboContact.Text = "Select Phone";
                     textEmail.Text = "";
+                    textGstNo.Text = "";
                     return;
                 }
 
@@ -654,6 +656,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboContact.Text = cBLL.contact;
                 textEmail.Text = cBLL.email;
                 textAddress.Text = cBLL.address;
+                textGstNo.Text = cBLL.Gst_No;
             }
             else
             {
@@ -735,6 +738,7 @@ namespace Gorakshnath_Billing_System.UI
                     textAddress.Text = "";
                     comboContact.Text = "Select Phone";
                     textEmail.Text = "";
+                    textGstNo.Text = "";
                     return;
                 }
                 customerBLL cBLL = customerDAL.searchcustomerByName(keyword);
@@ -743,6 +747,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboContact.Text = cBLL.contact;
                 textEmail.Text = cBLL.email;
                 textAddress.Text = cBLL.address;
+                textGstNo.Text = cBLL.Gst_No;
 
             }
             else
@@ -752,6 +757,7 @@ namespace Gorakshnath_Billing_System.UI
                 textAddress.Text = "";
                 comboContact.Text = "Select Phone";
                 textEmail.Text = "";
+                textGstNo.Text = "";
             }
 
         }
@@ -816,6 +822,7 @@ namespace Gorakshnath_Billing_System.UI
                     textAddress.Text = "";
                     comboContact.Text = "Select Phone";
                     textEmail.Text = "";
+                    textGstNo.Text = "";
                     return;
                 }
                 customerBLL cBLL = customerDAL.searchcustomerByPhone(keyword);
@@ -825,6 +832,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboSearchCust.Text = cBLL.name;
                 textEmail.Text = cBLL.email;
                 textAddress.Text = cBLL.address;
+                textGstNo.Text =cBLL.Gst_No;
 
             }
             else
@@ -834,6 +842,7 @@ namespace Gorakshnath_Billing_System.UI
                 textAddress.Text = "";
                 comboContact.Text = "Select Phone";
                 textEmail.Text = "";
+                textGstNo.Text = "";
             }
 
         }

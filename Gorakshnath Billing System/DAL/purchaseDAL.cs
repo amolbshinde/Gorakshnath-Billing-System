@@ -248,7 +248,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-        #region Select Data By Invoice NO
+        #region Select Data By Select By Purchase Id Manage.
         public DataTable SelectByPurchaseIdManage(string Purchase_ID)
         {
             SqlConnection con = new SqlConnection(myconnstrng);
@@ -256,7 +256,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                String sql = "select Purchase_ID,CompanyName,Phone_No,Email,Address,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Purchase_Date from Purchase_Transactions,Supplier_Master where Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and Purchase_Transactions.Purchase_ID = '" + Purchase_ID + "';";
+                String sql = "select Purchase_ID,CompanyName,Phone_No,Email,Address,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Purchase_Date,Gst_No from Purchase_Transactions,Supplier_Master where Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID and Purchase_Transactions.Purchase_ID = '" + Purchase_ID + "';";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();
