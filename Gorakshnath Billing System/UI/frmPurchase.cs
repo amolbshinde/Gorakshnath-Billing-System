@@ -101,10 +101,10 @@ namespace Gorakshnath_Billing_System.UI
             {
                 if(textQuantity.Text!="" && textQuantity.Text!="0")
                 {
-                    string selectedItem = comboPurchaseType.Items[comboPurchaseType.SelectedIndex].ToString();
+                    //string selectedItem = comboPurchaseType.Items[comboPurchaseType.SelectedIndex].ToString();
 
-                    if (selectedItem == "GST" && comboGstType.Text!="")
-                    {
+                   // if (comboPurchaseType.SelectedIndex==1)
+                   // {
                         // get Product name,unit ,Qty, price , Discount ,Tax. Amount to datagrid view
 
                         String ProductName = textItemName.Text;
@@ -171,11 +171,12 @@ namespace Gorakshnath_Billing_System.UI
                         comboGstType.Text = "";
                         textGst.Text = "0";
 
-                    }
+                   /* }
                     else
                     {
+                        
                         MessageBox.Show("Plsease Select GST type");
-                    }
+                    }*/
                 }
                 else
                 {
@@ -276,6 +277,7 @@ namespace Gorakshnath_Billing_System.UI
             comboTrMode.SelectedIndex = 0;
             comboTrType.SelectedIndex = 0;
             comboPurchaseType.SelectedIndex = 1;
+            comboGstType.SelectedIndex = 0;
         }
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
@@ -698,14 +700,15 @@ namespace Gorakshnath_Billing_System.UI
         private void comboPurchaseType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (comboPurchaseType.Text == "Non GST")
+            if (comboPurchaseType.SelectedIndex==1)
             {
                 comboGstType.Enabled = false;
                 textGst.Enabled = false;
                 textCgst.Enabled = false;
                 textSgst.Enabled = false;
                 textIgst.Enabled = false;
-                comboGstType.Text = "NA";
+                comboGstType.SelectedIndex = 0;
+                //comboGstType.Text = "NA"
                 textGst.Text = "0";
                 textCgst.Text = "0";
                 textSgst.Text = "0";
@@ -716,20 +719,21 @@ namespace Gorakshnath_Billing_System.UI
                 label18.Enabled = false;
                 label35.Enabled = false;
             }
-            else if (comboPurchaseType.Text == "GST")
+            else if (comboPurchaseType.SelectedIndex==0)
             {
                 comboGstType.Enabled = true;
                 textGst.Enabled = true;
                 textCgst.Enabled = true;
                 textSgst.Enabled = true;
                 textIgst.Enabled = true;
-                comboGstType.Text = "";
+               // comboGstType.Text = "";
 
                 label32.Enabled = true;
                 label34.Enabled = true;
                 label36.Enabled = true;
                 label18.Enabled = true;
                 label35.Enabled = true;
+                comboGstType.SelectedIndex = 0;
             }
 
         }
@@ -915,6 +919,11 @@ namespace Gorakshnath_Billing_System.UI
             decimal.TryParse(textGrandTotal.Text, out TrAmount);
             decimal.TryParse(txtPaidAmount.Text, out PaidAmount);
             txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
+        }
+
+        private void comboGstType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }   
 }
