@@ -302,5 +302,10 @@ namespace Gorakshnath_Billing_System
             frmDebtors_Creditors_Purchase frmpurDrCr = new frmDebtors_Creditors_Purchase();
             frmpurDrCr.Show();
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

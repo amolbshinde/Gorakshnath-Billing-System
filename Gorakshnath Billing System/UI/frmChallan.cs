@@ -974,5 +974,10 @@ namespace Gorakshnath_Billing_System.UI
                 txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
             }
         }
+
+        private void textItemName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

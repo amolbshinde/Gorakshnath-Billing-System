@@ -16,8 +16,9 @@ namespace Gorakshnath_Billing_System
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false); 
-            Application.Run(new frmLogin());            
+            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new frmLogin()); 
+            Application.Run(new frmAdminDashboard());
         }
     }
 }

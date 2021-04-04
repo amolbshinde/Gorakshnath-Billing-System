@@ -77,6 +77,10 @@ namespace Gorakshnath_Billing_System
             this.Time = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Date = new System.Windows.Forms.Label();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.pnllFooter.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -156,12 +160,16 @@ namespace Gorakshnath_Billing_System
             this.productToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newInvoiceToolStripMenuItem,
             this.searchAndManageInvoiceToolStripMenuItem,
+            this.toolStripSeparator1,
             this.newSalesReturnCreditNoteToolStripMenuItem,
             this.searchAndManageSalesReturnCreditNoteToolStripMenuItem,
+            this.toolStripSeparator2,
             this.newDeliveryNoteToolStripMenuItem,
             this.searchAndManageDeliveryNoteToolStripMenuItem,
+            this.toolStripSeparator3,
             this.newQuotationToolStripMenuItem,
             this.searchAndManageQuotationToolStripMenuItem,
+            this.toolStripSeparator4,
             this.addCustomerClientToolStripMenuItem,
             this.searchAndManageCustomerToolStripMenuItem,
             this.debtorsAndCreditorsToolStripMenuItem1});
@@ -499,6 +507,26 @@ namespace Gorakshnath_Billing_System
             this.Date.Text = "label5";
             this.Date.Click += new System.EventHandler(this.Date_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(382, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(382, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(382, 6);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(382, 6);
+            // 
             // frmAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -578,6 +606,10 @@ namespace Gorakshnath_Billing_System
         private System.Windows.Forms.ToolStripMenuItem debtorsAndCreditorsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem debtorsAndCreditorsToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem purchaseeDebtorsAndCreditorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 
