@@ -101,7 +101,9 @@ namespace Gorakshnath_Billing_System.UI
             {
                 if(textQuantity.Text!="" && textQuantity.Text!="0")
                 {
-                    if(comboGstType.Text!="")
+                    string selectedItem = comboPurchaseType.Items[comboPurchaseType.SelectedIndex].ToString();
+
+                    if (selectedItem == "GST" && comboGstType.Text!="")
                     {
                         // get Product name,unit ,Qty, price , Discount ,Tax. Amount to datagrid view
 
@@ -273,6 +275,7 @@ namespace Gorakshnath_Billing_System.UI
             txtTrAmount.ReadOnly = true;
             comboTrMode.SelectedIndex = 0;
             comboTrType.SelectedIndex = 0;
+            comboPurchaseType.SelectedIndex = 1;
         }
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
