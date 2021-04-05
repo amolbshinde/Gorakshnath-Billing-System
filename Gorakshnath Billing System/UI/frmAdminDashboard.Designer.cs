@@ -39,12 +39,16 @@ namespace Gorakshnath_Billing_System
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.newSalesReturnCreditNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageSalesReturnCreditNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.newDeliveryNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageDeliveryNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.newQuotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageQuotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.addCustomerClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debtorsAndCreditorsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,10 +81,6 @@ namespace Gorakshnath_Billing_System
             this.Time = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Date = new System.Windows.Forms.Label();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.pnllFooter.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -134,7 +134,7 @@ namespace Gorakshnath_Billing_System
             this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageUsersToolStripMenuItem,
             this.exitToolStripMenuItem});
-            this.usersToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usersToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usersToolStripMenuItem.Image = global::Gorakshnath_Billing_System.Properties.Resources._3fe2835;
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
@@ -144,14 +144,14 @@ namespace Gorakshnath_Billing_System
             // manageUsersToolStripMenuItem
             // 
             this.manageUsersToolStripMenuItem.Name = "manageUsersToolStripMenuItem";
-            this.manageUsersToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.manageUsersToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.manageUsersToolStripMenuItem.Text = "Manage Users";
             this.manageUsersToolStripMenuItem.Click += new System.EventHandler(this.manageUsersToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
             // 
@@ -173,7 +173,7 @@ namespace Gorakshnath_Billing_System
             this.addCustomerClientToolStripMenuItem,
             this.searchAndManageCustomerToolStripMenuItem,
             this.debtorsAndCreditorsToolStripMenuItem1});
-            this.productToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.productToolStripMenuItem.Image = global::Gorakshnath_Billing_System.Properties.Resources.Geeren_Background_18_512;
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
@@ -195,6 +195,11 @@ namespace Gorakshnath_Billing_System
             this.searchAndManageInvoiceToolStripMenuItem.Text = "Search and Manage Invoice";
             this.searchAndManageInvoiceToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageInvoiceToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(382, 6);
+            // 
             // newSalesReturnCreditNoteToolStripMenuItem
             // 
             this.newSalesReturnCreditNoteToolStripMenuItem.Name = "newSalesReturnCreditNoteToolStripMenuItem";
@@ -208,6 +213,11 @@ namespace Gorakshnath_Billing_System
             this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
             this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Text = "Search and Manage Sales Return";
             this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageSalesReturnCreditNoteToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(382, 6);
             // 
             // newDeliveryNoteToolStripMenuItem
             // 
@@ -223,6 +233,11 @@ namespace Gorakshnath_Billing_System
             this.searchAndManageDeliveryNoteToolStripMenuItem.Text = "Search and Manage Delivery Note";
             this.searchAndManageDeliveryNoteToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageDeliveryNoteToolStripMenuItem_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(382, 6);
+            // 
             // newQuotationToolStripMenuItem
             // 
             this.newQuotationToolStripMenuItem.Name = "newQuotationToolStripMenuItem";
@@ -236,6 +251,11 @@ namespace Gorakshnath_Billing_System
             this.searchAndManageQuotationToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
             this.searchAndManageQuotationToolStripMenuItem.Text = "Search and Manage Quotation";
             this.searchAndManageQuotationToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageQuotationToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(382, 6);
             // 
             // addCustomerClientToolStripMenuItem
             // 
@@ -268,7 +288,7 @@ namespace Gorakshnath_Billing_System
             this.addSupplierToolStripMenuItem,
             this.searchAndManageSupplierToolStripMenuItem,
             this.debtorsAndCreditorsToolStripMenuItem2});
-            this.inverntoryToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inverntoryToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inverntoryToolStripMenuItem.Image = global::Gorakshnath_Billing_System.Properties.Resources.images;
             this.inverntoryToolStripMenuItem.Name = "inverntoryToolStripMenuItem";
             this.inverntoryToolStripMenuItem.Size = new System.Drawing.Size(123, 29);
@@ -331,7 +351,7 @@ namespace Gorakshnath_Billing_System
             this.searchAndManageProductToolStripMenuItem,
             this.manageBrandToolStripMenuItem,
             this.manageProductGroupToolStripMenuItem});
-            this.transactionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transactionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionsToolStripMenuItem.Image = global::Gorakshnath_Billing_System.Properties.Resources.images__1_;
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
             this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(104, 29);
@@ -377,7 +397,7 @@ namespace Gorakshnath_Billing_System
             this.purchasaaeReturnReportToolStripMenuItem,
             this.debtorsAndCreditorsToolStripMenuItem,
             this.purchaseeDebtorsAndCreditorsToolStripMenuItem});
-            this.reportsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportsToolStripMenuItem.Image = global::Gorakshnath_Billing_System.Properties.Resources.images__1_1;
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(109, 29);
@@ -506,26 +526,6 @@ namespace Gorakshnath_Billing_System
             this.Date.TabIndex = 7;
             this.Date.Text = "label5";
             this.Date.Click += new System.EventHandler(this.Date_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(382, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(382, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(382, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(382, 6);
             // 
             // frmAdminDashboard
             // 

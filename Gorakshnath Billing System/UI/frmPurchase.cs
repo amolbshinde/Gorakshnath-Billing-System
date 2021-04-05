@@ -97,17 +97,19 @@ namespace Gorakshnath_Billing_System.UI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // CHECK PRODUCT IS SELECTED OR NOT.. 
-            if (textItemName.Text != "")
-            {
+            
+            //if (textItemName.Text != "")
+            if (comboItemSearch.Text!="Select Product")
+                {
                 if(textQuantity.Text!="" && textQuantity.Text!="0")
                 {
                     //string selectedItem = comboPurchaseType.Items[comboPurchaseType.SelectedIndex].ToString();
 
-                   // if (comboPurchaseType.SelectedIndex==1)
-                   // {
-                        // get Product name,unit ,Qty, price , Discount ,Tax. Amount to datagrid view
+                    // if (comboPurchaseType.SelectedIndex==1)
+                    // {
+                    // get Product name,unit ,Qty, price , Discount ,Tax. Amount to datagrid view
 
-                        String ProductName = textItemName.Text;
+                    String ProductName = comboItemSearch.Items[comboItemSearch.SelectedIndex].ToString();
                         String Unit = comboBoxUnit.Text;
                         string gstType = comboGstType.Text;
 
@@ -170,6 +172,7 @@ namespace Gorakshnath_Billing_System.UI
                         textQuantity.Text = "0";
                         comboGstType.Text = "";
                         textGst.Text = "0";
+                    //comboItemSearch.SelectedIndex = -1;
 
                    /* }
                     else
