@@ -423,5 +423,36 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Get Id from Database for Auto Increement
+        public  int GetMaxProductId()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+            int maxnum = 0;
+
+            //DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT COALESCE (MAX(Product_ID),0) AS MaxOf FROM Product_Master";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                //
+                //adapter.Fill(dt);
+                maxnum = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return maxnum;
+        }
+
+
+        #endregion
+
     }
 }

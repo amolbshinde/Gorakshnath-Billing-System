@@ -275,7 +275,19 @@ namespace Gorakshnath_Billing_System.UI
 
             DataTable dtb = bDAL.Select();
             comboBrand.DisplayMember = "Brand_Name";
-            comboBrand.DataSource = dtb;          
+            comboBrand.DataSource = dtb;
+
+            int MaxProdId = pDAL.GetMaxProductId();
+              {
+                MaxProdId++;
+                txtProduct_ID.Text = MaxProdId.ToString();
+
+               }
+
+
+
+            //
+
 
         }
 
@@ -357,6 +369,12 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboProduct_Group_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void GenerateAutoProductID()
+        {
+
             
         }
 
