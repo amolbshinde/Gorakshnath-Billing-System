@@ -103,15 +103,11 @@ namespace Gorakshnath_Billing_System.UI
                 {
                 if(textQuantity.Text!="" && textQuantity.Text!="0")
                 {
-                    //string selectedItem = comboPurchaseType.Items[comboPurchaseType.SelectedIndex].ToString();
 
-                    // if (comboPurchaseType.SelectedIndex==1)
-                    // {
-                    // get Product name,unit ,Qty, price , Discount ,Tax. Amount to datagrid view
-
-                    String ProductName = comboItemSearch.Items[comboItemSearch.SelectedIndex].ToString();
+                        String ProductName = comboItemSearch.Text;
                         String Unit = comboBoxUnit.Text;
                         string gstType = comboGstType.Text;
+//need to get product id here
 
                         decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
                         decimal.TryParse(textQuantity.Text, out Qty);
@@ -127,6 +123,8 @@ namespace Gorakshnath_Billing_System.UI
                         //Add product to datagridview//
                         purchasedt.Rows.Add(no, ProductName, Unit, Qty, PurchasePrice, Amount, discount,gstType, gst, TotalAmount);
                         dgvAddedProducts.DataSource = purchasedt;
+                        dgvAddedProducts.AutoResizeColumns();
+
 
                         decimal subTotal;
                         decimal.TryParse(textSubTotal.Text, out subTotal);
@@ -172,14 +170,7 @@ namespace Gorakshnath_Billing_System.UI
                         textQuantity.Text = "0";
                         comboGstType.Text = "";
                         textGst.Text = "0";
-                    //comboItemSearch.SelectedIndex = -1;
-
-                   /* }
-                    else
-                    {
-                        
-                        MessageBox.Show("Plsease Select GST type");
-                    }*/
+                    
                 }
                 else
                 {
@@ -266,16 +257,17 @@ namespace Gorakshnath_Billing_System.UI
         {
             Clear();
             //specify columns to our dataTable 
-            purchasedt.Columns.Add("Sr. No.");
-            purchasedt.Columns.Add("ProductName");
+            purchasedt.Columns.Add("Sr.No.");
+            purchasedt.Columns.Add("Product Name");
             purchasedt.Columns.Add("Unit");
             purchasedt.Columns.Add("Quantity");
-            purchasedt.Columns.Add("PurchasePrice");
+            purchasedt.Columns.Add("Purchase Price");
             purchasedt.Columns.Add("Amount");
             purchasedt.Columns.Add("(-)Discount");
             purchasedt.Columns.Add("Gst Type");
             purchasedt.Columns.Add("(+)Tax%");
             purchasedt.Columns.Add("(=)Total");
+            //purchasedt.Columns.Add("Product Id");
             txtTrAmount.ReadOnly = true;
             comboTrMode.SelectedIndex = 0;
             comboTrType.SelectedIndex = 0;
@@ -396,8 +388,7 @@ namespace Gorakshnath_Billing_System.UI
                         bool Success = SupplierMasterDAL.InsertByPurchasebill(SupplierMasterBLL);
 
                     }
-                    //hello
-
+                   
                     if (dgvAddedProducts.Rows.Count!=0)
                     {
                         SupplierMasterBLL s = SupplierMasterDAL.getSuplierIdFromPhone(Contact);
@@ -427,6 +418,7 @@ namespace Gorakshnath_Billing_System.UI
                         // using (TransactionScope scope = new TransactionScope())
                         
                            //int purchaseid = -1; already declaraed at the top as a global variable.
+
                             bool b = purchaseDAL.insertpurchase(purchaseBLL, out purchaseid);
                             for (int i = 0; i < purchasedt.Rows.Count; i++)
                             {
@@ -436,6 +428,7 @@ namespace Gorakshnath_Billing_System.UI
 
                                 string productName = purchasedt.Rows[i][1].ToString();
                                 ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                            //MessageBox.Show(productName);
 
 
                                 pdBLL.Purchase_ID = purchaseid;
@@ -444,6 +437,7 @@ namespace Gorakshnath_Billing_System.UI
                                 pdBLL.Product_Name = purchasedt.Rows[i][1].ToString();
                                 pdBLL.Unit = purchasedt.Rows[i][2].ToString();
                                 pdBLL.Qty = Math.Round(decimal.Parse(purchasedt.Rows[i][3].ToString()), 2);
+            
                                 pdBLL.Rate = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
                                 pdBLL.Discount_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][6].ToString()), 2);
                                 pdBLL.GST_Type = purchasedt.Rows[i][7].ToString();
@@ -529,12 +523,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //check product is already available in stock or not
-            //
-            //if yes update the quantity if no add new product in stock 
-
-            //also add details in PTransactions and PTransaction Details 
-
+            
             //save transaction and transaction details
 
             save();

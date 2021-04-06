@@ -634,6 +634,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textItemName.Name = "textItemName";
             this.textItemName.Size = new System.Drawing.Size(219, 27);
             this.textItemName.TabIndex = 2;
+            this.textItemName.Visible = false;
             // 
             // textInventory
             // 
