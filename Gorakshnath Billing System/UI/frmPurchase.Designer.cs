@@ -104,6 +104,8 @@ namespace Gorakshnath_Billing_System.UI
             this.label31 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
@@ -603,18 +605,18 @@ namespace Gorakshnath_Billing_System.UI
             this.textPurchaseBillNo.Location = new System.Drawing.Point(1122, 102);
             this.textPurchaseBillNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textPurchaseBillNo.Name = "textPurchaseBillNo";
-            this.textPurchaseBillNo.Size = new System.Drawing.Size(236, 27);
+            this.textPurchaseBillNo.Size = new System.Drawing.Size(139, 27);
             this.textPurchaseBillNo.TabIndex = 8;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(1118, 74);
+            this.label9.Location = new System.Drawing.Point(1119, 74);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(143, 23);
+            this.label9.Size = new System.Drawing.Size(95, 23);
             this.label9.TabIndex = 13;
-            this.label9.Text = "Purchase Bill No. ";
+            this.label9.Text = "Record No.";
             // 
             // textQuantity
             // 
@@ -657,6 +659,8 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.comboTrMode);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.comboContact);
@@ -978,6 +982,25 @@ namespace Gorakshnath_Billing_System.UI
             this.label10.TabIndex = 16;
             this.label10.Text = "Product Details";
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(1265, 101);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(139, 27);
+            this.textBox1.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1261, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 23);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Purchase Bill No. ";
+            // 
             // frmPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1085,5 +1108,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.ComboBox comboContact;
         private System.Windows.Forms.ComboBox comboTrMode;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -768,8 +768,9 @@ namespace Gorakshnath_Billing_System.UI
 
             if (comboItemSearch.Text != "Select Product")
             {
-
+               
                 string keyword = comboItemSearch.Text;
+               // MessageBox.Show(keyword);
                 if (keyword == "")
                 {
                     comboItemSearch.Text = "Select Product";
@@ -783,6 +784,8 @@ namespace Gorakshnath_Billing_System.UI
                     textGst.Text = "0";
                     textTotalAmount.Text = "0";
                     return;
+
+                    MessageBox.Show("executed succesfully ");
                 }
 
                 ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);

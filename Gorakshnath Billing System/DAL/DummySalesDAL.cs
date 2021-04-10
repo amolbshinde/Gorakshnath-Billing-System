@@ -24,9 +24,9 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO DummySales_Transactions (Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total);select @@IDENTITY;";
+                String sql = "INSERT INTO DummySales_Transactions (Invoice_No,Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date) VALUES(@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Challan_date, @Invoice_No);select @@IDENTITY;";
 
-                SqlCommand cmd = new SqlCommand(sql, con);                
+                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@Invoice_No", dsb.Invoice_No);
                 cmd.Parameters.AddWithValue("@Transaction_Type", dsb.Transaction_Type);
                 cmd.Parameters.AddWithValue("@Cust_ID", dsb.Cust_ID);
@@ -36,6 +36,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@TCGST", dsb.TCGST);
                 cmd.Parameters.AddWithValue("@TIGST", dsb.TIGST);
                 cmd.Parameters.AddWithValue("@Grand_Total", dsb.Grand_Total);
+                cmd.Parameters.AddWithValue("@Challan_date", dsb.Challan_date);
 
                 con.Open();
 
@@ -44,7 +45,7 @@ namespace Gorakshnath_Billing_System.DAL
                 if (o != null)
                 {
                     isSuccess = true;
-                    Invoice_No = int.Parse(o.ToString());
+                   Invoice_No = int.Parse(o.ToString());
                 }
                 else
                 {
@@ -202,7 +203,39 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Method to get Maxproduct -GetMaxProductId() Id From Database
 
+        public int GetMaxInvoiceID()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+            int maxnum = 0;
+
+            //DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT COALESCE (MAX(Invoice_No),0) AS MaxOf FROM DummySales_Transactions";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                //
+                //adapter.Fill(dt);
+                maxnum = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return maxnum;
+        }
+
+
+
+
+        #endregion
 
     }
 }

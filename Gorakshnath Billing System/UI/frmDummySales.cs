@@ -20,7 +20,7 @@ namespace Gorakshnath_Billing_System.UI
             fillCombo();
         }
         int salesid = -1;
-        
+
         ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
 
         DummySalesBLL challanBLL = new DummySalesBLL();
@@ -33,6 +33,20 @@ namespace Gorakshnath_Billing_System.UI
         DummySalesDetailsDAL DummySalesDetailsDAL = new DummySalesDetailsDAL();
 
         DataTable salesDT = new DataTable();
+        int GetMaxInvoiceID()
+        {
+
+            int MaxInvoice_No = challanDAL.GetMaxInvoiceID();
+
+            {
+                MaxInvoice_No++;
+                txtInvoice_No.Text = MaxInvoice_No.ToString();
+
+
+            }
+            return MaxInvoice_No;
+        }
+
 
         public void fillCombo()
         {
@@ -54,7 +68,7 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchItem.DataSource = null;
             DataTable dtI = ProductMasterDAL.SelectForCombo();
             comboSearchItem.DisplayMember = "Product_Name";
-            
+
             comboSearchItem.DataSource = dtI;
             comboSearchItem.Text = "Select Product";
         }
@@ -206,6 +220,7 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("Gst Type");
             salesDT.Columns.Add("(+)Tax%");
             salesDT.Columns.Add("(=)Total");
+            GetMaxInvoiceID();
         }
 
         private void textItemSearch_TextChanged(object sender, EventArgs e)
@@ -329,7 +344,7 @@ namespace Gorakshnath_Billing_System.UI
         public void Clear()
         {
 
-            comboSearchCust.Text = "Select Cust";            
+            comboSearchCust.Text = "Select Cust";
             textEmail.Text = "";
             textAddress.Text = "";
             comboContact.Text = "Select Phone";
@@ -374,7 +389,7 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     string Contact = comboContact.Text;
                     customerBLL cust = customerDAL.getCustomerIdFromContact(Contact);
-                    if(cust.contact != comboContact.Text)
+                    if (cust.contact != comboContact.Text)
                     {
 
                         customerBLL.name = comboSearchCust.Text;
@@ -386,11 +401,11 @@ namespace Gorakshnath_Billing_System.UI
                         bool Success = customerDAL.Insert(customerBLL);
 
                     }
-                                                          
+
 
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        string phone=comboContact.Text;
+                        string phone = comboContact.Text;
                         customerBLL c = customerDAL.getCustomerIdFromPhone(phone);
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
@@ -411,6 +426,9 @@ namespace Gorakshnath_Billing_System.UI
                         challanBLL.TCGST = totalCgst;
                         challanBLL.TIGST = totalIgst;
                         challanBLL.Grand_Total = grandTotal;
+                        //string Billdate2 = dtpBillDate.Value.ToShortDateString();
+                        challanBLL.Challan_date = Convert.ToDateTime(dtpBillDate.Value.Date);
+                        challanBLL.Invoice_No = GetMaxInvoiceID();
 
                         challanBLL.DummySalesDetails = salesDT;
                         bool isSuccess = false;
@@ -419,6 +437,8 @@ namespace Gorakshnath_Billing_System.UI
                         {
                             // int salesid = -1; declared at top as a global variable
                             bool b = challanDAL.insertDummySales(challanBLL, out salesid);
+                            MessageBox.Show(salesid.ToString());
+
 
                             for (int i = 0; i < salesDT.Rows.Count; i++)
                             {
@@ -426,6 +446,7 @@ namespace Gorakshnath_Billing_System.UI
                                 string productName = salesDT.Rows[i][1].ToString();
 
                                 ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                                MessageBox.Show(salesid.ToString());
                                 cdBLL.Invoice_No = salesid;
                                 cdBLL.Product_ID = p.Product_ID;
                                 cdBLL.Cust_ID = c.Cust_ID;
@@ -437,6 +458,9 @@ namespace Gorakshnath_Billing_System.UI
                                 cdBLL.GST_Type = salesDT.Rows[i][7].ToString();
                                 cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
                                 cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
+                                string Billdate = dtpBillDate.Value.ToShortDateString();
+                                MessageBox.Show(Billdate);
+                                cdBLL.Challan_date = Convert.ToDateTime(Billdate);
                                 bool y = DummySalesDetailsDAL.insertDummySalesDetails(cdBLL);
                                 isSuccess = b && y;
 
@@ -461,7 +485,7 @@ namespace Gorakshnath_Billing_System.UI
                     }
 
 
-                    
+
 
                 }
                 else
@@ -712,7 +736,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (salesid!= -1)
+            if (salesid != -1)
             {
                 ////Invoice_No = 7;
                 frmDummySalesCrpt frmDummySalesCrpt = new frmDummySalesCrpt(salesid);
@@ -765,7 +789,7 @@ namespace Gorakshnath_Billing_System.UI
         private void comboSearchItem_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (comboSearchItem.Text != "Select Product" && comboSearchItem.Text!="")
+            if (comboSearchItem.Text != "Select Product" && comboSearchItem.Text != "")
             {
 
                 string keyword = comboSearchItem.Text;
@@ -832,7 +856,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboSearchCust.Text = cBLL.name;
                 textEmail.Text = cBLL.email;
                 textAddress.Text = cBLL.address;
-                textGstNo.Text =cBLL.Gst_No;
+                textGstNo.Text = cBLL.Gst_No;
 
             }
             else
@@ -847,5 +871,5 @@ namespace Gorakshnath_Billing_System.UI
 
         }
     }
-    
+
 }

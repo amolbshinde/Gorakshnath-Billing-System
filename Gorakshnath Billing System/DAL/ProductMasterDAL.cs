@@ -42,24 +42,25 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
         #region Method to Insert Product in database
-        public bool Insert(ProductMasterBLL pBLL, out int Product_ID)
+        public bool Insert(ProductMasterBLL pBLL)
         {
             //Creating Boolean Variable and set its default value to false
             bool isSuccess = false;
 
-            Product_ID = -1;
+            //Product_ID = -1;
             //Sql Connection for DAtabase
             SqlConnection conn = new SqlConnection(myconnstrng);
 
             try
             {
                 //SQL Query to insert product into database
-                String sql = "INSERT INTO Product_Master (Product_Group,Brand,Item_Code,Product_Name,HSN_Code,Purchase_Price,Sales_Price,Min_Sales_Price,Unit,Opening_Stock) VALUES (@Product_Group, @Brand, @Item_Code, @Product_Name, @HSN_Code, @Purchase_Price, @Sales_Price,@Min_Sales_Price,@Unit,@Opening_Stock);select @@IDENTITY;";
+                String sql = "INSERT INTO Product_Master (Product_ID,Product_Group,Brand,Item_Code,Product_Name,HSN_Code,Purchase_Price,Sales_Price,Min_Sales_Price,Unit,Opening_Stock,Added_Date) VALUES (@Product_ID,@Product_Group, @Brand, @Item_Code, @Product_Name, @HSN_Code, @Purchase_Price, @Sales_Price,@Min_Sales_Price,@Unit,@Opening_Stock,@Added_Date);select @@IDENTITY;";
 
                 //Creating SQL Command to pass the values
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 //Passign the values through parameters
+                cmd.Parameters.AddWithValue("@Product_ID", pBLL.Product_ID);
                 cmd.Parameters.AddWithValue("@Product_Group", pBLL.Product_Group);
                 cmd.Parameters.AddWithValue("@Brand", pBLL.Brand);
                 cmd.Parameters.AddWithValue("@Item_Code", pBLL.Item_Code);
@@ -70,6 +71,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Min_Sales_Price", pBLL.Min_Sales_Price);
                 cmd.Parameters.AddWithValue("@Unit", pBLL.Unit);
                 cmd.Parameters.AddWithValue("@Opening_Stock", pBLL.Opening_Stock);
+                cmd.Parameters.AddWithValue("@Added_Date", pBLL.Added_Date);
 
                 //Opening the Database connection
                 conn.Open();
@@ -82,7 +84,7 @@ namespace Gorakshnath_Billing_System.DAL
                 {
                     //Query Executed Successfully
                     isSuccess = true;
-                    Product_ID = int.Parse(o.ToString());
+                   //Product_ID = int.Parse(o.ToString());
                 }
                 else
                 {
@@ -452,6 +454,31 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
 
+        #endregion
+        #region method to delete record new
+        public DataTable SelectForDelete()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);  /// need to update code
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT Challan_Transactions_Details.Product_ID, DummySales_Transactions_Details.Product_ID, Estimate_Transactions_Details.Product_ID FROM Challan_Transactions_Details,DummySales_Transactions_Details,Estimate_Transactions_Details;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
         #endregion
 
     }

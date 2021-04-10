@@ -43,7 +43,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label15 = new System.Windows.Forms.Label();
             this.textGstNo = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.TEXTiNVOICE = new System.Windows.Forms.TextBox();
+            this.txtInvoice_No = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textAddress = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -254,14 +254,15 @@ namespace Gorakshnath_Billing_System.UI
             this.label30.TabIndex = 18;
             this.label30.Text = "Party GST No.";
             // 
-            // TEXTiNVOICE
+            // txtInvoice_No
             // 
-            this.TEXTiNVOICE.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TEXTiNVOICE.Location = new System.Drawing.Point(1124, 102);
-            this.TEXTiNVOICE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TEXTiNVOICE.Name = "TEXTiNVOICE";
-            this.TEXTiNVOICE.Size = new System.Drawing.Size(208, 27);
-            this.TEXTiNVOICE.TabIndex = 7;
+            this.txtInvoice_No.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInvoice_No.Location = new System.Drawing.Point(1124, 102);
+            this.txtInvoice_No.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtInvoice_No.Name = "txtInvoice_No";
+            this.txtInvoice_No.ReadOnly = true;
+            this.txtInvoice_No.Size = new System.Drawing.Size(208, 27);
+            this.txtInvoice_No.TabIndex = 7;
             // 
             // label9
             // 
@@ -507,7 +508,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Controls.Add(this.label30);
             this.panel2.Controls.Add(this.comboTransactionType);
             this.panel2.Controls.Add(this.label29);
-            this.panel2.Controls.Add(this.TEXTiNVOICE);
+            this.panel2.Controls.Add(this.txtInvoice_No);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.dtpBillDate);
             this.panel2.Controls.Add(this.textAddress);
@@ -982,7 +983,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textGstNo;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox TEXTiNVOICE;
+        private System.Windows.Forms.TextBox txtInvoice_No;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textAddress;
         private System.Windows.Forms.Label label14;

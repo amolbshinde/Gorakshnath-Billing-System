@@ -574,6 +574,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\add.png" />
     <Content Include="Resources\DGIF.gif" />
     <None Include="Resources\to_do_icon_153795.ico" />
     <Content Include="software.ico" />

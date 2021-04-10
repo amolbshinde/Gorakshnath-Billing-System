@@ -316,7 +316,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 7);
+            this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 23);
             this.label2.TabIndex = 0;
@@ -989,7 +989,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel4);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmChallanManage";
             this.Text = "Challan Manage";
             this.Load += new System.EventHandler(this.frmChallanManage_Load);

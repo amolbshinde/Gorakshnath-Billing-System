@@ -64,6 +64,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.Delete = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -153,6 +154,8 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // comboProduct_Group
             // 
+            this.comboProduct_Group.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboProduct_Group.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboProduct_Group.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboProduct_Group.FormattingEnabled = true;
             this.comboProduct_Group.Items.AddRange(new object[] {
@@ -279,6 +282,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtPurchase_Price.Name = "txtPurchase_Price";
             this.txtPurchase_Price.Size = new System.Drawing.Size(296, 29);
             this.txtPurchase_Price.TabIndex = 0;
+            this.txtPurchase_Price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPurchase_Price_KeyPress);
             // 
             // txtSales_Price
             // 
@@ -288,6 +292,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtSales_Price.Name = "txtSales_Price";
             this.txtSales_Price.Size = new System.Drawing.Size(296, 29);
             this.txtSales_Price.TabIndex = 1;
+            this.txtSales_Price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSales_Price_KeyPress);
             // 
             // label6
             // 
@@ -310,6 +315,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtMin_Sales_Price.Name = "txtMin_Sales_Price";
             this.txtMin_Sales_Price.Size = new System.Drawing.Size(296, 29);
             this.txtMin_Sales_Price.TabIndex = 2;
+            this.txtMin_Sales_Price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMin_Sales_Price_KeyPress);
             // 
             // label8
             // 
@@ -402,6 +408,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtOpening_Stock.Name = "txtOpening_Stock";
             this.txtOpening_Stock.Size = new System.Drawing.Size(296, 29);
             this.txtOpening_Stock.TabIndex = 1;
+            this.txtOpening_Stock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOpening_Stock_KeyPress);
             // 
             // label14
             // 
@@ -470,7 +477,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.Teal;
-            this.btnClear.Location = new System.Drawing.Point(1134, 600);
+            this.btnClear.Location = new System.Drawing.Point(1206, 600);
             this.btnClear.Margin = new System.Windows.Forms.Padding(5);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(136, 42);
@@ -485,7 +492,7 @@ namespace Gorakshnath_Billing_System.UI
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.Teal;
-            this.btnUpdate.Location = new System.Drawing.Point(915, 600);
+            this.btnUpdate.Location = new System.Drawing.Point(858, 600);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(5);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(136, 42);
@@ -519,12 +526,28 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4.Size = new System.Drawing.Size(911, 520);
             this.panel4.TabIndex = 7;
             // 
+            // Delete
+            // 
+            this.Delete.BackColor = System.Drawing.Color.Transparent;
+            this.Delete.FlatAppearance.BorderSize = 2;
+            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Delete.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delete.ForeColor = System.Drawing.Color.Teal;
+            this.Delete.Location = new System.Drawing.Point(1023, 600);
+            this.Delete.Margin = new System.Windows.Forms.Padding(5);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(136, 42);
+            this.Delete.TabIndex = 53;
+            this.Delete.Text = "Delete";
+            this.Delete.UseVisualStyleBackColor = false;
+            // 
             // frmProductMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1556, 720);
+            this.Controls.Add(this.Delete);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnUpdate);
@@ -588,5 +611,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.TextBox textHSN_Code;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button Delete;
     }
 }
