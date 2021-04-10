@@ -84,7 +84,7 @@ namespace Gorakshnath_Billing_System.UI
             //checking product is already present or ot           
             if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
             {
-                if (textItemName.Text != "")
+                if (comboSearchItem.Text != "")
                 {
                     if (textQuantity.Text != "" && textQuantity.Text != "0")
                     {
@@ -96,11 +96,11 @@ namespace Gorakshnath_Billing_System.UI
                                 pname = dgvAddedProducts.Rows[rows].Cells["Product Name"].Value.ToString();
                                 break;
                             }
-                            if (textItemName.Text != pname)
+                            if (comboSearchItem.Text != pname)
                             {
                                 // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
 
-                                String ProductName = textItemName.Text;
+                                String ProductName = comboSearchItem.Text;
                                 string Unit = comboBoxUnit.Text;
                                 string gstType = comboGstType.Text;
 
@@ -161,7 +161,7 @@ namespace Gorakshnath_Billing_System.UI
 
 
                                     comboSearchItem.Text = "Select Product";
-                                    textItemName.Text = "";
+                                    //textItemName.Text = "";
                                     comboBoxUnit.Text = "";
                                     textInventory.Text = "0";
                                     textQuantity.Text = "0";
@@ -220,7 +220,9 @@ namespace Gorakshnath_Billing_System.UI
             salesDT.Columns.Add("Gst Type");
             salesDT.Columns.Add("(+)Tax%");
             salesDT.Columns.Add("(=)Total");
-            GetMaxInvoiceID();
+            comboTransactionType.SelectedIndex = 1;
+            comboBox2.SelectedIndex = 0;
+            //GetMaxInvoiceID();
         }
 
         private void textItemSearch_TextChanged(object sender, EventArgs e)
@@ -230,7 +232,7 @@ namespace Gorakshnath_Billing_System.UI
 
             if (keyword == "")
             {
-                textItemName.Text = "";
+                // textItemName.Text = "";
                 textInventory.Text = "0";
                 textRate.Text = "0";
                 textQuantity.Text = "0";
@@ -238,7 +240,7 @@ namespace Gorakshnath_Billing_System.UI
             }
 
             ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
-            textItemName.Text = p.Product_Name;
+            comboSearchItem.Text = p.Product_Name;
             comboBoxUnit.Text = p.Unit;
             textInventory.Text = p.Quantity.ToString();
             textRate.Text = p.Purchase_Price.ToString();
@@ -351,7 +353,7 @@ namespace Gorakshnath_Billing_System.UI
             textGstNo.Text = "";
             textItemCode.Text = "";
             comboSearchItem.Text = "Select Product";
-            textItemName.Text = "";
+            //textItemName.Text = "";
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
             textQuantity.Text = "0";
@@ -426,9 +428,9 @@ namespace Gorakshnath_Billing_System.UI
                         challanBLL.TCGST = totalCgst;
                         challanBLL.TIGST = totalIgst;
                         challanBLL.Grand_Total = grandTotal;
-                        //string Billdate2 = dtpBillDate.Value.ToShortDateString();
-                        challanBLL.Challan_date = Convert.ToDateTime(dtpBillDate.Value.Date);
-                        challanBLL.Invoice_No = GetMaxInvoiceID();
+                        DateTime Billdate2 = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
+                        //DateTime.TryParse(dtpBillDate.Value.ToLongDateString(), out Billdate2);
+                        challanBLL.Challan_date = Billdate2;
 
                         challanBLL.DummySalesDetails = salesDT;
                         bool isSuccess = false;
@@ -437,7 +439,7 @@ namespace Gorakshnath_Billing_System.UI
                         {
                             // int salesid = -1; declared at top as a global variable
                             bool b = challanDAL.insertDummySales(challanBLL, out salesid);
-                            MessageBox.Show(salesid.ToString());
+
 
 
                             for (int i = 0; i < salesDT.Rows.Count; i++)
@@ -446,7 +448,7 @@ namespace Gorakshnath_Billing_System.UI
                                 string productName = salesDT.Rows[i][1].ToString();
 
                                 ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
-                                MessageBox.Show(salesid.ToString());
+
                                 cdBLL.Invoice_No = salesid;
                                 cdBLL.Product_ID = p.Product_ID;
                                 cdBLL.Cust_ID = c.Cust_ID;
@@ -458,8 +460,8 @@ namespace Gorakshnath_Billing_System.UI
                                 cdBLL.GST_Type = salesDT.Rows[i][7].ToString();
                                 cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
                                 cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
-                                string Billdate = dtpBillDate.Value.ToShortDateString();
-                                MessageBox.Show(Billdate);
+                                string Billdate = dtpBillDate.Value.ToLongDateString();
+                                //MessageBox.Show(Billdate);
                                 cdBLL.Challan_date = Convert.ToDateTime(Billdate);
                                 bool y = DummySalesDetailsDAL.insertDummySalesDetails(cdBLL);
                                 isSuccess = b && y;
@@ -469,9 +471,12 @@ namespace Gorakshnath_Billing_System.UI
                             isSuccess = b;
                             if (isSuccess == true)
                             {
-                                //scope.Complete();
+
                                 MessageBox.Show("Transaction Completed");
-                                //clear();
+                                txtInvoice_No.Text = salesid.ToString();
+
+
+
                             }
                             else
                             {
@@ -547,7 +552,7 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     //assognto dategrid view values into textboxs
 
-                    textItemName.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                    comboSearchItem.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[1].Value.ToString();
                     comboBoxUnit.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
                     textQuantity.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString();
                     textRate.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString();
@@ -797,7 +802,7 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     comboSearchItem.Text = "Select Product";
                     textItemCode.Text = "";
-                    textItemName.Text = "";
+                    //textItemName.Text = "";
                     comboBoxUnit.Text = "";
                     textInventory.Text = "0";
                     textRate.Text = "0";
@@ -810,17 +815,18 @@ namespace Gorakshnath_Billing_System.UI
 
                 ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
                 textItemCode.Text = p.Item_Code;
-                textItemName.Text = p.Product_Name;
+                //textItemName.Text = p.Product_Name;
                 comboBoxUnit.Text = p.Unit;
                 textRate.Text = p.Sales_Price.ToString();
                 textInventory.Text = p.Quantity.ToString();
+                textQuantity.Text = 1.ToString();
 
             }
             else
             {
                 comboSearchItem.Text = "Select Product";
                 textItemCode.Text = "";
-                textItemName.Text = "";
+                //textItemName.Text = "";
                 comboBoxUnit.Text = "";
                 textInventory.Text = "0";
                 textRate.Text = "0";
@@ -869,6 +875,38 @@ namespace Gorakshnath_Billing_System.UI
                 textGstNo.Text = "";
             }
 
+        }
+
+        private void textQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 

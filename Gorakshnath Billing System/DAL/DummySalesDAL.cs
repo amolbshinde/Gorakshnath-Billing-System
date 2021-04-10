@@ -20,14 +20,16 @@ namespace Gorakshnath_Billing_System.DAL
         public bool insertDummySales(DummySalesBLL dsb, out int Invoice_No)
         {
             bool isSuccess = false;
-            Invoice_No = -1;
+            
+            Invoice_No=-1;
+            
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO DummySales_Transactions (Invoice_No,Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date) VALUES(@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Challan_date, @Invoice_No);select @@IDENTITY;";
+                String sql = "INSERT INTO DummySales_Transactions (Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date) VALUES(@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Challan_date);select scope_identity();";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@Invoice_No", dsb.Invoice_No);
+                //cmd.Parameters.AddWithValue("@Invoice_No", dsb.Invoice_No);
                 cmd.Parameters.AddWithValue("@Transaction_Type", dsb.Transaction_Type);
                 cmd.Parameters.AddWithValue("@Cust_ID", dsb.Cust_ID);
                 cmd.Parameters.AddWithValue("@Sub_Total", dsb.Sub_Total);
@@ -41,11 +43,15 @@ namespace Gorakshnath_Billing_System.DAL
                 con.Open();
 
                 object o = cmd.ExecuteScalar();
+               // int o = (Int32)cmd.ExecuteScalar();
+
 
                 if (o != null)
                 {
                     isSuccess = true;
-                   Invoice_No = int.Parse(o.ToString());
+                    Invoice_No = int.Parse(Convert.ToString(o));
+                   // MessageBox.Show(Invoice_No.ToString());
+                    
                 }
                 else
                 {
@@ -61,6 +67,7 @@ namespace Gorakshnath_Billing_System.DAL
             {
                 con.Close();
             }
+
             return isSuccess;
         }
 
