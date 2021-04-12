@@ -24,7 +24,7 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO Challan_Transactions (Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total);select @@IDENTITY;";
+                String sql = "INSERT INTO Challan_Transactions (Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date) VALUES(@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Challan_date);select scope_identity();";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -36,7 +36,8 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@TSGST", c.TSGST);
                 cmd.Parameters.AddWithValue("@TCGST", c.TCGST);
                 cmd.Parameters.AddWithValue("@TIGST", c.TIGST);
-                cmd.Parameters.AddWithValue("@Grand_Total", c.Grand_Total);               
+                cmd.Parameters.AddWithValue("@Grand_Total", c.Grand_Total);
+                cmd.Parameters.AddWithValue("@Challan_date", c.Challan_date); 
 
                 con.Open();
 

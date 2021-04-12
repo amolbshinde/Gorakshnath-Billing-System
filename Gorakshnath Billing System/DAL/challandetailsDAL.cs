@@ -27,7 +27,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //inserting transaction details
-                string sql = "INSERT INTO Challan_Transactions_Details (Invoice_No,Product_ID,Cust_ID,Product_Name,Unit,Qty,Rate,Dicount_Per,GST_Type,GST_Per,Total) VALUES(@Invoice_No,@Product_ID,@Cust_ID,@Product_Name,@Unit,@Qty,@Rate,@Discount_Per,@GST_Type,@GST_Per,@Total)";
+                string sql = "INSERT INTO Challan_Transactions_Details (Invoice_No,Product_ID,Cust_ID,Product_Name,Unit,Qty,Rate,Dicount_Per,GST_Type,GST_Per,Total,Challan_date) VALUES(@Invoice_No,@Product_ID,@Cust_ID,@Product_Name,@Unit,@Qty,@Rate,@Discount_Per,@GST_Type,@GST_Per,@Total,@Challan_date)";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@Invoice_No", cb.Invoice_No);
                 cmd.Parameters.AddWithValue("@Product_ID", cb.Product_ID);
@@ -39,7 +39,8 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Discount_Per", cb.Discount_Per);
                 cmd.Parameters.AddWithValue("@GST_Type", cb.GST_Type);
                 cmd.Parameters.AddWithValue("@GST_Per", cb.GST_Per);
-                cmd.Parameters.AddWithValue("@Total", cb.Total);
+                cmd.Parameters.AddWithValue("@Total", cb.Total); 
+                cmd.Parameters.AddWithValue("@Challan_date", cb.Challan_date); 
                 //Unit,Qty,Rate,Discount_Per,GST_Type,GST_Per,Total
                 con.Open();
 

@@ -175,5 +175,12 @@ namespace Gorakshnath_Billing_System.UI
         {
             this.Close();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmChallanSalesReport SalesReport = new frmChallanSalesReport();
+            SalesReport.Show();
+        }
     }
 }

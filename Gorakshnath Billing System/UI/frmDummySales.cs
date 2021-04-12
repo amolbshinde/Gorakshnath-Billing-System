@@ -428,9 +428,9 @@ namespace Gorakshnath_Billing_System.UI
                         challanBLL.TCGST = totalCgst;
                         challanBLL.TIGST = totalIgst;
                         challanBLL.Grand_Total = grandTotal;
-                        DateTime Billdate2 = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
+                        //DateTime Billdate2 = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
                         //DateTime.TryParse(dtpBillDate.Value.ToLongDateString(), out Billdate2);
-                        challanBLL.Challan_date = Billdate2;
+                        challanBLL.Challan_date = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay); 
 
                         challanBLL.DummySalesDetails = salesDT;
                         bool isSuccess = false;
@@ -460,9 +460,9 @@ namespace Gorakshnath_Billing_System.UI
                                 cdBLL.GST_Type = salesDT.Rows[i][7].ToString();
                                 cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
                                 cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
-                                string Billdate = dtpBillDate.Value.ToLongDateString();
+                               // string Billdate = dtpBillDate.Value.ToLongDateString();
                                 //MessageBox.Show(Billdate);
-                                cdBLL.Challan_date = Convert.ToDateTime(Billdate);
+                                cdBLL.Challan_date = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
                                 bool y = DummySalesDetailsDAL.insertDummySalesDetails(cdBLL);
                                 isSuccess = b && y;
 

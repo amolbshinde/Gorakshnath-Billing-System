@@ -186,6 +186,12 @@
       <DependentUpon>crptPurchase.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\frmChallanSalesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmChallanSalesReport.Designer.cs">
+      <DependentUpon>frmChallanSalesReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmDebtors_Creditors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +407,9 @@
     <EmbeddedResource Include="Report_Generator\CrystalReport\crptPurchase.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptPurchase.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmChallanSalesReport.resx">
+      <DependentUpon>frmChallanSalesReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmDebtors_Creditors.resx">
       <DependentUpon>frmDebtors_Creditors.cs</DependentUpon>

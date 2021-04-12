@@ -41,6 +41,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChallanReport)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -79,7 +80,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Teal;
-            this.button3.Location = new System.Drawing.Point(902, 15);
+            this.button3.Location = new System.Drawing.Point(843, 15);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(143, 37);
@@ -110,7 +111,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboMobileNo.Items.AddRange(new object[] {
             "Product_Group",
             "Product_Brand"});
-            this.comboMobileNo.Location = new System.Drawing.Point(1105, 15);
+            this.comboMobileNo.Location = new System.Drawing.Point(1009, 19);
             this.comboMobileNo.Margin = new System.Windows.Forms.Padding(4);
             this.comboMobileNo.Name = "comboMobileNo";
             this.comboMobileNo.Size = new System.Drawing.Size(227, 33);
@@ -126,7 +127,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboCustName.Items.AddRange(new object[] {
             "Product_Group",
             "Product_Brand"});
-            this.comboCustName.Location = new System.Drawing.Point(620, 15);
+            this.comboCustName.Location = new System.Drawing.Point(592, 15);
             this.comboCustName.Margin = new System.Windows.Forms.Padding(4);
             this.comboCustName.Name = "comboCustName";
             this.comboCustName.Size = new System.Drawing.Size(227, 33);
@@ -199,7 +200,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.DeepPink;
-            this.button4.Location = new System.Drawing.Point(651, 636);
+            this.button4.Location = new System.Drawing.Point(438, 636);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(205, 37);
@@ -208,11 +209,27 @@ namespace Gorakshnath_Billing_System.UI
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.FlatAppearance.BorderSize = 2;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.DeepPink;
+            this.button5.Location = new System.Drawing.Point(669, 636);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(205, 37);
+            this.button5.TabIndex = 18;
+            this.button5.Text = "Advance";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // frmChallanReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1515, 694);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -245,5 +262,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

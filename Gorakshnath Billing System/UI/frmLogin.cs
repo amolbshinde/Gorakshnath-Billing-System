@@ -100,5 +100,10 @@ namespace Gorakshnath_Billing_System.UI
                 }
             }
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 0;
+        }
     }
 }
