@@ -119,6 +119,33 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region
+        public static DataTable GenerateSalesReport(DateTime FromDate, DateTime ToDate)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
 
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "Select Product_Name,SUM(Qty),SUM(Total) from Challan_Transactions_Details where Challan_date BETWEEN  '" + FromDate + "' AND '" + ToDate + "' group by Product_Name ORDER BY SUM(Qty) DESC;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kindly Select Proper Date !");
+                MessageBox.Show(ex.Message);
+                
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+
+        #endregion
     }
 }

@@ -20,6 +20,7 @@ namespace Gorakshnath_Billing_System.UI
             //FillCombo();
         }
         ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
+        challandetailsDAL ChallandetailsDAL = new challandetailsDAL();
 
         public void FillCombo()
         {
@@ -47,6 +48,16 @@ namespace Gorakshnath_Billing_System.UI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime FromDate = DateTime.Parse(dateTimePicker1.Value.ToString("dd/MM/yyyy"));
+            DateTime ToDate = DateTime.Parse(dateTimePicker2.Value.ToString("dd/MM/yyyy"));
+                    DataTable dt1= challandetailsDAL.GenerateSalesReport(FromDate, ToDate);
+            dataGridView1.DataSource = dt1;
+
 
         }
     }

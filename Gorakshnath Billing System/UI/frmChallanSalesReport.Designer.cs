@@ -58,7 +58,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1688, 100);
+            this.panel1.Size = new System.Drawing.Size(1043, 100);
             this.panel1.TabIndex = 0;
             // 
             // button1
@@ -66,18 +66,19 @@ namespace Gorakshnath_Billing_System.UI
             this.button1.FlatAppearance.BorderSize = 2;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Location = new System.Drawing.Point(995, 42);
+            this.button1.Location = new System.Drawing.Point(827, 47);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 36);
+            this.button1.Size = new System.Drawing.Size(81, 36);
             this.button1.TabIndex = 6;
             this.button1.Text = "Fetch..";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(775, 22);
+            this.label3.Location = new System.Drawing.Point(691, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 23);
             this.label3.TabIndex = 5;
@@ -85,7 +86,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(772, 47);
+            this.dateTimePicker2.Location = new System.Drawing.Point(641, 48);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(180, 30);
             this.dateTimePicker2.TabIndex = 4;
@@ -94,7 +95,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(548, 21);
+            this.label2.Location = new System.Drawing.Point(467, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 23);
             this.label2.TabIndex = 3;
@@ -102,7 +103,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(552, 47);
+            this.dateTimePicker1.Location = new System.Drawing.Point(446, 48);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(189, 30);
             this.dateTimePicker1.TabIndex = 2;
@@ -111,7 +112,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 21);
+            this.label1.Location = new System.Drawing.Point(24, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 23);
             this.label1.TabIndex = 1;
@@ -124,7 +125,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(28, 47);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(491, 31);
+            this.comboBox1.Size = new System.Drawing.Size(399, 31);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -135,7 +136,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1688, 632);
+            this.panel2.Size = new System.Drawing.Size(1043, 681);
             this.panel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -145,7 +146,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1518, 388);
+            this.dataGridView1.Size = new System.Drawing.Size(856, 494);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -153,10 +154,11 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1688, 732);
+            this.ClientSize = new System.Drawing.Size(1043, 781);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmChallanSalesReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales Report";
             this.Load += new System.EventHandler(this.frmChallanSalesReport_Load);
             this.panel1.ResumeLayout(false);
