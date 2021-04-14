@@ -407,7 +407,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                String sql = "SELECT Product_ID, Product_Name FROM Product_Master;";
+                String sql = "SELECT Product_ID, Product_Name FROM Product_Master ;";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();
@@ -480,6 +480,34 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+
+
+        #region Search Item for combobox  On Database Using Keywords
+        public DataTable SelectForComboKeywords(string keywords)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT Product_ID, Product_Name FROM Product_Master WHERE Product_Name LIKE  '%" + keywords + "%'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
 
     }
 }

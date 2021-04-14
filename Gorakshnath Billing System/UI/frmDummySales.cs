@@ -65,15 +65,13 @@ namespace Gorakshnath_Billing_System.UI
             comboContact.DataSource = dtP;
             comboContact.Text = "Select Phone";
 
-
             comboSearchItem.DataSource = null;
             DataTable dtI = ProductMasterDAL.SelectForCombo();
-            comboSearchItem.DataSource = dtI;
-            
-            comboSearchItem.ValueMember = "Product_ID";
             comboSearchItem.DisplayMember = "Product_Name";
-            
-            comboSearchItem.Text = "Select Product";
+            comboSearchItem.ValueMember = "Product_ID";
+            comboSearchItem.DataSource = dtI;
+            comboSearchItem.Text = "Select Item";
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -911,6 +909,27 @@ namespace Gorakshnath_Billing_System.UI
             {
                 e.Handled = true;
             }
+        }
+
+        private void comboSearchItem_TextChanged(object sender, EventArgs e)
+        {
+           /* comboSearchItem.DataSource = null;
+            String keywords = comboSearchItem.Text;
+            if (keywords != null && keywords.Length > 0 && keywords != "")
+            {
+                DataTable dtI = ProductMasterDAL.SelectForComboKeywords(keywords);
+
+                
+
+                foreach (DataRow dataRow in dtI.Rows)
+                {
+                    foreach (var item in dataRow.ItemArray)
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
+            }
+           */
         }
     }
 
