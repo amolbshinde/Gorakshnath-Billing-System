@@ -8,6 +8,7 @@ namespace Gorakshnath_Billing_System.BLL
 {
     class productBLL
     {
+        //hello I am back
         public int id { get; set; }
         public string name { get; set; }
         public string category { get; set; }
