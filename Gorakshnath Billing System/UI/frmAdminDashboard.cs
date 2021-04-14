@@ -103,7 +103,7 @@ namespace Gorakshnath_Billing_System
         private void newInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDummySales DummySales = new frmDummySales();
-            DummySales.MdiParent = this;
+           // DummySales.MdiParent = this;
             DummySales.Show();
         }
 
@@ -191,7 +191,7 @@ namespace Gorakshnath_Billing_System
         private void searchAndManageInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDummySalesReport dummySalesReport = new frmDummySalesReport();
-            dummySalesReport.MdiParent = this;
+            //dummySalesReport.MdiParent = this;
             dummySalesReport.Show();
         }
 
