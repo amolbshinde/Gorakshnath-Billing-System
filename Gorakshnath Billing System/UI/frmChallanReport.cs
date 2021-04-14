@@ -17,7 +17,7 @@ namespace Gorakshnath_Billing_System.UI
         public frmChallanReport()
         {
             InitializeComponent();
-            fillcombo();
+            
         }
 
         challanBLL ChallanBLL = new challanBLL();
@@ -52,7 +52,9 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         private void frmChallanReport_Load(object sender, EventArgs e)
+
         {
+            fillcombo();
             DataTable dt = challanDAL.SelectTD();
             dgvChallanReport.DataSource = dt;
         }
@@ -171,16 +173,20 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+       
 
-        private void button5_Click(object sender, EventArgs e)
+        
+
+        private void button5_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             frmChallanSalesReport SalesReport = new frmChallanSalesReport();
             SalesReport.Show();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
