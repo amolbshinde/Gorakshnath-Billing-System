@@ -804,7 +804,7 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     comboSearchItem.Text = "Select Product";
                     textItemCode.Text = "";
-                    //textItemName.Text = "";.
+                    //textItemName.Text = "";
                     comboBoxUnit.Text = "";
                     textInventory.Text = "0";
                     textRate.Text = "0";
