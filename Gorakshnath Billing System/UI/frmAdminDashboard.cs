@@ -60,6 +60,21 @@ namespace Gorakshnath_Billing_System
         {
             frmProductMaster productMaster = new frmProductMaster();
             productMaster.Show();
+          /* // bool isOpen = false;
+            foreach(Form f in Application.OpenForms)
+            {
+                if (f.Text == "productMaster") ;
+               // isOpen = true;
+                f.BringToFront();
+                break;
+            }
+           /* if(isOpen==false)
+            {
+                frmProductMaster productMaster = new frmProductMaster();
+                productMaster.Show();
+
+            }*/
+            //
         }
 
         private void manageCategoriesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,6 +103,7 @@ namespace Gorakshnath_Billing_System
         private void newInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDummySales DummySales = new frmDummySales();
+            DummySales.MdiParent = this;
             DummySales.Show();
         }
 
@@ -175,6 +191,7 @@ namespace Gorakshnath_Billing_System
         private void searchAndManageInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDummySalesReport dummySalesReport = new frmDummySalesReport();
+            dummySalesReport.MdiParent = this;
             dummySalesReport.Show();
         }
 
@@ -304,6 +321,16 @@ namespace Gorakshnath_Billing_System
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

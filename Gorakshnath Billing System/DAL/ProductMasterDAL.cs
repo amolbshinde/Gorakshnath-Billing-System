@@ -407,7 +407,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                String sql = "SELECT Product_Name FROM Product_Master;";
+                String sql = "SELECT Product_ID, Product_Name FROM Product_Master;";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();

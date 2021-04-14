@@ -120,14 +120,14 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
         #region
-        public static DataTable GenerateSalesReport(DateTime FromDate, DateTime ToDate)
+        public DataTable GenerateSalesReport(DateTime FromDate, DateTime ToDate)
         {
             SqlConnection con = new SqlConnection(myconnstrng);
 
             DataTable dt = new DataTable();
             try
             {
-                String sql = "Select Product_Name,SUM(Qty),SUM(Total) from Challan_Transactions_Details where Challan_date BETWEEN  '" + FromDate + "' AND '" + ToDate + "' group by Product_Name ORDER BY SUM(Qty) DESC;";
+                String sql = "Select Product_Name,SUM(Qty),SUM(Total) from Challan_Transactions_Details where Convert(Date,Challan_date) >=  Convert(Date,'" + FromDate.ToString("yyyy-MM-dd") + "') AND  Convert(Date,Challan_date)<=Convert(Date,'" + ToDate.ToString("yyyy-MM-dd") + "') group by Product_Name ORDER BY SUM(Qty) DESC;";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();
@@ -138,6 +138,33 @@ namespace Gorakshnath_Billing_System.DAL
                 MessageBox.Show("Kindly Select Proper Date !");
                 MessageBox.Show(ex.Message);
                 
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+
+
+        public DataTable GenerateSalesReport(DateTime FromDate, DateTime ToDate, Int32 ProductId)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "Select Product_Name,SUM(Qty),SUM(Total) from Challan_Transactions_Details where Convert(Date,Challan_date) >=  Convert(Date,'" + FromDate.ToString("yyyy-MM-dd") + "') AND  Convert(Date,Challan_date)<=Convert(Date,'" + ToDate.ToString("yyyy-MM-dd") + "') AND Product_ID="+ProductId+" group by Product_Name ORDER BY SUM(Qty) DESC;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kindly Select Proper Date !");
+                MessageBox.Show(ex.Message);
+
             }
             finally
             {

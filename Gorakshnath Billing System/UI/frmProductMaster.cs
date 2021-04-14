@@ -452,5 +452,10 @@ namespace Gorakshnath_Billing_System.UI
                 e.Handled = true;
             }
         }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
