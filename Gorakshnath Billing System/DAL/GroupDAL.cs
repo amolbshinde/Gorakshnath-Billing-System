@@ -14,7 +14,7 @@ namespace Gorakshnath_Billing_System.DAL
     class GroupDAL
     {
         //
-
+        //
         //Static String Method for Database Connection String.
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
 
