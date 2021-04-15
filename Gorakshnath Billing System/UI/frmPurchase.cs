@@ -909,7 +909,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Clear();
+            Clear();//
         }
 
         private void txtPaidAmount_TextChanged(object sender, EventArgs e)
@@ -921,6 +921,11 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         private void comboGstType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }
