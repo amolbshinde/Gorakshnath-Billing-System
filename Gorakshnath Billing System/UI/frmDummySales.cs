@@ -439,7 +439,7 @@ namespace Gorakshnath_Billing_System.UI
 
                         // using (TransactionScope scope = new TransactionScope())//
                         {
-                            // int salesid = -1; declared at top as a global variable
+                            // int salesid = -1; declared at top as a global variable.
                             bool b = challanDAL.insertDummySales(challanBLL, out salesid);
 
 
