@@ -58,23 +58,13 @@ namespace Gorakshnath_Billing_System
 
         private void addNewProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProductMaster productMaster = new frmProductMaster();
-            productMaster.Show();
-          /* // bool isOpen = false;
-            foreach(Form f in Application.OpenForms)
-            {
-                if (f.Text == "productMaster") ;
-               // isOpen = true;
-                f.BringToFront();
-                break;
-            }
-           /* if(isOpen==false)
-            {
-                frmProductMaster productMaster = new frmProductMaster();
-                productMaster.Show();
+            
 
-            }*/
-            //
+                frmProductMaster productMaster = new frmProductMaster();
+
+                productMaster.ShowDialog();
+            
+            
         }
 
         private void manageCategoriesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -85,26 +75,26 @@ namespace Gorakshnath_Billing_System
         private void totalSalesReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDummySalesReport dummySalesReport = new frmDummySalesReport();
-            dummySalesReport.Show();
+            dummySalesReport.ShowDialog();
         }
 
         private void addCustomerClientToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCustomer customer = new frmCustomer();
-            customer.Show();
+            customer.ShowDialog();
         }
 
         private void newSalesReturnCreditNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmChallanReturn challanReturn = new frmChallanReturn();
-            challanReturn.Show();
+            challanReturn.ShowDialog();
         }
 
         private void newInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDummySales DummySales = new frmDummySales();
            // DummySales.MdiParent = this;
-            DummySales.Show();
+            DummySales.ShowDialog();
         }
 
         private void fgToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,109 +105,109 @@ namespace Gorakshnath_Billing_System
         private void addPurchaseBillToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPurchase purchase = new frmPurchase();
-            purchase.Show();
+            purchase.ShowDialog();
         }
 
         private void addSupplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmSupplierMaster supplierMaster = new frmSupplierMaster();
-            supplierMaster.Show();
+            supplierMaster.ShowDialog();
         }
 
         private void newQuotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuotation Quotation = new frmQuotation();
-            Quotation.Show();
+            Quotation.ShowDialog();
             //frmEstimate estimate = new frmEstimate();
-            //estimate.Show();
+            //estimate.ShowDialog();
         }
 
         private void newDeliveryNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmChallan challan = new frmChallan();
-            challan.Show();
+            challan.ShowDialog();
         }
 
         private void totalPurchaseReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             frmStockReport StockReport = new frmStockReport();
-            StockReport.Show();
+            StockReport.ShowDialog();
 
         }
 
         private void manageBrandToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmProductBrand ProductBrand = new frmProductBrand();
-            ProductBrand.Show();
+            ProductBrand.ShowDialog();
         }
 
         private void manageProductGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmProductGroup ProductGroup = new frmProductGroup();
-            ProductGroup.Show();
+            ProductGroup.ShowDialog();
         }
 
         private void itemWiseSalesReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPurchaseReport purchaseReport = new frmPurchaseReport();
-            purchaseReport.Show();
+            purchaseReport.ShowDialog();
         }
 
         private void searchAndManageSupplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmSupplierMaster supplierMaster = new frmSupplierMaster();
-            supplierMaster.Show();
+            supplierMaster.ShowDialog();
         }
 
         private void searchAndManageCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCustomer customer = new frmCustomer();
-            customer.Show();
+            customer.ShowDialog();
         }
 
         private void searchAndManageProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmProductMaster productMaster = new frmProductMaster();
-            productMaster.Show();
+            productMaster.ShowDialog();
         }
 
         private void addPurchaseReturnDebitNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPurchaseReturn purchaseReturn = new frmPurchaseReturn();
-            purchaseReturn.Show();
+            purchaseReturn.ShowDialog();
         }
 
         private void searchAndManageInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDummySalesReport dummySalesReport = new frmDummySalesReport();
             //dummySalesReport.MdiParent = this;
-            dummySalesReport.Show();
+            dummySalesReport.ShowDialog();
         }
 
         private void challanReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmChallanReport frmChallanReport = new frmChallanReport();
-            frmChallanReport.Show();
+            frmChallanReport.ShowDialog();
         }
 
         private void searchAndManageDeliveryNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             frmChallanReport frmChallanReport = new frmChallanReport();
-            frmChallanReport.Show();
+            frmChallanReport.ShowDialog();
         }
 
         private void searchAndManagePurchaseBillToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPurchaseReport purchaseReport = new frmPurchaseReport();
-            purchaseReport.Show();
+            purchaseReport.ShowDialog();
         }
 
         private void searchAndManageQuotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmEstimateReport estimateReport = new frmEstimateReport();
-            estimateReport.Show();
+            estimateReport.ShowDialog();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -227,7 +217,7 @@ namespace Gorakshnath_Billing_System
         private void manageUsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUsers user = new frmUsers();
-            user.Show();
+            user.ShowDialog();
         }
 
         private void exitToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -246,7 +236,7 @@ namespace Gorakshnath_Billing_System
         private void searchAndManageSalesReturnCreditNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmChallanReturnReport challanReturnReport = new frmChallanReturnReport();
-            challanReturnReport.Show();
+            challanReturnReport.ShowDialog();
         }
 
         private void deliveryChallanReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -257,25 +247,25 @@ namespace Gorakshnath_Billing_System
         private void estimateReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmEstimateReport estimateReport = new frmEstimateReport();
-            estimateReport.Show();
+            estimateReport.ShowDialog();
         }
 
         private void salesReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmChallanReturnReport challanReturnReport = new frmChallanReturnReport();
-            challanReturnReport.Show();
+            challanReturnReport.ShowDialog();
         }
 
         private void searchAndManagePurchaseReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPurchaseReturnReport purchaseReturnReport = new frmPurchaseReturnReport();
-            purchaseReturnReport.Show();
+            purchaseReturnReport.ShowDialog();
         }
 
         private void purchasaaeReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPurchaseReturnReport purchaseReturnReport = new frmPurchaseReturnReport();
-            purchaseReturnReport.Show();
+            purchaseReturnReport.ShowDialog();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -299,25 +289,25 @@ namespace Gorakshnath_Billing_System
         private void debtorsAndCreditorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Debtors_and_Creditors Debtors_and_Creditors = new Debtors_and_Creditors();
-            Debtors_and_Creditors.Show();
+            Debtors_and_Creditors.ShowDialog();
         }
 
         private void debtorsAndCreditorsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Debtors_and_Creditors Debtors_and_Creditors = new Debtors_and_Creditors();
-            Debtors_and_Creditors.Show();
+            Debtors_and_Creditors.ShowDialog();
         }
 
         private void debtorsAndCreditorsToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             frmSupDrCr supDrCr = new frmSupDrCr();
-            supDrCr.Show();
+            supDrCr.ShowDialog();
         }
 
         private void purchaseeDebtorsAndCreditorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDebtors_Creditors_Purchase frmpurDrCr = new frmDebtors_Creditors_Purchase();
-            frmpurDrCr.Show();
+            frmpurDrCr.ShowDialog();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -333,6 +323,18 @@ namespace Gorakshnath_Billing_System
         private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void customerMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustomer customer = new frmCustomer();
+            customer.ShowDialog();
+        }
+
+        private void supplierMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSupplierMaster supplierMaster = new frmSupplierMaster();
+            supplierMaster.ShowDialog();
         }
     }
 }

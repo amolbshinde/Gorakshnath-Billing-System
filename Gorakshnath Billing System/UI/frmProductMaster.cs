@@ -289,7 +289,8 @@ namespace Gorakshnath_Billing_System.UI
         private void frmProductMaster_Load(object sender, EventArgs e)
         {
             DataTable dt = pDAL.Select();
-            dgvProductMaster.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.Fill);
+            dgvProductMaster.AutoResizeColumns();
+            dgvProductMaster.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvProductMaster.DataSource = dt;
 
             DataTable dtg = gDAL.Select();
@@ -372,11 +373,15 @@ namespace Gorakshnath_Billing_System.UI
             {
                 DataTable dt = pDAL.Search(keywords);
                 dgvProductMaster.DataSource = dt;
+                dgvProductMaster.AutoResizeColumns();
+                dgvProductMaster.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             else
             {
                 DataTable dt = pDAL.Select();
                 dgvProductMaster.DataSource = dt;
+                dgvProductMaster.AutoResizeColumns();
+                dgvProductMaster.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
 
@@ -385,11 +390,7 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        private void GenerateAutoProductID()
-        {
-
-
-        }
+        
 
         private void txtPurchase_Price_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -454,6 +455,11 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         private void Delete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvProductMaster_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
