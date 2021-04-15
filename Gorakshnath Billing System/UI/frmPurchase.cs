@@ -430,8 +430,8 @@ namespace Gorakshnath_Billing_System.UI
                                 stockBLL stockBLL = new stockBLL();
                                 int pid;
                                 Int32.TryParse(purchasedt.Rows[i][1].ToString(),out pid);
-                                string productName = purchasedt.Rows[i][2].ToString();
-                                ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                                //string productName = purchasedt.Rows[i][2].ToString();
+                                //ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
                             //MessageBox.Show(productName);
 
 
