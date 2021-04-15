@@ -71,7 +71,7 @@ namespace Gorakshnath_Billing_System.UI
                         case "Admin":
                             {
 
-                                //show admin dashboard 
+                                
                                 frmAdminDashboard admin = new frmAdminDashboard();
                                 admin.Show();
                                 this.Hide();
@@ -103,7 +103,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            comboBox1.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 1;
         }
     }
 }
