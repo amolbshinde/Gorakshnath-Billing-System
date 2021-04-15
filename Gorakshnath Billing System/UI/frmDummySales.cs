@@ -763,7 +763,7 @@ namespace Gorakshnath_Billing_System.UI
             if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
             {
 
-                //get search keyword from search text box
+                //get search keyword from search text box.
                 string keyword = comboSearchCust.Text;
                 if (keyword == "")//clear all textboex
                 {
