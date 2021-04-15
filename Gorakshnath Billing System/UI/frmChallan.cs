@@ -15,6 +15,7 @@ namespace Gorakshnath_Billing_System.UI
     public partial class frmChallan : Form
     {
         int Invoice_No = -1;
+        int ProductId = -1;
         public frmChallan()
         {
             InitializeComponent();
@@ -161,7 +162,7 @@ namespace Gorakshnath_Billing_System.UI
                                         int counter = 1;
                                         counter = salesDT.Rows.Count + 1;
                                         decimal gstAmt = Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
-                                        salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, discount, gstType, GST, gstAmt, TotalAmount);
+                                        salesDT.Rows.Add(counter, ProductId, ProductName, Unit, Qty, rate, discount, gstType, GST, gstAmt, TotalAmount);
                                         dgvAddedProducts.DataSource = salesDT;
 
                                         decimal subTotal;
@@ -273,6 +274,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             Clear();
             salesDT.Columns.Add("Sr. No.");
+            salesDT.Columns.Add("Product Id");
             salesDT.Columns.Add("Product Name");
             salesDT.Columns.Add("Unit");
             salesDT.Columns.Add("Quantity");
@@ -413,26 +415,26 @@ namespace Gorakshnath_Billing_System.UI
                                 challandetailsBLL cdBLL = new challandetailsBLL();
 
                                 stockBLL stockBLL = new stockBLL();
-                                string productName = salesDT.Rows[i][1].ToString();
+                                string productName = salesDT.Rows[i][2].ToString();
 
                                  ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
                                  cdBLL.Product_ID = p.Product_ID;
                                 cdBLL.Invoice_No = Invoice_No;
                                 cdBLL.Cust_ID = c.Cust_ID;
-                                 cdBLL.Product_Name = salesDT.Rows[i][1].ToString();
-                                 cdBLL.Unit = salesDT.Rows[i][2].ToString();
-                                 cdBLL.Qty = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
-                                cdBLL.Rate = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);                                
-                                cdBLL.Discount_Per = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
-                                cdBLL.GST_Type =salesDT.Rows[i][6].ToString();
-                                cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][7].ToString()), 2);
-                                cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
+                                 cdBLL.Product_Name = salesDT.Rows[i][2].ToString();
+                                 cdBLL.Unit = salesDT.Rows[i][3].ToString();
+                                 cdBLL.Qty = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);
+                                cdBLL.Rate = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);                                
+                                cdBLL.Discount_Per = Math.Round(decimal.Parse(salesDT.Rows[i][6].ToString()), 2);
+                                cdBLL.GST_Type =salesDT.Rows[i][7].ToString();
+                                cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
+                                cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][10].ToString()), 2);
                             cdBLL.Challan_date= dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
 
 
                             int Product_id = p.Product_ID;
                                 stockBLL.Product_Id = Product_id;
-                                stockBLL.Quantity = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
+                                stockBLL.Quantity = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);
                                 stockBLL.Unit = salesDT.Rows[i][2].ToString();
                                 
                                 bool y = challandetailsDAL.insertchallandetails(cdBLL);
@@ -661,15 +663,15 @@ namespace Gorakshnath_Billing_System.UI
                 for (int i = 0; i < salesDT.Rows.Count; i++)
                 {
                     //assognto dategrid view values into textboxs.
-
-                    comboItemSearch.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[1].Value.ToString();
-                    comboBoxUnit.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
-                    textQuantity.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString();
-                    textRate.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString();                    
-                    textDiscount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[5].Value.ToString();
-                    comboGstType.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[6].Value.ToString();
-                    textGST.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
-                    textTotalAmount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString();
+                    
+                    comboItemSearch.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
+                    comboBoxUnit.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString();
+                    textQuantity.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString();
+                    textRate.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[5].Value.ToString();                    
+                    textDiscount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[6].Value.ToString();
+                    comboGstType.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
+                    textGST.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString();
+                    textTotalAmount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[10].Value.ToString();
 
                 }
 
@@ -725,13 +727,13 @@ namespace Gorakshnath_Billing_System.UI
             {
                 decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
 
-                string gstType = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[6].Value.ToString();
+                string gstType = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
 
-                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString(), out Qty);
-                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString(), out PurchasePrice);
-                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[5].Value.ToString(), out discount);
-                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString(), out gst);
-                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString(), out TotalAmount);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString(), out Qty);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[5].Value.ToString(), out PurchasePrice);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[6].Value.ToString(), out discount);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString(), out gst);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[10].Value.ToString(), out TotalAmount);
 
                 Amount = PurchasePrice * Qty;
 
@@ -844,7 +846,7 @@ namespace Gorakshnath_Billing_System.UI
                     
                     return;
                 }
-
+                Int32.TryParse(comboItemSearch.SelectedValue.ToString(), out ProductId);
                 ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
                 textItemCode.Text = p.Item_Code;
                 comboItemSearch.Text = p.Product_Name;
