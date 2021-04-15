@@ -71,7 +71,6 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchItem.ValueMember = "Product_ID";
             comboSearchItem.DataSource = dtI;
             comboSearchItem.Text = "Select Item";
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -782,7 +781,6 @@ namespace Gorakshnath_Billing_System.UI
                 textEmail.Text = cBLL.email;
                 textAddress.Text = cBLL.address;
                 textGstNo.Text = cBLL.Gst_No;
-
             }
             else
             {
