@@ -69,7 +69,7 @@ namespace Gorakshnath_Billing_System.UI
         {
            if(comboInvoiceNo.Text != "Select Invoice No")
             {
-
+                
                 int invoceNo;
                 int.TryParse(comboInvoiceNo.Text, out invoceNo);
                 ChallanReturnBLL crBLL = ChallanReturnDAL.GetCustomerForChallanReturn(invoceNo);
@@ -87,9 +87,8 @@ namespace Gorakshnath_Billing_System.UI
                 comboItemName.ValueMember = "Product_ID";
                 comboItemName.Items.Add("Select Product Name");
                 comboItemName.DataSource = dti;
-                
-
                 InvoiceClear();
+
             }
         }
 
@@ -100,15 +99,18 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboItemName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string keyword = comboItemName.Text;
-            ChallanReturnDetailsBLL crBLL = ChallanReturnDetailsDAL.GetProductForChallanReturn(keyword);
-            Int32.TryParse(comboItemName.SelectedValue.ToString(), out ProductId);
-            comboBoxUnit.Text = crBLL.Unit;
-            textQuantity.Text = crBLL.Qty.ToString();
-            textRate.Text = crBLL.Rate.ToString();
-            textDiscount.Text = crBLL.Discount_Per.ToString();
-            comboGstType.Text = crBLL.GST_Type;
-            textTotalAmount.Text = crBLL.Total.ToString();
+            if (comboItemName.Text != "")
+            {
+                string keyword = comboItemName.Text;
+                ChallanReturnDetailsBLL crBLL = ChallanReturnDetailsDAL.GetProductForChallanReturn(keyword);
+                Int32.TryParse(comboItemName.SelectedValue.ToString(), out ProductId);
+                comboBoxUnit.Text = crBLL.Unit;
+                textQuantity.Text = crBLL.Qty.ToString();
+                textRate.Text = crBLL.Rate.ToString();
+                textDiscount.Text = crBLL.Discount_Per.ToString();
+                comboGstType.Text = crBLL.GST_Type;
+                textTotalAmount.Text = crBLL.Total.ToString();
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -232,7 +234,8 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         public void InvoiceClear()
-        {            
+        {
+            
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
             textQuantity.Text = "0";
