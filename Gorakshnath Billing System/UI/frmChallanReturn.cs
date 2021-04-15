@@ -87,7 +87,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboItemName.ValueMember = "Product_ID";
                 comboItemName.Items.Add("Select Product Name");
                 comboItemName.DataSource = dti;
-                Int32.TryParse(comboItemName.SelectedValue.ToString(),out ProductId);
+                
 
                 InvoiceClear();
             }
@@ -101,7 +101,8 @@ namespace Gorakshnath_Billing_System.UI
         private void comboItemName_SelectedIndexChanged(object sender, EventArgs e)
         {
             string keyword = comboItemName.Text;
-            ChallanReturnDetailsBLL crBLL = ChallanReturnDetailsDAL.GetProductForChallanReturn(keyword);            
+            ChallanReturnDetailsBLL crBLL = ChallanReturnDetailsDAL.GetProductForChallanReturn(keyword);
+            Int32.TryParse(comboItemName.SelectedValue.ToString(), out ProductId);
             comboBoxUnit.Text = crBLL.Unit;
             textQuantity.Text = crBLL.Qty.ToString();
             textRate.Text = crBLL.Rate.ToString();
