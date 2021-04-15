@@ -101,7 +101,7 @@ namespace Gorakshnath_Billing_System.UI
             textRate.Text = crBLL.Rate.ToString();
             textDiscount.Text = crBLL.Discount_Per.ToString();
             comboGstType.Text = crBLL.GST_Type;
-            textTotalAmount.Text = crBLL.Total.ToString();
+            textTotalAmount.Text = crBLL.Total.ToString();//
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
