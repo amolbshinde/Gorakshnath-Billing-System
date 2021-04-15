@@ -69,6 +69,7 @@ namespace Gorakshnath_Billing_System.UI
         {
            if(comboInvoiceNo.Text != "Select Invoice No")
             {
+                comboItemName.SelectedIndex = -1;
 
                 int invoceNo;
                 int.TryParse(comboInvoiceNo.Text, out invoceNo);
@@ -87,9 +88,8 @@ namespace Gorakshnath_Billing_System.UI
                 comboItemName.ValueMember = "Product_ID";
                 comboItemName.Items.Add("Select Product Name");
                 comboItemName.DataSource = dti;
-                
-
                 InvoiceClear();
+
             }
         }
 
@@ -108,7 +108,7 @@ namespace Gorakshnath_Billing_System.UI
             textRate.Text = crBLL.Rate.ToString();
             textDiscount.Text = crBLL.Discount_Per.ToString();
             comboGstType.Text = crBLL.GST_Type;
-            textTotalAmount.Text = crBLL.Total.ToString();//
+            textTotalAmount.Text = crBLL.Total.ToString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -232,7 +232,8 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         public void InvoiceClear()
-        {            
+        {
+            
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
             textQuantity.Text = "0";
