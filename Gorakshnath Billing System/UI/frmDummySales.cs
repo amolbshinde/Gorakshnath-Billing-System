@@ -447,14 +447,17 @@ namespace Gorakshnath_Billing_System.UI
                             for (int i = 0; i < salesDT.Rows.Count; i++)
                             {
                                 DummySalesDetailsBLL cdBLL = new DummySalesDetailsBLL();
-                                string productName = salesDT.Rows[i][2].ToString();
+                                //string productName = salesDT.Rows[i][2].ToString();
 
-                                ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                                int pid;
+                                Int32.TryParse(salesDT.Rows[i][1].ToString(), out pid);
+
+                                //ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
 
                                 cdBLL.Invoice_No = salesid;
-                                cdBLL.Product_ID = p.Product_ID;
+                                cdBLL.Product_ID = pid;
                                 cdBLL.Cust_ID = c.Cust_ID;
-                                cdBLL.Product_Name = salesDT.Rows[i][1].ToString();
+                                cdBLL.Product_Name = salesDT.Rows[i][2].ToString();
                                 cdBLL.Unit = salesDT.Rows[i][3].ToString();
                                 cdBLL.Qty = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);
                                 cdBLL.Rate = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
