@@ -994,6 +994,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Name = "frmChallan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " New Challan";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmChallan_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
