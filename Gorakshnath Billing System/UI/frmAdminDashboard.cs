@@ -664,9 +664,9 @@ namespace Gorakshnath_Billing_System
         private void timer1_Tick(object sender, EventArgs e)
         {
             //To Display Time
-            Time.Text = DateTime.Now.ToLongTimeString();
+          //  Time.Text = DateTime.Now.ToLongTimeString();
             //For Date
-            Date.Text = DateTime.Now.ToLongDateString();
+            //Date.Text = DateTime.Now.ToLongDateString();
         }
 
         private void Date_Click(object sender, EventArgs e)

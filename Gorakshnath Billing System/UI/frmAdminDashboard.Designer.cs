@@ -40,10 +40,11 @@ namespace Gorakshnath_Billing_System
             this.newInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.newSalesReturnCreditNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDeliveryNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageDeliveryNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.newSalesReturnCreditNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.newQuotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchAndManageQuotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +62,7 @@ namespace Gorakshnath_Billing_System
             this.debtorsAndCreditorsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manageBrandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,16 +82,9 @@ namespace Gorakshnath_Billing_System
             this.backupAndRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Time = new System.Windows.Forms.Label();
-            this.Date = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.pnllFooter.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnllFooter
@@ -207,20 +202,6 @@ namespace Gorakshnath_Billing_System
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(382, 6);
             // 
-            // newSalesReturnCreditNoteToolStripMenuItem
-            // 
-            this.newSalesReturnCreditNoteToolStripMenuItem.Name = "newSalesReturnCreditNoteToolStripMenuItem";
-            this.newSalesReturnCreditNoteToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
-            this.newSalesReturnCreditNoteToolStripMenuItem.Text = "New Sales Return(Credit Note)";
-            this.newSalesReturnCreditNoteToolStripMenuItem.Click += new System.EventHandler(this.newSalesReturnCreditNoteToolStripMenuItem_Click);
-            // 
-            // searchAndManageSalesReturnCreditNoteToolStripMenuItem
-            // 
-            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Name = "searchAndManageSalesReturnCreditNoteToolStripMenuItem";
-            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
-            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Text = "Search and Manage Sales Return";
-            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageSalesReturnCreditNoteToolStripMenuItem_Click);
-            // 
             // newDeliveryNoteToolStripMenuItem
             // 
             this.newDeliveryNoteToolStripMenuItem.Name = "newDeliveryNoteToolStripMenuItem";
@@ -234,6 +215,25 @@ namespace Gorakshnath_Billing_System
             this.searchAndManageDeliveryNoteToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
             this.searchAndManageDeliveryNoteToolStripMenuItem.Text = "Search and Manage Delivery Note";
             this.searchAndManageDeliveryNoteToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageDeliveryNoteToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(382, 6);
+            // 
+            // newSalesReturnCreditNoteToolStripMenuItem
+            // 
+            this.newSalesReturnCreditNoteToolStripMenuItem.Name = "newSalesReturnCreditNoteToolStripMenuItem";
+            this.newSalesReturnCreditNoteToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
+            this.newSalesReturnCreditNoteToolStripMenuItem.Text = "New Sales Return(Credit Note)";
+            this.newSalesReturnCreditNoteToolStripMenuItem.Click += new System.EventHandler(this.newSalesReturnCreditNoteToolStripMenuItem_Click);
+            // 
+            // searchAndManageSalesReturnCreditNoteToolStripMenuItem
+            // 
+            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Name = "searchAndManageSalesReturnCreditNoteToolStripMenuItem";
+            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
+            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Text = "Search and Manage Sales Return";
+            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageSalesReturnCreditNoteToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -364,6 +364,13 @@ namespace Gorakshnath_Billing_System
             this.addNewProductToolStripMenuItem.Size = new System.Drawing.Size(242, 30);
             this.addNewProductToolStripMenuItem.Text = "Product Master";
             this.addNewProductToolStripMenuItem.Click += new System.EventHandler(this.addNewProductToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(242, 30);
+            this.toolStripMenuItem1.Text = "Group Master";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // manageBrandToolStripMenuItem
             // 
@@ -508,73 +515,11 @@ namespace Gorakshnath_Billing_System
             this.label3.Size = new System.Drawing.Size(0, 24);
             this.label3.TabIndex = 2;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label4.Location = new System.Drawing.Point(732, 612);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(565, 41);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Shiv Gorakshnath Traders Billing System";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Gorakshnath_Billing_System.Properties.Resources._try;
-            this.pictureBox1.Location = new System.Drawing.Point(737, 242);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(601, 367);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Time
-            // 
-            this.Time.AutoSize = true;
-            this.Time.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Time.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Time.Location = new System.Drawing.Point(1047, 662);
-            this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(63, 25);
-            this.Time.TabIndex = 6;
-            this.Time.Text = "label2";
-            this.Time.Click += new System.EventHandler(this.Time_Click);
-            // 
-            // Date
-            // 
-            this.Date.AutoSize = true;
-            this.Date.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Date.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Date.Location = new System.Drawing.Point(863, 662);
-            this.Date.Name = "Date";
-            this.Date.Size = new System.Drawing.Size(63, 25);
-            this.Date.TabIndex = 7;
-            this.Date.Text = "label5";
-            this.Date.Click += new System.EventHandler(this.Date_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(242, 30);
-            this.toolStripMenuItem1.Text = "Group Master";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(382, 6);
-            // 
             // frmAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1831, 744);
-            this.Controls.Add(this.Date);
-            this.Controls.Add(this.Time);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pnllFooter);
             this.Controls.Add(this.menuStrip1);
@@ -591,7 +536,6 @@ namespace Gorakshnath_Billing_System
             this.pnllFooter.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -607,7 +551,6 @@ namespace Gorakshnath_Billing_System
         private System.Windows.Forms.ToolStripMenuItem inverntoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transactionsToolStripMenuItem;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem newInvoiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchAndManageInvoiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newSalesReturnCreditNoteToolStripMenuItem;
@@ -634,9 +577,6 @@ namespace Gorakshnath_Billing_System
         private System.Windows.Forms.ToolStripMenuItem estimateReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageUsersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label Time;
-        private System.Windows.Forms.Label Date;
         private System.Windows.Forms.ToolStripMenuItem debtorsAndCreditorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem debtorsAndCreditorsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem debtorsAndCreditorsToolStripMenuItem2;
