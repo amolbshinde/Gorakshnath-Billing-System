@@ -141,7 +141,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
-
+        //Select the data for combobaox
 
         #region Select Data From Database for combobox
         public DataTable SelectTD()
