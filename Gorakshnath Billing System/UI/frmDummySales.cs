@@ -70,14 +70,14 @@ namespace Gorakshnath_Billing_System.UI
             //comboSearchItem.DisplayMember = "Product_Name";
             //comboSearchItem.ValueMember = "Product_ID";
             //comboSearchItem.DataSource = dtI;
-            //comboSearchItem.Text = "Select Item";
+            comboSearchItem.Text = "Select Item";
             comboSearchItem.DisplayMember = "Text";
             comboSearchItem.ValueMember = "Value";
             for (int i=0;i<dtI.Rows.Count;i++)
             {
                 comboSearchItem.Items.Add(new { Text= dtI.Rows[i][1],Value= dtI.Rows[i][0] });
             }
-//            comboSearchItem.DroppedDown = true;
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -167,7 +167,7 @@ namespace Gorakshnath_Billing_System.UI
                                     }
 
 
-                                    comboSearchItem.Text = "Select Product";
+                                    comboSearchItem.Text = "Select Item";
                                     //textItemName.Text = "";
                                     comboBoxUnit.Text = "";
                                     textInventory.Text = "0";
@@ -360,7 +360,7 @@ namespace Gorakshnath_Billing_System.UI
             comboContact.Text = "Select Phone";
             textGstNo.Text = "";
             textItemCode.Text = "";
-            comboSearchItem.Text = "Select Product";
+            comboSearchItem.Text = "Select Item";
             //textItemName.Text = "";
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
@@ -803,13 +803,13 @@ namespace Gorakshnath_Billing_System.UI
         private void comboSearchItem_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (comboSearchItem.Text != "Select Product" && comboSearchItem.Text != "")
+            if (comboSearchItem.Text != "Select Item" && comboSearchItem.Text != "")
             {
 
                 string keyword = comboSearchItem.Text;
                 if (keyword == "")
                 {
-                    comboSearchItem.Text = "Select Product";
+                    comboSearchItem.Text = "Select Item";
                     textItemCode.Text = "";
                     //textItemName.Text = "";
                     comboBoxUnit.Text = "";
@@ -821,10 +821,10 @@ namespace Gorakshnath_Billing_System.UI
                     textTotalAmount.Text = "0";
                     return;
                 }
-                if(comboSearchItem.SelectedIndex !=-1)
+               /* if(comboSearchItem.SelectedIndex !=-1)
                 {
                     Int32.TryParse(comboSearchItem.SelectedValue.ToString(), out ProductId);                    
-                }
+                }*/
                 
                 ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
                 textItemCode.Text = p.Item_Code;
@@ -837,7 +837,7 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                comboSearchItem.Text = "Select Product";
+                comboSearchItem.Text = "Select Item";
                 textItemCode.Text = "";
                 //textItemName.Text = "";
                 comboBoxUnit.Text = "";
@@ -926,7 +926,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             
             string key = comboSearchItem.Text;
-            if (comboSearchItem.Text != "Select Item")
+            if (comboSearchItem.Text != "Select Item" && comboSearchItem.Text !="" && comboSearchItem.Text != null)
             {
                 comboSearchItem.Items.Clear();
                 //comboSearchItem.DataSource = null;
@@ -943,6 +943,8 @@ namespace Gorakshnath_Billing_System.UI
                 }
 
                 comboSearchItem.DroppedDown = true;
+                
+                Cursor.Current = Cursors.Default;
             }
            
         }
