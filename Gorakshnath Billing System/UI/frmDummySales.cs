@@ -54,7 +54,7 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchCust.DataSource = null;
             DataTable dtC = customerDAL.SelectForCombo();
             comboSearchCust.DisplayMember = "Cust_Name";
-            //comboSearchCust.ValueMember = "Column123";
+            //comboSearchCust.ValueMember = "Column123";//
             comboSearchCust.DataSource = dtC;
             comboSearchCust.Text = "Select Cust";
 
@@ -64,7 +64,7 @@ namespace Gorakshnath_Billing_System.UI
             //comboSearchCust.ValueMember = "Column123";
             comboContact.DataSource = dtP;
             comboContact.Text = "Select Phone";
-
+            
             comboSearchItem.DataSource = null;
             DataTable dtI = ProductMasterDAL.SelectForCombo();
             comboSearchItem.DisplayMember = "Product_Name";
@@ -913,23 +913,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboSearchItem_TextChanged(object sender, EventArgs e)
         {
-           /* comboSearchItem.DataSource = null;
-            String keywords = comboSearchItem.Text;
-            if (keywords != null && keywords.Length > 0 && keywords != "")
-            {
-                DataTable dtI = ProductMasterDAL.SelectForComboKeywords(keywords);
-
-                
-
-                foreach (DataRow dataRow in dtI.Rows)
-                {
-                    foreach (var item in dataRow.ItemArray)
-                    {
-                        Console.WriteLine(item);
-                    }
-                }
-            }
-           */
+                  
         }
     }
 
