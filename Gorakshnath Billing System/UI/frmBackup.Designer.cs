@@ -162,7 +162,7 @@ namespace Gorakshnath_Billing_System.UI
             this.lblPercent.BackColor = System.Drawing.SystemColors.Control;
             this.lblPercent.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPercent.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblPercent.Location = new System.Drawing.Point(457, 290);
+            this.lblPercent.Location = new System.Drawing.Point(408, 290);
             this.lblPercent.Name = "lblPercent";
             this.lblPercent.Size = new System.Drawing.Size(33, 23);
             this.lblPercent.TabIndex = 11;
@@ -174,7 +174,7 @@ namespace Gorakshnath_Billing_System.UI
             this.lblStatus.BackColor = System.Drawing.SystemColors.Control;
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblStatus.Location = new System.Drawing.Point(326, 290);
+            this.lblStatus.Location = new System.Drawing.Point(262, 338);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(65, 23);
             this.lblStatus.TabIndex = 12;
