@@ -77,7 +77,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 comboSearchItem.Items.Add(new { Text= dtI.Rows[i][1],Value= dtI.Rows[i][0] });
             }
-            comboSearchItem.DroppedDown = true;
+//            comboSearchItem.DroppedDown = true;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -821,9 +821,9 @@ namespace Gorakshnath_Billing_System.UI
                     textTotalAmount.Text = "0";
                     return;
                 }
-                if(comboSearchItem.SelectedIndex.ToString()!=null)
+                if(comboSearchItem.SelectedIndex !=-1)
                 {
-                    Int32.TryParse(comboSearchItem.SelectedValue.ToString(), out ProductId);
+                    Int32.TryParse(comboSearchItem.SelectedValue.ToString(), out ProductId);                    
                 }
                 
                 ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
@@ -924,10 +924,11 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboSearchItem_TextChanged(object sender, EventArgs e)
         {
-            //comboSearchItem.Items.Clear();
+            
             string key = comboSearchItem.Text;
             if (comboSearchItem.Text != "Select Item")
-            {/*
+            {
+                comboSearchItem.Items.Clear();
                 //comboSearchItem.DataSource = null;
                 DataTable ndtI = ProductMasterDAL.SelectForComboKeywords(key);
                 //comboSearchItem.DisplayMember = "Product_Name";
@@ -937,11 +938,11 @@ namespace Gorakshnath_Billing_System.UI
                 comboSearchItem.DisplayMember = "Text";
                 comboSearchItem.ValueMember = "Value";
                 for (int i = 0; i < ndtI.Rows.Count; i++)
-                {
-                    comboSearchItem.Items.Add(new { Text = ndtI.Rows[i][1], Value = ndtI.Rows[i][0] });
+                {                    
+                    comboSearchItem.Items.Add(new { Text = ndtI.Rows[i][1].ToString(), Value = ndtI.Rows[i][0].ToString() });
                 }
 
-                //comboSearchItem.Show();*/
+                comboSearchItem.DroppedDown = true;
             }
            
         }
