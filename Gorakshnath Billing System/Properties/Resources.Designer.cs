@@ -73,6 +73,16 @@ namespace Gorakshnath_Billing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _147_1474399_data_clipart_data_recovery_restore_database_icon {
+            get {
+                object obj = ResourceManager.GetObject("147-1474399_data-clipart-data-recovery-restore-database-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _3fe2835 {
             get {
                 object obj = ResourceManager.GetObject("3fe2835", resourceCulture);
@@ -196,6 +206,16 @@ namespace Gorakshnath_Billing_System.Properties {
         internal static System.Drawing.Bitmap master_data_icon_171 {
             get {
                 object obj = ResourceManager.GetObject("master-data-icon-171", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap restore1 {
+            get {
+                object obj = ResourceManager.GetObject("restore1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
