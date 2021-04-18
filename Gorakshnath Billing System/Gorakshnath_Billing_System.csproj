@@ -186,6 +186,12 @@
       <DependentUpon>crptPurchase.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\frmBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmBackup.Designer.cs">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmChallanSalesReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -408,6 +414,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptPurchase.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmBackup.resx">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmChallanSalesReport.resx">
       <DependentUpon>frmChallanSalesReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -586,6 +595,8 @@
     <None Include="Resources\add.png" />
     <Content Include="Resources\DGIF.gif" />
     <None Include="Resources\to_do_icon_153795.ico" />
+    <None Include="Resources\line-background-smoke-veil-wallpaper.jpg" />
+    <None Include="Resources\wp2581372-plain-background.jpg" />
     <Content Include="software.ico" />
     <None Include="Resources\Sales.gif" />
     <None Include="Resources\Estimate.gif" />

@@ -109,7 +109,7 @@ namespace Gorakshnath_Billing_System
                 if (!found)
                 {
                     frmDummySales DummySales = new frmDummySales();
-                    DummySales.MdiParent = this;
+                    //DummySales.MdiParent = this;
 
                     DummySales.Show();
                 }

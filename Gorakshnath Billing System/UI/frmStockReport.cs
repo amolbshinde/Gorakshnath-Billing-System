@@ -82,9 +82,6 @@ namespace Gorakshnath_Billing_System.UI
             dgvStockReport.DataSource = dt;
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+       
     }
 }

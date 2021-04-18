@@ -173,6 +173,16 @@ namespace Gorakshnath_Billing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap line_background_smoke_veil_wallpaper {
+            get {
+                object obj = ResourceManager.GetObject("line-background-smoke-veil-wallpaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap master_data_icon_17 {
             get {
                 object obj = ResourceManager.GetObject("master-data-icon-17", resourceCulture);
@@ -206,6 +216,16 @@ namespace Gorakshnath_Billing_System.Properties {
         internal static System.Drawing.Bitmap to_do_icon_153795 {
             get {
                 object obj = ResourceManager.GetObject("to_do_icon_153795", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wp2581372_plain_background {
+            get {
+                object obj = ResourceManager.GetObject("wp2581372-plain-background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
