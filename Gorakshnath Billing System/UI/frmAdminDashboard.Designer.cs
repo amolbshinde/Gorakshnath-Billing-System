@@ -33,7 +33,6 @@ namespace Gorakshnath_Billing_System
             this.pnllFooter = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.backupAndRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -84,6 +83,7 @@ namespace Gorakshnath_Billing_System
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.debtorsAndCreditorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseeDebtorsAndCreditorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupAndRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnllFooter.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -133,12 +133,6 @@ namespace Gorakshnath_Billing_System
             this.menuStrip1.Size = new System.Drawing.Size(1831, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // backupAndRestoreToolStripMenuItem
-            // 
-            this.backupAndRestoreToolStripMenuItem.Name = "backupAndRestoreToolStripMenuItem";
-            this.backupAndRestoreToolStripMenuItem.Size = new System.Drawing.Size(197, 32);
-            this.backupAndRestoreToolStripMenuItem.Text = "Backup and Restore";
             // 
             // helpToolStripMenuItem
             // 
@@ -526,6 +520,14 @@ namespace Gorakshnath_Billing_System
             this.purchaseeDebtorsAndCreditorsToolStripMenuItem.Size = new System.Drawing.Size(389, 30);
             this.purchaseeDebtorsAndCreditorsToolStripMenuItem.Text = "Debtors And Creditors of Purchase";
             this.purchaseeDebtorsAndCreditorsToolStripMenuItem.Click += new System.EventHandler(this.purchaseeDebtorsAndCreditorsToolStripMenuItem_Click);
+            // 
+            // backupAndRestoreToolStripMenuItem
+            // 
+            this.backupAndRestoreToolStripMenuItem.Image = global::Gorakshnath_Billing_System.Properties.Resources.restore1;
+            this.backupAndRestoreToolStripMenuItem.Name = "backupAndRestoreToolStripMenuItem";
+            this.backupAndRestoreToolStripMenuItem.Size = new System.Drawing.Size(217, 32);
+            this.backupAndRestoreToolStripMenuItem.Text = "Backup and Restore";
+            this.backupAndRestoreToolStripMenuItem.Click += new System.EventHandler(this.backupAndRestoreToolStripMenuItem_Click);
             // 
             // frmAdminDashboard
             // 
