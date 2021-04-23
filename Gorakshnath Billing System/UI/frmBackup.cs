@@ -50,7 +50,7 @@ namespace Gorakshnath_Billing_System.UI
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
+                con.Close();
             }
             
         }
