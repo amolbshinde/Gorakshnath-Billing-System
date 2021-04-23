@@ -9,7 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Gorakshnath_Billing_System.UI
 {
@@ -20,46 +21,86 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
         }
 
-        private void btnBackup_Click(object sender, EventArgs e)
+        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
+        SqlConnection con = new SqlConnection(myconnstrng);
+        private void button1_Click(object sender, EventArgs e)
         {
-            progressBar.Value = 0;
+            FolderBrowserDialog fd = new FolderBrowserDialog();
+            if(fd.ShowDialog()==DialogResult.OK)
+            {
+                txtPath.Text = fd.SelectedPath;
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {                
+                con.Open();
+                string query = "BACKUP DATABASE ["+con.Database+"] TO  DISK = N'"+ txtPath .Text+ "\\"+con.Database +".bak'";
+                //WITH NOFORMAT, NOINIT,  NAME = N'AnyStore-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Backup Completed Sucesfully");
+
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
             try
             {
-                Server dbServer = new Server(new ServerConnection(txtServer.Text, txtUsername.Text, TxtPassword.Text));
-                Backup dbBackup = new Backup() { Action = BackupActionType.Database, Database = txtDatabase.Text };
-                dbBackup.Devices.AddDevice(@"C:\Data\AnyStore.bak", DeviceType.File);
-                dbBackup.Initialize = true;
-                dbBackup.PercentComplete += DbBackup_PercentComplete;
-                dbBackup.Complete += DbBackup_Complete;
-                dbBackup.SqlBackupAsync(dbServer);
+                con.Open();
+                string get_db_offline = "ALTER DATABASE[AnyStore] SET OFFLINE";
+                SqlCommand cmd1 = new SqlCommand(get_db_offline,con);
+                cmd1.ExecuteNonQuery();
+                con.Close();
+
+                con.Open();
+                string query = "RESTORE DATABASE [" + con.Database + "] FROM  DISK = N'"+txtRestore.Text+"' WITH  FILE = 1;";
+                //WITH NOFORMAT, NOINIT,  NAME = N'AnyStore-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+                SqlCommand cmd = new SqlCommand(query, con);                               
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                MessageBox.Show("Restore Completed Sucesfully");
+                con.Open();
+                string get_db_online = "ALTER DATABASE [Anystore] SET ONLINE";
+                SqlCommand cmd2 = new SqlCommand(get_db_online, con);
+                cmd1.ExecuteNonQuery();
+                con.Close();
+
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
+
             }
-        }
-
-        private void DbBackup_PercentComplete(object sender, PercentCompleteEventArgs e)
-        {
-            progressBar.Invoke((MethodInvoker)delegate
-            {
-                progressBar.Value = e.Percent;
-                progressBar.Update();
-            });
-            lblPercent.Invoke((MethodInvoker)delegate
-            {
-                lblPercent.Text = $"{e.Percent}";
-            });
 
         }
 
-        private void DbBackup_Complete(object sender, ServerMessageEventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            if (e.Error != null)
-                lblStatus.Invoke((MethodInvoker)delegate
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter="Backup File(*.bak)|*.bak";
+            ofd.Title = "Select Backup file";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                lblStatus.Text = e.Error.Message;
-            });
+                txtRestore.Text = ofd.FileName;
+            }
         }
     }
 }

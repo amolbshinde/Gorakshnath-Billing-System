@@ -133,6 +133,16 @@ namespace Gorakshnath_Billing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap free_help_icon_1160_thumb {
+            get {
+                object obj = ResourceManager.GetObject("free-help-icon-1160-thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Geeren_Background_18_512 {
             get {
                 object obj = ResourceManager.GetObject("Geeren_Background_18-512", resourceCulture);
