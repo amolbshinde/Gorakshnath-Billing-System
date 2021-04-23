@@ -741,5 +741,10 @@ namespace Gorakshnath_Billing_System
             frmBackup backup = new frmBackup();
             backup.ShowDialog();//
         }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://swamisoftware.ml/");
+        }
     }
 }
