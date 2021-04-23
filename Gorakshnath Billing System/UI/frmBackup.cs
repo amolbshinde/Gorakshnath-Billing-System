@@ -50,7 +50,7 @@ namespace Gorakshnath_Billing_System.UI
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
+                con.Close();
             }
             
         }
@@ -60,11 +60,11 @@ namespace Gorakshnath_Billing_System.UI
 
             try
             {
-                con.Open();
-                string get_db_offline = "ALTER DATABASE[AnyStore] SET OFFLINE";
+                /*con.Open();
+                string get_db_offline = "alter database[Anystore] set single_user with rollback immediate";
                 SqlCommand cmd1 = new SqlCommand(get_db_offline,con);
                 cmd1.ExecuteNonQuery();
-                con.Close();
+                con.Close();*/
 
                 con.Open();
                 string query = "RESTORE DATABASE [" + con.Database + "] FROM  DISK = N'"+txtRestore.Text+"' WITH  FILE = 1;";
@@ -74,17 +74,22 @@ namespace Gorakshnath_Billing_System.UI
                 con.Close();
 
                 MessageBox.Show("Restore Completed Sucesfully");
-                con.Open();
-                string get_db_online = "ALTER DATABASE [Anystore] SET ONLINE";
+                /*con.Open();
+                string get_db_online = "ALTER DATABASE [Anystore] SET multi_user";
                 SqlCommand cmd2 = new SqlCommand(get_db_online, con);
-                cmd1.ExecuteNonQuery();
-                con.Close();
+                cmd2.ExecuteNonQuery();
+                con.Close();*/
 
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+               /* con.Open();
+                string get_db_online = "ALTER DATABASE [Anystore] SET multi_user";
+                SqlCommand cmd2 = new SqlCommand(get_db_online, con);
+                cmd2.ExecuteNonQuery();*/
+                con.Close();
 
             }
 
