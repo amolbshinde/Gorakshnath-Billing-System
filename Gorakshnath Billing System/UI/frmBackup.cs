@@ -9,7 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Gorakshnath_Billing_System.UI
 {
@@ -20,51 +21,61 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
         }
 
+        static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
+        SqlConnection con = new SqlConnection(myconnstrng);
         private void button1_Click(object sender, EventArgs e)
         {
+            FolderBrowserDialog fd = new FolderBrowserDialog();
+            if(fd.ShowDialog()==DialogResult.OK)
+            {
+                txtPath.Text = fd.SelectedPath;
+            }
 
         }
 
-        /* private void btnBackup_Click(object sender, EventArgs e)
-         {
-             progressBar.Value = 0;
-             try
-             {
-                 Server dbServer = new Server(new ServerConnection(txtServer.Text, txtUsername.Text, TxtPassword.Text));
-                 Backup dbBackup = new Backup() { Action = BackupActionType.Database, Database = txtDatabase.Text };
-                 dbBackup.Devices.AddDevice(@"C:\Data\AnyStore.bak", DeviceType.File);
-                 dbBackup.Initialize = true;
-                 dbBackup.PercentComplete += DbBackup_PercentComplete;
-                 dbBackup.Complete += DbBackup_Complete;
-                 dbBackup.SqlBackupAsync(dbServer);
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }
-         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {                
+                con.Open();
+                string query = "BACKUP DATABASE ["+con.Database+"] TO  DISK = N'"+ txtPath .Text+ "\\"+con.Database +".bak'";
+                //WITH NOFORMAT, NOINIT,  NAME = N'AnyStore-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Backup Completed Sucesfully");
 
-         private void DbBackup_PercentComplete(object sender, PercentCompleteEventArgs e)
-         {
-             progressBar.Invoke((MethodInvoker)delegate
-             {
-                 progressBar.Value = e.Percent;
-                 progressBar.Update();
-             });
-             lblPercent.Invoke((MethodInvoker)delegate
-             {
-                 lblPercent.Text = $"{e.Percent}";
-             });
 
-         }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
 
-         private void DbBackup_Complete(object sender, ServerMessageEventArgs e)
-         {
-             if (e.Error != null)
-                 lblStatus.Invoke((MethodInvoker)delegate
-             {
-                 lblStatus.Text = e.Error.Message;
-             });
-         }*/
+            }
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                con.Open();
+                string query = "BACKUP DATABASE [" + con.Database + "] TO  DISK = N'" + txtPath.Text + "\\" + con.Database + ".bak'";
+                //WITH NOFORMAT, NOINIT,  NAME = N'AnyStore-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Backup Completed Sucesfully");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+
+        }
     }
 }
