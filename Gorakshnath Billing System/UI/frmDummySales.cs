@@ -857,7 +857,7 @@ namespace Gorakshnath_Billing_System.UI
             if (comboContact.Text != "Select Phone" && comboContact.Text != "")
             {
 
-                //get search keyword from search text box..
+                //get search keyword from search text box
                 string keyword = comboContact.Text;
                 if (keyword == "")//clear all textboex
                 {
