@@ -63,7 +63,7 @@ namespace Gorakshnath_Billing_System.UI
                 /*con.Open();
                 string get_db_offline = "alter database[Anystore] set single_user with rollback immediate";
                 SqlCommand cmd1 = new SqlCommand(get_db_offline,con);
-                cmd1.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();;
                 con.Close();*/
 
                 con.Open();
