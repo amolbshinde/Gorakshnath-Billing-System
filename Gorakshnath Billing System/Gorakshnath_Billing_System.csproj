@@ -290,6 +290,7 @@
     <Compile Include="DAL\supplierDAL.cs" />
     <Compile Include="DAL\SupplierMasterDAL.cs" />
     <Compile Include="DAL\userDAL.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Report_Generator\CrystalReport\crptEstimate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
