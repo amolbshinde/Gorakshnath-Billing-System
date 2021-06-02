@@ -169,7 +169,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboProduct_Group.Size = new System.Drawing.Size(296, 29);
             this.comboProduct_Group.TabIndex = 0;
             this.comboProduct_Group.Text = "Select Group";
-            this.comboProduct_Group.SelectedIndexChanged += new System.EventHandler(this.comboProduct_Group_SelectedIndexChanged);
+           // this.comboProduct_Group.SelectedIndexChanged += new System.EventHandler(this.comboProduct_Group_SelectedIndexChanged);
             // 
             // comboBrand
             // 
@@ -445,7 +445,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvProductMaster.RowHeadersWidth = 51;
             this.dgvProductMaster.Size = new System.Drawing.Size(914, 493);
             this.dgvProductMaster.TabIndex = 0;
-            this.dgvProductMaster.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductMaster_CellContentClick);
+        //    this.dgvProductMaster.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductMaster_CellContentClick);
             this.dgvProductMaster.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProductMaster_RowHeaderMouseClick);
             // 
             // txtSearch

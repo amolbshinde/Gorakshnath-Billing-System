@@ -385,10 +385,7 @@ namespace Gorakshnath_Billing_System.UI
             }
         }
 
-        private void comboProduct_Group_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         
 
@@ -454,14 +451,6 @@ namespace Gorakshnath_Billing_System.UI
             }
         }
 
-        private void Delete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvProductMaster_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        //
     }
 }
