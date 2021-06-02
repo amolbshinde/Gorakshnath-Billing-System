@@ -115,16 +115,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Close();
         }
 
-        private void textSearch_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox13_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
+      
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string pname = "";
@@ -954,10 +945,7 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void comboTrType_SelectedIndexChanged(object sender, EventArgs e)
         {
