@@ -52,12 +52,21 @@ namespace Gorakshnath_Billing_System.UI
             comboContact.DataSource = dtP;
             comboContact.Text = "Select Phone";
 
-            comboItemSearch.DataSource = null;
+            comboItemSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboItemSearch.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            //comboItemSearch.DataSource = null;
             DataTable dtI = ProductMasterDAL.SelectForCombo();
-            comboItemSearch.DisplayMember = "Product_Name";
-            comboItemSearch.ValueMember = "Product_ID";
-            comboItemSearch.DataSource = dtI;
+            //comboItemSearch.DisplayMember = "Product_Name";
+            //comboItemSearch.ValueMember = "Product_ID";
+            //comboItemSearch.DataSource = dtI;
             comboItemSearch.Text = "Select Product";
+            comboItemSearch.DisplayMember = "Text";
+            comboItemSearch.ValueMember = "Value";
+            for (int i = 0; i < dtI.Rows.Count; i++)
+            {
+                comboItemSearch.Items.Add(new { Text = dtI.Rows[i][1].ToString(), Value = dtI.Rows[i][0].ToString() });
+            }
 
         }
 
@@ -973,6 +982,37 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textItemName_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void comboItemSearch_TextChanged(object sender, EventArgs e)
+        {
+
+            string key = comboItemSearch.Text;
+            if (comboItemSearch.Text != "Select Item" && comboItemSearch.Text != "" && comboItemSearch.Text != null)
+            {
+                comboItemSearch.Items.Clear();
+                //comboSearchItem.DataSource = null;
+                DataTable ndtI = ProductMasterDAL.SelectForComboKeywords(key);
+                //comboSearchItem.DisplayMember = "Product_Name";
+                //comboSearchItem.ValueMember = "Product_ID";
+                //comboSearchItem.DataSource = dtI;
+                //comboSearchItem.Text = "Select Item";
+                comboItemSearch.DisplayMember = "Text";
+                comboItemSearch.ValueMember = "Value";
+                for (int i = 0; i < ndtI.Rows.Count; i++)
+                {
+                    comboItemSearch.Items.Add(new { Text = ndtI.Rows[i][1].ToString(), Value = ndtI.Rows[i][0].ToString() });
+                }
+
+                comboItemSearch.DroppedDown = true;
+
+                comboItemSearch.SelectionStart = comboItemSearch.Text.Length;
+                comboItemSearch.SelectionLength = 0;
+
+
+
+            }
 
         }
     }
