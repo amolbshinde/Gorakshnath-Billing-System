@@ -293,7 +293,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label9.Size = new System.Drawing.Size(93, 20);
             this.label9.TabIndex = 13;
             this.label9.Text = "Party Gst No.";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            //this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // dtpBillDate
             // 
