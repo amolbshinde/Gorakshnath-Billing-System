@@ -956,7 +956,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 DataTable dt = ProductMasterDAL.ExactSearch(keywords);
                 //comboSearchItem.DataSource = dt;
-                comboSearchItem.AutoCompleteCustomSource =dt;
+               /// comboSearchItem.AutoCompleteCustomSource =dt;
                 
 
 
