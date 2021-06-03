@@ -341,8 +341,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // comboSearchItem
             // 
-            this.comboSearchItem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboSearchItem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboSearchItem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboSearchItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboSearchItem.FormattingEnabled = true;
             this.comboSearchItem.Location = new System.Drawing.Point(99, 49);
@@ -352,6 +351,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboSearchItem.TabIndex = 1;
             this.comboSearchItem.SelectedIndexChanged += new System.EventHandler(this.comboSearchItem_SelectedIndexChanged);
             this.comboSearchItem.TextChanged += new System.EventHandler(this.comboSearchItem_TextChanged);
+            this.comboSearchItem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboSearchItem_KeyPress);
             // 
             // label18
             // 
@@ -947,13 +947,13 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 750);
+            this.ClientSize = new System.Drawing.Size(1445, 844);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDummySales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Invoice";

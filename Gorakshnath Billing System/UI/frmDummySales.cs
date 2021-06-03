@@ -61,23 +61,22 @@ namespace Gorakshnath_Billing_System.UI
             comboContact.DataSource = null;
             DataTable dtP = customerDAL.SelectForCombo();
             comboContact.DisplayMember = "Cust_Contact";
-            //comboSearchCust.ValueMember = "Column123";
-            comboContact.DataSource = dtP;
+                      comboContact.DataSource = dtP;
             comboContact.Text = "Select Phone";
             
-            //comboSearchItem.DataSource = null;
+            comboSearchItem.DataSource = null;
             DataTable dtI = ProductMasterDAL.SelectForCombo();
-            //comboSearchItem.DisplayMember = "Product_Name";
-            //comboSearchItem.ValueMember = "Product_ID";
-            //comboSearchItem.DataSource = dtI;
-            comboSearchItem.Text = "Select Item";
+            comboSearchItem.DisplayMember = "Product_Name";
+            comboSearchItem.ValueMember = "Product_ID";
+            comboSearchItem.DataSource = dtI;
+           /* comboSearchItem.Text = "Select Item";
             comboSearchItem.DisplayMember = "Text";
-            comboSearchItem.ValueMember = "Value";
-            for (int i=0;i<dtI.Rows.Count;i++)
+            comboSearchItem.ValueMember = "Value";*/
+            /*for (int i=0;i<dtI.Rows.Count;i++)
             {
                 comboSearchItem.Items.Add(new { Text= dtI.Rows[i][1],Value= dtI.Rows[i][0] });
-            }
-
+            }*/
+          
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -235,7 +234,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textItemSearch_TextChanged(object sender, EventArgs e)
         {
-            string keyword = comboSearchItem.Text;
+            /*string keyword = comboSearchItem.Text;
 
 
             if (keyword == "")
@@ -251,7 +250,7 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchItem.Text = p.Product_Name;
             comboBoxUnit.Text = p.Unit;
             textInventory.Text = p.Quantity.ToString();
-            textRate.Text = p.Purchase_Price.ToString();
+            textRate.Text = p.Purchase_Price.ToString();*/
         }
 
         private void textRate_TextChanged(object sender, EventArgs e)
@@ -924,29 +923,46 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboSearchItem_TextChanged(object sender, EventArgs e)
         {
-            
-            string key = comboSearchItem.Text;
-            if (comboSearchItem.Text != "Select Item" && comboSearchItem.Text !="" && comboSearchItem.Text != null)
-            {
-                comboSearchItem.Items.Clear();
-                //comboSearchItem.DataSource = null;
-                DataTable ndtI = ProductMasterDAL.SelectForComboKeywords(key);
-                //comboSearchItem.DisplayMember = "Product_Name";
-                //comboSearchItem.ValueMember = "Product_ID";
-                //comboSearchItem.DataSource = dtI;
-                //comboSearchItem.Text = "Select Item";
-                comboSearchItem.DisplayMember = "Text";
-                comboSearchItem.ValueMember = "Value";
-                for (int i = 0; i < ndtI.Rows.Count; i++)
-                {                    
-                    comboSearchItem.Items.Add(new { Text = ndtI.Rows[i][1].ToString(), Value = ndtI.Rows[i][0].ToString() });
-                }
 
-                comboSearchItem.DroppedDown = true;
+            /* string key = comboSearchItem.Text;
+             if (comboSearchItem.Text != "Select Item" && comboSearchItem.Text !="" && comboSearchItem.Text != null)
+             {
+                 comboSearchItem.Items.Clear();
+                 comboSearchItem.DataSource = null;
+                 DataTable dtI = ProductMasterDAL.SelectForComboKeywords(key);
+                 comboSearchItem.DisplayMember = "Product_Name";
+                 comboSearchItem.ValueMember = "Product_ID";
+                 comboSearchItem.DataSource = dtI;
+                 comboSearchItem.Text = "Select Item";
+                // comboSearchItem.DisplayMember = "Text";
+                // comboSearchItem.ValueMember = "Value";
+                /* for (int i = 0; i < ndtI.Rows.Count; i++)
+                 {                    
+                     comboSearchItem.Items.Add(new { Text = ndtI.Rows[i][1].ToString(), Value = ndtI.Rows[i][0].ToString() });
+                 }
+
+                 comboSearchItem.DroppedDown = true;
+
+                 //Cursor.Current = Cursors.Default;
+             }
+            */
+        }
+
+        private void comboSearchItem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string keywords = comboSearchItem.Text;
+
+            if (keywords != null)
+            {
+                DataTable dt = ProductMasterDAL.ExactSearch(keywords);
+                //comboSearchItem.DataSource = dt;
+                comboSearchItem.AutoCompleteCustomSource =dt;
                 
-                Cursor.Current = Cursors.Default;
+
+
             }
-           
+
+
         }
     }
 

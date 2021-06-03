@@ -508,6 +508,31 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Exactsearch for combo
+        public DataTable ExactSearch(string keywords)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
 
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT Product_ID,Product_Name FROM Product_Master WHERE Product_ID LIKE'%" + keywords + "%' OR Product_Name LIKE'%" + keywords + "%' OR Brand LIKE'%" + keywords + "%' OR Item_Code LIKE'%" + keywords + "%'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+
+        #endregion
     }
 }
