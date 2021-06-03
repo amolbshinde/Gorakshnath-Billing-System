@@ -492,7 +492,6 @@ namespace Gorakshnath_Billing_System.UI
             this.comboItemSearch.Name = "comboItemSearch";
             this.comboItemSearch.Size = new System.Drawing.Size(328, 27);
             this.comboItemSearch.TabIndex = 1;
-            this.comboItemSearch.Text = "Select Product";
             this.comboItemSearch.SelectedIndexChanged += new System.EventHandler(this.comboItemSearch_SelectedIndexChanged);
             this.comboItemSearch.TextChanged += new System.EventHandler(this.comboItemSearch_TextChanged);
             this.comboItemSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboItemSearch_KeyPress);
