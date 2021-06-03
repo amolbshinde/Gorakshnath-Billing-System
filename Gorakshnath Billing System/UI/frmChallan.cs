@@ -991,7 +991,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             if (comboItemSearch.Text == "Select Product")
             {
-                
+                //PASS
             }
             else
             {
@@ -1000,8 +1000,7 @@ namespace Gorakshnath_Billing_System.UI
                 DataTable dtI = ProductMasterDAL.ExactSearch(keyword);
                 comboItemSearch.DisplayMember = "Product_Name";
                 comboItemSearch.ValueMember = "Product_ID";
-                comboItemSearch.DataSource = dtI;
-                
+                comboItemSearch.DataSource = dtI;                
             }
 
         }
