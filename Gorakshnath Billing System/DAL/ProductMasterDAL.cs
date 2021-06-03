@@ -455,6 +455,7 @@ namespace Gorakshnath_Billing_System.DAL
 
 
         #endregion
+
         #region method to delete record new
         public DataTable SelectForDelete()
         {
@@ -480,7 +481,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
 
         #region Search Item for combobox  On Database Using Keywords
         public DataTable SelectForComboKeywords(string keywords)
