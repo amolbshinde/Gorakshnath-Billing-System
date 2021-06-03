@@ -483,7 +483,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // comboItemSearch
             // 
-            this.comboItemSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboItemSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboItemSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboItemSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboItemSearch.FormattingEnabled = true;
@@ -495,6 +495,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboItemSearch.Text = "Select Product";
             this.comboItemSearch.SelectedIndexChanged += new System.EventHandler(this.comboItemSearch_SelectedIndexChanged);
             this.comboItemSearch.TextChanged += new System.EventHandler(this.comboItemSearch_TextChanged);
+            this.comboItemSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboItemSearch_KeyPress);
             // 
             // label35
             // 

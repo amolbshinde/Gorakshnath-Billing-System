@@ -58,7 +58,6 @@ namespace Gorakshnath_Billing_System.UI
 
         private void getDataComboBox()
         {
-
             comboItemSearch.DataSource = null;
             DataTable dtI = ProductMasterDAL.ExactSearch("");
             comboItemSearch.DisplayMember = "Product_Name";
@@ -66,7 +65,6 @@ namespace Gorakshnath_Billing_System.UI
             comboItemSearch.DataSource = dtI;
             comboItemSearch.Text = "Select Product";
             comboItemSearch.SelectedIndex = -1;
-
         }
 
        
@@ -832,9 +830,7 @@ namespace Gorakshnath_Billing_System.UI
         private void comboItemSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboItemSearch.Text == "Select Product")
-            {
-
-                comboItemSearch.Text = "Select Product";
+            {   
                 textItemCode.Text = "";
                 // textItemName.Text = "";
                 comboBoxUnit.Text = "";
@@ -844,7 +840,6 @@ namespace Gorakshnath_Billing_System.UI
                 textQuantity.Text = "0";
                 textGST.Text = "0";
                 textTotalAmount.Text = "0";
-
             }
             else
             {
@@ -967,8 +962,6 @@ namespace Gorakshnath_Billing_System.UI
             {
                 txtPaidAmount.Text = "0.00";
                 txtPaidAmount.ReadOnly = false;
-
-
             }
 
         }
@@ -990,10 +983,26 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         private void comboItemSearch_TextChanged(object sender, EventArgs e)
-        {           
-
+        {
             
+        }
 
+        private void comboItemSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (comboItemSearch.Text == "Select Product")
+            {
+                
+            }
+            else
+            {
+                string keyword = comboItemSearch.Text;
+                comboItemSearch.DataSource = null;
+                DataTable dtI = ProductMasterDAL.ExactSearch(keyword);
+                comboItemSearch.DisplayMember = "Product_Name";
+                comboItemSearch.ValueMember = "Product_ID";
+                comboItemSearch.DataSource = dtI;
+                
+            }
 
         }
     }
