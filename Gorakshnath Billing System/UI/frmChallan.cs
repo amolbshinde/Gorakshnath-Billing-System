@@ -993,21 +993,28 @@ namespace Gorakshnath_Billing_System.UI
             
         }
 
+
+
         private void comboItemSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            if (comboItemSearch.Text != "Select Product")
+
+            comboItemSearch.DroppedDown = true;
+            if (char.IsControl(e.KeyChar))
             {
-                if (comboItemSearch.Text != null)
-                {
-                    string keyword = comboItemSearch.Text;
-                    comboItemSearch.DataSource = null;
-                    DataTable dtI = ProductMasterDAL.ExactSearch(keyword);
-                    comboItemSearch.DisplayMember = "Product_Name";
-                    comboItemSearch.ValueMember = "Product_ID";
-                    comboItemSearch.DataSource = dtI;
-                }
+                return;
             }
+            string str = comboItemSearch.Text.Substring(0, comboItemSearch.SelectionStart) + e.KeyChar;
+            Int32 index = comboItemSearch.FindStringExact(str);
+            if (index == -1)
+            {
+                index = comboItemSearch.FindString(str);
+            }
+            this.comboItemSearch.SelectedIndex = index;
+            this.comboItemSearch.SelectionStart = str.Length;
+            this.comboItemSearch.SelectionLength = this.comboItemSearch.Text.Length - this.comboItemSearch.SelectionStart;
+            e.Handled = true;
+
 
         }
     }

@@ -483,14 +483,13 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // comboItemSearch
             // 
-            this.comboItemSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboItemSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboItemSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboItemSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboItemSearch.FormattingEnabled = true;
             this.comboItemSearch.Location = new System.Drawing.Point(73, 48);
             this.comboItemSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboItemSearch.Name = "comboItemSearch";
-            this.comboItemSearch.Size = new System.Drawing.Size(328, 27);
+            this.comboItemSearch.Size = new System.Drawing.Size(328, 23);
             this.comboItemSearch.TabIndex = 1;
             this.comboItemSearch.SelectedIndexChanged += new System.EventHandler(this.comboItemSearch_SelectedIndexChanged);
             this.comboItemSearch.TextChanged += new System.EventHandler(this.comboItemSearch_TextChanged);
