@@ -39,6 +39,8 @@ namespace Gorakshnath_Billing_System.UI
 
         DataTable salesDT = new DataTable();
 
+        ComboboxItem item = new ComboboxItem();
+
         public void fillCombo()
         {
             comboSearchCust.DataSource = null;
@@ -58,16 +60,28 @@ namespace Gorakshnath_Billing_System.UI
 
         private void getDataComboBox()
         {
-            comboItemSearch.DataSource = null;
+
             DataTable dtI = ProductMasterDAL.ExactSearch("");
-            comboItemSearch.DisplayMember = "Product_Name";
-            comboItemSearch.ValueMember = "Product_ID";
-            comboItemSearch.DataSource = dtI;
-            comboItemSearch.Text = "Select Product";
-            comboItemSearch.SelectedIndex = -1;
+            comboItemSearch.DisplayMember = "Text";
+            comboItemSearch.ValueMember = "Value";
+
+            foreach (DataRow Row in dtI.Rows)
+            {   
+                comboItemSearch.Items.Add(new {Text = Row["Product_Name"].ToString(),Value = Row["Product_ID"].ToString() });
+            }
+
+            //comboItemSearch.DataSource = null;
+            //DataTable dtI = ProductMasterDAL.ExactSearch("");
+            //comboItemSearch.DisplayMember = "Product_Name";
+            //comboItemSearch.ValueMember = "Product_ID";
+            //comboItemSearch.DataSource = dtI;
+            //comboItemSearch.Text = "Select Product";
+            //comboItemSearch.SelectedIndex = -1;
+
+
         }
 
-       
+
 
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -994,13 +1008,8 @@ namespace Gorakshnath_Billing_System.UI
                 //PASS
             }
             else
-            {
-                string keyword = comboItemSearch.Text;
-                comboItemSearch.DataSource = null;
-                DataTable dtI = ProductMasterDAL.ExactSearch(keyword);
-                comboItemSearch.DisplayMember = "Product_Name";
-                comboItemSearch.ValueMember = "Product_ID";
-                comboItemSearch.DataSource = dtI;                
+            {                
+
             }
 
         }
