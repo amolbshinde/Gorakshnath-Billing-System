@@ -15,7 +15,9 @@ namespace Gorakshnath_Billing_System.UI
     public partial class frmChallan : Form
     {
         int Invoice_No = -1;
-        int ProductId = -1;
+        int ProductId = -1;      
+        
+
         public frmChallan()
         {
             InitializeComponent();
@@ -37,6 +39,8 @@ namespace Gorakshnath_Billing_System.UI
 
         DataTable salesDT = new DataTable();
 
+        ComboboxItem item = new ComboboxItem();
+
         public void fillCombo()
         {
             comboSearchCust.DataSource = null;
@@ -50,25 +54,25 @@ namespace Gorakshnath_Billing_System.UI
             comboContact.DisplayMember = "Cust_Contact";
             //comboSearchCust.ValueMember = "Column123";
             comboContact.DataSource = dtP;
-            comboContact.Text = "Select Phone";
+            comboContact.Text = "Select Phone";  
+        }
 
-            comboItemSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            comboItemSearch.AutoCompleteSource = AutoCompleteSource.ListItems;
 
-            //comboItemSearch.DataSource = null;
-            DataTable dtI = ProductMasterDAL.SelectForCombo();
-            //comboItemSearch.DisplayMember = "Product_Name";
-            //comboItemSearch.ValueMember = "Product_ID";
-            //comboItemSearch.DataSource = dtI;
+        private void getDataComboBox()
+        {
+            //hghghlkl
+            comboItemSearch.DataSource = null;
+            DataTable dtI = ProductMasterDAL.ExactSearch("");
+            comboItemSearch.DisplayMember = "Product_Name";
+            comboItemSearch.ValueMember = "Product_ID";
+            comboItemSearch.DataSource = dtI;
             comboItemSearch.Text = "Select Product";
-            comboItemSearch.DisplayMember = "Text";
-            comboItemSearch.ValueMember = "Value";
-            for (int i = 0; i < dtI.Rows.Count; i++)
-            {
-                comboItemSearch.Items.Add(new { Text = dtI.Rows[i][1].ToString(), Value = dtI.Rows[i][0].ToString() });
-            }
+            comboItemSearch.SelectedIndex = -1;
 
         }
+
+
+
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -287,6 +291,8 @@ namespace Gorakshnath_Billing_System.UI
             comboTrType.SelectedIndex=0;
             comboPaymentMode.SelectedIndex = 0;
             comboTransactionType.SelectedIndex = 1;
+
+            getDataComboBox();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -827,9 +833,20 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboItemSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboItemSearch.Text != "Select Product")
+            if(comboItemSearch.Text == "Select Product")
+            {   
+                textItemCode.Text = "";
+                // textItemName.Text = "";
+                comboBoxUnit.Text = "";
+                textInventory.Text = "0";
+                textRate.Text = "0";
+                textDiscount.Text = "0";
+                textQuantity.Text = "0";
+                textGST.Text = "0";
+                textTotalAmount.Text = "0";
+            }
+            else
             {
-
                 string keyword = comboItemSearch.Text;
                 if (keyword == "")
                 {
@@ -843,7 +860,6 @@ namespace Gorakshnath_Billing_System.UI
                     textQuantity.Text = "0";
                     textGST.Text = "0";
                     textTotalAmount.Text = "0";
-                    
                     return;
                 }
                 Int32.TryParse(comboItemSearch.SelectedValue.ToString(), out ProductId);
@@ -853,21 +869,8 @@ namespace Gorakshnath_Billing_System.UI
                 comboBoxUnit.Text = p.Unit;
                 textRate.Text = p.Sales_Price.ToString();
                 textInventory.Text = p.Quantity.ToString();
-                textQuantity.Text = "1";
+                //textQuantity.Text = "1";
 
-            }
-            else
-            {
-                comboItemSearch.Text = "Select Product";
-                textItemCode.Text = "";
-               // textItemName.Text = "";
-                comboBoxUnit.Text = "";
-                textInventory.Text = "0";
-                textRate.Text = "0";
-                textDiscount.Text = "0";
-                textQuantity.Text = "0";
-                textGST.Text = "0";
-                textTotalAmount.Text = "0";
             }
         }
 
@@ -963,8 +966,6 @@ namespace Gorakshnath_Billing_System.UI
             {
                 txtPaidAmount.Text = "0.00";
                 txtPaidAmount.ReadOnly = false;
-
-
             }
 
         }
@@ -987,32 +988,17 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboItemSearch_TextChanged(object sender, EventArgs e)
         {
+            
 
-            string key = comboItemSearch.Text;
-            if (comboItemSearch.Text != "Select Item" && comboItemSearch.Text != "" && comboItemSearch.Text != null)
-            {
-                comboItemSearch.Items.Clear();
-                //comboSearchItem.DataSource = null;
-                DataTable ndtI = ProductMasterDAL.SelectForComboKeywords(key);
-                //comboSearchItem.DisplayMember = "Product_Name";
-                //comboSearchItem.ValueMember = "Product_ID";
-                //comboSearchItem.DataSource = dtI;
-                //comboSearchItem.Text = "Select Item";
-                comboItemSearch.DisplayMember = "Text";
-                comboItemSearch.ValueMember = "Value";
-                for (int i = 0; i < ndtI.Rows.Count; i++)
-                {
-                    comboItemSearch.Items.Add(new { Text = ndtI.Rows[i][1].ToString(), Value = ndtI.Rows[i][0].ToString() });
-                }
-
-                comboItemSearch.DroppedDown = true;
-
-                comboItemSearch.SelectionStart = comboItemSearch.Text.Length;
-                comboItemSearch.SelectionLength = 0;
+            
+        }
 
 
 
-            }
+        private void comboItemSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+
 
         }
     }

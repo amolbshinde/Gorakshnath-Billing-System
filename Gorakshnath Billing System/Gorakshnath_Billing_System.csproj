@@ -242,6 +242,7 @@
     <Compile Include="BLL\challandetailsBLL.cs" />
     <Compile Include="BLL\ChallanReturnBLL.cs" />
     <Compile Include="BLL\ChallanReturnDetailsBLL.cs" />
+    <Compile Include="BLL\ComboboxItem.cs" />
     <Compile Include="BLL\customerBLL.cs" />
     <Compile Include="BLL\DummySalesBLL.cs" />
     <Compile Include="BLL\DummySalesDetailsBLL.cs" />
