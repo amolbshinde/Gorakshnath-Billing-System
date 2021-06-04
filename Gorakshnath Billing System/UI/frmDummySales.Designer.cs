@@ -336,7 +336,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Location = new System.Drawing.Point(21, 146);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1419, 94);
+            this.panel3.Size = new System.Drawing.Size(1419, 91);
             this.panel3.TabIndex = 1;
             // 
             // comboSearchItem
