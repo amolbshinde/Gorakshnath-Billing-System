@@ -999,22 +999,6 @@ namespace Gorakshnath_Billing_System.UI
         {
 
 
-            comboItemSearch.DroppedDown = true;
-            if (char.IsControl(e.KeyChar))
-            {
-                return;
-            }
-            string str = comboItemSearch.Text.Substring(0, comboItemSearch.SelectionStart) + e.KeyChar;
-            Int32 index = comboItemSearch.FindStringExact(str);
-            if (index == -1)
-            {
-                index = comboItemSearch.FindString(str);
-            }
-            this.comboItemSearch.SelectedIndex = index;
-            this.comboItemSearch.SelectionStart = str.Length;
-            this.comboItemSearch.SelectionLength = this.comboItemSearch.Text.Length - this.comboItemSearch.SelectionStart;
-            e.Handled = true;
-
 
         }
     }
