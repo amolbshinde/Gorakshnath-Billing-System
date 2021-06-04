@@ -988,15 +988,8 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboItemSearch_TextChanged(object sender, EventArgs e)
         {
+         
 
-            string keyword=comboItemSearch.Text;
-            //comboItemSearch.DataSource = null;
-            DataTable dtI = ProductMasterDAL.ExactSearch(keyword);
-            //comboItemSearch.DisplayMember = "Product_Name";
-            //comboItemSearch.ValueMember = "Product_ID";
-            //comboItemSearch.DataSource = dtI;
-            //comboItemSearch.Text = "Select Product";
-            //comboItemSearch.SelectedIndex = -1;            
         }
 
 
