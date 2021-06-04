@@ -1012,7 +1012,7 @@ namespace Gorakshnath_Billing_System.UI
                 }
                 else if (this.comboItemSearch.Text != string.Empty && isTextCleared)
                 {
-                    //Gets the filter text
+                    //Gets the filter text 
                     //string keyword = comboItemSearch.Text;
                     comboItemSearch.DataSource = null;
                     DataTable dtI = ProductMasterDAL.ExactSearch(keyword);
