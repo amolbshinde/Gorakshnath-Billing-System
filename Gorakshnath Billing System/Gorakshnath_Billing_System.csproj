@@ -264,9 +264,6 @@
     <Compile Include="BLL\supplierBLL.cs" />
     <Compile Include="BLL\SupplierMasterBLL.cs" />
     <Compile Include="BLL\userBLL.cs" />
-    <Compile Include="DAL\AutoCompleteTextbox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="DAL\BrandDAL.cs" />
     <Compile Include="DAL\challanDAL.cs" />
     <Compile Include="DAL\challandetailsDAL.cs" />

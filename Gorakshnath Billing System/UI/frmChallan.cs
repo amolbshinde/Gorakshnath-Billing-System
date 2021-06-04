@@ -23,7 +23,9 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
             fillCombo();
         }
+
         
+
         customerBLL customerBLL = new customerBLL();
         customerDAL customerDAL = new customerDAL();
 
@@ -41,6 +43,7 @@ namespace Gorakshnath_Billing_System.UI
 
         ComboboxItem item = new ComboboxItem();
 
+        bool isTextCleared = true;
         public void fillCombo()
         {
             comboSearchCust.DataSource = null;
@@ -63,11 +66,19 @@ namespace Gorakshnath_Billing_System.UI
             //hghghlkl
             comboItemSearch.DataSource = null;
             DataTable dtI = ProductMasterDAL.ExactSearch("");
+
+            // Creates a DataView.
+            DataView dataView = new DataView(dtI);
+            // Sets DataSource.
+            this.comboItemSearch.DataSource = dataView;
+
             comboItemSearch.DisplayMember = "Product_Name";
             comboItemSearch.ValueMember = "Product_ID";
-            comboItemSearch.DataSource = dtI;
+            //comboItemSearch.DataSource = dtI;
             comboItemSearch.Text = "Select Product";
             comboItemSearch.SelectedIndex = -1;
+            //comboItemSearch.AutoComplete = false;
+
 
         }
 
@@ -989,6 +1000,43 @@ namespace Gorakshnath_Billing_System.UI
         private void comboItemSearch_TextChanged(object sender, EventArgs e)
         {
          
+            if(comboItemSearch.Text != "Select Product")
+            {
+
+                string keyword = this.comboItemSearch.Text;
+                if (this.comboItemSearch.Text == string.Empty && !isTextCleared)
+                {
+                    DataTable dtI = ProductMasterDAL.ExactSearch("");
+                    this.comboItemSearch.DataSource = dtI;
+                    isTextCleared = true;
+                }
+                else if (this.comboItemSearch.Text != string.Empty && isTextCleared)
+                {
+                    //Gets the filter text
+                    //string keyword = comboItemSearch.Text;
+                    comboItemSearch.DataSource = null;
+                    DataTable dtI = ProductMasterDAL.ExactSearch(keyword);
+                    // Creates a DataView.
+                    DataView dataView = new DataView(dtI);
+                    if (dataView.Count > 0)
+                    {
+                        //Gets the data source of the ComboBoxAdv
+                        comboItemSearch.DisplayMember = "Product_Name";
+                        comboItemSearch.ValueMember = "Product_ID";
+                        this.comboItemSearch.DataSource = dataView;
+                        this.comboItemSearch.SelectionStart = 0;
+                        this.comboItemSearch.SelectionLength = this.comboItemSearch.Text.Length;
+                        comboItemSearch.DroppedDown = true;
+                        return;
+                    }
+                    else
+                    {
+                        comboItemSearch.DroppedDown = false;
+                        comboItemSearch.SelectionStart = this.comboItemSearch.Text.Length;
+                    }
+                }
+            }
+
 
         }
 
@@ -996,9 +1044,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboItemSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-
-
+            
         }
     }
 }

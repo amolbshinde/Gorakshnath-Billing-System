@@ -483,8 +483,6 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // comboItemSearch
             // 
-            this.comboItemSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboItemSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboItemSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboItemSearch.FormattingEnabled = true;
             this.comboItemSearch.Location = new System.Drawing.Point(73, 48);
