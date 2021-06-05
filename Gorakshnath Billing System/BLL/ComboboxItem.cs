@@ -8,6 +8,7 @@ namespace Gorakshnath_Billing_System.BLL
 {
     class ComboboxItem
     {
+        //for combobox autocomplete
         public string Text { get; set; }
         public object Value { get; set; }
 
