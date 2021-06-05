@@ -1044,7 +1044,13 @@ namespace Gorakshnath_Billing_System.UI
             {
                 listBox1.Items.Add(new { Product_Name = dtI.Rows[i][1].ToString(), Product_ID = dtI.Rows[i][0].ToString() });
             }
-            listBox1.Focus();
+            
+
+            if((e.KeyCode == Keys.Scroll))
+            {
+                listBox1.Focus();
+            }
+            
         }
     }
 }
