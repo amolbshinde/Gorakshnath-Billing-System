@@ -1055,11 +1055,9 @@ namespace Gorakshnath_Billing_System.UI
 
         private void listSearchItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //
-
-            MessageBox.Show(listSearchItems.SelectedItem.ToString());
-            /*
-            if (listSearchItems.SelectedIndex == 0)
+            
+            
+            if (textSearchItems.Text=="")
             {
                 textItemCode.Text = "";
                 // textItemName.Text = "";
@@ -1098,7 +1096,7 @@ namespace Gorakshnath_Billing_System.UI
                 //textQuantity.Text = "1";
 
             }
-            */
+            
         }
 
         private void textSearchItems_KeyUp(object sender, KeyEventArgs e)
@@ -1107,20 +1105,15 @@ namespace Gorakshnath_Billing_System.UI
             string key = textSearchItems.Text;
 
             DataTable dtI = ProductMasterDAL.ExactSearch(key);
-            listSearchItems.Items.Clear();
+            //listSearchItems.Items.Clear();
             listSearchItems.DisplayMember = "Product_Name"; // Just set the correct name of the properties 
             listSearchItems.ValueMember = "Product_ID";
-
+            listSearchItems.DataSource = dtI;
             // comboSearchItem.DataSource = dtI;
-            for (int i = 0; i < dtI.Rows.Count; i++)
-            {
-                listSearchItems.Items.Add(new { Product_Name = dtI.Rows[i][1].ToString(), Product_ID = dtI.Rows[i][0].ToString() });
-            }
-
-
+           
             if ((e.KeyCode == Keys.Down))
             {
-                listSearchItems.SelectedIndex = 0;
+                //listSearchItems.SelectedIndex = 0;
                 listSearchItems.Focus();
                 
             }
