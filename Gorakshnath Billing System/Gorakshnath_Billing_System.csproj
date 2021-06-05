@@ -319,6 +319,9 @@
       <DependentUpon>crptPurchase.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\AutoCompleteComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\frmBackup.cs">
       <SubType>Form</SubType>
     </Compile>

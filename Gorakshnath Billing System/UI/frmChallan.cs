@@ -1,6 +1,7 @@
 ﻿using Gorakshnath_Billing_System.BLL;
 using Gorakshnath_Billing_System.DAL;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,11 +44,7 @@ namespace Gorakshnath_Billing_System.UI
 
         ComboboxItem item = new ComboboxItem();
 
-        private Panel panel;
-
-        bool isTextCleared = true;
-
-
+        bool isTextCleared = new bool();
         public void fillCombo()
         {
             comboSearchCust.DataSource = null;
@@ -85,6 +82,8 @@ namespace Gorakshnath_Billing_System.UI
 
 
         }
+
+
 
 
 
@@ -307,7 +306,11 @@ namespace Gorakshnath_Billing_System.UI
             comboPaymentMode.SelectedIndex = 0;
             comboTransactionType.SelectedIndex = 1;
 
+
             getDataComboBox();
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -1004,41 +1007,11 @@ namespace Gorakshnath_Billing_System.UI
         private void comboItemSearch_TextChanged(object sender, EventArgs e)
         {
 
-            string keyword = this.comboItemSearch.Text;
-            if (this.comboItemSearch.Text == string.Empty && !isTextCleared)
-            {
-                DataTable dtI = ProductMasterDAL.ExactSearch("");
-                this.comboItemSearch.DataSource = dtI;
-                isTextCleared = true;
-            }
-            else if (this.comboItemSearch.Text != string.Empty && isTextCleared)
-            {
-                //Gets the filter text 
-                //string keyword = comboItemSearch.Text;
-                comboItemSearch.DataSource = null;
-                DataTable dtI = ProductMasterDAL.ExactSearch(keyword);
-                // Creates a DataView.
-                DataView dataView = new DataView(dtI);
-                if (dataView.Count > 0)
-                {
-                    //Gets the data source of the ComboBoxAdv..
-                    //Gets the data source of the ComboBoxAdv..
-                    comboItemSearch.DisplayMember = "Product_Name";
-                    comboItemSearch.ValueMember = "Product_ID";
-                    this.comboItemSearch.DataSource = dataView;
-                    //this.comboItemSearch.SelectionStart = 0;
-                    this.comboItemSearch.SelectionLength = this.comboItemSearch.Text.Length;
-                    comboItemSearch.DroppedDown = true;
-                    return;
-                }
-                else
-                {
-                    comboItemSearch.DroppedDown = false;
-                    comboItemSearch.SelectionStart = this.comboItemSearch.Text.Length;
-                }
-            }
+            
+
 
         }
+        
 
         private void comboItemSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1047,109 +1020,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboItemSearch_KeyDown(object sender, KeyEventArgs e)
         {
-
-
-            // if user presses key.up
-            if ((e.KeyCode == Keys.Up))
-            {
-                // move the selection in listbox one up
-                MoveSelectionInListBox((SelectedIndex - 1));
-                // work is done
-                e.Handled = true;
-            }
-            // on key.down
-            else if ((e.KeyCode == Keys.Down))
-            {
-                //move one down
-                MoveSelectionInListBox((SelectedIndex + 1));
-                e.Handled = true;
-            }
-            else if ((e.KeyCode == Keys.PageUp))
-            {
-                //move 10 up
-                MoveSelectionInListBox((SelectedIndex - 10));
-                e.Handled = true;
-            }
-            else if ((e.KeyCode == Keys.PageDown))
-            {
-                //move 10 down
-                MoveSelectionInListBox((SelectedIndex + 10));
-                e.Handled = true;
-            }
-            // on enter
-            else if ((e.KeyCode == Keys.Enter))
-            {
-                // select the item in the ListBox
-                SelectItem();
-                e.Handled = true;
-            }
-            else
-            {
-                // work is not done, maybe the base class will process the event, so call it...
-                base.OnKeyDown(e);
-            }
-
-
-
-        }
-
-        private void MoveSelectionInListBox(int Index)
-        {
-            // beginning of list
-            if (Index <= -1)
-            { this.SelectedIndex = 0; }
-            else
-                // end of liste
-                if (Index > (comboItemSearch.Items.Count - 1))
-            {
-                SelectedIndex = (comboItemSearch.Items.Count - 1);
-            }
-            else
-            // somewhere in the middle
-            { SelectedIndex = Index; }
-        }
-
-
-        public int SelectedIndex
-        {
-            get
-            {
-                return comboItemSearch.SelectedIndex;
-            }
-            set
-            {
-                // musn't be null
-                if (comboItemSearch.Items.Count != 0)
-                { comboItemSearch.SelectedIndex = value; }
-            }
-        }
-
-
-        private bool SelectItem()
-        {
-            // if the ListBox is not empty
-            if (((this.comboItemSearch.Items.Count > 0) && (this.SelectedIndex > -1)))
-            {
-                // set the Text of the TextBox to the selected item of the ListBox
-                this.Text = this.comboItemSearch.SelectedItem.ToString();
-                // and hide the ListBox
-                this.HideSuggestionListBox();
-            }
-            return true;
-        }
-
-        public void HideSuggestionListBox()
-        {
-            if ((ParentForm != null))
-            {
-                // hiding the panel also hides the listbox
-                panel.Hide();
-                // now remove it from the ParentForm (Form1 in this example)
-                if (this.ParentForm.Controls.Contains(panel))
-                {
-                    this.ParentForm.Controls.Remove(panel);
-                }
-            }
+         
         }
 
     }
