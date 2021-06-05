@@ -42,9 +42,8 @@ namespace Gorakshnath_Billing_System.UI
 
         DataTable salesDT = new DataTable();
 
-        ComboboxItem item = new ComboboxItem();
+        
 
-        bool isTextCleared = new bool();
         public void fillCombo()
         {
             comboSearchCust.DataSource = null;
@@ -1006,7 +1005,15 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboItemSearch_TextChanged(object sender, EventArgs e)
         {
-
+            string key = comboItemSearch.Text;
+            if(key!="")
+            {
+                MessageBox.Show("if");
+            }
+            else if(key == "Select Product")
+            {
+                MessageBox.Show("elseif");
+            }
             
 
 
