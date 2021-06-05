@@ -1021,13 +1021,7 @@ namespace Gorakshnath_Billing_System.UI
             
         }
 
-        private void comboItemSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-
-            
-
-
-        }
+        
 
         private void comboItemSearch_KeyUp(object sender, KeyEventArgs e)
         {
@@ -1072,7 +1066,6 @@ namespace Gorakshnath_Billing_System.UI
                 listSearchItems.Focus();
             }
 
-
         }
 
         
@@ -1090,8 +1083,7 @@ namespace Gorakshnath_Billing_System.UI
             //textQuantity.Text = "1";
             listSearchItems.Hide();
         }
-
-        
+                
 
         private void listSearchItems_MouseClick(object sender, MouseEventArgs e)
         {

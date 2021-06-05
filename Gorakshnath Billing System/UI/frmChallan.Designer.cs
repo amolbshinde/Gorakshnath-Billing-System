@@ -504,7 +504,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboItemSearch.TabIndex = 1;
             this.comboItemSearch.SelectedIndexChanged += new System.EventHandler(this.comboItemSearch_SelectedIndexChanged);
             this.comboItemSearch.TextChanged += new System.EventHandler(this.comboItemSearch_TextChanged);
-            this.comboItemSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboItemSearch_KeyDown);
+            //this.comboItemSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboItemSearch_KeyDown);
             this.comboItemSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboItemSearch_KeyPress);
             this.comboItemSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.comboItemSearch_KeyUp);
             // 
