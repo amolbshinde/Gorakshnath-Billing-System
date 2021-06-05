@@ -1055,7 +1055,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void listSearchItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            //
 
             MessageBox.Show(listSearchItems.SelectedItem.ToString());
             /*
