@@ -1,6 +1,7 @@
 ﻿using Gorakshnath_Billing_System.BLL;
 using Gorakshnath_Billing_System.DAL;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,11 +44,7 @@ namespace Gorakshnath_Billing_System.UI
 
         ComboboxItem item = new ComboboxItem();
 
-        private Panel panel;
-
-        bool isTextCleared = true;
-
-
+        bool isTextCleared = new bool();
         public void fillCombo()
         {
             comboSearchCust.DataSource = null;
@@ -85,6 +82,8 @@ namespace Gorakshnath_Billing_System.UI
 
 
         }
+
+
 
 
 
@@ -307,7 +306,11 @@ namespace Gorakshnath_Billing_System.UI
             comboPaymentMode.SelectedIndex = 0;
             comboTransactionType.SelectedIndex = 1;
 
+
             getDataComboBox();
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -1006,7 +1009,9 @@ namespace Gorakshnath_Billing_System.UI
 
             
 
+
         }
+        
 
         private void comboItemSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
