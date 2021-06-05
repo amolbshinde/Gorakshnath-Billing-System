@@ -1034,9 +1034,7 @@ namespace Gorakshnath_Billing_System.UI
             this.listSearchItems.Size = new System.Drawing.Size(326, 199);
             this.listSearchItems.TabIndex = 44;
             this.listSearchItems.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listSearchItems_MouseClick);
-            this.listSearchItems.SelectedIndexChanged += new System.EventHandler(this.listSearchItems_SelectedIndexChanged);
-            this.listSearchItems.Enter += new System.EventHandler(this.listSearchItems_Enter);
-           // this.listSearchItems.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listSearchItems_KeyUp);
+            this.listSearchItems.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listSearchItems_KeyUp);
             this.listSearchItems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listSearchItems_MouseDoubleClick);
             // 
             // frmChallan

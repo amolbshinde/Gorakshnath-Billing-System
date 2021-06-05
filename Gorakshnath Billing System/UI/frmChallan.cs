@@ -1053,12 +1053,7 @@ namespace Gorakshnath_Billing_System.UI
             
         }
 
-        private void listSearchItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            
-
-        }
+       
 
         private void textSearchItems_KeyUp(object sender, KeyEventArgs e)
         {
@@ -1071,16 +1066,16 @@ namespace Gorakshnath_Billing_System.UI
             listSearchItems.ValueMember = "Product_ID";
             listSearchItems.DataSource = dtI;
             // comboSearchItem.DataSource = dtI;
-           
 
-            
+            if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.Up || e.KeyCode == Keys.Scroll))
+            {
+                listSearchItems.Focus();
+            }
+
 
         }
 
-        private void listSearchItems_Enter(object sender, EventArgs e)
-        {
-            fetchProductDetails();
-        }
+        
 
         public void fetchProductDetails()
         {
@@ -1106,6 +1101,14 @@ namespace Gorakshnath_Billing_System.UI
         private void listSearchItems_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             fetchProductDetails();
+        }
+
+        private void listSearchItems_KeyUp(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Enter))
+            {
+                fetchProductDetails();
+            }
         }
     }
 }
