@@ -103,6 +103,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
@@ -483,8 +484,6 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // comboItemSearch
             // 
-            this.comboItemSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboItemSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboItemSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboItemSearch.FormattingEnabled = true;
             this.comboItemSearch.Location = new System.Drawing.Point(73, 48);
@@ -496,6 +495,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboItemSearch.TextChanged += new System.EventHandler(this.comboItemSearch_TextChanged);
             this.comboItemSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboItemSearch_KeyDown);
             this.comboItemSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboItemSearch_KeyPress);
+            this.comboItemSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.comboItemSearch_KeyUp);
             // 
             // label35
             // 
@@ -1006,6 +1006,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.listBox1);
             this.panel4.Controls.Add(this.dgvAddedProducts);
             this.panel4.Controls.Add(this.label21);
             this.panel4.Location = new System.Drawing.Point(19, 199);
@@ -1013,6 +1014,14 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1057, 242);
             this.panel4.TabIndex = 19;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(82, 62);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(259, 95);
+            this.listBox1.TabIndex = 44;
             // 
             // frmChallan
             // 
@@ -1121,5 +1130,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTrAmount;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

@@ -308,6 +308,8 @@ namespace Gorakshnath_Billing_System.UI
 
             getDataComboBox();
 
+            listBox1.Hide();
+
 
 
         }
@@ -1000,20 +1002,12 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textItemName_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void comboItemSearch_TextChanged(object sender, EventArgs e)
         {
-            string key = comboItemSearch.Text;
-            if(key!="")
-            {
-                MessageBox.Show("if");
-            }
-            else if(key == "Select Product")
-            {
-                MessageBox.Show("elseif");
-            }
+
             
 
 
@@ -1022,13 +1016,36 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboItemSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+            
             
         }
 
         private void comboItemSearch_KeyDown(object sender, KeyEventArgs e)
         {
-         
+
+            
+
+
         }
 
+        private void comboItemSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            listBox1.Show();
+            string key = comboItemSearch.Text;
+
+            DataTable dtI = ProductMasterDAL.ExactSearch(key);
+            listBox1.Items.Clear();
+            listBox1.DisplayMember = "Product_Name"; // Just set the correct name of the properties 
+            listBox1.ValueMember = "Product_ID";
+
+            // comboSearchItem.DataSource = dtI;
+            for (int i = 0; i < dtI.Rows.Count; i++)
+            {
+                listBox1.Items.Add(new { Product_Name = dtI.Rows[i][1].ToString(), Product_ID = dtI.Rows[i][0].ToString() });
+            }
+
+
+        }
     }
 }
