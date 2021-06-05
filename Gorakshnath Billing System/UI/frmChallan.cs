@@ -1055,48 +1055,9 @@ namespace Gorakshnath_Billing_System.UI
 
         private void listSearchItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
-            if (textSearchItems.Text=="")
-            {
-                textItemCode.Text = "";
-                // textItemName.Text = "";
-                comboBoxUnit.Text = "";
-                textInventory.Text = "0";
-                textRate.Text = "0";
-                textDiscount.Text = "0";
-                textQuantity.Text = "0";
-                textGST.Text = "0";
-                textTotalAmount.Text = "0";
-            }
-            else
-            {
-                string keyword = textSearchItems.Text;
-                if (keyword == "")
-                {
-                    //textSearchItems.Text = "Select Product";
-                    textItemCode.Text = "";
-                    //textItemName.Text = "";
-                    comboBoxUnit.Text = "";
-                    textInventory.Text = "0";
-                    textRate.Text = "0";
-                    textDiscount.Text = "0";
-                    textQuantity.Text = "0";
-                    textGST.Text = "0";
-                    textTotalAmount.Text = "0";
-                    return;
-                }
-                Int32.TryParse(listSearchItems.SelectedValue.ToString(), out ProductId);
-                ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
-                textItemCode.Text = p.Item_Code;
-                textSearchItems.Text = p.Product_Name;
-                comboBoxUnit.Text = p.Unit;
-                textRate.Text = p.Sales_Price.ToString();
-                textInventory.Text = p.Quantity.ToString();
-                //textQuantity.Text = "1";
 
-            }
             
+
         }
 
         private void textSearchItems_KeyUp(object sender, KeyEventArgs e)
@@ -1111,12 +1072,40 @@ namespace Gorakshnath_Billing_System.UI
             listSearchItems.DataSource = dtI;
             // comboSearchItem.DataSource = dtI;
            
-            if ((e.KeyCode == Keys.Down))
-            {
-                //listSearchItems.SelectedIndex = 0;
-                listSearchItems.Focus();
-                
-            }
+
+            
+
+        }
+
+        private void listSearchItems_Enter(object sender, EventArgs e)
+        {
+            fetchProductDetails();
+        }
+
+        public void fetchProductDetails()
+        {
+            string keyword = listSearchItems.Text;
+            Int32.TryParse(listSearchItems.SelectedValue.ToString(), out ProductId);
+            ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
+            textItemCode.Text = p.Item_Code;
+            textSearchItems.Text = p.Product_Name;
+            comboBoxUnit.Text = p.Unit;
+            textRate.Text = p.Sales_Price.ToString();
+            textInventory.Text = p.Quantity.ToString();
+            //textQuantity.Text = "1";
+            listSearchItems.Hide();
+        }
+
+        
+
+        private void listSearchItems_MouseClick(object sender, MouseEventArgs e)
+        {
+            fetchProductDetails();
+        }
+
+        private void listSearchItems_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            fetchProductDetails();
         }
     }
 }
