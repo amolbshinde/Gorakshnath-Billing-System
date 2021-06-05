@@ -30,10 +30,7 @@ namespace Gorakshnath_Billing_System.UI
             comboBox1.ValueMember = "Product_ID";
             comboBox1.DisplayMember = "Product_Name";
         }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void frmChallanSalesReport_Load(object sender, EventArgs e)
         {
