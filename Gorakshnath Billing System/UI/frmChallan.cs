@@ -1074,7 +1074,7 @@ namespace Gorakshnath_Billing_System.UI
                 string keyword = textSearchItems.Text;
                 if (keyword == "")
                 {
-                    textSearchItems.Text = "Select Product";
+                    //textSearchItems.Text = "Select Product";
                     textItemCode.Text = "";
                     //textItemName.Text = "";
                     comboBoxUnit.Text = "";
