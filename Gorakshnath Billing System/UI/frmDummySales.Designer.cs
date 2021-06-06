@@ -409,10 +409,10 @@ namespace Gorakshnath_Billing_System.UI
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.Teal;
-            this.btnAdd.Location = new System.Drawing.Point(1320, 39);
+            this.btnAdd.Location = new System.Drawing.Point(1321, 47);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(96, 37);
+            this.btnAdd.Size = new System.Drawing.Size(96, 36);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -912,8 +912,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // listBox1
             // 
+            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
+            this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(103, 1);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(428, 164);
