@@ -37,7 +37,7 @@ namespace Gorakshnath_Billing_System.UI
         DummySalesDetailsDAL DummySalesDetailsDAL = new DummySalesDetailsDAL();
 
         DataTable salesDT = new DataTable();
-       
+
 
         public void fillCombo()
         {
@@ -51,16 +51,16 @@ namespace Gorakshnath_Billing_System.UI
             comboContact.DataSource = null;
             DataTable dtP = customerDAL.SelectForCombo();
             comboContact.DisplayMember = "Cust_Contact";
-            comboContact.DisplayMember = "comboContact.DisplayMember";
+            comboContact.ValueMember = "Cust_Contact";
             comboContact.DataSource = dtP;
             comboContact.Text = "Select Phone";
-                        
+
         }
-              
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string pname = "";
-            String isAdded="false";
+            String isAdded = "false";
             //checking product is already present or ot
             //
             try
@@ -175,7 +175,7 @@ namespace Gorakshnath_Billing_System.UI
                             else
                             {
                                 MessageBox.Show("Plsease Select GST type");
-                               
+
                             }
 
                         }
@@ -195,7 +195,7 @@ namespace Gorakshnath_Billing_System.UI
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -363,9 +363,9 @@ namespace Gorakshnath_Billing_System.UI
             int TransactionStatus = 0;
             try
             {
-                
+
                 string sname = comboSearchCust.Text;
-                if (comboTransactionType.Text != "" )
+                if (comboTransactionType.Text != "")
                 {
                     if (sname != "" && sname != "Select Cust" && comboContact.Text != "")
                     {
@@ -414,7 +414,7 @@ namespace Gorakshnath_Billing_System.UI
 
                             challanBLL.DummySalesDetails = salesDT;
                             bool isSuccess = false;
-                                                     
+
                             {
                                 // int salesid = -1; declared at top as a global variable.
                                 bool b = challanDAL.insertDummySales(challanBLL, out salesid);
@@ -440,26 +440,24 @@ namespace Gorakshnath_Billing_System.UI
                                     cdBLL.GST_Type = salesDT.Rows[i][8].ToString();
                                     cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
                                     cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][10].ToString()), 2);
-                                    // string Billdate = dtpBillDate.Value.ToLongDateString();
-                                    //MessageBox.Show(Billdate);
                                     cdBLL.Challan_date = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
                                     bool y = DummySalesDetailsDAL.insertDummySalesDetails(cdBLL);
-                                   
-                                    if(b==true&&y==true)
+
+                                    if (b == true && y == true)
                                     {
                                         isSuccess = true;
                                     }
-                                        
 
-                                    
+
+
                                 }
-                                
+
                                 if (isSuccess == true)
                                 {
 
                                     MessageBox.Show("Transaction Completed");
-                                     TransactionStatus = 1;
-                                                                    }
+                                    TransactionStatus = 1;
+                                }
                                 else
                                 {
                                     MessageBox.Show("Transaction Failed");
@@ -503,8 +501,8 @@ namespace Gorakshnath_Billing_System.UI
                 if (dgvAddedProducts.Rows.Count != 0)
                 {
                     //save fun.
-                   int _TransactionStatus = save();
-                    if(_TransactionStatus!=0 && salesid != -1)
+                    int _TransactionStatus = save();
+                    if (_TransactionStatus != 0 && salesid != -1)
                     {
                         if (MessageBox.Show("Do you want to print Invoice" + "\n" + "Confirm ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 
@@ -518,12 +516,12 @@ namespace Gorakshnath_Billing_System.UI
 
                         {
                             Clear();
-                        }                    
-                       
-                            
-                        
+                        }
+
+
+
                     }
-                    
+
                 }
                 else
                 {
@@ -673,41 +671,70 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-       /* private void textSearch_TextChanged(object sender, EventArgs e)
-        {
-            if (comboTransactionType.Text != "")
-            {
-                //get search keyword from search text box
-                string keyword = comboSearchCust.Text;
-                if (keyword == "")//clear all textboex
-                {
-                    comboSearchCust.Text = "Select Cust";
-                    textAddress.Text = "";
-                    comboContact.Text = "Select Phone";
-                    textEmail.Text = "";
-                    textGstNo.Text = "";
-                    return;
-                }
+        /* private void textSearch_TextChanged(object sender, EventArgs e)
+         {
+             if (comboTransactionType.Text != "")
+             {
+                 //get search keyword from search text box
+                 string keyword = comboSearchCust.Text;
+                 if (keyword == "")//clear all textboex
+                 {
+                     comboSearchCust.Text = "Select Cust";
+                     textAddress.Text = "";
+                     comboContact.Text = "Select Phone";
+                     textEmail.Text = "";
+                     textGstNo.Text = "";
+                     return;
+                 }
 
-                customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
-                //textCust_Name.Text = cBLL.name;
-                comboContact.Text = cBLL.contact;
-                textEmail.Text = cBLL.email;
-                textAddress.Text = cBLL.address;
-                textGstNo.Text = cBLL.Gst_No;
-            }
-            else
-            {
-                MessageBox.Show("Please Select The Transaction Type First, You Cannot Change the Transaction type during this Transaction");
-            }
-        }*/
+                 customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
+                 //textCust_Name.Text = cBLL.name;
+                 comboContact.Text = cBLL.contact;
+                 textEmail.Text = cBLL.email;
+                 textAddress.Text = cBLL.address;
+                 textGstNo.Text = cBLL.Gst_No;
+             }
+             else
+             {
+                 MessageBox.Show("Please Select The Transaction Type First, You Cannot Change the Transaction type during this Transaction");
+             }
+         }*/
 
         private void comboTransactionType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             if (comboTransactionType.Text == "Non GST")
             {
-                Clear();
+                               
+                textItemCode.Text = "";
+                textSearchItems.Text = "Select Item";
+                //textItemName.Text = "";
+                comboBoxUnit.Text = "";
+                textInventory.Text = "0";
+                textQuantity.Text = "0";
+                textRate.Text = "0";
+                textDiscount.Text = "0";
+                textTotalAmount.Text = "0";
+                textGrandTotal.Text = "0";
+                if (comboTransactionType.Text != "Non GST")
+                {
+                    comboGstType.Text = "";
+                    textGST.Text = "0";
+                }
+
+                textSubTotal.Text = "0";
+                textSubDiscount.Text = "0";
+                textSgst.Text = "0";
+                textCgst.Text = "0";
+                textIgst.Text = "0";
+
+                dgvAddedProducts.DataSource = null;
+                dgvAddedProducts.Rows.Clear();
+                salesDT.Rows.Clear();
+
+
+
+
                 comboGstType.Enabled = false;
                 textGST.Enabled = false;
                 textCgst.Enabled = false;
@@ -726,7 +753,37 @@ namespace Gorakshnath_Billing_System.UI
             }
             else if (comboTransactionType.Text == "GST")
             {
-                Clear();
+
+
+                textItemCode.Text = "";
+                textSearchItems.Text = "Select Item";
+                //textItemName.Text = "";
+                comboBoxUnit.Text = "";
+                textInventory.Text = "0";
+                textQuantity.Text = "0";
+                textRate.Text = "0";
+                textDiscount.Text = "0";
+                textTotalAmount.Text = "0";
+                textGrandTotal.Text = "0";
+                if (comboTransactionType.Text != "Non GST")
+                {
+                    comboGstType.Text = "";
+                    textGST.Text = "0";
+                }
+
+                textSubTotal.Text = "0";
+                textSubDiscount.Text = "0";
+                textSgst.Text = "0";
+                textCgst.Text = "0";
+                textIgst.Text = "0";
+
+                dgvAddedProducts.DataSource = null;
+                dgvAddedProducts.Rows.Clear();
+                salesDT.Rows.Clear();
+
+
+
+
                 comboGstType.Enabled = true;
                 textGST.Enabled = true;
                 textCgst.Enabled = true;
@@ -748,7 +805,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Close();
         }
 
-       
+
 
         private void comboSearchCust_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -872,7 +929,7 @@ namespace Gorakshnath_Billing_System.UI
                 comboBoxUnit.Text = p.Unit;
                 textRate.Text = p.Sales_Price.ToString();
                 textInventory.Text = p.Quantity.ToString();
-                //textQuantity.Text = "1";
+                textQuantity.Text = "1";
                 listBox1.Hide();
             }
             catch (Exception ex)

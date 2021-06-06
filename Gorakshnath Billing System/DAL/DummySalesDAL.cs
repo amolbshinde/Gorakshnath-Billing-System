@@ -43,14 +43,14 @@ namespace Gorakshnath_Billing_System.DAL
                 con.Open();
 
                 object o = cmd.ExecuteScalar();
-               // int o = (Int32)cmd.ExecuteScalar();
+               
 
 
                 if (o != null)
                 {
                     isSuccess = true;
                     Invoice_No = int.Parse(Convert.ToString(o));
-                   // MessageBox.Show(Invoice_No.ToString());
+                  
                     
                 }
                 else
