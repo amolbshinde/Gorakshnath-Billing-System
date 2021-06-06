@@ -50,7 +50,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textSearchItems = new System.Windows.Forms.TextBox();
-            this.comboSearchItem = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.comboGstType = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -312,7 +311,6 @@ namespace Gorakshnath_Billing_System.UI
             // panel3
             // 
             this.panel3.Controls.Add(this.textSearchItems);
-            this.panel3.Controls.Add(this.comboSearchItem);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.comboGstType);
             this.panel3.Controls.Add(this.label31);
@@ -350,18 +348,6 @@ namespace Gorakshnath_Billing_System.UI
             this.textSearchItems.TabIndex = 1;
             this.textSearchItems.Text = "Select Item";
             this.textSearchItems.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textSearchItems_KeyUp);
-            // 
-            // comboSearchItem
-            // 
-            this.comboSearchItem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboSearchItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboSearchItem.FormattingEnabled = true;
-            this.comboSearchItem.Location = new System.Drawing.Point(275, 2);
-            this.comboSearchItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboSearchItem.Name = "comboSearchItem";
-            this.comboSearchItem.Size = new System.Drawing.Size(64, 28);
-            this.comboSearchItem.TabIndex = 1;
-            this.comboSearchItem.Text = "Select Item ";
             // 
             // label18
             // 
@@ -1048,7 +1034,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.DataGridView dgvAddedProducts;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox comboSearchItem;
         private System.Windows.Forms.ComboBox comboSearchCust;
         private System.Windows.Forms.ComboBox comboContact;
         private System.Windows.Forms.ComboBox comboBox2;
