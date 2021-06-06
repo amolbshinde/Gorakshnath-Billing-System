@@ -79,8 +79,7 @@ namespace Gorakshnath_Billing_System.UI
                                     pname = dgvAddedProducts.Rows[rows].Cells["Product Name"].Value.ToString();
                                     if (textSearchItems.Text == pname)
                                     {
-                                        isAdded = "true";
-                                        //MessageBox.Show("Product is already added!");                                        
+                                        isAdded = "true";                                                                            
                                         break;
                                     }
                                 }
@@ -671,34 +670,6 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        /* private void textSearch_TextChanged(object sender, EventArgs e)
-         {
-             if (comboTransactionType.Text != "")
-             {
-                 //get search keyword from search text box
-                 string keyword = comboSearchCust.Text;
-                 if (keyword == "")//clear all textboex
-                 {
-                     comboSearchCust.Text = "Select Cust";
-                     textAddress.Text = "";
-                     comboContact.Text = "Select Phone";
-                     textEmail.Text = "";
-                     textGstNo.Text = "";
-                     return;
-                 }
-
-                 customerBLL cBLL = customerDAL.searchcustomerforsales(keyword);
-                 //textCust_Name.Text = cBLL.name;
-                 comboContact.Text = cBLL.contact;
-                 textEmail.Text = cBLL.email;
-                 textAddress.Text = cBLL.address;
-                 textGstNo.Text = cBLL.Gst_No;
-             }
-             else
-             {
-                 MessageBox.Show("Please Select The Transaction Type First, You Cannot Change the Transaction type during this Transaction");
-             }
-         }*/
 
         private void comboTransactionType_SelectedIndexChanged(object sender, EventArgs e)
         {
