@@ -49,6 +49,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textSearchItems = new System.Windows.Forms.TextBox();
             this.comboSearchItem = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.comboGstType = new System.Windows.Forms.ComboBox();
@@ -100,6 +101,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -310,6 +312,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.textSearchItems);
             this.panel3.Controls.Add(this.comboSearchItem);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.comboGstType);
@@ -336,23 +339,33 @@ namespace Gorakshnath_Billing_System.UI
             this.panel3.Location = new System.Drawing.Point(21, 146);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1419, 91);
+            this.panel3.Size = new System.Drawing.Size(1419, 87);
             this.panel3.TabIndex = 1;
+            // 
+            // textSearchItems
+            // 
+            this.textSearchItems.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSearchItems.Location = new System.Drawing.Point(104, 51);
+            this.textSearchItems.Name = "textSearchItems";
+            this.textSearchItems.Size = new System.Drawing.Size(427, 30);
+            this.textSearchItems.TabIndex = 44;
+            this.textSearchItems.Text = "Select Item";
+            this.textSearchItems.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textSearchItems_KeyUp);
             // 
             // comboSearchItem
             // 
             this.comboSearchItem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboSearchItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboSearchItem.FormattingEnabled = true;
-            this.comboSearchItem.Location = new System.Drawing.Point(99, 49);
+            this.comboSearchItem.Location = new System.Drawing.Point(275, 2);
             this.comboSearchItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboSearchItem.Name = "comboSearchItem";
-            this.comboSearchItem.Size = new System.Drawing.Size(432, 28);
+            this.comboSearchItem.Size = new System.Drawing.Size(64, 28);
             this.comboSearchItem.TabIndex = 1;
             this.comboSearchItem.Text = "Select Item ";
-            this.comboSearchItem.SelectedIndexChanged += new System.EventHandler(this.comboSearchItem_SelectedIndexChanged);
-            this.comboSearchItem.TextChanged += new System.EventHandler(this.comboSearchItem_TextChanged);
-            this.comboSearchItem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.comboSearchItem_KeyUp);
+           // this.comboSearchItem.SelectedIndexChanged += new System.EventHandler(this.comboSearchItem_SelectedIndexChanged);
+            //this.comboSearchItem.TextChanged += new System.EventHandler(this.comboSearchItem_TextChanged);
+            //this.comboSearchItem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.comboSearchItem_KeyUp);
             // 
             // label18
             // 
@@ -708,7 +721,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel6.Controls.Add(this.button1);
             this.panel6.Controls.Add(this.label27);
             this.panel6.Controls.Add(this.label28);
-            this.panel6.Location = new System.Drawing.Point(781, 543);
+            this.panel6.Location = new System.Drawing.Point(781, 538);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(655, 322);
@@ -846,7 +859,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5.Controls.Add(this.label24);
             this.panel5.Controls.Add(this.label23);
             this.panel5.Controls.Add(this.label22);
-            this.panel5.Location = new System.Drawing.Point(29, 545);
+            this.panel5.Location = new System.Drawing.Point(29, 535);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(749, 281);
@@ -922,13 +935,26 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.listBox1);
             this.panel4.Controls.Add(this.dgvAddedProducts);
             this.panel4.Controls.Add(this.label21);
-            this.panel4.Location = new System.Drawing.Point(21, 242);
+            this.panel4.Location = new System.Drawing.Point(21, 233);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1419, 298);
+            this.panel4.Size = new System.Drawing.Size(1419, 299);
             this.panel4.TabIndex = 16;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(103, 1);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(428, 164);
+            this.listBox1.TabIndex = 20;
+            this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
+            this.listBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyUp);
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
             // dgvAddedProducts
             // 
@@ -1048,5 +1074,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.ComboBox comboContact;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox textSearchItems;
     }
 }

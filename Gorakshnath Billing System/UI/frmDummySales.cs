@@ -37,62 +37,33 @@ namespace Gorakshnath_Billing_System.UI
         DummySalesDetailsDAL DummySalesDetailsDAL = new DummySalesDetailsDAL();
 
         DataTable salesDT = new DataTable();
-        int GetMaxInvoiceID()
-        {
-
-            int MaxInvoice_No = challanDAL.GetMaxInvoiceID();
-
-            {
-                MaxInvoice_No++;
-                txtInvoice_No.Text = MaxInvoice_No.ToString();
-
-
-            }
-            return MaxInvoice_No;
-        }
-
+       
 
         public void fillCombo()
         {
             comboSearchCust.DataSource = null;
             DataTable dtC = customerDAL.SelectForCombo();
             comboSearchCust.DisplayMember = "Cust_Name";
-            //comboSearchCust.ValueMember = "Column123";.//
+            comboSearchCust.ValueMember = "Cust_Contact";
             comboSearchCust.DataSource = dtC;
             comboSearchCust.Text = "Select Cust";
 
             comboContact.DataSource = null;
             DataTable dtP = customerDAL.SelectForCombo();
             comboContact.DisplayMember = "Cust_Contact";
+            comboContact.DisplayMember = "comboContact.DisplayMember";
             comboContact.DataSource = dtP;
             comboContact.Text = "Select Phone";
-
-            comboSearchItem.DataSource = null;
-            DataTable dtI = ProductMasterDAL.SelectForCombo();
-            comboSearchItem.DisplayMember = "Product_Name";
-            comboSearchItem.ValueMember = "Product_ID";
-            //comboSearchItem.DataSource = dtI;
-            comboSearchItem.Text = "Select Item";
-
-            for (int i = 0; i < dtI.Rows.Count; i++)
-            {
-                comboSearchItem.Items.Add(new { Product_Name = dtI.Rows[i][1], Product_ID = dtI.Rows[i][0].ToString() });
-            }
-
+                        
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+              
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string pname = "";
             //checking product is already present or ot           
             if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
             {
-                if (comboSearchItem.Text != "")
+                if (textSearchItems.Text != "")
                 {
                     if (textQuantity.Text != "" && textQuantity.Text != "0")
                     {
@@ -104,11 +75,11 @@ namespace Gorakshnath_Billing_System.UI
                                 pname = dgvAddedProducts.Rows[rows].Cells["Product Name"].Value.ToString();
                                 break;
                             }
-                            if (comboSearchItem.Text != pname)
+                            if (textSearchItems.Text != pname)
                             {
                                 // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
 
-                                String ProductName = comboSearchItem.Text;
+                                String ProductName = textSearchItems.Text;
                                 string Unit = comboBoxUnit.Text;
                                 string gstType = comboGstType.Text;
 
@@ -168,7 +139,7 @@ namespace Gorakshnath_Billing_System.UI
                                     }
 
 
-                                    comboSearchItem.Text = "Select Item";
+                                    textSearchItems.Text = "Select Item";
                                     //textItemName.Text = "";
                                     comboBoxUnit.Text = "";
                                     textInventory.Text = "0";
@@ -736,7 +707,6 @@ namespace Gorakshnath_Billing_System.UI
         {
             if (salesid != -1)
             {
-                ////Invoice_No = 7;
                 frmDummySalesCrpt frmDummySalesCrpt = new frmDummySalesCrpt(salesid);
                 frmDummySalesCrpt.Show();
             }
@@ -778,63 +748,13 @@ namespace Gorakshnath_Billing_System.UI
                 comboContact.Text = "Select Phone";
                 textEmail.Text = "";
                 textGstNo.Text = "";
-                
+
             }
 
 
         }
 
-        private void comboSearchItem_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-            if (comboSearchItem.Text != "Select Item" && comboSearchItem.Text != "")
-            {
-
-                string keyword = comboSearchItem.Text;
-                //MessageBox.Show(""+ comboSearchItem.Text);
-                if (keyword == "")
-                {
-                   // comboSearchItem.Text = "Select Item";
-                    textItemCode.Text = "";
-                    //textItemName.Text = "";
-                    comboBoxUnit.Text = "";
-                    textInventory.Text = "0";
-                    textRate.Text = "0";
-                    textDiscount.Text = "0";
-                    textQuantity.Text = "0";
-                    textGST.Text = "0";
-                    textTotalAmount.Text = "0";
-                    return;
-                }
-                /* if(comboSearchItem.SelectedIndex !=-1)
-                 {
-                     Int32.TryParse(comboSearchItem.SelectedValue.ToString(), out ProductId);                    
-                 }*/
-
-                ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
-                textItemCode.Text = p.Item_Code;
-                //textItemName.Text = p.Product_Name;
-                comboBoxUnit.Text = p.Unit;
-                textRate.Text = p.Sales_Price.ToString();
-                textInventory.Text = p.Quantity.ToString();
-                textQuantity.Text = 1.ToString();
-
-            }
-            else
-            {
-                comboSearchItem.Text = "Select Item";
-                textItemCode.Text = "";
-                //textItemName.Text = "";
-                comboBoxUnit.Text = "";
-                textInventory.Text = "0";
-                textRate.Text = "0";
-                textDiscount.Text = "0";
-                textQuantity.Text = "0";
-                textGST.Text = "0";
-                textTotalAmount.Text = "0";
-            }
-
-        }
 
         private void comboContact_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -906,43 +826,66 @@ namespace Gorakshnath_Billing_System.UI
                 e.Handled = true;
             }
         }
-
-        private void comboSearchItem_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void comboSearchItem_KeyUp(object sender, KeyEventArgs e)
+        public void fetchProductDetails()
         {
             try
             {
-                comboSearchItem.DataSource = null;
+                string keyword = listBox1.Text;
+                Int32.TryParse(listBox1.SelectedValue.ToString(), out ProductId);
+                ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
+                textItemCode.Text = p.Item_Code;
+                textSearchItems.Text = p.Product_Name;
+                comboBoxUnit.Text = p.Unit;
+                textRate.Text = p.Sales_Price.ToString();
+                textInventory.Text = p.Quantity.ToString();
+                //textQuantity.Text = "1";
+                listBox1.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
 
-                string key = comboSearchItem.Text;
-                if (comboSearchItem.Text != "Select Item" && comboSearchItem.Text != "" && comboSearchItem.Text != null)
+        private void listBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Enter))
+            {
+                fetchProductDetails();
+            }
+        }
+
+        private void textSearchItems_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                listBox1.Show();
+                string key = textSearchItems.Text;
+                DataTable dtI = ProductMasterDAL.ExactSearch(key);
+                listBox1.DisplayMember = "Product_Name"; // Just set the correct name of the properties 
+                listBox1.ValueMember = "Product_ID";
+                listBox1.DataSource = dtI;
+                if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.Up || e.KeyCode == Keys.Scroll))
                 {
-                    //comboSearchItem.DataSource = null;
-                    comboSearchItem.Items.Clear();
-                    DataTable dtI = ProductMasterDAL.ExactSearch(key);
-                    comboSearchItem.DisplayMember = "Product_Name";
-                    comboSearchItem.ValueMember = "Product_ID";
-                    // comboSearchItem.DataSource = dtI;
-                    for (int i = 0; i < dtI.Rows.Count; i++)
-                    {
-                        comboSearchItem.Items.Add(new { Product_Name = dtI.Rows[i][1].ToString(), Product_ID = dtI.Rows[i][0].ToString() });
-                    }
-
-                    comboSearchItem.DroppedDown = true;
-                    comboSearchItem.SelectionStart = comboSearchItem.Text.Length;
-                    return;
-                    // Cursor.Current = Cursors.Default;*/
+                    listBox1.Focus();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void listBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            fetchProductDetails();
+        }
+
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            fetchProductDetails();
         }
     }
 
