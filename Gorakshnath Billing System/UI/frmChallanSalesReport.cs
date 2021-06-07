@@ -25,10 +25,14 @@ namespace Gorakshnath_Billing_System.UI
         public void FillCombo()
         {
             DataTable dtI = ProductMasterDAL.SelectForCombo();
-            comboBox1.DataSource = dtI;
-            comboBox1.Text = "All Products";
-            comboBox1.ValueMember = "Product_ID";
+            DataRow row = dtI.NewRow();
+            row[0] = 0;
+            row[1] = "All Products";
+            dtI.Rows.InsertAt(row, 0);
             comboBox1.DisplayMember = "Product_Name";
+            comboBox1.ValueMember = "Product_ID";
+            comboBox1.DataSource = dtI;
+
         }
        
 
@@ -38,27 +42,24 @@ namespace Gorakshnath_Billing_System.UI
             FillCombo();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnFetch_Click(object sender, EventArgs e)
         {
 
             DateTime FromDate = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd"));
             DateTime ToDate = DateTime.Parse(dateTimePicker2.Value.ToString("yyyy-MM-dd"));
             DataTable dt1 = null;
-            if (Convert.ToInt32(comboBox1.SelectedValue)>0)
+            if (comboBox1.Text== "All Products")
             {
-                 dt1= ChallandetailsDAL.GenerateSalesReport(FromDate, ToDate,Convert.ToInt32(comboBox1.SelectedValue));
+                dt1 = ChallandetailsDAL.GenerateSalesReport(FromDate, ToDate,0);
+                dataGridView1.DataSource = dt1;
             }
             else
             {
 
-                dt1 = ChallandetailsDAL.GenerateSalesReport(FromDate, ToDate);
+                dt1 = ChallandetailsDAL.GenerateSalesReport(FromDate, ToDate, Convert.ToInt32(comboBox1.SelectedValue));
+                dataGridView1.DataSource = dt1;
             }
-            dataGridView1.DataSource = dt1;
+            
         }
     }
 }

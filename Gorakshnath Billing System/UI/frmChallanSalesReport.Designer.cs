@@ -30,7 +30,7 @@ namespace Gorakshnath_Billing_System.UI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFetch = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@ namespace Gorakshnath_Billing_System.UI
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnFetch);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.dateTimePicker2);
             this.panel1.Controls.Add(this.label2);
@@ -61,18 +61,18 @@ namespace Gorakshnath_Billing_System.UI
             this.panel1.Size = new System.Drawing.Size(1324, 100);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // btnFetch
             // 
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Location = new System.Drawing.Point(827, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 36);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Fetch..";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnFetch.FlatAppearance.BorderSize = 2;
+            this.btnFetch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFetch.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnFetch.Location = new System.Drawing.Point(827, 47);
+            this.btnFetch.Name = "btnFetch";
+            this.btnFetch.Size = new System.Drawing.Size(81, 36);
+            this.btnFetch.TabIndex = 6;
+            this.btnFetch.Text = "Fetch..";
+            this.btnFetch.UseVisualStyleBackColor = true;
+            this.btnFetch.Click += new System.EventHandler(this.btnFetch_Click);
             // 
             // label3
             // 
@@ -129,7 +129,6 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(399, 31);
             this.comboBox1.TabIndex = 0;
-           // this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -150,7 +149,6 @@ namespace Gorakshnath_Billing_System.UI
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1046, 494);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // frmChallanSalesReport
             // 
@@ -174,7 +172,7 @@ namespace Gorakshnath_Billing_System.UI
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFetch;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label2;
