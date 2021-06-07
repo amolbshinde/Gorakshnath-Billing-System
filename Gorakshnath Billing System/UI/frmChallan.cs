@@ -43,7 +43,7 @@ namespace Gorakshnath_Billing_System.UI
         DataTable salesDT = new DataTable();
 
         
-
+        //fill combobox 
         public void fillCombo()
         {
             comboSearchCust.DataSource = null;
