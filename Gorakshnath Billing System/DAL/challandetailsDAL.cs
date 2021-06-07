@@ -156,7 +156,7 @@ namespace Gorakshnath_Billing_System.DAL
             {
                 if(ProductId==0)
                 {
-                    String sql = "Select Product_ID,Product_Name,SUM(Qty),SUM(Total),Unit from Challan_Transactions_Details where Convert(Date,Challan_date) >=  Convert(Date,'" + FromDate.ToString("yyyy-MM-dd") + "') AND  Convert(Date,Challan_date)<=Convert(Date,'" + ToDate.ToString("yyyy-MM-dd") + "')  group by Product_Name ORDER BY SUM(Qty) DESC;";
+                    String sql = "Select Product_ID,Product_Name,Unit,SUM(Qty)as Quantity,SUM(Total) as Total_Sales from Challan_Transactions_Details where Convert(Date,Challan_date) >=  Convert(Date,'" + FromDate.ToString("yyyy-MM-dd") + "') AND  Convert(Date,Challan_date)<=Convert(Date,'" + ToDate.ToString("yyyy-MM-dd") + "')  group by Product_Name,Product_ID,Unit ORDER BY SUM(Qty) DESC;";
                     SqlCommand cmd = new SqlCommand(sql, con);
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     con.Open();
@@ -164,7 +164,7 @@ namespace Gorakshnath_Billing_System.DAL
                 }
                 else
                 {
-                    String sql = "Select Product_ID,Product_Name,SUM(Qty),SUM(Total),Unit from Challan_Transactions_Details where Convert(Date,Challan_date) >=  Convert(Date,'" + FromDate.ToString("yyyy-MM-dd") + "') AND  Convert(Date,Challan_date)<=Convert(Date,'" + ToDate.ToString("yyyy-MM-dd") + "') AND Product_ID=" + ProductId + " group by Product_Name ORDER BY SUM(Qty) DESC;";
+                    String sql = "Select Product_ID,Product_Name,SUM(Qty),SUM(Total),Unit from Challan_Transactions_Details where Convert(Date,Challan_date) >=  Convert(Date,'" + FromDate.ToString("yyyy-MM-dd") + "') AND  Convert(Date,Challan_date)<=Convert(Date,'" + ToDate.ToString("yyyy-MM-dd") + "') AND Product_ID=" + ProductId + " group by Product_Name,Product_ID ORDER BY SUM(Qty) DESC;";
                     SqlCommand cmd = new SqlCommand(sql, con);
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     con.Open();
