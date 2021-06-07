@@ -120,7 +120,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
         #region
-        public DataTable GenerateSalesReport(DateTime FromDate, DateTime ToDate)
+       /* public DataTable GenerateSalesReport(DateTime FromDate, DateTime ToDate)
         {
             SqlConnection con = new SqlConnection(myconnstrng);
 
@@ -144,7 +144,7 @@ namespace Gorakshnath_Billing_System.DAL
                 con.Close();
             }
             return dt;
-        }
+        }*/
 
 
         public DataTable GenerateSalesReport(DateTime FromDate, DateTime ToDate, Int32 ProductId)
