@@ -295,70 +295,102 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Validate Supplier details are there or not 
-            if (txtPaidAmount.Text == "")
-            {
-                MessageBox.Show("Please Enter Paid Amount by Customer");
-            }
-            else
-            {
 
-                if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
+            try
+            {
+                //Validate Supplier details are there or not 
+                if (txtPaidAmount.Text == "")
                 {
-                    if (dgvAddedProducts.Rows.Count != 0)
-                    { 
-                        save();
-                        //Getting Data from UI
-                        SalesPaymentDetailsBLL sp = new SalesPaymentDetailsBLL();
-                        sp.TrMode = comboTrType.SelectedItem.ToString();
-                        String S = comboTrType.SelectedItem.ToString();
-                        //MessageBox.Show(S);
-                        sp.PaymentMode = comboPaymentMode.SelectedItem.ToString();
-                        decimal TransactionAmt, Paid_Amount, balance;
+                    MessageBox.Show("Please Enter Paid Amount by Customer");
+                }
+                else
+                {
 
-                        decimal.TryParse(txtTrAmount.Text, out TransactionAmt);
-                        decimal.TryParse(txtPaidAmount.Text, out Paid_Amount);
-                        decimal.TryParse(txtBalance.Text, out balance);
-
-                        sp.TrAmount = TransactionAmt;
-                        sp.AmountPiad = Paid_Amount;
-                        sp.Balance = balance;
-                        sp.Remarks = "Credit Sales";
-                        sp.Invoice_No = Invoice_No;
-                        SalesPaymentDetailsDAL dal = new SalesPaymentDetailsDAL();
-                        bool success = dal.InsertSalesPayment(sp);
-                        /*
-                        if (success == true)
+                    if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
+                    {
+                        if (dgvAddedProducts.Rows.Count != 0)
                         {
-                            //data inserted sucesfully
-                            MessageBox.Show("Payment Added Succesfully");
+                            int _TransactionStatus = save();
+                            //Getting Data from UI
+                            SalesPaymentDetailsBLL sp = new SalesPaymentDetailsBLL();
+                            sp.TrMode = comboTrType.SelectedItem.ToString();
+                            String S = comboTrType.SelectedItem.ToString();
+                            //MessageBox.Show(S);
+                            sp.PaymentMode = comboPaymentMode.SelectedItem.ToString();
+                            decimal TransactionAmt, Paid_Amount, balance;
+
+                            decimal.TryParse(txtTrAmount.Text, out TransactionAmt);
+                            decimal.TryParse(txtPaidAmount.Text, out Paid_Amount);
+                            decimal.TryParse(txtBalance.Text, out balance);
+
+                            sp.TrAmount = TransactionAmt;
+                            sp.AmountPiad = Paid_Amount;
+                            sp.Balance = balance;
+                            sp.Remarks = "Credit Sales";
+                            sp.Invoice_No = Invoice_No;
+                            SalesPaymentDetailsDAL dal = new SalesPaymentDetailsDAL();
+                            bool success = dal.InsertSalesPayment(sp);
+                            /*
+                            if (success == true)
+                            {
+                                //data inserted sucesfully
+                                MessageBox.Show("Payment Added Succesfully");
+
+                            }
+                            else
+                            {
+                                //error occured
+                                MessageBox.Show("Sorry..!! , Failed to add user");
+                            }
+                            */
+
+                            if (_TransactionStatus != 0 && Invoice_No != -1)
+                            {
+                                if (MessageBox.Show("Do you want to print Invoice" + "\n" + "Confirm ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                                {
+                                    frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(Invoice_No);
+                                    frmcrpt.Show();
+                                    Clear();
+                                }
+
+                                else
+
+                                {
+                                    Clear();
+                                }
+
+
+
+                            }
+
+
 
                         }
                         else
                         {
-                            //error occured
-                            MessageBox.Show("Sorry..!! , Failed to add user");
+                            MessageBox.Show("Please Add Product Details");
                         }
-                        */
                     }
                     else
                     {
-                        MessageBox.Show("Please Add Product Details");
+                        MessageBox.Show("Please enter Customer Details");
                     }
+                    //set Invoice No.
+                    textBox6.Text = Invoice_No.ToString();
                 }
-                else
-                {
-                    MessageBox.Show("Please enter Customer Details");
-                }
-                //set Invoice No.
-                textBox6.Text = Invoice_No.ToString();
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
        
 
-        public void save()
+        public int save()
         {
-
+            int TransactionStatus = 0;
             string sname = comboSearchCust.Text;
             if (comboTransactionType.Text != "")
             {
@@ -457,11 +489,14 @@ namespace Gorakshnath_Billing_System.UI
                             {
                                 //scope.Complete();
                                 MessageBox.Show("Transaction Completed");
+                                TransactionStatus = 1;
                                 //clear();
+
                             }
                             else
                             {
                                 MessageBox.Show("Transaction Failed");
+                                TransactionStatus = 0;
                             }
                         
                     }
@@ -480,7 +515,9 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Select Purchase Type GST OR NOGST");
             }
-            
+
+            return TransactionStatus;
+
         }
 
         public void Clear()
@@ -797,8 +834,7 @@ namespace Gorakshnath_Billing_System.UI
             if (Invoice_No != -1)
             {
                 ////Invoice_No = 7;
-                frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(Invoice_No);
-                frmcrpt.Show();
+                
             }
             else
             {
@@ -1014,6 +1050,30 @@ namespace Gorakshnath_Billing_System.UI
             }
         }
 
-       
+        private void textSearchItems_Enter(object sender, EventArgs e)
+        {
+            textSearchItems.Text = "";
+        }
+
+        private void textSearchItems_Leave(object sender, EventArgs e)
+        {
+            bool valiDa = textSearchItems.Text.All(c => Char.IsLetterOrDigit(c) || c.Equals('_'));
+            if (valiDa==false || textSearchItems.Text=="")
+            {
+                textSearchItems.Text = "Select Product";                                
+                comboBoxUnit.Text = "";
+                textInventory.Text = "0";
+                textQuantity.Text = "0";
+                textRate.Text = "0";
+                textDiscount.Text = "0";
+                textQuantity.Text = "0";
+                if (comboTransactionType.Text != "Non GST")
+                {
+                    comboGstType.Text = "";
+                    textGST.Text = "0";
+                }
+                listSearchItems.Hide();
+            }
+        }
     }
 }
