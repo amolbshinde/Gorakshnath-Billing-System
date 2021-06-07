@@ -40,6 +40,8 @@ namespace Gorakshnath_Billing_System.UI
         {
             
             FillCombo();
+            dataGridView1.AutoResizeColumns();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void btnFetch_Click(object sender, EventArgs e)
@@ -61,5 +63,7 @@ namespace Gorakshnath_Billing_System.UI
             }
             
         }
+
+        
     }
 }
