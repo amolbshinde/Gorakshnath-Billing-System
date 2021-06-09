@@ -734,7 +734,7 @@ namespace Gorakshnath_Billing_System.UI
             if (comboSearchSup.Text != "Select Sup")
             {
                 string keyword = comboSearchSup.Text;
-                if (keyword == "")//clear all textboex
+                if (keyword == "")//clear all textboex.
                 {
                     comboSearchSup.Text = "Select Sup";
                     textAddress.Text = "";
