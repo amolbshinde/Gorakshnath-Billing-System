@@ -15,6 +15,7 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmChallan : Form
     {
+        
         int Invoice_No = -1;
         int ProductId = -1;      
         
@@ -973,26 +974,9 @@ namespace Gorakshnath_Billing_System.UI
             }
         }
 
-        private void textItemName_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+       
 
-        private void comboItemSearch_TextChanged(object sender, EventArgs e)
-        {
-
-            
-
-
-        }
-        
-
-        private void comboItemSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            
-            
-        }
+       
 
         
 
