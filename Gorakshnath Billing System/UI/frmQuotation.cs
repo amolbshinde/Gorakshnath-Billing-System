@@ -171,6 +171,7 @@ namespace Gorakshnath_Billing_System.UI
         {
 
             string pname = "";
+            string isAdded = "false";
             //checking product is already present or ot           
             if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text!= "")
             {
@@ -184,9 +185,15 @@ namespace Gorakshnath_Billing_System.UI
                             for (int rows = 0; rows < dgvAddedProducts.Rows.Count; rows++)
                             {
                                 pname = dgvAddedProducts.Rows[rows].Cells["Product Name"].Value.ToString();
-                                break;
+                                if (textSearchItems.Text == pname)
+                                {
+                                    isAdded = "true";
+                                    //MessageBox.Show("Product is already added!");                                        
+                                    break;
+                                }
+
                             }
-                            if (textSearchItems.Text != pname)
+                            if (isAdded=="false")
                             {
                                 // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
 

@@ -17,14 +17,14 @@ namespace Gorakshnath_Billing_System.DAL
 
         #region Insert Data in Database
 
-        public bool insertChallan(challanBLL c, out int Invoice_No)
+        public bool insertChallan(challanBLL c)
         {
             bool isSuccess = false;
-            Invoice_No = -1;
+            //Invoice_No = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO Challan_Transactions (Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date) VALUES(@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Challan_date);select scope_identity();";
+                String sql = "INSERT INTO Challan_Transactions (Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date) VALUES(@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Challan_date);";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -46,7 +46,7 @@ namespace Gorakshnath_Billing_System.DAL
                 if (o != null)
                 {
                     isSuccess = true;
-                    Invoice_No = int.Parse(o.ToString());
+                   // Invoice_No = int.Parse(o.ToString());
                 }
                 else
                 {
@@ -278,6 +278,31 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region Fetch Max Invoice ID for transaction 
+        public static int GetMaxInvoiceIDfromChallan_Transactions()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+            int maxnum=-1;
+            try
+            {
+                String sql = "SELECT COALESCE (MAX(Invoice_No),0) AS MaxOf FROM  Challan_Transactions";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                maxnum = Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return maxnum;
+        }
+        #endregion
 
     }
 }
