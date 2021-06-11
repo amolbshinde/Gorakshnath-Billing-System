@@ -982,19 +982,26 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textSearchItems_KeyUp(object sender, KeyEventArgs e)
         {
-            listSearchItems.Show();
-            string key = textSearchItems.Text;
-
-            DataTable dtI = ProductMasterDAL.ExactSearch(key);
-            //listSearchItems.Items.Clear();
-            listSearchItems.DisplayMember = "Product_Name"; // Just set the correct name of the properties 
-            listSearchItems.ValueMember = "Product_ID";
-            listSearchItems.DataSource = dtI;
-            // comboSearchItem.DataSource = dtI;
-
-            if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.Up || e.KeyCode == Keys.Scroll))
+            try
             {
-                listSearchItems.Focus();
+                listSearchItems.Show();
+                string key = textSearchItems.Text;
+
+                DataTable dtI = ProductMasterDAL.ExactSearch(key);
+                //listSearchItems.Items.Clear();
+                listSearchItems.DisplayMember = "Product_Name"; // Just set the correct name of the properties 
+                listSearchItems.ValueMember = "Product_ID";
+                listSearchItems.DataSource = dtI;
+                // comboSearchItem.DataSource = dtI;
+
+                if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.Up || e.KeyCode == Keys.Scroll))
+                {
+                    listSearchItems.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -1003,16 +1010,23 @@ namespace Gorakshnath_Billing_System.UI
 
         public void fetchProductDetails()
         {
-            string keyword = listSearchItems.Text;
-            Int32.TryParse(listSearchItems.SelectedValue.ToString(), out ProductId);
-            ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
-            textItemCode.Text = p.Item_Code;
-            textSearchItems.Text = p.Product_Name;
-            comboBoxUnit.Text = p.Unit;
-            textRate.Text = p.Sales_Price.ToString();
-            textInventory.Text = p.Quantity.ToString();
-            textQuantity.Text = "1";
-            listSearchItems.Hide();
+            try
+            {
+                string keyword = listSearchItems.Text;
+                Int32.TryParse(listSearchItems.SelectedValue.ToString(), out ProductId);
+                ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
+                textItemCode.Text = p.Item_Code;
+                textSearchItems.Text = p.Product_Name;
+                comboBoxUnit.Text = p.Unit;
+                textRate.Text = p.Sales_Price.ToString();
+                textInventory.Text = p.Quantity.ToString();
+                textQuantity.Text = "1";
+                listSearchItems.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
                 
 
@@ -1028,9 +1042,16 @@ namespace Gorakshnath_Billing_System.UI
 
         private void listSearchItems_KeyUp(object sender, KeyEventArgs e)
         {
-            if ((e.KeyCode == Keys.Enter))
+            try
             {
-                fetchProductDetails();
+                if ((e.KeyCode == Keys.Enter))
+                {
+                    fetchProductDetails();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -1041,22 +1062,29 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textSearchItems_Leave(object sender, EventArgs e)
         {
-            bool valiDa = textSearchItems.Text.All(c => Char.IsLetterOrDigit(c) || c.Equals('_'));
-            if (valiDa==false || textSearchItems.Text=="")
+            try
             {
-                textSearchItems.Text = "Select Product";                                
-                comboBoxUnit.Text = "";
-                textInventory.Text = "0";
-                textQuantity.Text = "0";
-                textRate.Text = "0";
-                textDiscount.Text = "0";
-                textQuantity.Text = "0";
-                if (comboTransactionType.Text != "Non GST")
+                bool valiDa = textSearchItems.Text.All(c => Char.IsLetterOrDigit(c) || c.Equals('_'));
+                if (valiDa == false || textSearchItems.Text == "")
                 {
-                    comboGstType.Text = "";
-                    textGST.Text = "0";
+                    textSearchItems.Text = "Select Product";
+                    comboBoxUnit.Text = "";
+                    textInventory.Text = "0";
+                    textQuantity.Text = "0";
+                    textRate.Text = "0";
+                    textDiscount.Text = "0";
+                    textQuantity.Text = "0";
+                    if (comboTransactionType.Text != "Non GST")
+                    {
+                        comboGstType.Text = "";
+                        textGST.Text = "0";
+                    }
+                    listSearchItems.Hide();
                 }
-                listSearchItems.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
