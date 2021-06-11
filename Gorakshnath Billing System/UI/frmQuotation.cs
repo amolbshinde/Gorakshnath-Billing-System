@@ -324,7 +324,8 @@ namespace Gorakshnath_Billing_System.UI
             decimal inv;
             decimal.TryParse(textQuantity.Text, out inv);
             decimal qunt = p.Quantity - inv;
-            if (-1 < 0)
+
+            if (qunt < 0)
             {
                 MessageBox.Show("No Inventory Please add Inventory First");
                 textQuantity.Text = "0";
