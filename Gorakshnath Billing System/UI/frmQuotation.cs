@@ -318,6 +318,7 @@ namespace Gorakshnath_Billing_System.UI
             estimateDT.Columns.Add("(+)GST%");
             estimateDT.Columns.Add("(+)GSTAMT");
             estimateDT.Columns.Add("(=)Total");
+            listSearchItems.Hide();
 
         }
 
@@ -906,6 +907,110 @@ namespace Gorakshnath_Billing_System.UI
                 textEmail.Text = "";
             }
 
+        }
+
+        private void textSearchItems_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                listSearchItems.Show();
+                string key = textSearchItems.Text;
+
+                DataTable dtI = ProductMasterDAL.ExactSearch(key);
+                //listSearchItems.Items.Clear();
+                listSearchItems.DisplayMember = "Product_Name"; // Just set the correct name of the properties 
+                listSearchItems.ValueMember = "Product_ID";
+                listSearchItems.DataSource = dtI;
+                // comboSearchItem.DataSource = dtI;
+
+                if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.Up || e.KeyCode == Keys.Scroll))
+                {
+                    listSearchItems.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void fetchProductDetails()
+        {
+            try
+            {
+                string keyword = listSearchItems.Text;
+                Int32.TryParse(listSearchItems.SelectedValue.ToString(), out ProductId);
+                ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
+                textItemCode.Text = p.Item_Code;
+                textSearchItems.Text = p.Product_Name;
+                comboBoxUnit.Text = p.Unit;
+                textRate.Text = p.Sales_Price.ToString();
+                textInventory.Text = p.Quantity.ToString();
+                textQuantity.Text = "1";
+                listSearchItems.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void listSearchItems_MouseClick(object sender, MouseEventArgs e)
+        {
+            fetchProductDetails();
+        }
+
+        private void listSearchItems_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            fetchProductDetails();
+        }
+
+        private void listSearchItems_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if ((e.KeyCode == Keys.Enter))
+                {
+                    fetchProductDetails();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textSearchItems_Enter(object sender, EventArgs e)
+        {
+            textSearchItems.Text = "";
+        }
+
+        private void textSearchItems_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                bool valiDa = textSearchItems.Text.All(c => Char.IsLetterOrDigit(c) || c.Equals('_'));
+                if (valiDa == false || textSearchItems.Text == "")
+                {
+                    textSearchItems.Text = "Select Product";
+                    comboBoxUnit.Text = "";
+                    textInventory.Text = "0";
+                    textQuantity.Text = "0";
+                    textRate.Text = "0";
+                    textDiscount.Text = "0";
+                    textQuantity.Text = "0";
+                    if (comboTransactionType.Text != "Non GST")
+                    {
+                        comboGstType.Text = "";
+                        textGST.Text = "0";
+                    }
+                    listSearchItems.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
