@@ -499,9 +499,9 @@ namespace Gorakshnath_Billing_System.UI
             this.label35.Location = new System.Drawing.Point(72, 24);
             this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(49, 19);
+            this.label35.Size = new System.Drawing.Size(81, 19);
             this.label35.TabIndex = 43;
-            this.label35.Text = "Search";
+            this.label35.Text = "Search Item";
             // 
             // comboGstType
             // 
