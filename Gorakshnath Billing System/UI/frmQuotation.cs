@@ -53,12 +53,6 @@ namespace Gorakshnath_Billing_System.UI
             comboContact.DataSource = dtP;
             comboContact.Text = "Select Phone";
 
-            comboItemSearch.DataSource = null;
-            DataTable dtI = ProductMasterDAL.SelectForCombo();
-            comboItemSearch.DisplayMember = "Product_Name";
-            comboItemSearch.ValueMember = "Product_ID";
-            comboItemSearch.DataSource = dtI;
-            comboItemSearch.Text = "Select Product";
 
         }
 
@@ -148,13 +142,12 @@ namespace Gorakshnath_Billing_System.UI
         private void textItemSearch_TextChanged(object sender, EventArgs e)
         {
 
-            string keyword = comboItemSearch.Text;
+            string keyword = textSearchItems.Text;
 
             if (keyword == "")
             {                
-                comboItemSearch.Text = "Select Product";
-                textItemCode.Text = "";
-                textItemName.Text = "";
+                textSearchItems.Text = "Select Product";
+                textItemCode.Text = "";                
                 comboBoxUnit.Text = "";
                 textInventory.Text = "0";
                 textRate.Text = "0";
@@ -167,7 +160,7 @@ namespace Gorakshnath_Billing_System.UI
 
             ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
             textItemCode.Text = p.Item_Code;
-            textItemName.Text = p.Product_Name;
+            textSearchItems.Text = p.Product_Name;
             comboBoxUnit.Text = p.Unit;
             textRate.Text = p.Sales_Price.ToString();
             textInventory.Text = p.Quantity.ToString();
@@ -181,7 +174,7 @@ namespace Gorakshnath_Billing_System.UI
             //checking product is already present or ot           
             if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text!= "")
             {
-                if (textItemName.Text != "")
+                if (textSearchItems.Text != "")
                 {
                     if (textQuantity.Text != "" && textQuantity.Text != "0")
                     {
@@ -193,11 +186,11 @@ namespace Gorakshnath_Billing_System.UI
                                 pname = dgvAddedProducts.Rows[rows].Cells["Product Name"].Value.ToString();
                                 break;
                             }
-                            if (textItemName.Text != pname)
+                            if (textSearchItems.Text != pname)
                             {
                                 // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
 
-                                String ProductName = textItemName.Text;
+                                String ProductName = textSearchItems.Text;
                                 string Unit = comboBoxUnit.Text;
                                 string gstType = comboGstType.Text;
 
@@ -257,8 +250,8 @@ namespace Gorakshnath_Billing_System.UI
                                     }
 
                                     
-                                    comboItemSearch.Text = "Select Product";
-                                    textItemName.Text = "";
+                                    textSearchItems.Text = "Select Product";
+                                    
                                     comboBoxUnit.Text = "";
                                     textInventory.Text = "0";
                                     textQuantity.Text = "0";
@@ -326,7 +319,7 @@ namespace Gorakshnath_Billing_System.UI
         {
 
 
-            string pname = comboItemSearch.Text;
+            string pname = textSearchItems.Text;
             ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(pname);
             decimal inv;
             decimal.TryParse(textQuantity.Text, out inv);
@@ -471,9 +464,9 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     //assognto dategrid view values into textboxs
 
-                    textItemName.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
+                    textSearchItems.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
 
-                    string keyword = textItemName.Text;
+                    string keyword = textSearchItems.Text;
                     ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
                     textInventory.Text = p.Quantity.ToString();
 
@@ -735,7 +728,7 @@ namespace Gorakshnath_Billing_System.UI
         {
 
             comboSearchCust.Text = "Select Cust";
-            comboItemSearch.Text = "Select Product";            
+            textSearchItems.Text = "Select Product";            
             textEmail.Text = "";
             textAddress.Text = "";
             comboContact.Text = "Select Phone";
@@ -743,7 +736,7 @@ namespace Gorakshnath_Billing_System.UI
 
             textItemCode.Text = "";
             
-            textItemName.Text = "";
+            
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
             textQuantity.Text = "0";
@@ -828,52 +821,7 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        private void comboItemSearch_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (comboItemSearch.Text != "Select Product")
-            {
-
-                string keyword = comboItemSearch.Text;
-                if (keyword == "")
-                {
-                    comboItemSearch.Text = "Select Product";
-                    textItemCode.Text = "";
-                    textItemName.Text = "";
-                    comboBoxUnit.Text = "";
-                    textInventory.Text = "0";
-                    textRate.Text = "0";
-                    textDiscount.Text = "0";
-                    textQuantity.Text = "0";
-                    textGST.Text = "0";
-                    textTotalAmount.Text = "0";
-                    return;
-                }
-
-                Int32.TryParse(comboItemSearch.SelectedValue.ToString(),out ProductId);
-                ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
-                textItemCode.Text = p.Item_Code;
-                textItemName.Text = p.Product_Name;
-                comboBoxUnit.Text = p.Unit;
-                textRate.Text = p.Sales_Price.ToString();
-                textInventory.Text = p.Quantity.ToString();
-
-            }
-            else
-            {
-                comboItemSearch.Text = "Select Product";
-                textItemCode.Text = "";
-                textItemName.Text = "";
-                comboBoxUnit.Text = "";
-                textInventory.Text = "0";
-                textRate.Text = "0";
-                textDiscount.Text = "0";
-                textQuantity.Text = "0";
-                textGST.Text = "0";
-                textTotalAmount.Text = "0";
-            }
-
-        }
+        
 
         private void comboContact_SelectedIndexChanged(object sender, EventArgs e)
         {

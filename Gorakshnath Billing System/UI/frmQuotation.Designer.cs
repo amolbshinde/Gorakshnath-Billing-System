@@ -891,7 +891,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboItemSearch.Name = "comboItemSearch";
             this.comboItemSearch.Size = new System.Drawing.Size(10, 23);
             this.comboItemSearch.TabIndex = 1;
-            this.comboItemSearch.SelectedIndexChanged += new System.EventHandler(this.comboItemSearch_SelectedIndexChanged);
+            //this.comboItemSearch.SelectedIndexChanged += new System.EventHandler(this.comboItemSearch_SelectedIndexChanged);
             // 
             // label22
             // 
