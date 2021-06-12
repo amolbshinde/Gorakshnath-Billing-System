@@ -127,19 +127,22 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textSearch_Enter(object sender, EventArgs e)
         {
-            if (textSearch.Text == "Search by Invoice No.Mobile No.Customer Name")
+            if (textSearch.Text == "Enter Customer name,Invoice No, Mobile No")
             {
                 textSearch.Text = "";
             }
         }
 
+      
+
+      
+
         private void textSearch_KeyUp(object sender, KeyEventArgs e)
         {
-
             try
             {
 
-                if (textSearch.Text != "Search by Invoice No.Mobile No.Customer Name")
+                if (textSearch.Text != "Enter Customer name,Invoice No, Mobile No")
                 {
                     string Key = textSearch.Text;
                     DataTable dt = challanDAL.SelectTD(Key);
@@ -155,7 +158,6 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void textSearch_Leave(object sender, EventArgs e)
@@ -167,7 +169,7 @@ namespace Gorakshnath_Billing_System.UI
                 if (valiDa == false || textSearch.Text == "")
                 {
 
-                    textSearch.Text = "Search by Invoice No.Mobile No.Customer Name";
+                    textSearch.Text = "Enter Customer name,Invoice No, Mobile No";
 
                 }
             }
