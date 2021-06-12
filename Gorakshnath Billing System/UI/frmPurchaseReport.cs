@@ -1,6 +1,7 @@
 ﻿using Gorakshnath_Billing_System.BLL;
 using Gorakshnath_Billing_System.DAL;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,7 +60,8 @@ namespace Gorakshnath_Billing_System.UI
         {
               if (comboPurchaseId.Text != "Select By Purchase ID")
               {
-                  if(comboPurchaseId.Text=="")
+                string key = comboPurchaseId.Text;
+                  if(key=="")
                   {                    
                       DataTable dtPI = purchaseDAL.SelectPD();
                       dgvPurchaseReport.DataSource = dtPI;
@@ -75,9 +77,9 @@ namespace Gorakshnath_Billing_System.UI
               else
               {
                   DataTable dt = purchaseDAL.SelectPD();
-                  dgvPurchaseReport.DataSource = dt;                
+                  dgvPurchaseReport.DataSource = dt;
                   comboPurchaseId.Text = "Select By Purchase ID";
-              }
+            }
             
         }
 
