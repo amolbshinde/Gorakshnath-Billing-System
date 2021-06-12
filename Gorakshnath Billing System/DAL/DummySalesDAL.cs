@@ -17,19 +17,20 @@ namespace Gorakshnath_Billing_System.DAL
         //insert recored into salestransaction
         #region Insert Data in Database
 
-        public bool insertDummySales(DummySalesBLL dsb, out int Invoice_No)
+        public bool insertDummySales(DummySalesBLL dsb)
         {
             bool isSuccess = false;
             
-            Invoice_No=-1;
+           
             
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO DummySales_Transactions (Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date) VALUES(@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Challan_date);select scope_identity();";
+                String sql = " SET IDENTITY_INSERT DummySales_Transactions ON INSERT INTO DummySales_Transactions (Invoice_No,Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date) VALUES(@Invoice_No,@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Challan_date);SET IDENTITY_INSERT DummySales_Transactions OFF";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
                 //cmd.Parameters.AddWithValue("@Invoice_No", dsb.Invoice_No);
+                cmd.Parameters.AddWithValue("@Invoice_No", dsb.Invoice_No);
                 cmd.Parameters.AddWithValue("@Transaction_Type", dsb.Transaction_Type);
                 cmd.Parameters.AddWithValue("@Cust_ID", dsb.Cust_ID);
                 cmd.Parameters.AddWithValue("@Sub_Total", dsb.Sub_Total);
@@ -42,14 +43,14 @@ namespace Gorakshnath_Billing_System.DAL
 
                 con.Open();
 
-                object o = cmd.ExecuteScalar();
+                int a = cmd.ExecuteNonQuery();
                
 
 
-                if (o != null)
+                if (a!= 0)
                 {
                     isSuccess = true;
-                    Invoice_No = int.Parse(Convert.ToString(o));
+                   // Invoice_No = int.Parse(Convert.ToString(o));
                   
                     
                 }

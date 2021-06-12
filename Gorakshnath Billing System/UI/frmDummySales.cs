@@ -20,7 +20,7 @@ namespace Gorakshnath_Billing_System.UI
             InitializeComponent();
             fillCombo();
         }
-        int salesid = -1;
+        int Invoice_No = -1;
         int ProductId = -1;
 
         ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
@@ -37,6 +37,14 @@ namespace Gorakshnath_Billing_System.UI
         DummySalesDetailsDAL DummySalesDetailsDAL = new DummySalesDetailsDAL();
 
         DataTable salesDT = new DataTable();
+        public void getMaxinvoiceId()
+        {
+            DummySalesDAL dm = new DummySalesDAL();
+           int Maxnum = dm.GetMaxInvoiceID();
+            Maxnum = Maxnum + 1;
+            Invoice_No = Maxnum;
+            txtInvoice_No.Text = Invoice_No.ToString();
+        }
 
 
         public void fillCombo()
@@ -217,6 +225,9 @@ namespace Gorakshnath_Billing_System.UI
             comboTransactionType.SelectedIndex = 1;
             comboBox2.SelectedIndex = 0;
             listBox1.Hide();
+            getMaxinvoiceId();
+
+
 
         }
 
@@ -351,6 +362,7 @@ namespace Gorakshnath_Billing_System.UI
             dgvAddedProducts.DataSource = null;
             dgvAddedProducts.Rows.Clear();
             salesDT.Rows.Clear();
+            getMaxinvoiceId();
 
         }
         private void btnClear_Click(object sender, EventArgs e)
@@ -407,6 +419,7 @@ namespace Gorakshnath_Billing_System.UI
                             challanBLL.TCGST = totalCgst;
                             challanBLL.TIGST = totalIgst;
                             challanBLL.Grand_Total = grandTotal;
+                            challanBLL.Invoice_No = Invoice_No;
                             //DateTime Billdate2 = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
                             //DateTime.TryParse(dtpBillDate.Value.ToLongDateString(), out Billdate2);
                             challanBLL.Challan_date = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
@@ -416,7 +429,7 @@ namespace Gorakshnath_Billing_System.UI
 
                             {
                                 // int salesid = -1; declared at top as a global variable.
-                                bool b = challanDAL.insertDummySales(challanBLL, out salesid);
+                                bool b = challanDAL.insertDummySales(challanBLL);
 
                                 for (int i = 0; i < salesDT.Rows.Count; i++)
                                 {
@@ -428,7 +441,7 @@ namespace Gorakshnath_Billing_System.UI
 
 
 
-                                    cdBLL.Invoice_No = salesid;
+                                    cdBLL.Invoice_No = Invoice_No;
                                     cdBLL.Product_ID = pid;
                                     cdBLL.Cust_ID = c.Cust_ID;
                                     cdBLL.Product_Name = salesDT.Rows[i][2].ToString();
@@ -501,12 +514,12 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     //save fun.
                     int _TransactionStatus = save();
-                    if (_TransactionStatus != 0 && salesid != -1)
+                    if (_TransactionStatus != 0 && Invoice_No != -1)
                     {
                         if (MessageBox.Show("Do you want to print Invoice" + "\n" + "Confirm ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 
                         {
-                            frmDummySalesCrpt frmDummySalesCrpt = new frmDummySalesCrpt(salesid);
+                            frmDummySalesCrpt frmDummySalesCrpt = new frmDummySalesCrpt(Invoice_No);
                             frmDummySalesCrpt.Show();
                             Clear();
                         }

@@ -24,10 +24,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             InitializeComponent();
             fillCombo();
-            int Maxnum = challanDAL.GetMaxInvoiceIDfromChallan_Transactions();
-            Maxnum = Maxnum + 1;
-            Invoice_No = Maxnum;
-            
+                      
 
         }
 
@@ -48,6 +45,12 @@ namespace Gorakshnath_Billing_System.UI
         stockDAL stockDAL = new stockDAL();
 
         DataTable salesDT = new DataTable();
+        public void getMaxinvoiceId()
+        {
+            int Maxnum = challanDAL.GetMaxInvoiceIDfromChallan_Transactions();
+            Maxnum = Maxnum + 1;
+            Invoice_No = Maxnum;
+        }
 
 
         //fill combobox 
@@ -528,6 +531,7 @@ namespace Gorakshnath_Billing_System.UI
             textGstNo.Text = "";
 
             textBox6.Text = "";
+            getMaxinvoiceId();
 
             textItemCode.Text = "";
             //textItemName.Text = "";
