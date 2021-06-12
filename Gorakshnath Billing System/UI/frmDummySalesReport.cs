@@ -22,6 +22,8 @@ namespace Gorakshnath_Billing_System.UI
 
         DummySalesBLL DummySalesBLL = new DummySalesBLL();
         DummySalesDAL DummySalesDAL = new DummySalesDAL();
+        DummySalesDetailsBLL DummySalesDetailsBLL = new DummySalesDetailsBLL();
+        DummySalesDetailsDAL DummySalesDetailsDAL = new DummySalesDetailsDAL();
 
         public void fillCombo()
         {
@@ -32,31 +34,12 @@ namespace Gorakshnath_Billing_System.UI
         private void frmDummySalesReport_Load(object sender, EventArgs e)
         {
             //
-            DataTable dt = DummySalesDAL.SelectTD();
+            DataTable dt = DummySalesDAL.SelectTD("");
             dgvChallanReport.DataSource = dt;
 
-
         }
 
-        private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-
-        }
-
-        private void comboCustName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            
-
-        }
-
-        private void comboMobileNo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            
-
-        }
 
         private void dgvChallanReport_MouseClick(object sender, MouseEventArgs e)
         {
@@ -101,12 +84,38 @@ namespace Gorakshnath_Billing_System.UI
                 Int32.TryParse(dgvChallanReport.Rows[dgvChallanReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);                
                 DummySalesDetailsDAL.DeleteByInvoiceNo(iNo.ToString());
                 DummySalesDAL.DeleteByInvoiceNo(iNo.ToString());
-                DataTable dt = DummySalesDAL.SelectTD();
+                DataTable dt = DummySalesDAL.SelectTD("");
                 dgvChallanReport.DataSource = dt;
             }
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
 
+                if (textSearch.Text != "Search by Invoice No.Mobile No.Customer Name")
+                {
+                    string Key = textSearch.Text;
+                    DataTable dt = DummySalesDAL.SelectTD(Key);
+                    dgvChallanReport.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter Keywords To Search Report  !");
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textSearch_Enter(object sender, EventArgs e)
+        {
+            textSearch.Text = "";
+        }
     }
 }
