@@ -110,7 +110,7 @@ namespace Gorakshnath_Billing_System
             this.label1.Size = new System.Drawing.Size(289, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Devoloped By: Swami Software";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+          //  this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // menuStrip1
             // 
@@ -144,7 +144,7 @@ namespace Gorakshnath_Billing_System
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(92, 32);
             this.usersToolStripMenuItem.Text = "Users";
-            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
+       //     this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // manageUsersToolStripMenuItem
             // 
@@ -183,7 +183,7 @@ namespace Gorakshnath_Billing_System
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
             this.productToolStripMenuItem.Size = new System.Drawing.Size(89, 32);
             this.productToolStripMenuItem.Text = "Sales";
-            this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
+        //    this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // newInvoiceToolStripMenuItem
             // 
@@ -291,7 +291,7 @@ namespace Gorakshnath_Billing_System
             this.inverntoryToolStripMenuItem.Name = "inverntoryToolStripMenuItem";
             this.inverntoryToolStripMenuItem.Size = new System.Drawing.Size(123, 32);
             this.inverntoryToolStripMenuItem.Text = "Purchase";
-            this.inverntoryToolStripMenuItem.Click += new System.EventHandler(this.inverntoryToolStripMenuItem_Click);
+          //  this.inverntoryToolStripMenuItem.Click += new System.EventHandler(this.inverntoryToolStripMenuItem_Click);
             // 
             // addPurchaseBillToolStripMenuItem
             // 
@@ -358,7 +358,7 @@ namespace Gorakshnath_Billing_System
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
             this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(104, 32);
             this.transactionsToolStripMenuItem.Text = "Master";
-            this.transactionsToolStripMenuItem.Click += new System.EventHandler(this.transactionsToolStripMenuItem_Click);
+       //     this.transactionsToolStripMenuItem.Click += new System.EventHandler(this.transactionsToolStripMenuItem_Click);
             // 
             // addNewProductToolStripMenuItem
             // 
@@ -415,7 +415,7 @@ namespace Gorakshnath_Billing_System
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(109, 32);
             this.reportsToolStripMenuItem.Text = "Reports";
-            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
+       //     this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 
             // totalSalesReportToolStripMenuItem
             // 

@@ -18,21 +18,8 @@ namespace Gorakshnath_Billing_System
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void catageoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
+        
         private void frmAdminDashboard_Load(object sender, EventArgs e)
         {
             //
@@ -46,15 +33,6 @@ namespace Gorakshnath_Billing_System
             this.Hide();
         }
 
-        private void productToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void inverntoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void addNewProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -67,10 +45,7 @@ namespace Gorakshnath_Billing_System
 
         }
 
-        private void manageCategoriesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void totalSalesReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -92,127 +67,39 @@ namespace Gorakshnath_Billing_System
 
         private void newInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmDummySales")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
-                    frmDummySales DummySales = new frmDummySales();
+             frmDummySales DummySales = new frmDummySales();
                     //DummySales.MdiParent = this;
 
                     DummySales.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+             
 
         }
 
-        private void fgToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void addPurchaseBillToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmPurchase")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
+            
                     frmPurchase purchase = new frmPurchase();
-                    purchase.ShowDialog();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+                    purchase.Show();
+            
 
         }
 
         private void addSupplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmSupplierMaster")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
+           
                     frmSupplierMaster supplierMaster = new frmSupplierMaster();
-                    supplierMaster.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+                    supplierMaster.ShowDialog();
+             
 
         }
 
         private void newQuotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmQuotation")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
+            
                     frmQuotation Quotation = new frmQuotation();
                     Quotation.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
 
 
         }
@@ -220,338 +107,120 @@ namespace Gorakshnath_Billing_System
         private void newDeliveryNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmChallan")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
                     frmChallan challan = new frmChallan();
                     challan.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+             
         }
 
         private void totalPurchaseReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
-                    frmStockReport StockReport = new frmStockReport();
-                    StockReport.ShowDialog();
-            
+
+            frmStockReport StockReport = new frmStockReport();
+            StockReport.ShowDialog();
+
 
         }
 
         private void manageBrandToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-                    frmProductBrand ProductBrand = new frmProductBrand();
-                    ProductBrand.ShowDialog();
-            
+
+            frmProductBrand ProductBrand = new frmProductBrand();
+            ProductBrand.ShowDialog();
+
 
 
         }
 
         private void manageProductGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-              
-                    frmProductGroup ProductGroup = new frmProductGroup();
-                    ProductGroup.ShowDialog();
-            
+
+            frmProductGroup ProductGroup = new frmProductGroup();
+            ProductGroup.ShowDialog();
+
         }
 
         private void itemWiseSalesReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
-                    frmPurchaseReport purchaseReport = new frmPurchaseReport();
-                    purchaseReport.ShowDialog();
-             
+
+            frmPurchaseReport purchaseReport = new frmPurchaseReport();
+            purchaseReport.ShowDialog();
+
 
         }
 
         private void searchAndManageSupplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmSupplierMaster")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
                     frmSupplierMaster supplierMaster = new frmSupplierMaster();
-                    supplierMaster.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+                    supplierMaster.ShowDialog();
+         
         }
 
         private void searchAndManageCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmCustomer")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
+            
                     frmCustomer customer = new frmCustomer();
-                    customer.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                    customer.ShowDialog();            
 
 
         }
 
         private void searchAndManageProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmProductMaster")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
-                    frmProductMaster productMaster = new frmProductMaster();
-                    productMaster.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            frmProductMaster productMaster = new frmProductMaster();
+            productMaster.Show();
 
         }
 
         private void addPurchaseReturnDebitNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmPurchaseReturn")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
-                    frmPurchaseReturn purchaseReturn = new frmPurchaseReturn();
-                    purchaseReturn.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            frmPurchaseReturn purchaseReturn = new frmPurchaseReturn();
+            purchaseReturn.ShowDialog();
+
 
         }
 
         private void searchAndManageInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmDummySalesReport")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
-                    frmDummySalesReport dummySalesReport = new frmDummySalesReport();
-                    //dummySalesReport.MdiParent = this;
-                    dummySalesReport.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            frmDummySalesReport dummySalesReport = new frmDummySalesReport();
+            //dummySalesReport.MdiParent = this;
+            dummySalesReport.ShowDialog();
+
 
 
         }
 
         private void challanReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmChallanReport")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
-                    frmChallanReport frmChallanReport = new frmChallanReport();
-                    frmChallanReport.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
-
+            frmChallanReport frmChallanReport = new frmChallanReport();
+            frmChallanReport.Show();
 
         }
 
         private void searchAndManageDeliveryNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmChallanReport")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
-                    frmChallanReport frmChallanReport = new frmChallanReport();
-                    frmChallanReport.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
-
+            frmChallanReport frmChallanReport = new frmChallanReport();
+            frmChallanReport.ShowDialog();
 
         }
 
         private void searchAndManagePurchaseBillToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmPurchaseReport")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
-                    frmPurchaseReport purchaseReport = new frmPurchaseReport();
-                    purchaseReport.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            frmPurchaseReport purchaseReport = new frmPurchaseReport();
+            purchaseReport.ShowDialog();
 
         }
 
         private void searchAndManageQuotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmEstimateReport")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
-                    frmEstimateReport estimateReport = new frmEstimateReport();
-                    estimateReport.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-           
+            frmEstimateReport estimateReport = new frmEstimateReport();
+            estimateReport.ShowDialog();
+
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -560,32 +229,11 @@ namespace Gorakshnath_Billing_System
 
         private void manageUsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmUsers")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
-                    frmUsers user = new frmUsers();
-                    user.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
-            
+            frmUsers user = new frmUsers();
+            user.ShowDialog();
+
+
         }
 
         private void exitToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -604,38 +252,12 @@ namespace Gorakshnath_Billing_System
         private void searchAndManageSalesReturnCreditNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            bool found = false;
-            try
-            {
-                for (int i = 0; i < Application.OpenForms.Count; i++)
-                {
-                    //Checks if the window is already open, and brings it to the front if it is
-                    Form n = Application.OpenForms[i];
-                    if (n.Name == "frmChallanReturnReport")
-                    {
-                        n.BringToFront();
-                        n.Focus();
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
-                    frmChallanReturnReport challanReturnReport = new frmChallanReturnReport();
-                    challanReturnReport.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            
-        }
-
-        private void deliveryChallanReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+            frmChallanReturnReport challanReturnReport = new frmChallanReturnReport();
+            challanReturnReport.ShowDialog();
 
         }
+
+
 
         private void estimateReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -663,10 +285,7 @@ namespace Gorakshnath_Billing_System
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //To Display Time
-          //  Time.Text = DateTime.Now.ToLongTimeString();
-            //For Date
-            //Date.Text = DateTime.Now.ToLongDateString();
+
         }
 
         private void Date_Click(object sender, EventArgs e)
@@ -703,20 +322,7 @@ namespace Gorakshnath_Billing_System
             frmpurDrCr.ShowDialog();
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void customerMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
