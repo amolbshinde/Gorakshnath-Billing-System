@@ -142,7 +142,7 @@ namespace Gorakshnath_Billing_System.DAL
 
         //hello truyinhg to  fetch new changes
 
-        //Select the data for combobaox.
+        //Select the data for combobaox
 
         #region Select Data From Database for Report
         public DataTable SelectTDL()
