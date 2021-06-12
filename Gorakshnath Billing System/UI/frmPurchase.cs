@@ -104,8 +104,6 @@ namespace Gorakshnath_Billing_System.UI
                         String ProductName = textSearchItems.Text;
                         String Unit = comboBoxUnit.Text;
                         string gstType = comboGstType.Text;
-//need to get product id here
-
                         decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
                         decimal.TryParse(textQuantity.Text, out Qty);
                         decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
