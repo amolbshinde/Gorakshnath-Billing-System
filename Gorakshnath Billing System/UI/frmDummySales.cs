@@ -44,7 +44,7 @@ namespace Gorakshnath_Billing_System.UI
             Maxnum = Maxnum + 1;
             Invoice_No = Maxnum;
             txtInvoice_No.Text = Invoice_No.ToString();
-        }
+        } 
 
 
         public void fillCombo()
@@ -69,8 +69,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             string pname = "";
             String isAdded = "false";
-            //checking product is already present or ot
-            //
+            
             try
             {
                 if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
@@ -286,7 +285,7 @@ namespace Gorakshnath_Billing_System.UI
             if (check == "")
             {
 
-                //  MessageBox.Show("Please Enter Discount.");
+                MessageBox.Show("Please Enter Discount.");
 
             }
 
