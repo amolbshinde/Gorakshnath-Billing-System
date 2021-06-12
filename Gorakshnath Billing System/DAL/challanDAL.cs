@@ -279,7 +279,7 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
         #region Fetch Max Invoice ID for transaction 
-        public static int GetMaxInvoiceIDfromChallan_Transactions()
+        public  int GetMaxInvoiceIDfromChallan_Transactions()
         {
             SqlConnection con = new SqlConnection(myconnstrng);
             int maxnum=-1;
