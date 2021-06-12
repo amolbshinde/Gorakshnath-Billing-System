@@ -42,17 +42,14 @@ namespace Gorakshnath_Billing_System.UI
             comboBrand.DataSource = dtb;
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            
-
-        }
+        
 
         private void frmStockReport_Load(object sender, EventArgs e)
         {
             btnDate.Text= DateTime.Now.ToString();
             DataTable dt = stockDAL.SelectAllProductStock();
             dgvStockReport.DataSource = dt;
+            dgvStockReport.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
         }
 
@@ -63,6 +60,7 @@ namespace Gorakshnath_Billing_System.UI
             
             DataTable dt = stockDAL.SelectStockByGroup(keywords);
             dgvStockReport.DataSource = dt;
+            dgvStockReport.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
         }
 
@@ -72,6 +70,7 @@ namespace Gorakshnath_Billing_System.UI
 
             DataTable dt = stockDAL.SelectStockByBrand(keywords);
             dgvStockReport.DataSource = dt;
+            dgvStockReport.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         private void comboProduct_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,8 +79,14 @@ namespace Gorakshnath_Billing_System.UI
 
             DataTable dt = stockDAL.SelectStockByProduct(keywords);
             dgvStockReport.DataSource = dt;
+            dgvStockReport.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
-       
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DataTable dt = stockDAL.SelectAllStock();
+            dgvStockReport.DataSource = dt;
+            dgvStockReport.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
     }
 }

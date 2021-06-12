@@ -256,7 +256,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                String sql = "SELECT * FROM Stock_Master";
+                String sql = "SELECT Product_Master.Product_Id, Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit,Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id "; 
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();
@@ -281,7 +281,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit, Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Group LIKE '" + keywords + "'";
+                string sql = "SELECT Product_Master.Product_Id,Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit, Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Group LIKE '" + keywords + "'";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -310,7 +310,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit,Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Brand LIKE '" + keywords + "'";
+                string sql = "SELECT Product_Master.Product_Id,Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit,Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Brand LIKE '" + keywords + "'";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -339,7 +339,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit,Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Name LIKE '" + keywords + "'";
+                string sql = "SELECT Product_Master.Product_Id,Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit,Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id where Product_Master.Product_Name LIKE '" + keywords + "'";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -360,6 +360,36 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+        #region Fetch All Stock 
+        public DataTable SelectAllStock()
+        {
+            SqlConnection conn = new SqlConnection(myconnstrng);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT Product_Master.Product_Id, Product_Master.Product_Name, Stock_Master.Quantity,Stock_Master.Unit,Product_Master.Brand,Product_Master.Product_Group FROM Stock_Master inner join Product_Master ON Product_Master.Product_ID=Stock_Master.Product_Id ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+        #endregion
+
+
 
 
     }
