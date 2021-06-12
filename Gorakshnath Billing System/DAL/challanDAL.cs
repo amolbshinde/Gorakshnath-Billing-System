@@ -145,14 +145,14 @@ namespace Gorakshnath_Billing_System.DAL
         //Select the data for combobaox..
 
         #region Select Data From Database for combobox
-        public DataTable SelectTD()
+        public DataTable SelectTD(string keywords)
         {
             SqlConnection con = new SqlConnection(myconnstrng);
 
             DataTable dt = new DataTable();
             try
             {
-                String sql = "select Invoice_No,Cust_Name,Cust_Contact,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date from Challan_Transactions,Cust_Master where Cust_Master.Cust_ID=Challan_Transactions.Cust_ID;";
+                String sql = "select Invoice_No,Cust_Name,Cust_Contact,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date from Challan_Transactions,Cust_Master where Cust_Master.Cust_ID=Challan_Transactions.Cust_ID AND Invoice_No LIKE'%" + keywords + "%' OR Cust_Name LIKE'%" + keywords + "%' OR Cust_Contact LIKE'%" + keywords + "%';";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 con.Open();

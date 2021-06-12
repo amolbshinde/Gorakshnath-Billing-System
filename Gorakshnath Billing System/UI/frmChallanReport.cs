@@ -36,26 +36,11 @@ namespace Gorakshnath_Billing_System.UI
 
         {
             fillcombo();
-            DataTable dt = challanDAL.SelectTD();
+            DataTable dt = challanDAL.SelectTD("");
             dgvChallanReport.DataSource = dt;
         }
 
-        private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void comboCustName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void comboMobileNo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-            
-        }
-
+        
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -109,7 +94,7 @@ namespace Gorakshnath_Billing_System.UI
                 SalesPaymentDetailsDAL.DeleteByInvoice_No(iNo);
                 challandetailsDAL.DeleteByInvoiceNo(iNo.ToString());
                 challanDAL.DeleteByInvoiceNo(iNo.ToString());
-                DataTable dt = challanDAL.SelectTD();
+                DataTable dt = challanDAL.SelectTD("");
                 dgvChallanReport.DataSource = dt;
             }
         }
@@ -133,6 +118,35 @@ namespace Gorakshnath_Billing_System.UI
         private void button4_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (textSearch.Text != "Search by Invoice No.Mobile No.Customer Name")
+                {
+                    string Key = textSearch.Text;
+                    DataTable dt = challanDAL.SelectTD(Key);
+                    dgvChallanReport.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter Keywords To Search Report  !");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textSearch_Enter(object sender, EventArgs e)
+        {
+            textSearch.Text = "";
         }
     }
 }
