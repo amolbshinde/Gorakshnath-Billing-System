@@ -42,6 +42,7 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvStockReport = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.btnDate = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStockReport)).BeginInit();
@@ -123,13 +124,13 @@ namespace Gorakshnath_Billing_System.UI
             // button5
             // 
             this.button5.FlatAppearance.BorderSize = 2;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button5.Location = new System.Drawing.Point(998, 35);
+            this.button5.Location = new System.Drawing.Point(1031, 35);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(145, 32);
+            this.button5.Size = new System.Drawing.Size(112, 32);
             this.button5.TabIndex = 1;
             this.button5.Text = "Fetch All";
             this.button5.UseVisualStyleBackColor = true;
@@ -169,6 +170,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.dgvStockReport);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.btnDate);
@@ -181,6 +183,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // dgvStockReport
             // 
+            this.dgvStockReport.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.dgvStockReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStockReport.Location = new System.Drawing.Point(13, 64);
             this.dgvStockReport.Margin = new System.Windows.Forms.Padding(4);
@@ -217,6 +220,22 @@ namespace Gorakshnath_Billing_System.UI
             this.btnDate.Text = "--";
             this.btnDate.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.button1.Location = new System.Drawing.Point(959, 13);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(184, 32);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Export to Excle";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmStockReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -252,5 +271,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
