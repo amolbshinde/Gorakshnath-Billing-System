@@ -43,7 +43,7 @@ namespace Gorakshnath_Billing_System.DAL
 
                 int a = cmd.ExecuteNonQuery();
 
-                if (a!=null)
+                if (a!=0)
                 {
                     isSuccess = true;
                    // Invoice_No = int.Parse(o.ToString());
