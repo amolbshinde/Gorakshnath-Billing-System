@@ -24,7 +24,7 @@ namespace Gorakshnath_Billing_System.DAL
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO Challan_Transactions (Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date) VALUES(@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Challan_date);";
+                String sql = "SET IDENTITY_INSERT Challan_Transactions ON INSERT INTO Challan_Transactions (Invoice_No,Transaction_Type,Cust_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Challan_date) VALUES(@Invoice_No,@Transaction_Type,@Cust_ID,@Sub_Total,@TDiscount,@TSGST,@TCGST,@TIGST,@Grand_Total,@Challan_date);SET IDENTITY_INSERT Challan_Transactions OFF;";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -41,9 +41,9 @@ namespace Gorakshnath_Billing_System.DAL
 
                 con.Open();
 
-                object o = cmd.ExecuteScalar();
+                int a = cmd.ExecuteNonQuery();
 
-                if (o != null)
+                if (a!=null)
                 {
                     isSuccess = true;
                    // Invoice_No = int.Parse(o.ToString());

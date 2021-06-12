@@ -336,27 +336,18 @@ namespace Gorakshnath_Billing_System.UI
                             sp.Invoice_No = Invoice_No;
                             SalesPaymentDetailsDAL dal = new SalesPaymentDetailsDAL();
                             bool success = dal.InsertSalesPayment(sp);
-                            /*
-                            if (success == true)
-                            {
-                                //data inserted sucesfully
-                                MessageBox.Show("Payment Added Succesfully");
-
-                            }
-                            else
-                            {
-                                //error occured
-                                MessageBox.Show("Sorry..!! , Failed to add user");
-                            }
-                            */
+                          
 
                             if (_TransactionStatus != 0 && Invoice_No != -1)
                             {
                                 if (MessageBox.Show("Do you want to print Invoice" + "\n" + "Confirm ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 
                                 {
+                                    
                                     frmInvoiceCrpt frmcrpt = new frmInvoiceCrpt(Invoice_No);
-                                    frmcrpt.Show();
+                                    frmcrpt.Activate();
+                                    frmcrpt.ShowDialog();
+                                    frmcrpt.BringToFront();
                                     Clear();
                                 }
 
@@ -441,6 +432,7 @@ namespace Gorakshnath_Billing_System.UI
                         challanBLL.TCGST = totalCgst;
                         challanBLL.TIGST = totalIgst;
                         challanBLL.Grand_Total = grandTotal;
+                        challanBLL.Invoice_No = Invoice_No;
                         challanBLL.Challan_date = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
 
                         challanBLL.SalesDetails = salesDT;
@@ -450,6 +442,7 @@ namespace Gorakshnath_Billing_System.UI
 
                         //int Invoice_No = -1; alredy declared on top 
                          a1 = challanDAL.insertChallan(challanBLL);
+                       // MessageBox.Show(a1.ToString());
 
 
 

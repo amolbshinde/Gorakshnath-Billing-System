@@ -472,7 +472,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textSearchItems.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSearchItems.Location = new System.Drawing.Point(103, 59);
-            this.textSearchItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSearchItems.Margin = new System.Windows.Forms.Padding(4);
             this.textSearchItems.Name = "textSearchItems";
             this.textSearchItems.Size = new System.Drawing.Size(428, 29);
             this.textSearchItems.TabIndex = 44;
@@ -973,7 +973,7 @@ namespace Gorakshnath_Billing_System.UI
             this.listSearchItems.FormattingEnabled = true;
             this.listSearchItems.ItemHeight = 20;
             this.listSearchItems.Location = new System.Drawing.Point(101, 4);
-            this.listSearchItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listSearchItems.Margin = new System.Windows.Forms.Padding(4);
             this.listSearchItems.Name = "listSearchItems";
             this.listSearchItems.Size = new System.Drawing.Size(433, 224);
             this.listSearchItems.TabIndex = 44;
@@ -995,7 +995,6 @@ namespace Gorakshnath_Billing_System.UI
             this.Name = "frmChallan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " New Challan";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmChallan_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
