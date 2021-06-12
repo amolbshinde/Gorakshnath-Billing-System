@@ -99,12 +99,14 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSearch.Location = new System.Drawing.Point(13, 25);
-            this.textSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textSearch.Margin = new System.Windows.Forms.Padding(2);
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(678, 26);
             this.textSearch.TabIndex = 21;
             this.textSearch.Text = "Enter Customer name,Invoice No, Mobile No";
             this.textSearch.Enter += new System.EventHandler(this.textSearch_Enter);
+            this.textSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textSearch_KeyUp);
+            this.textSearch.Leave += new System.EventHandler(this.textSearch_Leave);
             // 
             // button5
             // 
