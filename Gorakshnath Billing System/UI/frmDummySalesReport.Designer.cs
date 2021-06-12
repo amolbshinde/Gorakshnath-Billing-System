@@ -95,6 +95,8 @@ namespace Gorakshnath_Billing_System.UI
             this.textSearch.TabIndex = 10;
             this.textSearch.Text = "Search by Invoice No.Mobile No.Customer Name";
             this.textSearch.Enter += new System.EventHandler(this.textSearch_Enter);
+            this.textSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textSearch_KeyUp);
+            this.textSearch.Leave += new System.EventHandler(this.textSearch_Leave);
             // 
             // button1
             // 

@@ -122,6 +122,19 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
+                        
+        }
+
+        private void textSearch_Enter(object sender, EventArgs e)
+        {
+            if (textSearch.Text == "Search by Invoice No.Mobile No.Customer Name")
+            {
+                textSearch.Text = "";
+            }
+        }
+
+        private void textSearch_KeyUp(object sender, KeyEventArgs e)
+        {
 
             try
             {
@@ -142,11 +155,27 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
 
-        private void textSearch_Enter(object sender, EventArgs e)
+        private void textSearch_Leave(object sender, EventArgs e)
         {
-            textSearch.Text = "";
+
+            try
+            {
+                bool valiDa = textSearch.Text.All(c => Char.IsLetterOrDigit(c) || c.Equals('_'));
+                if (valiDa == false || textSearch.Text == "")
+                {
+
+                    textSearch.Text = "Search by Invoice No.Mobile No.Customer Name";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }
