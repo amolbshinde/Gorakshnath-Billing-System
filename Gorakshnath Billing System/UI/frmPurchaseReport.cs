@@ -27,23 +27,24 @@ namespace Gorakshnath_Billing_System.UI
         public void fillCombo()
         {
             comboPurchaseId.DataSource = null;
-            DataTable dtP = purchaseDAL.SelectPD();
+            DataTable dtP = purchaseDAL.SelectPID();
             comboPurchaseId.DisplayMember = "Purchase_ID";
-            comboPurchaseId.ValueMember = "Purchase_ID";
+            //comboPurchaseId.ValueMember = "Purchase_ID";
             comboPurchaseId.DataSource = dtP;
             comboPurchaseId.Text = "Select By Purchase ID";
 
+
             comboSupName.DataSource = null;
-            DataTable dtNP = purchaseDAL.SelectPD();
+            DataTable dtNP = purchaseDAL.SelectCN();
             comboSupName.DisplayMember = "CompanyName";
-            comboSupName.ValueMember = "CompanyName";
+            //comboSupName.ValueMember = "CompanyName";
             comboSupName.DataSource = dtNP;
             comboSupName.Text = "Select By Supplier Name";
 
             comboMobileNo.DataSource = null;
-            DataTable dtC = purchaseDAL.SelectPD();
+            DataTable dtC = purchaseDAL.SelectPN();
             comboMobileNo.DisplayMember = "Phone_No";
-            comboMobileNo.ValueMember = "Phone_No";
+            //comboMobileNo.ValueMember = "Phone_No";
             comboMobileNo.DataSource = dtC;
             comboMobileNo.Text = "Select By Mobile No";
         }
@@ -56,19 +57,28 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboPurchaseId_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboPurchaseId.Text != "Select By Purchase ID")
-            {
-                string iNo;
-                iNo = comboPurchaseId.Text.ToString();
-                DataTable dt = purchaseDAL.SelectByPurchaseId(iNo);
-                dgvPurchaseReport.DataSource = dt;
-                //MessageBox.Show(comboInvoiceNo.Text);
-            }
-            else
-            {
-                DataTable dt = purchaseDAL.SelectPD();
-                dgvPurchaseReport.DataSource = dt;
-            }
+              if (comboPurchaseId.Text != "Select By Purchase ID")
+              {
+                  if(comboPurchaseId.Text=="")
+                  {                    
+                      DataTable dtPI = purchaseDAL.SelectPD();
+                      dgvPurchaseReport.DataSource = dtPI;
+                      comboPurchaseId.Text = "Select By Purchase ID";
+                      return;
+                  }
+                  string iNo;
+                  iNo = comboPurchaseId.Text.ToString();
+                  DataTable dt = purchaseDAL.SelectByPurchaseId(iNo);
+                  dgvPurchaseReport.DataSource = dt;
+                  //MessageBox.Show(comboInvoiceNo.Text);
+              }
+              else
+              {
+                  DataTable dt = purchaseDAL.SelectPD();
+                  dgvPurchaseReport.DataSource = dt;                
+                  comboPurchaseId.Text = "Select By Purchase ID";
+              }
+            
         }
 
         private void comboSupName_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,6 +94,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 DataTable dt = purchaseDAL.SelectPD();
                 dgvPurchaseReport.DataSource = dt;
+                comboSupName.Text = "Select By Supplier Name";
             }
         }
 
@@ -100,6 +111,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 DataTable dt = purchaseDAL.SelectPD();
                 dgvPurchaseReport.DataSource = dt;
+                comboMobileNo.Text = "Select By Mobile No";
             }
         }
 
