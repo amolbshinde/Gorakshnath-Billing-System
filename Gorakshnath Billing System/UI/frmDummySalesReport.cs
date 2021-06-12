@@ -92,7 +92,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+           //
         }
 
         private void textSearch_Enter(object sender, EventArgs e)
