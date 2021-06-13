@@ -34,7 +34,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             //Report_Generator.CrystalReport.crptPurchase crptPurchase = new Report_Generator.CrystalReport.crptPurchase();
             CrptPurchaseViewer.ReportSource = null;
-            MessageBox.Show(GetPurchaseID.ToString());
+            //MessageBox.Show(GetPurchaseID.ToString());
             crptPurchase.SetParameterValue("@Purchase_ID", GetPurchaseID.ToString());
             CrptPurchaseViewer.ReportSource = crptPurchase;
             try

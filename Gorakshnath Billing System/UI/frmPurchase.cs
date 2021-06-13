@@ -23,6 +23,18 @@ namespace Gorakshnath_Billing_System.UI
         }
         int purchaseid = -1;
         int ProductId = -1;
+        bool isSuccess = false;
+        public void getMaxPurchaseId()
+        {
+            int maxnum = purchaseDAL.getMaxPurchaseId();
+            if (maxnum <0)
+            {
+                maxnum = 0;
+                return;
+            }
+            maxnum = maxnum + 1;
+            purchaseid = maxnum;
+        }
 
         SupplierMasterBLL SupplierMasterBLL = new SupplierMasterBLL();
         SupplierMasterDAL SupplierMasterDAL = new SupplierMasterDAL();
@@ -181,20 +193,10 @@ namespace Gorakshnath_Billing_System.UI
             {
 
 
-                /* Decimal TrAmount, PaidAmount;                
-                 decimal.TryParse(textGrandTotal.Text, out TrAmount);
-                 decimal.TryParse(textGrandTotal.Text, out PaidAmount);
-                 txtTrAmount.Text = Convert.ToString(TrAmount);
-                 txtPaidAmount.Text= Convert.ToString(PaidAmount);*/
-
-                //txtBalance.Text = Convert.ToString(TrAmount - PaidAmount);
                 txtTrAmount.Text = textGrandTotal.Text;
                 txtPaidAmount.Text = textGrandTotal.Text;                
                 txtBalance.Text = "00.00";
-                /*
-                    Decimal TrAmount, PaidAmount;
-                TrAmount = Convert.ToDecimal(textGrandTotal.Text);
-                PaidAmount = Convert.ToDecimal(txtPaidAmount.Text);*/
+               
 
             }
             else if (comboTrMode.SelectedIndex == 1)
@@ -238,15 +240,7 @@ namespace Gorakshnath_Billing_System.UI
             textInventory.Text = p.Quantity.ToString();
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void frmPurchase_Load(object sender, EventArgs e)
         {
@@ -270,6 +264,8 @@ namespace Gorakshnath_Billing_System.UI
             comboPurchaseType.SelectedIndex = 1;
             comboGstType.SelectedIndex = 0;
             listSearchItems.Hide();
+            getMaxPurchaseId();
+            textPurchaseBillNo.Text = purchaseid.ToString();
         }
 
         private void textQuantity_TextChanged(object sender, EventArgs e)
@@ -408,15 +404,15 @@ namespace Gorakshnath_Billing_System.UI
                         purchaseBLL.TCGST = totalCgst;
                         purchaseBLL.TIGST = totalIgst;
                         purchaseBLL.Grand_Total = grandTotal;
-
+                        purchaseBLL.Purchase_ID = purchaseid;
                         purchaseBLL.PurchaseDetails = purchasedt;
-                        bool isSuccess = false;
+                        
 
                         // using (TransactionScope scope = new TransactionScope())
                         
                            //int purchaseid = -1; already declaraed at the top as a global variable.
 
-                            bool b = purchaseDAL.insertpurchase(purchaseBLL, out purchaseid);
+                            bool b = purchaseDAL.insertpurchase(purchaseBLL);
                             for (int i = 0; i < purchasedt.Rows.Count; i++)
                             {
                                 purchasedetailsBLL pdBLL = new purchasedetailsBLL();
@@ -466,11 +462,19 @@ namespace Gorakshnath_Billing_System.UI
                                 
                             }
 
-
-                            isSuccess = b && y;
-
-
+                                if(b==true&&y==true)
+                            {
                                 isSuccess = true;
+                            }else
+                            {
+                                isSuccess = false;
+                            }
+
+                            
+
+
+
+                                
                             }
                             if (isSuccess == true)
                             {
@@ -521,13 +525,20 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            //save transaction and transaction details
-
+            getMaxPurchaseId();
             save();
-            textPurchaseBillNo.Text = purchaseid.ToString();
+           
+           
 
+            if (purchaseid != -1 &&  isSuccess != false)
+            {
+                
+                frmPurchaseCrpt purchaseCrpt = new frmPurchaseCrpt(purchaseid);
+                purchaseCrpt.Show();
+            }
 
+            Clear();
+           // getMaxPurchaseId();
 
         }
 
@@ -675,16 +686,6 @@ namespace Gorakshnath_Billing_System.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (purchaseid != -1)
-            {
-                //Invoice_No = 2005;
-                frmPurchaseCrpt purchaseCrpt = new frmPurchaseCrpt(purchaseid);
-                purchaseCrpt.Show();
-            }
-            else
-            {
-                MessageBox.Show("Please Save details first");
-            }
         }
 
         private void comboPurchaseType_SelectedIndexChanged(object sender, EventArgs e)
@@ -806,6 +807,7 @@ namespace Gorakshnath_Billing_System.UI
             dgvAddedProducts.DataSource = null;
             dgvAddedProducts.Rows.Clear();
             purchasedt.Rows.Clear();
+            getMaxPurchaseId();
         }
 
         private void comboContact_SelectedIndexChanged(object sender, EventArgs e)
@@ -980,5 +982,7 @@ namespace Gorakshnath_Billing_System.UI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        
     }   
 }
