@@ -190,7 +190,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(621, 279);
             this.panel6.TabIndex = 12;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // button4
             // 
@@ -387,7 +386,7 @@ namespace Gorakshnath_Billing_System.UI
             this.listSearchItems.FormattingEnabled = true;
             this.listSearchItems.ItemHeight = 20;
             this.listSearchItems.Location = new System.Drawing.Point(99, 0);
-            this.listSearchItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listSearchItems.Margin = new System.Windows.Forms.Padding(4);
             this.listSearchItems.Name = "listSearchItems";
             this.listSearchItems.Size = new System.Drawing.Size(433, 224);
             this.listSearchItems.TabIndex = 45;
@@ -436,7 +435,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(767, 262);
             this.panel5.TabIndex = 2;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // comboTrType
             // 
@@ -629,9 +627,9 @@ namespace Gorakshnath_Billing_System.UI
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(1119, 74);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 23);
+            this.label9.Size = new System.Drawing.Size(101, 23);
             this.label9.TabIndex = 13;
-            this.label9.Text = "Record No.";
+            this.label9.Text = "Purchase ID";
             // 
             // textQuantity
             // 
@@ -649,6 +647,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textInventory.Location = new System.Drawing.Point(536, 59);
             this.textInventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textInventory.Name = "textInventory";
+            this.textInventory.ReadOnly = true;
             this.textInventory.Size = new System.Drawing.Size(99, 27);
             this.textInventory.TabIndex = 4;
             // 
@@ -938,7 +937,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textSearchItems.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSearchItems.Location = new System.Drawing.Point(99, 58);
-            this.textSearchItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSearchItems.Margin = new System.Windows.Forms.Padding(4);
             this.textSearchItems.Name = "textSearchItems";
             this.textSearchItems.Size = new System.Drawing.Size(428, 29);
             this.textSearchItems.TabIndex = 45;

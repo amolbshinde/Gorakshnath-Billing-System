@@ -11,22 +11,23 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.DAL
 {
-    class purchaseDAL   
+    class purchaseDAL
     {
         //jhdff
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
         #region Insert Purchase_Transactions Method
-        public bool insertpurchase(purchaseBLL p, out int purchaseID)
+        public bool insertpurchase(purchaseBLL p)
         {
             bool isSuccess = false;
-            purchaseID = -1;
+           // purchaseID = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
-                String sql = "INSERT INTO Purchase_Transactions (Transaction_Type,Sup_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Transaction_Type,@sup_id,@subTotal,@totalDiscount,@totalSgst,@totalCgst,@totalIgst,@grandTotal);select @@IDENTITY;";
+                String sql = "SET IDENTITY_INSERT Purchase_Transactions ON INSERT INTO Purchase_Transactions (Purchase_ID,Transaction_Type,Sup_ID,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total) VALUES(@Purchase_ID,@Transaction_Type,@sup_id,@subTotal,@totalDiscount,@totalSgst,@totalCgst,@totalIgst,@grandTotal);SET IDENTITY_INSERT Purchase_Transactions OFF";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
                 //add parameteres  values 
+                cmd.Parameters.AddWithValue("@Purchase_ID", p.Purchase_ID);
                 cmd.Parameters.AddWithValue("@Transaction_Type", p.Transaction_Type);
                 cmd.Parameters.AddWithValue("@sup_id", p.Sup_ID);
                 cmd.Parameters.AddWithValue("@subTotal", p.Sub_Total);
@@ -35,19 +36,20 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@totalCgst", p.TCGST);
                 cmd.Parameters.AddWithValue("@totalIgst", p.TIGST);
                 cmd.Parameters.AddWithValue("@grandTotal", p.Grand_Total);
-
+                //SET IDENTITY_INSERT Purchase_Transactions ON 
                 con.Open();
 
-                object o = cmd.ExecuteScalar();
+                int a = cmd.ExecuteNonQuery();
 
-                if (o != null)
+                if (a== 0)
                 {
-                    isSuccess = true;
-                    purchaseID = int.Parse(o.ToString());
+                    isSuccess = false;
+                    //purchaseID = int.Parse(o.ToString());
                 }
                 else
                 {
-                    isSuccess = false;
+                    isSuccess = true;
+                    
                 }
 
             }
@@ -58,6 +60,7 @@ namespace Gorakshnath_Billing_System.DAL
             finally
             {
                 con.Close();
+                //MessageBox.Show(isSuccess.ToString());
             }
             return isSuccess;
         }
@@ -273,6 +276,32 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+        #region
+        public int getMaxPurchaseId()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+            int maxnum = -1;
+            try
+            {
+                String sql = "SELECT COALESCE (MAX(Purchase_ID),0) AS MaxOf FROM  Purchase_Transactions";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                maxnum = Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return maxnum;
+        }
+        #endregion
+
 
 
 
