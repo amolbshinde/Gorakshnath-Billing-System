@@ -348,6 +348,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textSearchItems.TabIndex = 1;
             this.textSearchItems.Text = "Select Item";
             this.textSearchItems.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textSearchItems_KeyUp);
+            this.textSearchItems.Leave += new System.EventHandler(this.textSearchItems_Leave);
             // 
             // label18
             // 

@@ -961,6 +961,11 @@ namespace Gorakshnath_Billing_System.UI
         {
             fetchProductDetails();
         }
+
+        private void textSearchItems_Leave(object sender, EventArgs e)
+        {
+            listBox1.Hide();
+        }
     }
 
 

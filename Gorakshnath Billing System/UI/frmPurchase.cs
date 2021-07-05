@@ -532,12 +532,19 @@ namespace Gorakshnath_Billing_System.UI
 
             if (purchaseid != -1 &&  isSuccess != false)
             {
-                
-                frmPurchaseCrpt purchaseCrpt = new frmPurchaseCrpt(purchaseid);
-                purchaseCrpt.Show();
+                if (MessageBox.Show("Do you want to print Purchase Bill" + "\n" + "Confirm ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    frmPurchaseCrpt purchaseCrpt = new frmPurchaseCrpt(purchaseid);
+                    purchaseCrpt.Show();
+                    Clear();
+                }else
+                {
+                    Clear(); 
+                }
+                    
             }
 
-            Clear();
+            
            // getMaxPurchaseId();
 
         }

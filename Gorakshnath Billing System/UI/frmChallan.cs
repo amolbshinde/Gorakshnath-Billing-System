@@ -68,7 +68,7 @@ namespace Gorakshnath_Billing_System.UI
             comboContact.DisplayMember = "Cust_Contact";
             //comboSearchCust.ValueMember = "Column123";
             comboContact.DataSource = dtP;
-            comboContact.Text = "Select Phone";
+            comboContact.Text = "NA";
         }
 
 
@@ -398,9 +398,9 @@ namespace Gorakshnath_Billing_System.UI
             {
                 if (sname != "" && sname != "Select Cust")
                 {
-                    string Contact = comboContact.Text;
-                    customerBLL cust = customerDAL.getCustomerIdFromContact(Contact);
-                    if (cust.contact != comboContact.Text)
+                    string CustName = comboSearchCust.Text;
+                    customerBLL cust = customerDAL.getCustomerIdFromName(CustName);
+                    if (cust.name != comboSearchCust.Text)
                     {
                         customerBLL.name = comboSearchCust.Text;
                         customerBLL.contact = comboContact.Text;
@@ -415,8 +415,8 @@ namespace Gorakshnath_Billing_System.UI
 
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        string phone = comboContact.Text;
-                        customerBLL c = customerDAL.getCustomerIdFromPhone(phone);
+                        string CustName1 = comboSearchCust.Text;
+                        customerBLL c = customerDAL.getCustomerIdFromName(CustName1);
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
@@ -525,7 +525,7 @@ namespace Gorakshnath_Billing_System.UI
         {
 
             comboSearchCust.Text = "Select Cust";
-            comboContact.Text = "Select Phone";
+            comboContact.Text = "NA";
             textSearchItems.Text = "Select Product";
             textEmail.Text = "";
             textAddress.Text = "";
@@ -829,6 +829,7 @@ namespace Gorakshnath_Billing_System.UI
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+            fillCombo();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -880,7 +881,7 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     comboSearchCust.Text = "Select Cust";
                     textAddress.Text = "";
-                    comboContact.Text = "Select Phone";
+                    comboContact.Text = "NA";
                     textEmail.Text = "";
                     textGstNo.Text = "";
                     return;
@@ -898,7 +899,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 comboSearchCust.Text = "Select Cust";
                 textAddress.Text = "";
-                comboContact.Text = "Select Phone";
+                comboContact.Text = "NA";
                 textEmail.Text = "";
                 textGstNo.Text = "";
             }
@@ -908,21 +909,21 @@ namespace Gorakshnath_Billing_System.UI
         private void comboContact_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (comboContact.Text != "Select Phone")
+            if (comboContact.Text != "NA")
             {
 
                 //get search keyword from search text box
-                string keyword = comboContact.Text;
+                string keyword = comboSearchCust.Text;
                 if (keyword == "")//clear all textboex
                 {
                     comboSearchCust.Text = "Select Cust";
                     textAddress.Text = "";
-                    comboContact.Text = "Select Phone";
+                    comboContact.Text = "NA";
                     textEmail.Text = "";
                     textGstNo.Text = "";
                     return;
                 }
-                customerBLL cBLL = customerDAL.searchcustomerByPhone(keyword);
+                customerBLL cBLL = customerDAL.getCustomerIdFromName(keyword);
 
                 comboSearchCust.Text = cBLL.name;
                 comboContact.Text = cBLL.contact;
@@ -935,7 +936,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 comboSearchCust.Text = "Select Cust";
                 textAddress.Text = "";
-                comboContact.Text = "Select Phone";
+                comboContact.Text = "NA";
                 textEmail.Text = "";
                 textGstNo.Text = "";
             }
