@@ -142,9 +142,6 @@ namespace Gorakshnath_Billing_System.UI
             this.comboContact.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboContact.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboContact.FormattingEnabled = true;
-            this.comboContact.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
             this.comboContact.Location = new System.Drawing.Point(11, 89);
             this.comboContact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboContact.Name = "comboContact";
