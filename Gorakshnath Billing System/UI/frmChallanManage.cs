@@ -746,7 +746,9 @@ namespace Gorakshnath_Billing_System.UI
 
                     if (dgvAddedProducts.Rows.Count != 0)
                     {
-                        customerBLL c = customerDAL.getCustomerIdFromPhone(Contact);
+                        
+                        string CustName = comboSearchCust.Text;
+                        customerBLL c = customerDAL.getCustomerIdFromName(CustName);                        
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
@@ -810,6 +812,7 @@ namespace Gorakshnath_Billing_System.UI
                             cdBLL.GST_Type = salesDT.Rows[i][6].ToString();
                             cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][7].ToString()), 2);
                             cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
+                            cdBLL.Challan_date = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
 
                             int Product_id = p.Product_ID;
                             stockBLL.Product_Id = Product_id;
