@@ -74,7 +74,7 @@ namespace Gorakshnath_Billing_System.UI
                 frmChallanManage frmchmanage = new frmChallanManage(iNo);
                 frmchmanage.Show();
             }
-                if ("Print" == e.ClickedItem.Name.ToString())
+            if ("Print" == e.ClickedItem.Name.ToString())
             {
                 //get inoice no from datagrid view
                 int iNo;
