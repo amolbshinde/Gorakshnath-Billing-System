@@ -18,7 +18,7 @@ namespace Gorakshnath_Billing_System.UI
         public frmChallanManage(int InvoiceNo)
         {
             InitializeComponent();
-            fillCombo();
+            //fillCombo();
             int i = 1;
             while (i == 1)
             {
