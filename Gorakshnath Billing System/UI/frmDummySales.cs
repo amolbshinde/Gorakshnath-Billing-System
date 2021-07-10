@@ -61,7 +61,7 @@ namespace Gorakshnath_Billing_System.UI
             comboContact.DisplayMember = "Cust_Contact";
             comboContact.ValueMember = "Cust_Contact";
             comboContact.DataSource = dtP;
-            comboContact.Text = "Select Phone";
+            comboContact.Text = "NA";
 
         }
 
@@ -334,7 +334,7 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchCust.Text = "Select Cust";
             textEmail.Text = "";
             textAddress.Text = "";
-            comboContact.Text = "Select Phone";
+            comboContact.Text = "NA";
             textGstNo.Text = "";
             textItemCode.Text = "";
             textSearchItems.Text = "Select Item";
@@ -379,9 +379,9 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     if (sname != "" && sname != "Select Cust" && comboContact.Text != "")
                     {
-                        string Contact = comboContact.Text;
-                        customerBLL cust = customerDAL.getCustomerIdFromContact(Contact);
-                        if (cust.contact != comboContact.Text)
+                        string CustName = comboSearchCust.Text;
+                        customerBLL cust = customerDAL.getCustomerIdFromName(CustName);
+                        if (cust.name != comboSearchCust.Text)
                         {
 
                             customerBLL.name = comboSearchCust.Text;
@@ -397,8 +397,8 @@ namespace Gorakshnath_Billing_System.UI
 
                         if (dgvAddedProducts.Rows.Count != 0)
                         {
-                            string phone = comboContact.Text;
-                            customerBLL c = customerDAL.getCustomerIdFromPhone(phone);
+                            string CustName1 = comboSearchCust.Text;
+                            customerBLL c = customerDAL.getCustomerIdFromName(CustName1);
 
                             decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
@@ -801,7 +801,7 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     comboSearchCust.Text = "Select Cust";
                     textAddress.Text = "";
-                    comboContact.Text = "Select Phone";
+                    comboContact.Text = "NA";
                     textEmail.Text = "";
                     textGstNo.Text = "";
                     return;
@@ -819,7 +819,7 @@ namespace Gorakshnath_Billing_System.UI
                 //textCust_Name.Text = "";
                 comboSearchCust.Text = "Select Cust";
                 textAddress.Text = "";
-                comboContact.Text = "Select Phone";
+                comboContact.Text = "NA";
                 textEmail.Text = "";
                 textGstNo.Text = "";
 
@@ -833,21 +833,21 @@ namespace Gorakshnath_Billing_System.UI
         private void comboContact_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (comboContact.Text != "Select Phone" && comboContact.Text != "")
+            if (comboContact.Text != "NA" && comboContact.Text != "")
             {
 
                 //get search keyword from search text box
-                string keyword = comboContact.Text;
+                string keyword = comboSearchCust.Text;
                 if (keyword == "")//clear all textboex
                 {
                     comboSearchCust.Text = "Select Cust";
                     textAddress.Text = "";
-                    comboContact.Text = "Select Phone";
+                    comboContact.Text = "NA";
                     textEmail.Text = "";
                     textGstNo.Text = "";
                     return;
                 }
-                customerBLL cBLL = customerDAL.searchcustomerByPhone(keyword);
+                customerBLL cBLL = customerDAL.searchcustomerByName(keyword);
 
                 //textCust_Name.Text = cBLL.name;
 
@@ -862,7 +862,7 @@ namespace Gorakshnath_Billing_System.UI
                 //textCust_Name.Text = "";
                 comboSearchCust.Text = "Select Cust";
                 textAddress.Text = "";
-                comboContact.Text = "Select Phone";
+                comboContact.Text = "NA";
                 textEmail.Text = "";
                 textGstNo.Text = "";
             }
@@ -924,9 +924,16 @@ namespace Gorakshnath_Billing_System.UI
 
         private void listBox1_KeyUp(object sender, KeyEventArgs e)
         {
-            if ((e.KeyCode == Keys.Enter))
+            try
             {
-                fetchProductDetails();
+                if ((e.KeyCode == Keys.Enter))
+                {
+                    fetchProductDetails();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -964,11 +971,37 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textSearchItems_Leave(object sender, EventArgs e)
         {
-            listBox1.Hide();
+            try
+            {
+                bool valiDa = textSearchItems.Text.All(c => Char.IsLetterOrDigit(c) || c.Equals('_'));
+                if (valiDa == false || textSearchItems.Text == "")
+                {
+                    textSearchItems.Text = "Select Product";
+                    comboBoxUnit.Text = "";
+                    textInventory.Text = "0";
+                    textQuantity.Text = "0";
+                    textRate.Text = "0";
+                    textDiscount.Text = "0";
+                    textQuantity.Text = "0";
+                    if (comboTransactionType.Text != "Non GST")
+                    {
+                        comboGstType.Text = "";
+                        textGST.Text = "0";
+                    }
+                    listBox1.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textSearchItems_Enter(object sender, EventArgs e)
+        {
+            textSearchItems.Text = "";
         }
     }
 
 
 }
-
-
