@@ -590,13 +590,14 @@ namespace Gorakshnath_Billing_System.UI
         {
 
             //Validate Supplier details are there or not 
+            bool isSuccess=false;
 
             if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
             {
                 if (dgvAddedProducts.Rows.Count != 0)
                 {
                     //save fun
-                    save();
+                    isSuccess= save();
                 }
                 else
                 {
@@ -611,7 +612,7 @@ namespace Gorakshnath_Billing_System.UI
             textInvoiceNo.Text = Invoice_No.ToString();
             
 
-            if (Invoice_No != -1)
+            if (Invoice_No != -1 && isSuccess==true)
             {
                 
                 frmEstimateCrpt frmcrpt = new frmEstimateCrpt(Invoice_No);
@@ -622,9 +623,9 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        public void save()
+        public bool save()
         {
-
+            bool Trsuccess = false;
             string sname = comboSearchCust.Text.Trim();
             if (comboTransactionType.Text != "")
             {
@@ -680,9 +681,10 @@ namespace Gorakshnath_Billing_System.UI
                         EstimateBLL.Invoice_No = Invoice_No;
 
                         EstimateBLL.SalesDetails = estimateDT;
-                        bool isSuccess = false;
+                        bool isSuccess1 = false;
+                        bool isSuccess2 = false;
 
-                        isSuccess = EstimateDAL.insertEstimate(EstimateBLL);
+                        isSuccess1 = EstimateDAL.insertEstimate(EstimateBLL);
 
                         for (int i = 0; i < estimateDT.Rows.Count; i++)
                         {
@@ -705,18 +707,19 @@ namespace Gorakshnath_Billing_System.UI
                             edBLL.GST_Per = Math.Round(decimal.Parse(estimateDT.Rows[i][8].ToString()), 2);
                             edBLL.Total = Math.Round(decimal.Parse(estimateDT.Rows[i][10].ToString()), 2);
 
-                            bool y = EstimateDetailsDAL.insertEstimatedetails(edBLL);
+                            isSuccess2 = EstimateDetailsDAL.insertEstimatedetails(edBLL);
 
                             
 
-                            isSuccess = true;
+                            
                         }
                        
-                        if (isSuccess == true)
+                        if (isSuccess1 == true && isSuccess2 == true)
                         {
-                            //scope.Complete();
+                            
                             MessageBox.Show("Transaction Completed");
-                            //clear();
+                             Trsuccess = true;
+                            
                         }
                         else
                         {
@@ -739,7 +742,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Select Purchase Type GST OR NOGST");
             }
-
+            return Trsuccess;
         }
 
         public void Clear()
