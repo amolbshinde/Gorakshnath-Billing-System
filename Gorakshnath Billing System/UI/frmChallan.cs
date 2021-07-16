@@ -60,15 +60,10 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchCust.DataSource = null;
             DataTable dtC = customerDAL.SelectForCombo();
             comboSearchCust.DisplayMember = "Cust_Name";
+            comboSearchCust.ValueMember = "Cust_Name";
             comboSearchCust.DataSource = dtC;
             comboSearchCust.Text = "Select Cust";
-
-            comboContact.DataSource = null;
-            DataTable dtP = customerDAL.SelectForCombo();
-            comboContact.DisplayMember = "Cust_Contact";
-            //comboSearchCust.ValueMember = "Column123";
-            comboContact.DataSource = dtP;
-            comboContact.Text = "NA";
+                       
         }
 
 
@@ -392,13 +387,13 @@ namespace Gorakshnath_Billing_System.UI
         public int save()
         {
             int TransactionStatus = 0;
-            string sname = comboSearchCust.Text;
+            string sname = comboSearchCust.Text.Trim();
             bool a1, b1, c1;
             if (comboTransactionType.Text != "")
             {
                 if (sname != "" && sname != "Select Cust")
                 {
-                    string CustName = comboSearchCust.Text;
+                    string CustName = comboSearchCust.Text.Trim();
                     customerBLL cust = customerDAL.getCustomerIdFromName(CustName);
                     if (cust.name != comboSearchCust.Text)
                     {
@@ -887,43 +882,6 @@ namespace Gorakshnath_Billing_System.UI
                     return;
                 }
                 customerBLL cBLL = customerDAL.searchcustomerByName(keyword);
-
-                comboSearchCust.Text = cBLL.name;
-                comboContact.Text = cBLL.contact;
-                textEmail.Text = cBLL.email;
-                textAddress.Text = cBLL.address;
-                textGstNo.Text = cBLL.Gst_No;
-
-            }
-            else
-            {
-                comboSearchCust.Text = "Select Cust";
-                textAddress.Text = "";
-                comboContact.Text = "NA";
-                textEmail.Text = "";
-                textGstNo.Text = "";
-            }
-
-        }
-
-        private void comboContact_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (comboContact.Text != "NA")
-            {
-
-                //get search keyword from search text box
-                string keyword = comboSearchCust.Text;
-                if (keyword == "")//clear all textboex
-                {
-                    comboSearchCust.Text = "Select Cust";
-                    textAddress.Text = "";
-                    comboContact.Text = "NA";
-                    textEmail.Text = "";
-                    textGstNo.Text = "";
-                    return;
-                }
-                customerBLL cBLL = customerDAL.getCustomerIdFromName(keyword);
 
                 comboSearchCust.Text = cBLL.name;
                 comboContact.Text = cBLL.contact;

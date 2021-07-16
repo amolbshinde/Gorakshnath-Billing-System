@@ -31,7 +31,6 @@ namespace Gorakshnath_Billing_System.UI
         {
             this.label21 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.textIgst = new System.Windows.Forms.TextBox();
             this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
@@ -69,7 +68,6 @@ namespace Gorakshnath_Billing_System.UI
             this.textInventory = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboContact = new System.Windows.Forms.ComboBox();
             this.comboSearchCust = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -102,6 +100,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.comboContact = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -126,29 +125,14 @@ namespace Gorakshnath_Billing_System.UI
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnExit.Location = new System.Drawing.Point(15, 231);
+            this.btnExit.Location = new System.Drawing.Point(91, 231);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(125, 39);
+            this.btnExit.Size = new System.Drawing.Size(143, 39);
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.FlatAppearance.BorderSize = 2;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.ForeColor = System.Drawing.Color.BlueViolet;
-            this.btnPrint.Location = new System.Drawing.Point(309, 231);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(125, 39);
-            this.btnPrint.TabIndex = 1;
-            this.btnPrint.Text = " Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnClear
             // 
@@ -156,10 +140,10 @@ namespace Gorakshnath_Billing_System.UI
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnClear.Location = new System.Drawing.Point(160, 231);
+            this.btnClear.Location = new System.Drawing.Point(250, 231);
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(125, 39);
+            this.btnClear.Size = new System.Drawing.Size(143, 39);
             this.btnClear.TabIndex = 2;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -169,11 +153,11 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textIgst.BackColor = System.Drawing.SystemColors.Window;
             this.textIgst.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textIgst.Location = new System.Drawing.Point(443, 158);
+            this.textIgst.Location = new System.Drawing.Point(416, 158);
             this.textIgst.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textIgst.Name = "textIgst";
             this.textIgst.ReadOnly = true;
-            this.textIgst.Size = new System.Drawing.Size(145, 30);
+            this.textIgst.Size = new System.Drawing.Size(175, 30);
             this.textIgst.TabIndex = 8;
             // 
             // dgvAddedProducts
@@ -193,7 +177,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(352, 160);
+            this.label36.Location = new System.Drawing.Point(325, 160);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(81, 25);
             this.label36.TabIndex = 35;
@@ -203,7 +187,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(349, 127);
+            this.label34.Location = new System.Drawing.Point(320, 127);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(86, 25);
             this.label34.TabIndex = 33;
@@ -213,22 +197,22 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textSubDiscount.BackColor = System.Drawing.SystemColors.Window;
             this.textSubDiscount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSubDiscount.Location = new System.Drawing.Point(443, 46);
+            this.textSubDiscount.Location = new System.Drawing.Point(416, 46);
             this.textSubDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textSubDiscount.Name = "textSubDiscount";
             this.textSubDiscount.ReadOnly = true;
-            this.textSubDiscount.Size = new System.Drawing.Size(145, 30);
+            this.textSubDiscount.Size = new System.Drawing.Size(175, 30);
             this.textSubDiscount.TabIndex = 5;
             // 
             // textSgst
             // 
             this.textSgst.BackColor = System.Drawing.SystemColors.Window;
             this.textSgst.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSgst.Location = new System.Drawing.Point(443, 87);
+            this.textSgst.Location = new System.Drawing.Point(416, 87);
             this.textSgst.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textSgst.Name = "textSgst";
             this.textSgst.ReadOnly = true;
-            this.textSgst.Size = new System.Drawing.Size(145, 30);
+            this.textSgst.Size = new System.Drawing.Size(175, 30);
             this.textSgst.TabIndex = 6;
             // 
             // comboGstType
@@ -258,7 +242,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(355, 89);
+            this.label32.Location = new System.Drawing.Point(320, 89);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(86, 25);
             this.label32.TabIndex = 29;
@@ -268,7 +252,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(320, 47);
+            this.label33.Location = new System.Drawing.Point(288, 47);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(118, 25);
             this.label33.TabIndex = 30;
@@ -278,11 +262,11 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textSubTotal.BackColor = System.Drawing.SystemColors.Window;
             this.textSubTotal.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSubTotal.Location = new System.Drawing.Point(443, 7);
+            this.textSubTotal.Location = new System.Drawing.Point(416, 7);
             this.textSubTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textSubTotal.Name = "textSubTotal";
             this.textSubTotal.ReadOnly = true;
-            this.textSubTotal.Size = new System.Drawing.Size(145, 30);
+            this.textSubTotal.Size = new System.Drawing.Size(175, 30);
             this.textSubTotal.TabIndex = 4;
             // 
             // label35
@@ -299,18 +283,18 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textGrandTotal.BackColor = System.Drawing.SystemColors.Window;
             this.textGrandTotal.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textGrandTotal.Location = new System.Drawing.Point(443, 194);
+            this.textGrandTotal.Location = new System.Drawing.Point(416, 194);
             this.textGrandTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textGrandTotal.Name = "textGrandTotal";
             this.textGrandTotal.ReadOnly = true;
-            this.textGrandTotal.Size = new System.Drawing.Size(145, 30);
+            this.textGrandTotal.Size = new System.Drawing.Size(175, 30);
             this.textGrandTotal.TabIndex = 9;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(331, 7);
+            this.label28.Location = new System.Drawing.Point(311, 7);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(95, 25);
             this.label28.TabIndex = 22;
@@ -321,13 +305,13 @@ namespace Gorakshnath_Billing_System.UI
             this.btnSave.FlatAppearance.BorderSize = 2;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Teal;
-            this.btnSave.Location = new System.Drawing.Point(461, 231);
+            this.btnSave.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.btnSave.Location = new System.Drawing.Point(416, 231);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(125, 39);
+            this.btnSave.Size = new System.Drawing.Size(170, 39);
             this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Save ";
+            this.btnSave.Text = "Save and Print";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -335,7 +319,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(309, 191);
+            this.label27.Location = new System.Drawing.Point(290, 191);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(116, 25);
             this.label27.TabIndex = 21;
@@ -358,7 +342,7 @@ namespace Gorakshnath_Billing_System.UI
             this.listSearchItems.FormattingEnabled = true;
             this.listSearchItems.ItemHeight = 21;
             this.listSearchItems.Location = new System.Drawing.Point(105, 0);
-            this.listSearchItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listSearchItems.Margin = new System.Windows.Forms.Padding(4);
             this.listSearchItems.Name = "listSearchItems";
             this.listSearchItems.Size = new System.Drawing.Size(411, 172);
             this.listSearchItems.TabIndex = 20;
@@ -413,7 +397,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(7, 66);
+            this.label29.Location = new System.Drawing.Point(13, 66);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(88, 23);
             this.label29.TabIndex = 16;
@@ -432,11 +416,11 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(1113, 66);
+            this.label9.Location = new System.Drawing.Point(1119, 66);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 20);
+            this.label9.Size = new System.Drawing.Size(98, 20);
             this.label9.TabIndex = 13;
-            this.label9.Text = "Transaction ID";
+            this.label9.Text = "Party GST No.";
             // 
             // dtpBillDate
             // 
@@ -500,11 +484,11 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.textCgst.BackColor = System.Drawing.SystemColors.Window;
             this.textCgst.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCgst.Location = new System.Drawing.Point(443, 123);
+            this.textCgst.Location = new System.Drawing.Point(416, 123);
             this.textCgst.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textCgst.Name = "textCgst";
             this.textCgst.ReadOnly = true;
-            this.textCgst.Size = new System.Drawing.Size(145, 30);
+            this.textCgst.Size = new System.Drawing.Size(175, 30);
             this.textCgst.TabIndex = 7;
             // 
             // textQuantity
@@ -563,22 +547,11 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Size = new System.Drawing.Size(1409, 135);
             this.panel2.TabIndex = 0;
             // 
-            // comboContact
-            // 
-            this.comboContact.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboContact.FormattingEnabled = true;
-            this.comboContact.Items.AddRange(new object[] {
-            "GST",
-            "Non GST"});
-            this.comboContact.Location = new System.Drawing.Point(222, 90);
-            this.comboContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboContact.Name = "comboContact";
-            this.comboContact.Size = new System.Drawing.Size(309, 28);
-            this.comboContact.TabIndex = 2;
-            this.comboContact.SelectedIndexChanged += new System.EventHandler(this.comboContact_SelectedIndexChanged);
-            // 
             // comboSearchCust
             // 
+            this.comboSearchCust.AllowDrop = true;
+            this.comboSearchCust.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboSearchCust.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSearchCust.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboSearchCust.FormattingEnabled = true;
             this.comboSearchCust.Items.AddRange(new object[] {
@@ -615,7 +588,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 31);
+            this.label2.Location = new System.Drawing.Point(7, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 23);
             this.label2.TabIndex = 0;
@@ -624,7 +597,6 @@ namespace Gorakshnath_Billing_System.UI
             // panel6
             // 
             this.panel6.Controls.Add(this.btnExit);
-            this.panel6.Controls.Add(this.btnPrint);
             this.panel6.Controls.Add(this.btnClear);
             this.panel6.Controls.Add(this.textIgst);
             this.panel6.Controls.Add(this.label36);
@@ -964,6 +936,14 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5.Size = new System.Drawing.Size(771, 270);
             this.panel5.TabIndex = 2;
             // 
+            // comboContact
+            // 
+            this.comboContact.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboContact.Location = new System.Drawing.Point(222, 89);
+            this.comboContact.Name = "comboContact";
+            this.comboContact.Size = new System.Drawing.Size(306, 27);
+            this.comboContact.TabIndex = 19;
+            // 
             // frmQuotation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -974,7 +954,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmQuotation";
             this.Text = "New Quotation";
             this.Load += new System.EventHandler(this.frmQuotation_Load);
@@ -997,7 +977,6 @@ namespace Gorakshnath_Billing_System.UI
 
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TextBox textIgst;
         private System.Windows.Forms.DataGridView dgvAddedProducts;
@@ -1065,8 +1044,8 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ComboBox comboSearchCust;
-        private System.Windows.Forms.ComboBox comboContact;
         private System.Windows.Forms.TextBox textSearchItems;
         private System.Windows.Forms.ListBox listSearchItems;
+        private System.Windows.Forms.TextBox comboContact;
     }
 }
