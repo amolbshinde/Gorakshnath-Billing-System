@@ -373,17 +373,20 @@ namespace Gorakshnath_Billing_System.UI
             int TransactionStatus = 0;
             try
             {
-
+                /*if(comboContact.Text != "")
+                {
+                    comboContact.Text = "NA";
+                }*/
                 string sname = comboSearchCust.Text;
                 if (comboTransactionType.Text != "")
                 {
-                    if (sname != "" && sname != "Select Cust" && comboContact.Text != "")
+                    if (sname != "" && sname != "Select Cust")
                     {
                         string CustName = comboSearchCust.Text;
                         customerBLL cust = customerDAL.getCustomerIdFromName(CustName);
                         if (cust.name != comboSearchCust.Text)
                         {
-
+                            MessageBox.Show(cust.ToString());
                             customerBLL.name = comboSearchCust.Text;
                             customerBLL.contact = comboContact.Text;
                             customerBLL.email = textEmail.Text;
@@ -1000,6 +1003,11 @@ namespace Gorakshnath_Billing_System.UI
         private void textSearchItems_Enter(object sender, EventArgs e)
         {
             textSearchItems.Text = "";
+        }
+
+        private void comboContact_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 

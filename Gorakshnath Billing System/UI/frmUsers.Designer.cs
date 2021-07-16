@@ -287,6 +287,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox8.Location = new System.Drawing.Point(196, 87);
             this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(227, 29);
             this.textBox8.TabIndex = 0;
             // 
