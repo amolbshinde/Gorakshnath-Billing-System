@@ -39,7 +39,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboTrType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboContact = new System.Windows.Forms.ComboBox();
             this.comboSearchCust = new System.Windows.Forms.ComboBox();
             this.comboTransactionType = new System.Windows.Forms.ComboBox();
             this.textGstNo = new System.Windows.Forms.TextBox();
@@ -103,6 +102,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label22 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.listSearchItems = new System.Windows.Forms.ListBox();
+            this.comboContact = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
@@ -185,9 +185,9 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.comboContact);
             this.panel2.Controls.Add(this.comboTrType);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.comboContact);
             this.panel2.Controls.Add(this.comboSearchCust);
             this.panel2.Controls.Add(this.textBox6);
             this.panel2.Controls.Add(this.label30);
@@ -235,19 +235,6 @@ namespace Gorakshnath_Billing_System.UI
             this.label1.Size = new System.Drawing.Size(137, 23);
             this.label1.TabIndex = 22;
             this.label1.Text = "Transaction Type";
-            // 
-            // comboContact
-            // 
-            this.comboContact.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboContact.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboContact.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboContact.FormattingEnabled = true;
-            this.comboContact.Location = new System.Drawing.Point(268, 102);
-            this.comboContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboContact.Name = "comboContact";
-            this.comboContact.Size = new System.Drawing.Size(271, 28);
-            this.comboContact.TabIndex = 3;
-            this.comboContact.SelectedIndexChanged += new System.EventHandler(this.comboContact_SelectedIndexChanged);
             // 
             // comboSearchCust
             // 
@@ -981,6 +968,14 @@ namespace Gorakshnath_Billing_System.UI
             this.listSearchItems.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listSearchItems_KeyUp);
             this.listSearchItems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listSearchItems_MouseDoubleClick);
             // 
+            // comboContact
+            // 
+            this.comboContact.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboContact.Location = new System.Drawing.Point(273, 106);
+            this.comboContact.Name = "comboContact";
+            this.comboContact.Size = new System.Drawing.Size(267, 27);
+            this.comboContact.TabIndex = 23;
+            // 
             // frmChallan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1078,7 +1073,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox comboSearchCust;
-        private System.Windows.Forms.ComboBox comboContact;
         private System.Windows.Forms.TextBox textGstNo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboTrType;
@@ -1087,5 +1081,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ListBox listSearchItems;
         private System.Windows.Forms.TextBox textSearchItems;
+        private System.Windows.Forms.TextBox comboContact;
     }
 }

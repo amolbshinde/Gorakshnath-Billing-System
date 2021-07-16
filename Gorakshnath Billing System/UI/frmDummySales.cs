@@ -871,6 +871,8 @@ namespace Gorakshnath_Billing_System.UI
                 textInventory.Text = p.Quantity.ToString();
                 textQuantity.Text = "1";
                 listBox1.Hide();
+                btnAdd.Focus();
+
             }
             catch (Exception ex)
             {
@@ -887,6 +889,7 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     fetchProductDetails();
                 }
+               
             }
             catch (Exception ex)
             {
