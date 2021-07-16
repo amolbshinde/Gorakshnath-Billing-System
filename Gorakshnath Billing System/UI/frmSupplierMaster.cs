@@ -214,7 +214,7 @@ namespace Gorakshnath_Billing_System.UI
             textContact_No.Text = dgvSupplier.Rows[rowIndex].Cells[10].Value.ToString();
             textContact_No.ForeColor = Color.Black;
 
-            textGSTNo.Text = dgvSupplier.Rows[rowIndex].Cells[12].Value.ToString();
+            textGSTNo.Text = dgvSupplier.Rows[rowIndex].Cells[11].Value.ToString();
             textGSTNo.ForeColor = Color.Black;
         }
 
