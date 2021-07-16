@@ -1047,5 +1047,10 @@ namespace Gorakshnath_Billing_System.UI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void listSearchItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
