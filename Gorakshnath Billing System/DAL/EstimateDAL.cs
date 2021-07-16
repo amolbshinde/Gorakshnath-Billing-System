@@ -20,7 +20,7 @@ namespace Gorakshnath_Billing_System.DAL
 
         public bool insertEstimate(EstimateBLL c)
         {
-            bool isSuccess = false;
+            bool isSuccess = true;
             //Invoice_No = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
             try
@@ -43,20 +43,13 @@ namespace Gorakshnath_Billing_System.DAL
 
                 object o = cmd.ExecuteScalar();
 
-                if (o != null)
-                {
-                    isSuccess = true;
-                  //  Invoice_No = int.Parse(o.ToString());
-                }
-                else
-                {
-                    isSuccess = false;
-                }
+                
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                isSuccess = false;
             }
             finally
             {
