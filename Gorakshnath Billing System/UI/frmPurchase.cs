@@ -933,7 +933,7 @@ namespace Gorakshnath_Billing_System.UI
                     textPurchasePrice.Text = "0";
                     textDiscount.Text = "0";
                     textQuantity.Text = "0";
-                    if (comboTrMode.Text != "Non GST")
+                    if (comboPurchaseType.Text != "Non GST")
                     {
                         comboGstType.Text = "";
                         textGst.Text = "0";
