@@ -381,7 +381,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT SupplierID FROM Supplier_Master WHERE CompanyName='" + Name + "'";
+                string sql = "SELECT SupplierID,CompanyName FROM Supplier_Master WHERE CompanyName='" + Name + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 con.Open();
                 adapter.Fill(dt);
@@ -389,6 +389,7 @@ namespace Gorakshnath_Billing_System.DAL
                 if (dt.Rows.Count > 0)
                 {
                     s.SupplierID = int.Parse(dt.Rows[0]["SupplierID"].ToString());
+                    s.CompanyName = dt.Rows[0]["CompanyName"].ToString();
                 }
 
             }
