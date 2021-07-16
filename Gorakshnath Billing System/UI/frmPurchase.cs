@@ -61,15 +61,6 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchSup.DisplayMember = "CompanyName";
             comboSearchSup.DataSource = dtC;
             comboSearchSup.Text = "Select Sup";
-
-            comboContact.DataSource = null;
-            DataTable dtP = SupplierMasterDAL.SelectForCombo();
-            comboContact.DisplayMember = "Phone_No";
-            comboContact.DataSource = dtP;
-            comboContact.Text = "Select Phone";
-
-            
-
         }
 
 
@@ -817,41 +808,7 @@ namespace Gorakshnath_Billing_System.UI
             getMaxPurchaseId();
         }
 
-        private void comboContact_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (comboContact.Text != "Select Phone")
-            {
-                string keyword = comboContact.Text;
-                if (keyword == "")//clear all textboex
-                {
-                    comboSearchSup.Text = "Select Sup";
-                    textAddress.Text = "";
-                    comboContact.Text = "Select Phone";
-                    textEmail.Text = "";
-                    textGSTNo.Text = "";
-                    return;
-                }
-
-                SupplierMasterBLL smBLL = SupplierMasterDAL.SearchSupplierByPhone(keyword);
-
-                comboSearchSup.Text = smBLL.CompanyName;
-                comboContact.Text = smBLL.Phone_No;
-                textEmail.Text = smBLL.Email;
-                textAddress.Text = smBLL.Address;
-                textGSTNo.Text = smBLL.Gst_No;
-            }
-            else
-            {
-                comboSearchSup.Text = "Select Sup";
-                textAddress.Text = "";
-                comboContact.Text = "Select Phone";
-                textEmail.Text = "";
-                textGSTNo.Text = "";
-                //---
-            }
-
-        }
+        
 
         private void comboTrMode_SelectedIndexChanged(object sender, EventArgs e)
         {
