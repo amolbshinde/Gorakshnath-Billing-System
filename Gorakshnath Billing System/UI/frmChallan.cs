@@ -62,8 +62,7 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchCust.DisplayMember = "Cust_Name";
             comboSearchCust.ValueMember = "Cust_Name";
             comboSearchCust.DataSource = dtC;
-            comboSearchCust.Text = "Select Cust";
-                       
+            comboSearchCust.Text = "Select Cust";                       
         }
 
 

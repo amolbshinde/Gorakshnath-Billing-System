@@ -175,7 +175,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void txtCustomerEmail_Leave(object sender, EventArgs e)
         {
-            if (txtCustomerAddress.Text == "")
+            if (txtCustomerEmail.Text == "")
             {
                 txtCustomerEmail.Text = "Customer Email Id";
                 txtCustomerEmail.ForeColor = Color.Gray;
