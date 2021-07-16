@@ -14,7 +14,7 @@ namespace Gorakshnath_Billing_System.DAL
     class customerDAL
     {
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
-        //jhjh
+        
         #region Select Data From Database
         public DataTable Select()
         {
@@ -321,7 +321,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Cust_Id FROM Cust_Master WHERE Cust_Name='" + Name + "'";
+                string sql = "SELECT Cust_Id,Cust_Name FROM Cust_Master WHERE Cust_Name='" + Name + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 con.Open();
                 adapter.Fill(dt);
@@ -329,6 +329,7 @@ namespace Gorakshnath_Billing_System.DAL
                 if (dt.Rows.Count > 0)
                 {
                     c.Cust_ID = int.Parse(dt.Rows[0]["Cust_Id"].ToString());
+                    c.Cust_Name = dt.Rows[0]["Cust_Name"].ToString();
                 }
 
             }

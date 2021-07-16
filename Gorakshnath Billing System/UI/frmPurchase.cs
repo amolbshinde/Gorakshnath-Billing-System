@@ -367,9 +367,9 @@ namespace Gorakshnath_Billing_System.UI
                 if(sname != "" && sname != "Select Sup")
                 {
 
-                    string Contact = comboContact.Text;
-                    SupplierMasterBLL sup = SupplierMasterDAL.SelectSuplierPhone(Contact);
-                    if (sup.Phone_No != comboContact.Text)
+                    string CompanyName1 = comboSearchSup.Text;
+                    SupplierMasterBLL sup = SupplierMasterDAL.getSuplierIdFromName(CompanyName1);
+                    if (sup.CompanyName!= comboSearchSup.Text)
                     {
 
                         SupplierMasterBLL.CompanyName = comboSearchSup.Text;
@@ -384,7 +384,7 @@ namespace Gorakshnath_Billing_System.UI
                    
                     if (dgvAddedProducts.Rows.Count!=0)
                     {
-                        SupplierMasterBLL s = SupplierMasterDAL.getSuplierIdFromPhone(Contact);
+                        SupplierMasterBLL s = SupplierMasterDAL.getSuplierIdFromName(CompanyName1);
 
                         decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
 
