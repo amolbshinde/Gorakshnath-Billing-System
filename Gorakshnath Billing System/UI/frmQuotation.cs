@@ -45,15 +45,15 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchCust.DisplayMember = "Cust_Name";
             comboSearchCust.DataSource = dtC;
             comboSearchCust.Text = "Select Cust";
-
-
-
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        public void getMaxinvoiceId()
         {
-
+            int Maxnum = EstimateDAL.GetMaxInvoiceIDForQuotation();
+            Maxnum = Maxnum + 1;
+            Invoice_No = Maxnum;
+            textInvoiceNo.Text = Invoice_No.ToString();
         }
+
 
         private void picBoxExit_Click(object sender, EventArgs e)
         {
@@ -111,8 +111,8 @@ namespace Gorakshnath_Billing_System.UI
                 string keyword = comboSearchCust.Text;
                 if (keyword == "")//clear all textboex
                 {
-                    comboSearchCust.Text = "Select Cust";                  
-                    
+                    comboSearchCust.Text = "Select Cust";
+
                     textAddress.Text = "";
                     comboContact.Text = "Select Phone";
                     textEmail.Text = "";
@@ -139,9 +139,9 @@ namespace Gorakshnath_Billing_System.UI
             string keyword = textSearchItems.Text;
 
             if (keyword == "")
-            {                
+            {
                 textSearchItems.Text = "Select Product";
-                textItemCode.Text = "";                
+                textItemCode.Text = "";
                 comboBoxUnit.Text = "";
                 textInventory.Text = "0";
                 textRate.Text = "0";
@@ -167,7 +167,7 @@ namespace Gorakshnath_Billing_System.UI
             string pname = "";
             string isAdded = "false";
             //checking product is already present or ot           
-            if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text!= "")
+            if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
             {
                 if (textSearchItems.Text != "")
                 {
@@ -187,7 +187,7 @@ namespace Gorakshnath_Billing_System.UI
                                 }
 
                             }
-                            if (isAdded=="false")
+                            if (isAdded == "false")
                             {
                                 // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
 
@@ -213,7 +213,7 @@ namespace Gorakshnath_Billing_System.UI
                                     int counter = 1;
                                     counter = estimateDT.Rows.Count + 1;
                                     decimal gstAmt = Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
-                                    estimateDT.Rows.Add(counter,ProductId, ProductName, Unit, Qty, rate, discount, gstType, GST, gstAmt, TotalAmount);
+                                    estimateDT.Rows.Add(counter, ProductId, ProductName, Unit, Qty, rate, discount, gstType, GST, gstAmt, TotalAmount);
                                     dgvAddedProducts.DataSource = estimateDT;
 
                                     decimal subTotal;
@@ -250,9 +250,9 @@ namespace Gorakshnath_Billing_System.UI
                                         textIgst.Text = subIGst.ToString();
                                     }
 
-                                    
+
                                     textSearchItems.Text = "Select Product";
-                                    
+
                                     comboBoxUnit.Text = "";
                                     textInventory.Text = "0";
                                     textQuantity.Text = "0";
@@ -313,6 +313,7 @@ namespace Gorakshnath_Billing_System.UI
             estimateDT.Columns.Add("(+)GSTAMT");
             estimateDT.Columns.Add("(=)Total");
             listSearchItems.Hide();
+            getMaxinvoiceId();
 
         }
 
@@ -461,7 +462,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             if ("Edit" == e.ClickedItem.Name.ToString())
             {
-                
+
                 for (int i = 0; i < estimateDT.Rows.Count; i++)
                 {
                     //assognto dategrid view values into textboxs
@@ -480,7 +481,7 @@ namespace Gorakshnath_Billing_System.UI
                     comboGstType.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString();
                     textGST.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString();
 
-                }              
+                }
 
 
                 decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
@@ -608,14 +609,16 @@ namespace Gorakshnath_Billing_System.UI
             }
             //set Invoice No.
             textInvoiceNo.Text = Invoice_No.ToString();
+            
 
             if (Invoice_No != -1)
             {
-                ////Invoice_No = 7;
+                
                 frmEstimateCrpt frmcrpt = new frmEstimateCrpt(Invoice_No);
                 frmcrpt.Show();
             }
-            
+            Clear();
+
 
         }
 
@@ -633,12 +636,21 @@ namespace Gorakshnath_Billing_System.UI
                     if (cust.Cust_Name != comboSearchCust.Text.Trim())
                     {
 
-                        customerBLL.name = comboSearchCust.Text;
-                        customerBLL.contact = comboContact.Text;
-                        customerBLL.email = textEmail.Text;
-                        customerBLL.address = textAddress.Text;
+                        customerBLL.name = comboSearchCust.Text.Trim();
+                        customerBLL.contact = comboContact.Text.Trim();
+                        customerBLL.email = textEmail.Text.Trim();
+                        customerBLL.address = textAddress.Text.Trim();
+                        customerBLL.Gst_No = txtGST.Text.Trim();
+                        try
+                        {
+                            bool Success = customerDAL.Insert(customerBLL);
+                        }
+                        catch (Exception ex)
 
-                        bool Success = customerDAL.Insert(customerBLL);
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+
 
                     }
 
@@ -665,14 +677,12 @@ namespace Gorakshnath_Billing_System.UI
                         EstimateBLL.TCGST = totalCgst;
                         EstimateBLL.TIGST = totalIgst;
                         EstimateBLL.Grand_Total = grandTotal;
+                        EstimateBLL.Invoice_No = Invoice_No;
 
                         EstimateBLL.SalesDetails = estimateDT;
                         bool isSuccess = false;
 
-                        // using (TransactionScope scope = new TransactionScope())
-
-                        //int Invoice_No = -1; alredy declared on top 
-                        bool b = EstimateDAL.insertEstimate(EstimateBLL, out Invoice_No);
+                        isSuccess = EstimateDAL.insertEstimate(EstimateBLL);
 
                         for (int i = 0; i < estimateDT.Rows.Count; i++)
                         {
@@ -682,9 +692,7 @@ namespace Gorakshnath_Billing_System.UI
                             int pid;
                             Int32.TryParse(estimateDT.Rows[i][1].ToString(), out pid);
 
-                            //string productName = estimateDT.Rows[i][1].ToString();
-                            //ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
-
+                            
                             edBLL.Product_ID = pid;
                             edBLL.Invoice_No = Invoice_No;
                             edBLL.Cust_ID = c.Cust_ID;
@@ -696,14 +704,14 @@ namespace Gorakshnath_Billing_System.UI
                             edBLL.GST_Type = estimateDT.Rows[i][7].ToString();
                             edBLL.GST_Per = Math.Round(decimal.Parse(estimateDT.Rows[i][8].ToString()), 2);
                             edBLL.Total = Math.Round(decimal.Parse(estimateDT.Rows[i][10].ToString()), 2);
-                           
-                            bool y = EstimateDetailsDAL.insertEstimatedetails(edBLL);                            
 
-                            isSuccess = b && y;
+                            bool y = EstimateDetailsDAL.insertEstimatedetails(edBLL);
+
+                            
 
                             isSuccess = true;
                         }
-                        isSuccess = b;
+                       
                         if (isSuccess == true)
                         {
                             //scope.Complete();
@@ -738,14 +746,14 @@ namespace Gorakshnath_Billing_System.UI
         {
 
             comboSearchCust.Text = "Select Cust";
-            textSearchItems.Text = "Select Product";            
+            textSearchItems.Text = "Select Product";
             textEmail.Text = "";
             textAddress.Text = "";
             comboContact.Text = "Select Phone";
             textInvoiceNo.Text = "";
 
             textItemCode.Text = "";
-            comboTransactionType.SelectedIndex =1;
+            comboTransactionType.SelectedIndex = 1;
 
 
 
@@ -773,6 +781,7 @@ namespace Gorakshnath_Billing_System.UI
             dgvAddedProducts.DataSource = null;
             dgvAddedProducts.Rows.Clear();
             estimateDT.Rows.Clear();
+            getMaxinvoiceId();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -787,7 +796,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void comboSearchCust_SelectedIndexChanged(object sender, EventArgs e)
@@ -800,7 +809,7 @@ namespace Gorakshnath_Billing_System.UI
                 string keyword = comboSearchCust.Text;
                 if (keyword == "")//clear all textboex
                 {
-                    comboSearchCust.Text = "Select Cust";                                        
+                    comboSearchCust.Text = "Select Cust";
                     textAddress.Text = "";
                     comboContact.Text = "Select Phone";
                     textEmail.Text = "";
@@ -824,7 +833,7 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        
+
 
         private void textSearchItems_KeyUp(object sender, KeyEventArgs e)
         {

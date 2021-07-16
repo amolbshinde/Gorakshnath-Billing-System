@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.UI
 {
-    //sopan.
+    
     public partial class frmChallan : Form
     {
-        int Invoice_No;
+        int Invoice_No=-1;
 
         int ProductId = -1;
 

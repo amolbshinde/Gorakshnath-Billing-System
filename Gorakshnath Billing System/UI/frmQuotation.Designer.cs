@@ -55,7 +55,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label30 = new System.Windows.Forms.Label();
             this.comboTransactionType = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.textPurchaseBillNo = new System.Windows.Forms.TextBox();
+            this.txtGST = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dtpBillDate = new System.Windows.Forms.DateTimePicker();
             this.textAddress = new System.Windows.Forms.TextBox();
@@ -68,6 +68,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textInventory = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboContact = new System.Windows.Forms.TextBox();
             this.comboSearchCust = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -100,7 +101,6 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.comboContact = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -403,14 +403,14 @@ namespace Gorakshnath_Billing_System.UI
             this.label29.TabIndex = 16;
             this.label29.Text = "Sales Type";
             // 
-            // textPurchaseBillNo
+            // txtGST
             // 
-            this.textPurchaseBillNo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPurchaseBillNo.Location = new System.Drawing.Point(1123, 89);
-            this.textPurchaseBillNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textPurchaseBillNo.Name = "textPurchaseBillNo";
-            this.textPurchaseBillNo.Size = new System.Drawing.Size(239, 27);
-            this.textPurchaseBillNo.TabIndex = 7;
+            this.txtGST.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGST.Location = new System.Drawing.Point(1123, 89);
+            this.txtGST.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtGST.Name = "txtGST";
+            this.txtGST.Size = new System.Drawing.Size(239, 27);
+            this.txtGST.TabIndex = 7;
             // 
             // label9
             // 
@@ -530,7 +530,7 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Controls.Add(this.label30);
             this.panel2.Controls.Add(this.comboTransactionType);
             this.panel2.Controls.Add(this.label29);
-            this.panel2.Controls.Add(this.textPurchaseBillNo);
+            this.panel2.Controls.Add(this.txtGST);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.dtpBillDate);
             this.panel2.Controls.Add(this.textAddress);
@@ -546,6 +546,14 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1409, 135);
             this.panel2.TabIndex = 0;
+            // 
+            // comboContact
+            // 
+            this.comboContact.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboContact.Location = new System.Drawing.Point(222, 89);
+            this.comboContact.Name = "comboContact";
+            this.comboContact.Size = new System.Drawing.Size(306, 27);
+            this.comboContact.TabIndex = 19;
             // 
             // comboSearchCust
             // 
@@ -936,14 +944,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel5.Size = new System.Drawing.Size(771, 270);
             this.panel5.TabIndex = 2;
             // 
-            // comboContact
-            // 
-            this.comboContact.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboContact.Location = new System.Drawing.Point(222, 89);
-            this.comboContact.Name = "comboContact";
-            this.comboContact.Size = new System.Drawing.Size(306, 27);
-            this.comboContact.TabIndex = 19;
-            // 
             // frmQuotation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1000,7 +1000,7 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox comboTransactionType;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textPurchaseBillNo;
+        private System.Windows.Forms.TextBox txtGST;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtpBillDate;
         private System.Windows.Forms.TextBox textAddress;
