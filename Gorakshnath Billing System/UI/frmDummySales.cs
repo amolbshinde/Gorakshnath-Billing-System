@@ -162,7 +162,9 @@ namespace Gorakshnath_Billing_System.UI
                                         {
                                             comboGstType.Text = "";
                                             textGST.Text = "0";
+
                                         }
+                                        textSearchItems.Focus();
                                     }
                                 }
                                 else
@@ -272,6 +274,15 @@ namespace Gorakshnath_Billing_System.UI
                 textTotalAmount.Text = TotalAmount.ToString();
 
             }
+
+            int Inventory, QuantityChk;
+            Int32.TryParse(textQuantity.Text, out QuantityChk);
+            Int32.TryParse(textInventory.Text, out Inventory);
+
+            if(QuantityChk > Inventory)
+            {
+                 MessageBox.Show("You have entered Quantity more than the Inventoy, If it's just for Billing purpose then OK Otherwise correct It !", "Caption", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            }
         }
 
         private void textDiscount_TextChanged(object sender, EventArgs e)
@@ -357,6 +368,7 @@ namespace Gorakshnath_Billing_System.UI
             dgvAddedProducts.Rows.Clear();
             salesDT.Rows.Clear();
             getMaxinvoiceId();
+            fillCombo();
 
         }
         private void btnClear_Click(object sender, EventArgs e)
@@ -888,6 +900,7 @@ namespace Gorakshnath_Billing_System.UI
                 if ((e.KeyCode == Keys.Enter))
                 {
                     fetchProductDetails();
+                    textQuantity.Focus();
                 }
                
             }
@@ -922,6 +935,7 @@ namespace Gorakshnath_Billing_System.UI
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
         {
             fetchProductDetails();
+            textQuantity.Focus();
         }
 
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -966,6 +980,8 @@ namespace Gorakshnath_Billing_System.UI
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+
+       
     }
 
 

@@ -30,175 +30,108 @@ namespace Gorakshnath_Billing_System.UI
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvChallanReport = new System.Windows.Forms.DataGridView();
+            this.dgvEstimateReport = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboMobileNo = new System.Windows.Forms.ComboBox();
-            this.comboCustName = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboInvoiceNo = new System.Windows.Forms.ComboBox();
+            this.textSearch = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvChallanReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstimateReport)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dgvChallanReport);
-            this.panel2.Location = new System.Drawing.Point(12, 158);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Controls.Add(this.dgvEstimateReport);
+            this.panel2.Location = new System.Drawing.Point(24, 87);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1581, 601);
+            this.panel2.Size = new System.Drawing.Size(1336, 601);
             this.panel2.TabIndex = 1;
             // 
-            // dgvChallanReport
+            // dgvEstimateReport
             // 
-            this.dgvChallanReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChallanReport.Location = new System.Drawing.Point(12, 10);
-            this.dgvChallanReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvChallanReport.Name = "dgvChallanReport";
-            this.dgvChallanReport.RowHeadersWidth = 51;
-            this.dgvChallanReport.Size = new System.Drawing.Size(1557, 572);
-            this.dgvChallanReport.TabIndex = 0;
-            this.dgvChallanReport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvChallanReport_MouseClick);
+            this.dgvEstimateReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEstimateReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEstimateReport.Location = new System.Drawing.Point(12, 10);
+            this.dgvEstimateReport.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvEstimateReport.Name = "dgvEstimateReport";
+            this.dgvEstimateReport.RowHeadersWidth = 51;
+            this.dgvEstimateReport.Size = new System.Drawing.Size(1269, 572);
+            this.dgvEstimateReport.TabIndex = 0;
+            this.dgvEstimateReport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvChallanReport_MouseClick);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.comboMobileNo);
-            this.panel1.Controls.Add(this.comboCustName);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.comboInvoiceNo);
-            this.panel1.Location = new System.Drawing.Point(13, 5);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Controls.Add(this.textSearch);
+            this.panel1.Location = new System.Drawing.Point(24, 13);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1580, 149);
+            this.panel1.Size = new System.Drawing.Size(1336, 66);
             this.panel1.TabIndex = 0;
-            // 
-            // button4
-            // 
-            this.button4.FlatAppearance.BorderSize = 2;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Teal;
-            this.button4.Location = new System.Drawing.Point(1368, 95);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(159, 37);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Clear";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Teal;
-            this.button3.Location = new System.Drawing.Point(1053, 53);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(205, 37);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Mobile No";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Azure;
             this.button2.FlatAppearance.BorderSize = 2;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Teal;
-            this.button2.Location = new System.Drawing.Point(505, 57);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Location = new System.Drawing.Point(1056, 19);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(207, 37);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Customer Name";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // comboMobileNo
-            // 
-            this.comboMobileNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboMobileNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboMobileNo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboMobileNo.FormattingEnabled = true;
-            this.comboMobileNo.Items.AddRange(new object[] {
-            "Product_Group",
-            "Product_Brand"});
-            this.comboMobileNo.Location = new System.Drawing.Point(1279, 53);
-            this.comboMobileNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboMobileNo.Name = "comboMobileNo";
-            this.comboMobileNo.Size = new System.Drawing.Size(247, 33);
-            this.comboMobileNo.TabIndex = 2;
-            this.comboMobileNo.SelectedIndexChanged += new System.EventHandler(this.comboMobileNo_SelectedIndexChanged);
-            // 
-            // comboCustName
-            // 
-            this.comboCustName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboCustName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboCustName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboCustName.FormattingEnabled = true;
-            this.comboCustName.Items.AddRange(new object[] {
-            "Product_Group",
-            "Product_Brand"});
-            this.comboCustName.Location = new System.Drawing.Point(737, 55);
-            this.comboCustName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboCustName.Name = "comboCustName";
-            this.comboCustName.Size = new System.Drawing.Size(263, 33);
-            this.comboCustName.TabIndex = 1;
-            this.comboCustName.SelectedIndexChanged += new System.EventHandler(this.comboCustName_SelectedIndexChanged);
+            this.button2.Size = new System.Drawing.Size(109, 33);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Refresh";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Azure;
             this.button1.FlatAppearance.BorderSize = 2;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Teal;
-            this.button1.Location = new System.Drawing.Point(17, 59);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(12, 22);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 37);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Invoice No";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Size = new System.Drawing.Size(109, 34);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // comboInvoiceNo
+            // textSearch
             // 
-            this.comboInvoiceNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboInvoiceNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboInvoiceNo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboInvoiceNo.FormattingEnabled = true;
-            this.comboInvoiceNo.Items.AddRange(new object[] {
-            "Product_Group",
-            "Product_Brand"});
-            this.comboInvoiceNo.Location = new System.Drawing.Point(216, 59);
-            this.comboInvoiceNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboInvoiceNo.Name = "comboInvoiceNo";
-            this.comboInvoiceNo.Size = new System.Drawing.Size(229, 33);
-            this.comboInvoiceNo.TabIndex = 0;
-            this.comboInvoiceNo.SelectedIndexChanged += new System.EventHandler(this.comboInvoiceNo_SelectedIndexChanged);
+            this.textSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSearch.Location = new System.Drawing.Point(128, 22);
+            this.textSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textSearch.Name = "textSearch";
+            this.textSearch.Size = new System.Drawing.Size(903, 30);
+            this.textSearch.TabIndex = 24;
+            this.textSearch.Text = "Enter Customer name,Invoice No, Mobile No";
+            this.textSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textSearch_KeyUp);
+            this.textSearch.Leave += new System.EventHandler(this.textSearch_Leave);
             // 
             // frmEstimateReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1633, 809);
+            this.ClientSize = new System.Drawing.Size(1441, 720);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEstimateReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estimate Report";
             this.Load += new System.EventHandler(this.frmEstimateReport_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvChallanReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstimateReport)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -206,14 +139,10 @@ namespace Gorakshnath_Billing_System.UI
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvChallanReport;
+        private System.Windows.Forms.DataGridView dgvEstimateReport;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboMobileNo;
-        private System.Windows.Forms.ComboBox comboCustName;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboInvoiceNo;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textSearch;
     }
 }

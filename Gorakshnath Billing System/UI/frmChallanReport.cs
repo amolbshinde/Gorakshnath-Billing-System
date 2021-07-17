@@ -27,15 +27,12 @@ namespace Gorakshnath_Billing_System.UI
 
 
 
-        public void fillcombo()
-        {
-            //MessageBox.Show(comboInvoiceNo.Text);
-        }
+     
 
         private void frmChallanReport_Load(object sender, EventArgs e)
 
         {
-            fillcombo();
+           
             DataTable dt = challanDAL.SelectTD("");
             dgvChallanReport.DataSource = dt;
         }
@@ -99,10 +96,6 @@ namespace Gorakshnath_Billing_System.UI
             }
         }
 
-        private void dgvChallanReport_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
        
 
@@ -120,10 +113,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-                        
-        }
+       
 
         private void textSearch_Enter(object sender, EventArgs e)
         {
@@ -179,5 +169,13 @@ namespace Gorakshnath_Billing_System.UI
             }
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataTable dt = challanDAL.SelectTD("");
+            dgvChallanReport.DataSource = dt;
+        }
+
+        
     }
 }

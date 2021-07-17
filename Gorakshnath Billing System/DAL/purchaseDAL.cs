@@ -19,7 +19,7 @@ namespace Gorakshnath_Billing_System.DAL
         public bool insertpurchase(purchaseBLL p)
         {
             bool isSuccess = false;
-           // purchaseID = -1;
+            // purchaseID = -1;
             SqlConnection con = new SqlConnection(myconnstrng);
             try
             {
@@ -41,7 +41,7 @@ namespace Gorakshnath_Billing_System.DAL
 
                 int a = cmd.ExecuteNonQuery();
 
-                if (a== 0)
+                if (a == 0)
                 {
                     isSuccess = false;
                     //purchaseID = int.Parse(o.ToString());
@@ -49,7 +49,7 @@ namespace Gorakshnath_Billing_System.DAL
                 else
                 {
                     isSuccess = true;
-                    
+
                 }
 
             }
@@ -112,9 +112,6 @@ namespace Gorakshnath_Billing_System.DAL
 
         }
         #endregion
-
-
-
         #region Delete Data By Invoice NO
         public DataTable DeleteByPurchaseID(string Purchase_ID)
         {
@@ -140,8 +137,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
-
 
         #region Select Data From Database
         public DataTable SelectPD()
@@ -169,7 +164,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-
         #region Select Data By Purchase Id
         public DataTable SelectByPurchaseId(string Purchase_ID)
         {
@@ -195,7 +189,6 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-
 
         #region Select Data By Supplier Name
         public DataTable SelectBySupName(string CompanyName)
@@ -223,7 +216,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-
         #region Select Data By Mobile NO
         public DataTable SelectByMobileNo(string Phone_No)
         {
@@ -250,7 +242,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
-
         #region Select Data By Select By Purchase Id Manage.
         public DataTable SelectByPurchaseIdManage(string Purchase_ID)
         {
@@ -276,7 +267,7 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-        #region
+        #region getMaxPurchaseId()
         public int getMaxPurchaseId()
         {
             SqlConnection con = new SqlConnection(myconnstrng);
@@ -383,5 +374,31 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+        #region Select %data for the DGV in Purchase Report
+        public DataTable SelectPrTrn(string keywords)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "select Purchase_ID,CompanyName,Phone_No,Transaction_Type,Sub_Total,TDiscount,TSGST,TCGST,TIGST,Grand_Total,Purchase_Date from Purchase_Transactions,Supplier_Master where Supplier_Master.SupplierID=Purchase_Transactions.Sup_ID AND (Purchase_ID LIKE'%" + keywords + "%' OR CompanyName LIKE'%" + keywords + "%' OR Phone_No LIKE'%" + keywords + "%');";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+
+            #endregion
+        }
     }
 }

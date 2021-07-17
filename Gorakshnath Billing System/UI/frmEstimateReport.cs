@@ -25,101 +25,36 @@ namespace Gorakshnath_Billing_System.UI
 
         public void fillCombo()
         {
-            comboInvoiceNo.DataSource = null;
-            DataTable dtI = EstimateDAL.SelectTD();
-            comboInvoiceNo.DisplayMember = "Invoice_No";
-            comboInvoiceNo.ValueMember = "Invoice_No";
-            comboInvoiceNo.DataSource = dtI;
-            comboInvoiceNo.Text = "Select By Invoice No";
+            DataTable dt = EstimateDAL.SelectTD();
+            dgvEstimateReport.DataSource = dt;
+            dgvEstimateReport.AutoResizeColumns();
 
-            comboCustName.DataSource = null;
-            DataTable dtC = EstimateDAL.SelectTD();
-            comboCustName.DisplayMember = "Cust_Name";
-            comboCustName.DataSource = dtC;
-            comboCustName.Text = "Select By Cust Name";
-
-            comboMobileNo.DataSource = null;
-            DataTable dtM = EstimateDAL.SelectTD();
-            comboMobileNo.DisplayMember = "Cust_Contact";
-            comboMobileNo.DataSource = dtM;
-            comboMobileNo.Text = "Select By Mobile No";
         }
 
         private void frmEstimateReport_Load(object sender, EventArgs e)
         {
 
             DataTable dt = EstimateDAL.SelectTD();
-            dgvChallanReport.DataSource = dt;
+            dgvEstimateReport.DataSource = dt;
+            dgvEstimateReport.AutoResizeColumns();
 
         }
 
-        private void comboInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        
 
-            if (comboInvoiceNo.Text != "Select By Invoice No")
-            {
-                string iNo;
-                iNo = comboInvoiceNo.Text.ToString();
-                DataTable dt = EstimateDAL.SelectByInvoiceNo(iNo);
-                dgvChallanReport.DataSource = dt;
-            }
-            else
-            {
-                DataTable dt = EstimateDAL.SelectTD();
-                dgvChallanReport.DataSource = dt;
-            }
-
-        }
-
-        private void comboCustName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (comboCustName.Text != "Select By Cust Name")
-            {
-                string CName;
-                CName = comboCustName.Text.ToString();
-                DataTable dt = EstimateDAL.SelectByCustName(CName);
-                dgvChallanReport.DataSource = dt;
-            }
-            else
-            {
-                DataTable dt = EstimateDAL.SelectTD();
-                dgvChallanReport.DataSource = dt;
-            }
-
-        }
-
-        private void comboMobileNo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-            if (comboMobileNo.Text != "Select By Mobile No")
-            {
-                string mobNo;
-                mobNo = comboMobileNo.Text.ToString();
-                DataTable dt = EstimateDAL.SelectByMobileNo(mobNo);
-                dgvChallanReport.DataSource = dt;
-            }
-            else
-            {
-                DataTable dt = EstimateDAL.SelectTD();
-                dgvChallanReport.DataSource = dt;
-            }
-
-        }
-
+       
         private void dgvChallanReport_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 ContextMenuStrip my_menu = new System.Windows.Forms.ContextMenuStrip();
-                int position_mouse_click = dgvChallanReport.HitTest(e.X, e.Y).RowIndex;
+                int position_mouse_click = dgvEstimateReport.HitTest(e.X, e.Y).RowIndex;
                 if (position_mouse_click >= 0)
                 {
                     my_menu.Items.Add("Print").Name = "Print";
                     my_menu.Items.Add("Delete").Name = "Delete";
                 }
-                my_menu.Show(dgvChallanReport, new Point(e.X, e.Y));
+                my_menu.Show(dgvEstimateReport, new Point(e.X, e.Y));
                 my_menu.ItemClicked += new ToolStripItemClickedEventHandler(my_menu_ItemClicked);
             }
         }
@@ -130,7 +65,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 //get inoice no from datagrid view
                 int iNo;
-                Int32.TryParse(dgvChallanReport.Rows[dgvChallanReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
+                Int32.TryParse(dgvEstimateReport.Rows[dgvEstimateReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
 
                 if (iNo != -1)
                 {
@@ -147,13 +82,63 @@ namespace Gorakshnath_Billing_System.UI
             {
                 EstimateDetailsDAL EstimateDetailsDAL = new EstimateDetailsDAL();
                 int iNo;
-                Int32.TryParse(dgvChallanReport.Rows[dgvChallanReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
+                Int32.TryParse(dgvEstimateReport.Rows[dgvEstimateReport.CurrentCell.RowIndex].Cells[0].Value.ToString(), out iNo);
                 EstimateDetailsDAL.DeleteByInvoiceNo(iNo.ToString());
                 EstimateDAL.DeleteByInvoiceNo(iNo.ToString());
                 DataTable dt = EstimateDAL.SelectTD();
-                dgvChallanReport.DataSource = dt;
+                dgvEstimateReport.DataSource = dt;
             }
         }
 
+      
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataTable dt = EstimateDAL.SelectTD();
+            dgvEstimateReport.DataSource = dt;
+            dgvEstimateReport.AutoResizeColumns();
+        }
+
+        private void textSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+
+                if (textSearch.Text != "Enter Customer name,Invoice No, Mobile No")
+                {
+                    string Key = textSearch.Text;
+                    DataTable dt = EstimateDAL.FetchRuntime(Key);
+                    dgvEstimateReport.DataSource = dt;
+                    dgvEstimateReport.AutoResizeColumns();
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter Keywords To Search Report  !");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textSearch_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                bool valiDa = textSearch.Text.All(c => Char.IsLetterOrDigit(c) || c.Equals('_'));
+                if (valiDa == false || textSearch.Text == "")
+                {
+
+                    textSearch.Text = "Enter Customer name,Invoice No, Mobile No";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

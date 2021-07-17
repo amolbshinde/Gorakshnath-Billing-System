@@ -63,6 +63,7 @@ namespace Gorakshnath_Billing_System.UI
             this.label10 = new System.Windows.Forms.Label();
             this.textEmail = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboContact = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboSearchCust = new System.Windows.Forms.ComboBox();
@@ -100,7 +101,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel4 = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
-            this.comboContact = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -507,6 +507,15 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2.Size = new System.Drawing.Size(1419, 142);
             this.panel2.TabIndex = 0;
             // 
+            // comboContact
+            // 
+            this.comboContact.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboContact.Location = new System.Drawing.Point(272, 101);
+            this.comboContact.Name = "comboContact";
+            this.comboContact.Size = new System.Drawing.Size(275, 27);
+            this.comboContact.TabIndex = 21;
+            this.comboContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboContact_KeyPress);
+            // 
             // comboBox2
             // 
             this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -908,6 +917,7 @@ namespace Gorakshnath_Billing_System.UI
             this.listBox1.Size = new System.Drawing.Size(428, 144);
             this.listBox1.TabIndex = 0;
             this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
+  //          this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             this.listBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyUp);
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
@@ -924,15 +934,6 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvAddedProducts.Size = new System.Drawing.Size(1365, 263);
             this.dgvAddedProducts.TabIndex = 12;
             this.dgvAddedProducts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAddedProducts_MouseClick);
-            // 
-            // comboContact
-            // 
-            this.comboContact.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboContact.Location = new System.Drawing.Point(272, 101);
-            this.comboContact.Name = "comboContact";
-            this.comboContact.Size = new System.Drawing.Size(275, 27);
-            this.comboContact.TabIndex = 21;
-            this.comboContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboContact_KeyPress);
             // 
             // frmDummySales
             // 

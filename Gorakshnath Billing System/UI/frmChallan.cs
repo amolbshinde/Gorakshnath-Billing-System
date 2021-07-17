@@ -62,7 +62,8 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchCust.DisplayMember = "Cust_Name";
             comboSearchCust.ValueMember = "Cust_Name";
             comboSearchCust.DataSource = dtC;
-            comboSearchCust.Text = "Select Cust";                       
+            comboSearchCust.Text = "Select Cust";
+            comboContact.Text = "NA";
         }
 
 
@@ -217,6 +218,7 @@ namespace Gorakshnath_Billing_System.UI
                                             comboGstType.Text = "";
                                             textGST.Text = "0";
                                         }
+                                        textSearchItems.Focus();
                                     }
                                 }
                                 else
@@ -386,15 +388,16 @@ namespace Gorakshnath_Billing_System.UI
         public int save()
         {
             int TransactionStatus = 0;
-            string sname = comboSearchCust.Text.Trim();
+            string cname = comboSearchCust.Text.Trim();
+           // MessageBox.Show(cname);
             bool a1, b1, c1;
             if (comboTransactionType.Text != "")
             {
-                if (sname != "" && sname != "Select Cust")
+                if (cname != "" && cname != "Select Cust")
                 {
-                    string CustName = comboSearchCust.Text.Trim();
-                    customerBLL cust = customerDAL.getCustomerIdFromName(CustName);
-                    if (cust.name != comboSearchCust.Text)
+                    
+                    customerBLL cust = customerDAL.getCustomerIdFromName(cname);
+                    if (cust.Cust_Name != cname)
                     {
                         customerBLL.name = comboSearchCust.Text;
                         customerBLL.contact = comboContact.Text;
@@ -527,6 +530,7 @@ namespace Gorakshnath_Billing_System.UI
 
             textBox6.Text = "";
             getMaxinvoiceId();
+            fillCombo();
 
             textItemCode.Text = "";
             //textItemName.Text = "";
@@ -857,21 +861,17 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        private void label31_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void comboSearchCust_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (comboSearchCust.Text != "Select Cust")
+            if (comboSearchCust.Text != "Select Cust"&& comboSearchCust.Text !="")
             {
 
                 //get search keyword from search text box
                 string keyword = comboSearchCust.Text;
-                if (keyword == "")//clear all textboex
+                if (keyword == ""&& keyword=="Select Cust")//clear all textboex
                 {
                     comboSearchCust.Text = "Select Cust";
                     textAddress.Text = "";
@@ -981,6 +981,7 @@ namespace Gorakshnath_Billing_System.UI
                 textInventory.Text = p.Quantity.ToString();
                 textQuantity.Text = "1";
                 listSearchItems.Hide();
+                //textQuantity.Focus();
             }
             catch (Exception ex)
             {
@@ -997,6 +998,7 @@ namespace Gorakshnath_Billing_System.UI
         private void listSearchItems_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             fetchProductDetails();
+          
         }
 
         private void listSearchItems_KeyUp(object sender, KeyEventArgs e)
@@ -1006,7 +1008,9 @@ namespace Gorakshnath_Billing_System.UI
                 if ((e.KeyCode == Keys.Enter))
                 {
                     fetchProductDetails();
+                    textQuantity.Focus();
                 }
+                
             }
             catch (Exception ex)
             {
@@ -1047,9 +1051,6 @@ namespace Gorakshnath_Billing_System.UI
             }
         }
 
-        private void listSearchItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
