@@ -87,7 +87,8 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>software.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
@@ -734,7 +735,6 @@
     <None Include="Resources\wp2581372-plain-background.jpg" />
     <None Include="Resources\restore1.jpg" />
     <None Include="Resources\free-help-icon-1160-thumb.png" />
-    <Content Include="software.ico" />
     <None Include="Resources\Sales.gif" />
     <None Include="Resources\Estimate.gif" />
     <None Include="Resources\try.gif" />

@@ -27,7 +27,7 @@ namespace Gorakshnath_Billing_System.UI
         public void getMaxPurchaseId()
         {
             int maxnum = purchaseDAL.getMaxPurchaseId();
-            if (maxnum <0)
+            if (maxnum < 0)
             {
                 maxnum = 0;
                 return;
@@ -38,7 +38,7 @@ namespace Gorakshnath_Billing_System.UI
 
         SupplierMasterBLL SupplierMasterBLL = new SupplierMasterBLL();
         SupplierMasterDAL SupplierMasterDAL = new SupplierMasterDAL();
-        
+
         DataTable purchasedt = new DataTable();
 
         purchaseDAL purchaseDAL = new purchaseDAL();
@@ -47,7 +47,7 @@ namespace Gorakshnath_Billing_System.UI
         purchasedetailsDAL pdetailsDAL = new purchasedetailsDAL();
 
         ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
-        
+
 
         stockDAL stockDAL = new stockDAL();
 
@@ -72,7 +72,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void textSearch_TextChanged(object sender, EventArgs e)
         {
-         //get search keyword from search text box
+            //get search keyword from search text box
             string keyword = comboSearchSup.Text;
             if (keyword == "")//clear all textboex
             {
@@ -89,7 +89,7 @@ namespace Gorakshnath_Billing_System.UI
             comboSearchSup.Text = smBLL.CompanyName;
             comboContact.Text = smBLL.Phone_No;
             textEmail.Text = smBLL.Email;
-            textAddress.Text =smBLL.Address;
+            textAddress.Text = smBLL.Address;
             textGSTNo.Text = smBLL.Gst_No;
 
         }
@@ -97,78 +97,80 @@ namespace Gorakshnath_Billing_System.UI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // CHECK PRODUCT IS SELECTED OR NOT.. 
-            
+
             //if (textItemName.Text != "")
-            if (textSearchItems.Text!="Select Product")
+            if (textSearchItems.Text != "Select Product")
+            {
+                if (textQuantity.Text != "" && textQuantity.Text != "0")
                 {
-                if(textQuantity.Text!="" && textQuantity.Text!="0")
-                {
 
-                        String ProductName = textSearchItems.Text;
-                        String Unit = comboBoxUnit.Text;
-                        string gstType = comboGstType.Text;
-                        decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
-                        decimal.TryParse(textQuantity.Text, out Qty);
-                        decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
-                        decimal.TryParse(textDiscount.Text, out discount);
-                        decimal.TryParse(textGst.Text, out gst);
-                        decimal.TryParse(textTotalAmount.Text, out TotalAmount);
+                    String ProductName = textSearchItems.Text;
+                    String Unit = comboBoxUnit.Text;
+                    string gstType = comboGstType.Text;
+                    decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
+                    decimal.TryParse(textQuantity.Text, out Qty);
+                    decimal.TryParse(textPurchasePrice.Text, out PurchasePrice);
+                    decimal.TryParse(textDiscount.Text, out discount);
+                    decimal.TryParse(textGst.Text, out gst);
+                    decimal.TryParse(textTotalAmount.Text, out TotalAmount);
 
-                        Amount = PurchasePrice * Qty;
+                    Amount = PurchasePrice * Qty;
 
-                        int no = 1;
-                        no = purchasedt.Rows.Count + 1;
-                        //Add product to datagridview//
-                        purchasedt.Rows.Add(no,ProductId, ProductName, Unit, Qty, PurchasePrice, Amount, discount,gstType, gst, TotalAmount);
-                        dgvAddedProducts.DataSource = purchasedt;
-                        dgvAddedProducts.AutoResizeColumns();
+                    int no = 1;
+                    no = purchasedt.Rows.Count + 1;
+                    //Add product to datagridview//
+                    purchasedt.Rows.Add(no, ProductId, ProductName, Unit, Qty, PurchasePrice, Amount, discount, gstType, gst, TotalAmount);
+                    dgvAddedProducts.DataSource = purchasedt;
+                    dgvAddedProducts.AutoResizeColumns();
 
 
-                        decimal subTotal;
-                        decimal.TryParse(textSubTotal.Text, out subTotal);
-                        subTotal = subTotal + Qty * PurchasePrice;
-                        textSubTotal.Text = subTotal.ToString();
+                    decimal subTotal;
+                    decimal.TryParse(textSubTotal.Text, out subTotal);
+                    subTotal = subTotal + Qty * PurchasePrice;
+                    textSubTotal.Text = subTotal.ToString();
 
-                        decimal subDiscount;
-                        decimal.TryParse(textSubDiscount.Text, out subDiscount);
-                        subDiscount = subDiscount + Math.Round(((PurchasePrice * Qty) * discount) / 100,2);
-                        textSubDiscount.Text = subDiscount.ToString();
-                        
-                        decimal gTotal;
-                        decimal.TryParse(textGrandTotal.Text, out gTotal);
-                        gTotal = gTotal + TotalAmount;
-                        textGrandTotal.Text = gTotal.ToString();
+                    decimal subDiscount;
+                    decimal.TryParse(textSubDiscount.Text, out subDiscount);
+                    subDiscount = subDiscount + Math.Round(((PurchasePrice * Qty) * discount) / 100, 2);
+                    textSubDiscount.Text = subDiscount.ToString();
 
-                        if (comboGstType.Text == "SGST/CGST")
-                        {
-                            decimal subsgst, subcgst, subGst;
-                            decimal.TryParse(textSgst.Text, out subsgst);
-                            decimal.TryParse(textCgst.Text, out subcgst);
-                            subGst = subsgst + subcgst;
-                            subGst = subGst + Math.Round((((PurchasePrice * Qty)-((PurchasePrice * Qty) * discount) / 100) * gst) / 100,2);
+                    decimal gTotal;
+                    decimal.TryParse(textGrandTotal.Text, out gTotal);
+                    gTotal = gTotal + TotalAmount;
+                    textGrandTotal.Text = gTotal.ToString();
 
-                            textSgst.Text = Math.Round((subGst / 2),2).ToString();
-                            textCgst.Text = Math.Round((subGst / 2),2).ToString();
-                        }
-                        if (comboGstType.Text == "IGST")
-                        {
-                            decimal subIGst;
-                            decimal.TryParse(textIgst.Text, out subIGst);
-                            subIGst = subIGst + Math.Round((((PurchasePrice * Qty) - ((PurchasePrice * Qty) * discount) / 100) * gst) / 100,2);
-                            textIgst.Text = subIGst.ToString();
-                        }
-                        textItemCode.Text = "";
+                    if (comboGstType.Text == "SGST/CGST")
+                    {
+                        decimal subsgst, subcgst, subGst;
+                        decimal.TryParse(textSgst.Text, out subsgst);
+                        decimal.TryParse(textCgst.Text, out subcgst);
+                        subGst = subsgst + subcgst;
+                        subGst = subGst + Math.Round((((PurchasePrice * Qty) - ((PurchasePrice * Qty) * discount) / 100) * gst) / 100, 2);
+
+                        textSgst.Text = Math.Round((subGst / 2), 2).ToString();
+                        textCgst.Text = Math.Round((subGst / 2), 2).ToString();
+                    }
+                    if (comboGstType.Text == "IGST")
+                    {
+                        decimal subIGst;
+                        decimal.TryParse(textIgst.Text, out subIGst);
+                        subIGst = subIGst + Math.Round((((PurchasePrice * Qty) - ((PurchasePrice * Qty) * discount) / 100) * gst) / 100, 2);
+                        textIgst.Text = subIGst.ToString();
+                    }
+                    textItemCode.Text = "";
                     textSearchItems.Text = "Select Product";
-                        //textItemName.Text = "";
-                        comboBoxUnit.Text = "";
-                        textInventory.Text = "0";
-                        textQuantity.Text = "0";
-                        textPurchasePrice.Text = "0";
-                        textDiscount.Text = "0";
-                        textQuantity.Text = "0";
-                        comboGstType.Text = "";
-                        textGst.Text = "0";
-                    
+                    //textItemName.Text = "";
+                    comboBoxUnit.Text = "";
+                    textInventory.Text = "0";
+                    textQuantity.Text = "0";
+                    textPurchasePrice.Text = "0";
+                    textDiscount.Text = "0";
+                    textQuantity.Text = "0";
+                    comboGstType.Text = "";
+                    textGst.Text = "0";
+                    textSearchItems.Focus();
+
+
                 }
                 else
                 {
@@ -177,7 +179,7 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                MessageBox.Show("Please Enter Item/Product Details");                
+                MessageBox.Show("Please Enter Item/Product Details");
             }
 
             if (comboTrMode.SelectedIndex == 0)
@@ -185,16 +187,16 @@ namespace Gorakshnath_Billing_System.UI
 
 
                 txtTrAmount.Text = textGrandTotal.Text;
-                txtPaidAmount.Text = textGrandTotal.Text;                
+                txtPaidAmount.Text = textGrandTotal.Text;
                 txtBalance.Text = "00.00";
-               
+
 
             }
             else if (comboTrMode.SelectedIndex == 1)
             {
                 txtTrAmount.Text = textGrandTotal.Text;
                 txtPaidAmount.Text = "00.00";
-                txtPaidAmount.ReadOnly=false;
+                txtPaidAmount.ReadOnly = false;
                 Decimal TrAmount, PaidAmount;
                 decimal.TryParse(textGrandTotal.Text, out TrAmount);
                 decimal.TryParse(txtPaidAmount.Text, out PaidAmount);
@@ -202,7 +204,7 @@ namespace Gorakshnath_Billing_System.UI
 
             }
 
-            
+
 
         }
 
@@ -222,7 +224,7 @@ namespace Gorakshnath_Billing_System.UI
                 textGst.Text = "0";
                 return;
             }
-            
+
             ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
             textItemCode.Text = p.Item_Code;
             //textItemName.Text = p.Product_Name;
@@ -231,7 +233,7 @@ namespace Gorakshnath_Billing_System.UI
             textInventory.Text = p.Quantity.ToString();
         }
 
-        
+
 
         private void frmPurchase_Load(object sender, EventArgs e)
         {
@@ -273,7 +275,7 @@ namespace Gorakshnath_Billing_System.UI
                 decimal.TryParse(textDiscount.Text, out discount);
                 decimal.TryParse(textGst.Text, out gst);
 
-                decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100)*(PurchasePrice * Qty)), 2);
+                decimal TotalAmount = Math.Round(((100 + gst) / 100) * (((100 - discount) / 100) * (PurchasePrice * Qty)), 2);
 
                 textTotalAmount.Text = TotalAmount.ToString();
 
@@ -355,12 +357,12 @@ namespace Gorakshnath_Billing_System.UI
             string sname = comboSearchSup.Text;
             if (comboPurchaseType.Text != "")
             {
-                if(sname != "" && sname != "Select Sup")
+                if (sname != "" && sname != "Select Sup")
                 {
 
                     string CompanyName1 = comboSearchSup.Text;
                     SupplierMasterBLL sup = SupplierMasterDAL.getSuplierIdFromName(CompanyName1);
-                    if (sup.CompanyName!= comboSearchSup.Text)
+                    if (sup.CompanyName != sname)
                     {
 
                         SupplierMasterBLL.CompanyName = comboSearchSup.Text;
@@ -372,8 +374,8 @@ namespace Gorakshnath_Billing_System.UI
                         bool Success = SupplierMasterDAL.InsertByPurchasebill(SupplierMasterBLL);
 
                     }
-                   
-                    if (dgvAddedProducts.Rows.Count!=0)
+
+                    if (dgvAddedProducts.Rows.Count != 0)
                     {
                         SupplierMasterBLL s = SupplierMasterDAL.getSuplierIdFromName(CompanyName1);
 
@@ -397,78 +399,79 @@ namespace Gorakshnath_Billing_System.UI
                         purchaseBLL.Grand_Total = grandTotal;
                         purchaseBLL.Purchase_ID = purchaseid;
                         purchaseBLL.PurchaseDetails = purchasedt;
-                        
+
 
                         // using (TransactionScope scope = new TransactionScope())
-                        
-                           //int purchaseid = -1; already declaraed at the top as a global variable.
 
-                            bool b = purchaseDAL.insertpurchase(purchaseBLL);
-                            for (int i = 0; i < purchasedt.Rows.Count; i++)
-                            {
-                                purchasedetailsBLL pdBLL = new purchasedetailsBLL();
+                        //int purchaseid = -1; already declaraed at the top as a global variable.
 
-                                stockBLL stockBLL = new stockBLL();
-                                int pid;
-                                Int32.TryParse(purchasedt.Rows[i][1].ToString(),out pid);
-                                //string productName = purchasedt.Rows[i][2].ToString();
-                                //ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
+                        bool b = purchaseDAL.insertpurchase(purchaseBLL);
+                        for (int i = 0; i < purchasedt.Rows.Count; i++)
+                        {
+                            purchasedetailsBLL pdBLL = new purchasedetailsBLL();
+
+                            stockBLL stockBLL = new stockBLL();
+                            int pid;
+                            Int32.TryParse(purchasedt.Rows[i][1].ToString(), out pid);
+                            //string productName = purchasedt.Rows[i][2].ToString();
+                            //ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
                             //MessageBox.Show(productName);
 
 
-                                pdBLL.Purchase_ID = purchaseid;
-                                pdBLL.Product_ID = pid;
-                                pdBLL.Sup_ID = s.SupplierID;
-                                pdBLL.Product_Name = purchasedt.Rows[i][2].ToString();
-                                pdBLL.Unit = purchasedt.Rows[i][3].ToString();
-                                pdBLL.Qty = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
-            
-                                pdBLL.Rate = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
-                                pdBLL.Discount_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][7].ToString()), 2);
-                                pdBLL.GST_Type = purchasedt.Rows[i][8].ToString();
-                                pdBLL.GST_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][9].ToString()), 2);
-                                pdBLL.Total = Math.Round(decimal.Parse(purchasedt.Rows[i][10].ToString()), 2);
-                                
+                            pdBLL.Purchase_ID = purchaseid;
+                            pdBLL.Product_ID = pid;
+                            pdBLL.Sup_ID = s.SupplierID;
+                            pdBLL.Product_Name = purchasedt.Rows[i][2].ToString();
+                            pdBLL.Unit = purchasedt.Rows[i][3].ToString();
+                            pdBLL.Qty = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
 
-                                int Product_id = pid;
-                                stockBLL.Product_Id = Product_id;
-                                stockBLL.Quantity= Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
-                                stockBLL.Unit = purchasedt.Rows[i][3].ToString();
+                            pdBLL.Rate = Math.Round(decimal.Parse(purchasedt.Rows[i][5].ToString()), 2);
+                            pdBLL.Discount_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][7].ToString()), 2);
+                            pdBLL.GST_Type = purchasedt.Rows[i][8].ToString();
+                            pdBLL.GST_Per = Math.Round(decimal.Parse(purchasedt.Rows[i][9].ToString()), 2);
+                            pdBLL.Total = Math.Round(decimal.Parse(purchasedt.Rows[i][10].ToString()), 2);
 
-                                bool y = pdetailsDAL.insertpurchasedetails(pdBLL);                            
-                                
-                                if(y==true)
+
+                            int Product_id = pid;
+                            stockBLL.Product_Id = Product_id;
+                            stockBLL.Quantity = Math.Round(decimal.Parse(purchasedt.Rows[i][4].ToString()), 2);
+                            stockBLL.Unit = purchasedt.Rows[i][3].ToString();
+
+                            bool y = pdetailsDAL.insertpurchasedetails(pdBLL);
+
+                            if (y == true)
+                            {
+                                stockBLL Padded = stockDAL.CheakeProductAddedOrNot(Product_id);
+                                //MessageBox.Show("Product is added",Padded.Product_Id.ToString());
+                                if (Product_id == Padded.Product_Id)
                                 {
-                                    stockBLL Padded = stockDAL.CheakeProductAddedOrNot(Product_id);
-                                    //MessageBox.Show("Product is added",Padded.Product_Id.ToString());
-                                    if (Product_id == Padded.Product_Id)
-                                    {
-                                        bool x = stockDAL.Update(stockBLL);
-                                    }
-                                    else
-                                    {
-                                        bool z = stockDAL.InsertStockNewProduct(stockBLL);
-                                    }
+                                    bool x = stockDAL.Update(stockBLL);
+                                }
+                                else
+                                {
+                                    bool z = stockDAL.InsertStockNewProduct(stockBLL);
+                                }
 
-                                
+
                             }
 
-                                if(b==true&&y==true)
+                            if (b == true && y == true)
                             {
                                 isSuccess = true;
-                            }else
+                            }
+                            else
                             {
                                 isSuccess = false;
                             }
 
-                            
 
 
 
-                                
-                            }
-                            if (isSuccess == true)
-                            {
+
+
+                        }
+                        if (isSuccess == true)
+                        {
                             //scope.Complete();
                             //Getting Data from UI                                
                             PurchasePaymentDetailsBLL.TrMode = comboTrMode.SelectedItem.ToString();
@@ -488,15 +491,15 @@ namespace Gorakshnath_Billing_System.UI
                             PurchasePaymentDetailsBLL.Invoice_No = purchaseid;
                             //bool success = 
                             PurchasePaymentDetailsDAL.InsertSalesPayment(PurchasePaymentDetailsBLL);
-                            
+
                             MessageBox.Show("Transaction Completed");
-                                //clear();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Transaction Failed");
-                            }
-                                            }
+                            //clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Transaction Failed");
+                        }
+                    }
                     else
                     {
                         MessageBox.Show("Please Add product Details");
@@ -518,31 +521,32 @@ namespace Gorakshnath_Billing_System.UI
         {
             getMaxPurchaseId();
             save();
-           
-           
 
-            if (purchaseid != -1 &&  isSuccess != false)
+
+
+            if (purchaseid != -1 && isSuccess != false)
             {
                 if (MessageBox.Show("Do you want to print Purchase Bill" + "\n" + "Confirm ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     frmPurchaseCrpt purchaseCrpt = new frmPurchaseCrpt(purchaseid);
                     purchaseCrpt.Show();
                     Clear();
-                }else
-                {
-                    Clear(); 
                 }
-                    
+                else
+                {
+                    Clear();
+                }
+
             }
 
-            
-           // getMaxPurchaseId();
+
+            // getMaxPurchaseId();
 
         }
 
         private void dgvAddedProducts_MouseClick(object sender, MouseEventArgs e)
         {
-            if(e.Button==MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 ContextMenuStrip my_menu = new System.Windows.Forms.ContextMenuStrip();
                 int position_mouse_click = dgvAddedProducts.HitTest(e.X, e.Y).RowIndex;
@@ -554,12 +558,12 @@ namespace Gorakshnath_Billing_System.UI
                 my_menu.Show(dgvAddedProducts, new Point(e.X, e.Y));
                 my_menu.ItemClicked += new ToolStripItemClickedEventHandler(my_menu_ItemClicked);
             }
-                       
+
         }
-        private void my_menu_ItemClicked(object sender,ToolStripItemClickedEventArgs e)
+        private void my_menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if ("Edit" == e.ClickedItem.Name.ToString())
-            {              
+            {
 
                 for (int i = 0; i < purchasedt.Rows.Count; i++)
                 {
@@ -572,7 +576,7 @@ namespace Gorakshnath_Billing_System.UI
                     textTotalAmount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[10].Value.ToString();
                     textDiscount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
                     comboGstType.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString();
-                    textGst.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString();                   
+                    textGst.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString();
                 }
 
                 decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
@@ -582,7 +586,7 @@ namespace Gorakshnath_Billing_System.UI
                 decimal.TryParse(textGst.Text, out gst);
                 decimal.TryParse(textTotalAmount.Text, out TotalAmount);
 
-                Amount = PurchasePrice * Qty;                
+                Amount = PurchasePrice * Qty;
 
                 decimal subTotal;
                 decimal.TryParse(textSubTotal.Text, out subTotal);
@@ -591,19 +595,19 @@ namespace Gorakshnath_Billing_System.UI
 
                 decimal subDiscount;
                 decimal.TryParse(textSubDiscount.Text, out subDiscount);
-                subDiscount = subDiscount - Math.Round(((PurchasePrice * Qty) * discount) / 100,2);
+                subDiscount = subDiscount - Math.Round(((PurchasePrice * Qty) * discount) / 100, 2);
                 textSubDiscount.Text = subDiscount.ToString();
-                
+
                 if (comboGstType.Text == "SGST/CGST")
                 {
                     decimal subsgst, subcgst, subGst;
                     decimal.TryParse(textSgst.Text, out subsgst);
                     decimal.TryParse(textCgst.Text, out subcgst);
                     subGst = subsgst + subcgst;
-                    subGst = subGst - Math.Round((((((100 - discount) / 100) * (PurchasePrice * Qty))) * gst) / 100,2);
+                    subGst = subGst - Math.Round((((((100 - discount) / 100) * (PurchasePrice * Qty))) * gst) / 100, 2);
 
-                    textSgst.Text = Math.Round((subGst / 2),2).ToString();
-                    textCgst.Text = Math.Round((subGst / 2),2).ToString();
+                    textSgst.Text = Math.Round((subGst / 2), 2).ToString();
+                    textCgst.Text = Math.Round((subGst / 2), 2).ToString();
                 }
                 if (comboGstType.Text == "IGST")
                 {
@@ -611,7 +615,7 @@ namespace Gorakshnath_Billing_System.UI
                     decimal.TryParse(textIgst.Text, out subIGst);
                     subIGst = subIGst - Math.Round((((((100 - discount) / 100) * (PurchasePrice * Qty))) * gst) / 100, 2);
                     textIgst.Text = subIGst.ToString();
-                }                
+                }
                 decimal gTotal;
                 decimal.TryParse(textGrandTotal.Text, out gTotal);
                 gTotal = gTotal - TotalAmount;
@@ -627,12 +631,12 @@ namespace Gorakshnath_Billing_System.UI
                 decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
 
                 string gstType = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString();
-                
+
                 decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString(), out Qty);
                 decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[5].Value.ToString(), out PurchasePrice);
                 decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString(), out discount);
                 decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString(), out gst);
-                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[10].Value.ToString(), out TotalAmount);                
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[10].Value.ToString(), out TotalAmount);
 
                 Amount = PurchasePrice * Qty;
 
@@ -689,7 +693,7 @@ namespace Gorakshnath_Billing_System.UI
         private void comboPurchaseType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (comboPurchaseType.SelectedIndex==1)
+            if (comboPurchaseType.SelectedIndex == 1)
             {
                 comboGstType.Enabled = false;
                 textGst.Enabled = false;
@@ -708,14 +712,14 @@ namespace Gorakshnath_Billing_System.UI
                 label18.Enabled = false;
                 label35.Enabled = false;
             }
-            else if (comboPurchaseType.SelectedIndex==0)
+            else if (comboPurchaseType.SelectedIndex == 0)
             {
                 comboGstType.Enabled = true;
                 textGst.Enabled = true;
                 textCgst.Enabled = true;
                 textSgst.Enabled = true;
                 textIgst.Enabled = true;
-               // comboGstType.Text = "";
+                // comboGstType.Text = "";
 
                 label32.Enabled = true;
                 label34.Enabled = true;
@@ -760,21 +764,21 @@ namespace Gorakshnath_Billing_System.UI
             }
         }
 
-       
+
 
 
         public void Clear()
         {
 
             comboSearchSup.Text = "Select Sup";
-            textSearchItems.Text = "Select Product";            
+            textSearchItems.Text = "Select Product";
             textEmail.Text = "";
             textAddress.Text = "";
             comboContact.Text = "Select Phone";
             textGSTNo.Text = "";
 
             textItemCode.Text = "";
-            
+
             //textItemName.Text = "";
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
@@ -808,11 +812,11 @@ namespace Gorakshnath_Billing_System.UI
             getMaxPurchaseId();
         }
 
-        
+
 
         private void comboTrMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboTrMode.SelectedIndex == 0)
+            if (comboTrMode.SelectedIndex == 0)
             {
                 txtPaidAmount.Text = txtTrAmount.Text;
                 txtPaidAmount.ReadOnly = true;
@@ -892,11 +896,13 @@ namespace Gorakshnath_Billing_System.UI
         private void listSearchItems_MouseClick(object sender, MouseEventArgs e)
         {
             fetchProductDetails();
+            textQuantity.Focus();
         }
 
         private void listSearchItems_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             fetchProductDetails();
+            textQuantity.Focus();
         }
 
         private void listSearchItems_KeyUp(object sender, KeyEventArgs e)
@@ -906,6 +912,7 @@ namespace Gorakshnath_Billing_System.UI
                 if ((e.KeyCode == Keys.Enter))
                 {
                     fetchProductDetails();
+                    textQuantity.Focus();
                 }
             }
             catch (Exception ex)
@@ -947,6 +954,25 @@ namespace Gorakshnath_Billing_System.UI
             }
         }
 
-        
-    }   
+        private void comboSearchSup_Leave(object sender, EventArgs e)
+        {
+           /* string sname = comboSearchSup.Text.Trim();
+            if (sname != "" && sname != "Select Sup")
+            {
+
+
+                SupplierMasterBLL sup = SupplierMasterDAL.getSuplierIdFromName(sname);
+                if (sup.CompanyName != sname)
+                {
+                                        
+                    textEmail.Text = "";
+                    textAddress.Text = "";
+                    comboContact.Text = "Select Phone";
+                    textGSTNo.Text = "";
+                                       
+
+                }
+            }*/
+        }
+    }
 }
