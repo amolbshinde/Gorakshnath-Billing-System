@@ -27,27 +27,7 @@ namespace Gorakshnath_Billing_System.UI
 
         public void fillCombo()
         {
-            comboPurchaseId.DataSource = null;
-            DataTable dtP = purchaseDAL.SelectPID();
-            comboPurchaseId.DisplayMember = "Purchase_ID";
-            //comboPurchaseId.ValueMember = "Purchase_ID";
-            comboPurchaseId.DataSource = dtP;
-            comboPurchaseId.Text = "Select By Purchase ID";
 
-
-            comboSupName.DataSource = null;
-            DataTable dtNP = purchaseDAL.SelectCN();
-            comboSupName.DisplayMember = "CompanyName";
-            //comboSupName.ValueMember = "CompanyName";
-            comboSupName.DataSource = dtNP;
-            comboSupName.Text = "Select By Supplier Name";
-
-            comboMobileNo.DataSource = null;
-            DataTable dtC = purchaseDAL.SelectPN();
-            comboMobileNo.DisplayMember = "Phone_No";
-            //comboMobileNo.ValueMember = "Phone_No";
-            comboMobileNo.DataSource = dtC;
-            comboMobileNo.Text = "Select By Mobile No";
         }
         private void frmPurchaseReport_Load(object sender, EventArgs e)
         {
@@ -56,66 +36,7 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        private void comboPurchaseId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-              if (comboPurchaseId.Text != "Select By Purchase ID")
-              {
-                string key = comboPurchaseId.Text;
-                  if(key=="")
-                  {                    
-                      DataTable dtPI = purchaseDAL.SelectPD();
-                      dgvPurchaseReport.DataSource = dtPI;
-                      comboPurchaseId.Text = "Select By Purchase ID";
-                      return;
-                  }
-                  string iNo;
-                  iNo = comboPurchaseId.Text.ToString();
-                  DataTable dt = purchaseDAL.SelectByPurchaseId(iNo);
-                  dgvPurchaseReport.DataSource = dt;
-                  //MessageBox.Show(comboInvoiceNo.Text);
-              }
-              else
-              {
-                  DataTable dt = purchaseDAL.SelectPD();
-                  dgvPurchaseReport.DataSource = dt;
-                  comboPurchaseId.Text = "Select By Purchase ID";
-            }
-            
-        }
-
-        private void comboSupName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboSupName.Text != "Select By Supplier Name")
-            {
-                string CName;
-                CName = comboSupName.Text.ToString();
-                DataTable dt = purchaseDAL.SelectBySupName(CName);
-                dgvPurchaseReport.DataSource = dt;
-            }
-            else
-            {
-                DataTable dt = purchaseDAL.SelectPD();
-                dgvPurchaseReport.DataSource = dt;
-                comboSupName.Text = "Select By Supplier Name";
-            }
-        }
-
-        private void comboMobileNo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboMobileNo.Text != "Select By Mobile No")
-            {
-                string mobNo;
-                mobNo = comboMobileNo.Text.ToString();
-                DataTable dt = purchaseDAL.SelectByMobileNo(mobNo);
-                dgvPurchaseReport.DataSource = dt;
-            }
-            else
-            {
-                DataTable dt = purchaseDAL.SelectPD();
-                dgvPurchaseReport.DataSource = dt;
-                comboMobileNo.Text = "Select By Mobile No";
-            }
-        }
+       
 
         private void dgvPurchaseReport_MouseClick(object sender, MouseEventArgs e)
         {
@@ -176,6 +97,55 @@ namespace Gorakshnath_Billing_System.UI
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+
+                if (textSearch.Text != "Enter Supplier Name,Invoice No, Mobile No")
+                {
+                    string Key = textSearch.Text;
+                    DataTable dt = purchaseDAL.SelectPrTrn(Key);
+                    dgvPurchaseReport.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter Keywords To Search Report  !");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textSearch_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                bool valiDa = textSearch.Text.All(c => Char.IsLetterOrDigit(c) || c.Equals('_'));
+                if (valiDa == false || textSearch.Text == "")
+                {
+
+                    textSearch.Text = "Enter Supplier Name,Invoice No, Mobile No";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textSearch_Enter(object sender, EventArgs e)
+        {
+            if (textSearch.Text == "Enter Supplier Name,Invoice No, Mobile No")
+            {
+                textSearch.Text = "";
+            }
         }
     }
 }

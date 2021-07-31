@@ -111,7 +111,7 @@ namespace Gorakshnath_Billing_System.UI
             this.txtCustomerSearch.Name = "txtCustomerSearch";
             this.txtCustomerSearch.Size = new System.Drawing.Size(397, 32);
             this.txtCustomerSearch.TabIndex = 4;
-            this.txtCustomerSearch.TextChanged += new System.EventHandler(this.txtCustomerSearch_TextChanged);
+          //  this.txtCustomerSearch.TextChanged += new System.EventHandler(this.txtCustomerSearch_TextChanged);
             // 
             // lblCustomerSearch
             // 

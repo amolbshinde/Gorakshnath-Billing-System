@@ -146,9 +146,9 @@ namespace Gorakshnath_Billing_System.DAL
                     isSuccess = false;
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("There are Active Transactions for the Customer, Hence Cannot Delete","Caption",MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             }
             finally
             {

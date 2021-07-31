@@ -110,7 +110,6 @@ namespace Gorakshnath_Billing_System
             this.label1.Size = new System.Drawing.Size(289, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Devoloped By: Swami Software";
-          //  this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // menuStrip1
             // 
@@ -144,7 +143,6 @@ namespace Gorakshnath_Billing_System
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(92, 32);
             this.usersToolStripMenuItem.Text = "Users";
-       //     this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // manageUsersToolStripMenuItem
             // 
@@ -183,95 +181,94 @@ namespace Gorakshnath_Billing_System
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
             this.productToolStripMenuItem.Size = new System.Drawing.Size(89, 32);
             this.productToolStripMenuItem.Text = "Sales";
-        //    this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // newInvoiceToolStripMenuItem
             // 
             this.newInvoiceToolStripMenuItem.Name = "newInvoiceToolStripMenuItem";
-            this.newInvoiceToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
+            this.newInvoiceToolStripMenuItem.Size = new System.Drawing.Size(466, 30);
             this.newInvoiceToolStripMenuItem.Text = "New Invoice";
             this.newInvoiceToolStripMenuItem.Click += new System.EventHandler(this.newInvoiceToolStripMenuItem_Click);
             // 
             // searchAndManageInvoiceToolStripMenuItem
             // 
             this.searchAndManageInvoiceToolStripMenuItem.Name = "searchAndManageInvoiceToolStripMenuItem";
-            this.searchAndManageInvoiceToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
+            this.searchAndManageInvoiceToolStripMenuItem.Size = new System.Drawing.Size(466, 30);
             this.searchAndManageInvoiceToolStripMenuItem.Text = "Search and Manage Invoice";
             this.searchAndManageInvoiceToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageInvoiceToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(382, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(463, 6);
             // 
             // newDeliveryNoteToolStripMenuItem
             // 
             this.newDeliveryNoteToolStripMenuItem.Name = "newDeliveryNoteToolStripMenuItem";
-            this.newDeliveryNoteToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
-            this.newDeliveryNoteToolStripMenuItem.Text = "New Delivery Note(Challan)";
+            this.newDeliveryNoteToolStripMenuItem.Size = new System.Drawing.Size(466, 30);
+            this.newDeliveryNoteToolStripMenuItem.Text = "New Challan(Delivery Note)";
             this.newDeliveryNoteToolStripMenuItem.Click += new System.EventHandler(this.newDeliveryNoteToolStripMenuItem_Click);
             // 
             // searchAndManageDeliveryNoteToolStripMenuItem
             // 
             this.searchAndManageDeliveryNoteToolStripMenuItem.Name = "searchAndManageDeliveryNoteToolStripMenuItem";
-            this.searchAndManageDeliveryNoteToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
-            this.searchAndManageDeliveryNoteToolStripMenuItem.Text = "Search and Manage Delivery Note";
+            this.searchAndManageDeliveryNoteToolStripMenuItem.Size = new System.Drawing.Size(466, 30);
+            this.searchAndManageDeliveryNoteToolStripMenuItem.Text = "Search and Manage Challan (Delivery Note)";
             this.searchAndManageDeliveryNoteToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageDeliveryNoteToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(382, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(463, 6);
             // 
             // newSalesReturnCreditNoteToolStripMenuItem
             // 
             this.newSalesReturnCreditNoteToolStripMenuItem.Name = "newSalesReturnCreditNoteToolStripMenuItem";
-            this.newSalesReturnCreditNoteToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
+            this.newSalesReturnCreditNoteToolStripMenuItem.Size = new System.Drawing.Size(466, 30);
             this.newSalesReturnCreditNoteToolStripMenuItem.Text = "New Sales Return(Credit Note)";
             this.newSalesReturnCreditNoteToolStripMenuItem.Click += new System.EventHandler(this.newSalesReturnCreditNoteToolStripMenuItem_Click);
             // 
             // searchAndManageSalesReturnCreditNoteToolStripMenuItem
             // 
             this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Name = "searchAndManageSalesReturnCreditNoteToolStripMenuItem";
-            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
+            this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Size = new System.Drawing.Size(466, 30);
             this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Text = "Search and Manage Sales Return";
             this.searchAndManageSalesReturnCreditNoteToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageSalesReturnCreditNoteToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(382, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(463, 6);
             // 
             // newQuotationToolStripMenuItem
             // 
             this.newQuotationToolStripMenuItem.Name = "newQuotationToolStripMenuItem";
-            this.newQuotationToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
+            this.newQuotationToolStripMenuItem.Size = new System.Drawing.Size(466, 30);
             this.newQuotationToolStripMenuItem.Text = "New Quotation /Estimate";
             this.newQuotationToolStripMenuItem.Click += new System.EventHandler(this.newQuotationToolStripMenuItem_Click);
             // 
             // searchAndManageQuotationToolStripMenuItem
             // 
             this.searchAndManageQuotationToolStripMenuItem.Name = "searchAndManageQuotationToolStripMenuItem";
-            this.searchAndManageQuotationToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
+            this.searchAndManageQuotationToolStripMenuItem.Size = new System.Drawing.Size(466, 30);
             this.searchAndManageQuotationToolStripMenuItem.Text = "Search and Manage Quotation";
             this.searchAndManageQuotationToolStripMenuItem.Click += new System.EventHandler(this.searchAndManageQuotationToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(382, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(463, 6);
             // 
             // addCustomerClientToolStripMenuItem
             // 
             this.addCustomerClientToolStripMenuItem.Name = "addCustomerClientToolStripMenuItem";
-            this.addCustomerClientToolStripMenuItem.Size = new System.Drawing.Size(385, 30);
+            this.addCustomerClientToolStripMenuItem.Size = new System.Drawing.Size(466, 30);
             this.addCustomerClientToolStripMenuItem.Text = "Add/Manage Customer";
             this.addCustomerClientToolStripMenuItem.Click += new System.EventHandler(this.addCustomerClientToolStripMenuItem_Click);
             // 
             // debtorsAndCreditorsToolStripMenuItem1
             // 
             this.debtorsAndCreditorsToolStripMenuItem1.Name = "debtorsAndCreditorsToolStripMenuItem1";
-            this.debtorsAndCreditorsToolStripMenuItem1.Size = new System.Drawing.Size(385, 30);
+            this.debtorsAndCreditorsToolStripMenuItem1.Size = new System.Drawing.Size(466, 30);
             this.debtorsAndCreditorsToolStripMenuItem1.Text = "Debtors and Creditors";
             this.debtorsAndCreditorsToolStripMenuItem1.Click += new System.EventHandler(this.debtorsAndCreditorsToolStripMenuItem1_Click);
             // 
@@ -291,7 +288,6 @@ namespace Gorakshnath_Billing_System
             this.inverntoryToolStripMenuItem.Name = "inverntoryToolStripMenuItem";
             this.inverntoryToolStripMenuItem.Size = new System.Drawing.Size(123, 32);
             this.inverntoryToolStripMenuItem.Text = "Purchase";
-          //  this.inverntoryToolStripMenuItem.Click += new System.EventHandler(this.inverntoryToolStripMenuItem_Click);
             // 
             // addPurchaseBillToolStripMenuItem
             // 
@@ -358,7 +354,6 @@ namespace Gorakshnath_Billing_System
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
             this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(104, 32);
             this.transactionsToolStripMenuItem.Text = "Master";
-       //     this.transactionsToolStripMenuItem.Click += new System.EventHandler(this.transactionsToolStripMenuItem_Click);
             // 
             // addNewProductToolStripMenuItem
             // 
@@ -415,7 +410,6 @@ namespace Gorakshnath_Billing_System
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(109, 32);
             this.reportsToolStripMenuItem.Text = "Reports";
-       //     this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 
             // totalSalesReportToolStripMenuItem
             // 

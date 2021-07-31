@@ -32,7 +32,6 @@ namespace Gorakshnath_Billing_System.UI
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvChallanReport = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
@@ -44,7 +43,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.panel2.Controls.Add(this.dgvChallanReport);
             this.panel2.Location = new System.Drawing.Point(13, 89);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1427, 521);
             this.panel2.TabIndex = 1;
@@ -53,7 +52,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.dgvChallanReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChallanReport.Location = new System.Drawing.Point(25, 18);
-            this.dgvChallanReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvChallanReport.Margin = new System.Windows.Forms.Padding(4);
             this.dgvChallanReport.Name = "dgvChallanReport";
             this.dgvChallanReport.RowHeadersWidth = 51;
             this.dgvChallanReport.Size = new System.Drawing.Size(1266, 481);
@@ -62,28 +61,13 @@ namespace Gorakshnath_Billing_System.UI
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.textSearch);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(16, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1435, 76);
             this.panel1.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Teal;
-            this.button2.Location = new System.Drawing.Point(1037, 18);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(179, 37);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Advance Filter";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // textSearch
             // 
@@ -105,7 +89,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Teal;
             this.button1.Location = new System.Drawing.Point(833, 18);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(179, 37);
             this.button1.TabIndex = 9;
@@ -120,7 +104,7 @@ namespace Gorakshnath_Billing_System.UI
             this.ClientSize = new System.Drawing.Size(1371, 718);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDummySalesReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " New Invoice Report";
@@ -139,7 +123,6 @@ namespace Gorakshnath_Billing_System.UI
         private System.Windows.Forms.DataGridView dgvChallanReport;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textSearch;
     }
 }

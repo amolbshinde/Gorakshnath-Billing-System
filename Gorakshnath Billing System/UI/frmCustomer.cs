@@ -268,20 +268,22 @@ namespace Gorakshnath_Billing_System.UI
             string custId = txtCustomerId.Text;
             if (custId != "" && custId != "Auto Genrated")
             {
-                c.id = Convert.ToInt32(txtCustomerId.Text);
-                //
+               
+                
 
-                bool success = dal.Delete(c);
+                    c.id = Convert.ToInt32(txtCustomerId.Text);
+                    //
 
-                if (success == true)
-                {
-                    MessageBox.Show("Custermer Details Successfully Deleted");
-                    clear();
-                }
-                else
-                {
-                    MessageBox.Show("Failed To Delete");
-                }
+                    bool success = dal.Delete(c);
+
+                    if (success == true)
+                    {
+                        MessageBox.Show("Custermer Details Deleted Succesfully");
+                        clear();
+                    }
+                
+                    
+                
                 DataTable dt = dal.Select();
                 dgvCustomer.DataSource = dt;
             }
@@ -291,12 +293,7 @@ namespace Gorakshnath_Billing_System.UI
             }
         }
 
-        private void txtCustomerSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCustomerGSTNo_Enter(object sender, EventArgs e)
+         private void txtCustomerGSTNo_Enter(object sender, EventArgs e)
         {
             if (txtCustomerGSTNo.Text == "Customer GST No")
             {

@@ -70,7 +70,7 @@ namespace Gorakshnath_Billing_System.UI
                 }
                 else
                 {
-                    MessageBox.Show("Failed To Delete");
+                    MessageBox.Show("Failed To Delete, There are Active Records for this User");
                 }
 
                 DataTable dt = smd.Select();
@@ -79,7 +79,7 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                MessageBox.Show("Please Selecte Details to Delete");
+                MessageBox.Show("Please Select Details to Delete");
             }
         }
 
@@ -245,10 +245,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Close();
         }
 
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
