@@ -17,8 +17,34 @@ namespace Gorakshnath_Billing_System.UI
         public frmSupplierMaster()
         {
             InitializeComponent();
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
         }
-        //morninn
+
+        private const int cGrip = 16;
+        private const int cCaption = 32;
+        protected override void WndProc(ref Message m)
+        {
+            if(m.Msg==0x84)
+            {
+                Point pos = new Point(m.LParam.ToInt32());
+                pos = this.PointToClient(pos);
+                if(pos.Y<cCaption)
+                {
+                    m.Result = (IntPtr)2;
+                    return;
+                }
+                if(pos.X >=this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
+                {
+                    m.Result = (IntPtr)17;
+                    return;
+                }
+            }
+            base.WndProc(ref m);
+        }
+
+
+
+
         SupplierMasterBLL sm = new SupplierMasterBLL();
         SupplierMasterDAL smd = new SupplierMasterDAL();
 
@@ -44,7 +70,7 @@ namespace Gorakshnath_Billing_System.UI
                 }
                 else
                 {
-                    MessageBox.Show("Failed To Delete");
+                    MessageBox.Show("Failed To Delete, There are Active Records for this User");
                 }
 
                 DataTable dt = smd.Select();
@@ -53,7 +79,7 @@ namespace Gorakshnath_Billing_System.UI
             }
             else
             {
-                MessageBox.Show("Please Selecte Details to Delete");
+                MessageBox.Show("Please Select Details to Delete");
             }
         }
 
@@ -78,6 +104,7 @@ namespace Gorakshnath_Billing_System.UI
                 sm.Phone_No = textPhone_No.Text;
                 sm.Contact_Person = textContact_Person.Text;
                 sm.Contact_No = textContact_No.Text; 
+                sm.Gst_No = textGSTNo.Text; 
 
                 bool success = smd.Update(sm);
 
@@ -112,6 +139,7 @@ namespace Gorakshnath_Billing_System.UI
             sm.Phone_No = textPhone_No.Text;
             sm.Contact_Person = textContact_Person.Text;
             sm.Contact_No =textContact_No.Text;            
+            sm.Gst_No = textGSTNo.Text;            
             bool Success = smd.Insert(sm);
             if(Success==true)
             {
@@ -140,6 +168,7 @@ namespace Gorakshnath_Billing_System.UI
             textPhone_No.Text = "";
             textContact_Person.Text = "";
             textContact_No.Text = "";
+            textGSTNo.Text = "";
         }
 
         private void frmSupplierMaster_Load(object sender, EventArgs e)
@@ -185,7 +214,8 @@ namespace Gorakshnath_Billing_System.UI
             textContact_No.Text = dgvSupplier.Rows[rowIndex].Cells[10].Value.ToString();
             textContact_No.ForeColor = Color.Black;
 
-
+            textGSTNo.Text = dgvSupplier.Rows[rowIndex].Cells[11].Value.ToString();
+            textGSTNo.ForeColor = Color.Black;
         }
 
         private void textSearch_TextChanged(object sender, EventArgs e)
@@ -208,6 +238,18 @@ namespace Gorakshnath_Billing_System.UI
         {
             Clear();
             //clear all details.
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

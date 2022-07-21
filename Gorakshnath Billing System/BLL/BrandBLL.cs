@@ -12,5 +12,5 @@ namespace Gorakshnath_Billing_System.BLL
         public string Brand_Name { get; set; }
         public string Description { get; set; }
         public DateTime added_date { get; set; }
-    }
+    }// BLL For Brand Details
 }

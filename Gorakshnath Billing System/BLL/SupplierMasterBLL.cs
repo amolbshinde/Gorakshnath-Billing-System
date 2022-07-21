@@ -19,6 +19,7 @@ namespace Gorakshnath_Billing_System.BLL
         public string Phone_No { get; set; }
         public string Contact_Person { get; set; }
         public string Contact_No { get; set; }
+        public string Gst_No { get; set; }
         public DateTime added_date { get; set; }
 
     }

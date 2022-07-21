@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace Gorakshnath_Billing_System.DAL
 {
     class BrandDAL
@@ -313,7 +314,6 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
-
 
     }
 }

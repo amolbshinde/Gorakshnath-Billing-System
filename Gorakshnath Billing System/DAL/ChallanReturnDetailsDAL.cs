@@ -27,7 +27,7 @@ namespace Gorakshnath_Billing_System.DAL
             try
             {
                 //Wrting SQL Query to get all the data from DAtabase
-                string sql = "SELECT Product_Name FROM Challan_Transactions_Details WHERE Invoice_No=" + keyword;
+                string sql = "SELECT Product_Name,Product_ID FROM Challan_Transactions_Details WHERE Invoice_No=" + keyword;
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 

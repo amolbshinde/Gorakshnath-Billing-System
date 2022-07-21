@@ -42,24 +42,25 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
         #region Method to Insert Product in database
-        public bool Insert(ProductMasterBLL pBLL, out int Product_ID)
+        public bool Insert(ProductMasterBLL pBLL)
         {
             //Creating Boolean Variable and set its default value to false
             bool isSuccess = false;
 
-            Product_ID = -1;
+            //Product_ID = -1;
             //Sql Connection for DAtabase
             SqlConnection conn = new SqlConnection(myconnstrng);
 
             try
             {
                 //SQL Query to insert product into database
-                String sql = "INSERT INTO Product_Master (Product_Group,Brand,Item_Code,Product_Name,HSN_Code,Purchase_Price,Sales_Price,Min_Sales_Price,Unit,Opening_Stock) VALUES (@Product_Group, @Brand, @Item_Code, @Product_Name, @HSN_Code, @Purchase_Price, @Sales_Price,@Min_Sales_Price,@Unit,@Opening_Stock);select @@IDENTITY;";
+                String sql = "INSERT INTO Product_Master (Product_ID,Product_Group,Brand,Item_Code,Product_Name,HSN_Code,Purchase_Price,Sales_Price,Min_Sales_Price,Unit,Opening_Stock,Added_Date) VALUES (@Product_ID,@Product_Group, @Brand, @Item_Code, @Product_Name, @HSN_Code, @Purchase_Price, @Sales_Price,@Min_Sales_Price,@Unit,@Opening_Stock,@Added_Date);select @@IDENTITY;";
 
                 //Creating SQL Command to pass the values
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 //Passign the values through parameters
+                cmd.Parameters.AddWithValue("@Product_ID", pBLL.Product_ID);
                 cmd.Parameters.AddWithValue("@Product_Group", pBLL.Product_Group);
                 cmd.Parameters.AddWithValue("@Brand", pBLL.Brand);
                 cmd.Parameters.AddWithValue("@Item_Code", pBLL.Item_Code);
@@ -70,6 +71,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Min_Sales_Price", pBLL.Min_Sales_Price);
                 cmd.Parameters.AddWithValue("@Unit", pBLL.Unit);
                 cmd.Parameters.AddWithValue("@Opening_Stock", pBLL.Opening_Stock);
+                cmd.Parameters.AddWithValue("@Added_Date", pBLL.Added_Date);
 
                 //Opening the Database connection
                 conn.Open();
@@ -82,7 +84,7 @@ namespace Gorakshnath_Billing_System.DAL
                 {
                     //Query Executed Successfully
                     isSuccess = true;
-                    Product_ID = int.Parse(o.ToString());
+                   //Product_ID = int.Parse(o.ToString());
                 }
                 else
                 {
@@ -125,7 +127,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Min_Sales_Price", pBLL.Min_Sales_Price);
                 cmd.Parameters.AddWithValue("@Unit", pBLL.Unit);
                 cmd.Parameters.AddWithValue("@Opening_Stock", pBLL.Opening_Stock);
-                
+
 
                 con.Open();
                 int rows = cmd.ExecuteNonQuery();
@@ -196,7 +198,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT Item_Code, Quantity,Purchase_Price, Product_Name, Product_Master.Unit , Sales_Price FROM Product_Master,Stock_Master where Product_Master.Product_Id=Stock_Master.Product_Id AND Product_Master.Product_ID LIKE '%" + keyword + "%' OR Product_Name LIKE '%" + keyword + "%'";
+                string sql = "SELECT Item_Code, Quantity,Purchase_Price, Product_Name, Product_Master.Unit , Sales_Price FROM Product_Master,Stock_Master where Product_Master.Product_Id=Stock_Master.Product_Id AND Product_Name='" + keyword + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
 
                 conn.Open();
@@ -397,7 +399,140 @@ namespace Gorakshnath_Billing_System.DAL
 
         #endregion
 
+        #region Select Data From Database for challan combo
+        public DataTable SelectForCombo()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT Product_ID, Product_Name FROM Product_Master ;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+        #region Get Id from Database for Auto Increement
+        public  int GetMaxProductId()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+            int maxnum = 0;
+
+            //DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT COALESCE (MAX(Product_ID),0) AS MaxOf FROM Product_Master";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                //
+                //adapter.Fill(dt);
+                maxnum = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return maxnum;
+        }
 
 
+        #endregion
+
+        #region method to delete record new
+        public DataTable SelectForDelete()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);  /// need to update code
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT Challan_Transactions_Details.Product_ID, DummySales_Transactions_Details.Product_ID, Estimate_Transactions_Details.Product_ID FROM Challan_Transactions_Details,DummySales_Transactions_Details,Estimate_Transactions_Details;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+        #region Search Item for combobox  On Database Using Keywords
+        public DataTable SelectForComboKeywords(string keywords)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT Product_ID, Product_Name FROM Product_Master WHERE Product_Name LIKE  '%" + keywords + "%'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+        #region Exactsearch for combo
+        public DataTable ExactSearch(string keywords)
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT Product_ID,Product_Name FROM Product_Master WHERE Product_ID LIKE'%" + keywords + "%' OR Product_Name LIKE'%" + keywords + "%' OR Brand LIKE'%" + keywords + "%' OR Item_Code LIKE'%" + keywords + "%'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+
+        #endregion
     }
 }

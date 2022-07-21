@@ -18,7 +18,7 @@ namespace Gorakshnath_Billing_System.BLL
         public decimal TCGST { get; set; }
         public decimal TIGST { get; set; }
         public decimal Grand_Total { get; set; }
-        public DateTime Transaction_Date { get; set; }
+        public DateTime Challan_date { get; set; }
 
         public DataTable SalesDetails { get; set; }
     }

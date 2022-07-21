@@ -17,6 +17,7 @@ namespace Gorakshnath_Billing_System.UI
     public partial class frmChallanReturn : Form
     {
         int Invoice_No = -1;
+        int ProductId = -1;
         public frmChallanReturn()
         {
             InitializeComponent();
@@ -50,6 +51,7 @@ namespace Gorakshnath_Billing_System.UI
 
 
             salesReturnDT.Columns.Add("Sr. No.");
+            salesReturnDT.Columns.Add("Product Id");
             salesReturnDT.Columns.Add("Product Name");
             salesReturnDT.Columns.Add("Unit");
             salesReturnDT.Columns.Add("Quantity");
@@ -67,7 +69,7 @@ namespace Gorakshnath_Billing_System.UI
         {
            if(comboInvoiceNo.Text != "Select Invoice No")
             {
-
+                
                 int invoceNo;
                 int.TryParse(comboInvoiceNo.Text, out invoceNo);
                 ChallanReturnBLL crBLL = ChallanReturnDAL.GetCustomerForChallanReturn(invoceNo);
@@ -77,13 +79,16 @@ namespace Gorakshnath_Billing_System.UI
                 textEmail.Text = crBLL.Cust_Email;
                 textAddress.Text = crBLL.Cust_Address;
 
+                
+
                 comboItemName.DataSource = null;
                 DataTable dti = ChallanReturnDetailsDAL.SelectItemName(invoceNo);
                 comboItemName.DisplayMember = "Product_Name";
+                comboItemName.ValueMember = "Product_ID";
                 comboItemName.Items.Add("Select Product Name");
                 comboItemName.DataSource = dti;
-
                 InvoiceClear();
+
             }
         }
 
@@ -94,14 +99,18 @@ namespace Gorakshnath_Billing_System.UI
 
         private void comboItemName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string keyword = comboItemName.Text;
-            ChallanReturnDetailsBLL crBLL = ChallanReturnDetailsDAL.GetProductForChallanReturn(keyword);
-            comboBoxUnit.Text = crBLL.Unit;
-            textQuantity.Text = crBLL.Qty.ToString();
-            textRate.Text = crBLL.Rate.ToString();
-            textDiscount.Text = crBLL.Discount_Per.ToString();
-            comboGstType.Text = crBLL.GST_Type;
-            textTotalAmount.Text = crBLL.Total.ToString();
+            if (comboItemName.Text != "")
+            {
+                string keyword = comboItemName.Text;
+                ChallanReturnDetailsBLL crBLL = ChallanReturnDetailsDAL.GetProductForChallanReturn(keyword);
+                Int32.TryParse(comboItemName.SelectedValue.ToString(), out ProductId);
+                comboBoxUnit.Text = crBLL.Unit;
+                textQuantity.Text = crBLL.Qty.ToString();
+                textRate.Text = crBLL.Rate.ToString();
+                textDiscount.Text = crBLL.Discount_Per.ToString();
+                comboGstType.Text = crBLL.GST_Type;
+                textTotalAmount.Text = crBLL.Total.ToString();
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -148,7 +157,7 @@ namespace Gorakshnath_Billing_System.UI
                                 int counter = 1;
                                 counter = salesReturnDT.Rows.Count + 1;
                                 decimal gstAmt = Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
-                                salesReturnDT.Rows.Add(counter, ProductName, Unit, Qty, rate, discount, gstType, GST, gstAmt, TotalAmount);
+                                salesReturnDT.Rows.Add(counter, ProductId, ProductName, Unit, Qty, rate, discount, gstType, GST, gstAmt, TotalAmount);
                                 dgvAddedProducts.DataSource = salesReturnDT;
 
                                 decimal subTotal;
@@ -184,7 +193,7 @@ namespace Gorakshnath_Billing_System.UI
                                     subIGst = subIGst + Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
                                     textIgst.Text = subIGst.ToString();
                                 }
-                                                                
+                                
                                 comboBoxUnit.Text = "";
                                 textInventory.Text = "0";
                                 textQuantity.Text = "0";
@@ -225,7 +234,8 @@ namespace Gorakshnath_Billing_System.UI
         }
 
         public void InvoiceClear()
-        {            
+        {
+            
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
             textQuantity.Text = "0";
@@ -306,25 +316,28 @@ namespace Gorakshnath_Billing_System.UI
                                 ChallanReturnDetailsBLL crdBLL = new ChallanReturnDetailsBLL();
 
                                 stockBLL stockBLL = new stockBLL();
-                                string productName = salesReturnDT.Rows[i][1].ToString();
+                                int pid;
+                                Int32.TryParse(salesReturnDT.Rows[i][1].ToString(),out pid);
+                                string productName = salesReturnDT.Rows[i][2].ToString();
+
                                 ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
 
                                 crdBLL.Product_ID = p.Product_ID;
                                 crdBLL.Invoice_No = Invoice_No;
                                 crdBLL.Cust_ID = c.Cust_ID;
-                                crdBLL.Product_Name = salesReturnDT.Rows[i][1].ToString();
-                                crdBLL.Unit = salesReturnDT.Rows[i][2].ToString();
-                                crdBLL.Qty = Math.Round(decimal.Parse(salesReturnDT.Rows[i][3].ToString()), 2);
-                                crdBLL.Rate = Math.Round(decimal.Parse(salesReturnDT.Rows[i][4].ToString()), 2);
-                                crdBLL.Discount_Per = Math.Round(decimal.Parse(salesReturnDT.Rows[i][5].ToString()), 2);
-                                crdBLL.GST_Type = salesReturnDT.Rows[i][6].ToString();
-                                crdBLL.GST_Per = Math.Round(decimal.Parse(salesReturnDT.Rows[i][7].ToString()), 2);
+                                crdBLL.Product_Name = salesReturnDT.Rows[i][2].ToString();
+                                crdBLL.Unit = salesReturnDT.Rows[i][3].ToString();
+                                crdBLL.Qty = Math.Round(decimal.Parse(salesReturnDT.Rows[i][4].ToString()), 2);
+                                crdBLL.Rate = Math.Round(decimal.Parse(salesReturnDT.Rows[i][5].ToString()), 2);
+                                crdBLL.Discount_Per = Math.Round(decimal.Parse(salesReturnDT.Rows[i][6].ToString()), 2);
+                                crdBLL.GST_Type = salesReturnDT.Rows[i][7].ToString();
+                                crdBLL.GST_Per = Math.Round(decimal.Parse(salesReturnDT.Rows[i][8].ToString()), 2);
                                 crdBLL.Total = Math.Round(decimal.Parse(salesReturnDT.Rows[i][9].ToString()), 2);
 
                                 int Product_id = p.Product_ID;
                                 stockBLL.Product_Id = Product_id;
-                                stockBLL.Quantity = Math.Round(decimal.Parse(salesReturnDT.Rows[i][3].ToString()), 2);
-                                stockBLL.Unit = salesReturnDT.Rows[i][2].ToString();
+                                stockBLL.Quantity = Math.Round(decimal.Parse(salesReturnDT.Rows[i][4].ToString()), 2);
+                                stockBLL.Unit = salesReturnDT.Rows[i][3].ToString();
 
                                 bool y = ChallanReturnDetailsDAL.insertSalesReturndetails(crdBLL);
 
@@ -407,6 +420,11 @@ namespace Gorakshnath_Billing_System.UI
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

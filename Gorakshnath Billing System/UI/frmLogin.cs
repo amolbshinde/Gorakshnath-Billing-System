@@ -26,58 +26,84 @@ namespace Gorakshnath_Billing_System.UI
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            //
-            this.Close();
+            DialogResult dialog = new DialogResult();
+
+            dialog = MessageBox.Show("Do you really want to close?", "Alert!", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.Yes)
+            {
+              
+                System.Environment.Exit(1);
+            }
         }
         /// <summary>
-        /// 
+        /// //
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            l.username = textBox1.Text.Trim();
-            l.password = textBox2.Text.Trim();
-            l.user_type = comboBox1.Text.Trim();
-            bool success = dal.loginCheck(l);
-            if(success==true)
+            DateTime dt1 = DateTime.Now;
+            //DateTime dt2;
+            //DateTime.TryParse("25/12/2021", out dt2);
+            DateTime dt2 = DateTime.Parse("2021/12/12");
+            if (dt1.Date>dt2.Date)
             {
-                MessageBox.Show(" Login Succesfull..!! ");
-                //need to code what happen when login is sucesffull
-                loggedIn = l.username;
-
-                switch(l.user_type)
+                if (MessageBox.Show(dt2+"Your licence has expired please do renewal of the software"+"\n"+ "OR Contact our Customer Care No.: 8087448384/9561948924"+"\n"+"Do you want to visit Companies Website. ", "Product Activation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    case "Admin":
-                        {
-
-                            //show admin dashboard 
-                            frmAdminDashboard admin = new frmAdminDashboard();
-                            admin.Show();
-                            this.Hide();
-                        }break;
-
-                    case "User":
-                        {
-
-                            frmUserDashboard user = new frmUserDashboard();
-                            user.Show();
-                            this.Hide();
-                        }break;
-
-                    default:
-                        {
-                            // display un error message 
-                            MessageBox.Show("Invalid user type ");
-                        }break;
-
-
+                    System.Diagnostics.Process.Start("http://swamisoftware.ml/");
                 }
             }
             else
             {
-                MessageBox.Show(" Login Failed ..!! ");
+                l.username = textBox1.Text.Trim();
+                l.password = textBox2.Text.Trim();
+                l.user_type = comboBox1.Text.Trim();
+                bool success = dal.loginCheck(l);
+                if (success == true)
+                {
+                    MessageBox.Show(" Login Succesfull..!! ");
+                    //need to code what happen when login is sucesffull.
+                    loggedIn = l.username;
+
+                    switch (l.user_type)
+                    {
+                        case "Admin":
+                            {
+
+                                
+                                frmAdminDashboard admin = new frmAdminDashboard();
+                                admin.Show();
+                                this.Hide();
+                            } break;
+
+                        case "User":
+                            {
+
+                                frmUserDashboard user = new frmUserDashboard();
+                                user.Show();
+                                this.Hide();
+                            } break;
+
+                        default:
+                            {
+                                // display un error message 
+                                MessageBox.Show("Invalid user type ");
+                            } break;
+
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(" Login Failed ..!! ");
+                }
             }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 1;
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DotNetKit;
 
 namespace Gorakshnath_Billing_System.UI
 {
@@ -17,159 +18,216 @@ namespace Gorakshnath_Billing_System.UI
         public frmDummySales()
         {
             InitializeComponent();
+            fillCombo();
         }
+        int Invoice_No = -1;
+        int ProductId = -1;
 
-        customerDAL cDAL = new customerDAL();
-        // customerBLL cBLL = new customerBLL();
         ProductMasterDAL ProductMasterDAL = new ProductMasterDAL();
 
         DummySalesBLL challanBLL = new DummySalesBLL();
 
         DummySalesDAL challanDAL = new DummySalesDAL();
 
+        customerBLL customerBLL = new customerBLL();
+        customerDAL customerDAL = new customerDAL();
+
+
+
         DummySalesDetailsDAL DummySalesDetailsDAL = new DummySalesDetailsDAL();
 
         DataTable salesDT = new DataTable();
-        private void pictureBox1_Click(object sender, EventArgs e)
+        public void getMaxinvoiceId()
         {
-            this.Close();
+            DummySalesDAL dm = new DummySalesDAL();
+           int Maxnum = dm.GetMaxInvoiceID();
+            Maxnum = Maxnum + 1;
+            Invoice_No = Maxnum;
+            txtInvoice_No.Text = Invoice_No.ToString();
+        } 
+
+
+        public void fillCombo()
+        {
+            comboSearchCust.DataSource = null;
+            DataTable dtC = customerDAL.SelectForCombo();
+            comboSearchCust.DisplayMember = "Cust_Name";
+            comboSearchCust.ValueMember = "Cust_Name";
+            comboSearchCust.DataSource = dtC;
+            comboSearchCust.Text = "Select Cust";
+
+           
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //checking product is already present or ot
-            if (textItemName.Text != "")
+            string pname = "";
+            String isAdded = "false";
+            
+            try
             {
-                if (textQuantity.Text != "")
+                if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
                 {
-                    if (comboGstType.Text != "")
+                    if (textSearchItems.Text != "")
                     {
-                        // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
-
-                        String ProductName = textItemName.Text;
-                        string Unit = comboBoxUnit.Text;
-                        string gstType = comboGstType.Text;
-
-                        decimal Qty, rate, GST, Amount, TotalAmount, discount;
-                        decimal.TryParse(textQuantity.Text, out Qty);
-                        decimal.TryParse(textRate.Text, out rate);
-                        decimal.TryParse(textGST.Text, out GST);
-                        decimal.TryParse(textDiscount.Text, out discount);
-                        decimal.TryParse(textTotalAmount.Text, out TotalAmount);
-                        Amount = rate * Qty;
-                        
-                        if (ProductName == "")
+                        if (textQuantity.Text != "" && textQuantity.Text != "0")
                         {
-                            MessageBox.Show("Please Enter Item/Product Details First");
+                            if (comboGstType.Text != "")
+                            {
+
+                                for (int rows = 0; rows < dgvAddedProducts.Rows.Count; rows++)
+                                {
+                                    pname = dgvAddedProducts.Rows[rows].Cells["Product Name"].Value.ToString();
+                                    if (textSearchItems.Text == pname)
+                                    {
+                                        isAdded = "true";                                                                            
+                                        break;
+                                    }
+                                }
+                                if (isAdded == "false")
+                                {
+                                    // get Product name ,Qty, price , Discount ,Tax. Amount to datagrid view
+
+                                    String ProductName = textSearchItems.Text;
+                                    string Unit = comboBoxUnit.Text;
+                                    string gstType = comboGstType.Text;
+
+                                    decimal Qty, rate, GST, Amount, TotalAmount, discount;
+                                    decimal.TryParse(textQuantity.Text, out Qty);
+                                    decimal.TryParse(textRate.Text, out rate);
+                                    decimal.TryParse(textGST.Text, out GST);
+                                    decimal.TryParse(textDiscount.Text, out discount);
+                                    decimal.TryParse(textTotalAmount.Text, out TotalAmount);
+                                    Amount = rate * Qty;
+
+                                    // CHECK PRODUCT IS SELECTED OR NOT 
+                                    if (ProductName == "")
+                                    {
+                                        MessageBox.Show("Please Enter Item/Product Details First");
+                                    }
+                                    else
+                                    {
+                                        int counter = 1;
+                                        counter = salesDT.Rows.Count + 1;
+                                        decimal gstAmt = Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
+                                        salesDT.Rows.Add(counter, ProductId, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST, TotalAmount);
+                                        dgvAddedProducts.DataSource = salesDT;
+
+                                        decimal subTotal;
+                                        decimal.TryParse(textSubTotal.Text, out subTotal);
+                                        subTotal = subTotal + Qty * rate;
+                                        textSubTotal.Text = subTotal.ToString();
+
+                                        decimal subDiscount;
+                                        decimal.TryParse(textSubDiscount.Text, out subDiscount);
+                                        subDiscount = subDiscount + Math.Round(((rate * Qty) * discount) / 100, 2);
+                                        textSubDiscount.Text = subDiscount.ToString();
+
+                                        decimal gTotal;
+                                        decimal.TryParse(textGrandTotal.Text, out gTotal);
+                                        gTotal = gTotal + TotalAmount;
+                                        textGrandTotal.Text = gTotal.ToString();
+
+                                        if (comboGstType.Text == "SGST/CGST")
+                                        {
+                                            decimal subsgst, subcgst, subGst;
+                                            decimal.TryParse(textSgst.Text, out subsgst);
+                                            decimal.TryParse(textCgst.Text, out subcgst);
+                                            subGst = subsgst + subcgst;
+                                            subGst = subGst + Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
+
+                                            textSgst.Text = Math.Round((subGst / 2), 2).ToString();
+                                            textCgst.Text = Math.Round((subGst / 2), 2).ToString();
+                                        }
+                                        if (comboGstType.Text == "IGST")
+                                        {
+                                            decimal subIGst;
+                                            decimal.TryParse(textIgst.Text, out subIGst);
+                                            subIGst = subIGst + Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
+                                            textIgst.Text = subIGst.ToString();
+                                        }
+
+
+                                        textSearchItems.Text = "Select Item";
+                                        //textItemName.Text = "";
+                                        comboBoxUnit.Text = "";
+                                        textInventory.Text = "0";
+                                        textQuantity.Text = "0";
+                                        textRate.Text = "0";
+                                        textDiscount.Text = "0";
+                                        textQuantity.Text = "0";
+                                        textItemCode.Text = "";
+                                        if (comboTransactionType.Text != "Non GST")
+                                        {
+                                            comboGstType.Text = "";
+                                            textGST.Text = "0";
+
+                                        }
+                                        textSearchItems.Focus();
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Product is already Added !");
+
+                                }
+
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Plsease Select GST type");
+
+                            }
+
                         }
                         else
                         {
-                            int counter = 1;
-                            counter = salesDT.Rows.Count + 1;
-                            salesDT.Rows.Add(counter, ProductName, Unit, Qty, rate, Amount, discount, gstType, GST, TotalAmount);
-                            dgvAddedProducts.DataSource = salesDT;
-
-
-                            decimal subTotal;
-                            decimal.TryParse(textSubTotal.Text, out subTotal);
-                            subTotal = subTotal + Qty * rate;
-                            textSubTotal.Text = subTotal.ToString();
-
-                            decimal subDiscount;
-                            decimal.TryParse(textSubDiscount.Text, out subDiscount);
-                            subDiscount = subDiscount + Math.Round(((rate * Qty) * discount) / 100, 2);
-                            textSubDiscount.Text = subDiscount.ToString();
-
-                            decimal gTotal;
-                            decimal.TryParse(textGrandTotal.Text, out gTotal);
-                            gTotal = gTotal + TotalAmount;
-                            textGrandTotal.Text = gTotal.ToString();
-
-                            if (comboGstType.Text == "SGST/CGST")
-                            {
-                                decimal subsgst, subcgst, subGst;
-                                decimal.TryParse(textSgst.Text, out subsgst);
-                                decimal.TryParse(textCgst.Text, out subcgst);
-                                subGst = subsgst + subcgst;
-                                subGst = subGst + Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
-
-                                textSgst.Text = Math.Round((subGst / 2), 2).ToString();
-                                textCgst.Text = Math.Round((subGst / 2), 2).ToString();
-                            }
-                            if (comboGstType.Text == "IGST")
-                            {
-                                decimal subIGst;
-                                decimal.TryParse(textIgst.Text, out subIGst);
-                                subIGst = subIGst + Math.Round((((rate * Qty) - ((rate * Qty) * discount) / 100) * GST) / 100, 2);
-                                textIgst.Text = subIGst.ToString();
-                            }
-
-
-                            textItemSearch.Text = "";
-                            textItemName.Text = "";
-                            comboBoxUnit.Text = "";
-                            textInventory.Text = "0";
-                            textQuantity.Text = "0";
-                            textRate.Text = "0";
-                            textDiscount.Text = "0";
-                            textQuantity.Text = "0";
-                            comboGstType.Text = "";
-                            textGST.Text = "0";
-
+                            MessageBox.Show("Please enter Quantity !");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Plsease Select GST type");//,"Warning",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Warning);
-
+                        MessageBox.Show("Please Enter Product Name !");
                     }
-
                 }
                 else
                 {
-                    MessageBox.Show("Please enter Quantity !");
+                    MessageBox.Show("Please Enter Customer Details !");
                 }
+
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please Enter Product Name !");
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void frmDummySales_Load(object sender, EventArgs e)
         {
+            Clear();
             salesDT.Columns.Add("Sr. No.");
-            salesDT.Columns.Add("ProductName");
+            salesDT.Columns.Add("Product Id");
+            salesDT.Columns.Add("Product Name");
             salesDT.Columns.Add("Unit");
             salesDT.Columns.Add("Quantity");
-            salesDT.Columns.Add("PurchasePrice");
+            salesDT.Columns.Add("Rate");
             salesDT.Columns.Add("Amount");
             salesDT.Columns.Add("(-)Discount");
             salesDT.Columns.Add("Gst Type");
             salesDT.Columns.Add("(+)Tax%");
             salesDT.Columns.Add("(=)Total");
+            comboTransactionType.SelectedIndex = 1;
+            comboBox2.SelectedIndex = 0;
+            listBox1.Hide();
+            getMaxinvoiceId();
+
+
+
         }
 
-        private void textItemSearch_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = textItemSearch.Text;
 
-
-            if (keyword == "")
-            {
-                textItemName.Text = "";
-                textInventory.Text = "0";
-                textRate.Text = "0";
-                textQuantity.Text = "0";
-                return;
-            }
-
-            ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
-            textItemName.Text = p.Product_Name;
-            comboBoxUnit.Text = p.Unit;
-            textInventory.Text = p.Quantity.ToString();
-            textRate.Text = p.Purchase_Price.ToString();
-        }
 
         private void textRate_TextChanged(object sender, EventArgs e)
         {
@@ -177,7 +235,7 @@ namespace Gorakshnath_Billing_System.UI
             if (check == "")
             {
 
-                MessageBox.Show("Please entery Purchase Price.");
+                MessageBox.Show("Please enter Rate of the product");
                 textTotalAmount.Text = "";
             }
 
@@ -216,6 +274,15 @@ namespace Gorakshnath_Billing_System.UI
                 textTotalAmount.Text = TotalAmount.ToString();
 
             }
+
+            int Inventory, QuantityChk;
+            Int32.TryParse(textQuantity.Text, out QuantityChk);
+            Int32.TryParse(textInventory.Text, out Inventory);
+
+            if(QuantityChk > Inventory)
+            {
+                 MessageBox.Show("You have entered Quantity more than the Inventoy, If it's just for Billing purpose then OK Otherwise correct It !", "Caption", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            }
         }
 
         private void textDiscount_TextChanged(object sender, EventArgs e)
@@ -224,10 +291,9 @@ namespace Gorakshnath_Billing_System.UI
             if (check == "")
             {
 
-                //  MessageBox.Show("Please Enter Discount.");
+                MessageBox.Show("Please Enter Discount.");
 
             }
-
 
             else
             {
@@ -270,129 +336,177 @@ namespace Gorakshnath_Billing_System.UI
         }
         public void Clear()
         {
-            comboGstType.Text = "";
-            textSearch.Text = "";
-            textCust_Name.Text = "";
+
+            comboSearchCust.Text = "Select Cust";
             textEmail.Text = "";
             textAddress.Text = "";
-            textContact.Text = "";
-
+            comboContact.Text = "NA";
+            textGstNo.Text = "";
             textItemCode.Text = "";
-            textItemSearch.Text = "";
-            textItemName.Text = "";
+            textSearchItems.Text = "Select Item";
+            //textItemName.Text = "";
             comboBoxUnit.Text = "";
             textInventory.Text = "0";
             textQuantity.Text = "0";
             textRate.Text = "0";
             textDiscount.Text = "0";
-            comboGstType.Text = "";
-            textGST.Text = "0";
             textTotalAmount.Text = "0";
+            textGrandTotal.Text = "0";
+            if (comboTransactionType.Text != "Non GST")
+            {
+                comboGstType.Text = "";
+                textGST.Text = "0";
+            }
 
-            textSubTotal.Text = "";
-            textSubDiscount.Text = "";
-            textSgst.Text = "";
-            textCgst.Text = "";
-            textIgst.Text = "";
+            textSubTotal.Text = "0";
+            textSubDiscount.Text = "0";
+            textSgst.Text = "0";
+            textCgst.Text = "0";
+            textIgst.Text = "0";
 
             dgvAddedProducts.DataSource = null;
             dgvAddedProducts.Rows.Clear();
             salesDT.Rows.Clear();
+            getMaxinvoiceId();
+            fillCombo();
 
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
         }
-        public void save()
+        public int save()
         {
-
-            string sname = textCust_Name.Text;
-            if (comboTransactionType.Text != "")
+            int TransactionStatus = 0;
+            try
             {
-                if (sname != "")
+               
+                string sname = comboSearchCust.Text;
+                if (comboTransactionType.Text != "")
                 {
-
-                    if (dgvAddedProducts.Rows.Count != 0)
+                    if (sname != "" && sname != "Select Cust")
                     {
-                        customerBLL c = cDAL.getCustomerIdFromName(sname);
-
-                        decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
-
-                        string type = comboTransactionType.Text;
-                        decimal.TryParse(textSubTotal.Text, out subTotal);
-                        decimal.TryParse(textSubDiscount.Text, out totalDiscount);
-                        decimal.TryParse(textSgst.Text, out totalSgst);
-                        decimal.TryParse(textCgst.Text, out totalCgst);
-                        decimal.TryParse(textIgst.Text, out totalIgst);
-                        decimal.TryParse(textGrandTotal.Text, out grandTotal);
-
-                        challanBLL.Transaction_Type = type;
-                        challanBLL.Cust_ID = c.Cust_ID;
-                        challanBLL.Sub_Total = subTotal;
-                        challanBLL.TDiscount = totalDiscount;
-                        challanBLL.TSGST = totalSgst;
-                        challanBLL.TCGST = totalCgst;
-                        challanBLL.TIGST = totalIgst;
-                        challanBLL.Grand_Total = grandTotal;
-
-                        challanBLL.DummySalesDetails = salesDT;
-                        bool isSuccess = false;
-
-                        // using (TransactionScope scope = new TransactionScope())//
+                        string CustName = comboSearchCust.Text;
+                        customerBLL cust = customerDAL.getCustomerIdFromName(CustName);
+                        if (cust.Cust_Name != comboSearchCust.Text)
                         {
-                            int salesid = -1;
-                            bool b = challanDAL.insertDummySales(challanBLL, out salesid);
+                           // MessageBox.Show(cust.Cust_Name);
+                            customerBLL.name = comboSearchCust.Text;
+                            customerBLL.contact = comboContact.Text;
+                            customerBLL.email = textEmail.Text;
+                            customerBLL.address = textAddress.Text;
+                            customerBLL.Gst_No = textGstNo.Text;
 
-                            for (int i = 0; i < salesDT.Rows.Count; i++)
-                            {
-                                DummySalesDetailsBLL cdBLL = new DummySalesDetailsBLL();
-                                string productName = salesDT.Rows[i][1].ToString();
+                            bool Success = customerDAL.Insert(customerBLL);
 
-                                ProductMasterBLL p = ProductMasterDAL.GetProductIDFromName(productName);
-                                cdBLL.Product_ID = p.Product_ID;
-                                cdBLL.Cust_ID = c.Cust_ID;
-                                cdBLL.Product_Name = salesDT.Rows[i][1].ToString();
-                                cdBLL.Unit = salesDT.Rows[i][2].ToString();
-                                cdBLL.Qty = Math.Round(decimal.Parse(salesDT.Rows[i][3].ToString()), 2);
-                                cdBLL.Rate = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);
-                                cdBLL.Discount_Per = Math.Round(decimal.Parse(salesDT.Rows[i][6].ToString()), 2);
-                                cdBLL.GST_Type = salesDT.Rows[i][7].ToString();
-                                cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][8].ToString()), 2);
-                                cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
-                                bool y = DummySalesDetailsDAL.insertDummySalesDetails(cdBLL);
-                                isSuccess = b && y;
+                        }
 
-                                isSuccess = true;
-                            }
-                            isSuccess = b;
-                            if (isSuccess == true)
+
+                        if (dgvAddedProducts.Rows.Count != 0)
+                        {
+                            string CustName1 = comboSearchCust.Text;
+                            customerBLL c = customerDAL.getCustomerIdFromName(CustName1);
+
+                            decimal subTotal, totalDiscount, totalSgst, totalCgst, totalIgst, grandTotal;
+
+                            string type = comboTransactionType.Text;
+                            decimal.TryParse(textSubTotal.Text, out subTotal);
+                            decimal.TryParse(textSubDiscount.Text, out totalDiscount);
+                            decimal.TryParse(textSgst.Text, out totalSgst);
+                            decimal.TryParse(textCgst.Text, out totalCgst);
+                            decimal.TryParse(textIgst.Text, out totalIgst);
+                            decimal.TryParse(textGrandTotal.Text, out grandTotal);
+
+                            challanBLL.Transaction_Type = type;
+                            challanBLL.Cust_ID = c.Cust_ID;
+                            challanBLL.Sub_Total = subTotal;
+                            challanBLL.TDiscount = totalDiscount;
+                            challanBLL.TSGST = totalSgst;
+                            challanBLL.TCGST = totalCgst;
+                            challanBLL.TIGST = totalIgst;
+                            challanBLL.Grand_Total = grandTotal;
+                            challanBLL.Invoice_No = Invoice_No;
+                            //DateTime Billdate2 = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
+                            //DateTime.TryParse(dtpBillDate.Value.ToLongDateString(), out Billdate2);
+                            challanBLL.Challan_date = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
+
+                            challanBLL.DummySalesDetails = salesDT;
+                            bool isSuccess = false;
+
                             {
-                                //scope.Complete();
-                                MessageBox.Show("Transaction Completed");
-                                //clear();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Transaction Failed");
+                                // int salesid = -1; declared at top as a global variable.
+                                bool b = challanDAL.insertDummySales(challanBLL);
+
+                                for (int i = 0; i < salesDT.Rows.Count; i++)
+                                {
+                                    DummySalesDetailsBLL cdBLL = new DummySalesDetailsBLL();
+                                    //string productName = salesDT.Rows[i][2].ToString();
+
+                                    int pid;
+                                    Int32.TryParse(salesDT.Rows[i][1].ToString(), out pid);
+
+
+
+                                    cdBLL.Invoice_No = Invoice_No;
+                                    cdBLL.Product_ID = pid;
+                                    cdBLL.Cust_ID = c.Cust_ID;
+                                    cdBLL.Product_Name = salesDT.Rows[i][2].ToString();
+                                    cdBLL.Unit = salesDT.Rows[i][3].ToString();
+                                    cdBLL.Qty = Math.Round(decimal.Parse(salesDT.Rows[i][4].ToString()), 2);
+                                    cdBLL.Rate = Math.Round(decimal.Parse(salesDT.Rows[i][5].ToString()), 2);
+                                    cdBLL.Discount_Per = Math.Round(decimal.Parse(salesDT.Rows[i][7].ToString()), 2);
+                                    cdBLL.GST_Type = salesDT.Rows[i][8].ToString();
+                                    cdBLL.GST_Per = Math.Round(decimal.Parse(salesDT.Rows[i][9].ToString()), 2);
+                                    cdBLL.Total = Math.Round(decimal.Parse(salesDT.Rows[i][10].ToString()), 2);
+                                    cdBLL.Challan_date = dtpBillDate.Value.Date.Add(dtpBillDate.Value.TimeOfDay);
+                                    bool y = DummySalesDetailsDAL.insertDummySalesDetails(cdBLL);
+
+                                    if (b == true && y == true)
+                                    {
+                                        isSuccess = true;
+                                    }
+
+
+
+                                }
+
+                                if (isSuccess == true)
+                                {
+
+                                    MessageBox.Show("Transaction Completed");
+                                    TransactionStatus = 1;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Transaction Failed");
+                                    TransactionStatus = 0;
+                                }
                             }
                         }
+                        else
+                        {
+                            MessageBox.Show("Please Add product Details");
+                        }
+
+
+
+
                     }
                     else
                     {
-                        MessageBox.Show("Please Add product Details");
+                        MessageBox.Show("Please Select Customer Details");
                     }
-
                 }
                 else
                 {
-                    MessageBox.Show("Please Select Customer Details");
+                    MessageBox.Show("Please Select Purchase Type GST OR NOGST");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please Select Purchase Type GST OR NOGST");
+                MessageBox.Show(ex.Message);
             }
+            return TransactionStatus;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -400,12 +514,32 @@ namespace Gorakshnath_Billing_System.UI
 
             //Validate Supplier details are there or not 
 
-            if (textCust_Name.Text != "")
+            if (comboSearchCust.Text != "" && comboSearchCust.Text != "Select Cust")
             {
                 if (dgvAddedProducts.Rows.Count != 0)
                 {
-                    //save fun
-                    save();
+                    //save fun.
+                    int _TransactionStatus = save();
+                    if (_TransactionStatus != 0 && Invoice_No != -1)
+                    {
+                        if (MessageBox.Show("Do you want to print Invoice" + "\n" + "Confirm ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                        {
+                            frmDummySalesCrpt frmDummySalesCrpt = new frmDummySalesCrpt(Invoice_No);
+                            frmDummySalesCrpt.Show();
+                            Clear();
+                        }
+
+                        else
+
+                        {
+                            Clear();
+                        }
+
+
+
+                    }
+
                 }
                 else
                 {
@@ -443,14 +577,14 @@ namespace Gorakshnath_Billing_System.UI
                 {
                     //assognto dategrid view values into textboxs
 
-                    textItemName.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[1].Value.ToString();
-                    comboBoxUnit.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
-                    textQuantity.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString();
-                    textRate.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString();
-                    textTotalAmount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString();
-                    textDiscount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[6].Value.ToString();
-                    comboGstType.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
-                    textGST.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString();
+                    textSearchItems.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[2].Value.ToString();
+                    comboBoxUnit.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString();
+                    textQuantity.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString();
+                    textRate.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[5].Value.ToString();
+                    textTotalAmount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[10].Value.ToString();
+                    textDiscount.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
+                    comboGstType.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString();
+                    textGST.Text = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString();
                 }
 
                 decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
@@ -504,13 +638,13 @@ namespace Gorakshnath_Billing_System.UI
             {
                 decimal Qty, PurchasePrice, discount, Amount, gst, TotalAmount;
 
-                string gstType = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString();
+                string gstType = dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString();
 
-                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[3].Value.ToString(), out Qty);
-                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString(), out PurchasePrice);
-                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[6].Value.ToString(), out discount);
-                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[8].Value.ToString(), out gst);
-                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString(), out TotalAmount);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[4].Value.ToString(), out Qty);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[5].Value.ToString(), out PurchasePrice);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[7].Value.ToString(), out discount);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[9].Value.ToString(), out gst);
+                decimal.TryParse(dgvAddedProducts.Rows[dgvAddedProducts.CurrentCell.RowIndex].Cells[10].Value.ToString(), out TotalAmount);
 
                 Amount = PurchasePrice * Qty;
 
@@ -555,27 +689,300 @@ namespace Gorakshnath_Billing_System.UI
 
         }
 
-        private void textSearch_TextChanged(object sender, EventArgs e)
+
+        private void comboTransactionType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //get search keyword from search text box
-            string keyword = textSearch.Text;
-            if (keyword == "")//clear all textboex
+
+            if (comboTransactionType.Text == "Non GST")
             {
-                textCust_Name.Text = "";
-                textAddress.Text = "";
-                textContact.Text = "";
-                textEmail.Text = "";
-                return;
+                               
+                textItemCode.Text = "";
+                textSearchItems.Text = "Select Item";
+                //textItemName.Text = "";
+                comboBoxUnit.Text = "";
+                textInventory.Text = "0";
+                textQuantity.Text = "0";
+                textRate.Text = "0";
+                textDiscount.Text = "0";
+                textTotalAmount.Text = "0";
+                textGrandTotal.Text = "0";
+                if (comboTransactionType.Text != "Non GST")
+                {
+                    comboGstType.Text = "";
+                    textGST.Text = "0";
+                }
+
+                textSubTotal.Text = "0";
+                textSubDiscount.Text = "0";
+                textSgst.Text = "0";
+                textCgst.Text = "0";
+                textIgst.Text = "0";
+
+                dgvAddedProducts.DataSource = null;
+                dgvAddedProducts.Rows.Clear();
+                salesDT.Rows.Clear();
+
+
+
+
+                comboGstType.Enabled = false;
+                textGST.Enabled = false;
+                textCgst.Enabled = false;
+                textSgst.Enabled = false;
+                textIgst.Enabled = false;
+                comboGstType.Text = "NA";
+                textGST.Text = "0";
+                textCgst.Text = "0";
+                textSgst.Text = "0";
+                textIgst.Text = "0";
+                label32.Enabled = false;
+                label34.Enabled = false;
+                label36.Enabled = false;
+                label18.Enabled = false;
+                label35.Enabled = false;
+            }
+            else if (comboTransactionType.Text == "GST")
+            {
+
+
+                textItemCode.Text = "";
+                textSearchItems.Text = "Select Item";
+                //textItemName.Text = "";
+                comboBoxUnit.Text = "";
+                textInventory.Text = "0";
+                textQuantity.Text = "0";
+                textRate.Text = "0";
+                textDiscount.Text = "0";
+                textTotalAmount.Text = "0";
+                textGrandTotal.Text = "0";
+                if (comboTransactionType.Text != "Non GST")
+                {
+                    comboGstType.Text = "";
+                    textGST.Text = "0";
+                }
+
+                textSubTotal.Text = "0";
+                textSubDiscount.Text = "0";
+                textSgst.Text = "0";
+                textCgst.Text = "0";
+                textIgst.Text = "0";
+
+                dgvAddedProducts.DataSource = null;
+                dgvAddedProducts.Rows.Clear();
+                salesDT.Rows.Clear();
+
+
+
+
+                comboGstType.Enabled = true;
+                textGST.Enabled = true;
+                textCgst.Enabled = true;
+                textSgst.Enabled = true;
+                textIgst.Enabled = true;
+                comboGstType.Text = "";
+
+                label32.Enabled = true;
+                label34.Enabled = true;
+                label36.Enabled = true;
+                label18.Enabled = true;
+                label35.Enabled = true;
             }
 
-            customerBLL cBLL = cDAL.searchcustomerforsales(keyword);
-
-
-
-            textCust_Name.Text = cBLL.name;
-            textContact.Text = cBLL.contact;
-            textEmail.Text = cBLL.email;
-            textAddress.Text = cBLL.address;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+
+        private void comboSearchCust_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboSearchCust.Text != "Select Cust" && comboSearchCust.Text != "")
+            {
+                //get search keyword from search text box.
+                string keyword = comboSearchCust.Text;
+                if (keyword == "")//clear all textboex
+                {
+                    comboSearchCust.Text = "Select Cust";
+                    textAddress.Text = "";
+                    comboContact.Text = "NA";
+                    textEmail.Text = "";
+                    textGstNo.Text = "";
+                    return;
+                }
+                customerBLL cBLL = customerDAL.searchcustomerByName(keyword);
+
+                //textCust_Name.Text = cBLL.name;
+                comboContact.Text = cBLL.contact;
+                textEmail.Text = cBLL.email;
+                textAddress.Text = cBLL.address;
+                textGstNo.Text = cBLL.Gst_No;
+            }
+            else
+            {
+                //textCust_Name.Text = "";
+                comboSearchCust.Text = "Select Cust";
+                textAddress.Text = "";
+                comboContact.Text = "NA";
+                textEmail.Text = "";
+                textGstNo.Text = "";
+
+            }
+
+
+        }
+
+
+
+        
+        private void textQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        public void fetchProductDetails()
+        {
+            try
+            {
+                string keyword = listBox1.Text;
+                Int32.TryParse(listBox1.SelectedValue.ToString(), out ProductId);
+                ProductMasterBLL p = ProductMasterDAL.GetProductsForTransaction(keyword);
+                textItemCode.Text = p.Item_Code;
+                textSearchItems.Text = p.Product_Name;
+                comboBoxUnit.Text = p.Unit;
+                textRate.Text = p.Sales_Price.ToString();
+                textInventory.Text = p.Quantity.ToString();
+                textQuantity.Text = "1";
+                listBox1.Hide();
+                btnAdd.Focus();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void listBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if ((e.KeyCode == Keys.Enter))
+                {
+                    fetchProductDetails();
+                    textQuantity.Focus();
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textSearchItems_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                listBox1.Show();
+                string key = textSearchItems.Text;
+                DataTable dtI = ProductMasterDAL.ExactSearch(key);
+                listBox1.DisplayMember = "Product_Name"; // Just set the correct name of the properties 
+                listBox1.ValueMember = "Product_ID";
+                listBox1.DataSource = dtI;
+                if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.Up || e.KeyCode == Keys.Scroll))
+                {
+                    listBox1.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void listBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            fetchProductDetails();
+            textQuantity.Focus();
+        }
+
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            fetchProductDetails();
+        }
+
+        private void textSearchItems_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                bool valiDa = textSearchItems.Text.All(c => Char.IsLetterOrDigit(c) || c.Equals('_'));
+                if (valiDa == false || textSearchItems.Text == "")
+                {
+                    textSearchItems.Text = "Select Product";
+                    comboBoxUnit.Text = "";
+                    textInventory.Text = "0";
+                    textQuantity.Text = "0";
+                    textRate.Text = "0";
+                    textDiscount.Text = "0";
+                    textQuantity.Text = "0";
+                    if (comboTransactionType.Text != "Non GST")
+                    {
+                        comboGstType.Text = "";
+                        textGST.Text = "0";
+                    }
+                    listBox1.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textSearchItems_Enter(object sender, EventArgs e)
+        {
+            textSearchItems.Text = "";
+        }
+
+        private void comboContact_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+       
     }
+
+
 }

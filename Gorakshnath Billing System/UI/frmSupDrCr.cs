@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Gorakshnath_Billing_System.UI
 {
-    public partial class frmStockMaster : Form
+    public partial class frmSupDrCr : Form
     {
-        public frmStockMaster()
+        public frmSupDrCr()
         {
             InitializeComponent();
+        }
+
+        private void frmSupDrCr_Load(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

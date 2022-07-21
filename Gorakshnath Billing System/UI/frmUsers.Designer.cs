@@ -116,7 +116,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(227, 29);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
@@ -126,7 +126,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(227, 29);
-            this.textBox2.TabIndex = 4;
+            this.textBox2.TabIndex = 2;
             // 
             // label3
             // 
@@ -145,7 +145,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(227, 29);
-            this.textBox3.TabIndex = 6;
+            this.textBox3.TabIndex = 3;
             // 
             // label4
             // 
@@ -164,7 +164,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(227, 29);
-            this.textBox4.TabIndex = 8;
+            this.textBox4.TabIndex = 4;
             // 
             // label5
             // 
@@ -183,7 +183,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(227, 29);
-            this.textBox5.TabIndex = 10;
+            this.textBox5.TabIndex = 5;
             // 
             // label6
             // 
@@ -202,7 +202,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(227, 29);
-            this.textBox6.TabIndex = 12;
+            this.textBox6.TabIndex = 6;
             // 
             // label7
             // 
@@ -222,7 +222,7 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(227, 94);
-            this.textBox7.TabIndex = 14;
+            this.textBox7.TabIndex = 7;
             // 
             // label8
             // 
@@ -256,7 +256,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(227, 29);
-            this.comboBox1.TabIndex = 16;
+            this.comboBox1.TabIndex = 8;
             // 
             // comboBox2
             // 
@@ -269,7 +269,7 @@ namespace Gorakshnath_Billing_System.UI
             this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(227, 29);
-            this.comboBox2.TabIndex = 18;
+            this.comboBox2.TabIndex = 9;
             // 
             // label10
             // 
@@ -287,8 +287,9 @@ namespace Gorakshnath_Billing_System.UI
             this.textBox8.Location = new System.Drawing.Point(196, 87);
             this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(227, 29);
-            this.textBox8.TabIndex = 20;
+            this.textBox8.TabIndex = 0;
             // 
             // label11
             // 
@@ -309,17 +310,17 @@ namespace Gorakshnath_Billing_System.UI
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 24;
             this.dgvUsers.Size = new System.Drawing.Size(725, 446);
-            this.dgvUsers.TabIndex = 21;
+            this.dgvUsers.TabIndex = 15;
             this.dgvUsers.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUsers_RowHeaderMouseClick);
             // 
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(622, 89);
+            this.textBox9.Location = new System.Drawing.Point(621, 89);
             this.textBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(630, 29);
-            this.textBox9.TabIndex = 23;
+            this.textBox9.Size = new System.Drawing.Size(631, 29);
+            this.textBox9.TabIndex = 14;
             this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // label12
@@ -341,7 +342,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(156, 33);
-            this.button1.TabIndex = 24;
+            this.button1.TabIndex = 10;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -354,7 +355,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(144, 33);
-            this.button2.TabIndex = 25;
+            this.button2.TabIndex = 11;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -367,7 +368,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(129, 33);
-            this.button3.TabIndex = 26;
+            this.button3.TabIndex = 12;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -380,7 +381,7 @@ namespace Gorakshnath_Billing_System.UI
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(141, 33);
-            this.button4.TabIndex = 27;
+            this.button4.TabIndex = 13;
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -389,7 +390,7 @@ namespace Gorakshnath_Billing_System.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(1287, 735);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -419,6 +420,7 @@ namespace Gorakshnath_Billing_System.UI
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmUsers";

@@ -20,5 +20,6 @@ namespace Gorakshnath_Billing_System.BLL
         public string GST_Type { get; set; }
         public decimal GST_Per { get; set; }
         public decimal Total { get; set; }
+        public DateTime Challan_date { get; set; }
     }
 }

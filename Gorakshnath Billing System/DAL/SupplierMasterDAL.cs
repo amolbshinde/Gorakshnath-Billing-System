@@ -50,6 +50,7 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
+
         #region Insert Method to add data in database
         public bool Insert(SupplierMasterBLL sm)
         {
@@ -59,7 +60,7 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
-                string sql = "insert into Supplier_Master(CompanyName,Address,City,State,Pincode,Country,Email,Phone_No,Contact_Person,Contact_No) Values(@CompanyName,@Address,@City,@State,@Pincode,@Country,@Email,@Phone_No,@Contact_Person,@Contact_No)";
+                string sql = "insert into Supplier_Master(CompanyName,Address,City,State,Pincode,Country,Email,Phone_No,Contact_Person,Contact_No,Gst_No) Values(@CompanyName,@Address,@City,@State,@Pincode,@Country,@Email,@Phone_No,@Contact_Person,@Contact_No,@Gst_No)";
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 //
@@ -73,6 +74,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Phone_No", sm.Phone_No);
                 cmd.Parameters.AddWithValue("@Contact_Person", sm.Contact_Person);
                 cmd.Parameters.AddWithValue("@Contact_No", sm.Contact_No);                
+                cmd.Parameters.AddWithValue("@Gst_No", sm.Gst_No);                
                 conn.Open();
                 
                 int rows = cmd.ExecuteNonQuery();
@@ -100,6 +102,54 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
+
+        #region Insert Method to add data in database from Purchase bill
+        public bool InsertByPurchasebill(SupplierMasterBLL sm)
+        {
+            // Creating Sql Connection First
+            SqlConnection conn = new SqlConnection(myconnstrng);
+            //Creating Default value for isSccuess
+            bool isSuccess = false;
+            try
+            {
+                string sql = "insert into Supplier_Master(CompanyName,Address,Email,Phone_No,Gst_No) Values(@CompanyName,@Address,@Email,@Phone_No,@Gst_No)";
+                //Passing values to query and execute
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                //
+                cmd.Parameters.AddWithValue("@CompanyName", sm.CompanyName);
+                cmd.Parameters.AddWithValue("@Address", sm.Address);                           
+                cmd.Parameters.AddWithValue("@Email", sm.Email);
+                cmd.Parameters.AddWithValue("@Phone_No", sm.Phone_No);               
+                cmd.Parameters.AddWithValue("@Gst_No", sm.Gst_No);               
+                conn.Open();
+
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return isSuccess;
+
+        }
+
+        #endregion
+
+
         #region Update Supplier Details 
         public bool Update(SupplierMasterBLL sm)
         {
@@ -109,7 +159,7 @@ namespace Gorakshnath_Billing_System.DAL
             bool isSuccess = false;
             try
             {
-                string sql = "UPDATE  Supplier_Master set CompanyName=@CompanyName,Address=@Address,City=@City,State=@State,Pincode=@Pincode,Country=@Country,Email=@Email,Phone_No=@Phone_No,Contact_Person=@Contact_Person,Contact_No=@Contact_No where SupplierID=@id";
+                string sql = "UPDATE  Supplier_Master set CompanyName=@CompanyName,Address=@Address,City=@City,State=@State,Pincode=@Pincode,Country=@Country,Email=@Email,Phone_No=@Phone_No,Contact_Person=@Contact_Person,Contact_No=@Contact_No,Gst_No=@Gst_No where SupplierID=@id";
                 //Passing values to query and execute
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -123,6 +173,7 @@ namespace Gorakshnath_Billing_System.DAL
                 cmd.Parameters.AddWithValue("@Phone_No", sm.Phone_No);
                 cmd.Parameters.AddWithValue("@Contact_Person", sm.Contact_Person);
                 cmd.Parameters.AddWithValue("@Contact_No", sm.Contact_No);
+                cmd.Parameters.AddWithValue("@Gst_No", sm.Gst_No);
                 cmd.Parameters.AddWithValue("@id",sm.SupplierID);
                 conn.Open();
 
@@ -150,6 +201,7 @@ namespace Gorakshnath_Billing_System.DAL
         }
 
         #endregion
+
         #region Delete Supplier Details or Dealer Detais from Table 
         public bool Delete(SupplierMasterBLL sm)
         {
@@ -196,7 +248,7 @@ namespace Gorakshnath_Billing_System.DAL
 
         #endregion
 
-        #region Search Customer On Database Using Keywords
+        #region Search Supplier On Database Using Keywords
         public DataTable Search(string keywords)
         {
             SqlConnection con = new SqlConnection(myconnstrng);
@@ -221,8 +273,9 @@ namespace Gorakshnath_Billing_System.DAL
             return dt;
         }
         #endregion
-        #region method to search Supplier
-        public SupplierMasterBLL SearchSupplier (String keyword)
+
+        #region method to search Supplier by name for purchase bill
+        public SupplierMasterBLL SearchSupplierByName (String keyword)
         {
             // creat aobject fo supplierMaster BLLL
 
@@ -235,8 +288,9 @@ namespace Gorakshnath_Billing_System.DAL
            
 
             try
-            {
-                string sql="Select CompanyName,Phone_No,Email,Address from Supplier_Master where SupplierID like'%"+keyword+"%' OR CompanyName Like'%"+keyword+"%'";
+            {                
+
+                string sql= "Select CompanyName,Phone_No,Email,Address,Gst_No from Supplier_Master WHERE CompanyName='" + keyword + "'";
                 //Sql data adapter to execute query
                 SqlDataAdapter adapter = new SqlDataAdapter(sql,conn);
                 //open connecton to databaase
@@ -250,9 +304,8 @@ namespace Gorakshnath_Billing_System.DAL
                     sm.Email = dt.Rows[0]["Email"].ToString();
                     sm.Address = dt.Rows[0]["Address"].ToString();
                     sm.Phone_No = dt.Rows[0]["Phone_No"].ToString();
+                    sm.Gst_No = dt.Rows[0]["Gst_No"].ToString();
                 }
-
-
 
 
             }
@@ -269,6 +322,56 @@ namespace Gorakshnath_Billing_System.DAL
         }
         #endregion
 
+        #region method to search Supplier by Phone for purchase bill
+        public SupplierMasterBLL SearchSupplierByPhone(String keyword)
+        {
+            // creat aobject fo supplierMaster BLLL
+
+            SupplierMasterBLL sm = new SupplierMasterBLL();
+            //creating new Connection 
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            //create a data table to hold value 
+            DataTable dt = new DataTable();
+
+
+            try
+            {
+
+                string sql = "Select CompanyName,Phone_No,Email,Address,Gst_No from Supplier_Master WHERE Phone_No='" + keyword + "'";
+                //Sql data adapter to execute query
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+                //open connecton to databaase
+                conn.Open();
+
+                //transfer data from sql Data Adaptor to datatable
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    sm.CompanyName = dt.Rows[0]["CompanyName"].ToString();
+                    sm.Email = dt.Rows[0]["Email"].ToString();
+                    sm.Address = dt.Rows[0]["Address"].ToString();
+                    sm.Phone_No = dt.Rows[0]["Phone_No"].ToString();
+                    sm.Gst_No = dt.Rows[0]["Gst_No"].ToString();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return sm;
+        }
+        #endregion
+
+
+
         #region Method to get id of the Supplier based on Name
         public SupplierMasterBLL getSuplierIdFromName(string Name)
         {
@@ -278,7 +381,7 @@ namespace Gorakshnath_Billing_System.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT SupplierID FROM Supplier_Master WHERE CompanyName='" + Name + "'";
+                string sql = "SELECT SupplierID,CompanyName FROM Supplier_Master WHERE CompanyName='" + Name + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 con.Open();
                 adapter.Fill(dt);
@@ -286,6 +389,7 @@ namespace Gorakshnath_Billing_System.DAL
                 if (dt.Rows.Count > 0)
                 {
                     s.SupplierID = int.Parse(dt.Rows[0]["SupplierID"].ToString());
+                    s.CompanyName = dt.Rows[0]["CompanyName"].ToString();
                 }
 
             }
@@ -304,11 +408,104 @@ namespace Gorakshnath_Billing_System.DAL
         #endregion
 
 
+        #region Select Data From Database for combo
+        public DataTable SelectForCombo()
+        {
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT CompanyName, Phone_No FROM Supplier_Master;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
+
+        #region Method to get id of the Supplier based on Name
+        public SupplierMasterBLL getSuplierIdFromPhone(string Phone_No)
+        {
+            SupplierMasterBLL s = new SupplierMasterBLL();
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT SupplierID FROM Supplier_Master WHERE Phone_No='" + Phone_No + "'";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                con.Open();
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    int pid;
+                    int.TryParse(dt.Rows[0]["SupplierID"].ToString(),out pid);
+                    s.SupplierID = pid;
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return s;
+        }
+        #endregion
+
+        #region Method to Select Suplier Phone by Phone
+        public SupplierMasterBLL SelectSuplierPhone(string Phone_No)
+        {
+            SupplierMasterBLL s = new SupplierMasterBLL();
+            SqlConnection con = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT Phone_No FROM Supplier_Master WHERE Phone_No='" + Phone_No + "'";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                con.Open();
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    s.Phone_No = dt.Rows[0]["Phone_No"].ToString();
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return s;
+        }
+        #endregion
+
 
     }
-
-
-
-
 
 }

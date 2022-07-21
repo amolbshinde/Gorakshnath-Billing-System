@@ -16,14 +16,15 @@ namespace Gorakshnath_Billing_System.UI
 {
     public partial class frmProductMaster : Form
     {
-        int Product_ID = -1;
+        //int Product_ID = -1;
+        decimal Curr_Opening_Stock;
         public frmProductMaster()
         {
             InitializeComponent();
         }
 
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
-        //hello
+        //hellO.
 
         ProductMasterBLL pBLL = new ProductMasterBLL();
         ProductMasterDAL pDAL = new ProductMasterDAL();
@@ -35,7 +36,22 @@ namespace Gorakshnath_Billing_System.UI
         GroupDAL gDAL = new GroupDAL();
         BrandDAL bDAL = new BrandDAL();
 
-        
+        int GetNewProductID()
+        {
+
+            int MaxProdId = pDAL.GetMaxProductId();
+           
+            {
+                MaxProdId++;
+                txtProduct_ID.Text = MaxProdId.ToString();
+
+
+            }
+            return MaxProdId;
+        }
+
+
+
         private void label15_Click(object sender, EventArgs e)
         {
 
@@ -43,6 +59,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void clear()
         {
+            txtOpening_Stock.ReadOnly = false;
             txtProduct_ID.Text = "";
             txtProduct_Name.Text = "";
             comboProduct_Group.Text = "";
@@ -58,13 +75,13 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
+
 
             if (comboProduct_Group.Text != "")
             {
-                if(comboBrand.Text != "")
+                if (comboBrand.Text != "")
                 {
-                    if(txtItem_Code.Text!="")
+                    if (txtItem_Code.Text != "")
                     {
                         pBLL = pDAL.checkProductCodeAvailableOrNot(txtItem_Code.Text);
                         if (txtItem_Code.Text != pBLL.Item_Code)
@@ -74,107 +91,95 @@ namespace Gorakshnath_Billing_System.UI
                                 pBLL = pDAL.checkProductAvailableOrNot(txtProduct_Name.Text);
                                 if (txtProduct_Name.Text != pBLL.Product_Name)
                                 {
-                                    if (textHSN_Code.Text != "")
+
+                                    pBLL = pDAL.checkProductHSNAvailableOrNot(textHSN_Code.Text);
+                                    if (textHSN_Code.Text != pBLL.HSN_Code)
                                     {
-                                        pBLL = pDAL.checkProductHSNAvailableOrNot(textHSN_Code.Text);
-                                        if (textHSN_Code.Text != pBLL.HSN_Code)
+
+                                        if (txtPurchase_Price.Text != "0")
                                         {
-                                            if (txtPurchase_Price.Text != "")
+
+
+                                            if (txtMin_Sales_Price.Text != "0")
                                             {
-                                                if (txtPurchase_Price.Text != "0")
+
+                                                if (comboUnit.Text != "")
                                                 {
 
-                                                    if (txtMin_Sales_Price.Text != "")
+                                                    if (txtOpening_Stock.Text != "")
                                                     {
-                                                        if (txtMin_Sales_Price.Text != "0")
+
+                                                        pBLL.Product_Group = comboProduct_Group.Text;
+                                                        pBLL.Brand = comboBrand.Text;
+                                                        pBLL.Item_Code = txtItem_Code.Text;
+                                                        pBLL.Product_Name = txtProduct_Name.Text;
+                                                        pBLL.HSN_Code = textHSN_Code.Text;
+                                                        pBLL.Purchase_Price = decimal.Parse(txtPurchase_Price.Text.Trim());
+                                                        pBLL.Sales_Price = decimal.Parse(txtSales_Price.Text.Trim());
+                                                        pBLL.Min_Sales_Price = decimal.Parse(txtMin_Sales_Price.Text.Trim());
+                                                        pBLL.Unit = comboUnit.Text;
+                                                        pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text.Trim());
+                                                        int TempProductId= GetNewProductID();
+                                                        pBLL.Product_ID = TempProductId;
+                                                        pBLL.Added_Date = DateTime.Today;
+
+                                                        bool a = pDAL.Insert(pBLL);
+
+                                                        //adding Opening stock 
+                                                        sBLL.Product_Id = TempProductId;
+                                                        sBLL.Quantity = decimal.Parse(txtOpening_Stock.Text.Trim());
+                                                        sBLL.Unit = comboUnit.Text;
+
+                                                        bool b = sDAL.InsertStockNewProduct(sBLL);
+
+                                                        bool Success = a && b;
+                                                        if (Success == true)
                                                         {
+                                                            MessageBox.Show("Product Details Successfully Added");
+                                                            //MessageBox.Show(Product_ID.ToString());                                                                      
 
-                                                            if (comboUnit.Text != "")
-                                                            {
-
-                                                                if (txtOpening_Stock.Text != "")
-                                                                {
-
-                                                                    pBLL.Product_Group = comboProduct_Group.Text;
-                                                                    pBLL.Brand = comboBrand.Text;
-                                                                    pBLL.Item_Code = txtItem_Code.Text;
-                                                                    pBLL.Product_Name = txtProduct_Name.Text;
-                                                                    pBLL.HSN_Code = textHSN_Code.Text;
-                                                                    pBLL.Purchase_Price = decimal.Parse(txtPurchase_Price.Text);
-                                                                    pBLL.Sales_Price = decimal.Parse(txtSales_Price.Text);
-                                                                    pBLL.Min_Sales_Price = decimal.Parse(txtMin_Sales_Price.Text);
-                                                                    pBLL.Unit = comboUnit.Text;
-                                                                    pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text);
-
-
-                                                                    bool a = pDAL.Insert(pBLL,out Product_ID);
-                                                      
-                                                                    //adding Opening stock 
-                                                                    sBLL.Product_Id = Product_ID;
-                                                                    sBLL.Quantity = decimal.Parse(txtOpening_Stock.Text);
-                                                                    sBLL.Unit = comboUnit.Text;
-
-                                                                    bool b =sDAL.InsertStockNewProduct(sBLL);
-
-                                                                    bool Success = a && b;
-                                                                    if (Success == true)
-                                                                    {
-                                                                        MessageBox.Show("Product Details Successfully Added");
-                                                                        //MessageBox.Show(Product_ID.ToString());                                                                      
-
-                                                                        clear();
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        MessageBox.Show("Failed to Added Product Details");
-                                                                    }
-                                                                    DataTable dt = pDAL.Select();
-                                                                    dgvProductMaster.DataSource = dt;
-                                                                }
-                                                                else
-                                                                {
-                                                                    MessageBox.Show("Please Enter the Product Opening Stock");
-                                                                }
-
-                                                            }
-                                                            else
-                                                            {
-                                                                MessageBox.Show("Please Select Product Unit");
-                                                            }
-
+                                                            clear();
+                                                            GetNewProductID();
                                                         }
                                                         else
                                                         {
-                                                            MessageBox.Show("Please Enter the Product Minimum Sales Prise Greater Than 0");
+                                                            MessageBox.Show("Failed to Added Product Details");
                                                         }
-
+                                                        DataTable dt = pDAL.Select();
+                                                        dgvProductMaster.DataSource = dt;
                                                     }
                                                     else
                                                     {
-                                                        MessageBox.Show("Please Enter the Product Minimum Sales Prise");
+                                                        MessageBox.Show("Please Enter the Product Opening Stock");
                                                     }
 
                                                 }
                                                 else
                                                 {
-                                                    MessageBox.Show("Please Enter the Product Purchase Prise Greater Than 0");
+                                                    MessageBox.Show("Please Select Product Unit");
                                                 }
 
                                             }
                                             else
                                             {
-                                                MessageBox.Show("Please Enter the Product Purchase Prise");
+                                                MessageBox.Show("Please Enter the Product Minimum Sales Prise Greater Than 0");
                                             }
+
+
+
                                         }
                                         else
                                         {
-                                            MessageBox.Show("HSN Code is Already Added in Database Please choose another HSN Code");
+                                            MessageBox.Show("Please Enter the Product Purchase Prise Greater Than 0");
                                         }
+
+
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Please Enter the Product HSN Code");
+                                        MessageBox.Show("HSN Code is Already Added in Database Please choose another HSN Code");
                                     }
+
                                 }
                                 else
                                 {
@@ -196,18 +201,18 @@ namespace Gorakshnath_Billing_System.UI
                     else
                     {
                         MessageBox.Show("Please Enter the Product Code");
-                    }                            
+                    }
 
                 }
                 else
                 {
-                    MessageBox.Show("Please Enter the Product Brand"); 
+                    MessageBox.Show("Please Enter the Product Brand");
                 }
-                
+
             }
             else
             {
-                MessageBox.Show("Please Select Product Group"); 
+                MessageBox.Show("Please Select Product Group");
             }
 
         }
@@ -215,6 +220,7 @@ namespace Gorakshnath_Billing_System.UI
         private void btnClear_Click(object sender, EventArgs e)
         {
             clear();
+            GetNewProductID();
             DataTable dt = pDAL.Select();
             dgvProductMaster.DataSource = dt;
         }
@@ -223,7 +229,7 @@ namespace Gorakshnath_Billing_System.UI
         {
             this.Close();
             ///
-    }
+        }
 
         private void label5_Click(object sender, EventArgs e)
         {
@@ -233,26 +239,39 @@ namespace Gorakshnath_Billing_System.UI
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string Product_ID = txtProduct_ID.Text;
+
             if (Product_ID != "" && Product_ID != "Auto Genrated")
             {
-                pBLL.Product_ID = Convert.ToInt32(txtProduct_ID.Text);
+                pBLL.Product_ID = Convert.ToInt32(txtProduct_ID.Text.Trim());
                 pBLL.Product_Group = comboProduct_Group.Text;
                 pBLL.Brand = comboBrand.Text;
                 pBLL.Item_Code = txtItem_Code.Text;
-                pBLL.Product_Name = txtProduct_Name.Text;
+                pBLL.Product_Name = txtProduct_Name.Text.Trim();
                 pBLL.HSN_Code = textHSN_Code.Text;
-                pBLL.Purchase_Price = decimal.Parse(txtPurchase_Price.Text);
-                pBLL.Sales_Price = decimal.Parse(txtSales_Price.Text);
-                pBLL.Min_Sales_Price = decimal.Parse(txtMin_Sales_Price.Text);
+                pBLL.Purchase_Price = decimal.Parse(txtPurchase_Price.Text.Trim());
+                pBLL.Sales_Price = decimal.Parse(txtSales_Price.Text.Trim());
+                pBLL.Min_Sales_Price = decimal.Parse(txtMin_Sales_Price.Text.Trim());
                 pBLL.Unit = comboUnit.Text;
-                pBLL.Opening_Stock = decimal.Parse(txtOpening_Stock.Text);
+                decimal U_Opening_Stock;
+                decimal.TryParse(txtOpening_Stock.Text, out U_Opening_Stock);
+                pBLL.Opening_Stock = U_Opening_Stock;
 
                 bool Success = pDAL.Update(pBLL);
+
+                stockBLL stockBLL = new stockBLL();
+                stockDAL stockDAL = new stockDAL();
+                stockBLL.Product_Id = Convert.ToInt32(txtProduct_ID.Text);
+                stockBLL.Unit = comboUnit.Text;
+                stockBLL.Quantity = U_Opening_Stock - Curr_Opening_Stock;
+
+                bool s = stockDAL.Update_Opening_Stock(stockBLL);
 
                 if (Success == true)
                 {
                     MessageBox.Show("Product Details Successfully Updated");
+
                     clear();
+                    GetNewProductID();
                 }
                 else
                 {
@@ -270,21 +289,28 @@ namespace Gorakshnath_Billing_System.UI
         private void frmProductMaster_Load(object sender, EventArgs e)
         {
             DataTable dt = pDAL.Select();
+            dgvProductMaster.AutoResizeColumns();
+            dgvProductMaster.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvProductMaster.DataSource = dt;
-            
-            DataTable dtg = gDAL.Select();            
+
+            DataTable dtg = gDAL.Select();
             comboProduct_Group.DisplayMember = "Group_Name";
             comboProduct_Group.DataSource = dtg;
 
             DataTable dtb = bDAL.Select();
             comboBrand.DisplayMember = "Brand_Name";
-            comboBrand.DataSource = dtb;          
+            comboBrand.DataSource = dtb;
+            GetNewProductID();
+
 
         }
 
         private void dgvProductMaster_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int rowIndex = e.RowIndex;
+
+            //txtOpening_Stock.ReadOnly = true;
+            decimal.TryParse(dgvProductMaster.Rows[rowIndex].Cells[10].Value.ToString(), out Curr_Opening_Stock);
 
             txtProduct_ID.Text = dgvProductMaster.Rows[rowIndex].Cells[0].Value.ToString();
 
@@ -312,7 +338,7 @@ namespace Gorakshnath_Billing_System.UI
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string Product_ID = txtProduct_ID.Text;
+            /*string Product_ID = txtProduct_ID.Text;
             if (Product_ID != "" && Product_ID != "Auto Genrated")
             {
                 pBLL.Product_ID = Convert.ToInt32(txtProduct_ID.Text);
@@ -336,6 +362,7 @@ namespace Gorakshnath_Billing_System.UI
             {
                 MessageBox.Show("Please Selecte Details to Delete");
             }
+            */
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -346,18 +373,84 @@ namespace Gorakshnath_Billing_System.UI
             {
                 DataTable dt = pDAL.Search(keywords);
                 dgvProductMaster.DataSource = dt;
+                dgvProductMaster.AutoResizeColumns();
+                dgvProductMaster.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             else
             {
                 DataTable dt = pDAL.Select();
                 dgvProductMaster.DataSource = dt;
+                dgvProductMaster.AutoResizeColumns();
+                dgvProductMaster.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
 
-        private void comboProduct_Group_SelectedIndexChanged(object sender, EventArgs e)
+        
+
+        
+
+        private void txtPurchase_Price_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                    (e.KeyChar != '.'))
+                {
+                    e.Handled = true;
+                }
+
+                // only allow one decimal point
+                if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+                {
+                    e.Handled = true;
+                }
             
         }
 
+        private void txtSales_Price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                    (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMin_Sales_Price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                    (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtOpening_Stock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                    (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //
     }
 }
